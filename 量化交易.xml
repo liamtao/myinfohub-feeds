@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Jul 2025 08:06:43 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jul 2025 14:06:45 +0000</lastBuildDate>
     <item>
       <title>MiniQMT量化交易实盘框架搭建教程</title>
       <link>https://www.bilibili.com/video/BV1GQgZzcEEW</link>
@@ -402,6 +402,196 @@
       <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>揭秘Z哥勾到大复值：KDJ与K-means聚类结合的量化交易新思路</title>
+      <link>https://www.bilibili.com/video/BV1jLKEz2EWC</link>
+      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1jLKEz2EWC"&gt;【量化论文】勾到大负值KDJ发挥最佳效果？需要这般魔改&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文解释了量化交易中常用的KDJ指标及其传统应用“勾到大复值”。文章重点介绍了一篇创新性论文，该论文将KDJ指标与K-means聚类算法结合，以动态识别市场反转点，显著提升了预测准确率。这为理解Z哥的“勾到大复值”概念提供了更深层次的买方思维视角。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;KDJ (随机指标)&lt;/strong&gt;: 一种技术分析指标，由K、D、J三条线组成。K代表短期平均，D是K的平滑版本（长期平均），J由K和D计算得出。传统上用于判断资产的超买或超卖状态，J值过低（“勾到大复值”）常被视为买入信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;K-means Clustering (K均值聚类)&lt;/strong&gt;: 一种无监督机器学习算法，用于将数据点自动分组到预设数量的“簇”中。在此文中，它被用来根据KDJ的三个数值，动态地将市场状态自动分为不同的区域（如超买、超卖、中间震荡等），从而识别反转机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;勾到大复值&lt;/strong&gt;: 流行于量化圈的说法，特指KDJ指标中的J值跌至极低（甚至负值）时，预示着市场可能出现反转上涨，是潜在的买入时机。文章强调不应只看J值，需结合其他方法动态判断。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;单独使用KDJ指标，尤其是只关注J值来判断超买超卖，效果有限且不充分。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑/支撑&lt;/strong&gt;: 传统KDJ只看J值的问题在于它忽视了K和D，以及动态的市场变化。一篇论文提出应动态地同时考量K、D、J三个值。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;将KDJ与K-means聚类算法结合，能大幅提高市场预测的准确率。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据/支撑&lt;/strong&gt;: 一项针对A股800个股票的研究显示，单独使用KDJ预测涨跌效果不佳，但结合K-means聚类后，预测次日涨跌的准确率可达76%。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;真正的量化交易策略，如“勾到大复值”，并非简单地依据单一指标，而是可能通过结合多种算法和买方思维进行动态优化。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑/支撑&lt;/strong&gt;: 文章提出，可以探索将KDJ与其他算法（如DB Scan、深度学习、Market Regime分析）结合，以构建更强大的动态优化版KDJ策略，类似于该论文的创新思路。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;建议量化交易者不应仅依赖KDJ单一指标或其传统解释。&lt;/li&gt;
+&lt;li&gt;探索将KDJ指标与机器学习算法（如K-means聚类、DB Scan）或深度学习方法相结合，以构建更鲁棒、动态优化的交易策略。&lt;/li&gt;
+&lt;li&gt;关注并阅读量化算法领域的创新性学术论文，从中寻找结合传统指标与现代技术的灵感。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"勾到大复值就是勾到大复值的时候就买入"&lt;/li&gt;
+&lt;li&gt;"本文最大的贡献在于创新性的把KDJ和其他东西结合起来"&lt;/li&gt;
+&lt;li&gt;"如果你把kdj加上kmeans结果瞬间76的准确率"&lt;/li&gt;
+&lt;li&gt;"Z哥他虽然有时候这个说的云山雾罩但是他是有买方思维的"&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1jLKEz2EWC</guid>
+      <pubDate>Wed, 25 Jun 2025 18:05:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>巴菲特投资理念的量化解析：构建基于预期差的价值投资策略</title>
+      <link>https://www.bilibili.com/video/BV1FGK8zEEDz</link>
+      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FGK8zEEDz"&gt;【论文导读】预期差（一）：量化如何做价投？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章深入探讨了沃伦·巴菲特作为价值投资大师，其投资决策中蕴含的量化思维，并阐述了“有锚”和“无锚”定价模型的区别。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有锚的定价模型
+&lt;ul&gt;
+&lt;li&gt;解释: 以企业盈利能力或净资产为基础，能够计算出公司的真实价值。即使股价出现极端波动，投资者仍可通过其他方式兑现投资资产，内心更踏实。&lt;/li&gt;
+&lt;li&gt;案例: 某被严重低估的股票（PE 10倍，利润增速20%），熊市中股价从10元跌至5元或2.5元。真正的价值投资者会加仓，而非止损，因为基本面未变，PE更低。甚至可考虑私有化，通过两年半利润回本并获得公司，如同购买打折的喜爱商品。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;无锚的定价模型
+&lt;ul&gt;
+&lt;li&gt;解释: 仅预测未来价格，不保证价格在反向波动时会均值回归。无法判断模型在特定时刻的定价是否高估或失效，导致投资者持仓时内心不安。&lt;/li&gt;
+&lt;li&gt;案例: 使用均线或技术图形决定买卖点，即使短期有效，也无法应对市场反向剧烈波动且不回头的情况。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;预期差
+&lt;ul&gt;
+&lt;li&gt;解释: 一篇将巴菲特价值投资理念引入量化策略的论文中提出的概念，用于构建基于估值和质量两个维度的投资模型。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;巴菲特在选股中很早就引入了量化思维。
+&lt;ul&gt;
+&lt;li&gt;他高度关注市盈率（PE）、每股收益增长及稳定性，并用定量方法评估企业盈利能力和质量。&lt;/li&gt;
+&lt;li&gt;他非常关注净资产收益率（ROE），偏好ROE长期维持在15%以上的公司，认为ROE长期在10%左右的公司缺乏竞争力。&lt;/li&gt;
+&lt;li&gt;他经常使用现金流贴现模型评估企业内在价值。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;巴菲特的投资逻辑与量化投资的核心逻辑高度一致。
+&lt;ul&gt;
+&lt;li&gt;两者都制定标准、定义指标、用系统筛选，并严格执行纪律。&lt;/li&gt;
+&lt;li&gt;有人开玩笑说巴菲特是那个年代的量化工程师，尽管他用的是脑子和笔，而现代量化交易员用代码和服务器。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;量化模型目前难以完全复制巴菲特的价值投资。
+&lt;ul&gt;
+&lt;li&gt;价值投资需要穷尽一切信息渠道，深入了解公司和经营者，甚至通过判断人品来推断公司特点，这些信息量化模型难以获取。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;“有锚的”定价模型让投资者持仓更安心。
+&lt;ul&gt;
+&lt;li&gt;因为知道公司真实价值，即便市场不理性，股价被低估，仍有兑现投资资产的应对方法（如等待价值回归，甚至私有化）。&lt;/li&gt;
+&lt;li&gt;相较于“无锚的”定价模型，它能提供判断依据，降低持仓不安。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;构建量化版本的价值投资策略，需要至少测算两个维度指标：估值和质量。
+&lt;ul&gt;
+&lt;li&gt;估值维度: 判断股票是否昂贵或便宜（是否买贵或捡到便宜）。&lt;/li&gt;
+&lt;li&gt;质量维度: 判断公司质量是否够高、护城河是否够深。&lt;/li&gt;
+&lt;li&gt;结合评估: 将估值和质量评分进行2x2排列组合，形成四个象限（高估值高质量、低估值低质量、高估值低质量、低估值高质量）。&lt;/li&gt;
+&lt;li&gt;投资决策: 低估值高质量的公司极具投资价值应买入；高估值低质量的企业应回避，甚至考虑做空。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“价值投资就是在合理的价格下买入高质量的公司。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FGK8zEEDz</guid>
+      <pubDate>Mon, 23 Jun 2025 18:43:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化藏经阁：情绪周期系列之投资者情绪与因子投资实证</title>
+      <link>https://www.bilibili.com/video/BV12YKxz7Ee4</link>
+      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12YKxz7Ee4"&gt;【论文导读】情绪周期（三）：驾驭周期+19.8%&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+该视频是情绪周期系列的第三期，深入解读2006年一篇经典论文的实证结果。文章核心在于探讨投资者情绪与因子投资表现的关系，并提出如何利用综合情绪指标对因子策略进行择时，以提升收益。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主成分分析（Principal Component Analysis - PCA）：一种统计方法，用于从多个高度相关的变量中降维，提取出能综合所有信息且维度更低的新变量（主成分），从而用一个数值来表示复杂的市场情绪状态。文章中将其比喻为通过多角度照片合成一张最清晰、最能代表人物的“正脸照”。&lt;/li&gt;
+&lt;li&gt;因子（Factor）：在投资领域中，指那些被认为能够获得显著超额收益的共同特征或属性，如市值因子、价值因子等。文章中将其分为风险因子和错误定价因子。&lt;/li&gt;
+&lt;li&gt;风险因子：指那些由于承担更高风险而获得溢价的因子。投资者若要获得更高收益，需承担更大风险。&lt;/li&gt;
+&lt;li&gt;错误定价因子：指那些通过识别市场中缺乏经验、行为不理性的交易者造成的错误定价（如高估或低估）来获得超额收益的因子。这种溢价并非来自承担更大风险，而是纠正了市场定价偏差。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2006年经典论文通过主成分分析（PCA）将六个反映市场情绪的指标综合为一个统一的投资者情绪指标。
+&lt;ul&gt;
+&lt;li&gt;逻辑：PCA能够将多个高度相关的变量合成一个新的变量（主成分），它能用更少的维度表达情绪状态，从而用一个数值表示市场情绪水平。&lt;/li&gt;
+&lt;li&gt;案例：若要识别人脸，可通过摄像头从六个不同角度拍照，再通过PCA合成一张最清晰、最能代表这个人的“正脸照”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;那些被认为能够获得显著溢价的因子，如市值因子，在投资者情绪低的时候表现更好，而在情绪高涨时表现不明显甚至跑输大盘。这是反直觉的。
+&lt;ul&gt;
+&lt;li&gt;数据支撑：论文的核心结论集中在表三，以市值因子为例，在市场情绪高时，小市值股票平均收益为0.73%；但在情绪低时，小市值股票平均收益高达2.37%。两者每月差值1.65%，年化可达19.8%。&lt;/li&gt;
+&lt;li&gt;视觉支撑：文章引用图表说明，在情绪高涨期（黑色曲线），小市值股票（横轴1-10分组中1）收益最低；在情绪低迷期（白色曲线），小市值股票收益最高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;市值效应（小市值股票长期平均收益高于大公司）并非在所有市场环境下都存在，它其实只在市场低迷时才显著。
+&lt;ul&gt;
+&lt;li&gt;逻辑：在市场情绪高涨时，缺乏经验的新股民可能炒高没有投资价值的股票，导致此时持有有效因子的多头组合反而可能跑不赢大盘。&lt;/li&gt;
+&lt;li&gt;支撑：上述数据和图表均支持此观点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;利用投资者情绪指标为因子投资提供择时思路，以加强策略的最终收益。&lt;/li&gt;
+&lt;li&gt;如果执行市值策略，应避免在市场情绪高涨时买入小市值股票，因为此时市值效应不明显，甚至可能跑输大盘。&lt;/li&gt;
+&lt;li&gt;专注于在市场情绪低迷时持有小市值股票，此时能够获得显著更高的预期收益。&lt;/li&gt;
+&lt;li&gt;在市场情绪高涨时，若有能力，可以尝试“骑乘”散户造成的市场泡沫。&lt;/li&gt;
+&lt;li&gt;在市场情绪低迷时，应“老老实实”持有高质量因子的多头组合，以获取因子的真实溢价。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“那些被认为能够获得显著溢价的因子，他们在投资者情绪低的时候表现更好。”&lt;/li&gt;
+&lt;li&gt;“市值效应其实只在市场低迷时才存在。”&lt;/li&gt;
+&lt;li&gt;“情绪高的时候，有能力就去骑成泡沫；情绪低的时候呢，就老老实实的持有一个好的因子的多头组合。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12YKxz7Ee4</guid>
+      <pubDate>Mon, 23 Jun 2025 10:40:12 +0800</pubDate>
+    </item>
+    <item>
       <title>Mini_Camt量化交易：止损核心与海龟策略实战及回测效果分析</title>
       <link>https://www.bilibili.com/video/BV1dTKWz4EQp</link>
       <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1dTKWz4EQp"&gt;miniQMT量化交易—— 海龟策略 |  稳健收益 | 右侧突破如何判断 | 最小止损&lt;/a&gt;&lt;/p&gt;
@@ -462,6 +652,98 @@
 </description>
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1dTKWz4EQp</guid>
       <pubDate>Sun, 22 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>如何度量投资者情绪：6个关键指标详解</title>
+      <link>https://www.bilibili.com/video/BV12iKNzRErr</link>
+      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12iKNzRErr"&gt;【论文导读】情绪周期（二）：6个情绪指标&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容
+本文介绍了如何通过量化方法度量投资者情绪，详细阐述了2006年《金融杂志》上的一篇经典论文中提出的六个关键指标。这些指标包括封闭基金溢价、纽交所股票换手率、IPO数量、IPO首日收益、增发股票数量以及分红溢价，并逐一解释了它们如何有效捕捉市场中的投资者情绪状态。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;投资者情绪 (Investor Sentiment)&lt;/strong&gt;
+市场中投资者整体的乐观或悲观程度，常常表现出非理性特征。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例:&lt;/em&gt; 论文中提到A股的“大妈指数”现象，即当楼下卖菜的大妈都开始聊股票时，市场情绪极高，但这种现象难以直接量化。因此，论文采用了六个具体的指标来准确度量。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;封闭基金溢价 (Closed-end Fund Premium)&lt;/strong&gt;
+指封闭式基金的市场交易价格高于其资产净值（NAV）的现象。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; 当市场情绪高涨，散户（特别是新手）涌入市场时，他们因缺乏经验、不懂选股，更倾向于购买基金，尤其追捧热门基金，即使是以高于净值的价格购买，反映了市场非理性情绪。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;纽交所股票换手率 (NYSE Stock Turnover Rate)&lt;/strong&gt;
+衡量股票交易的活跃程度，即股票被买卖的频率。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; 专业的、管理大资金的投资者（如巴菲特）倾向于长期价值投资，换手率低。而新入市的散户则频繁交易，追涨杀跌，导致大盘换手率飙升，这表明市场散户参与度高，情绪亢奋躁动。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPO数量 (IPO Quantity)&lt;/strong&gt;
+公司首次公开募股（Initial Public Offering）的数量。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; 当市场情绪高涨，股票整体估值偏高时，公司（知情交易者）会抓住时机上市募资，以获得更高的估值。IPO数量越多，说明市场越热，想“圈钱”的人越多。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPO首日收益 (IPO First-day Return)&lt;/strong&gt;
+新股上市首日的涨幅。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; A股市场盛行的“打新”策略，新股首日大概率大涨，这背后很大程度上是由非理性行为驱动的。新股首日涨幅越大，表明市场情绪越高涨，散户参与度也越高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增发股票数量 (Additional Share Issuance Quantity)&lt;/strong&gt;
+上市公司向市场增发新股的数量。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; 上市公司管理层作为知情人，对其公司估值有清晰认知。当他们察觉公司股价被市场高估时，会选择在高位增发，卖出股票以获得更好的价格。因此，增发数量越多，也反映了市场情绪高涨和股价虚高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分红溢价 (Dividend Premium)&lt;/strong&gt;
+指分红公司与不分红公司之间估值差异的指标，通常用于度量市场对分红的重视程度。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释:&lt;/em&gt; 成熟投资者重视通过分红实现利润兑现。但当市场情绪高涨时，新入场散户更关注短期股价涨幅（如月涨10%），对每年3-4%的分红不屑一顾。这种对分红关注度的降低导致分红溢价变大，表明投资者整体情绪偏高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;封闭基金溢价越高，市场情绪越热&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 新手散户不关心基金净值，仅凭“火爆”而追高购买，是典型的非理性情绪驱动。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大盘换手率显著上升，表明散户参与度高，市场躁动&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 专业投资者偏向长期持有，而散户交易频繁，追涨杀跌，从而大幅拉升了整体换手率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPO数量越多，市场估值越高，反映知情者趁高位“圈钱”&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 公司管理层（知情交易者）在市场估值高企时选择上市，以获取更多资金，利用了信息不对称。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新股上市首日收益越高，体现了市场情绪的非理性高涨&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; A股“打新”的盛行和新股首日的大幅上涨，主要由大量散户的非理性追捧所致。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上市公司增发股票越多，表明管理层认为股价被高估&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 公司管理层作为知情人，若选择增发股票，则说明他们认为当前股价相对其内在价值偏高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分红溢价变大，意味着投资者对分红的重视程度降低，更关注短期投机&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 市场情绪高涨时，散户认为股票短期内就能实现更高涨幅，对每年较低的分红不感兴趣。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;本视频主要讲解如何度量投资者情绪的指标，并未提供具体的投资行动建议或操作指南。视频末尾提及，下一个视频将介绍如何将这些指标合成一个总的情绪指标，并分析其对股票市场的影响。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;h2&gt;- “买的没有卖的精嘛。”&lt;/h2&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12iKNzRErr</guid>
+      <pubDate>Fri, 20 Jun 2025 19:48:47 +0800</pubDate>
     </item>
     <item>
       <title>基于MiniQMT的量化交易学习：Python连接、均线与布林带策略实战</title>
