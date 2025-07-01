@@ -7,200 +7,461 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Jul 2025 01:16:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jul 2025 01:19:48 +0000</lastBuildDate>
     <item>
-      <title>最优凯利杠杆：如何指导上杠杆与实操注意事项</title>
-      <link>https://www.bilibili.com/video/BV1DkEUzXEzc</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1DkEUzXEzc"&gt;最优凯利 怎么上杠杆&lt;/a&gt;&lt;/p&gt;
+      <title>MiniQMT量化交易实盘框架搭建教程</title>
+      <link>https://www.bilibili.com/video/BV1GQgZzcEEW</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1GQgZzcEEW"&gt;miniQMT量化交易—— 实盘框架 | 订单流 | 环境准备 | 数据处理 | 信号生成 | 委托执行&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;本文深入探讨了最优凯利杠杆理论，并将其与传统凯利公式进行对比。文章详细阐述了最优凯利杠杆的推导过程，说明了其如何计算最大化对数财富的最佳杠杆比例，并着重指出了在实际交易中应用该理论时需要注意的多个关键问题。&lt;/p&gt;
+&lt;p&gt;本文详细介绍了使用Python搭建MiniQMT量化交易实盘框架的完整流程，旨在帮助从大QMT转向MiniQMT的用户更好地掌握核心操作。文章将框架搭建分为四大步骤：环境准备、数据处理、信号生成以及委托与下单，提供了从基础配置到高级策略实现的实用指南。&lt;/p&gt;
 
-&lt;p&gt;重要的概念：
-*   &lt;strong&gt;凯利公式 (Kelly Formula)&lt;/strong&gt;：由凯利于20世纪50年代提出，最初用于解决赌博游戏中的资金管理问题。它旨在计算每次下注应投入总资金的百分比，以最大化长期收益。例如，在赢面固定、胜率确定的游戏中，凯利公式能给出每次应投入资金总额的多少比例，以实现最终收益的最大化。
-*   &lt;strong&gt;最优凯利杠杆 (Optimal Kelly Criterion/Leverage)&lt;/strong&gt;：在20世纪60年代提出，是凯利公式在金融交易场景下的延伸。它旨在最大化交易者的对数财富，并计算出一个最佳的杠杆比率（该比率可以大于1），其值取决于策略的回报、无风险利率以及策略的方差。例如，一个年化回报10%、无风险利率3%、标准差15%的交易策略，最优凯利杠杆可能计算出3.1倍的杠杆，意味着应借入额外资金进行交易。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;重要概念：&lt;/strong&gt;
+*   &lt;strong&gt;MiniQMT：&lt;/strong&gt; 一种轻量级的量化交易框架，与传统的“大QMT”不同，它要求用户自行处理诸如全局状态变量定义、数据下载（通过Python代码而非内置功能）等更多细节。
+*   &lt;strong&gt;回调函数 (Callback Function)：&lt;/strong&gt; 在MiniQMT中用于异步处理订单委托的回调机制。当订单状态发生变化时，系统会即时通过回调函数返回信息，避免阻塞等待，提高程序效率。
+*   &lt;strong&gt;订单流数据 (Order Flow Data)：&lt;/strong&gt; 反映市场实时买卖委托情况的L2数据，提供不同价位上的委托量信息。文章强调了1分钟订单流数据相比5分钟数据的更高时效性，可用于高频交易策略，甚至结合机器学习模型如SVM。
+*   &lt;strong&gt;全局状态变量 (Global State Variable)：&lt;/strong&gt; 在MiniQMT中，由于缺少大QMT内置的上下文变量，需要用户自定义一个类或机制来存储和管理全局共享的策略状态信息，如已买股票列表、自选股票池等。&lt;/p&gt;
 
-&lt;p&gt;主要观点：
-*   &lt;strong&gt;最优凯利杠杆可以建议你上大于1的杠杆。&lt;/strong&gt;
-    *   逻辑：最优凯利杠杆的计算公式为L = (策略回报 - 无风险利率) / 策略方差。这个计算结果可以大于1，这意味着为了最大化对数财富，在某些情况下，你不仅应投入所有自有资金，还应该借入资金进行杠杆交易。
-    *   案例：假设一个交易策略年化回报10%，无风险利率3%，标准差15%，代入公式计算得到的最优凯利杠杆L约为3.1。这意味着如果你有100元，你应该再借211元进行交易以达到理论上的对数财富最大化。
-*   &lt;strong&gt;该杠杆值对策略的标准差非常敏感。&lt;/strong&gt;
-    *   逻辑：在最优凯利杠杆的对数财富增长率公式中，策略方差（标准差的平方）位于减项且乘以杠杆平方，这意味着策略的标准差越大，即使只有轻微的杠杆，也可能导致最终对数财富的显著下降，甚至出现爆仓（财富低于0）的风险。
-*   &lt;strong&gt;在实操中，常常使用“半凯利”（Half Kelly）而非全凯利。&lt;/strong&gt;
-    *   逻辑：最优凯利杠杆的理论假设（如策略回报服从正态分布、不考虑最大回撤等）在真实交易场景中难以完全满足，直接应用全凯利杠杆可能导致过高的杠杆估计，从而增加爆仓风险。使用“半凯利”（即公式计算结果的二分之一）可以提供一个安全边际。
-    *   经验：这并非基于严格的数学证明，而是许多资深交易员在长期实盘操作中摸索总结出的经验，被普遍接受为一种更稳健的实践方法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
+1.  &lt;strong&gt;MiniQMT策略开发需自行管理全局状态：&lt;/strong&gt; 与大QMT不同，MiniQMT不提供内置上下文变量，开发者需自定义类来保存和管理策略的全局状态信息，如已持仓列表、自选股池等。
+    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “我们在我们的mini campty是没有它的，所以说都要自己去定义一个就是说可以在全局去保存状态的一个变量。”
+2.  &lt;strong&gt;数据获取方式的转变：&lt;/strong&gt; 在MiniQMT中，历史数据和盘中订阅数据主要通过Python程序代码实现下载和获取，而非框架内置的数据下载功能。
+    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “和我们在我们之前这个q mt里面去做的区别是在于我们没有哦就是我们就是说一般不会就是说在我们的cam t里面去下载数据我们都是通过我们这种Python的这种程序的方式然后去去下载。”
+3.  &lt;strong&gt;高频交易需警惕数据延迟：&lt;/strong&gt; 在高频交易场景下，通过MiniQMT接口查询的订单信息和持仓情况可能存在延迟，为提高策略稳定性，建议在本地也搭建一套订单和持仓管理系统进行配合。
+    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “他的这个我们去去做查询的时候，他的这个就是说查出来这个电订单信息，还有我们这这些就是说持仓方面这些信息它可能和我们真实的这个信息信息它是是有延迟的所以说其实我们最好是本地也做一套。”
+4.  &lt;strong&gt;订单流数据时效性与应用：&lt;/strong&gt; 1分钟订单流数据具备最高的时效性，适合需要实时性强的策略；而5分钟订单流数据则更偏向统计，适用于对时效性要求相对较低的统计分析型策略。
+    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “一分钟这个订单流数据它可能就反正是我一分钟内发发生的事情，它是最就是说嗯时效性是最高的。那么5分钟他可能就是偏统计一些，那么它是统计5分钟内它发生了什么事情。”&lt;/p&gt;
 
-&lt;p&gt;行动建议/操作指南：
-1.  &lt;strong&gt;评估策略回报的分布&lt;/strong&gt;：在决定上杠杆前，务必分析你的策略回报是否呈左偏或右偏分布。如果回报分布右偏（即出现大额亏损或“黑天鹅”事件的概率较高），则不建议上高杠杆。
-2.  &lt;strong&gt;考虑最大回撤&lt;/strong&gt;：最优凯利杠杆理论不直接考虑最大回撤，但在实际资金管理中，必须将个人风险承受能力和管理资金的最大回撤要求纳入考量，并据此调整杠杆水平。
-3.  &lt;strong&gt;追求长期效应&lt;/strong&gt;：最优凯利杠杆的效果需在足够长的时间跨度内才能显现。如果你只进行短期交易，可能无法充分体验其复利效应。
-4.  &lt;strong&gt;动态调整杠杆&lt;/strong&gt;：计算出的最优凯利杠杆值并非一成不变，你需要根据策略的表现和账户资金的变化动态调整。例如，当账户资金因亏损而减少时，应相应降低持仓规模和杠杆。
-5.  &lt;strong&gt;考虑杠杆成本&lt;/strong&gt;：获取杠杆是有成本的，如融资利息。这些成本必须计入你的策略总成本中，否则会影响杠杆的实际收益效果。
-6.  &lt;strong&gt;组合策略应用&lt;/strong&gt;：最优凯利杠杆也可用于投资组合中多个策略的资金分配，其组合分配公式与Markowitz均值-方差优化模型类似。在估算策略回报和协方差矩阵时需警惕估计误差。
-7.  &lt;strong&gt;设定杠杆上限&lt;/strong&gt;：将最优凯利杠杆计算值视为一个“最大值”，实际应用的杠杆应低于此值。最终确定杠杆水平时，需综合考虑策略回报分布、个人风险承受能力、期望的最大回撤等多种因素，以找到最适合你的杠杆点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;行动建议/操作指南：&lt;/strong&gt;
+1.  &lt;strong&gt;环境准备：&lt;/strong&gt;
+    *   &lt;strong&gt;Python版本与包：&lt;/strong&gt; 确保Python版本符合MiniQMT接口要求（如3.6-3.12），通过UV包管理器安装&lt;code&gt;xtquant&lt;/code&gt;官方包及pandas等常用第三方库，并配置Python镜像源加速下载。
+    *   &lt;strong&gt;程序初始化：&lt;/strong&gt; 导入所需包，自定义全局状态类，实例化&lt;code&gt;XTPCrdTrader&lt;/code&gt;交易端（需指定MiniQMT路径和唯一&lt;code&gt;session_id&lt;/code&gt;），并定义账户信息（账户号、账户性质如&lt;code&gt;stock&lt;/code&gt;或&lt;code&gt;credit&lt;/code&gt;）。
+    *   &lt;strong&gt;回调函数：&lt;/strong&gt; 定义并注册继承自&lt;code&gt;XTPCrdCallBack&lt;/code&gt;的回调函数，重写相关方法（如&lt;code&gt;on_disconnected&lt;/code&gt;），用于异步接收订单返回信息。
+    *   &lt;strong&gt;启动与连接：&lt;/strong&gt; 启动交易端线程，并连接交易端，订阅主推交易信息。
+2.  &lt;strong&gt;数据处理：&lt;/strong&gt;
+    *   &lt;strong&gt;历史数据下载：&lt;/strong&gt; 编写下载函数（如&lt;code&gt;my_download&lt;/code&gt;），设置历史数据起始时间（如前三天），下载所需股票列表的K线数据（如5分钟）和订单流数据（如1分钟）。注意：1分钟订单流是基础，无需重复下载5分钟订单流。
+    *   &lt;strong&gt;行情获取：&lt;/strong&gt; 使用&lt;code&gt;get_market_data_ex&lt;/code&gt;函数获取指定时间段的历史行情数据；通过调整&lt;code&gt;count&lt;/code&gt;参数（如&lt;code&gt;count=1&lt;/code&gt;）获取最新的单条K线或订单流数据。
+    *   &lt;strong&gt;数据保存：&lt;/strong&gt; 将下载的数据保存到本地文件或数据库，以便后续用于机器学习模型训练或策略回测。
+3.  &lt;strong&gt;信号生成：&lt;/strong&gt;
+    *   &lt;strong&gt;数据加工：&lt;/strong&gt; 获取实时tick数据、K线数据、订单流数据，结合&lt;code&gt;ta&lt;/code&gt;库或其他自定义方法进行加工，生成交易信号。
+    *   &lt;strong&gt;交易时间判断：&lt;/strong&gt; 编写函数判断当前是否处于交易日及开盘时间内，确保策略只在有效时间段内运行。
+4.  &lt;strong&gt;委托与下单：&lt;/strong&gt;
+    *   &lt;strong&gt;订单与持仓查询：&lt;/strong&gt; 在主循环中，首先使用&lt;code&gt;query_stock_order_info&lt;/code&gt;查询所有订单状态，并使用&lt;code&gt;query_stock_holding&lt;/code&gt;查询当前持仓情况。
+    *   &lt;strong&gt;撤单操作：&lt;/strong&gt; 根据订单状态（如&lt;code&gt;50&lt;/code&gt;或&lt;code&gt;55&lt;/code&gt;表示可撤），调用&lt;code&gt;xd_trader.async_cancel_order&lt;/code&gt;进行异步撤单。
+    *   &lt;strong&gt;下单操作：&lt;/strong&gt; 根据策略生成的买卖信号和当前持仓情况，调用相应的下单接口（如&lt;code&gt;stock_sale&lt;/code&gt;用于卖出，&lt;code&gt;stock_by&lt;/code&gt;用于买入）。
+    *   &lt;strong&gt;本地管理系统：&lt;/strong&gt; 建议在高频交易中，在MiniQMT接口之外，本地也建立订单和持仓管理系统，以应对可能的数据延迟，提高策略的稳定性和鲁棒性。
+    *   &lt;strong&gt;循环控制：&lt;/strong&gt; 使用&lt;code&gt;try while&lt;/code&gt;无限循环运行策略，通过&lt;code&gt;time.sleep()&lt;/code&gt;控制每次循环的频率（如每60秒执行一次）。&lt;/p&gt;
 
-&lt;p&gt;金句：
-*   “你把最有凯利杠杆理解成为一个你应该设杠杆的一个最大值你不应该超过这个值不然的话在未来你可能会爆仓这个风险会变得比较大你应该结合你的这个策略本身的这个回报的分布还有你个人的承受能力还有你想要的最大回撤等等等等这些因素综合考量起来确定一个比较适合你的杠杆”&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
+*   “其实这个是比较偏实用的啊 但是呢很多一些朋友 他们就是说从之前的那个大QMT里面 就转到这个mini cam t啊 有些步骤还不会很就是不不会很熟悉 那么今天的话就为大家带呃 就是为大家就是全流程的 然后去操作一遍 然希望大家就是根据这个讲解 可以去啊复复现一下 可以去通过这样的方式去实现一个自自己的一个策略。”
+*   “其实这两步我觉得就是是很重要的 就比如说我们去开车 或者说怎么去刹车 这是最最最重要 这两个步骤先学会 那么后面的话有一些细节的地方 可能会在之后的分享会为大家慢慢去啊去讲解好的。”&lt;/p&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DkEUzXEzc</guid>
-      <pubDate>Mon, 19 May 2025 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1GQgZzcEEW</guid>
+      <pubDate>Sun, 29 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>miniQMT量化策略总览：经典交易系统解析与市场应对实践</title>
-      <link>https://www.bilibili.com/video/BV1br7SzJE6U</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1br7SzJE6U"&gt;miniQMT量化交易——策略概览 | 策略精讲 | 交易心得 | 一次性了解八大策略&lt;/a&gt;&lt;/p&gt;
+      <title>扑克与对冲基金的交集：风险、博弈论与市场投资策略</title>
+      <link>https://www.bilibili.com/video/BV1WugfzmER8</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1WugfzmER8"&gt;扑克学懂优秀交易员思维（二）&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;本文主要分享了QMT量化策略的知识，并重点转向讲解miniQMT，以帮助交易者实现更复杂灵活的交易策略。作者针对当前复杂多变的市场行情，提供了三条应对交易心得，并详细介绍了八大经典量化交易策略，预告了后续将结合理论与实践进行深入讲解及回测。&lt;/p&gt;
+&lt;p&gt;文章探讨了职业扑克与对冲基金管理之间的深刻相似之处，强调两者都涉及在不确定性中进行风险计算、心理博弈和战略决策。通过顶尖扑克选手和对冲基金经理的视角，文章揭示了扑克中理解概率、适应对手和管理情绪波动等原则如何直接应用于金融市场。文末还讨论了市场日益“游戏化”的趋势以及早期接触风险承担概念的价值。&lt;/p&gt;
 
-&lt;p&gt;文章中提出或强调了以下重要概念：&lt;/p&gt;
+&lt;h3&gt;重要的/新鲜的概念&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;miniQMT&lt;/strong&gt;: QMT的迷你版本，专为实现更复杂、更灵活的交易策略设计。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;80/20利润法则&lt;/strong&gt;: 指交易中80%的利润来源于20%的交易，强调要允许小额亏损的多次发生，但需确保少数盈利交易的幅度足够大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对（Coping）而非预测（Predicting）&lt;/strong&gt;: 在市场不确定性中，建立应对系统比精准预测更有效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;羊群效应&lt;/strong&gt;: 解释了某些技术指标（如五日均线）有效的原因——因为大量市场参与者相信并使用它们，从而形成自我实现的有效性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;平均真实波幅（ATR）&lt;/strong&gt;: 一种辅助判断市场波动幅度和趋势突破有效性的指标，尤其在流动性不足的市场中作用明显。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;主要观点如下：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;大多数利润源于少数交易，亏损是常态，但必须截断亏损，让利润奔跑。&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;博弈论最优策略 (GTO - Game Theory Optimal) 打法&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 80%的利润来自20%的交易，意味着10次交易中可能8次亏损，但关键在于每次亏损要小，而少数盈利交易要获得巨大收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反常识：&lt;/strong&gt; 不要“扛单”，亏损是交易的正常组成部分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;: 指的是在博弈中，通过数学计算和模拟大量数据得出的、对手难以反制的、没有弱点的完美策略。它基于数学概率而非直觉或情绪。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例/故事&lt;/strong&gt;: 随着千禧年初在线扑克兴起，玩家们首次获得海量数据和先进工具。计算机程序能模拟百万手牌，测试并优化应对所有可能反应的策略，从而诞生了GTO打法，这与过去依赖直觉和“街头智慧”的艺术性打法形成对比，被称为“扑克的科学革命”。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;入场前务必明确离场条件，并坚决执行。&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;市场游戏化 (Gamification of Markets)&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 建立交易系统时需明确进出场条件，若无系统则常在买入后才考虑离场，为时已晚。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;当行情与预期不符时，应立即停止交易并反思调整预期。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 市场充满不确定性，盲目硬扛相反行情风险极高。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;经典量化策略的有效性，部分源于市场参与者的共识或“羊群效应”。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;案例：&lt;/strong&gt; 5日均线之所以有效，是因为大量交易者相信并使用它，而非其本身有内在魔法。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;文章提供了以下行动建议和操作指南：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;应对复杂行情的交易心得：&lt;/strong&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;理解并实践“截断亏损，让利润奔跑”：&lt;/strong&gt; 允许小额亏损频繁发生，但要确保单次亏损可控且小。同时，对于少数赚钱的交易，要保持耐心，通过加仓、长期持有等方式放大收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;先想离场再入场：&lt;/strong&gt; 在买入前，就要明确进场和离场的具体条件和模式，并一旦确定就必须坚决执行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;及时调整预期：&lt;/strong&gt; 当市场行情与自身预期不一致时，应立即停止，审视并调整自己的预期，而不是盲目硬扛。同时，要控制仓位并放大交易周期。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;各类经典量化策略的应用建议：&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;趋势跟踪策略：&lt;/strong&gt; 顺势而为，结合均线、布林带、MACD、海龟交易法则等多重指标进行综合判断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;均值回归策略：&lt;/strong&gt; 主要适用于日内T0交易（如T0 ETF、可转债网格交易），利用价格在均值附近波动的特性进行高抛低吸。强调T0交易的重要性及波动对称性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动量策略：&lt;/strong&gt; 捕捉市场龙头股的连板动量，通过量化指标进行追涨杀跌，可关注时间序列动量和横截面动量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;套利策略：&lt;/strong&gt; 追求低风险甚至无风险收益，利用市场定价错误，如期限套利、跨市场套利（外汇、黄金）、ETF套利（深熟套）。需较大本金，体量越大越应注重风险控制而非单纯追求收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;波动率策略：&lt;/strong&gt; 主要作为期权交易的辅助判断，通过ATR等指标辅助。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;事件驱动策略：&lt;/strong&gt; 关注并利用突发事件（如特朗普言论、指数成分股调整）进行策略布局。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高频交易：&lt;/strong&gt; 目前A股受交易所报单限制（每秒不超过300笔，当日总报撤不超过1万笔），策略执行空间受限，需注意合规。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多因子选股：&lt;/strong&gt; 偏价值投资风格，是一个大的系统性框架，因子需经长期验证。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;学习和交流：&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;未来的视频将着重讲解miniQMT内容，结合理论、实践和回测，深入解析经典策略的赚钱逻辑及其在A股市场的表现。&lt;/li&gt;
-&lt;li&gt;鼓励大家掌握各类策略的优缺点，并学会在不同市场风格和行情下及时切换和应对，以实现量化策略的稳定收益。&lt;/li&gt;
-&lt;li&gt;提供充电服务（答疑）、策略代写/定制，并可加入免费微信学习群进行交流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;: 指的是市场行为越来越像游戏，人们对待股市如同赌场，进行投机性赌博。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例/故事&lt;/strong&gt;: 疫情时期，人们决定在股市赌博并像赌场一样对待，罗宾汉等应用曾引发是否过度游戏化的争议。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;文章中的金句：&lt;/p&gt;
+&lt;h3&gt;主要观点&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;"其实有时候做应对可能会比预测会更加的有用。"&lt;/li&gt;
-&lt;li&gt;"我们其实有80%的这个利润是来自于20%的交易。"&lt;/li&gt;
-&lt;li&gt;"我们亏损是一件很正常的事我们千万不要去扛单。"&lt;/li&gt;
-&lt;li&gt;"当你的资产规模越大的时候你去思考的事情就是说怎么去降低分险啊不是说怎么去提高提高你的这个收益。"&lt;/li&gt;
-&lt;li&gt;"这个是市场上面是没有很稳定的策略的。"&lt;/li&gt;
-&lt;li&gt;"我们用不确定性的策略来去应对不确定性的市场。"&lt;/li&gt;
+&lt;li&gt;专业扑克与对冲基金管理在本质上高度相似，两者都涉及在不确定性中做出战略决策、管理风险和进行心理博弈。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 加伦·霍尔（前职业扑克选手，对冲基金创始人）认为扑克和对冲基金管理在策略构建、资金来源分析、识别市场中非经济行为者（如同扑克中寻找模式和破绽的玩家）方面有诸多相似之处。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在不确定性游戏中，理解概率并在波动中保持冷静是成功的关键，这需要亲身经历和实践而非仅仅理论知识。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 加伦表示，理解波动性不仅仅是研究统计数据或蒙特卡洛模拟，而是要亲自经历连续输掉数十次金钱的五五开或六四开局面，培养出一种“禅意般的机械能力”，只关注决策的正确性而非结果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;人们普遍存在风险规避心理，导致其承担的风险远低于实现目标所需的最优水平。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 认为适度引入赌博（如扑克）到生活中，实际上对许多人是净收益，因为它能教会人们权衡不确定结果和自身偏见，甚至在约会或关系中，人们也不够冒险。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;市场正在变得越来越“游戏化”，这反而为像对冲基金这样的参与者创造了机会。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 对冲基金的本质就像玩游戏，如果有人发明新游戏并想投入玩，基金可以模拟他们的行为并试图击败他们。疫情期间，人们将股市视为赌场，基金可以站在对立面。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;预测市场在信息混乱时代非常有价值，因为其集体智慧能够帮助判断信息的真实性。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 如果想知道某事发生的可能性，可以通过预测市场的反应来思考，因为它像一个蜂群，体现了群体的智慧。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议/操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;在决策中识别并利用对手的非经济行为或情绪驱动行为&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：在扑克中，寻找模式和破绽，识别情绪或压力驱动而非逻辑驱动的玩家。在对冲基金中，构建策略时不仅基于市场基本面，还要基于其他参与者的行为主导，例如被动抛售的机构或恐惧驱动的交易者。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;培养应对波动的心理韧性&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：通过亲身经历金钱上的起伏和灾难性或无比幸运的事件，逐步培养出一种“禅意般的机械能力”，专注于决策的合理性，而非结果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;适度接触和理解不确定性与风险&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：早期接触如扑克这类活动，可以帮助人们学习如何权衡不确定结果，认识自身偏见，并培养统计素养，从而在生活中更好地承担最优水平的风险。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在市场中建立和管理个人形象&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：了解他人对你的看法，并充分利用这种印象来灵活调整策略以迷惑对手（如做空股票并告知他人，使其跟随）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“若三十分钟内无法识别桌上的傻瓜，那你就是那个傻瓜。”&lt;/li&gt;
+&lt;li&gt;“扑克就是培养他人印象，只要清楚他人对你的看法，并充分建立形象，就能灵活调整，迷惑他们。也许你在玩市场，可以说市场也关乎形象，你究竟想向世界投射什么，这就是你可以实现的梦想。”&lt;/li&gt;
+&lt;li&gt;“每个优秀牌手都经历过，这种事情不止一次两次，而是多次经历了惊人的起伏，灾难性的坏运气，无比幸运的好运气，逐渐培养出禅意般的机械能力，只思考我是否在做正确决策，这些决策是否合理，后续结果如何，完全不在意。”&lt;/li&gt;
+&lt;li&gt;“我认为适度引入赌博到多数人生活中，对许多人来说其实是净收益，因为它能教会人们如何权衡不确定结果以及自身偏见所在，决策树等方法。”&lt;/li&gt;
+&lt;li&gt;“真正区分他们（专业赌徒与华尔街交易员）的，不是运气，而是能够承受风险，信任数学规律。”&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1br7SzJE6U</guid>
-      <pubDate>Mon, 02 Jun 2025 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1WugfzmER8</guid>
+      <pubDate>Sun, 29 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>日内趋势策略在标普ETF上的量化回测与优化分析</title>
-      <link>https://www.bilibili.com/video/BV1B5TLzCEDk</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1B5TLzCEDk"&gt;【策略回测】日内趋势论文+源码+TV指标 论文来自我们的老朋友&lt;/a&gt;&lt;/p&gt;
+      <title>量化捕捉低效市场：详解Z-score、本福特定律、信息熵、记忆与时间结构等方法</title>
+      <link>https://www.bilibili.com/video/BV1iHKCzUE7A</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1iHKCzUE7A"&gt;捕捉低效市场的一些方法 除了z score还能用什么&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;本文详细探讨了一种应用于标普ETF（如SPY）的日内趋势跟踪策略。文章介绍了该策略的核心思路、出场条件优化以及通过浮动杠杆进行收益增强的方法，并展示了作者和回测者各自的回测结果，最后提供了读者自行研究和实施的资源。&lt;/p&gt;
+&lt;p&gt;本文主要探讨了在量化交易中，如何识别并捕捉市场从正常随机状态转向低效、更具可预测性时刻的方法。文章强调，在市场低效时，价格走势变得更易预测，从而提供了潜在的交易机会。文中详细介绍了多种可应用于不同数据类型的量化分析技术，旨在帮助识别这些“不正常”的市场状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;重要概念与解释&lt;/strong&gt;
+*   &lt;strong&gt;低效市场：&lt;/strong&gt; 指市场价格从无序状态变得更具预测性的时期，此时市场提供了捕捉交易机会的可能性。
+*   &lt;strong&gt;Z-score：&lt;/strong&gt; 一种衡量时间序列偏离其均值多少个标准差的统计量。它常用于判断数据点是否异常或偏离正常分布范围。文中提到，绝大多数时间Z-score在-2到2之间，超出此范围则可能预示着“奇怪的事情发生了”。
+*   &lt;strong&gt;本福特定律（Benford's Law）：&lt;/strong&gt; 一个关于数字出现频率的定律。对于许多自然或未经人为修改的数据集，以数字1开头的数字出现的频率最高，且随着首位数字的增加，其出现频率递减。如果数据集的首位数字频率分布与该定律显著偏离，则可能表明数据不够随机，具有预测性。文中通过对数增长的概念辅助理解，例如从1到2是翻倍，比从2到3翻的倍数要大，所需时间更长，因此1开头的数字更容易被观察到。
+*   &lt;strong&gt;KS检验（Kolmogorov-Smirnov Test）：&lt;/strong&gt; 一种统计检验方法，用于判断两组数据分布是否相似，而不要求其服从特定分布。它通过比较两组累积密度函数的最大距离来进行假设检验。
+*   &lt;strong&gt;条件熵（Conditional Entropy）：&lt;/strong&gt; 信息论中的概念，衡量在已知某个条件（或上下文）下，某个随机变量的不确定性或随机性。熵值越高，数据随机性越强；熵值越低，数据可预测性越强。文中举例说明，可以将每日回报分为大跌、小跌、横盘、小涨、大涨等类别，通过分析连续三天回报组合（如“423”或“434”）的条件熵，来判断下一个回报类别的可预测性。
+*   &lt;strong&gt;赫斯特指数（Hurst Exponent）：&lt;/strong&gt; 一个衡量时间序列长期记忆性或趋势性的指标。当赫斯特指数小于0.5时，时间序列更倾向于反转；等于0.5时，表示随机游走；大于0.5时，表示存在趋势。
+*   &lt;strong&gt;自相关函数（ACF）和偏自相关函数（PACF）：&lt;/strong&gt; 统计学中用于分析时间序列与其自身滞后值之间相关性的函数。通过绘制ACF和PACF图并观察其滞后项是否显著偏离零以及其衰减模式，可以揭示时间序列的反转、随机游走或趋势特性。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;主要观点&lt;/strong&gt;
+*   当市场从高效（随机且难以预测）转变为低效时，价格会变得更具预测性，这通常是捕捉交易机会的时机。
+    *   （逻辑）正常市场下价格随机，不宜频繁交易；低效市场下价格从无序到有序，存在预测空间。
+*   捕捉低效市场的方法并非策略本身，它们是识别机会的工具，回测后不盈利是正常现象。
+*   识别市场“不正常”状态的核心思路是：首先明确市场“正常”时的表现，任何偏离即为“不正常”。
+    *   （支撑）Z-score通过判断数据是否超出其正态分布的正常范围来识别异常。
+    *   （支撑）本福特定律通过检查数据首位数字频率是否符合理论分布来判断数据的随机性，若不符则可能存在预测性。
+    *   （支撑）KS检验用于比较当前数据分布与“正常”或历史分布的相似性。
+    *   （支撑）条件熵量化数据的可预测性，低熵组合预示高可预测性。
+*   信息论中的“熵”可以量化数据的随机性与可预测性，熵值越低表示数据越容易预测。
+    *   （支撑）通过计算不同回报组合的条件熵，识别出低熵组合，可作为仅在这些高预测性组合出现时进行交易的依据。
+*   时间序列的记忆和时间结构（如赫斯特指数、ACF/PACF）能揭示其未来走势的特性（反转、随机游走或趋势）。
+    *   （支撑）赫斯特指数直接反映时间序列的反转、随机游走或趋势倾向。
+    *   （支撑）ACF/PACF图通过观察滞后项是否显著偏离零来判断时间序列的趋势性或反转性，例如，ACF逐渐递减且有bar超出置信区间，PACF显示与前一时间点高相关性，表明存在正相关趋势性。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;行动建议/操作指南&lt;/strong&gt;
+*   &lt;strong&gt;Z-score应用：&lt;/strong&gt; 监测时间序列的Z-score，当其超出正常区间（如-2到2）时，可能预示着价格会向均值回归，可考虑进行相应的多空操作。
+*   &lt;strong&gt;本福特定律应用：&lt;/strong&gt; 统计你的数据（需跨越多个量级，如财报数字、交易额、交易量）首位数字的频率分布。若与本福特定律的理论分布存在显著差异，可能表明数据不够随机，具有可预测性，值得进一步研究。
+*   &lt;strong&gt;KS检验应用：&lt;/strong&gt; 可用于比较你当前数据的分布（如某个指标的每日值）与历史“正常”分布或目标分布是否一致，以检测异常。
+*   &lt;strong&gt;条件熵应用：&lt;/strong&gt; 将你感兴趣的数据（如股票回报）进行分类和组合。计算不同组合的条件熵，识别出熵值较低（即预测性强）的组合。考虑仅在这些低熵组合出现时才进行交易。
+*   &lt;strong&gt;赫斯特指数应用：&lt;/strong&gt; 计算时间序列的赫斯特指数，根据其值判断序列是更倾向于反转、随机游走还是存在趋势，从而指导交易策略的制定。
+*   &lt;strong&gt;ACF/PACF应用：&lt;/strong&gt; 绘制时间序列的ACF和PACF图。如果图中滞后项显著超出置信区间，表明时间序列存在自相关性（如反转或趋势性），可利用此信息进行预测。例如，ACF逐渐递减并显示趋势，可利用其进行趋势跟踪。
+*   &lt;strong&gt;泛化应用：&lt;/strong&gt; 文中提到的方法不限于价格数据，可应用于各种数据，如波动率、交易额等。鼓励读者发散思维，探索这些方法在不同数据上的应用潜力。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;
+*   “当市场变得低效的时候，那这个时候往往就是机会来临的时候，它代表着这个价格从无序变得更有预测性了。”
+*   “最好的情况就是我们先知道他正常的时候什么样，然后不正常的时候，那不就是显而易见了吗？”
+*   “如果这个商越高，就代表着我这个数据的随机性越强；如果我的商越低，那这就代表着我的数据的这个可预测性特别强。”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1iHKCzUE7A</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>周富盘量化交易周报：原油LPG、中证1000波动率及铜实战分析</title>
+      <link>https://www.bilibili.com/video/BV1tyK1zrEzx</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1tyK1zrEzx"&gt;本周100%的交易胜率，都做了啥？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文总结了“周富盘”团队一周的量化交易操作，展示了在原油、LPG、中证1000及铜等不同资产上的策略运用，强调了波动率套利和基本面分析的重要性，并推广了一款简化期权交易的工具。&lt;/p&gt;
 
 &lt;h3&gt;重要的概念&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;噪音区间 (Noise Area)&lt;/strong&gt;：这是一个基于过去14天日内平均波动率计算出的价格区间。策略认为，只有当价格突破这个区间时才预示着趋势的到来，此时才进行入场操作。该区间由每天开盘价向上加一个标准差、向下减一个标准差来确定其上下边界。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;浮动杠杆 (Floating Leverage)&lt;/strong&gt;：这是一种策略优化方法，通过观察SPY最近14天的波动情况来动态调整交易杠杆。当市场波动大时使用较小杠杆，波动小时则使用较大杠杆（作者最高设置4倍杠杆），旨在提升风险调整后的收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open5神器&lt;/strong&gt;: 一款旨在简化期权交易的AI工具，特别适合新手。它包含“策略推荐器”功能，能根据用户对市场的不同观点（极度看跌、看跌、中性、看涨、极度看涨）推荐相应的期权策略，将复杂的期权攻略简单化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波动率套利&lt;/strong&gt;: 一种利用不同市场或不同时间段内资产波动率定价差异进行套利的策略。文中提及在中证1000和铜上，通过比较国内外科波波动率或发现定价错误进行操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;吃贴水&lt;/strong&gt;: 指通过卖出期权来赚取期权时间价值衰减（贴水）的策略，通常在市场预期震荡或波动不大的情况下使用。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;主要观点&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;策略核心：日内趋势追踪&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;原油LPG空头策略及时反转&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;该策略是针对标普ETF（如SPY）的日内趋势追踪策略，仅在交易日内开仓和平仓（早上9:30至下午4点）。&lt;/li&gt;
-&lt;li&gt;入场逻辑：价格突破预设的“噪音区间”时进行追涨或追跌。&lt;/li&gt;
-&lt;li&gt;交易频率控制：为减少频繁交易和假信号，策略每半小时才决定是否入场。&lt;/li&gt;
+&lt;li&gt;初期因短期战争可能性低及LPG波动率异常高而果断做空LPG原油波动率。&lt;/li&gt;
+&lt;li&gt;在原油跌停后及时止盈离场，原因在于看跌IV（隐含波动率）跌幅大于看涨IV，表明市场看跌情绪正在减弱，看涨情绪上升，随后反手做多LPG（卖出看跌期权）。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;出场条件优化显著提升策略表现&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;中证1000偏震荡偏强，采取吃贴水策略&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基础出场&lt;/strong&gt;：价格触及噪音区间的另一条线或持仓至收盘。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化1&lt;/strong&gt;：价格回撤至初始突破线时离场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化2（表现最佳）&lt;/strong&gt;：价格穿过初始突破线或VWAP（成交量加权平均价）时离场，以先发生者为准。
-&lt;ul&gt;
-&lt;li&gt;作者回测结果（2007-2024）：此版本策略的夏普比率提升至1.24，最大回撤显著减小，收益曲线平滑。&lt;/li&gt;
+&lt;li&gt;有机构大量卖出看跌期权（卖PUT），判断中证1000跌不动，整体偏震荡且偏强。&lt;/li&gt;
+&lt;li&gt;策略为“吃贴水稳扎稳打”。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入浮动杠杆是最终优化形式&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;中证1000和铜存在波动率套利机会&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;通过根据近期波动率调整杠杆，使策略达到作者回测中最高的夏普比率1.33。&lt;/li&gt;
+&lt;li&gt;港股与中证1000波动率出现明显差异，认为存在定价错误，提示做空中证1000波动率的机会。&lt;/li&gt;
+&lt;li&gt;国内铜的波动率相比国外在过去一年明显偏低，存在划算的波动率套利机会，且同时看涨铜价（delta偏向看涨）。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;作者回测结果（SPY，2007-2024）&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;铜的基本面支撑看涨&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;年化收益：20%&lt;/li&gt;
-&lt;li&gt;夏普比率：1.33（最终优化版）&lt;/li&gt;
-&lt;li&gt;注：作者的所有回测结果均包含资金复利效应，即每次入场都使用累积的全部资金，这可能使夏普比率显得更高。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测者个人回测结果（标普CFD，2020-2025年6月）&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;夏普比率：0.78（未包含资金复利，固定交易一手，使用30分钟VWAP作为出场条件）&lt;/li&gt;
-&lt;li&gt;回测结果的趋势和重要拐点与作者的结果相似，但因数据和条件差异，无法完全一致。&lt;/li&gt;
+&lt;li&gt;逻辑链条：矿端紧缺 -&gt; 冶炼厂亏损减产 -&gt; 精铜产量减少 -&gt; 库存下降 -&gt; 价格上涨。&lt;/li&gt;
+&lt;li&gt;周五白天铜的成交量翻倍，外盘铜大涨，波动率飙升，印证看涨判断。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自行回测或研究&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;查阅作者提供的Python源码，链接会由视频发布者提供，其中包含数据处理和回测逻辑，有助于理解策略细节。&lt;/li&gt;
-&lt;li&gt;在TradingView上搜索作者编写的指标（开源Pine Script代码），可可视化“噪音区间”，辅助观察价格走势与策略相互作用。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;注意事项&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作者的回测结果包含资金复利，自行回测时需考虑是否采用相同设定。&lt;/li&gt;
-&lt;li&gt;作者使用1分钟VWAP决定出场，而回测者使用30分钟VWAP，这可能导致出场时机差异，需根据自身数据和需求选择。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简化期权交易&lt;/strong&gt;: 如果觉得期权交易复杂，强烈建议使用“Open5神器”，称其能让“小白也能轻松上手”，新上线的策略推荐器可直接将复杂攻略简化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统学习期权&lt;/strong&gt;: 若想系统学习期权，可直接搜索“openvlap.xn”或通过评论区获取免费资源。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;金句&lt;/h3&gt;
 
-&lt;p&gt;无&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“跟着趋势走，准没有错。”&lt;/li&gt;
+&lt;li&gt;“小白也能轻松上手。”&lt;/li&gt;
+&lt;li&gt;“期权真的非常划算。”&lt;/li&gt;
+&lt;li&gt;“复杂攻略了简单化。”&lt;/li&gt;
+&lt;/ul&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1B5TLzCEDk</guid>
-      <pubDate>Sat, 07 Jun 2025 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tyK1zrEzx</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>深入解析四种实战交易策略：趋势、裸K、套利与波动率</title>
+      <link>https://www.bilibili.com/video/BV1yGK1zYEMF</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1yGK1zYEMF"&gt;常用的交易方法有哪些？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细介绍了四种超实用的交易方法：趋势交易法、裸K交易法、套利交易法和波动率交易法。内容涵盖每种方法的原理、优缺点、适用场景及操作要点，旨在帮助投资者提升交易技能，少走弯路。&lt;/p&gt;
+
+&lt;p&gt;重要的概念包括：
+*   &lt;strong&gt;趋势交易法：&lt;/strong&gt; 顺应市场趋势进行交易，核心是趋势一旦形成，大概率会延续。使用移动平均线、趋势线等工具识别方向。
+*   &lt;strong&gt;裸K交易法：&lt;/strong&gt; 摒弃一切指标，仅通过K线形态和关键支撑阻力位来判断市场。
+*   &lt;strong&gt;套利交易法：&lt;/strong&gt; 利用相同或相关资产间的短期定价偏差进行交易，同时买入低估资产并卖出高估资产，实现无风险或低风险收益。文中举例说明了ETF与成分股、期货与现货、以及不同交易所上市的同一只股票之间的价差套利。
+*   &lt;strong&gt;波动率交易法：&lt;/strong&gt; 不预测市场涨跌方向，而是专注于交易市场的波动性。利用隐含波动率等工具，结合期权进行操作。&lt;/p&gt;
+
+&lt;p&gt;主要观点：
+*   套利交易法单笔收益率可能极低（甚至不到1%），但通过程序化执行和累积效应仍可获利。
+    *   数据：单笔收益可能连1%都不到。
+    *   逻辑：想赚得多需砸大资金或加杠杆，但同时也放大了风险；对交易速度和成本要求极高；市场越来越成熟，明显的套利机会越来越少。
+*   波动率交易法不依赖对涨跌方向的判断，而是从市场波动中寻找机会。
+    *   逻辑：利用隐含波动率等工具，在市场大幅波动或特别平静的时候都有机会赚钱，配合期权玩法超灵活。&lt;/p&gt;
+
+&lt;p&gt;行动建议和操作指南：
+*   &lt;strong&gt;趋势交易法：&lt;/strong&gt; 利用移动平均线和趋势线找到市场大方向，上升时买入，下降时卖出。
+*   &lt;strong&gt;裸K交易法：&lt;/strong&gt; 专注于K线形态和关键支撑阻力位进行判断，直接关注开盘收盘最高最低价。
+*   &lt;strong&gt;套利交易法：&lt;/strong&gt; 发现相同或相关资产间的定价偏差时，同时买入低价、卖出高价。操作时时刻盯着价差，一般超过或低于平均值两倍标准差时可考虑出手。
+*   &lt;strong&gt;波动率交易法：&lt;/strong&gt; 需搞懂复杂的波动率模型和期权希腊字母；可利用OpenVlog等工具实时查看波动率、构建策略、进行压力测试。
+*   &lt;strong&gt;总体建议：&lt;/strong&gt; 投资者应根据自身情况选择合适的交易方法，并在投资路上多学多思考。&lt;/p&gt;
+
+&lt;p&gt;金句：
+*   “投资路上多学多思考才能越做越好”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1yGK1zYEMF</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从龟缩到做空：当前市场交易策略、持仓调整与热门股分析</title>
+      <link>https://www.youtube.com/watch?v=_WCU2iYHrvg</link>
+      <description>&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=_WCU2iYHrvg"&gt;高位混沌、信号紊乱：我看到的不只是风险|TSLA和CRCL后续&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章阐述了作者的交易策略从防御性（龟缩）转向看空做空，并详细说明了当前投资组合的调整，增加了看空仓位。作者分析了多种市场数据来支撑其看空观点，并具体讨论了热门股票CRCL（稳定币概念股）和特斯拉的交易机会与风险，强调了交易边界和心态管理的重要性。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;重要概念：&lt;/strong&gt;
+*   &lt;strong&gt;龟缩转向做空&lt;/strong&gt;：指作者的投资策略从保守防御转变为积极的做空操作，由仓位决定。
+*   &lt;strong&gt;游资对于新股的炒作&lt;/strong&gt;：描述了短线投机资金如何炒作新上市股票，使其价格脱离基本面快速上涨，并以CRCL为例进行了阐述。这类股票往往波动巨大，风险极高，且后续可能长期处于低迷状态。
+*   &lt;strong&gt;市场宽度背离&lt;/strong&gt;：指大盘指数创新高，但上涨股票的数量或广度（如200日均线以上股票比例）并未同步，显示市场上涨缺乏普遍性支撑，可能预示风险。
+*   &lt;strong&gt;Pension rebalance（养老金再平衡）&lt;/strong&gt;：指月末养老金基金为保持资产配置比例，可能卖出涨幅较大的风险资产（如股票）并买入避险资产（如债券），对市场造成卖压。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
+*   当前市场策略已从“龟缩”（防御）转变为“做空”（看空）。
+    *   &lt;strong&gt;支撑数据&lt;/strong&gt;：增加了SPX和SPY的看跌期权仓位（总仓位达0.7%），并对CRCL、CRWV等股票进行了小仓位做空，期权总仓位约3.5%，其中看空仓位接近1%；股票仓位为0，整体现金仓位约96%。
+*   尽管指数表面强劲，但市场内部蕴藏高风险，交易难度极大。
+    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：近70%公司进入禁末期（无法回购），削弱买盘力量；CTA（商品交易顾问）仓位高，后续影响有限；高盛预测月末养老金再平衡可能带来280亿美元卖压；散户情绪并非过度乐观，但参与度高（如特斯拉、英伟达炒作），部分游资可能被统计为散户，推动短线炒作形成“逼空”。
+    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：市场宽度出现背离，如纽交所多数股票宽度在70%左右时，新高力度不足；200日均线以上股票比例在上涨后回落至55%，显示上涨动力不足。
+    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：VIX指数若进一步下降至14-15区间，MACD形成底部结构，可能提供做空机会，但通常只会是3%左右的重仓位，且以3-6个月后的期权为主。
+*   对新上市热点股（如CRCL）的炒作是投机行为，风险巨大，不宜盲目追高。
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：CRCL的IPO定价在三四十美元，开盘即翻倍至六十多美元，短期内最高冲至三百多美元，但基本面无重大变化，盈利主要来自短期美债收入，波动极大（单日振幅超20%），且衍生品价格昂贵。
+    *   &lt;strong&gt;支撑案例&lt;/strong&gt;：类比Reddit、Coreweave、ARM、Coin等次新股的走势，通常快速拉升后经历长期盘整或下跌，消化套牢盘。
+*   特斯拉在当前位置不具备良好的投机机会。
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：330-370美元区间存在大量套牢盘，短期快速拉升后，这些套牢盘可能不愿割肉，反而等待更高的解套机会；只有经历长时间的震荡或下跌，充分消化套牢盘后，才可能出现新的介入机会。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;行动建议/操作指南：&lt;/strong&gt;
+*   &lt;strong&gt;整体策略&lt;/strong&gt;：从看多转向看空做空，增加看跌期权仓位，并保持高现金仓位（约96%）。
+*   &lt;strong&gt;对待热点新股（如CRCL）&lt;/strong&gt;：
+    *   不介入不熟悉的、缺乏稳定交易模型的股票。
+    *   避免追逐波动极大的股票（如单日振幅超20%），难以止损且仓位控制困难。
+    *   认识到衍生品昂贵导致难以上手。
+    *   设定交易边界，不属于自己认知范围内的利润就放弃，不盲目追逐。
+*   &lt;strong&gt;对待特斯拉&lt;/strong&gt;：
+    *   短期内不积极介入，耐心等待。
+    *   等待上方套牢盘通过时间或震荡充分消化后，出现明确的收敛形态再考虑介入。
+    *   控制情绪，市场机会很多，无需执着于单一股票。
+*   &lt;strong&gt;心理建设&lt;/strong&gt;：在市场波动和不确定性高时，保持耐心，避免盲目追高；选择“软柿子”而非“硬骨头”进行交易。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
+*   “有些钱不是属于我的，我们就不拿。”
+*   “你是否有能力去驾驭这样的股票，你有能力去驾驭这样的金钱，它是否是属于你认知或者属于你盈利中的一部分？”
+*   “如果没有任何以交易和实质行动的分享只讲所谓的观点看涨或看跌，那么这种几乎都可以算作是耍流氓行为。”
+*   “何必去啃这个硬骨头，等到有软柿子时来的时候，我们捏软柿子。”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=_WCU2iYHrvg</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>股息ETF逊于S&amp;P500备兑看涨期权ETF：收益与风险表现深度解析</title>
+      <link>https://www.youtube.com/watch?v=hEusDtYpAxM</link>
+      <description>&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hEusDtYpAxM"&gt;Why DIVIDEND Investing (SCHD, VYM) is LOSING to Covered Call ETFs | Get Higher Income &amp;amp; RETURNS!&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文比较了股息型ETF（如SCHD、VIG）与追踪S&amp;amp;P 500指数的备兑看涨期权ETF（如GPIX、SPY、Tespy）的表现，论证了后者在总回报、派息率和风险控制方面均优于前者。作者认为，股息型ETF由于其选股标准限制，错过了过去十年高增长的科技股，导致整体表现落后于大盘和备兑看涨期权ETF。&lt;/p&gt;
+
+&lt;h3&gt;重要的概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;股息型ETF (Dividend ETFs):&lt;/strong&gt; 投资于定期派发股息的股票的交易所交易基金，旨在为投资者提供稳定的现金流。文中使用SCHD（Schwab U.S. Dividend Equity ETF）、VIG（Vanguard Dividend Appreciation ETF）、VYM（Vanguard High Dividend Yield ETF）、SDY（SPDR S&amp;amp;P Dividend ETF）和DVY（iShares Select Dividend ETF）作为例子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500 备兑看涨期权ETF (S&amp;amp;P 500 Covered Call ETFs):&lt;/strong&gt; 投资于S&amp;amp;P 500指数成分股，并通过卖出看涨期权来产生额外收入的交易所交易基金。这种策略旨在提高收益率并降低波动性。文中使用GPIX、SPY和Tespy作为例子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;总回报 (Total Return):&lt;/strong&gt; 衡量投资表现的关键指标，包括资产价格变动（资本利得或损失）和投资所产生的收入（如股息或期权费）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500备兑看涨期权ETF在总回报和收益方面优于股息ETF，且风险更低。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;GPIX和SPY在过去一年的总回报方面，优于VIG和SCHD。&lt;/li&gt;
+&lt;li&gt;Tespy（日内备兑看涨期权ETF）的总回报（9.85%）也优于VIG（7.94%），即使不复投股息，Tespy表现依然更佳。&lt;/li&gt;
+&lt;li&gt;备兑看涨期权ETF的派息率远高于股息ETF：GPIX约为8%（年化，月度派息），SPY约为12%（年化，月度派息），Tespy约为14-14.5%（年化，月度派息）。相比之下，VIG的派息率约为1.69-1.7%，SCHD略低于4%。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 备兑看涨期权策略通过出售看涨期权产生额外收入，且由于收取期权费，具有降低整体风险的特性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;股息ETF的表现落后于S&amp;amp;P 500整体市场。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt; 在过去3年、5年和10年，S&amp;amp;P 500指数的总回报率始终高于所有被提及的股息ETF。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;股息ETF表现不佳的主要原因是其投资组合排除了高增长的科技股。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 股息ETF的选股标准限制了它们只能投资于派发股息的股票。然而，过去5-10年表现最好的股票（如英伟达、Magnificent 7、亚马逊、特斯拉）多为高增长的科技股，它们通常不派发股息或派发极少股息，因此未被纳入股息ETF。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt; SCHD在信息技术行业的配置比例非常低，而该行业是过去十年表现最好的板块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例支撑:&lt;/strong&gt; VIG近期表现优于SCHD的原因在于，VIG的投资组合中包含了更多科技股（如Meta、微软、苹果等），尽管它们只派发少量股息，但其高增长贡献了显著回报。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500备兑看涨期权ETF能够同时获得S&amp;amp;P 500的整体增长和高收益。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 这些ETF持有S&amp;amp;P 500指数成分股，意味着它们能捕捉到包含高增长科技股在内的整个市场的表现，同时通过备兑看涨期权策略产生高额的被动收入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;行动建议&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对于追求被动收入和较低波动性的投资者，S&amp;amp;P 500备兑看涨期权ETF是比传统股息ETF更好的选择，因为它能提供更高的收益、更好的总回报表现和更广的多元化（包含整个S&amp;amp;P 500）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"S&amp;amp;P 500 covered call ETF is far superior than investing in a dividend ETF."&lt;/li&gt;
+&lt;li&gt;"When you're writing covered calls... you're actually lowering the risk."&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=hEusDtYpAxM</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Mini_Camt量化交易：止损核心与海龟策略实战及回测效果分析</title>
+      <link>https://www.bilibili.com/video/BV1dTKWz4EQp</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1dTKWz4EQp"&gt;miniQMT量化交易—— 海龟策略 |  稳健收益 | 右侧突破如何判断 | 最小止损&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文围绕量化交易，深入探讨了风险管理中的止损原则以及经典的“海龟交易策略”。作者通过Mini Camt平台演示了海龟策略的实盘编写与回测，并分享了其核心思想和实战效果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;重要概念及解释：&lt;/strong&gt;
+*   &lt;strong&gt;ATR (Average True Range，真实波幅均值)&lt;/strong&gt;：衡量资产价格波动性的指标，用于判断市场波动幅度和趋势突破的有效性。例如，当标的日常振幅在1-3%时，突然出现5-6%的涨幅，ATR可以帮助判断这是否为明显的超预期突破。
+*   &lt;strong&gt;非对称性收益&lt;/strong&gt;：指在量化交易中，获利交易的概率或平均收益需要大于亏损交易的概率或平均亏损，才能实现策略的整体盈利。海龟策略通过设置不对称的入场（20或55日高点突破）和出场（10或20日低点突破）时间线来追求这种非对称性收益。
+*   &lt;strong&gt;海龟策略 (Turtle Trading Strategy)&lt;/strong&gt;：一种经典的趋势跟踪策略，其核心在于“耐心等待，突破入场”，强调右侧交易，利用价格突破来捕捉趋势，并通过严格的止损和仓位管理来控制风险。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
+*   &lt;strong&gt;止损的核心在于将“亏大钱”变成“亏小钱”。&lt;/strong&gt;
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：下跌和上涨是不对称的，价格下跌1-2%后，需要2-4%的涨幅才能回本；且一旦下跌趋势形成，短期内反弹的几率非常小，需要大量资金推动，散户若不及时止损易导致更大的亏损。
+*   &lt;strong&gt;止损应设定单笔交易的最大亏损上限，并严格遵守。&lt;/strong&gt;
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：无论是按金额（如1000元）还是按比例（如1%），固定止损上限能提供参考系，有效控制亏损。
+*   &lt;strong&gt;短线交易中，人工盯盘进行止损非常困难且不现实。&lt;/strong&gt;
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：短线信号波动快，人工难以实时判断；高频交易可依赖程序化订单，中低频交易可设定固定时间点止损。
+*   &lt;strong&gt;交易应遵循固定的模式，而非盲目尝试所有形态。&lt;/strong&gt;
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：专注于一种（或少数几种）被验证有效的模式（如双底结构），并深入研究其盈利逻辑，而非“大海捞针”式地尝试多种模式。
+*   &lt;strong&gt;关注盈亏比远比关注亏损金额更重要。&lt;/strong&gt;
+    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：当亏损1元而目标是赚3元时，思考是否有赚3元的可能性，有助于保持积极心态。散户厌恶亏损，但认识到下跌后反弹的数学与概率难度，能促使在亏损时及时离场。
+*   &lt;strong&gt;海龟策略的三大定律：&lt;/strong&gt;
+    *   &lt;strong&gt;右侧趋势交易，止损难度较低。&lt;/strong&gt;
+        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：右侧趋势一旦与预期不符，止损代价相对较小，避免了左侧交易可能承受的巨大亏损。
+    *   &lt;strong&gt;非对称性收益是量化策略有效性的关键。&lt;/strong&gt;
+        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：量化交易的核心在于通过大量买卖，确保获利交易在概率或金额上大于亏损交易，非对称的入出场规则（如海龟策略的20/55日入场与10/20日出场）是实现正收益的手段。
+    *   &lt;strong&gt;预期管理需借助量化指标（如ATR）判断突破有效性。&lt;/strong&gt;
+        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：通过ATR等指标评估当前波动幅度，判断价格突破是否是真正的“超预期”突破，而非简单的震荡，从而决定是否进场。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;行动建议及操作指南：&lt;/strong&gt;
+*   &lt;strong&gt;关于如何止损的四点建议：&lt;/strong&gt;
+    1.  &lt;strong&gt;设定最小或最大亏损上限：&lt;/strong&gt; 每笔交易应有固定的亏损金额或比例上限，并严格遵守（如亏损不超过1%或1000元）。
+    2.  &lt;strong&gt;根据交易周期选择止损方式：&lt;/strong&gt; 短线交易难以人工盯盘，建议通过程序化或固定价格止损；中低频交易可设定固定时间点进行止损。
+    3.  &lt;strong&gt;坚持固定模式交易：&lt;/strong&gt; 专注于一种你认为有效的交易模式，并持续优化，验证其盈利逻辑，而非尝试多种不熟悉的模式。
+    4.  &lt;strong&gt;关注盈亏比而非亏损金额：&lt;/strong&gt; 在交易前明确预期盈亏比（如亏1元赚3元），当发生亏损时，思考未来是否有达到盈利目标的机会，从而做出更理性的判断。
+*   &lt;strong&gt;Mini Camt实现海龟策略的步骤：&lt;/strong&gt;
+    1.  在&lt;code&gt;handle_buy&lt;/code&gt;函数中编写策略逻辑。
+    2.  设置好时间戳并下载历史K线数据。
+    3.  提取高、低、收盘价等数据，用于计算均值和ATR。
+    4.  计算均值（可采用多进程回测进行超参优化，本文使用可调参数&lt;code&gt;c_line1&lt;/code&gt;）。
+    5.  计算ATR（真实波幅均值），确保ATR大于零时才进行下单。
+    6.  &lt;strong&gt;入场逻辑&lt;/strong&gt;：当无持仓且价格向上突破均值线（由&lt;code&gt;c_line1&lt;/code&gt;控制天数）时，发出买入信号。
+    7.  &lt;strong&gt;仓位管理&lt;/strong&gt;：例如，设置每笔买入持仓为全部可用资金的八成。
+    8.  &lt;strong&gt;开仓操作&lt;/strong&gt;：按照当前收盘价执行开仓。
+    9.  &lt;strong&gt;出场逻辑&lt;/strong&gt;：当有持仓且价格向下突破10日均线时，发出卖出信号，执行出场操作。
+*   &lt;strong&gt;回测设置：&lt;/strong&gt;
+    *   标的：500 ETF。
+    *   回测时间：2024年1月1日至2025年6月1日。
+    *   参数：通过多进程传参，调节向上突破均值的参考天数（如5、10、20、30天），以优化策略效果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
+*   “止损是一件很重要的事情。”
+*   “我们要做的是做判断，而不是做非常精准的预测，很精准的预测是不可能的，但是我们可以做出很严格的应对。”
+*   “耐心等待，突破入场。”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dTKWz4EQp</guid>
+      <pubDate>Sun, 22 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
       <title>基于MiniQMT的量化交易学习：Python连接、均线与布林带策略实战</title>
@@ -325,459 +586,198 @@
       <pubDate>Sun, 08 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Mini_Camt量化交易：止损核心与海龟策略实战及回测效果分析</title>
-      <link>https://www.bilibili.com/video/BV1dTKWz4EQp</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1dTKWz4EQp"&gt;miniQMT量化交易—— 海龟策略 |  稳健收益 | 右侧突破如何判断 | 最小止损&lt;/a&gt;&lt;/p&gt;
+      <title>日内趋势策略在标普ETF上的量化回测与优化分析</title>
+      <link>https://www.bilibili.com/video/BV1B5TLzCEDk</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1B5TLzCEDk"&gt;【策略回测】日内趋势论文+源码+TV指标 论文来自我们的老朋友&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;本文围绕量化交易，深入探讨了风险管理中的止损原则以及经典的“海龟交易策略”。作者通过Mini Camt平台演示了海龟策略的实盘编写与回测，并分享了其核心思想和实战效果。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;重要概念及解释：&lt;/strong&gt;
-*   &lt;strong&gt;ATR (Average True Range，真实波幅均值)&lt;/strong&gt;：衡量资产价格波动性的指标，用于判断市场波动幅度和趋势突破的有效性。例如，当标的日常振幅在1-3%时，突然出现5-6%的涨幅，ATR可以帮助判断这是否为明显的超预期突破。
-*   &lt;strong&gt;非对称性收益&lt;/strong&gt;：指在量化交易中，获利交易的概率或平均收益需要大于亏损交易的概率或平均亏损，才能实现策略的整体盈利。海龟策略通过设置不对称的入场（20或55日高点突破）和出场（10或20日低点突破）时间线来追求这种非对称性收益。
-*   &lt;strong&gt;海龟策略 (Turtle Trading Strategy)&lt;/strong&gt;：一种经典的趋势跟踪策略，其核心在于“耐心等待，突破入场”，强调右侧交易，利用价格突破来捕捉趋势，并通过严格的止损和仓位管理来控制风险。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
-*   &lt;strong&gt;止损的核心在于将“亏大钱”变成“亏小钱”。&lt;/strong&gt;
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：下跌和上涨是不对称的，价格下跌1-2%后，需要2-4%的涨幅才能回本；且一旦下跌趋势形成，短期内反弹的几率非常小，需要大量资金推动，散户若不及时止损易导致更大的亏损。
-*   &lt;strong&gt;止损应设定单笔交易的最大亏损上限，并严格遵守。&lt;/strong&gt;
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：无论是按金额（如1000元）还是按比例（如1%），固定止损上限能提供参考系，有效控制亏损。
-*   &lt;strong&gt;短线交易中，人工盯盘进行止损非常困难且不现实。&lt;/strong&gt;
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：短线信号波动快，人工难以实时判断；高频交易可依赖程序化订单，中低频交易可设定固定时间点止损。
-*   &lt;strong&gt;交易应遵循固定的模式，而非盲目尝试所有形态。&lt;/strong&gt;
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：专注于一种（或少数几种）被验证有效的模式（如双底结构），并深入研究其盈利逻辑，而非“大海捞针”式地尝试多种模式。
-*   &lt;strong&gt;关注盈亏比远比关注亏损金额更重要。&lt;/strong&gt;
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：当亏损1元而目标是赚3元时，思考是否有赚3元的可能性，有助于保持积极心态。散户厌恶亏损，但认识到下跌后反弹的数学与概率难度，能促使在亏损时及时离场。
-*   &lt;strong&gt;海龟策略的三大定律：&lt;/strong&gt;
-    *   &lt;strong&gt;右侧趋势交易，止损难度较低。&lt;/strong&gt;
-        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：右侧趋势一旦与预期不符，止损代价相对较小，避免了左侧交易可能承受的巨大亏损。
-    *   &lt;strong&gt;非对称性收益是量化策略有效性的关键。&lt;/strong&gt;
-        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：量化交易的核心在于通过大量买卖，确保获利交易在概率或金额上大于亏损交易，非对称的入出场规则（如海龟策略的20/55日入场与10/20日出场）是实现正收益的手段。
-    *   &lt;strong&gt;预期管理需借助量化指标（如ATR）判断突破有效性。&lt;/strong&gt;
-        *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：通过ATR等指标评估当前波动幅度，判断价格突破是否是真正的“超预期”突破，而非简单的震荡，从而决定是否进场。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;行动建议及操作指南：&lt;/strong&gt;
-*   &lt;strong&gt;关于如何止损的四点建议：&lt;/strong&gt;
-    1.  &lt;strong&gt;设定最小或最大亏损上限：&lt;/strong&gt; 每笔交易应有固定的亏损金额或比例上限，并严格遵守（如亏损不超过1%或1000元）。
-    2.  &lt;strong&gt;根据交易周期选择止损方式：&lt;/strong&gt; 短线交易难以人工盯盘，建议通过程序化或固定价格止损；中低频交易可设定固定时间点进行止损。
-    3.  &lt;strong&gt;坚持固定模式交易：&lt;/strong&gt; 专注于一种你认为有效的交易模式，并持续优化，验证其盈利逻辑，而非尝试多种不熟悉的模式。
-    4.  &lt;strong&gt;关注盈亏比而非亏损金额：&lt;/strong&gt; 在交易前明确预期盈亏比（如亏1元赚3元），当发生亏损时，思考未来是否有达到盈利目标的机会，从而做出更理性的判断。
-*   &lt;strong&gt;Mini Camt实现海龟策略的步骤：&lt;/strong&gt;
-    1.  在&lt;code&gt;handle_buy&lt;/code&gt;函数中编写策略逻辑。
-    2.  设置好时间戳并下载历史K线数据。
-    3.  提取高、低、收盘价等数据，用于计算均值和ATR。
-    4.  计算均值（可采用多进程回测进行超参优化，本文使用可调参数&lt;code&gt;c_line1&lt;/code&gt;）。
-    5.  计算ATR（真实波幅均值），确保ATR大于零时才进行下单。
-    6.  &lt;strong&gt;入场逻辑&lt;/strong&gt;：当无持仓且价格向上突破均值线（由&lt;code&gt;c_line1&lt;/code&gt;控制天数）时，发出买入信号。
-    7.  &lt;strong&gt;仓位管理&lt;/strong&gt;：例如，设置每笔买入持仓为全部可用资金的八成。
-    8.  &lt;strong&gt;开仓操作&lt;/strong&gt;：按照当前收盘价执行开仓。
-    9.  &lt;strong&gt;出场逻辑&lt;/strong&gt;：当有持仓且价格向下突破10日均线时，发出卖出信号，执行出场操作。
-*   &lt;strong&gt;回测设置：&lt;/strong&gt;
-    *   标的：500 ETF。
-    *   回测时间：2024年1月1日至2025年6月1日。
-    *   参数：通过多进程传参，调节向上突破均值的参考天数（如5、10、20、30天），以优化策略效果。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
-*   “止损是一件很重要的事情。”
-*   “我们要做的是做判断，而不是做非常精准的预测，很精准的预测是不可能的，但是我们可以做出很严格的应对。”
-*   “耐心等待，突破入场。”&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dTKWz4EQp</guid>
-      <pubDate>Sun, 22 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>股息ETF逊于S&amp;P500备兑看涨期权ETF：收益与风险表现深度解析</title>
-      <link>https://www.youtube.com/watch?v=hEusDtYpAxM</link>
-      <description>&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=hEusDtYpAxM"&gt;Why DIVIDEND Investing (SCHD, VYM) is LOSING to Covered Call ETFs | Get Higher Income &amp;amp; RETURNS!&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本文比较了股息型ETF（如SCHD、VIG）与追踪S&amp;amp;P 500指数的备兑看涨期权ETF（如GPIX、SPY、Tespy）的表现，论证了后者在总回报、派息率和风险控制方面均优于前者。作者认为，股息型ETF由于其选股标准限制，错过了过去十年高增长的科技股，导致整体表现落后于大盘和备兑看涨期权ETF。&lt;/p&gt;
+&lt;p&gt;本文详细探讨了一种应用于标普ETF（如SPY）的日内趋势跟踪策略。文章介绍了该策略的核心思路、出场条件优化以及通过浮动杠杆进行收益增强的方法，并展示了作者和回测者各自的回测结果，最后提供了读者自行研究和实施的资源。&lt;/p&gt;
 
 &lt;h3&gt;重要的概念&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;股息型ETF (Dividend ETFs):&lt;/strong&gt; 投资于定期派发股息的股票的交易所交易基金，旨在为投资者提供稳定的现金流。文中使用SCHD（Schwab U.S. Dividend Equity ETF）、VIG（Vanguard Dividend Appreciation ETF）、VYM（Vanguard High Dividend Yield ETF）、SDY（SPDR S&amp;amp;P Dividend ETF）和DVY（iShares Select Dividend ETF）作为例子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500 备兑看涨期权ETF (S&amp;amp;P 500 Covered Call ETFs):&lt;/strong&gt; 投资于S&amp;amp;P 500指数成分股，并通过卖出看涨期权来产生额外收入的交易所交易基金。这种策略旨在提高收益率并降低波动性。文中使用GPIX、SPY和Tespy作为例子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;总回报 (Total Return):&lt;/strong&gt; 衡量投资表现的关键指标，包括资产价格变动（资本利得或损失）和投资所产生的收入（如股息或期权费）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;噪音区间 (Noise Area)&lt;/strong&gt;：这是一个基于过去14天日内平均波动率计算出的价格区间。策略认为，只有当价格突破这个区间时才预示着趋势的到来，此时才进行入场操作。该区间由每天开盘价向上加一个标准差、向下减一个标准差来确定其上下边界。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浮动杠杆 (Floating Leverage)&lt;/strong&gt;：这是一种策略优化方法，通过观察SPY最近14天的波动情况来动态调整交易杠杆。当市场波动大时使用较小杠杆，波动小时则使用较大杠杆（作者最高设置4倍杠杆），旨在提升风险调整后的收益。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;主要观点&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500备兑看涨期权ETF在总回报和收益方面优于股息ETF，且风险更低。&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;策略核心：日内趋势追踪&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;GPIX和SPY在过去一年的总回报方面，优于VIG和SCHD。&lt;/li&gt;
-&lt;li&gt;Tespy（日内备兑看涨期权ETF）的总回报（9.85%）也优于VIG（7.94%），即使不复投股息，Tespy表现依然更佳。&lt;/li&gt;
-&lt;li&gt;备兑看涨期权ETF的派息率远高于股息ETF：GPIX约为8%（年化，月度派息），SPY约为12%（年化，月度派息），Tespy约为14-14.5%（年化，月度派息）。相比之下，VIG的派息率约为1.69-1.7%，SCHD略低于4%。&lt;/li&gt;
+&lt;li&gt;该策略是针对标普ETF（如SPY）的日内趋势追踪策略，仅在交易日内开仓和平仓（早上9:30至下午4点）。&lt;/li&gt;
+&lt;li&gt;入场逻辑：价格突破预设的“噪音区间”时进行追涨或追跌。&lt;/li&gt;
+&lt;li&gt;交易频率控制：为减少频繁交易和假信号，策略每半小时才决定是否入场。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 备兑看涨期权策略通过出售看涨期权产生额外收入，且由于收取期权费，具有降低整体风险的特性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;出场条件优化显著提升策略表现&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基础出场&lt;/strong&gt;：价格触及噪音区间的另一条线或持仓至收盘。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化1&lt;/strong&gt;：价格回撤至初始突破线时离场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化2（表现最佳）&lt;/strong&gt;：价格穿过初始突破线或VWAP（成交量加权平均价）时离场，以先发生者为准。
+&lt;ul&gt;
+&lt;li&gt;作者回测结果（2007-2024）：此版本策略的夏普比率提升至1.24，最大回撤显著减小，收益曲线平滑。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;股息ETF的表现落后于S&amp;amp;P 500整体市场。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt; 在过去3年、5年和10年，S&amp;amp;P 500指数的总回报率始终高于所有被提及的股息ETF。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;股息ETF表现不佳的主要原因是其投资组合排除了高增长的科技股。&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;引入浮动杠杆是最终优化形式&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 股息ETF的选股标准限制了它们只能投资于派发股息的股票。然而，过去5-10年表现最好的股票（如英伟达、Magnificent 7、亚马逊、特斯拉）多为高增长的科技股，它们通常不派发股息或派发极少股息，因此未被纳入股息ETF。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据支撑:&lt;/strong&gt; SCHD在信息技术行业的配置比例非常低，而该行业是过去十年表现最好的板块。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例支撑:&lt;/strong&gt; VIG近期表现优于SCHD的原因在于，VIG的投资组合中包含了更多科技股（如Meta、微软、苹果等），尽管它们只派发少量股息，但其高增长贡献了显著回报。&lt;/li&gt;
+&lt;li&gt;通过根据近期波动率调整杠杆，使策略达到作者回测中最高的夏普比率1.33。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;S&amp;amp;P 500备兑看涨期权ETF能够同时获得S&amp;amp;P 500的整体增长和高收益。&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;作者回测结果（SPY，2007-2024）&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑支撑:&lt;/strong&gt; 这些ETF持有S&amp;amp;P 500指数成分股，意味着它们能捕捉到包含高增长科技股在内的整个市场的表现，同时通过备兑看涨期权策略产生高额的被动收入。&lt;/li&gt;
+&lt;li&gt;年化收益：20%&lt;/li&gt;
+&lt;li&gt;夏普比率：1.33（最终优化版）&lt;/li&gt;
+&lt;li&gt;注：作者的所有回测结果均包含资金复利效应，即每次入场都使用累积的全部资金，这可能使夏普比率显得更高。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3&gt;行动建议&lt;/h3&gt;
-
+&lt;li&gt;&lt;strong&gt;回测者个人回测结果（标普CFD，2020-2025年6月）&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;对于追求被动收入和较低波动性的投资者，S&amp;amp;P 500备兑看涨期权ETF是比传统股息ETF更好的选择，因为它能提供更高的收益、更好的总回报表现和更广的多元化（包含整个S&amp;amp;P 500）。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;"S&amp;amp;P 500 covered call ETF is far superior than investing in a dividend ETF."&lt;/li&gt;
-&lt;li&gt;"When you're writing covered calls... you're actually lowering the risk."&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=hEusDtYpAxM</guid>
-      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从龟缩到做空：当前市场交易策略、持仓调整与热门股分析</title>
-      <link>https://www.youtube.com/watch?v=_WCU2iYHrvg</link>
-      <description>&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=_WCU2iYHrvg"&gt;高位混沌、信号紊乱：我看到的不只是风险|TSLA和CRCL后续&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章阐述了作者的交易策略从防御性（龟缩）转向看空做空，并详细说明了当前投资组合的调整，增加了看空仓位。作者分析了多种市场数据来支撑其看空观点，并具体讨论了热门股票CRCL（稳定币概念股）和特斯拉的交易机会与风险，强调了交易边界和心态管理的重要性。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;重要概念：&lt;/strong&gt;
-*   &lt;strong&gt;龟缩转向做空&lt;/strong&gt;：指作者的投资策略从保守防御转变为积极的做空操作，由仓位决定。
-*   &lt;strong&gt;游资对于新股的炒作&lt;/strong&gt;：描述了短线投机资金如何炒作新上市股票，使其价格脱离基本面快速上涨，并以CRCL为例进行了阐述。这类股票往往波动巨大，风险极高，且后续可能长期处于低迷状态。
-*   &lt;strong&gt;市场宽度背离&lt;/strong&gt;：指大盘指数创新高，但上涨股票的数量或广度（如200日均线以上股票比例）并未同步，显示市场上涨缺乏普遍性支撑，可能预示风险。
-*   &lt;strong&gt;Pension rebalance（养老金再平衡）&lt;/strong&gt;：指月末养老金基金为保持资产配置比例，可能卖出涨幅较大的风险资产（如股票）并买入避险资产（如债券），对市场造成卖压。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
-*   当前市场策略已从“龟缩”（防御）转变为“做空”（看空）。
-    *   &lt;strong&gt;支撑数据&lt;/strong&gt;：增加了SPX和SPY的看跌期权仓位（总仓位达0.7%），并对CRCL、CRWV等股票进行了小仓位做空，期权总仓位约3.5%，其中看空仓位接近1%；股票仓位为0，整体现金仓位约96%。
-*   尽管指数表面强劲，但市场内部蕴藏高风险，交易难度极大。
-    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：近70%公司进入禁末期（无法回购），削弱买盘力量；CTA（商品交易顾问）仓位高，后续影响有限；高盛预测月末养老金再平衡可能带来280亿美元卖压；散户情绪并非过度乐观，但参与度高（如特斯拉、英伟达炒作），部分游资可能被统计为散户，推动短线炒作形成“逼空”。
-    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：市场宽度出现背离，如纽交所多数股票宽度在70%左右时，新高力度不足；200日均线以上股票比例在上涨后回落至55%，显示上涨动力不足。
-    *   &lt;strong&gt;支撑数据/逻辑&lt;/strong&gt;：VIX指数若进一步下降至14-15区间，MACD形成底部结构，可能提供做空机会，但通常只会是3%左右的重仓位，且以3-6个月后的期权为主。
-*   对新上市热点股（如CRCL）的炒作是投机行为，风险巨大，不宜盲目追高。
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：CRCL的IPO定价在三四十美元，开盘即翻倍至六十多美元，短期内最高冲至三百多美元，但基本面无重大变化，盈利主要来自短期美债收入，波动极大（单日振幅超20%），且衍生品价格昂贵。
-    *   &lt;strong&gt;支撑案例&lt;/strong&gt;：类比Reddit、Coreweave、ARM、Coin等次新股的走势，通常快速拉升后经历长期盘整或下跌，消化套牢盘。
-*   特斯拉在当前位置不具备良好的投机机会。
-    *   &lt;strong&gt;支撑逻辑&lt;/strong&gt;：330-370美元区间存在大量套牢盘，短期快速拉升后，这些套牢盘可能不愿割肉，反而等待更高的解套机会；只有经历长时间的震荡或下跌，充分消化套牢盘后，才可能出现新的介入机会。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;行动建议/操作指南：&lt;/strong&gt;
-*   &lt;strong&gt;整体策略&lt;/strong&gt;：从看多转向看空做空，增加看跌期权仓位，并保持高现金仓位（约96%）。
-*   &lt;strong&gt;对待热点新股（如CRCL）&lt;/strong&gt;：
-    *   不介入不熟悉的、缺乏稳定交易模型的股票。
-    *   避免追逐波动极大的股票（如单日振幅超20%），难以止损且仓位控制困难。
-    *   认识到衍生品昂贵导致难以上手。
-    *   设定交易边界，不属于自己认知范围内的利润就放弃，不盲目追逐。
-*   &lt;strong&gt;对待特斯拉&lt;/strong&gt;：
-    *   短期内不积极介入，耐心等待。
-    *   等待上方套牢盘通过时间或震荡充分消化后，出现明确的收敛形态再考虑介入。
-    *   控制情绪，市场机会很多，无需执着于单一股票。
-*   &lt;strong&gt;心理建设&lt;/strong&gt;：在市场波动和不确定性高时，保持耐心，避免盲目追高；选择“软柿子”而非“硬骨头”进行交易。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
-*   “有些钱不是属于我的，我们就不拿。”
-*   “你是否有能力去驾驭这样的股票，你有能力去驾驭这样的金钱，它是否是属于你认知或者属于你盈利中的一部分？”
-*   “如果没有任何以交易和实质行动的分享只讲所谓的观点看涨或看跌，那么这种几乎都可以算作是耍流氓行为。”
-*   “何必去啃这个硬骨头，等到有软柿子时来的时候，我们捏软柿子。”&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=_WCU2iYHrvg</guid>
-      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>深入解析四种实战交易策略：趋势、裸K、套利与波动率</title>
-      <link>https://www.bilibili.com/video/BV1yGK1zYEMF</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1yGK1zYEMF"&gt;常用的交易方法有哪些？&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章详细介绍了四种超实用的交易方法：趋势交易法、裸K交易法、套利交易法和波动率交易法。内容涵盖每种方法的原理、优缺点、适用场景及操作要点，旨在帮助投资者提升交易技能，少走弯路。&lt;/p&gt;
-
-&lt;p&gt;重要的概念包括：
-*   &lt;strong&gt;趋势交易法：&lt;/strong&gt; 顺应市场趋势进行交易，核心是趋势一旦形成，大概率会延续。使用移动平均线、趋势线等工具识别方向。
-*   &lt;strong&gt;裸K交易法：&lt;/strong&gt; 摒弃一切指标，仅通过K线形态和关键支撑阻力位来判断市场。
-*   &lt;strong&gt;套利交易法：&lt;/strong&gt; 利用相同或相关资产间的短期定价偏差进行交易，同时买入低估资产并卖出高估资产，实现无风险或低风险收益。文中举例说明了ETF与成分股、期货与现货、以及不同交易所上市的同一只股票之间的价差套利。
-*   &lt;strong&gt;波动率交易法：&lt;/strong&gt; 不预测市场涨跌方向，而是专注于交易市场的波动性。利用隐含波动率等工具，结合期权进行操作。&lt;/p&gt;
-
-&lt;p&gt;主要观点：
-*   套利交易法单笔收益率可能极低（甚至不到1%），但通过程序化执行和累积效应仍可获利。
-    *   数据：单笔收益可能连1%都不到。
-    *   逻辑：想赚得多需砸大资金或加杠杆，但同时也放大了风险；对交易速度和成本要求极高；市场越来越成熟，明显的套利机会越来越少。
-*   波动率交易法不依赖对涨跌方向的判断，而是从市场波动中寻找机会。
-    *   逻辑：利用隐含波动率等工具，在市场大幅波动或特别平静的时候都有机会赚钱，配合期权玩法超灵活。&lt;/p&gt;
-
-&lt;p&gt;行动建议和操作指南：
-*   &lt;strong&gt;趋势交易法：&lt;/strong&gt; 利用移动平均线和趋势线找到市场大方向，上升时买入，下降时卖出。
-*   &lt;strong&gt;裸K交易法：&lt;/strong&gt; 专注于K线形态和关键支撑阻力位进行判断，直接关注开盘收盘最高最低价。
-*   &lt;strong&gt;套利交易法：&lt;/strong&gt; 发现相同或相关资产间的定价偏差时，同时买入低价、卖出高价。操作时时刻盯着价差，一般超过或低于平均值两倍标准差时可考虑出手。
-*   &lt;strong&gt;波动率交易法：&lt;/strong&gt; 需搞懂复杂的波动率模型和期权希腊字母；可利用OpenVlog等工具实时查看波动率、构建策略、进行压力测试。
-*   &lt;strong&gt;总体建议：&lt;/strong&gt; 投资者应根据自身情况选择合适的交易方法，并在投资路上多学多思考。&lt;/p&gt;
-
-&lt;p&gt;金句：
-*   “投资路上多学多思考才能越做越好”&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1yGK1zYEMF</guid>
-      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>周富盘量化交易周报：原油LPG、中证1000波动率及铜实战分析</title>
-      <link>https://www.bilibili.com/video/BV1tyK1zrEzx</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1tyK1zrEzx"&gt;本周100%的交易胜率，都做了啥？&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本文总结了“周富盘”团队一周的量化交易操作，展示了在原油、LPG、中证1000及铜等不同资产上的策略运用，强调了波动率套利和基本面分析的重要性，并推广了一款简化期权交易的工具。&lt;/p&gt;
-
-&lt;h3&gt;重要的概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Open5神器&lt;/strong&gt;: 一款旨在简化期权交易的AI工具，特别适合新手。它包含“策略推荐器”功能，能根据用户对市场的不同观点（极度看跌、看跌、中性、看涨、极度看涨）推荐相应的期权策略，将复杂的期权攻略简单化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;波动率套利&lt;/strong&gt;: 一种利用不同市场或不同时间段内资产波动率定价差异进行套利的策略。文中提及在中证1000和铜上，通过比较国内外科波波动率或发现定价错误进行操作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;吃贴水&lt;/strong&gt;: 指通过卖出期权来赚取期权时间价值衰减（贴水）的策略，通常在市场预期震荡或波动不大的情况下使用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;原油LPG空头策略及时反转&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;初期因短期战争可能性低及LPG波动率异常高而果断做空LPG原油波动率。&lt;/li&gt;
-&lt;li&gt;在原油跌停后及时止盈离场，原因在于看跌IV（隐含波动率）跌幅大于看涨IV，表明市场看跌情绪正在减弱，看涨情绪上升，随后反手做多LPG（卖出看跌期权）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中证1000偏震荡偏强，采取吃贴水策略&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;有机构大量卖出看跌期权（卖PUT），判断中证1000跌不动，整体偏震荡且偏强。&lt;/li&gt;
-&lt;li&gt;策略为“吃贴水稳扎稳打”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中证1000和铜存在波动率套利机会&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;港股与中证1000波动率出现明显差异，认为存在定价错误，提示做空中证1000波动率的机会。&lt;/li&gt;
-&lt;li&gt;国内铜的波动率相比国外在过去一年明显偏低，存在划算的波动率套利机会，且同时看涨铜价（delta偏向看涨）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;铜的基本面支撑看涨&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;逻辑链条：矿端紧缺 -&gt; 冶炼厂亏损减产 -&gt; 精铜产量减少 -&gt; 库存下降 -&gt; 价格上涨。&lt;/li&gt;
-&lt;li&gt;周五白天铜的成交量翻倍，外盘铜大涨，波动率飙升，印证看涨判断。&lt;/li&gt;
+&lt;li&gt;夏普比率：0.78（未包含资金复利，固定交易一手，使用30分钟VWAP作为出场条件）&lt;/li&gt;
+&lt;li&gt;回测结果的趋势和重要拐点与作者的结果相似，但因数据和条件差异，无法完全一致。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;简化期权交易&lt;/strong&gt;: 如果觉得期权交易复杂，强烈建议使用“Open5神器”，称其能让“小白也能轻松上手”，新上线的策略推荐器可直接将复杂攻略简化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;系统学习期权&lt;/strong&gt;: 若想系统学习期权，可直接搜索“openvlap.xn”或通过评论区获取免费资源。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
+&lt;li&gt;&lt;strong&gt;自行回测或研究&lt;/strong&gt;：
 &lt;ul&gt;
-&lt;li&gt;“跟着趋势走，准没有错。”&lt;/li&gt;
-&lt;li&gt;“小白也能轻松上手。”&lt;/li&gt;
-&lt;li&gt;“期权真的非常划算。”&lt;/li&gt;
-&lt;li&gt;“复杂攻略了简单化。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tyK1zrEzx</guid>
-      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化捕捉低效市场：详解Z-score、本福特定律、信息熵、记忆与时间结构等方法</title>
-      <link>https://www.bilibili.com/video/BV1iHKCzUE7A</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1iHKCzUE7A"&gt;捕捉低效市场的一些方法 除了z score还能用什么&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本文主要探讨了在量化交易中，如何识别并捕捉市场从正常随机状态转向低效、更具可预测性时刻的方法。文章强调，在市场低效时，价格走势变得更易预测，从而提供了潜在的交易机会。文中详细介绍了多种可应用于不同数据类型的量化分析技术，旨在帮助识别这些“不正常”的市场状态。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;重要概念与解释&lt;/strong&gt;
-*   &lt;strong&gt;低效市场：&lt;/strong&gt; 指市场价格从无序状态变得更具预测性的时期，此时市场提供了捕捉交易机会的可能性。
-*   &lt;strong&gt;Z-score：&lt;/strong&gt; 一种衡量时间序列偏离其均值多少个标准差的统计量。它常用于判断数据点是否异常或偏离正常分布范围。文中提到，绝大多数时间Z-score在-2到2之间，超出此范围则可能预示着“奇怪的事情发生了”。
-*   &lt;strong&gt;本福特定律（Benford's Law）：&lt;/strong&gt; 一个关于数字出现频率的定律。对于许多自然或未经人为修改的数据集，以数字1开头的数字出现的频率最高，且随着首位数字的增加，其出现频率递减。如果数据集的首位数字频率分布与该定律显著偏离，则可能表明数据不够随机，具有预测性。文中通过对数增长的概念辅助理解，例如从1到2是翻倍，比从2到3翻的倍数要大，所需时间更长，因此1开头的数字更容易被观察到。
-*   &lt;strong&gt;KS检验（Kolmogorov-Smirnov Test）：&lt;/strong&gt; 一种统计检验方法，用于判断两组数据分布是否相似，而不要求其服从特定分布。它通过比较两组累积密度函数的最大距离来进行假设检验。
-*   &lt;strong&gt;条件熵（Conditional Entropy）：&lt;/strong&gt; 信息论中的概念，衡量在已知某个条件（或上下文）下，某个随机变量的不确定性或随机性。熵值越高，数据随机性越强；熵值越低，数据可预测性越强。文中举例说明，可以将每日回报分为大跌、小跌、横盘、小涨、大涨等类别，通过分析连续三天回报组合（如“423”或“434”）的条件熵，来判断下一个回报类别的可预测性。
-*   &lt;strong&gt;赫斯特指数（Hurst Exponent）：&lt;/strong&gt; 一个衡量时间序列长期记忆性或趋势性的指标。当赫斯特指数小于0.5时，时间序列更倾向于反转；等于0.5时，表示随机游走；大于0.5时，表示存在趋势。
-*   &lt;strong&gt;自相关函数（ACF）和偏自相关函数（PACF）：&lt;/strong&gt; 统计学中用于分析时间序列与其自身滞后值之间相关性的函数。通过绘制ACF和PACF图并观察其滞后项是否显著偏离零以及其衰减模式，可以揭示时间序列的反转、随机游走或趋势特性。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;主要观点&lt;/strong&gt;
-*   当市场从高效（随机且难以预测）转变为低效时，价格会变得更具预测性，这通常是捕捉交易机会的时机。
-    *   （逻辑）正常市场下价格随机，不宜频繁交易；低效市场下价格从无序到有序，存在预测空间。
-*   捕捉低效市场的方法并非策略本身，它们是识别机会的工具，回测后不盈利是正常现象。
-*   识别市场“不正常”状态的核心思路是：首先明确市场“正常”时的表现，任何偏离即为“不正常”。
-    *   （支撑）Z-score通过判断数据是否超出其正态分布的正常范围来识别异常。
-    *   （支撑）本福特定律通过检查数据首位数字频率是否符合理论分布来判断数据的随机性，若不符则可能存在预测性。
-    *   （支撑）KS检验用于比较当前数据分布与“正常”或历史分布的相似性。
-    *   （支撑）条件熵量化数据的可预测性，低熵组合预示高可预测性。
-*   信息论中的“熵”可以量化数据的随机性与可预测性，熵值越低表示数据越容易预测。
-    *   （支撑）通过计算不同回报组合的条件熵，识别出低熵组合，可作为仅在这些高预测性组合出现时进行交易的依据。
-*   时间序列的记忆和时间结构（如赫斯特指数、ACF/PACF）能揭示其未来走势的特性（反转、随机游走或趋势）。
-    *   （支撑）赫斯特指数直接反映时间序列的反转、随机游走或趋势倾向。
-    *   （支撑）ACF/PACF图通过观察滞后项是否显著偏离零来判断时间序列的趋势性或反转性，例如，ACF逐渐递减且有bar超出置信区间，PACF显示与前一时间点高相关性，表明存在正相关趋势性。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;行动建议/操作指南&lt;/strong&gt;
-*   &lt;strong&gt;Z-score应用：&lt;/strong&gt; 监测时间序列的Z-score，当其超出正常区间（如-2到2）时，可能预示着价格会向均值回归，可考虑进行相应的多空操作。
-*   &lt;strong&gt;本福特定律应用：&lt;/strong&gt; 统计你的数据（需跨越多个量级，如财报数字、交易额、交易量）首位数字的频率分布。若与本福特定律的理论分布存在显著差异，可能表明数据不够随机，具有可预测性，值得进一步研究。
-*   &lt;strong&gt;KS检验应用：&lt;/strong&gt; 可用于比较你当前数据的分布（如某个指标的每日值）与历史“正常”分布或目标分布是否一致，以检测异常。
-*   &lt;strong&gt;条件熵应用：&lt;/strong&gt; 将你感兴趣的数据（如股票回报）进行分类和组合。计算不同组合的条件熵，识别出熵值较低（即预测性强）的组合。考虑仅在这些低熵组合出现时才进行交易。
-*   &lt;strong&gt;赫斯特指数应用：&lt;/strong&gt; 计算时间序列的赫斯特指数，根据其值判断序列是更倾向于反转、随机游走还是存在趋势，从而指导交易策略的制定。
-*   &lt;strong&gt;ACF/PACF应用：&lt;/strong&gt; 绘制时间序列的ACF和PACF图。如果图中滞后项显著超出置信区间，表明时间序列存在自相关性（如反转或趋势性），可利用此信息进行预测。例如，ACF逐渐递减并显示趋势，可利用其进行趋势跟踪。
-*   &lt;strong&gt;泛化应用：&lt;/strong&gt; 文中提到的方法不限于价格数据，可应用于各种数据，如波动率、交易额等。鼓励读者发散思维，探索这些方法在不同数据上的应用潜力。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;
-*   “当市场变得低效的时候，那这个时候往往就是机会来临的时候，它代表着这个价格从无序变得更有预测性了。”
-*   “最好的情况就是我们先知道他正常的时候什么样，然后不正常的时候，那不就是显而易见了吗？”
-*   “如果这个商越高，就代表着我这个数据的随机性越强；如果我的商越低，那这就代表着我的数据的这个可预测性特别强。”&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1iHKCzUE7A</guid>
-      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>扑克与对冲基金的交集：风险、博弈论与市场投资策略</title>
-      <link>https://www.bilibili.com/video/BV1WugfzmER8</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1WugfzmER8"&gt;扑克学懂优秀交易员思维（二）&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章探讨了职业扑克与对冲基金管理之间的深刻相似之处，强调两者都涉及在不确定性中进行风险计算、心理博弈和战略决策。通过顶尖扑克选手和对冲基金经理的视角，文章揭示了扑克中理解概率、适应对手和管理情绪波动等原则如何直接应用于金融市场。文末还讨论了市场日益“游戏化”的趋势以及早期接触风险承担概念的价值。&lt;/p&gt;
-
-&lt;h3&gt;重要的/新鲜的概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;博弈论最优策略 (GTO - Game Theory Optimal) 打法&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;: 指的是在博弈中，通过数学计算和模拟大量数据得出的、对手难以反制的、没有弱点的完美策略。它基于数学概率而非直觉或情绪。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例/故事&lt;/strong&gt;: 随着千禧年初在线扑克兴起，玩家们首次获得海量数据和先进工具。计算机程序能模拟百万手牌，测试并优化应对所有可能反应的策略，从而诞生了GTO打法，这与过去依赖直觉和“街头智慧”的艺术性打法形成对比，被称为“扑克的科学革命”。&lt;/li&gt;
+&lt;li&gt;查阅作者提供的Python源码，链接会由视频发布者提供，其中包含数据处理和回测逻辑，有助于理解策略细节。&lt;/li&gt;
+&lt;li&gt;在TradingView上搜索作者编写的指标（开源Pine Script代码），可可视化“噪音区间”，辅助观察价格走势与策略相互作用。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场游戏化 (Gamification of Markets)&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;注意事项&lt;/strong&gt;：
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;: 指的是市场行为越来越像游戏，人们对待股市如同赌场，进行投机性赌博。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例/故事&lt;/strong&gt;: 疫情时期，人们决定在股市赌博并像赌场一样对待，罗宾汉等应用曾引发是否过度游戏化的争议。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;专业扑克与对冲基金管理在本质上高度相似，两者都涉及在不确定性中做出战略决策、管理风险和进行心理博弈。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 加伦·霍尔（前职业扑克选手，对冲基金创始人）认为扑克和对冲基金管理在策略构建、资金来源分析、识别市场中非经济行为者（如同扑克中寻找模式和破绽的玩家）方面有诸多相似之处。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;在不确定性游戏中，理解概率并在波动中保持冷静是成功的关键，这需要亲身经历和实践而非仅仅理论知识。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 加伦表示，理解波动性不仅仅是研究统计数据或蒙特卡洛模拟，而是要亲自经历连续输掉数十次金钱的五五开或六四开局面，培养出一种“禅意般的机械能力”，只关注决策的正确性而非结果。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;人们普遍存在风险规避心理，导致其承担的风险远低于实现目标所需的最优水平。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 认为适度引入赌博（如扑克）到生活中，实际上对许多人是净收益，因为它能教会人们权衡不确定结果和自身偏见，甚至在约会或关系中，人们也不够冒险。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;市场正在变得越来越“游戏化”，这反而为像对冲基金这样的参与者创造了机会。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 对冲基金的本质就像玩游戏，如果有人发明新游戏并想投入玩，基金可以模拟他们的行为并试图击败他们。疫情期间，人们将股市视为赌场，基金可以站在对立面。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;预测市场在信息混乱时代非常有价值，因为其集体智慧能够帮助判断信息的真实性。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 如果想知道某事发生的可能性，可以通过预测市场的反应来思考，因为它像一个蜂群，体现了群体的智慧。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议/操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;在决策中识别并利用对手的非经济行为或情绪驱动行为&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：在扑克中，寻找模式和破绽，识别情绪或压力驱动而非逻辑驱动的玩家。在对冲基金中，构建策略时不仅基于市场基本面，还要基于其他参与者的行为主导，例如被动抛售的机构或恐惧驱动的交易者。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;培养应对波动的心理韧性&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：通过亲身经历金钱上的起伏和灾难性或无比幸运的事件，逐步培养出一种“禅意般的机械能力”，专注于决策的合理性，而非结果。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;适度接触和理解不确定性与风险&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：早期接触如扑克这类活动，可以帮助人们学习如何权衡不确定结果，认识自身偏见，并培养统计素养，从而在生活中更好地承担最优水平的风险。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在市场中建立和管理个人形象&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方法&lt;/strong&gt;：了解他人对你的看法，并充分利用这种印象来灵活调整策略以迷惑对手（如做空股票并告知他人，使其跟随）。&lt;/li&gt;
+&lt;li&gt;作者的回测结果包含资金复利，自行回测时需考虑是否采用相同设定。&lt;/li&gt;
+&lt;li&gt;作者使用1分钟VWAP决定出场，而回测者使用30分钟VWAP，这可能导致出场时机差异，需根据自身数据和需求选择。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;金句&lt;/h3&gt;
 
-&lt;ul&gt;
-&lt;li&gt;“若三十分钟内无法识别桌上的傻瓜，那你就是那个傻瓜。”&lt;/li&gt;
-&lt;li&gt;“扑克就是培养他人印象，只要清楚他人对你的看法，并充分建立形象，就能灵活调整，迷惑他们。也许你在玩市场，可以说市场也关乎形象，你究竟想向世界投射什么，这就是你可以实现的梦想。”&lt;/li&gt;
-&lt;li&gt;“每个优秀牌手都经历过，这种事情不止一次两次，而是多次经历了惊人的起伏，灾难性的坏运气，无比幸运的好运气，逐渐培养出禅意般的机械能力，只思考我是否在做正确决策，这些决策是否合理，后续结果如何，完全不在意。”&lt;/li&gt;
-&lt;li&gt;“我认为适度引入赌博到多数人生活中，对许多人来说其实是净收益，因为它能教会人们如何权衡不确定结果以及自身偏见所在，决策树等方法。”&lt;/li&gt;
-&lt;li&gt;“真正区分他们（专业赌徒与华尔街交易员）的，不是运气，而是能够承受风险，信任数学规律。”&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;无&lt;/p&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1WugfzmER8</guid>
-      <pubDate>Sun, 29 Jun 2025 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1B5TLzCEDk</guid>
+      <pubDate>Sat, 07 Jun 2025 12:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>MiniQMT量化交易实盘框架搭建教程</title>
-      <link>https://www.bilibili.com/video/BV1GQgZzcEEW</link>
-      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1GQgZzcEEW"&gt;miniQMT量化交易—— 实盘框架 | 订单流 | 环境准备 | 数据处理 | 信号生成 | 委托执行&lt;/a&gt;&lt;/p&gt;
+      <title>miniQMT量化策略总览：经典交易系统解析与市场应对实践</title>
+      <link>https://www.bilibili.com/video/BV1br7SzJE6U</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1br7SzJE6U"&gt;miniQMT量化交易——策略概览 | 策略精讲 | 交易心得 | 一次性了解八大策略&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;本文详细介绍了使用Python搭建MiniQMT量化交易实盘框架的完整流程，旨在帮助从大QMT转向MiniQMT的用户更好地掌握核心操作。文章将框架搭建分为四大步骤：环境准备、数据处理、信号生成以及委托与下单，提供了从基础配置到高级策略实现的实用指南。&lt;/p&gt;
+&lt;p&gt;本文主要分享了QMT量化策略的知识，并重点转向讲解miniQMT，以帮助交易者实现更复杂灵活的交易策略。作者针对当前复杂多变的市场行情，提供了三条应对交易心得，并详细介绍了八大经典量化交易策略，预告了后续将结合理论与实践进行深入讲解及回测。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;重要概念：&lt;/strong&gt;
-*   &lt;strong&gt;MiniQMT：&lt;/strong&gt; 一种轻量级的量化交易框架，与传统的“大QMT”不同，它要求用户自行处理诸如全局状态变量定义、数据下载（通过Python代码而非内置功能）等更多细节。
-*   &lt;strong&gt;回调函数 (Callback Function)：&lt;/strong&gt; 在MiniQMT中用于异步处理订单委托的回调机制。当订单状态发生变化时，系统会即时通过回调函数返回信息，避免阻塞等待，提高程序效率。
-*   &lt;strong&gt;订单流数据 (Order Flow Data)：&lt;/strong&gt; 反映市场实时买卖委托情况的L2数据，提供不同价位上的委托量信息。文章强调了1分钟订单流数据相比5分钟数据的更高时效性，可用于高频交易策略，甚至结合机器学习模型如SVM。
-*   &lt;strong&gt;全局状态变量 (Global State Variable)：&lt;/strong&gt; 在MiniQMT中，由于缺少大QMT内置的上下文变量，需要用户自定义一个类或机制来存储和管理全局共享的策略状态信息，如已买股票列表、自选股票池等。&lt;/p&gt;
+&lt;p&gt;文章中提出或强调了以下重要概念：&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;主要观点：&lt;/strong&gt;
-1.  &lt;strong&gt;MiniQMT策略开发需自行管理全局状态：&lt;/strong&gt; 与大QMT不同，MiniQMT不提供内置上下文变量，开发者需自定义类来保存和管理策略的全局状态信息，如已持仓列表、自选股池等。
-    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “我们在我们的mini campty是没有它的，所以说都要自己去定义一个就是说可以在全局去保存状态的一个变量。”
-2.  &lt;strong&gt;数据获取方式的转变：&lt;/strong&gt; 在MiniQMT中，历史数据和盘中订阅数据主要通过Python程序代码实现下载和获取，而非框架内置的数据下载功能。
-    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “和我们在我们之前这个q mt里面去做的区别是在于我们没有哦就是我们就是说一般不会就是说在我们的cam t里面去下载数据我们都是通过我们这种Python的这种程序的方式然后去去下载。”
-3.  &lt;strong&gt;高频交易需警惕数据延迟：&lt;/strong&gt; 在高频交易场景下，通过MiniQMT接口查询的订单信息和持仓情况可能存在延迟，为提高策略稳定性，建议在本地也搭建一套订单和持仓管理系统进行配合。
-    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “他的这个我们去去做查询的时候，他的这个就是说查出来这个电订单信息，还有我们这这些就是说持仓方面这些信息它可能和我们真实的这个信息信息它是是有延迟的所以说其实我们最好是本地也做一套。”
-4.  &lt;strong&gt;订单流数据时效性与应用：&lt;/strong&gt; 1分钟订单流数据具备最高的时效性，适合需要实时性强的策略；而5分钟订单流数据则更偏向统计，适用于对时效性要求相对较低的统计分析型策略。
-    *   &lt;strong&gt;逻辑支撑：&lt;/strong&gt; “一分钟这个订单流数据它可能就反正是我一分钟内发发生的事情，它是最就是说嗯时效性是最高的。那么5分钟他可能就是偏统计一些，那么它是统计5分钟内它发生了什么事情。”&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;miniQMT&lt;/strong&gt;: QMT的迷你版本，专为实现更复杂、更灵活的交易策略设计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;80/20利润法则&lt;/strong&gt;: 指交易中80%的利润来源于20%的交易，强调要允许小额亏损的多次发生，但需确保少数盈利交易的幅度足够大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应对（Coping）而非预测（Predicting）&lt;/strong&gt;: 在市场不确定性中，建立应对系统比精准预测更有效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;羊群效应&lt;/strong&gt;: 解释了某些技术指标（如五日均线）有效的原因——因为大量市场参与者相信并使用它们，从而形成自我实现的有效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平均真实波幅（ATR）&lt;/strong&gt;: 一种辅助判断市场波动幅度和趋势突破有效性的指标，尤其在流动性不足的市场中作用明显。&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;行动建议/操作指南：&lt;/strong&gt;
-1.  &lt;strong&gt;环境准备：&lt;/strong&gt;
-    *   &lt;strong&gt;Python版本与包：&lt;/strong&gt; 确保Python版本符合MiniQMT接口要求（如3.6-3.12），通过UV包管理器安装&lt;code&gt;xtquant&lt;/code&gt;官方包及pandas等常用第三方库，并配置Python镜像源加速下载。
-    *   &lt;strong&gt;程序初始化：&lt;/strong&gt; 导入所需包，自定义全局状态类，实例化&lt;code&gt;XTPCrdTrader&lt;/code&gt;交易端（需指定MiniQMT路径和唯一&lt;code&gt;session_id&lt;/code&gt;），并定义账户信息（账户号、账户性质如&lt;code&gt;stock&lt;/code&gt;或&lt;code&gt;credit&lt;/code&gt;）。
-    *   &lt;strong&gt;回调函数：&lt;/strong&gt; 定义并注册继承自&lt;code&gt;XTPCrdCallBack&lt;/code&gt;的回调函数，重写相关方法（如&lt;code&gt;on_disconnected&lt;/code&gt;），用于异步接收订单返回信息。
-    *   &lt;strong&gt;启动与连接：&lt;/strong&gt; 启动交易端线程，并连接交易端，订阅主推交易信息。
-2.  &lt;strong&gt;数据处理：&lt;/strong&gt;
-    *   &lt;strong&gt;历史数据下载：&lt;/strong&gt; 编写下载函数（如&lt;code&gt;my_download&lt;/code&gt;），设置历史数据起始时间（如前三天），下载所需股票列表的K线数据（如5分钟）和订单流数据（如1分钟）。注意：1分钟订单流是基础，无需重复下载5分钟订单流。
-    *   &lt;strong&gt;行情获取：&lt;/strong&gt; 使用&lt;code&gt;get_market_data_ex&lt;/code&gt;函数获取指定时间段的历史行情数据；通过调整&lt;code&gt;count&lt;/code&gt;参数（如&lt;code&gt;count=1&lt;/code&gt;）获取最新的单条K线或订单流数据。
-    *   &lt;strong&gt;数据保存：&lt;/strong&gt; 将下载的数据保存到本地文件或数据库，以便后续用于机器学习模型训练或策略回测。
-3.  &lt;strong&gt;信号生成：&lt;/strong&gt;
-    *   &lt;strong&gt;数据加工：&lt;/strong&gt; 获取实时tick数据、K线数据、订单流数据，结合&lt;code&gt;ta&lt;/code&gt;库或其他自定义方法进行加工，生成交易信号。
-    *   &lt;strong&gt;交易时间判断：&lt;/strong&gt; 编写函数判断当前是否处于交易日及开盘时间内，确保策略只在有效时间段内运行。
-4.  &lt;strong&gt;委托与下单：&lt;/strong&gt;
-    *   &lt;strong&gt;订单与持仓查询：&lt;/strong&gt; 在主循环中，首先使用&lt;code&gt;query_stock_order_info&lt;/code&gt;查询所有订单状态，并使用&lt;code&gt;query_stock_holding&lt;/code&gt;查询当前持仓情况。
-    *   &lt;strong&gt;撤单操作：&lt;/strong&gt; 根据订单状态（如&lt;code&gt;50&lt;/code&gt;或&lt;code&gt;55&lt;/code&gt;表示可撤），调用&lt;code&gt;xd_trader.async_cancel_order&lt;/code&gt;进行异步撤单。
-    *   &lt;strong&gt;下单操作：&lt;/strong&gt; 根据策略生成的买卖信号和当前持仓情况，调用相应的下单接口（如&lt;code&gt;stock_sale&lt;/code&gt;用于卖出，&lt;code&gt;stock_by&lt;/code&gt;用于买入）。
-    *   &lt;strong&gt;本地管理系统：&lt;/strong&gt; 建议在高频交易中，在MiniQMT接口之外，本地也建立订单和持仓管理系统，以应对可能的数据延迟，提高策略的稳定性和鲁棒性。
-    *   &lt;strong&gt;循环控制：&lt;/strong&gt; 使用&lt;code&gt;try while&lt;/code&gt;无限循环运行策略，通过&lt;code&gt;time.sleep()&lt;/code&gt;控制每次循环的频率（如每60秒执行一次）。&lt;/p&gt;
+&lt;p&gt;主要观点如下：&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;金句：&lt;/strong&gt;
-*   “其实这个是比较偏实用的啊 但是呢很多一些朋友 他们就是说从之前的那个大QMT里面 就转到这个mini cam t啊 有些步骤还不会很就是不不会很熟悉 那么今天的话就为大家带呃 就是为大家就是全流程的 然后去操作一遍 然希望大家就是根据这个讲解 可以去啊复复现一下 可以去通过这样的方式去实现一个自自己的一个策略。”
-*   “其实这两步我觉得就是是很重要的 就比如说我们去开车 或者说怎么去刹车 这是最最最重要 这两个步骤先学会 那么后面的话有一些细节的地方 可能会在之后的分享会为大家慢慢去啊去讲解好的。”&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;大多数利润源于少数交易，亏损是常态，但必须截断亏损，让利润奔跑。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 80%的利润来自20%的交易，意味着10次交易中可能8次亏损，但关键在于每次亏损要小，而少数盈利交易要获得巨大收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反常识：&lt;/strong&gt; 不要“扛单”，亏损是交易的正常组成部分。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;入场前务必明确离场条件，并坚决执行。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 建立交易系统时需明确进出场条件，若无系统则常在买入后才考虑离场，为时已晚。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;当行情与预期不符时，应立即停止交易并反思调整预期。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑：&lt;/strong&gt; 市场充满不确定性，盲目硬扛相反行情风险极高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经典量化策略的有效性，部分源于市场参与者的共识或“羊群效应”。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例：&lt;/strong&gt; 5日均线之所以有效，是因为大量交易者相信并使用它，而非其本身有内在魔法。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;文章提供了以下行动建议和操作指南：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;应对复杂行情的交易心得：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;理解并实践“截断亏损，让利润奔跑”：&lt;/strong&gt; 允许小额亏损频繁发生，但要确保单次亏损可控且小。同时，对于少数赚钱的交易，要保持耐心，通过加仓、长期持有等方式放大收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;先想离场再入场：&lt;/strong&gt; 在买入前，就要明确进场和离场的具体条件和模式，并一旦确定就必须坚决执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;及时调整预期：&lt;/strong&gt; 当市场行情与自身预期不一致时，应立即停止，审视并调整自己的预期，而不是盲目硬扛。同时，要控制仓位并放大交易周期。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;各类经典量化策略的应用建议：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;趋势跟踪策略：&lt;/strong&gt; 顺势而为，结合均线、布林带、MACD、海龟交易法则等多重指标进行综合判断。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;均值回归策略：&lt;/strong&gt; 主要适用于日内T0交易（如T0 ETF、可转债网格交易），利用价格在均值附近波动的特性进行高抛低吸。强调T0交易的重要性及波动对称性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量策略：&lt;/strong&gt; 捕捉市场龙头股的连板动量，通过量化指标进行追涨杀跌，可关注时间序列动量和横截面动量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;套利策略：&lt;/strong&gt; 追求低风险甚至无风险收益，利用市场定价错误，如期限套利、跨市场套利（外汇、黄金）、ETF套利（深熟套）。需较大本金，体量越大越应注重风险控制而非单纯追求收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波动率策略：&lt;/strong&gt; 主要作为期权交易的辅助判断，通过ATR等指标辅助。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件驱动策略：&lt;/strong&gt; 关注并利用突发事件（如特朗普言论、指数成分股调整）进行策略布局。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高频交易：&lt;/strong&gt; 目前A股受交易所报单限制（每秒不超过300笔，当日总报撤不超过1万笔），策略执行空间受限，需注意合规。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多因子选股：&lt;/strong&gt; 偏价值投资风格，是一个大的系统性框架，因子需经长期验证。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习和交流：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;未来的视频将着重讲解miniQMT内容，结合理论、实践和回测，深入解析经典策略的赚钱逻辑及其在A股市场的表现。&lt;/li&gt;
+&lt;li&gt;鼓励大家掌握各类策略的优缺点，并学会在不同市场风格和行情下及时切换和应对，以实现量化策略的稳定收益。&lt;/li&gt;
+&lt;li&gt;提供充电服务（答疑）、策略代写/定制，并可加入免费微信学习群进行交流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;文章中的金句：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"其实有时候做应对可能会比预测会更加的有用。"&lt;/li&gt;
+&lt;li&gt;"我们其实有80%的这个利润是来自于20%的交易。"&lt;/li&gt;
+&lt;li&gt;"我们亏损是一件很正常的事我们千万不要去扛单。"&lt;/li&gt;
+&lt;li&gt;"当你的资产规模越大的时候你去思考的事情就是说怎么去降低分险啊不是说怎么去提高提高你的这个收益。"&lt;/li&gt;
+&lt;li&gt;"这个是市场上面是没有很稳定的策略的。"&lt;/li&gt;
+&lt;li&gt;"我们用不确定性的策略来去应对不确定性的市场。"&lt;/li&gt;
+&lt;/ul&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1GQgZzcEEW</guid>
-      <pubDate>Sun, 29 Jun 2025 12:00:00 +0800</pubDate>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1br7SzJE6U</guid>
+      <pubDate>Mon, 02 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>最优凯利杠杆：如何指导上杠杆与实操注意事项</title>
+      <link>https://www.bilibili.com/video/BV1DkEUzXEzc</link>
+      <description>&lt;p&gt;&lt;a href="https://www.bilibili.com/video/BV1DkEUzXEzc"&gt;最优凯利 怎么上杠杆&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文深入探讨了最优凯利杠杆理论，并将其与传统凯利公式进行对比。文章详细阐述了最优凯利杠杆的推导过程，说明了其如何计算最大化对数财富的最佳杠杆比例，并着重指出了在实际交易中应用该理论时需要注意的多个关键问题。&lt;/p&gt;
+
+&lt;p&gt;重要的概念：
+*   &lt;strong&gt;凯利公式 (Kelly Formula)&lt;/strong&gt;：由凯利于20世纪50年代提出，最初用于解决赌博游戏中的资金管理问题。它旨在计算每次下注应投入总资金的百分比，以最大化长期收益。例如，在赢面固定、胜率确定的游戏中，凯利公式能给出每次应投入资金总额的多少比例，以实现最终收益的最大化。
+*   &lt;strong&gt;最优凯利杠杆 (Optimal Kelly Criterion/Leverage)&lt;/strong&gt;：在20世纪60年代提出，是凯利公式在金融交易场景下的延伸。它旨在最大化交易者的对数财富，并计算出一个最佳的杠杆比率（该比率可以大于1），其值取决于策略的回报、无风险利率以及策略的方差。例如，一个年化回报10%、无风险利率3%、标准差15%的交易策略，最优凯利杠杆可能计算出3.1倍的杠杆，意味着应借入额外资金进行交易。&lt;/p&gt;
+
+&lt;p&gt;主要观点：
+*   &lt;strong&gt;最优凯利杠杆可以建议你上大于1的杠杆。&lt;/strong&gt;
+    *   逻辑：最优凯利杠杆的计算公式为L = (策略回报 - 无风险利率) / 策略方差。这个计算结果可以大于1，这意味着为了最大化对数财富，在某些情况下，你不仅应投入所有自有资金，还应该借入资金进行杠杆交易。
+    *   案例：假设一个交易策略年化回报10%，无风险利率3%，标准差15%，代入公式计算得到的最优凯利杠杆L约为3.1。这意味着如果你有100元，你应该再借211元进行交易以达到理论上的对数财富最大化。
+*   &lt;strong&gt;该杠杆值对策略的标准差非常敏感。&lt;/strong&gt;
+    *   逻辑：在最优凯利杠杆的对数财富增长率公式中，策略方差（标准差的平方）位于减项且乘以杠杆平方，这意味着策略的标准差越大，即使只有轻微的杠杆，也可能导致最终对数财富的显著下降，甚至出现爆仓（财富低于0）的风险。
+*   &lt;strong&gt;在实操中，常常使用“半凯利”（Half Kelly）而非全凯利。&lt;/strong&gt;
+    *   逻辑：最优凯利杠杆的理论假设（如策略回报服从正态分布、不考虑最大回撤等）在真实交易场景中难以完全满足，直接应用全凯利杠杆可能导致过高的杠杆估计，从而增加爆仓风险。使用“半凯利”（即公式计算结果的二分之一）可以提供一个安全边际。
+    *   经验：这并非基于严格的数学证明，而是许多资深交易员在长期实盘操作中摸索总结出的经验，被普遍接受为一种更稳健的实践方法。&lt;/p&gt;
+
+&lt;p&gt;行动建议/操作指南：
+1.  &lt;strong&gt;评估策略回报的分布&lt;/strong&gt;：在决定上杠杆前，务必分析你的策略回报是否呈左偏或右偏分布。如果回报分布右偏（即出现大额亏损或“黑天鹅”事件的概率较高），则不建议上高杠杆。
+2.  &lt;strong&gt;考虑最大回撤&lt;/strong&gt;：最优凯利杠杆理论不直接考虑最大回撤，但在实际资金管理中，必须将个人风险承受能力和管理资金的最大回撤要求纳入考量，并据此调整杠杆水平。
+3.  &lt;strong&gt;追求长期效应&lt;/strong&gt;：最优凯利杠杆的效果需在足够长的时间跨度内才能显现。如果你只进行短期交易，可能无法充分体验其复利效应。
+4.  &lt;strong&gt;动态调整杠杆&lt;/strong&gt;：计算出的最优凯利杠杆值并非一成不变，你需要根据策略的表现和账户资金的变化动态调整。例如，当账户资金因亏损而减少时，应相应降低持仓规模和杠杆。
+5.  &lt;strong&gt;考虑杠杆成本&lt;/strong&gt;：获取杠杆是有成本的，如融资利息。这些成本必须计入你的策略总成本中，否则会影响杠杆的实际收益效果。
+6.  &lt;strong&gt;组合策略应用&lt;/strong&gt;：最优凯利杠杆也可用于投资组合中多个策略的资金分配，其组合分配公式与Markowitz均值-方差优化模型类似。在估算策略回报和协方差矩阵时需警惕估计误差。
+7.  &lt;strong&gt;设定杠杆上限&lt;/strong&gt;：将最优凯利杠杆计算值视为一个“最大值”，实际应用的杠杆应低于此值。最终确定杠杆水平时，需综合考虑策略回报分布、个人风险承受能力、期望的最大回撤等多种因素，以找到最适合你的杠杆点。&lt;/p&gt;
+
+&lt;p&gt;金句：
+*   “你把最有凯利杠杆理解成为一个你应该设杠杆的一个最大值你不应该超过这个值不然的话在未来你可能会爆仓这个风险会变得比较大你应该结合你的这个策略本身的这个回报的分布还有你个人的承受能力还有你想要的最大回撤等等等等这些因素综合考量起来确定一个比较适合你的杠杆”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DkEUzXEzc</guid>
+      <pubDate>Mon, 19 May 2025 12:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
