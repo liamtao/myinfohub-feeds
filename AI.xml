@@ -7,7 +7,708 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Jul 2025 16:02:40 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Jul 2025 16:43:30 +0000</lastBuildDate>
+    <item>
+      <title>10分钟开发高性能AI数据分析智能体：基于LongChain与LongGraph技术栈从0到1实战指南</title>
+      <link>https://www.bilibili.com/video/BV1Nx38zMEyi</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Nx38zMEyi"&gt;LangGraph&amp;amp;LangChain智能体开发极速入门！前端对话+NL2SQL+Python代码解释器，前后端分离部署+运行状态实时追踪全流程实战！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容
+本文提供了一个10分钟从零开始手动开发高性能AI数据分析智能体的详细指南。它涵盖了使用LongChain和LongGraph等主流技术架构，从后端功能开发、测试、部署上线到前端调用的全流程实操，旨在帮助读者快速掌握工业级智能体的开发与相关高价值开发工具。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI数据分析智能体 (Data Agent)&lt;/strong&gt;
+能够全自动完成自然语言到结构化语言的转换、数据分析、数据可视化、建模预测等工作，并能打通Python编程环境、持久化保存记忆、自由切换对话，具备“先询问后执行”的人在闭环功能，且可百分之百开源离线部署。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LongChain / LongGraph&lt;/strong&gt;
+目前最主流的智能体技术架构/开发框架，提供高级API（如&lt;code&gt;Long graph create react agent API&lt;/code&gt;）简化Agent构建，以及CLI工具（&lt;code&gt;Long graph cli&lt;/code&gt;）进行一键部署，和可视化测试工具（&lt;code&gt;Long graph studio&lt;/code&gt;）进行功能测试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepSeek V3模型&lt;/strong&gt;
+文章中选择作为基座模型的国产AI模型，被描述为目前智能体性能最强的国产模型之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Long Smith&lt;/strong&gt;
+一个用于实时追踪和监督智能体运行流程的工具。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;工业级的全流程智能体开发，虽然涉及功能组件众多，但可借助高效的工具和高级API实现快速从0到1的构建。
+&lt;ul&gt;
+&lt;li&gt;支持：文章明确指出“要完成全流程的智能体开发并不容易，涉及到的功能组件很多”，但随后展示了如何利用“Long graph create react agent API”仅需三行代码即可快速完成Agent的创建，并配合CLI工具和可视化测试平台简化部署和测试。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;高性能AI智能体设计应融入人类干预（Human-in-the-Loop）机制，并具备记忆持久化能力。
+&lt;ul&gt;
+&lt;li&gt;支持：Data Agent被设计成“在遇到问题时能做到先询问后执行，实现人在闭环的功能”，并能“持久化保存记忆”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;工业级AI智能体项目可以实现完全开源和离线部署。
+&lt;ul&gt;
+&lt;li&gt;支持：Data Agent项目被强调为“百分之百开源可以完全离线部署”，是“真正意义从0~1 完成工业级的智能体项目开发”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;搭建基础环境&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;安装Python和Node.js。&lt;/li&gt;
+&lt;li&gt;创建项目主目录（如&lt;code&gt;data-agent&lt;/code&gt;），并用IDE打开。&lt;/li&gt;
+&lt;li&gt;在项目目录下创建并激活Python 3.11虚拟环境（使用&lt;code&gt;conda create&lt;/code&gt;和&lt;code&gt;conda activate&lt;/code&gt;命令）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置依赖库与环境变量&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;创建&lt;code&gt;requirements.txt&lt;/code&gt;文件，写入基础库、LongGraph相关库、数据分析相关库三类依赖。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;pip&lt;/code&gt;命令一键安装所有依赖。&lt;/li&gt;
+&lt;li&gt;创建&lt;code&gt;.env&lt;/code&gt;文件，配置DeepSeek API Key、Long Smith API Key、TAPI API Key以及MySQL服务器相关配置（可选）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编写主函数与配置文件&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在主目录下创建&lt;code&gt;graph.py&lt;/code&gt;脚本，编写完整的智能体创建代码：导入依赖、加载环境变量、创建TAPI搜索引擎工具、SQL查询工具、数据库提取工具、Python代码运行工具、Python绘图工具，编写详细提示词模板，并使用&lt;code&gt;Long graph create react agent API&lt;/code&gt;封装Agent。&lt;/li&gt;
+&lt;li&gt;创建&lt;code&gt;long_graph.json&lt;/code&gt;配置文件，设置智能体名称为“Data agent”并指定代码运行入口为&lt;code&gt;graph.py&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署项目&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;安装&lt;code&gt;long_graph_cli&lt;/code&gt; (&lt;code&gt;pip install long_graph_cli&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;long_graph_def&lt;/code&gt;命令一键部署项目，获取后端服务、Long Graph Studio可视化测试和后端接口文档的URL。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进行功能测试与监控&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;复制Long Graph Studio地址到浏览器，进行智能体功能测试，例如查询信息或数据库数据。&lt;/li&gt;
+&lt;li&gt;登录Long Smith官网，追踪智能体的实时运行状态。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接入前端&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;下载LongChain Agent Chat UI源码并解压到项目主目录。&lt;/li&gt;
+&lt;li&gt;在Agent Chat UI目录下，使用&lt;code&gt;NPM&lt;/code&gt;命令下载&lt;code&gt;PNPM&lt;/code&gt;，然后&lt;code&gt;pnpm install&lt;/code&gt;安装前端依赖。&lt;/li&gt;
+&lt;li&gt;运行&lt;code&gt;PNPMD&lt;/code&gt;启动前端服务（默认从2024端口接入后端，前端服务在3000端口）。&lt;/li&gt;
+&lt;li&gt;在浏览器中打开3000端口，登录Agent Chat主页，输入Agent名称（和可选的Long Smith API Key）即可开始与Data Agent对话，验证前端与后端的连通性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;测试实际运行效果&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;测试SQL数据查询、数据导出至Python环境进行数据清洗、可视化、机器学习建模预测等功能，观察其流畅性和准确性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;真正意义从0~1 完成工业级的智能体项目开发。&lt;/li&gt;
+&lt;li&gt;百分之百开源可以完全离线部署。&lt;/li&gt;
+&lt;li&gt;真正的硬核并且纯粹公益的学习者的根据地。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Nx38zMEyi</guid>
+      <pubDate>Wed, 02 Jul 2025 22:27:11 +0800</pubDate>
+    </item>
+    <item>
+      <title>Alembic公司：AI如何变革营销智能，从私有数据到创意体验</title>
+      <link>https://ai-podcast.nvidia.com/</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.megaphone.fm/nvidiaaipodcast"&gt;NVIDIA AI Podcast&lt;/a&gt; | &lt;a href="https://ai-podcast.nvidia.com/"&gt;Alembic and the Future of AI in Marketing - Ep. 263&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---I-Podcast.nvidia.com&lt;/p&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文主要探讨了Alembic公司如何利用先进的AI和数学模型变革营销智能。公司通过摄取海量匿名数据，运用前沿的脉冲神经网络（SNNs）和因果推理技术，帮助品牌发现并连接营销事件中的因果关系，从而提供可行动的智能洞察，而非仅仅是数据看板。文章也深入探讨了AI对营销、创意以及人类自身能力发展的深远影响。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;脉冲神经网络 (Spiking Neural Networks, SNNs)&lt;/strong&gt;：一种模仿人脑处理信号的数字模拟，通过神经元“尖峰”脉冲来处理信息。其特点是速度极快，且能“在线”进化，无需预先训练。Alembic利用SNNs解决了营销数据中的两大难题：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“比较苹果和橘子”&lt;/strong&gt;：将不同形式的营销数据（如Nielsen收视率、Spotify播放量、电话访问、实体店访问）转化为统一的脉冲信号进行处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“在无时间历史数据中寻找异常值”&lt;/strong&gt;：即使是短期营销活动（如奥运会赞助只有两周数据），SNNs也能通过模式匹配而非预测来识别异常表现。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因果推理/因果数学 (Causal Inference/Causal Mathematics)&lt;/strong&gt;：一种数学方法，用于识别和连接事件之间的因果链条，而不仅仅是相关性。Alembic利用此技术构建事件的“链式反应”，例如，识别观看奥运会、搜索Delta航班、点击广告到最终购买机票之间的联系，并计算出事件之间的“最优滞后时间”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;私有数据集的价值&lt;/strong&gt;：认为未来企业的利润和“阿尔法”将主要来源于私有数据集。随着大型语言模型（LLMs）在公共数据集上训练结果的趋同，私有数据将成为差异化竞争的关键。例如，迪士尼庞大的IP、乐园、流媒体数据等构成了独特的私有数据资产，通过AI对其进行学习和利用，能够带来巨大的利润。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;营销的未来在于信息流而非金钱流&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;追随信息流，就能找到金钱流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI时代的数据价值演变&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2010年代&lt;/strong&gt;：优势在于捕获并运营新的数据或受众“消防栓式”涌入（如Facebook的兴起）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2020年代&lt;/strong&gt;：优势在于拥有最多的GPU算力（硬件能力成为决定性因素）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2030年代&lt;/strong&gt;：优势将属于那些能将私有数据及其“排泄物”转化为深度学习资产的企业。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据仪表盘的局限性&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;“所有的仪表盘都不应该存在。”仪表盘的唯一目的是从中获取智能，而非其本身目的。真正的价值在于将数据转化为可行动的“情报简报”，就像美国总统每天收到的那样。&lt;/li&gt;
+&lt;li&gt;面对海量数据，人们往往不知道该问什么问题，甚至会问错问题，导致分析陷入困境（引用《银河系漫游指南》中“我们不知道问题是什么”）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个性化营销的再思考&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;极致的个性化并非营销的终极目标。人类本质上热爱部落和社区，最深刻的体验往往是与他人共享的。未来的营销赢家将是那些能够创造共享体验、将人们凝聚在一起的品牌。&lt;/li&gt;
+&lt;li&gt;LLMs倾向于预测“下一个最合适的词汇”，这意味着它们会给出“中庸”的答案。而伟大的艺术家或营销人员，绝不会满足于中庸。&lt;/li&gt;
+&lt;li&gt;个性化应是品牌与消费者互动之后（即消费者已对品牌产生兴趣后）优化体验的手段，而非吸引用户的初始方式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI时代人类创造力的挑战与机遇&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;AI作为“副驾驶”或“实习生”，能帮助创作者快速完成80%的工作，大幅提升效率并降低门槛（如在家录制唱片、数字摄影）。&lt;/li&gt;
+&lt;li&gt;然而，它也可能导致创作者“失败得不够多”而无法真正提升。失败是人类进步的关键，当AI让小错误变得不那么明显时，人类是否会失去从中学习的机会？&lt;/li&gt;
+&lt;li&gt;AI的普及可能使得创意工作更容易产出，但同时可能降低创作者的平均收入（如摄影师）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;针对AI初学者/营销从业者&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;从ChatGPT开始&lt;/strong&gt;：直接使用大型语言模型进行实践。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“先计划后创造”&lt;/strong&gt;：在与AI互动时，明确指示系统“你可以提出澄清问题”，并将其作为对话进行，而非仅仅是单向指令，共同制定最佳计划。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长篇提示词技巧&lt;/strong&gt;：将指令放在提示词的顶部和底部，以确保AI理解核心要求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;积极探索与学习&lt;/strong&gt;：勇于尝试，并通过关注行业领袖（如Scott Bollinger, Gary Vee）来拓宽视野，同时不忘与真实人类交流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;针对高级用户/数据科学家&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定制化信息流&lt;/strong&gt;：选择10位顶尖数据科学家（如Yann LeCun），在LinkedIn上点赞他们的最新动态，然后训练自己的AI系统，使其只提供你想要的技术论文和算法更新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨学科学习&lt;/strong&gt;：不要局限于单一学科或方法论（如LLM都使用Transformer架构时，要关注Diffusion模型）。保持好奇心，从其他学科中汲取灵感，因为“这都是锤子和钉子，去创造一些东西吧！”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“追随信息，你就能找到钱。”&lt;/li&gt;
+&lt;li&gt;“没有人早上醒来会想，你知道我想要什么吗？另一个仪表盘。”&lt;/li&gt;
+&lt;li&gt;“问题是我们不知道问题是什么。”（引自《银河系漫游指南》）&lt;/li&gt;
+&lt;li&gt;“有哪个伟大的艺术家、伟大的营销人员早上醒来会说，你知道我只想平庸吗？”&lt;/li&gt;
+&lt;li&gt;“当人类没有足够的失败去进步时，我们会怎样？”&lt;/li&gt;
+&lt;li&gt;“创新本身往往是具有破坏性的。”&lt;/li&gt;
+&lt;li&gt;“我从不珍视我获取方法论的来源，我只珍视结果。”
+&lt;h2&gt;- “这都是锤子和钉子，去创造一些东西吧！”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://ai-podcast.nvidia.com/</guid>
+      <pubDate>Wed, 02 Jul 2025 15:45:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI浪潮下的创业者：Steve Jobs的启示与未来机遇</title>
+      <link>https://a16z.simplecast.com/episodes/marc-andreessen-on-startup-timing-MFDl9KDi</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/marc-andreessen-on-startup-timing-MFDl9KDi"&gt;Marc Andreessen on Startup Timing&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---这篇播客探讨了AI时代下的创业机遇，强调了创始人特质、创新时机的重要性以及当前有利的全球政策环境。文章通过分析史蒂夫·乔布斯和埃隆·马斯克的案例，阐述了在技术平台变革时期，创业者应如何抓住机遇并应对挑战。它还展望了AI在娱乐和故事叙述领域的未来潜力。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一性原理思维 (First Principles Thinking):&lt;/strong&gt; 指不满足于现状，深入探究事物的基本真理，从而进行创新。史蒂夫·乔布斯和埃隆·马斯克都具备这种特质。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平台变革 (Platform Change):&lt;/strong&gt; 指技术领域发生根本性转变，催生全新生态系统和巨大创业机会。文章指出AI的崛起正是一个重要的平台变革时刻。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创业判断力 (Entrepreneurial Judgment):&lt;/strong&gt; 指创始人预见未来世界的能力，同时能判断市场何时准备好接受新产品，并能实际交付产品的能力。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“难以相处”是优秀创始人的必要特质：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;史蒂夫·乔布斯被描述为“人类历史上最难相处的人之一”，他会为任何小事争辩，这种特质源于他对现状的绝不妥协，以及其“第一性原理”思维。&lt;/li&gt;
+&lt;li&gt;这种特质使得乔布斯对“一流工作”有着绝对的零容忍，从而激励周围的人也达到最高标准。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创始人的成长和失败是宝贵的财富：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;史蒂夫·乔布斯并非一开始就是完美的CEO，他被苹果解雇后创办Next公司，期间经历的10年失败和磨砺，使他学会了如何成为一名伟大的CEO。Next项目虽然是商业上的失败，但却是乔布斯管理能力和韧性成长的关键时期。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“生不逢时”是创业失败的常见原因：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;许多优秀创业者因“时机过早”而失败，例如iPhone问世前20年间，有大量尝试智能手机的创业公司，但由于技术未成熟而失败。&lt;/li&gt;
+&lt;li&gt;早期AI热潮（80年代、50年代）也因时机未到而未能普及。&lt;/li&gt;
+&lt;li&gt;创业公司通常只有五年左右的时间来验证其模式，如果在此期间无法获得牵引力，成功率会大大降低。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;感觉“太晚了”反而是积极信号：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个创业点子最终能够成功，创始人往往会感到“我应该更早开始这个公司”，因为市场即将来临而产品尚未完全准备好。这种紧张感实际上是市场即将爆发的积极信号。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;当前是创业的“黄金时代”：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;AI的爆炸式增长和全球政策变化预示着未来四年是创业的“蓝天”。&lt;/li&gt;
+&lt;li&gt;大型现有公司很难对平台变革做出快速反应，这为新创公司提供了最佳的竞争机会。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全球AI政策存在差异：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;欧盟通过了严格的AI法规，导致大型AI实验室难以在欧盟推出新产品，欧盟官员公开表示将成为“AI监管的领导者”。&lt;/li&gt;
+&lt;li&gt;英国在AI监管上有所倒退，与欧盟保持一致。&lt;/li&gt;
+&lt;li&gt;美国未来四年在AI领域将有“清风顺水”的政策环境。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI将彻底革新娱乐和故事叙述：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;AI有机会彻底重塑讲故事、游戏和沉浸式世界的整个过程，从手动内容创作转变为AI生成内容。&lt;/li&gt;
+&lt;li&gt;AI驱动的游戏将能适应玩家，提供个性化、最优化的体验，并可能创造出玩家可以玩数千小时的商业模式，因为内容生成成本大大降低。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;年轻一代对技术的态度：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;9岁小孩对视觉保真度不感兴趣（如Minecraft、Roblox）。&lt;/li&gt;
+&lt;li&gt;他们将ChatGPT等先进AI视为理所当然的计算机功能，这与成年人惊叹于其复杂性形成对比。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不同年龄段对新技术的看法：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;15岁以下：新事物是理所当然的。&lt;/li&gt;
+&lt;li&gt;15-35岁：新事物令人兴奋，可以借此发展事业。&lt;/li&gt;
+&lt;li&gt;35岁以上：新事物是邪恶的，将破坏社会秩序和文明。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;充分利用当前（未来四年）美国有利的政策环境和AI带来的平台变革，积极进行创业构建。&lt;/li&gt;
+&lt;li&gt;创始人应努力提升自身的“创业判断力”，平衡对未来世界的愿景与市场实际接受度及产品交付能力。&lt;/li&gt;
+&lt;li&gt;在面对大型现有公司时，抓住平台变革带来的竞争优势。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"你必须生活在未来，因为你必须构想一个尚未存在的世界。"&lt;/li&gt;
+&lt;li&gt;"如果它要成功，它几乎总是感觉你来得太晚了。"&lt;/li&gt;
+&lt;li&gt;"最好的猜测就是创始人最好的猜测，因为创始人拥有最多的信息来综合出对此的看法。"
+&lt;h2&gt;- "如果你在15岁到35岁之间，新的事物非常令人兴奋，你也许能够以此发展事业。如果你超过35岁，新的事物就是不圣洁的，它违背社会秩序，将摧毁文明。"&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/marc-andreessen-on-startup-timing-MFDl9KDi</guid>
+      <pubDate>Wed, 02 Jul 2025 10:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Palantir“Warp Speed”项目：AI如何重塑工业与国防制造</title>
+      <link>http://podcast.emerj.com/lessons-from-project-warp-speed-in-how-high-velocity-partners-are-scaling-ai-in-manufacturing-with-emily-nguyen-of-palantir-technologies</link>
+      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/lessons-from-project-warp-speed-in-how-high-velocity-partners-are-scaling-ai-in-manufacturing-with-emily-nguyen-of-palantir-technologies"&gt;Lessons from Project Warp Speed in How High-Velocity Partners Are Scaling AI in Manufacturing - with Emily Nguyen of Palantir Technologies&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---对Palantir“Warp Speed”项目的深入探讨，揭示了AI如何帮助美国重塑工业基础，以应对全球制造业挑战。文章强调，在工业和国防领域，AI的规模化应用不仅需要先进技术，更依赖于正确的思维模式、基础设施和合作伙伴。通过实际案例，对话展示了AI在提升效率、减少错误、传承“部落知识”以及加强跨企业合作方面的巨大潜力。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Warp Speed&lt;/strong&gt;: Palantir旨在重振美国工业的倡议。它通过构建一个连接设计、制造、供应链和维护的操作系统，利用软件和AI赋予美国制造业竞争优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第一性原理思维(First Principles Thinking)&lt;/strong&gt;: 一种不墨守成规、不盲目追随潮流的思维方式。它要求从最基本的要素出发，思考需求、原因和时机，而非简单复制“一贯做法”，从而驱动创新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部落知识(Tribal Knowledge)&lt;/strong&gt;: 由经验丰富的员工（例如拥有三四十年经验的维修技术员）积累的、未被正式记录但对日常运营至关重要的非正式知识。AI助手能够捕捉并扩展这些知识，使其惠及更广泛的员工。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代理AI(Agentic AI)&lt;/strong&gt;: 能够代表用户自主行动的AI代理。它正在重塑运营工作流程，并在如欺诈检测等领域带来新的挑战（如责任归属）和机遇。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在工业环境中，AI的成功规模化应用不仅依赖于卓越的技术，更取决于正确的思维模式、基础设施和合作伙伴。&lt;/li&gt;
+&lt;li&gt;采用AI的快速发展型企业通常具备三大核心价值观：对结果的执着追求（使命导向）、第一性原理思维以及速度和紧迫感。
+&lt;ul&gt;
+&lt;li&gt;案例：Anduril公司通过重新构想物料资源规划（MRP）算法，实现了200倍的效率提升，这得益于其对胜利、速度和第一性原理思维的重视。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI能够显著提升制造业的效率和质量，甚至对大型成熟公司亦是如此，通过自动化任务和减少错误来实现。
+&lt;ul&gt;
+&lt;li&gt;案例：Panasonic Energy利用计算机视觉模型对电池生产线进行视觉检测，将误报率降低了10-15%；同时，通过AI进行维护管理，将机器维修时间缩短了10%，并将学习曲线从数月缩短至数周。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;利用AI捕捉和扩展“部落知识”对于保留专业技能和加速新员工培训至关重要。
+&lt;ul&gt;
+&lt;li&gt;案例：L3Harris计划通过AI助手捕捉经验丰富的员工所拥有的宝贵“部落知识”，将其传承给下一代工人，从而赋予他们“超能力”，保持竞争优势。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;美国工业基地的未来将高度依赖于AI赋能的跨公司协作，包括制造商与供应商、乃至政府（如国防部）之间的连接，以提升敏捷性和战备状态。
+&lt;ul&gt;
+&lt;li&gt;案例：文章展望，若能连接国防部的可见性与防务主承包商及其供应商，便能理解并优化供应链瓶颈，加速关键产品的生产。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;优先将代理AI和AI部署于真正重要、能够产生实际业务成果或服务国家利益的领域。
+&lt;ul&gt;
+&lt;li&gt;具体方法：聚焦于AI如何能使战士或供应链规划师的工作更轻松、更高效、更智能。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;从有限但有影响力的应用开始，然后逐步扩展。
+&lt;ul&gt;
+&lt;li&gt;具体方法：从使某人的工作稍微简化、减少摩擦入手。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;积极将AI整合到您的业务中，解决关键问题，确保它能服务于实时决策。
+&lt;ul&gt;
+&lt;li&gt;具体方法：避免将AI视为“科学项目”，即使在安全考量下分阶段进行，最终目标也应是实际应用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;制造业和国防领域的领导者应根据合作伙伴和平台驱动实际业务成果并安全整合AI的能力来评估它们。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我们永远无法在劳动力方面与中国在全球制造业市场竞争。但我们能做的是，利用我们在软件和AI方面的竞争优势，赋予制造业优势。”&lt;/li&gt;
+&lt;li&gt;“最有价值的是：真正的应用是什么？真正的价值是什么？使用这项技术的真正好处是什么？”
+&lt;h2&gt;- “意图应始终是，它服务于我们实时做出的真实决策。而不是‘哦，如果...那会有趣吗？’或‘这会是一个不错的科学项目吗？’因为我认为那是技术走向消亡的地方。”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://podcast.emerj.com/lessons-from-project-warp-speed-in-how-high-velocity-partners-are-scaling-ai-in-manufacturing-with-emily-nguyen-of-palantir-technologies</guid>
+      <pubDate>Tue, 01 Jul 2025 06:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>LLM工具调用局限与代码生成：解锁AI工程师的无限潜能</title>
+      <link>https://www.bilibili.com/video/BV18J3FzfEEj</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18J3FzfEEj"&gt;【01】MCPs 正在让 LLM 的魅力消亡&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容
+本文探讨了当前大型语言模型（LLM）工具调用机制的局限性，指出其在效率、灵活性和复杂性处理上的不足。作者提出应充分利用LLM强大的代码生成能力，将代码本身视为主要的“工具”，从而实现更动态、高效的LLM应用。最终目标是让LLM成为能够按需构建复杂系统（如用户界面和API）的“魔法精灵”式工程师。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MCCP / 工具调用（Tool Calling）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;：这是一种让LLM与外部工具或API交互的标准机制。LLM首先生成语言内容，然后触发工具以结构化格式输出，并将输出的结构化数据映射为函数调用，进而调用API或服务器。文本反馈回来后，LLM能继续处理并回答相关问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：例如，当用户询问“旧金山天气如何”时，助手会进行思维链思考，检查可用的工具（以模式形式提供），决定调用天气API，获取旧金山的天气数据，接收返回的JSON格式结果，然后进行新推理并输出用户请求的答案。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码即工具（Code as Tool）/ Eval&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;：指的不是LLM调用预定义的函数，而是直接生成并执行任意代码（如Shell脚本、SQL查询、JavaScript）作为其主要交互机制。这允许LLM更灵活、动态地处理任务，突破了静态函数调用的限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：相较于一个名为&lt;code&gt;getCRMCompany&lt;/code&gt;的固定工具，LLM可以直接生成并执行SQL查询来动态检索CRM数据，例如“约翰·史密斯上个月下了多少订单”。通过这种方式，LLM可以根据具体需求编写并优化查询，甚至将多个查询合并为视图，从而节省资源并提高效率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM即工程师 / 魔法精灵&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;：这是一种将LLM视为不仅仅是工具调用者，而是强大代码生成器的视角。它能根据需求构建复杂的系统，如同“魔法精灵”般无需大量信息即可创造所需的一切，并进行修改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：作者通过原型展示，LLM不仅能生成动态SQL查询，还能进一步创建REST API端点，甚至生成完整的CRM系统，包括JavaScript、CSS和HTML处理程序，从而构建一个功能完备的网站，而不仅仅是简单的工具调用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前LLM工具调用机制存在严重局限，效率低下且难以适应复杂场景。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;提供过多工具时，LLM容易调用错误工具或使用错误参数。&lt;/li&gt;
+&lt;li&gt;向工具传递参数（如上下文信息）成本高昂且耗时，容易形成重复传递信息的“死循环”。&lt;/li&gt;
+&lt;li&gt;工具返回的结果常包含大量无关信息，导致不必要的Token消耗（如获取天气只关心风速却得到整个JSON数据）。&lt;/li&gt;
+&lt;li&gt;为了适应特定场景（如获取单个公司邮箱），可能需要编写复杂如GraphQL的查询，LLM反而更难处理，导致效果更差。&lt;/li&gt;
+&lt;li&gt;例子：查询所有公司信息（消耗20万Token、50美分、等待5分钟）只为找到一个邮箱，效率极低。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM在代码生成方面表现出色，应将代码本身视为最强大的“工具”来利用。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;LLM能生成优秀的代码，而代码本身就是一种工具，可以调用API、操作文件等。&lt;/li&gt;
+&lt;li&gt;“代码即工具”允许LLM更动态地利用上下文信息（如聊天历史、记忆、附件），增强工具调用能力。&lt;/li&gt;
+&lt;li&gt;这种思想在当前MCCP和工具调用功能出现之前就已被实践，例如通过生成Shell脚本或SQL查询来完成复杂任务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“Eval”功能（即代码执行环境）是LLM应用中最强大和唯一真正需要的工具。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;编码代理的大部分工作实际是调用Bash命令（如grep、find）。&lt;/li&gt;
+&lt;li&gt;直接提供一个Bash或JS沙盒环境，让LLM生成代码并执行，可以显著提高效率和灵活性。&lt;/li&gt;
+&lt;li&gt;例子：通过SQL Eval工具，LLM可以智能地查询表结构，过滤结果，甚至在同一调用中完成查询并获取数据，节省了多次工具调用和大量Token。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM能够作为工程师，按需构建复杂系统（如库、API和UI），而非仅仅调用预设函数。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;通过生成代码，LLM可以创建可复用的函数、视图和库。&lt;/li&gt;
+&lt;li&gt;它可以注册REST API处理程序，甚至生成包含JavaScript、CSS和HTML的完整网站，实现端到端的系统构建（如CRM系统）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;在LLM应用中集成代码执行环境（如JavaScript沙盒或SQL评估器）&lt;/strong&gt;：允许LLM直接生成并执行代码，充分发挥其代码生成能力，使其能像工程师一样工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设计灵活的用户界面（UI）来支持工具交互&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;预执行编辑&lt;/strong&gt;：在工具调用执行前，提供UI让用户选择要附加的内容、编辑参数，甚至纠正LLM生成的错误参数（例如，将错误的“OpenAl”修正为“OpenAI”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后执行编辑&lt;/strong&gt;：在工具返回结果后，允许用户编辑结果，或者基于结果调整查询并重新调用工具，而非强制回退整个代理运行流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM生成UI&lt;/strong&gt;：考虑让LLM生成UI DSL（领域特定语言），由LLM宿主应用渲染，提供滑块、下拉菜单等丰富的UI元素，提升用户体验，避免手动编辑JSON字段。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;改变对“工具”的定义，让LLM通过生成代码来“构建”工具，而非仅仅“调用”静态函数&lt;/strong&gt;：利用LLM的代码生成能力，创建更丰富、更动态的自定义工具，例如直接生成调用CRM列表信息的代码，并自动添加循环结构和任何需要的代码逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥抱递归思维&lt;/strong&gt;：让LLM编写代码来执行任务，甚至编写生成代码的代码。这种多层级的代码生成能力能够实现无限的创造循环。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我们现在可以 不再需要编写代码 无需解析模式 无需进行验证 无需过于谨慎 我们只需与机器对话”&lt;/li&gt;
+&lt;li&gt;“我觉得唯一需要的MCCP就是eval”&lt;/li&gt;
+&lt;li&gt;“为什么我们还被卡在这里 就像那些根本不好用的工具 没错 比如我知道 一个叫做工具调用的功能调用 为什么它们在函数调用方面这么差 而同时又能生成如此优秀的代码 代码本身就是一种工具对吧”&lt;/li&gt;
+&lt;li&gt;“它只是一个能按需创造任何东西的魔法精灵”
+&lt;h2&gt;- “所有这些文字最终都会在现实世界中产生影响 但如果你只专注于需要在现实世界中实现的目标 往往会忘记这不仅仅是调用 实际上我们本身就是工程师 LLM本身就是工程师 一切都是工程”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV18J3FzfEEj</guid>
+      <pubDate>Sun, 29 Jun 2025 21:04:32 +0800</pubDate>
+    </item>
+    <item>
+      <title>十字路口：主理人分享2025年AI领域的九个Aha时刻与创业思考</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/6860e4f108d8fd858688c52a?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/68fyjknth9hj"&gt;十字路口Crossing&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6860e4f108d8fd858688c52a?utm_source=rss"&gt;2025年过去一半了， AI带给我的9个 Aha Moments&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本期播客是“十字路口”主理人分享其个人在2024年年中感受到的九个AI领域的“Aha时刻”，深入探讨了AI技术浪潮带来的行业新变化、创业新机会及个人感悟。文章围绕AI产品开发、创业实践、用户价值和未来趋势，提供了许多反常识的洞察，并强调了科技与人文结合的重要性。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI Agent：不同于传统聊天机器人或文生图模型，AI Agent更像一个会思考的聪明员工，能够理解用户意图、拆解任务、主动规划、调用思考模型、多模型一站式接入，并能够自我反思与矫正。文章中以Devin、LoveArt为例进行说明。&lt;/li&gt;
+&lt;li&gt;产品蝗虫：指新产品发布后，率先涌入体验的行业从业者（如产品经理、投资人）。在AI时代，这种早期体验被认为具有非凡价值，能帮助个体提前感知未来的模糊模样，进而创造未来。&lt;/li&gt;
+&lt;li&gt;积极行动者：指在AI时代不光停留在理论分析，而是积极投身于实践、探索和创造的行动者，他们通过实际行动来学习和适应快速变化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI应用创业门槛降低，竞争趋于“公平”。
+&lt;ul&gt;
+&lt;li&gt;开源SOTA模型（如DeepSeek、Qwen）的普及，使顶尖技术人人可用，打破了技术壁垒。&lt;/li&gt;
+&lt;li&gt;模型使用成本下降，如H200 GPU租金的波动反映了市场对开源模型的迅速响应。&lt;/li&gt;
+&lt;li&gt;Qwen3提供全系列参数规模模型，满足不同场景需求，让投资者更敢于投资AI应用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;纯粹的执行速度是最大的护城河，而非秘密技术壁垒。
+&lt;ul&gt;
+&lt;li&gt;在开源模型和快速迭代的时代，技术壁垒难以固守。&lt;/li&gt;
+&lt;li&gt;快速迭代、不断创新和创造势能才是2C产品成功的关键。&lt;/li&gt;
+&lt;li&gt;案例：Monica、Mannas、Perplexity、Cursor等产品，即便没有自研模型，也因快速迭代和用户量大而成功。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;面对新浪潮，要敢于从简单产品入手，逐步理解和超越。
+&lt;ul&gt;
+&lt;li&gt;早期看似浅显的“套壳产品”（如“会说话的汤姆猫”），可能是技术探索和用户反馈的起点。&lt;/li&gt;
+&lt;li&gt;案例：Perplexity回应“套壳产品”争议，强调调度模型、细节打磨和作为“套壳”也需大量努力。&lt;/li&gt;
+&lt;li&gt;类比：iPhone某种程度上也是对多点触控新技术的“套壳”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;积极体验新产品（做“产品蝗虫”）能提前感知未来趋势。
+&lt;ul&gt;
+&lt;li&gt;“未来已来，只是尚未均匀分布”，率先体验者能把握未来。&lt;/li&gt;
+&lt;li&gt;案例：Devin的发布让主理人强烈预感到AI Agent将在2025年百花齐放，事实也证明了这一点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI Agent带来的变革与机会仍被低估。
+&lt;ul&gt;
+&lt;li&gt;AI Agent的强大之处在于其意图理解、任务拆解、多模型集成和自我发展能力。&lt;/li&gt;
+&lt;li&gt;案例：LoveArt设计Agent能为麦当劳和熊猫联名自动生成一套完整的VI设计，甚至创作出巧妙的slogan“Bite into Harmony”，展现了超出预期的智能水平。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI时代再垂直的用户需求也能被产品化，并实现商业闭环。
+&lt;ul&gt;
+&lt;li&gt;结构性原因：开发成本降低（AI辅助设计/编程）、推荐算法增强（小红书/抖音精准触达）、用户付费意愿提升。&lt;/li&gt;
+&lt;li&gt;案例：Sun Ally（检测晒太阳）、魂吕（模拟旅行）、Focus Flight（模拟飞行专注），这些非AI产品也受益于上述结构性变化。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI对广告行业乃至整个商业世界的改造潜力巨大且常被低估。
+&lt;ul&gt;
+&lt;li&gt;引用比尔·盖茨1996年言论：“我们总是高估未来两年的变化，而低估未来十年的变革。”&lt;/li&gt;
+&lt;li&gt;设想：Meta/TikTok/小红书未来可能直接生成广告素材，商家只需提供产品和预算，这会彻底改变商业运作模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;“美”是一种生产力，设计师在AI时代被赋予巨大能力。
+&lt;ul&gt;
+&lt;li&gt;Y Combinator倾向投资设计师背景的创始人，因AI编码成熟使产品构建更容易，设计重要性凸显。&lt;/li&gt;
+&lt;li&gt;设计师天生具备共情、审美和创造独特产品的能力。&lt;/li&gt;
+&lt;li&gt;案例：设计师朱以南独立开发的“日落导”APP，以其美感和功能体现了设计师的创造力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI能提供超出预期的情绪价值，满足人类情感需求。
+&lt;ul&gt;
+&lt;li&gt;效率无限提升后，AI转向提供情绪价值。&lt;/li&gt;
+&lt;li&gt;案例：日本AI宠物Mofflin以其活物感（哼唧、扭动、体温、无线充电）让孩子误以为真。&lt;/li&gt;
+&lt;li&gt;案例：独享APP的“AI陪你睡觉”功能，每天有上万用户使用，满足了特定人群的情感陪伴需求。&lt;/li&gt;
+&lt;li&gt;案例：中国AI宠物Rapit创始人提出“创造爱的瞬间”的使命，凸显AI在情感层面的潜力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;积极参与AI社区互动，寻求同路人，碰撞想法。&lt;/li&gt;
+&lt;li&gt;成为“产品蝗虫”，率先体验各类AI新产品，感知未来趋势。&lt;/li&gt;
+&lt;li&gt;专注用户需求，追求极致细腻的用户体验，并快速迭代产品，构建口碑与优势。&lt;/li&gt;
+&lt;li&gt;不要“为了AI而AI”或“为了风口而创业”，要从用户需求和场景出发，打造打动人心、有商业价值的产品。&lt;/li&gt;
+&lt;li&gt;善用AI作为杠杆，即使是看似与AI无关的垂直需求，也能通过AI赋能实现产品化。&lt;/li&gt;
+&lt;li&gt;“跳进浪里去学游泳，去习惯海水咸咸的味道”，强调亲身实践和适应变化的重要性。&lt;/li&gt;
+&lt;li&gt;在关注科技的同时，时不时放下手机，走进自然、生活，体验人文，以实现科技与人文的平衡。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“科技与人文的十字路口，伟大的产品往往诞生在这里。”&lt;/li&gt;
+&lt;li&gt;“未来已来，只是尚未均匀分布。”&lt;/li&gt;
+&lt;li&gt;“没有秘密，只有纯粹的执行速度。”&lt;/li&gt;
+&lt;li&gt;“批判时总显得聪明，就像创造时总显得笨拙。”&lt;/li&gt;
+&lt;li&gt;“理解汤姆猫，成为汤姆猫，超越汤姆猫，可能才是真实世界运转的规律。”&lt;/li&gt;
+&lt;li&gt;“我们总是高估未来两年的变化而低估未来十年的变革。”&lt;/li&gt;
+&lt;li&gt;“美是一种生产力。”
+&lt;h2&gt;- “创造爱的瞬间。”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6860e4f108d8fd858688c52a?utm_source=rss</guid>
+      <pubDate>Sun, 29 Jun 2025 15:30:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>播客与AI共舞：互动式音频的技术演进、挑战与未来可能性</title>
+      <link>https://hosting.wavpub.cn/dao-bmrs/2025/06/28/%e4%ba%92%e5%8a%a8%e5%bc%8f-ai-%e9%9f%b3%e9%a2%91%e5%88%b0%e5%ba%95%e6%98%af%e4%bb%80%e4%b9%88%ef%bc%9f%e6%96%b0%e5%9e%8b%e6%92%ad%e5%ae%a2%e3%80%81%e8%af%ad%e8%81%8a%e6%88%bf%e8%bf%98%e6%98%af-ai/</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.daopub.com/bmrs.xml"&gt;编码人声&lt;/a&gt; | &lt;a href="https://hosting.wavpub.cn/dao-bmrs/2025/06/28/%e4%ba%92%e5%8a%a8%e5%bc%8f-ai-%e9%9f%b3%e9%a2%91%e5%88%b0%e5%ba%95%e6%98%af%e4%bb%80%e4%b9%88%ef%bc%9f%e6%96%b0%e5%9e%8b%e6%92%ad%e5%ae%a2%e3%80%81%e8%af%ad%e8%81%8a%e6%88%bf%e8%bf%98%e6%98%af-ai/"&gt;互动式 AI 音频到底是什么？新型播客、语聊房还是 AI 版 Clubhouse？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次播客节目回顾了播客20年的发展历程和背后的技术迭代，从RSS、CDN到移动互联网时代的托管平台。深入探讨了AI技术如何正在变革音频的生产、剪辑与交互方式，并展望了互动式音频在未来可能带来的全新内容范式和人机互动模式。节目嘉宾还讨论了当前语音大模型面临的技术挑战及其未来发展趋势。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;互动式音频
+允许听众与音频内容进行实时或非实时的主动交互，超越传统的被动收听模式。例如，节目中提及设想的播客APP功能，能让听众在收听时直接按下按钮录制并提交语音评论，或像Noteable的“Join”功能那样，让听众在直播中实时介入对话。&lt;/li&gt;
+&lt;li&gt;内容级Agent
+指每个人或每一个内容都可被视为一个具备互动能力的智能代理，它们之间可以相互作用，共同创作或探索内容。例如，设想不同播客主播的“内容级Agent”之间可以“串台”互动，甚至线下玩家自动转化为具备过往人设的NPC Agent。&lt;/li&gt;
+&lt;li&gt;生产要素变化
+指大模型时代带来的知识劳动和数据劳动结构性转变，这将催生新的内容和交互范式。这被认为是每一次生产力革命的核心，预示着互动式音频将成为一种新的媒介。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“播客元年”的定义因视角不同而存在争议：
+&lt;ul&gt;
+&lt;li&gt;技术派（研发人员）倾向于将2000年（RSS草案新增音频）或2004年（“podcast”概念提出及爆款节目出现）视为元年。&lt;/li&gt;
+&lt;li&gt;产品与用户派（创业者、用户）则更倾向于将2020年（小宇宙上线、播客出圈、市场需求爆发式增长）视为元年。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI过度剪辑音频（如去除“口水词”）反而可能降低用户体验，使其失去主播个性：
+&lt;ul&gt;
+&lt;li&gt;虽然技术上可以做到“剪得太干净”，但这会导致听感过于紧密，缺乏呼吸感，且丧失了主播“人格化的外显”特征，拉远了听众与创作者的距离。&lt;/li&gt;
+&lt;li&gt;甚至AI生成音频为了更像人，现在反而需要刻意加回这类“拟声词”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;播客的互动形式正从单向被动消费向双向、多元、实时互动演进，但当前文本评论仍是模态跳跃，不够理想：
+&lt;ul&gt;
+&lt;li&gt;历史：纯听 -&gt; Apple播客文本评论 -&gt; 小宇宙评论区（被广泛利用，但仍是文本）。&lt;/li&gt;
+&lt;li&gt;问题：音频消费后，转文本评论是不同模态的切换，用户体验不佳。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;理想的互动式音频应建立在创作者与用户平等的“伙伴”关系上，而非上对下的层级：
+&lt;ul&gt;
+&lt;li&gt;评论区互动仍不够平等，因创作者有选择性回复的权利。&lt;/li&gt;
+&lt;li&gt;真正的播客互动应像“一群朋友一样……一起去探索某个新的可能性”，带来“不确定性的奖励”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;未来的互动式音频应提供“Always Ready”的参与场域，允许用户在有需求时随时、非强制性地介入互动：
+&lt;ul&gt;
+&lt;li&gt;用户想表达时，应提供极大自由度，让他感觉体验完整。&lt;/li&gt;
+&lt;li&gt;互动应该像“插件一样插在他的生活里一个环节”，是“强打扰”的反面，时刻存在但又非显式强制。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当前端到端的语音大模型仍存在显著不足，尤其是在自然人声复刻和知识库整合方面：
+&lt;ul&gt;
+&lt;li&gt;模型在语境转换和韵律表现上不够自然，常有“很假”的感觉，尚未通过语音图灵测试。&lt;/li&gt;
+&lt;li&gt;目前大多数是单声道训练，难以处理多通道、复杂语境下的声音。&lt;/li&gt;
+&lt;li&gt;无法直接挂载RAG（检索增强生成）知识库，仍需先将语音转为文本才能进行知识查询。&lt;/li&gt;
+&lt;li&gt;预测音频模型像Deepfake那样突破性开源的时间点可能在2026年。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对于播客新人：
+&lt;ul&gt;
+&lt;li&gt;建议初期使用如小宇宙的“D07”功能，直接在手机上录制和发布，降低入门门槛，先验证兴趣。&lt;/li&gt;
+&lt;li&gt;“你录它6-7期以后你再想想我是否真的还想继续录。”如果仍有热情，再考虑专业平台或自建站。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;对于技术开发者：
+&lt;ul&gt;
+&lt;li&gt;若仅为“先建一个站”的快乐，建议将精力用于更具价值的开发项目，如为开源项目贡献代码（“还能给自己加加star”），而非在播客基建上投入过多。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;对于听众：
+&lt;ul&gt;
+&lt;li&gt;“多多听听播客，多跟世界联系。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;对于行业参与者：
+&lt;ul&gt;
+&lt;li&gt;鼓励参与“wise agent camp”等项目，探索实时AI和互动式音频的新场景和可能性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“每一次生产力革命都带来了生产要素的变化极构性变化那这一代我觉得大模型变化带来最大的极构性变化是第一个是知识劳动的转移第二个是数据劳动的转移那其实本质上我觉得围绕着这两个极构性变化来讲其实本质上互动更像是一种新的媒介”&lt;/li&gt;
+&lt;li&gt;“上半场其实大模型的上半场其实本质上是因为创作能力的下放让整个创作力的边界能涌现出来所以它是个创作即消费的过程然后它其实本身打破了人的本身创作的可能性然后但是我觉得下半场应该消费即创作”&lt;/li&gt;
+&lt;li&gt;“我觉得互动式播客应该就是说让每一期音频节目都成为定零期对不是说你做第零期然后做一二三期变得更加专业而是在每一期你的体验都不一样你可以很轻松的去做第零期然后每次播客你参与都不一样我觉得这是才是真正的”&lt;/li&gt;
+&lt;li&gt;“我觉得是说你在这个用户的这个世界里就应该不应该是一个强打扰的过程你就是应该是一个像插件一样插在他的生活里一个环节但是你时刻在跟他有交互的东西然后你其实这种互动式的音频未尝何尝不是另一种的Always Online”&lt;/li&gt;
+&lt;li&gt;“创造力是人类不可能被替代的原因我觉得大模型它本质是个压缩那它可能会涌现出一定的智慧可能性那它会给你一些灵感但是我觉得真正有趣的事情一定是来自于这个人过往所有的经历的环境以及经历所产生的东西就是我觉得这就是人最大的魅力”&lt;/li&gt;
+&lt;li&gt;“我觉得音频首先最大的是乐极它是以乐极为核心的这是我们最大的一个洞察就是音频最大的核心是乐极为核心的”&lt;/li&gt;
+&lt;li&gt;“我觉得播客其实不仅是承载我们获取信息的一个载体它更像是我们在跟世界连接的这个载体”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://hosting.wavpub.cn/dao-bmrs/2025/06/28/%e4%ba%92%e5%8a%a8%e5%bc%8f-ai-%e9%9f%b3%e9%a2%91%e5%88%b0%e5%ba%95%e6%98%af%e4%bb%80%e4%b9%88%ef%bc%9f%e6%96%b0%e5%9e%8b%e6%92%ad%e5%ae%a2%e3%80%81%e8%af%ad%e8%81%8a%e6%88%bf%e8%bf%98%e6%98%af-ai/</guid>
+      <pubDate>Sat, 28 Jun 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>GraphRAG：如何用知识图谱与大模型解决传统RAG的痛点</title>
+      <link>https://www.bilibili.com/video/BV1zoKuzoENM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1zoKuzoENM"&gt;AI知识图谱 GraphRAG 是怎么回事？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容本文深入探讨了GraphRAG如何通过结合知识图谱与大型语言模型来克服传统RAG在处理细节和语义关联上的不足。文章详细阐述了GraphRAG从文本构建分层知识图谱的过程，以及其独特的查询策略，旨在提升信息检索的准确性与深度。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RAG（Retrieval Augmented Generation）&lt;/strong&gt;：传统的信息检索增强生成方法，通过将文本切分、嵌入并存储在向量数据库中，但在处理需要全局理解或精细定位的问题时存在局限性。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; 用户询问“老王喜欢吃什么”时，RAG容易找到相关句子如“老王喜欢吃西瓜”；但若问“文章中一共提到了几次西瓜”，则因信息分散而难以准确回答，或因相关度不够高而遗漏。若切分过小（如按词），则又失去语义关联，无法回答“老王喜欢吃什么”这类问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GraphRAG&lt;/strong&gt;：一种利用知识图谱解决传统RAG痛点的方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;知识图谱（Knowledge Graph / LPG - Labeled Property Graph）&lt;/strong&gt;：一种图结构，包含实体（如“老王”、“西瓜”）、关系（如“爱吃”）以及属性（如“老王”是“人”，“西瓜”是“水果”），能同时保留细节和语义结构。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; “老王爱吃西瓜”可转化为知识图谱：实体“老王”（属性：人）通过关系“爱吃”连接到实体“西瓜”（属性：水果）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命名实体识别（Named Entity Recognition, NER）&lt;/strong&gt;：识别文本中的实体，如人名、地名、事件等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关系抽取（Relation Extraction）&lt;/strong&gt;：识别实体之间的关系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Cleaning（大模型PUA）&lt;/strong&gt;：GraphRAG中，反复向AI模型提问并要求其补充知识图谱信息，直到AI确认已无遗漏的过程，旨在最大化信息提取。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;莱顿社区检测（Leiden Community Detection）&lt;/strong&gt;：GraphRAG用于将图中密集连接的节点合并成一个整体，以简化图谱并构建层级结构的方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local Search（GraphRAG查询策略）&lt;/strong&gt;：从知识图谱的最底层开始搜索，擅长处理细节丰富、定位准确的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Global Search（GraphRAG查询策略）&lt;/strong&gt;：从知识图谱的高层开始搜索，适合回答抽象、全局性更强的问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;传统RAG在文本切分上存在矛盾，切分过大易漏细节，切分过小易失语意联系，这是其不准确的根源之一。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例：&lt;/em&gt; 按句子切分能回答“老王喜欢吃什么”，但难以统计“西瓜”出现次数；按词切分能统计“西瓜”次数，但打断了信息关系，无法回答“老王喜欢吃什么”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;知识图谱能够同时保留细节和语意结构，有效解决传统RAG的上述矛盾。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例：&lt;/em&gt; 将“老王爱吃西瓜”转化为图谱结构，既有实体又有关系，信息联系清晰。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;大语言模型的出现极大地简化了构建知识图谱（如命名实体识别和关系抽取）的复杂过程，现在只需通过prompt即可完成。&lt;/li&gt;
+&lt;li&gt;GraphRAG通过逐步合并同名实体和使用社群检测算法构建知识图谱的层级结构，并利用大模型对合并信息进行总结，甚至能推理出原文中未明确提及的新信息。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例：&lt;/em&gt; 合并“老王爱吃瓜和桃”与“小王爱吃瓜”后，AI可能推理出“小王不爱吃桃子”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GraphRAG在整个流程中都深度渗透了大语言模型，虽然“烧钱”且听起来“不靠谱”，但根据微软论文数据，实际效果表现良好。&lt;/li&gt;
+&lt;li&gt;GraphRAG始终维护知识图谱与原文之间的对应关系，确保查询时能够溯源并整合相关上下文信息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;p&gt;本文主要介绍GraphRAG的架构和原理，未提供直接的行动建议或操作指南。&lt;/p&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“这个矛盾就是传统RAG不准确的根源之一那有没有一种方法既不漏掉细节又能保留语意的结构呢还真有那就是知识图谱knowledge graphGraphRAG就是用知识图谱来解决传统RAG问题的”&lt;/li&gt;
+&lt;li&gt;“但令人意外的是效果其实还是不错的”
+&lt;h2&gt;- “GraphRag的过程其实很像我们的学习之路起初脑子里面装的是零散的知识点和孤立的笔记就像那些未经整理的文本片段随着不断的积累和思考那些点慢慢形成了线最终在脑海里面支出了一张属于自己的知识图谱而我们的视野也在这个过程中被一点一点的拉高但是我觉得其中最妙的是在这个过程中我们竟然还能够发现一些原本不存在的连接就像现在分享着GraphRug的我和屏幕前静静听着的你我们虽然素媚蒙面但是却因为一份好奇心心里生出了一丝默契这也许就是属于求知者的浪漫吧”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1zoKuzoENM</guid>
+      <pubDate>Thu, 26 Jun 2025 17:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>AI随心编程：利用大模型和Cloudbase AI Toolkit实践软件3.0开发微信小程序</title>
       <link>https://www.bilibili.com/video/BV15gKdz1E5N</link>
@@ -110,6 +811,83 @@
 </description>
       <guid isPermaLink="true">https://www.bilibili.com/video/BV15gKdz1E5N</guid>
       <pubDate>Thu, 26 Jun 2025 13:45:46 +0800</pubDate>
+    </item>
+    <item>
+      <title>Gemini AI编程工具深度评测：GEMINICAI与Code Assistant使用指南与对比</title>
+      <link>https://www.bilibili.com/video/BV1nRKRzdEy9</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1nRKRzdEy9"&gt;同样是 AI 编程，Gemini CLI 不花钱还很强！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细评测了谷歌的Gemini AI编程工具，包括GEMINICAI和Gemini Code Assistant，从功能特点、实际使用体验、性能对比、配置方法等方面进行了深入探讨。内容涵盖了工具的免费优势、写文章能力、代码生成与编辑、以及与竞品如Cursor ID、Augment和Crowd Code的优劣势对比。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GEMINICAI (Gemini Command-Line Interface)&lt;/strong&gt;: 谷歌推出的命令行AI编程工具，高度模仿Crowd Code，为个人开发者提供免费使用，支持代码生成、编辑、文件操作、谷歌搜索集成等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gemini Code Assistant&lt;/strong&gt;: 谷歌在VSCode中提供的代码助手，支持agent模式，可用于多步骤复杂任务解决方案，但上下文关联和文件操作能力仍需提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent模式&lt;/strong&gt;: Gemini Code Assistant的一种工作模式，能通过理解复杂指令并与用户互动来执行多步骤任务，例如创建项目、修改代码等，但每一步常需手动确认。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UO模式 (User Override Mode)&lt;/strong&gt;: 在GEMINICAI中，开启此模式可以自动批准所有工具调用，避免频繁的用户确认，提高操作流畅性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Memory, Tools, Compress)&lt;/strong&gt;: GEMINICAI内置的命令，用于管理对话、自定义界面行为、控制AI操作等，其中“工具”包括文件系统操作、shell命令执行、网页获取、谷歌搜索等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文文件 (Context Files)&lt;/strong&gt;: 如&lt;code&gt;Gemini.markdown&lt;/code&gt;和&lt;code&gt;settings.json&lt;/code&gt;，用于为AI提供项目特定规则、代码审查要点、沟通风格以及自定义工具配置，帮助AI更好地理解和执行任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;沙箱模式 (Sandbox Mode)&lt;/strong&gt;: GEMINICAI的一种运行模式，通常默认开启UO模式，提供一个受控环境执行命令，确保安全性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;免费使用是GEMINICAI的巨大优势，但需注意隐私权衡。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;个人开发者可免费使用GEMINICAI，最高每分钟调用60次，每天1000次。&lt;/li&gt;
+&lt;li&gt;提示、回答及相关代码会被用于改进谷歌产品和模型训练。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GEMINICAI在写文章方面表现出色，但在复杂文件操作和执行速度上仍有不足。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;GEMINICAI写文章能力优秀，能洋洋洒洒地生成大量文字。&lt;/li&gt;
+&lt;li&gt;在处理复杂任务，如文件移除或冲突解决时，GEMINICAI表现不如Cursor或Augment，且耗时更长（用户反馈：同任务GeminiCI耗时30分钟，Crowd Code 6分钟）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent模式虽有进步，但与成熟AI编程工具相比仍有差距。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Gemini Code Assistant的Agent模式比非Agent模式进步显著，但与Cursor ID或Augment相比仍有较大差距。&lt;/li&gt;
+&lt;li&gt;GEMINICAI的UI设计能力、内置工具数量也少于Crowd Code和一般成熟的AI编程工具。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;谷歌工程师强调先计划再编码和分层上下文的重要性。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;对于复杂任务，谷歌工作人员建议先让AI制定计划，再进行编码，因Gemini在计划制定上比Crowd Code的四代模型更强。&lt;/li&gt;
+&lt;li&gt;建议创建多个分层的Gemini markdown文件作为上下文，类似于Cursor的&lt;code&gt;roles&lt;/code&gt;文件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UO模式虽能提高效率，但部分专家倾向于手动拦截和重新提示。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;UO模式（自动批准工具调用）能简化操作流程，但谷歌工程师Philipp不倾向使用，他更倾向于手动拦截并重新提示以获得更精确的控制。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用GEMINICAI写文章&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;直接在COI对话框中指示它在哪个目录里面去写关于什么主题的文章。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装和启动GEMINICAI&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;使用命令 &lt;code&gt;npm install -g @google/gemini-cli&lt;/code&gt; 进行安装。&lt;/li&gt;
+&lt;li&gt;安装后输入 &lt;code&gt;jm&lt;/code&gt; 即可启动，会出现欢迎界面和提示。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;登录和认证&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;首次启动通常会引导到网页认证。若已配置API Key，可能直接从环境获取。&lt;/li&gt;
+&lt;li&gt;可通过 &lt;code&gt;/2S&lt;/code&gt; 命令选择使用谷歌账号登录，以使用免费服务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置Gemini Code Assistant (VSCode)&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在VSCode中，通过 &lt;code&gt;command shift p&lt;/code&gt; 选择 &lt;code&gt;open user sitting json&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;gemini.codeAssistant&lt;/code&gt;下方添加 `&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1nRKRzdEy9</guid>
+      <pubDate>Thu, 26 Jun 2025 13:10:48 +0800</pubDate>
     </item>
     <item>
       <title>AI致富经、国企转型与AI创业生态：增长黑客AI周报第12期</title>
@@ -559,6 +1337,204 @@ Dia浏览器所倡导的核心理念，意味着AI不再是浏览器的附加功
 </description>
       <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep11-aiarrgoogle</guid>
       <pubDate>Thu, 12 Jun 2025 01:46:56 +0800</pubDate>
+    </item>
+    <item>
+      <title>维他动力周哲伦深度解析：人形机器人是否最优解？AI与物理世界开启消费级机器人新篇章</title>
+      <link>https://www.ximalaya.com/sound/855887211</link>
+      <description>&lt;p&gt;&lt;a href="http://www.ximalaya.com/album/55951710.xml"&gt;大小马聊科技&lt;/a&gt; | &lt;a href="https://www.ximalaya.com/sound/855887211"&gt;V79.从汽车跳槽到AI机器人，靠啥100天融资两亿？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次播客邀请维他动力联合创始人周哲伦，深入探讨了人形机器人行业的发展现状与未来趋势。他分享了维他动力公司聚焦2C消费级机器人市场的战略，并强调了人工智能与复杂硬件结合在物理世界中创造实际价值的重要性，区别于现有行业对人形机器人的过度“自恋”和宣传。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Physical AI&lt;/strong&gt;：英伟达提出的概念，指AI技术与物理世界中的硬件相结合。它强调AI解决复杂空间问题的能力，而非仅限于模拟人类形态，预示着机器人行业从追求人形到追求实用价值的转变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生活空间的自动驾驶&lt;/strong&gt;：维他动力提出的机器人自主移动理念，旨在让机器人在室内外复杂环境中（如上下台阶、楼梯）实现类似自动驾驶的导航能力，而非仅限于单一平面移动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产品价值公式&lt;/strong&gt;：由傅盛和俞军提出，公式为“产品价值 = (新体验 - 旧体验) - 替换成本”。此公式强调新产品成功不仅要提供更好的体验，更要考虑用户从旧有解决方案过渡到新方案所需的替换成本。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;人形机器人并非当前的最优解，更倾向于一种“自恋”和展示&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：许多现有的人形机器人应用，如车展宣传、工厂质检和搬运，可以通过更简单、高效的非人形设备（如移动摄像头、小推车）完成，功能性并非必须。唯一真正有用的场景可能是满足网红的表演和直播需求。&lt;/li&gt;
+&lt;li&gt;案例：UBTech的财报显示，其收入增长快的产品是消费级机器人（如智能猫砂盆、泳池清洁机、扫地机），而非高大上的人形机器人。北京马拉松的人形机器人比赛被认为投入产出比低、规则设定不合理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器人行业正在转向务实，聚焦实际价值创造&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：英伟达GTC大会已改用“Physical AI”一词，取代“人形机器人”。投资人更关注产品的实际价值和商业闭环，行业内“不做人形就融不到资”的风气正在扭转。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初创机器人公司应从低复杂度、低失效成本的垂直场景切入市场&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：与大公司追求万亿级市场不同，初创公司应找到大公司不屑做但有价值的小众市场。先从“Walkman”级别的垂直应用做起，逐步迭代。&lt;/li&gt;
+&lt;li&gt;案例：维他动力选择2C消费级市场，聚焦家庭家务（室内操作）和伴随（室外移动）机器人，这类场景的失效成本低（如叠被子叠不好无严重后果）且复杂度可控。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI是机器人的核心，硬件形态可变，构建AI数据闭环能力至关重要&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：机器人需要强大的端侧AI算力（如智能汽车超过100Tops），而非手机算力。公司内部需快速建立AI能力和数据闭环基础设施，以支撑不同硬件形态（四足、双足、操作臂）的迭代和发展。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中国在AI和机器人领域具备显著优势&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;数据：中国AI专利数占全球61%以上，顶尖AI学者占比47%。&lt;/li&gt;
+&lt;li&gt;论据：中国拥有大量超级应用场景（活跃用户超过5000万的超级APP公司远超美国），为机器人提供了广阔的应用落地空间。国内激烈的市场竞争（“食人鱼”效应）加速了技术和产品的进化。华人工程师在数理化和代码方面的优势也为AI发展提供了强大的人才基础。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;颠覆性科技浪潮的特点是核心技术能将边际成本降至接近于零&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：微处理器将计算边际成本降到很低；互联网将分发边际效应降到很低。AI有望将网络世界的生成、解决、实现成本降至极低。机器人则有望将2B的劳动力成本和2C的服务成本降到最低。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机器人产品开发&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;深入理解用户需求和场景，借鉴理想汽车的“PEA会议”模式。&lt;/li&gt;
+&lt;li&gt;充分考虑物理约束和用户便利性（如机器人尺寸适配家居空间、能放入汽车后备箱的高度——以L9后备箱离地高度78cm为例）。&lt;/li&gt;
+&lt;li&gt;在强化学习训练中融入动画设计理念，让机器人动作更具连贯性和生动性，超越单纯的功能性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器人行业从业者&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;积极探索未知，勇于尝试新赛道，即使没有机器人经验，核心技术能力也可迁移。&lt;/li&gt;
+&lt;li&gt;优先选择能交付实际产品、解决用户痛点的公司和方向。&lt;/li&gt;
+&lt;li&gt;持续学习机器人学（如波士顿动力、宇树科技、王兴兴的分享）及AI与物理结合的最新论文（如李飞飞斯坦福团队、迪士尼研究）。&lt;/li&gt;
+&lt;li&gt;考虑加入初创公司，获得实操经验。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我们追求人形机器人其实是人对自己的一种自恋。”&lt;/li&gt;
+&lt;li&gt;“探索未知，创造美。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.ximalaya.com/sound/855887211</guid>
+      <pubDate>Tue, 20 May 2025 12:27:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Dalupa CTO Jeremy谈AI产品开发、获客与融资的真实经验</title>
+      <link>https://podcasters.spotify.com/pod/show/monica25841/episodes/EP-65---Daloopa-CTO-Jeremy-Huang4AI-e2ssa28</link>
+      <description>&lt;p&gt;&lt;a href="https://anchor.fm/s/83902a44/podcast/rss"&gt;OnBoard!&lt;/a&gt; | &lt;a href="https://podcasters.spotify.com/pod/show/monica25841/episodes/EP-65---Daloopa-CTO-Jeremy-Huang4AI-e2ssa28"&gt;EP 65. 对话 Daloopa CTO Jeremy Huang:融资4千万美金，如何打造红遍华尔街的AI金融产品&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本播客访谈了Dalupa的联合创始人兼CTO Jeremy Huang，深入探讨了他创建并发展这家为金融业提供AI驱动数据产品的公司。他分享了从技术背景转向创业的心路历程，特别是关于技术创始人在产品开发早期、市场拓展、团队管理及融资方面的独到见解。访谈强调了用户理解、销售先行和构建高绩效团队的重要性。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI与人工操作的“甜蜜点”&lt;/strong&gt;：指纯AI解决方案和纯人工解决方案之间的结合点，该领域问题通常较难解决，但蕴含巨大机遇。AI能提高人工效率和可扩展性，人工则能提升AI的准确性和应对长尾案例的能力，共同创造出比单一模式更具竞争力的产品。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/类比&lt;/em&gt;：Dalupa的后端系统类似于自动驾驶汽车，大部分时间自主运行，但在遇到“边缘案例”时（如自动驾驶汽车被困在陌生地形），需要人工介入处理，从而确保数据高准确性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;客户战略而非AI战略&lt;/strong&gt;：Dalupa的核心是解决客户问题，AI只是达成这一目标的技术手段。企业不应盲目追求“AI战略”，而应将AI视为服务客户的工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;金融行业的PLG（产品驱动增长）&lt;/strong&gt;：与开发者工具的PLG策略不同，金融行业的PLG更侧重于提供前期价值（如让用户试用产品），从而简化销售对话，而非采用免费增值模式。这是因为金融业更依赖信任和人际关系，而非用户主动在线搜索工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;早期创业中的“技术债”与“过早优化”&lt;/strong&gt;：技术创始人常犯的错误是过早投入大量精力构建可扩展的基础设施，而非优先验证用户问题。这导致时间浪费，因为早期最重要的是快速测试和验证想法，即使这意味着初期会产生一些技术债。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CTO在早期每天应花8小时进行客户电话拜访&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例&lt;/em&gt;：多数创业失败并非源于技术问题，而是做了错误的产品或选择了错误的客户。直接与客户沟通能让技术创始人深刻理解用户痛点、情绪和使用场景，这是纯粹的产品需求文档无法提供的。早期创业应优先降低市场风险，而非技术实现风险。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在产品未定型前应尽量少写代码，甚至“先销售再构建”&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例&lt;/em&gt;：早期应限制工程团队每周代码量，这会迫使团队将更多时间用于与用户交流，快速验证产品构想，避免过度投入在不确定的方向上。Airbnb的经验表明，快速验证想法比构建可伸缩的基础设施更重要。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创始人即是产品的第一个销售员，并应主导销售直到获得可重复收入&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例&lt;/em&gt;：创始人应亲自完成首个百万美元的交易额（真实SaaS收入而非咨询项目），以深入了解客户画像、价值主张和可重复销售模式，这能为后续的规模化销售团队招聘提供坚实基础，避免过早招聘销售团队带来的风险。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;金融行业获客的关键在于“信任”的建立&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例&lt;/em&gt;：口碑传播（产品足够好）、长期一致的服务交付、以及通过深入理解客户痛点（如Dalupa通过播客访谈金融分析师）来展示专业性，都能有效建立信任。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;即使在B2B企业级销售中，产品的情感和体验层面也至关重要&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑/案例&lt;/em&gt;：用户购买产品首先是基于体验和情感共鸣，其次才是理性分析（如节约了多少小时）。决策者虽然需要数据证明ROI，但产品能否引起情感共鸣也同样重要。类比购买iPhone，消费者更多是爱其体验而非纯粹的参数。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;技术创始人早期时间分配&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;工作日朝九晚五：专注于销售和与用户沟通，进行客户电话、演示等。&lt;/li&gt;
+&lt;li&gt;夜晚：再进行代码编写。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;首次销售团队招聘策略&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;创始人亲自完成第一个百万美元的可重复SaaS收入。&lt;/li&gt;
+&lt;li&gt;在此之后，招聘1-2名具有类似产品销售经验，且能“创造销售打法”而非仅“执行打法”的资深销售代表（AE）。&lt;/li&gt;
+&lt;li&gt;等证明了销售模式后，再引入更资深的销售主管来规模化团队。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产品开发&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在初期限制代码编写量，优先进行快速验证和用户反馈。&lt;/li&gt;
+&lt;li&gt;关注产品细节，即使是外人看来微不足道的部分（如Excel字体、排版），对用户而言可能至关重要。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;管理分布式团队&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;确保频繁且透明的沟通。&lt;/li&gt;
+&lt;li&gt;鼓励开放的文化，通过挑战和辩论建立更强的信任基础。&lt;/li&gt;
+&lt;li&gt;采用异步工作方式，并依赖清晰的文档和工具（如Gong.io记录销售电话）。&lt;/li&gt;
+&lt;li&gt;专注于“信任”和“共同目标”的建设。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;融资建议&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;专注于构建一个具有良好基本面、清晰商业模式和可量化价值的“好生意”，而非盲目追逐概念和夸大市场规模。&lt;/li&gt;
+&lt;li&gt;对投资者保持透明和诚实，清晰阐述路线图和潜在风险。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我们有的是客户战略。对吧？我们为客户解决问题。我认为这才是最重要的。AI之所以重要，是因为它能在多大程度上解决客户问题。对吧？除此之外，你可能只是在试图获得不属于你的关注。”&lt;/li&gt;
+&lt;li&gt;“如果你限制工程团队编写的代码量……每周几行代码，你可能会更快地达到产品与市场的契合。”&lt;/li&gt;
+&lt;li&gt;“我认为对于当今大多数创业公司来说，真正的技术风险不是技术风险……真正的风险是你正在构建错误的东西，或者你正在针对错误的客户，或者你正在针对次优的客户。”&lt;/li&gt;
+&lt;li&gt;“认为‘我的唯一工作就是写代码’是一个非常危险的错误。我认为你的首要工作是理解用户，与用户建立非常深入的联系。”&lt;/li&gt;
+&lt;li&gt;“愤怒的客户，有过糟糕体验的客户，真的让我夜不能寐。”&lt;/li&gt;
+&lt;li&gt;“真正的秘诀在于建立一支强大的团队，并信任你的团队能够知晓一切，而不是你自己必须知道一切。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://podcasters.spotify.com/pod/show/monica25841/episodes/EP-65---Daloopa-CTO-Jeremy-Huang4AI-e2ssa28</guid>
+      <pubDate>Fri, 10 Jan 2025 06:50:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>硅谷101首届AI大会预告：探讨前沿科技与应用，多位嘉宾出席</title>
+      <link>https://sv101.fireside.fm/172</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/sv101/rss"&gt;硅谷101&lt;/a&gt; | &lt;a href="https://sv101.fireside.fm/172"&gt;活动预告：我们硅谷线下见&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;硅谷101团队将于10月19日在南湾Sunnyvale Plug&amp;amp;Play举办一场500至700人规模的大型线下AI大会。此次大会是团队首次尝试如此大规模的线下活动，将邀请Peter Thiel的Founders Fund合伙人上流等多位业界知名嘉宾出席，共同探讨AI在教育、消费、长寿抗衰等领域的接地气应用。&lt;/p&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;硅谷101团队将首次举办一场大型线下AI大会，预计规模达500-700人。&lt;/li&gt;
+&lt;li&gt;大会邀请了Founders Fund合伙人上流以及多位播客人气嘉宾如张璐、侯小虎、陈倩、刘斌燕等。&lt;/li&gt;
+&lt;li&gt;活动将聚焦前沿科技，深入探讨AI与教育、消费、长寿抗衰等实际领域的结合应用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;感兴趣的听众请尽快通过播客show notes中的报名链接进行报名。&lt;/li&gt;
+&lt;li&gt;请持续关注硅谷101的播客，最近一两天将发布新的正式节目。&lt;/li&gt;
+&lt;li&gt;请不吝点赞、订阅、转发、打赏支持节目。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://sv101.fireside.fm/172</guid>
+      <pubDate>Thu, 19 Sep 2024 04:15:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
