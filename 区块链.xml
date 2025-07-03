@@ -1,121 +1,131 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
-    <title>MyInfoHub - 区块链 Feed</title>
-    <link>https://liamtao.github.io/myinfohub-feeds/</link>
+    <title>MyInfoHub - 区块链</title>
+    <link>https://liamtao.github.io/myinfohub-feeds//区块链.xml</link>
     <description>聚合与'区块链'相关的最新信息。</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Jul 2025 12:27:21 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 03:13:44 +0000</lastBuildDate>
     <item>
-      <title>美国Genius法案：稳定币监管、美元地位与支付巨头冲击</title>
-      <link>https://www.youtube.com/watch?v=9Dsj6K2XjQE</link>
-      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;C&amp;amp;K GO!&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=9Dsj6K2XjQE"&gt;CK投資理財 | 美國強推穩定幣根本原因！Mastercard, Visa要完了？！&lt;/a&gt;&lt;/p&gt;
+      <title>加密货币挖矿算力劫持揭秘与防范：警惕第三方节点与中转抽水</title>
+      <link>https://www.youtube.com/watch?v=5Uq8uNVy0DE</link>
+      <description>&lt;p&gt;&lt;a href="UCbCCUH8S3yhlm7__rhxR2QQ"&gt;不良林&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=5Uq8uNVy0DE"&gt;【别抽了我快干了】谨防加密货币挖矿偷算力，机场节点算力劫持实战演示，矿池中转抽水怎么办？不要再给别人打工了 | 加密货币安全科普&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 
-&lt;p&gt;美国参议院通过了“Genius Act”稳定币法案，旨在监管并合法化稳定币的发行，将其纳入金融流通体系。该法案要求稳定币须1:1由美元或美国国债全额支持，并定期审计，此举有望稳固美元地位，并对短期美债市场和Mastercard、Visa等传统支付巨头产生深远影响。尽管其提供了减少交易成本、促进美元国际化的潜力，但也面临着金融市场潜在风险和用户接受度等挑战。&lt;/p&gt;
+&lt;p&gt;文章揭露了加密货币挖矿行业中普遍存在的“抽水”现象，即矿机算力被第三方节点或中转服务器劫持，为他人“打工”。文章通过实战演示，详细讲解了算力劫持的原理、方式及其隐蔽性，并强调了自建节点的重要性以防止算力被盗。&lt;/p&gt;
 
 &lt;h3&gt;重要概念&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;稳定币 (Stablecoin)
-一种数字货币，其价格通常与某种稳定资产（如美元、黄金）挂钩，旨在减少价格波动，使其更适合日常交易。文章提到泰达币（Tether）曾与美元脱钩的案例，以及Genius Act要求其1:1由美元或美国国债全额支持。&lt;/li&gt;
-&lt;li&gt;Genius Act (天才议案)
-美国参议院通过的一项关于稳定币监管的法案简称。该法案允许非金融机构发行稳定币，但要求其1:1由美元或美国国债全额支持，并需定期审计和公开储备资产。其目标之一是稳固美元作为主要流通货币的地位。&lt;/li&gt;
-&lt;li&gt;银行挤兑 (Bank Run)
-当大量客户同时从银行提取存款，担心银行破产或无法履行义务时发生的情况。文章类比了稳定币市场中，如果人们对挂钩资产的信心动摇，可能导致大规模抛售稳定币，形成“新版银行挤兑”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;算力“抽水”（Hashrate Hijacking）&lt;/strong&gt;: 指加密货币挖矿过程中，用户的矿机算力在不知情的情况下被恶意劫持或抽成，导致部分或全部挖矿收益转移到第三方（如节点或中转服务提供者）的钱包中。文章通过模拟黑客搭建SS节点和矿池中转服务器，并利用劫持脚本将受害者的挖矿数据重定向到黑客的钱包地址，形象演示了算力劫持的全过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stratum+TCP协议&lt;/strong&gt;: 挖矿行业主流的通信协议，默认明文传输，没有加密，这使得挖矿数据容易被中间人劫持和篡改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stratum+TLS协议&lt;/strong&gt;: Stratum协议的加密版本，通过TLS加密通信，可以提高安全性，但由于性能开销和矿池、矿机的兼容性问题，目前普及率不高，且在有抽水功能的中转服务中仍可能被解密。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;主要观点&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;稳定币监管加强，确保1:1挂钩美元或美债，以防范脱钩风险。
+&lt;li&gt;当你使用别人的节点或矿池中转进行挖矿时，你的矿机算力很有可能被劫持，为他人“打工”。
 &lt;ul&gt;
-&lt;li&gt;Genius Act规定非金融机构也能发行稳定币，但必须1:1由美元或美国国债全额支持，并定期审计和公开储备资产。&lt;/li&gt;
-&lt;li&gt;案例：2022年泰达币曾与美元1:1脱钩，一度跌至94美分，因其宣称100%美元支持但部分储备投资于贷款、比特币等资产。&lt;/li&gt;
+&lt;li&gt;支撑：文章通过SS节点劫持和矿池中转劫持的实际演示，展示了矿机算力如何在不知情的情况下被转移到黑客钱包。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;稳定币推广有望稳固美元地位，并可能拉低短期国债利息。
+&lt;li&gt;“抽水”在挖矿行业非常常见，存在于内核、中转、矿池等各个环节，即使是声称不抽水或少量抽水的服务，也可能在后台进行大量“抽水”。
 &lt;ul&gt;
-&lt;li&gt;大量采用和发行以美元及美债1:1挂钩的稳定币，除了能稳固美元地位，还因法案要求绑定的国债必须是短期美债，能增加短期美债需求，从而拉低其利息。&lt;/li&gt;
-&lt;li&gt;支撑：摩根大通分析师预计稳定币发行商可能成为短期国债的第三大买家，一定程度上减弱美联储对于短期利息的控制。&lt;/li&gt;
+&lt;li&gt;支撑：文中提到“那些不正规的明面上说不抽水或者少量抽水，背地里都快把你抽干了”。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;对传统支付巨头（Mastercard、Visa）构成巨大冲击，但亦是转型机遇。
+&lt;li&gt;算力劫持可以做到非常隐蔽，即便矿机软件设置的是你的钱包地址，挖矿流量也可能被重定向，且不影响你使用节点进行翻墙或挖矿程序的正常显示。
 &lt;ul&gt;
-&lt;li&gt;亚马逊、沃尔玛等探索自行发行稳定币作为支付方式，旨在减少对Mastercard、Visa的依赖，节省数十亿交易成本。&lt;/li&gt;
-&lt;li&gt;数据：该议案通过当天Mastercard和Visa股价暴跌超过5%。&lt;/li&gt;
-&lt;li&gt;应对策略：Visa认为下一代数字化支付系统需满足科技、储备和交互界面三层要求，而其正努力成为解决第三层（交互界面）的核心清算系统，连接不同稳定币与现金。&lt;/li&gt;
+&lt;li&gt;支撑：演示中，受害者的挖矿软件界面看似正常，但实际收益已被劫持。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;稳定币的广泛应用面临用户接受度挑战，特别是不能支付利息和使用场景限制。
+&lt;li&gt;挖矿数据被劫持的根本原因是挖矿使用的stratum+tcp通信协议默认是明文传输。
 &lt;ul&gt;
-&lt;li&gt;Genius Act规定稳定币发行人不能向持有者支付任何形式的利息或收益，这会限制人们持有稳定币的意愿，因为存在贬值风险。&lt;/li&gt;
-&lt;li&gt;自行发行的稳定币（如亚马逊/沃尔玛）大概率只能在其自有商店使用，灵活性可能不如传统支付工具。&lt;/li&gt;
+&lt;li&gt;支撑：文中明确指出“挖矿数据据能被劫持 归根结底是因为挖矿使用的stratum+tcp通信协议 默认是明文的没有加密”。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;稳定币市场的大规模挤兑若发生，可能蔓延至更广的金融市场。
+&lt;li&gt;stratum+tls加密方式虽然能解决部分节点劫持问题，但由于性能开销大和中转服务器可能解密原始流量，其应用受限且无法完全规避风险。
 &lt;ul&gt;
-&lt;li&gt;如果市场对稳定币信心出现问题，可能导致大规模清仓，影响整个金融市场。&lt;/li&gt;
-&lt;li&gt;案例：2022年稳定币市场挤兑事件，包括泰达币在内的稳定币被抛售。当时美国财政部部长Jenny Yellen曾警告，取决于稳定币未来的流通发行速度，其系统性风险不确定。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=9Dsj6K2XjQE</guid>
-      <pubDate>Sat, 28 Jun 2025 02:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Web3新节目上线：深挖Seed_Club_DAO熊市生存之道，解析加密货币雷曼时刻与招聘启事</title>
-      <link>https://sv101.fireside.fm/82</link>
-      <description>&lt;p&gt;&lt;a href="item.source_link"&gt;硅谷101&lt;/a&gt; | &lt;a href="https://sv101.fireside.fm/82"&gt;小公告｜新播客Web3 101上线了&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容&lt;/p&gt;
-
-&lt;p&gt;这段文本介绍了“Web3 101”播客和“硅谷101”视频节目的内容。其中，“Web3 101”节目深入探讨了Web3世界顶级的加速器Seed Club DAO在熊市中保持现金流健康的秘诀，并预告将梳理加密货币进入熊市的关键事件。同时，文章也提到了节目的订阅方式和团队的招聘需求。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Seed Club DAO: 一个Web3领域的顶级加速器和去中心化自治组织（DAO），被誉为“Web3领域的YC”。它从11人的Telegram群构想开始，不到两年内获得了此称号，并在熊市中保持了健康的现金流，区别于许多遇到问题的DAO。&lt;/li&gt;
-&lt;li&gt;加密世界的雷曼时刻: 指加密货币市场中一系列导致深度熊市的重大事件，例如LunarUST事件、Celsius和三箭资本的破产，这些事件对加密市场造成了巨大冲击。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Seed Club DAO在熊市中表现出极强的韧性，是少数现金流健康的DAO之一。
-&lt;ul&gt;
-&lt;li&gt;尽管多数DAO在熊市中面临困境（如Bankley's DAO），Seed Club却能逆势而上。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;新节目将系统性地分析加密货币市场如何逐步进入熊市。
-&lt;ul&gt;
-&lt;li&gt;将详细探讨LunarUST事件、Celsius和三箭资本等关键雷点如何发生。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;除了深度播客，还有一个精炼的视频节目“硅谷101”，旨在15分钟内讲清复杂科技事件。
-&lt;ul&gt;
-&lt;li&gt;曾制作内容包括“十大NFT系列”、“巴菲特与木头姐的周期诅咒”、“谷歌人工智能是否有灵魂”等。&lt;/li&gt;
+&lt;li&gt;支撑：文中提到“但加上tls的开销太大了 同时要处理大量连接的矿池不愿意推广 矿机也不愿意用”以及“即使是加了tls也没用 因为套的只是中转的tls 原始矿池的tls在中转就被解密了 照样可以抽你的水”。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;收听播客&lt;/strong&gt;: 欢迎点赞、订阅、转发、打赏支持“明镜与点点”栏目。
+&lt;li&gt;为了防止算力被劫持，国内用户最好自己搭建节点或中转服务。
 &lt;ul&gt;
-&lt;li&gt;如果在苹果中国搜索不到，可能是节目仍在审核中。&lt;/li&gt;
-&lt;li&gt;关注网址将写在Show Notes中，欢迎成为OG级粉丝。&lt;/li&gt;
+&lt;li&gt;文中推荐购买高速稳定的VPS服务器，并提供了详细的购买视频教程及节点搭建教程，即使是0基础的小白也能操作。&lt;/li&gt;
+&lt;li&gt;建议选择作者推荐的第一个视频同款VPS。&lt;/li&gt;
+&lt;li&gt;如果通过作者的推广链接购买VPS，遇到问题可发送邮件寻求协助。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;观看视频节目&lt;/strong&gt;:
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
 &lt;ul&gt;
-&lt;li&gt;在YouTube上搜索“硅谷101”。&lt;/li&gt;
-&lt;li&gt;中国听众可在B站、微信视频号、微博关注订阅。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加入团队&lt;/strong&gt;:
+&lt;li&gt;“当你使用别人的节点 或者矿池中转进行挖矿的时候 很有可能你的矿机算力已经被劫持了 正在给别人打工”&lt;/li&gt;
+&lt;li&gt;“科学来讲我变成化石了都挖不到”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=5Uq8uNVy0DE</guid>
+      <pubDate>Wed, 28 May 2025 12:16:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>Web3 101与硅谷101节目内容揭秘：深析Web3、DAO与加密熊市，并诚招后期制作人才</title>
+      <link>https://sv101.fireside.fm/82</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/sv101/rss"&gt;硅谷101&lt;/a&gt; | &lt;a href="https://sv101.fireside.fm/82"&gt;小公告｜新播客Web3 101上线了&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文介绍了“Web3 101”播客和“硅谷101”视频节目，内容涵盖Web3世界、DAO、加密货币熊市等前沿科技事件的深度解析。节目旨在用精炼的语言阐释复杂概念，并分享了对Seed Club等项目的洞察。此外，文章还发布了全职后期制作岗位的招聘信息。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
 &lt;ul&gt;
-&lt;li&gt;正在招聘全职后期制作人员。&lt;/li&gt;
-&lt;li&gt;要求有过往音频或视频制作经历，并有较好的英文基础。&lt;/li&gt;
-&lt;li&gt;欢迎将简历发送至podcast@sv101.net。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web3世界&lt;/strong&gt;: 指未来基于区块链技术、强调去中心化和用户所有权的互联网形态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加速器&lt;/strong&gt;: 旨在帮助初创公司快速成长的机构，提供资金、导师指导和资源，如文中的Web3顶级加速器Seed Club。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DAO (Decentralized Autonomous Organization)&lt;/strong&gt;: 去中心化自治组织，通过智能合约运行并由成员共同治理，Seed Club亦是其中一员。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;熊市&lt;/strong&gt;: 资产价格持续下跌的市场周期，文中特指加密货币市场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LunarUST事件&lt;/strong&gt;: 指加密货币市场中Luna和UST稳定币系统崩溃的事件，被认为是加密熊市的导火索之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Celsis和三件资本&lt;/strong&gt;: 两个在加密熊市中遭遇严重流动性危机并倒闭的机构，被类比为“加密世界的雷曼时刻”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NFT (Non-Fungible Token)&lt;/strong&gt;: 非同质化代币，一种基于区块链的数字资产，代表着独特的数字物品所有权。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;即使在熊市中，某些DAO仍能保持健康的现金流。
+&lt;ul&gt;
+&lt;li&gt;支撑：大多数DAO在熊市中遇到问题，但Seed Club作为一个DAO，却能成为极少数现金流健康的案例。&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;加密货币市场进入熊市并非偶然，而是由一系列重大事件累积而成。
+&lt;ul&gt;
+&lt;li&gt;支撑：节目将深入梳理LunarUST事件、Celsis和三件资本等被视为“加密世界的雷曼时刻”的事件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;复杂的科技事件可以通过精炼的语言在短时间内被清晰地阐述。
+&lt;ul&gt;
+&lt;li&gt;支撑：硅谷101视频节目倾向于用15分钟的时间讲清楚一个复杂的科技事件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;支持节目：请不吝点赞、订阅、转发、打赏“明镜与点点”栏目。&lt;/li&gt;
+&lt;li&gt;关注播客与视频：
+&lt;ul&gt;
+&lt;li&gt;Web3 101：待苹果中国审核通过后，可查看show notes中的关注网址。&lt;/li&gt;
+&lt;li&gt;硅谷101：在YouTube上搜索“硅谷101”；中国听众可在B站、微信视频号、微博上关注订阅。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;加入团队：如果你对音频视频内容制作有好奇心并跃跃欲试，有音频或视频制作经验及较好的英文基础，请将简历发送至podcast@sv101.net。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无。&lt;/li&gt;
 &lt;/ul&gt;
 </description>
       <guid isPermaLink="true">https://sv101.fireside.fm/82</guid>

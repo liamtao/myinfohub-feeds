@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
   <channel>
-    <title>MyInfoHub - 量化交易 Feed</title>
-    <link>https://liamtao.github.io/myinfohub-feeds/</link>
+    <title>MyInfoHub - 量化交易</title>
+    <link>https://liamtao.github.io/myinfohub-feeds//量化交易.xml</link>
     <description>聚合与'量化交易'相关的最新信息。</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 03 Jul 2025 00:07:52 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Jul 2025 03:13:44 +0000</lastBuildDate>
     <item>
       <title>mini CAMT量化交易实盘框架搭建与数据处理指南</title>
       <link>https://www.bilibili.com/video/BV1GQgZzcEEW</link>
@@ -73,6 +73,59 @@
       <pubDate>Sat, 28 Jun 2025 07:31:40 +0800</pubDate>
     </item>
     <item>
+      <title>Z哥的“勾到大复值”新解：KDJ与K-means聚类结合的量化交易策略</title>
+      <link>https://www.bilibili.com/video/BV1jLKEz2EWC</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1jLKEz2EWC"&gt;【量化论文】勾到大负值KDJ发挥最佳效果？需要这般魔改&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文深入探讨了量化交易中Z哥常提及的KDJ指标“勾到大复值”买入策略。文章介绍了一篇创新性论文，该论文将传统的KDJ指标与K-means聚类算法结合，以动态识别市场状态并提高股票涨跌预测的准确性。这种结合方法显著提升了KDJ指标的实战应用效果。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;KDJ指标&lt;/strong&gt;: 这是一个技术分析指标，由K、D、J三条线组成。K线通常代表短期平均，D线是K线的平滑版本，J线是三倍K减去两倍D的值。传统观点认为J值低于特定阈值（如0）为超卖，高于特定阈值（如80）为超买，预示市场可能反转。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;勾到大复值&lt;/strong&gt;: Z哥提出的概念，指的是当KDJ中的J值特别低时，预示着市场即将反转向上，是买入的时机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;K-means Clustering (K-均值聚类)&lt;/strong&gt;: 一种无监督机器学习算法，用于将数据点分组为预定数量的簇。在本文中，它被应用于股票市场分析，通过股票KDJ的三维坐标（K、D、J值），自动将股票状态划分为不同的市场状态（即簇），如超买、超卖、中间震荡等，从而动态地识别潜在的反转信号。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例说明&lt;/strong&gt;: 该论文抽取了A股800个股票，将其KDJ的三维值（K、D、J）输入K-means算法，自动将股票划分为五个不同的区域，每个区域代表一种市场状态，并据此推测第二天股票的涨跌。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统KDJ指标的局限性与动态优化&lt;/strong&gt;: KDJ指标传统上仅关注J值来判断超买超卖，但研究指出，应综合考虑K、D、J三条线，并采用动态而非固定的阈值来判断超买超卖状态。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 论文解决了KDJ固有的问题，提出了一个动态判断超买超卖的思路，区别于J值低于0为超卖、高于80为超买的传统固定说法。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KDJ与K-means聚类结合的显著效果&lt;/strong&gt;: 单独使用KDJ指标的预测效果不佳，但当它与K-means聚类算法结合后，预测第二天股票涨跌的准确率能达到76%。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 文章明确指出：“如果你把kdj加上kmeans结果瞬间76的准确率”，尽管同时提到这并未测试夏普比率和最大回撤，但预测准确率的提升是显著的。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;创新性地结合不同技术指标与算法&lt;/strong&gt;: 除了K-means，KDJ还可以尝试与DB Scan、深度学习等其他机器学习算法结合，以探索更多元的量化交易策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态优化策略&lt;/strong&gt;: 将KDJ与Market Regime（市场状态识别）等概念结合，有望构建一个更完善、动态优化的“勾到大复值”策略。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“勾到大复值就是勾到大复值的时候就买入。”&lt;/li&gt;
+&lt;li&gt;“其实本文最大的贡献在于创新性的把KDJ和其他东西结合起来。”
+&lt;h2&gt;- “所以说Zeg他虽然有时候这个说的云山雾罩但是他是有买方思维的他说的这个KDJ相信他在用的时候不是肯定的简单用勾道打复值肯定加了一些其他东西。”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1jLKEz2EWC</guid>
+      <pubDate>Wed, 25 Jun 2025 18:05:00 +0800</pubDate>
+    </item>
+    <item>
       <title>量化工程师如何借鉴巴菲特构建价值投资策略</title>
       <link>https://www.bilibili.com/video/BV1FGK8zEEDz</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546896891119870"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FGK8zEEDz"&gt;【论文导读】预期差（一）：量化如何做价投？&lt;/a&gt;&lt;/p&gt;
@@ -133,6 +186,366 @@
 </description>
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1FGK8zEEDz</guid>
       <pubDate>Mon, 23 Jun 2025 18:43:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化藏经阁：情绪周期系列第三讲 - 2006年经典论文实证与因子投资择时策略</title>
+      <link>https://www.bilibili.com/video/BV12YKxz7Ee4</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546896891119870"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12YKxz7Ee4"&gt;【论文导读】情绪周期（三）：驾驭周期+19.8%&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文深入探讨了2006年一篇经典论文的实证结果，揭示了如何通过主成分分析构建一个综合投资者情绪指标。文章指出，某些因子（如市值因子）的溢价并非普遍存在，而是在投资者情绪低迷时表现更为显著。最终，作者提供了基于情绪指标进行因子投资择时的策略建议，以期提升投资收益。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;主成分分析（Principal Component Analysis - PCA）
+一种统计方法，用于从多个高度相关的变量中提取最主要的信息，并将其降维为一个或少数几个新的变量（主成分）。在文中，它将六个投资者情绪指标整合为一个统一的情绪指标值。文章通过一个类比来解释：像从六个不同角度拍摄的人脸图像中合成一张最清晰、最能代表这个人的完整正脸照。&lt;/li&gt;
+&lt;li&gt;因子
+指能够解释股票收益率的某种特性或驱动力，例如市值因子、价值因子、分红因子、波动率因子等。文章提及三因子模型来辅助说明。&lt;/li&gt;
+&lt;li&gt;风险因子
+一类因子，其溢价来源于投资者承担了更高的风险。高风险对应高收益，但对于大多数投资者而言，这类因子吸引力较低，因为可以直接通过杠杆提高收益。&lt;/li&gt;
+&lt;li&gt;错误定价因子
+一类因子，其溢价来源于市场中非理性交易者造成的错误定价。通过避开被高估的股票并买入低估的股票，投资者可以获得超额收益，这种溢价并非因承担更高风险而来，对量化投资者更具吸引力。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子溢价（如市值效应）并非在所有市场情绪下都存在，而是在投资者情绪低迷时才显著。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;数据支撑：&lt;/em&gt; 2006年论文表三实证结果显示，在情绪高涨时，市值最小股票组合的平均月收益为0.73%；而在情绪低迷时，该收益显著提升至2.37%。两者差异达1.65%（年化19.8%），表明市值效应主要由情绪低迷时期贡献。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;图表支撑：&lt;/em&gt; 文中图示直观显示，在情绪高涨期（黑线），小市值股票收益最低，甚至跑输大盘；而在情绪低迷期（白线），小市值股票收益最高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建综合情绪指标时，相比简单平均，主成分分析能更有效地整合信息，避免冗余并捕捉独特维度。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑：&lt;/em&gt; 简单平均（如“this score”）可能过于粗糙，因为不同指标间可能存在信息冗余，或者某些指标提供了非常独特的角度。主成分分析能将多个高度相关变量合成新的变量，尽可能保留原始数据中最重要的信息。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;所有实证结论都有其前提和限制，例如本研究基于美国市场，且情绪高低是基于特定指标衡量，而非个人感知。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对于因子投资者，应将投资者情绪指标纳入择时策略。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;在市场情绪低迷时，&lt;/strong&gt; 积极执行因子策略（如买入小市值股票），因为此时因子溢价更显著，能获得更高的预期收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在市场情绪高涨时，&lt;/strong&gt; 避免固守因子多头组合（如持有小市值股票），因为此时因子溢价可能不明显甚至为负，可能跑输大盘。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;当市场情绪高涨时，&lt;/strong&gt; 如果有能力，可以尝试“骑乘”散户造成的市场泡沫。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;当市场情绪低迷时，&lt;/strong&gt; 应当老老实实地持有表现良好的因子多头组合。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“情绪高的时候，有能力就去骑乘泡沫；情绪低的时候呢，就老老实实的持有一个好的因子的多头组合。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12YKxz7Ee4</guid>
+      <pubDate>Mon, 23 Jun 2025 10:40:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化交易策略与风险管理：深入解析海龟交易法则及止损技巧</title>
+      <link>https://www.bilibili.com/video/BV1dTKWz4EQp</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1dTKWz4EQp"&gt;miniQMT量化交易—— 海龟策略 |  稳健收益 | 右侧突破如何判断 | 最小止损&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;h2&gt;以下是文本内容：&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文主要探讨量化交易中的风险管理，特别是止损的重要性，并深入剖析了经典的海龟交易策略，包括其核心原则、实现逻辑及在Mini KMT框架下的回测应用。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;海龟策略&lt;/strong&gt;：一种经典的右侧趋势跟踪策略，其特点在于入场和出场的时间点不对称（例如，入场基于20日或55日高点突破，出场基于10日或20日低点跌破），通过概率优势实现正收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;右侧交易&lt;/strong&gt;：等待市场趋势明确后才入场交易的方式，相比左侧交易（在趋势形成前介入），其止损难度更低，风险控制更易。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非对称性收益&lt;/strong&gt;：量化策略盈利的核心，指获利交易的概率或收益要大于亏损交易的概率或亏损，在海龟策略中体现为入场和出场判断基于不同的时间周期K线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ATR（真实波幅平均值）&lt;/strong&gt;：一种衡量市场波动幅度的指标，在海龟策略中用于评估突破的有效性（如价格波动是否超预期），并可辅助进行仓位控制。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“赚小钱亏大钱”的核心在于如何将“亏大钱”变为“亏小钱”。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：止损是关键。从数学和概率上看，下跌后要涨回原价通常需要更大的涨幅（如亏损1%需涨2%），且在短期内实现反弹的几率非常小，需要大量资金推动，因此及时止损离场是正确的决策。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;专注于一种固定且有效的交易模式，而不是尝试多种模式。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：应重视模式本身的盈利逻辑，而非模式的数量，避免“大海捞针”式的操作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;交易时应严格关注盈亏比，而非仅仅盯着亏损的金额。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：设定明确的盈利目标与亏损的比例（如亏1元目标赚3元），这种心态有助于更好地管理交易情绪，比单纯关注亏损数字更具建设性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;止损管理四原则&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;设定单笔交易最大亏损上限&lt;/strong&gt;：不论按金额（如不超过1000元）还是按比例（如不超过1%），都需固定并严格遵守。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;止损方式需与交易周期匹配&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;短线交易（如5分钟、1分钟K线）人工止损困难，建议依赖程序化交易或固定价格止损。&lt;/li&gt;
+&lt;li&gt;高频交易可依据一档报价止损。&lt;/li&gt;
+&lt;li&gt;中低频交易可依据固定时间点止损。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;遵循固定交易模式&lt;/strong&gt;：选择一种你认为有效的形态（如W形双底结构），专注将其做到极致，而非盲目尝试所有形态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关注盈亏比&lt;/strong&gt;：在交易前明确每笔交易的预期盈亏比，将其作为决策目标。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;海龟策略在Mini KMT框架下的实现步骤&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;handle_buy&lt;/code&gt;函数中编写交易逻辑。&lt;/li&gt;
+&lt;li&gt;设定时间戳，并下载历史K线数据。&lt;/li&gt;
+&lt;li&gt;提取高、低、收盘价等数据，用于计算均值和ATR。&lt;/li&gt;
+&lt;li&gt;在均值计算中可采用可变参数，方便后续多进程回测优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;入场条件&lt;/strong&gt;：无持仓时，判断价格是否突破均值（可调参数，如向上突破10日或20日均线），同时ATR指标需满足进场信号（如ATR大于零）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下单操作&lt;/strong&gt;：满足条件后，以当前收盘价买入八成仓位。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;出场条件&lt;/strong&gt;：有持仓时，若价格向下跌破10日均线，则进行出场操作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测操作&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;选择ETF标的（如500 ETF）。&lt;/li&gt;
+&lt;li&gt;设定回测时间范围（如2024年1月1日至2025年6月1日）。&lt;/li&gt;
+&lt;li&gt;通过传入不同参数（如5, 10, 20, 30等均线周期），进行多进程回测，观察不同参数下的净值曲线和收益指标（年化收益、胜率、回撤、夏普比率），以优化策略效果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“耐心等待突破入场”&lt;/li&gt;
+&lt;li&gt;“止损是一件很重要的事情”&lt;/li&gt;
+&lt;li&gt;“最核心的这个点就是在于怎么样去让你的这个亏大钱能够变成亏小钱”&lt;/li&gt;
+&lt;li&gt;“我们不能一直去扛单，这是一个从数学上面去看，是思考是这么一个问题”
+&lt;h2&gt;*   “我们的亏损越小，那么它其实是是越好的”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dTKWz4EQp</guid>
+      <pubDate>Sun, 22 Jun 2025 22:58:46 +0800</pubDate>
+    </item>
+    <item>
+      <title>投资者情绪如何度量？量化研究中的六个指标详解</title>
+      <link>https://www.bilibili.com/video/BV12iKNzRErr</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546896891119870"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12iKNzRErr"&gt;【论文导读】情绪周期（二）：6个情绪指标&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容
+本文探讨了在量化研究中如何度量投资者情绪，重点介绍了一篇2006年发表于《Journal of Finance》的经典论文。文章详细阐述了该论文中用于衡量投资者情绪的六个实证指标：封闭基金溢价、纽交所股票换手率、IPO数量、IPO首日收益、增发股票数量以及分红溢价。每一个指标都辅以详细的解释，展现其如何反映市场中的投资者情绪和行为。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;投资者情绪&lt;/strong&gt;：指市场中投资者整体的非理性心理状态和倾向，能够影响其投资决策。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;封闭基金溢价&lt;/strong&gt;：封闭式基金的市场交易价格高于其净资产价值（NAV）。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：当市场情绪高涨时，新入市的散户投资者倾向于购买热门基金，即使市场价高于基金净值，也愿意支付溢价，体现了非理性情绪。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;纽交所股票换手率&lt;/strong&gt;：衡量市场股票交易的频繁程度。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：专业的长期投资者换手率低，而新入市的散户往往交易频繁，追涨杀跌。当换手率大幅上升时，表明散户参与度高，市场情绪乐观且躁动。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPO数量&lt;/strong&gt;：公司首次公开募股的数量。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：当市场情绪高涨、估值普遍偏高时，知情交易者（如公司老板）会选择此时上市，以更高的价格发行股票募集资金，反映市场过热。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IPO首日收益&lt;/strong&gt;：新股上市首日的涨幅或收益。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：A股流行的“打新”策略便是利用新股首日大概率大涨的现象。高额的首日收益往往是散户非理性行为和高涨情绪的体现。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增发股票数量&lt;/strong&gt;：上市公司再次发行股票的数量。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：上市公司管理层作为知情者，如果认为公司股价被市场高估，会选择在高位增发股票，将股票以更高的价格卖出，表明市场情绪高涨。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分红溢价&lt;/strong&gt;：此处指分红公司与不分红公司之间估值差异的某个度量，当市场情绪高涨时会变大。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：在市场情绪平静时，成熟投资者重视分红。但当市场情绪高涨时，新入场散户更追求短期高额资本利得，对3-4%的年化分红不甚在意，这会导致分红溢价（或与分红相关的估值差异）变大，反映市场对投机性增长的偏好高于对稳定分红的偏好。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;投资者情绪虽然难以直接量化，但可以通过一系列具体的市场指标进行有效度量。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;数据/逻辑&lt;/em&gt;：文章引用的研究使用了六个可观测的市场指标来捕捉和量化投资者情绪。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;散户投资者的非理性行为是推动市场情绪指标变化的关键因素。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/逻辑&lt;/em&gt;：新股民缺乏经验，倾向于频繁交易、追涨杀跌，且不关心基金净值而追高，这些行为直接导致了换手率、封闭基金溢价、IPO首日收益等指标的变化。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;市场中更“知情”的参与者，如上市公司管理层，会利用散户驱动的高涨情绪来进行自身有利的交易。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑&lt;/em&gt;：当市场因散户情绪高涨而推高估值时，公司会选择增发或IPO以更高价格出售股份，体现了“买的没有卖的精”的原则。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;高涨的市场情绪会使投资者忽视传统的基本面价值衡量标准，如股息分红。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑&lt;/em&gt;：当投资者预期短期内能获得高额资本收益时，分红的吸引力大幅下降，影响市场对分红型股票的估值判断。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;p&gt;无（本视频主要介绍指标，具体应用将在下个视频中讨论）。&lt;/p&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“大妈指数”
+&lt;h2&gt;- “买的没有卖的精”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12iKNzRErr</guid>
+      <pubDate>Fri, 20 Jun 2025 19:48:47 +0800</pubDate>
+    </item>
+    <item>
+      <title>基于mini KMT的量化交易：趋势策略（均线与布林带）详解与回测</title>
+      <link>https://www.bilibili.com/video/BV1ckTRzZE4L</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ckTRzZE4L"&gt;miniQMT量化交易—— 捕捉趋势 | 理解量能 | 构建系统 | 均线 | 布林带策略&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容本文详细介绍了如何利用mini KMT进行量化交易，首先解答了mini KMT的启动与Python连接方法，并强调了学习量化交易应先从手动交易实践开始。随后，文章深入探讨了趋势策略，包括均线策略和布林带策略的理论原理、参数设置与在mini KMT中的回测实现，旨在帮助读者理解并应用这些常用的量化交易方法。### 重要概念- &lt;strong&gt;Mini KMT&lt;/strong&gt;: 一种量化交易客户端界面，可通过Python进行API连接，实现程序化交易，相较于完整的QMT客户端更轻量便捷，需在QMT中勾选“独立交易”或“极速交易”来启动。- &lt;strong&gt;趋势&lt;/strong&gt;: 并非简单的涨跌，而是两股或多股力量博弈后一股力量占据上风并持续发展的过程。它的形成和打破都需要时间，一旦形成便难以轻易改变。- &lt;strong&gt;量/流动性&lt;/strong&gt;: 在量化交易中，量代表流动性，是市场进行交易的基础。当流动性枯竭时，市场缺乏交易空间，多数策略会失效，风险控制变得尤为重要。- &lt;strong&gt;交易系统&lt;/strong&gt;: 一套可被准确描述并重复执行的交易方法或规则集合。其核心价值不在于赚取高收益，而在于帮助交易者控制风险，避免大的回撤，确保不跌破系统设定的风险下限。- &lt;strong&gt;均线策略&lt;/strong&gt;: 一种基于移动平均线的趋势跟踪策略。其有效性在于利用市场对均线的共识点作为支撑或压力位，当这种共识被突破时产生交易信号。- &lt;strong&gt;布林带策略&lt;/strong&gt;: 基于均线和标准差构建的波动性通道策略。可用于判断价格的超买超卖，预测均值回归（价格回归到布林带内），也可用于趋势突破的信号判断（价格持续突破布林带上下轨）。### 主要观点- &lt;strong&gt;量化交易的本质是交易，而不是量化。&lt;/strong&gt;- 支撑：量化工具只是辅助手段，若缺乏交易纪律和对交易本身的理解，则难以获得良好收益。- &lt;strong&gt;学习量化交易应从手动交易实践开始，而非直接学习代码和理论。&lt;/strong&gt;- 支撑：通过小金额的重复性手动练习，培养交易感觉和纪律，再将实践经验程序化。- 反例：单纯依靠理论知识（如大学教授）可能在实际交易中表现不佳，因为缺乏实践核心。- &lt;strong&gt;交易频率不宜过低&lt;/strong&gt;（对于希望成为专业交易员的人）。- 支撑：频繁的练习有助于快速形成交易感觉和纪律。- &lt;strong&gt;交易系统的核心价值在于风险控制，而非帮助赚取高收益。&lt;/strong&gt;- 支撑：系统能帮助交易者少踩坑，避免大的回撤，从而有效控制风险。- &lt;strong&gt;均线策略的有效性在于利用市场共识而非参数本身的神奇。&lt;/strong&gt;- 支撑：均线代表市场共识的支撑或压力位，其被击穿时会引发市场恐慌抛售或资金涌入，产生有效交易信号。- &lt;strong&gt;布林带策略可用于均值回归，也可用于趋势突破的信号判断。&lt;/strong&gt;- 支撑：价格突破布林带后，可能回归通道内（均值回归），若长时间不回归则可能是真突破，预示趋势形成。### 行动建议或操作指南- &lt;strong&gt;启动Mini KMT&lt;/strong&gt;：- 打开QMT客户端界面。- 勾选“独立交易”或“极速交易”选项。- &lt;strong&gt;连接Mini KMT与Python进行量化交易&lt;/strong&gt;：- 安装&lt;code&gt;XTQuant&lt;/code&gt; Python包 (&lt;code&gt;pip install XTQuant&lt;/code&gt;)。- 导入所需的XTQuant库。- 在Python代码中设置Mini KMT的安装路径，例如：&lt;code&gt;xtdata.set_config('mini_qmt_path', 'D:/mini_qmt')&lt;/code&gt;。- 为交易端设置唯一的&lt;code&gt;session_id&lt;/code&gt;。- 实例化账户对象（&lt;code&gt;stock_account&lt;/code&gt;）。- 实例化回调函数并将其注册到交易器（&lt;code&gt;trader&lt;/code&gt;）中（若需开启回调系统）。- 启动交易器线程。- 执行连接并订阅账户信息。- &lt;strong&gt;学习量化交易的路径&lt;/strong&gt;：- 首先，手动进行交易实践，使用小金额重复练习止损、止盈、突破等操作，培养交易感觉。- 对手动交易进行复盘，思考如何将手动交易的流程和感觉转化为程序逻辑。- &lt;strong&gt;量化交易中的风险控制&lt;/strong&gt;：- 在市场流动性差、交易量低时，应严格控制风险，避免逆势操作。- 在策略中设置风控机制，例如在均线策略中，可使用长周期均线作为风控指标，一旦价格跌破该均线或触及预设阈值，立即清仓以规避风险。- &lt;strong&gt;均线策略的实现&lt;/strong&gt;：- 设置短均线和长均线的周期参数（如5日、10日、20日均线，或参考斐波那契数列）。- 识别短均线向上突破长均线（金叉）时买入信号。- 识别短均线向下突破长均线（死叉）时卖出信号。- &lt;strong&gt;布林带策略的实现&lt;/strong&gt;：- 设置均线周期、波动率周期和布林带宽度（标准差倍数）。- 判断价格突破上轨或下轨的信号。- 关注中线（均线）的突破，可作为开仓或平仓的信号，搭配仓位变化。- &lt;strong&gt;回测实践（在&lt;code&gt;handle_bar&lt;/code&gt;函数中）&lt;/strong&gt;：- &lt;strong&gt;数据获取与指标加工&lt;/strong&gt;：首先获取历史数据（如使用&lt;code&gt;get_market_data_ex&lt;/code&gt;函数），计算均线、标准差等指标，生成交易信号。- &lt;strong&gt;账户状态检查&lt;/strong&gt;：获取当前账户的可用资金和持仓情况。- &lt;strong&gt;交易判断与执行&lt;/strong&gt;：根据生成的交易信号，结合账户状态，执行买入（如金叉、突破上轨）或卖出（如死叉、突破下轨）操作。- &lt;strong&gt;Python版本兼容性&lt;/strong&gt;：确保Python版本不超过3.12，以保证&lt;code&gt;XTQuant&lt;/code&gt;包的兼容性。### 金句- “量化交易的本质其实是交易，而不是量化。”- “如果说你在交易方面你还没有一些心得或者说你没有一些你的交易纪律的话，那么其实你去做量化交易的话，你可能也没有办法有很好的这个收益。”- “交易系统的这个核心重要的点在于它不是说它帮助你去怎么去赚很多的这个收益，而是说有了系统以后它可以去帮助你去少踩一些坑，那么就是说尽量避免就是说我们不要去超过我们这个系统的这个下限，这样的话就控制我们的风险，这个才是系统最重要的一个价值。”- “均线策略本质上是对于市场共识的一个嗯利用。”- “当你的流动性很差的时候，那么你是没有任何去做交易的一个空间的，那么你的很多策略它都会失效。”---&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ckTRzZE4L</guid>
+      <pubDate>Sun, 08 Jun 2025 20:36:24 +0800</pubDate>
+    </item>
+    <item>
+      <title>SPY ETF日内趋势策略回测与优化：从噪音区间突破到浮动杠杆</title>
+      <link>https://www.bilibili.com/video/BV1B5TLzCEDk</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/503415601"&gt;独角量化妹&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1B5TLzCEDk"&gt;【策略回测】日内趋势论文+源码+TV指标 论文来自我们的老朋友&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细介绍了CARLO和ANDREW提出的一个针对标普ETF（SPY）的日内趋势跟踪策略。该策略通过定义“噪音区间”来判断入场时机，并提出了多种优化出场条件和浮动杠杆的应用。作者还分享了自己基于类似数据进行的回测结果，并与原作者的发现进行了对比。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;噪音区间 (Noise Area)&lt;/strong&gt;：策略核心概念，通过计算过去14天每个日内时间点的平均波动来定义。如果价格脱离这个区间，则认为可能出现趋势，可进行追涨或追跌操作，避免在区间内进行无效交易。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浮动杠杆 (Floating Leverage)&lt;/strong&gt;：一种动态调整交易杠杆的方法。当市场波动性（如SPY在过去14天的波动）较大时，采用较小的杠杆；波动性较小时，采用较大的杠杆，作者设置的最大杠杆为四倍。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基础策略原理&lt;/strong&gt;：当标普ETF（SPY）价格突破根据历史波动率计算出的“噪音区间”时进行追涨或追跌，并在价格触及另一侧边界或收盘时平仓。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;：原作者回测（2007-2024年）显示，该基础策略年化收益率达20%，夏普比率1.33。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化出场条件显著提升策略表现&lt;/strong&gt;：针对基础策略在价格剧烈反转时出场过晚的缺点，提出了两种改进方案，其中一种为“价格回撤至突破线或触及VWAP（成交量加权平均价）时离场”。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;：优化后的策略（视频中绿线）回报曲线更平滑，夏普比率达到1.24，且最大回撤显著减小。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浮动杠杆进一步优化策略收益与风险&lt;/strong&gt;：通过观察近期波动率调整交易杠杆，波动大时用小杠杆，波动小时用大杠杆，最高可达4倍。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;：最终形态的策略夏普比率可达1.33，与视频开头提到的最高值相符。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作者回测与原作者回测的对比&lt;/strong&gt;：尽管作者的回测数据源（标普CFD）和VWAP计算方式（30分钟而非1分钟）与原作者略有不同，但重要拐点和趋势仍保持相似。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;：作者回测（2020-2025年6月，未加复利和费用）夏普比率为0.78，最大回撤目测约15%。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金管理对回测结果的影响&lt;/strong&gt;：原作者的回测结果包含资金复利效应（每次入场均使用最新总资金），这可能使夏普值略微偏高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略执行频率&lt;/strong&gt;：该策略建议每半小时执行一次入场判断，而非每分钟，以减少交易次数，避免频繁被打脸。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略具体操作&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;每日开盘（9:30 AM）后，计算过去14天在每个日内时间点的平均波动率。&lt;/li&gt;
+&lt;li&gt;基于开盘价，向上加一个标准差，向下减一个标准差，得到“噪音区间”的上下边界。&lt;/li&gt;
+&lt;li&gt;当价格向上或向下突破“噪音区间”时，进行相应的追涨或追跌操作。&lt;/li&gt;
+&lt;li&gt;离场条件：优先选择优化后的方式，即价格回撤至初始突破线，或触及日内VWAP（成交量加权平均价）时平仓，以先发生者为准。&lt;/li&gt;
+&lt;li&gt;交易频率：建议每半小时（例如10:00、10:30）执行一次入场判断，以控制交易频率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自行回测资源&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python代码&lt;/strong&gt;：原作者提供了详细的Python源码，包括数据处理和回测部分，可供参考学习和自行回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TradingView指标&lt;/strong&gt;：可在TradingView上搜索由作者提供的“噪音区间”指标，直观了解价格与区间的相互作用。该指标的Pine Script代码也是开源的。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;暂无特别突出的金句。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1B5TLzCEDk</guid>
+      <pubDate>Sat, 07 Jun 2025 14:54:05 +0800</pubDate>
+    </item>
+    <item>
+      <title>最优凯利杠杆深度解析：量化交易中的资金管理与风险控制</title>
+      <link>https://www.bilibili.com/video/BV1DkEUzXEzc</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/503415601"&gt;独角量化妹&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1DkEUzXEzc"&gt;最优凯利 怎么上杠杆&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细讲解了最优凯利杠杆在金融交易中的应用，从其理论推导、与传统凯利公式的区别，到实操中的注意事项。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;凯利公式 (Kelly Formula)&lt;/strong&gt;
+最初由凯利在50年代提出，用于解决赌博游戏中的资金管理问题，目标是最大化长期收益。公式通过计算每次投注金额占总资金的百分比，以最大化最终收益。例如，有100块钱玩一个可赢可输的游戏，凯利公式能告诉你每次应投入多少比例的资金。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最优凯利杠杆 (Optimal Kelly Leverage)&lt;/strong&gt;
+在60年代提出，是凯利公式在金融交易场景下的延伸。它假设标的遵循几何布朗运动，旨在最大化对数财富（对数效用），并据此确定最优的杠杆比例L。这个L值可以大于1，表示可以借贷资金进行交易，以实现最大化的复合增长率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;半凯利 (Half-Kelly)&lt;/strong&gt;
+一种实用的资金管理方法，即在实际操作中，将计算出的最优凯利杠杆值减半使用（1/2 L）。这主要是为了规避因理论假设与实际市场不符、参数估计误差等问题可能导致的过高杠杆风险，避免爆仓。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最优凯利杠杆计算出的L值可以大于1，这意味着在理论上，为了最大化对数财富，可能需要借入资金进行杠杆交易。这与传统保守的投资观念有所不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：公式L = (策略回报 - 无风险利率) / 策略方差，此值可能大于1。例如，策略年化10%，无风险3%，标准差15%，计算出L为3.11。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;最优凯利杠杆对策略的方差（标准差）有惩罚效应，即策略的波动性越大，所能承受的最佳杠杆越小。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：在对数财富表达式中，杠杆项的负面部分由策略标准差的平方组成，说明波动性越大，对最终对数财富的负面影响越大。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;传统的凯利公式不适用于金融交易，因为它基于离散的、确定性的胜率和固定赔率假设，而金融市场结果是连续且难以精确估算胜率和赔率。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：金融交易中很难确定每次交易的赢的概率和固定收益；收益是连续的而非离散的二项分布。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;最优凯利杠杆不考虑最大回撤，仅以最大化对数财富为目标，可能导致在实现最大化过程中经历非常大的回撤。&lt;/li&gt;
+&lt;li&gt;最优凯利杠杆假设策略回报服从正态分布，但实际交易策略的回报分布可能存在偏斜（左偏或右偏），特别是右偏（亏损黑天鹅概率大）会使高杠杆变得非常危险。&lt;/li&gt;
+&lt;li&gt;最优凯利杠杆也可以应用于投资组合，与Markowitz均值-方差优化模型相似，但同样面临参数（如协方差矩阵、策略回报）估算误差的问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;评估回报分布&lt;/strong&gt;：在使用高杠杆前，先评估你的策略回报分布，特别是偏斜度。右偏分布（高概率小赚，小概率大亏）不建议上高杠杆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考虑最大回撤&lt;/strong&gt;：将个人风险承受能力和资金的最大回撤要求纳入考量，最优凯利杠杆不对此做限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长期视角&lt;/strong&gt;：最优凯利杠杆的复利效应需要足够长的时间才能显现，不适合短期投机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态调整&lt;/strong&gt;：杠杆比例应基于策略和资金状况动态调整，例如亏损后应减小仓位和杠杆。手动交易需有极强的执行力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考虑杠杆成本&lt;/strong&gt;：计算杠杆时需将获得杠杆的成本纳入策略收益考量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合应用&lt;/strong&gt;：最优凯利杠杆可用于多策略组合的杠杆分配，分配方式与均值-方差优化相似。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践应用“半凯利”&lt;/strong&gt;：由于理论假设与现实偏差及估算误差，很多交易员在实盘中会使用计算出最优杠杆值的一半（半凯利），作为一种更保守和安全的做法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设定杠杆上限&lt;/strong&gt;：将最优凯利杠杆计算结果视为可设置的杠杆“最大值”，不应超过。最终杠杆应综合策略回报分布、个人风险承受能力、期望最大回撤等因素确定。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“下部值越大的策略，你就应该给他上一个更大的杠杆。”&lt;/li&gt;
+&lt;li&gt;“我觉得你可以把最优凯力杠杆理解成为一个你应该设杠杆的一个最大值，你不应该超过这个值，不然的话在未来你可能会爆仓，这个风险会变得比较大。你应该结合你的这个策略本身的这个和回报的分布，还有你个人的承受能力，还有你想要的最大回撤等等等等这些因素综合考量起来，确定一个比较适合你的杠杆。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DkEUzXEzc</guid>
+      <pubDate>Mon, 19 May 2025 08:45:24 +0800</pubDate>
     </item>
   </channel>
 </rss>
