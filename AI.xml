@@ -7,7 +7,86 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 03 Jul 2025 23:10:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Jul 2025 09:49:20 +0000</lastBuildDate>
+    <item>
+      <title>KATE分享AI远程编程Agent实践：如何用Augment提升项目效率</title>
+      <link>https://www.bilibili.com/video/BV1Ze3jzWEP5</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Ze3jzWEP5"&gt;AI 编程进入多 Agent 时代！能跑 10 个云端 AI Agent 的 Augment，从修 Bug 到提 PR 全自动&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;作者KATE分享了她利用Augment的远程AI代理（remote agent）来升级其AI故事创作项目、修复代码bug并生成技术文档的经验。文章详细介绍了远程代理的功能、优势及其在云端自动化编程任务的能力，并通过多个实际案例展示了它如何并行处理任务、保持上下文一致性并加速开发进程。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Augment remote agent&lt;/strong&gt;：由Augment发布的云端AI编程代理，可用于快速编辑代码、修复bug、代码重构、并行运行多个agent以提供多种解决方案、直接从GitHub Issue或Linear工单创建PR、生成单元测试和完整文档等。它在独立的云端容器中运行，拥有语义索引能力，能快速检索相关代码片段并保持上下文一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多终端窗口系统（模拟与真实）&lt;/strong&gt;：作者最初展示的模拟多个agent并行工作的项目，实则是一个真实的多终端系统，虽然能创建上万个终端并支持拖拽，但终端内的内容是预设的模拟数据和打字动画，并非真实的命令执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Augment Context Engine&lt;/strong&gt;：Augment的一个核心功能，能够多次调用以搜索和理解复杂多仓库项目中的相关代码片段，确保agent在执行任务时的准确性和上下文一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Meta-Code Program)&lt;/strong&gt;：一种在Augment中配置的元代码程序或模块，作者提到远程代理也能够使用她本地配置的Playwright MCP，表明agent能访问并利用这些特定功能的配置。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;远程代理可在独立的云端容器中运行，即使本地电脑关闭，也能继续编码并提交可直接合并的PR。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支持：“在云端独立的容器中运行 哪怕你关闭了你的电脑 它也能继续编码并提交可直接合并的pr”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Augment的语义索引能力可帮助代理在毫秒级别内检索相关代码片段，确保在复杂多仓库项目中保持上下文一致。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支持：“augment 它的语义索引 能在毫秒级别内检索出相关代码片段 确保agent在复杂多仓库项目中保持上下文一致”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;远程代理可以在同一代码仓库中并行处理多个任务，大幅提升效率。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支持：“remote agent相比传统的agent有个优势 是可以在同一仓库中并行处理多个任务”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KATE最初展示的“多代理并行工作”项目，虽然是一个真实的多终端系统，但终端中的内容是模拟的，而非真实命令执行。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支持：“AUGUMENT回答说 这是一个真实的多终端系统 确实能创建上万个终端 有拖拽和调整大小功能 但终端中的内容是预设的 模拟数据和打字动画不是真实命令 执行超过1000个时 只会显示最近的40~80个”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Augment的代理能够优化用户输入的提示词，使其更加清晰和详尽，从而提高任务执行的准确性。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支持：“使用我之前常用的提示词增强功能 它优化后的提示非常清晰 详尽”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;如何使用Augment远程代理：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;打开Augment插件面板，点击右上角图标查看所有remote agents列表。&lt;/li&gt;
+&lt;li&gt;连接您的GitHub账户。&lt;/li&gt;
+&lt;li&gt;选择仓库、分支和环境。&lt;/li&gt;
+&lt;li&gt;在提示框中用自然语言输入您的需求。&lt;/li&gt;
+&lt;li&gt;点击“创建agent”。&lt;/li&gt;
+&lt;li&gt;当agent完成任务或需要确认时，您会收到通知。&lt;/li&gt;
+&lt;li&gt;（可选）您可以通过SSH连接agent环境直接编辑文件。&lt;/li&gt;
+&lt;li&gt;点击操作面板展开视图，逐项查看agent所做的更改。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用远程代理快速生成技术文档：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Fork原始仓库。&lt;/li&gt;
+&lt;li&gt;给remote agent提示生成相关文档。&lt;/li&gt;
+&lt;li&gt;点击“创建PR”。&lt;/li&gt;
+&lt;li&gt;这样可快速理解新项目，无需克隆到本地分析，直接在云端完成。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;远程代理适合的任务场景：&lt;/strong&gt; 任务边界明确、目标清晰的场景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;远程代理的常见用途：&lt;/strong&gt; 快速编辑代码、修复小错误、代码重构、并行运行多个agent以提供多种解决方案、直接从GitHub issue或Linear工单创建PR、为新功能生成单元测试、为库或模块生成完整文档。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“哪怕你关闭了你的电脑 它也能继续编码并提交可直接合并的pr”&lt;/li&gt;
+&lt;li&gt;“远程代理特别适合任务边界明确 目标清晰的场景”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Ze3jzWEP5</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/5137726bcaec39284f5bb722b68877d248f9c2ff.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 04 Jul 2025 11:22:48 +0800</pubDate>
+    </item>
     <item>
       <title>Agentic AI如何革新医疗护理与疾病管理：连接数据，提升患者结果</title>
       <link>http://podcast.emerj.com/transforming-care-management-and-disease-management-workflows-with-agentic-ai-with-raheel-retiwalla-of-productive-edge</link>
