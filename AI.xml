@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 04 Jul 2025 09:49:20 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jul 2025 00:09:18 +0000</lastBuildDate>
     <item>
       <title>KATE分享AI远程编程Agent实践：如何用Augment提升项目效率</title>
       <link>https://www.bilibili.com/video/BV1Ze3jzWEP5</link>
@@ -86,6 +86,68 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Ze3jzWEP5</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/5137726bcaec39284f5bb722b68877d248f9c2ff.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 04 Jul 2025 11:22:48 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI代理如何改变网络交互：识别与精细化管理之道</title>
+      <link>https://a16z.simplecast.com/episodes/enabling-agents-and-battling-bots-on-an-ai-centric-web-iBB0QjkB</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/enabling-agents-and-battling-bots-on-an-ai-centric-web-iBB0QjkB"&gt;Enabling Agents and Battling Bots on an AI-Centric Web&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+随着AI代理的兴起，互联网流量正在发生根本性转变，其中很大一部分已由自动化产生。文章探讨了在AI时代管理网络流量的复杂性，强调区分“好”AI代理与“坏”AI代理的重要性，并呼吁采用更精细的流量控制策略，而非一刀切的阻断。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI代理（AI Agents）&lt;/strong&gt;: 能够代表人类用户在网络上执行操作的自动化程序，例如预订服务、注册或购买产品。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代理体验（Agent Experience）&lt;/strong&gt;: 一种新的网络和产品设计方法，将AI代理视为与人类用户同等重要的“一级用户”，而非仅仅是需要被阻止的僵尸程序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用程序上下文（Application Context）&lt;/strong&gt;: 指的是在处理网络请求时，需要了解流量来自应用程序的哪个部分、会话状态以及具体的业务逻辑，以便做出细致的允许或拒绝决策，而非仅仅基于IP地址或用户代理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Proofing Humanness&lt;/strong&gt;: 验证网络请求是否来自真实人类的行为，这是一个长期存在的挑战，在AI代理普遍化的背景下变得更加复杂。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;目前已有50%的网络流量来自自动化，且AI代理正处于起步阶段，未来其流量将爆炸式增长。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;: "If 50% of the traffic is already bots, it's already automated, and agents are only really just getting going... it's clear that's where everything is going, then we're going to see an explosion in the traffic that's coming from these tools."&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;将AI流量一概而论地阻止是错误且有害的，因为它可能阻碍合法业务增长。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑/案例支撑&lt;/strong&gt;: 阻止AI代理就像阻止Google爬虫一样，会导致网站无法被发现。许多公司正从AI流量中获得巨额收入，盲目阻止会毁掉业务。例如，OpenAI有多种爬虫（训练模型、搜索索引、实时查询、用户代理），并非所有都应被阻止。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;传统的僵尸程序防御方法（如基于IP地址或用户代理）过于粗糙，可能错误地阻止了代表真实用户的AI流量，导致交易损失。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;: “它们非常不精确，我认为其缺点是，你可能阻止了大量合法流量以及其他合法流量。”现在有些AI僵尸程序可能是代表实际用户。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;有效的流量管理需要分层保护，并深入了解应用程序上下文，以实现精细化控制。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;: “你需要了解流量来自应用程序的哪个部分，会话以及在何种情况下你想要允许或拒绝它。”例如，电商网站宁愿标记订单进行人工审核，也不愿直接阻止可能合法的交易。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管识别自动化客户端的挑战在增加，但诸如Apple的Privacy Pass和Cloudflare新发布的指纹技术等新兴方案，正在通过加密签名来验证请求来源，从而帮助区分“好”与“坏”的请求。&lt;/li&gt;
+&lt;li&gt;AI和机器学习技术正在为解决“证明人性”的难题提供新的、更快的识别方法，以平衡安全与便利。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;从&lt;code&gt;robots.txt&lt;/code&gt;开始&lt;/strong&gt;：利用此文件管理“好”僵尸程序的访问权限，引导它们访问你希望它们查看的网站区域。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分层保护&lt;/strong&gt;：结合IP信誉数据库、应用程序上下文理解、用户会话分析等多种层面的信息来识别和管理流量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精细化决策&lt;/strong&gt;：开发者、网站所有者和安全团队需要做出细致的决策，根据具体的业务场景和预期行为，允许或限制AI代理的活动（例如，允许浏览主页，但在购买环节要求人类介入）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"You've really got to understand why you want them, what they're doing, who they're coming from, and then you can create these granular rules." (你真的必须理解你为什么需要它们，它们在做什么，它们来自何处，然后你才能创建这些细粒度的规则。)&lt;/li&gt;
+&lt;li&gt;"Just blocking anything that is called AI is too blunt of an instrument. You need much more nuance. And the only way you can do that is with the application context, understanding what's going on inside your code." (仅仅阻止任何被称为AI的东西是过于粗糙的工具。你需要更多的细微差别。而做到这一点的唯一方法就是结合应用程序上下文，理解你的代码内部正在发生什么。)&lt;/li&gt;
+&lt;li&gt;"It seems like what once was old is new again, and would love to get your thoughts on this new emergence of bots and how, while we know all the bad things that happen with them, there's actually a lot of good and really cool stuff that's happening and how we can maybe work towards enabling that." (似乎旧的东西又焕然一新，我很想听听你对僵尸程序新出现的看法，以及虽然我们知道它们会带来所有不好的事情，但实际上有很多好的、非常酷的事情正在发生，我们如何才能努力促成这些事情。)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/enabling-agents-and-battling-bots-on-an-ai-centric-web-iBB0QjkB</guid>
+      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/6deeb595-a193-49cd-935a-29e8ba5d9784/3000x3000/the-future-podcast-fa.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 04 Jul 2025 10:00:00 +0800</pubDate>
     </item>
     <item>
       <title>Agentic AI如何革新医疗护理与疾病管理：连接数据，提升患者结果</title>
