@@ -7,7 +7,75 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 05 Jul 2025 00:09:18 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Jul 2025 04:04:20 +0000</lastBuildDate>
+    <item>
+      <title>Cursor 1.2更新与实战体验：智能代理、PR索引及提升与不足</title>
+      <link>https://www.bilibili.com/video/BV1be3Qz3EoS</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1be3Qz3EoS"&gt;实测 Cursor 1.2 新功能：智能代理规划+记忆功能，不如 Augment !&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本篇文章详细介绍了Cursor 1.2版本的各项重大更新，包括智能代理规划、增强的上下文理解、更快的Tab补全以及PR索引和消息列队等新功能。作者通过实际使用Cursor构建一个3D抓娃娃游戏的项目，深入分享了这些新特性的实测体验，并坦诚地指出了Cursor在实际应用中的亮点和仍需改进之处。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;智能代理规划 (Intelligent Agent Planning)&lt;/strong&gt;: Cursor基于用户提示自动生成编程任务的待办事项列表的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消息列队功能 (Message Queue Function)&lt;/strong&gt;: 允许用户在Cursor工作时添加更多信息，并可选择优先处理或删除这些排队的消息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆功能 (Memory Function)&lt;/strong&gt;: Cursor能够记忆并存储用户之前的交互内容和解决方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PR索引和搜索 (PR Indexing and Search)&lt;/strong&gt;: Cursor能像索引文件一样总结和索引GitHub的Pull Request，支持语义搜索并能将旧PR或特定PR问题纳入上下文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;让代理解决合并冲突 (Agent Resolves Merge Conflicts)&lt;/strong&gt;: Cursor的AI代理能够尝试自动解决代码合并冲突。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cursor的记忆功能目前不够完善，需要用户明确提示才能记忆，且有时会记忆过多内容导致冗余。
+&lt;ul&gt;
+&lt;li&gt;作者实测后认为该功能“还不是特别完善”，且“有的时候呢我会觉得他记得太多有点繁琐”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在解决某些复杂问题（如特定库问题或需要网络搜索的情况）时，Cursor的AI可能表现不佳或“偷懒”，未能提供彻底的解决方案，有时需结合外部AI工具（如GPT-3）辅助。
+&lt;ul&gt;
+&lt;li&gt;在解决3D渲染限制和CDN链接问题时，Cursor未能进行网络搜索；解决&lt;code&gt;cannon.js&lt;/code&gt;问题时，作者最终依赖GPT-3获取解决方案并反馈给Cursor。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Cursor在修复问题时，可能会意外修改或删除其他不相关的功能，导致新的问题。
+&lt;ul&gt;
+&lt;li&gt;作者指出“在修一复一些问题的时候 你让他去修A的地方 cursor可能ab都给你修了 那这样的话你在B不需要让他修的 他也给你修了 就会给你造成麻烦”，例如修复后左侧游戏规则消失、界面靠左等问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Cursor的智能代理规划功能并非每次都能自动触发，用户可能需要明确提示它“先列出计划”。
+&lt;ul&gt;
+&lt;li&gt;作者实测发现“有的时候呢它会直接出现to do list 有的时候呢需要你在提示词里面说明一下 让它先生成计划”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Cursor自动生成的计划中通常不包含测试步骤，而测试对项目开发至关重要。
+&lt;ul&gt;
+&lt;li&gt;作者在回顾计划时发现“他在计划里面没有列出测试 而测试对于我们来说是非常非常重要的 所以我认为这一点也是cursor要加强的”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;控制消息发送&lt;/strong&gt;: 输入任务后，按Enter键默认将消息排入列队；按Option (Alt) + Enter键则直接作为最新消息发送给Cursor。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;立即处理列队消息&lt;/strong&gt;: 在右侧列队消息中，点击向上箭头图标可立即将该消息发送给Cursor处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强制生成计划&lt;/strong&gt;: 在提示Cursor执行任务时，明确要求它“先列出计划”，以确保智能代理生成任务列表。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结合外部工具解决复杂问题&lt;/strong&gt;: 当Cursor在特定技术难题（如库问题、网络检索不足）上表现不佳时，可将问题提交给其他擅长检索的AI工具（如GPT-3）获取解决方案，再将其反馈给Cursor进行修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考虑替代工具&lt;/strong&gt;: 如果Cursor在修复问题时常导致不必要的副作用，可以尝试使用其他工具，如Augment，作者认为它在这方面表现更少犯错。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我个人觉得他这个memory还是非常详细的 但是需要你提示它 它才会加入”&lt;/li&gt;
+&lt;li&gt;“为什么我最近用augment比较多 就是在修一复一些问题的时候 你让他去修A的地方 cursor可能ab都给你修了 那这样的话你在B不需要让他修的 他也给你修了 就会给你造成麻烦”&lt;/li&gt;
+&lt;li&gt;“argument在这一点上是比较少犯错的 推荐大家尝试一下奥格门诊”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1be3Qz3EoS</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b6ad4522333e055d777160a286bedda7e49fe545.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 05 Jul 2025 11:24:13 +0800</pubDate>
+    </item>
     <item>
       <title>KATE分享AI远程编程Agent实践：如何用Augment提升项目效率</title>
       <link>https://www.bilibili.com/video/BV1Ze3jzWEP5</link>
