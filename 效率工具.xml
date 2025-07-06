@@ -7,7 +7,150 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 06 Jul 2025 09:45:57 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Jul 2025 23:18:51 +0000</lastBuildDate>
+    <item>
+      <title>Docker实战教程：容器、镜像、网络与Compose全面解析</title>
+      <link>https://www.bilibili.com/video/BV1THKyzBER6</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1THKyzBER6"&gt;40分钟的Docker实战攻略，一期视频精通Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本视频是一个全面的Docker实战教程，详细介绍了Docker的核心概念、常用命令，以及在Linux、Windows和Mac系统上的安装方法。文章还深入讲解了容器与镜像的管理、不同网络模式的应用，以及如何使用Docker Compose进行多容器编排。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Docker: 利用容器化技术为应用程序封装独立的运行环境，使应用轻量、高效。&lt;/li&gt;
+&lt;li&gt;容器: 封装了应用程序及其依赖的独立运行环境，共享宿主机内核，比虚拟机更轻量快速。文章通过“模具做糕点”的例子，将容器比喻为制作出来的糕点。&lt;/li&gt;
+&lt;li&gt;镜像: 容器的模板，类似于软件安装包，用于创建容器。文章将镜像比喻为制作糕点的模具。&lt;/li&gt;
+&lt;li&gt;仓库（Registry）: 存储和分享Docker镜像的地方，如Docker Hub。文章将仓库比喻为存放模具的地方。&lt;/li&gt;
+&lt;li&gt;镜像库（Repository）: 指一个特定镜像的不同版本集合，由仓库地址、命名空间和镜像名组合而成。&lt;/li&gt;
+&lt;li&gt;Docker File: 一个文本文件，详细列出了制作Docker镜像的步骤和配置。文章将其比喻为制作模具的图纸。&lt;/li&gt;
+&lt;li&gt;cgroups (Control Groups): Linux内核功能，用于限制和隔离进程的资源使用（CPU、内存等）。&lt;/li&gt;
+&lt;li&gt;Namespaces: Linux内核功能，用于隔离进程的资源视图，使容器拥有独立的进程ID、网络和文件目录。&lt;/li&gt;
+&lt;li&gt;Docker Compose: 轻量级容器编排技术，使用YAML文件定义和管理多个相互关联的Docker容器及其协同工作方式。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Docker容器比虚拟机更轻量、启动速度更快，因为容器共用宿主机系统内核，而每个虚拟机都包含一个完整的操作系统内核。
+&lt;ul&gt;
+&lt;li&gt;支持: “docker容器之间共用同一个系统内核 而每个虚拟机都包含一个操作系统的完整内核 所以docker容器比虚拟机更轻更小 启动速度更快”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当使用“绑定挂载”（&lt;code&gt;bind mount&lt;/code&gt;）时，如果宿主机挂载的目录是空的，它会覆盖掉容器内对应的目录内容。
+&lt;ul&gt;
+&lt;li&gt;支持: “这里403这里的原因是使用绑定挂载的时候 宿主机的目录会覆盖掉容器内的目录 因为宿主机这边的目录是空的 所以容器内也没有任何的网页 所以访问的时候显示403”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;“命名卷挂载”（&lt;code&gt;named volume&lt;/code&gt;）在首次使用时，Docker会将容器内对应目录的数据同步到命名卷中进行初始化，而“绑定挂载”没有此功能。
+&lt;ul&gt;
+&lt;li&gt;支持: “这个命名卷的一个特别功能 命名卷第一次使用的时候 docker会把容器的文件夹同步到命名卷里面 进行一个初始化 而绑定挂载就没有这个功能”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在多应用场景下，将每个模块打包成独立的Docker容器是最佳实践，而非将所有模块打包成一个巨大的容器，这能提高系统的可伸缩性和故障隔离性。
+&lt;ul&gt;
+&lt;li&gt;支持: “多应用的最佳实践是 把每一个模块都打包成一个独立的容器”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在Docker子网中，容器之间可以通过容器名字互相访问，无需通过内部IP地址，这得益于Docker内部的DNS机制。
+&lt;ul&gt;
+&lt;li&gt;支持: “同一个子网的容器 可以使用容器的名字互相访问 而不必使用内部IP地址”、“借助于刀客内部的DNS机制 通过名字就可以在子网内进行互相的访问”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管&lt;code&gt;docker inspect&lt;/code&gt;命令输出的信息复杂，但AI工具能够精准分析并提取出端口映射、挂载卷等关键信息。
+&lt;ul&gt;
+&lt;li&gt;支持: “虽然docker给的信息非常的复杂 但是AI还是能够精准的进行判断”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安装Docker:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; 访问&lt;code&gt;get.docker.com&lt;/code&gt;执行安装脚本，非root用户需在Docker命令前加&lt;code&gt;sudo&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows:&lt;/strong&gt; 启用“Virtual Machine Platform”和“Windows Subsystem for Linux”功能，重启电脑。然后安装WSL（推荐v2，使用&lt;code&gt;wsl --set-default-version 2&lt;/code&gt;和&lt;code&gt;wsl --update&lt;/code&gt;），最后下载安装Docker Desktop。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mac:&lt;/strong&gt; 根据芯片架构下载并安装Docker Desktop。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置镜像站（解决网络问题）:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; 修改&lt;code&gt;/etc/docker/daemon.json&lt;/code&gt;文件，添加&lt;code&gt;registry-mirrors&lt;/code&gt;配置，然后执行&lt;code&gt;systemctl restart docker&lt;/code&gt;重启服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows/Mac:&lt;/strong&gt; 打开Docker Desktop设置，进入“Docker Engine”配置项，在JSON中添加&lt;code&gt;registry-mirrors&lt;/code&gt;，点击“Apply &amp;amp; Restart”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;常用Docker命令:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker pull &amp;lt;image_name&amp;gt;&lt;/code&gt;: 从仓库下载镜像。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker images&lt;/code&gt;: 列出已下载的镜像。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker rmi &amp;lt;image_name_or_id&amp;gt;&lt;/code&gt;: 删除镜像。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker run [options] &amp;lt;image_name&amp;gt;&lt;/code&gt;: 创建并运行容器。常用选项包括：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;: 后台运行（分离模式）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-p &amp;lt;宿主机端口&amp;gt;:&amp;lt;容器端口&amp;gt;&lt;/code&gt;: 端口映射。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-v &amp;lt;宿主机路径&amp;gt;:&amp;lt;容器路径&amp;gt;&lt;/code&gt;或&lt;code&gt;-v &amp;lt;卷名&amp;gt;:&amp;lt;容器路径&amp;gt;&lt;/code&gt;: 挂载卷（持久化数据）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-e &amp;lt;环境变量名&amp;gt;=&amp;lt;值&amp;gt;&lt;/code&gt;: 传递环境变量。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--name &amp;lt;容器名&amp;gt;&lt;/code&gt;: 给容器自定义命名。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-it&lt;/code&gt;: 进入容器内部进行交互式命令行操作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--rm&lt;/code&gt;: 容器停止时自动删除。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--restart &amp;lt;策略&amp;gt;&lt;/code&gt;: 配置容器重启策略，如&lt;code&gt;always&lt;/code&gt;（始终重启）或&lt;code&gt;unless-stopped&lt;/code&gt;（除非手动停止）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker ps&lt;/code&gt; / &lt;code&gt;docker ps -a&lt;/code&gt;: 查看正在运行/所有容器。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker stop &amp;lt;容器ID或名称&amp;gt;&lt;/code&gt; / &lt;code&gt;docker start &amp;lt;容器ID或名称&amp;gt;&lt;/code&gt;: 停止/启动容器。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker rm &amp;lt;容器ID或名称&amp;gt;&lt;/code&gt;: 删除容器（运行中容器需加&lt;code&gt;-f&lt;/code&gt;强制删除）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker inspect &amp;lt;容器ID或名称&amp;gt;&lt;/code&gt;: 查看容器详细信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker logs [-f] &amp;lt;容器ID或名称&amp;gt;&lt;/code&gt;: 查看容器日志（&lt;code&gt;-f&lt;/code&gt;实时滚动）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker exec &amp;lt;容器ID或名称&amp;gt; &amp;lt;命令&amp;gt;&lt;/code&gt;: 在容器内部执行命令。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker exec -it &amp;lt;容器ID或名称&amp;gt; bash&lt;/code&gt;: 进入容器的交互式Shell环境。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卷管理:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker volume create &amp;lt;卷名&amp;gt;&lt;/code&gt;: 创建命名卷。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume list&lt;/code&gt;: 列出所有卷。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume inspect &amp;lt;卷名&amp;gt;&lt;/code&gt;: 查看卷的详细信息，包括宿主机真实路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume remove &amp;lt;卷名&amp;gt;&lt;/code&gt;: 删除卷。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker volume prune -a&lt;/code&gt;: 删除所有未被容器使用的卷。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络模式:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;docker network create &amp;lt;网络名&amp;gt;&lt;/code&gt;: 创建自定义桥接网络。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network list&lt;/code&gt;: 列出所有Docker网络。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker network remove &amp;lt;网络名&amp;gt;&lt;/code&gt;: 删除自定义网络。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--network host&lt;/code&gt;: 使用宿主机网络模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用Dockerfile构建镜像:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个名为&lt;code&gt;Dockerfile&lt;/code&gt;（D大写，无后缀）的文件。&lt;/li&gt;
+&lt;li&gt;在Dockerfile中定义基础镜像（&lt;code&gt;FROM&lt;/code&gt;）、工作目录（&lt;code&gt;WORKDIR&lt;/code&gt;）、复制文件（&lt;code&gt;COPY&lt;/code&gt;）、执行命令（&lt;code&gt;RUN&lt;/code&gt;）、暴露端口（&lt;code&gt;EXPOSE&lt;/code&gt;）和容器启动命令（&lt;code&gt;CMD&lt;/code&gt;或&lt;code&gt;ENTRYPOINT&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;执行&lt;code&gt;docker build -t &amp;lt;你的用户名&amp;gt;/&amp;lt;镜像名&amp;gt;:&amp;lt;版本号&amp;gt; .&lt;/code&gt;构建镜像。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;将镜像推送到Docker Hub:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;执行&lt;code&gt;docker login&lt;/code&gt;登录Docker Hub。&lt;/li&gt;
+&lt;li&gt;执行&lt;code&gt;docker push &amp;lt;你的用户名&amp;gt;/&amp;lt;镜像名&amp;gt;:&amp;lt;版本号&amp;gt;&lt;/code&gt;推送镜像。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker Compose:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个&lt;code&gt;docker-compose.yml&lt;/code&gt;文件，定义多个服务（容器）、镜像、端口、卷、环境变量、网络和依赖关系。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker compose up [-d]&lt;/code&gt;: 启动（和创建）YAML文件中定义的所有服务。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker compose stop&lt;/code&gt;: 停止服务但不删除。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker compose start&lt;/code&gt;: 启动已停止的服务。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker compose down&lt;/code&gt;: 停止并删除服务。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;docker compose -f &amp;lt;文件名.yml&amp;gt; up&lt;/code&gt;: 指定非标准Compose文件名。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“docker简单来说就是用容器化技术，给应用程序封装独立的运行环境，每个运行环境就是一个容器，运行容器的计算机被称为宿主机。”&lt;/li&gt;
+&lt;li&gt;“镜像是容器的模板，我们可以把镜像类比成软件安装包，而容器是安装出来的软件。”&lt;/li&gt;
+&lt;li&gt;“镜像与容器的关系就像是用模具做糕点，docker镜像就像是模具，而容器就像是糕点，我们可以使用一个模具做出很多个糕点。”&lt;/li&gt;
+&lt;li&gt;“docker容器与虚拟机的最大区别是docker容器之间共用同一个系统内核，而每个虚拟机都包含一个操作系统的完整内核，所以docker容器比虚拟机更轻更小，启动速度更快。”&lt;/li&gt;
+&lt;li&gt;“挂载卷的最大作用是数据的持久化保存，因为当我们删除容器的时候，容器内的所有数据会被同时删除掉。”&lt;/li&gt;
+&lt;li&gt;“多应用的最佳实践是把每一个模块都打包成一个独立的容器。”&lt;/li&gt;
+&lt;li&gt;“在AI时代也不用我们写docker compose文件了，我们只需要把想要执行的docker命令告诉AI，然后让它生成一个等价的docker compose文件就可以了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1THKyzBER6</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/5ad93dcb0e25867dac2c5079ebe2e6b5a75df906.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 28 Jun 2025 12:37:26 +0800</pubDate>
+    </item>
     <item>
       <title>Cat分享三款AI辅助Web应用开发经验：Argument Code提升效率</title>
       <link>https://www.bilibili.com/video/BV1M8KDz4E92</link>
