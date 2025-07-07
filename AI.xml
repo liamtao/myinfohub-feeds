@@ -7,7 +7,153 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 07 Jul 2025 09:39:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 23:02:08 +0000</lastBuildDate>
+    <item>
+      <title>利用AI和Cursor构建自动化业务工作流</title>
+      <link>https://www.youtube.com/watch?v=ZvZ4aUXBtzU</link>
+      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU"&gt;Cursor Replaces Your Entire Business Stack (Full Demo)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文探讨了如何利用AI-first集成开发环境Cursor和模型上下文协议（MCPs）来自动化和优化企业的各项运营职能，包括财务、用户体验设计、市场营销和质量保证。通过AI代理和LLMs作为核心界面，实现传统SaaS工具的可编程化，极大地提升了工作效率和准确性。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型上下文协议 (MCPs)&lt;/strong&gt;: 一种允许大型语言模型（LLMs）无缝集成并与第三方应用及服务交互的接口。通过MCPs，LLMs能够访问、创建、修改和转换外部数据，从而实现更强大的自动化能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agentic Workflows (代理工作流)&lt;/strong&gt;: 指利用AI代理来执行特定且复杂任务的流程。通常会结合不同类型的LLMs，例如使用“思考/推理”模型（如Claude 3 Opus）进行规划，然后切换到“执行/行动”模型（如Sonnet）来具体执行任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM作为新的浏览器/通用界面&lt;/strong&gt;: 提出LLMs将成为所有交互的中心界面，用户无需手动操作不同的应用程序，通过文本或语音与LLM交互即可完成任务。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统SaaS的可编程化&lt;/strong&gt;: 借助AI代理和MCPs，可以将原本需要手动操作的SaaS工具转化为可编程接口，实现任务自动化，从而显著节省时间并提高准确性。
+&lt;ul&gt;
+&lt;li&gt;案例支撑：在Cursor中仅用一句话，即可通过Zero MCP在财务软件中创建报价单，这在以前需要多个手动步骤。演讲者提到，这一能力甚至让300多名会计师感到震惊，认为它彻底改变了税务季的报告工作流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代理赋能全方位业务职能&lt;/strong&gt;: AI代理能有效处理财务、UX设计、市场营销和质量保证等多个领域的任务，减少人力投入并深化洞察。
+&lt;ul&gt;
+&lt;li&gt;财务：连接会计软件（如Zero MCP）以获取利润报告、创建发票或管理工资单。&lt;/li&gt;
+&lt;li&gt;UX设计：使用Playwright MCP截取网页截图，然后通过定制的AI模式分析截图，提出UX/增长建议和A/B测试方案，直接指导代码修改。&lt;/li&gt;
+&lt;li&gt;市场营销：利用Firecrawl MCP抓取网站内容生成上下文文件，结合Perplexity MCP进行深度研究和关键词数据，以生成内容质量高且关键词密度优化的文章。&lt;/li&gt;
+&lt;li&gt;质量保证 (QA)：利用代理浏览器（如Playwright）遵循测试计划，执行自动化UI操作（如点击登录、填写表格），甚至能够通过验证码。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结合不同模型优化AI工作流&lt;/strong&gt;: 针对复杂问题，通过结合使用不同类型LLMs（思考型模型用于规划，行动型模型用于执行）可以构建更高效的AI工作流。
+&lt;ul&gt;
+&lt;li&gt;逻辑支撑：开发者常先利用思考型模型制定执行计划，再切换至行动型模型来具体实施。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cursor中的自定义模式 (Custom Modes)&lt;/strong&gt;: 用户可以在Cursor中创建具有特定提示和工具的专业AI代理（自定义模式），以适应特定任务的需求（例如，生成产品需求文档PRDs）。
+&lt;ul&gt;
+&lt;li&gt;案例支撑：演讲者展示了一个用于生成PRDs的自定义模式，该模式还能输出Mermaid图表以可视化数据流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mermaid图表作为代理上下文的关键&lt;/strong&gt;: Mermaid图表等可视化工具对于向AI代理提供清晰的数据流和架构理解至关重要，有助于它们更好地遵循复杂指令。
+&lt;ul&gt;
+&lt;li&gt;案例支撑：生成一个展示招聘平台工作流程（雇主发布职位、管理员审核）的Mermaid图表，可以帮助产品经理节省大量手动绘制复杂架构的时间。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;初学者入门&lt;/strong&gt;: 
+&lt;ol&gt;
+&lt;li&gt;打开Cursor，尝试拖入一个文件并与它进行交互。&lt;/li&gt;
+&lt;li&gt;安装一个MCP，并探索其功能边界。&lt;/li&gt;
+&lt;li&gt;从期望达成的任务或结果反推，思考Cursor/MCPs如何能帮助实现（例如，获取所有未支付发票的列表）。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非技术人员建议&lt;/strong&gt;: 如果对IDE界面感到不知所措，可以尝试先在Cursor中构建一个简单的应用程序，以熟悉界面、终端和命令行操作，掌握了“难点”之后，其他任务将变得轻而易举。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"LLMs是新的浏览器。"&lt;/li&gt;
+&lt;li&gt;"你是架构师，你在引导它。使用Cursor时，你仍然是驾驶员，而AI是副驾驶，它会为你完成任务。"&lt;/li&gt;
+&lt;li&gt;"这是魔法，伙计。"
+&lt;h2&gt;- "AGI是可能实现的。" (在自动化QA通过验证码后发出)&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=ZvZ4aUXBtzU</guid>
+      <enclosure url="https://i.ytimg.com/vi/ZvZ4aUXBtzU/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 07 Jul 2025 19:30:07 +0800</pubDate>
+    </item>
+    <item>
+      <title>在本地免费安装和使用开源AI模型与NAND AI代理指南</title>
+      <link>https://www.youtube.com/watch?v=DcEMf2K6cPQ</link>
+      <description>&lt;p&gt;&lt;a href="UC2ojq-nuP8ceeHqiroeKhBA"&gt;Nate Herk | AI Automation&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=DcEMf2K6cPQ"&gt;Power Your n8n AI Agents for FREE in 5 mins (and privately)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---文章主要内容
+本文详细介绍了如何利用Olama在本地免费安装和使用各种开源AI模型，并通过NAND AI代理进行调用。教程涵盖了从模型选择、Docker操作到模型管理（如列出和删除模型）的完整流程。目标是让用户能够利用自己的本地机器运行AI模型，实现免费且灵活的AI应用体验。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Olama&lt;/strong&gt;: 一个用于在本地运行大型语言模型的平台，本文中它被用作管理和提供开源AI模型的工具和存储库。用户可以通过它轻松下载并集成各种开源模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NAND AI agents&lt;/strong&gt;: 指的是能够利用本地部署的AI模型执行任务的智能代理。在本文中，这些代理通过集成Olama来使用户能够访问和利用安装在本地的各种开源AI模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型参数 (Parameters)&lt;/strong&gt;: 指的是AI模型的大小和复杂性，通常以“十亿”（B）或“万亿”（T）为单位。参数越多，模型通常越强大，但所需的计算资源也越多。例如，文章提到了1.5B、7B等参数的模型，并将其与GPT-4的万亿级参数进行了对比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文窗口 (Context Window)&lt;/strong&gt;: 指的是AI模型在一次处理中可以考虑的文本量。它是模型理解和生成连贯回复能力的关键因素之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;: 一种开源平台，用于将应用程序及其所有依赖项打包成独立的“容器”。本文中，Docker被用来管理Olama容器，从而方便地运行和管理本地的AI模型。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;尽管开源模型免费且本地可用，但其性能通常不如闭源模型（如GPT-4、Claude）。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑细节&lt;/em&gt;: GPT-4的参数接近1.8万亿，GPT-4o为2000亿，Claude 3.5 Sonnet约1750亿，而文章中介绍的开源模型参数通常只有几十亿（如1.5B、7B、8B）。这种参数规模的巨大差异导致了性能上的差距，尽管作者指出这个差距正在缩小。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;本地AI模型的运行性能受限于本地机器的硬件配置（如RAM、VRAM和处理能力）。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑细节&lt;/em&gt;: 作者建议用户根据自己的电脑配置（RAM、VRAM、处理能力）来选择合适的模型，并提及需要更多算力才能运行更大的模型。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;参数较小的模型（如1.5B或1.7B）仅适用于非常基础的对话应用，若需要进行工具调用等复杂任务，建议使用参数更大的模型（如14B或32B）。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑细节&lt;/em&gt;: 作者明确指出，对于复杂的代理任务和工具调用，需要至少140亿或320亿参数的模型才能获得更好的效果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前提条件&lt;/strong&gt;: 确保已使用“自托管AI入门套件”设置好本地托管的NAND。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过Olama和Docker安装开源模型（以DeepSeek和Quen为例）&lt;/strong&gt;:
+&lt;ol&gt;
+&lt;li&gt;访问&lt;code&gt;ola.com&lt;/code&gt;网站，点击“models”进入模型库。&lt;/li&gt;
+&lt;li&gt;选择所需的模型（例如DeepSeek R1）。&lt;/li&gt;
+&lt;li&gt;复制模型名称（例如&lt;code&gt;DeepSeek-r1:1.5B&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;打开Docker，找到Olama容器。&lt;/li&gt;
+&lt;li&gt;点击“exec”标签页。&lt;/li&gt;
+&lt;li&gt;输入命令&lt;code&gt;olama pull [复制的模型名称]&lt;/code&gt;并回车。&lt;/li&gt;
+&lt;li&gt;等待模型下载并安装成功。&lt;/li&gt;
+&lt;li&gt;安装完成后，即可在NAND的OAMA节点中选择并使用新安装的模型进行测试。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查看本地已安装的模型列表&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;在Docker的Olama容器的“exec”标签页中，输入命令&lt;code&gt;olama list&lt;/code&gt;并回车。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;删除本地已安装的模型&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;在Docker的Olama容器的“exec”标签页中，输入命令&lt;code&gt;olama rm [要删除的模型名称]&lt;/code&gt;并回车。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“这个差距正在缓慢缩小，总有一天会有与它们一样强大的开源模型。”&lt;/li&gt;
+&lt;li&gt;“它完全免费，而且我们有如此多的选择。”
+&lt;h2&gt;- “你甚至不必‘docker compose down’再重新启动。我们基本上可以很快地完成。”&lt;/h2&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=DcEMf2K6cPQ</guid>
+      <enclosure url="https://i.ytimg.com/vi/DcEMf2K6cPQ/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 07 Jul 2025 16:15:55 +0800</pubDate>
+    </item>
     <item>
       <title>LongGraph企业级AI智能体开发：从基础到实战，打造高性能数据分析Agent</title>
       <link>https://www.bilibili.com/video/BV1Kx3CzyE6Q</link>
