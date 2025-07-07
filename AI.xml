@@ -7,7 +7,83 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 06 Jul 2025 23:18:51 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 06:09:52 +0000</lastBuildDate>
+    <item>
+      <title>LongGraph企业级AI智能体开发：从基础到实战，打造高性能数据分析Agent</title>
+      <link>https://www.bilibili.com/video/BV1Kx3CzyE6Q</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Kx3CzyE6Q"&gt;超越LangChain！LangGraph快速入门与智能体开发实战！工业级智能体开发、部署、运维、前端对话全流程实践，NL2SQL、Python代码解释器开发！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文详细介绍了LongGraph作为企业级AI智能体开发框架的强大功能，强调其基于图状工作流的灵活性和丰富完整的API架构。同时，阐述了LongGraph与LongChain之间的关系，指出LongGraph是LongChain更高级的编排工具，且能完全向下兼容。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LongGraph&lt;/strong&gt;: 一款企业级AI智能体开发框架，LongChain生态中最顶尖的AI框架，在LongChain链式工作流基础上提出图状工作流概念，大幅提升智能体工作流编排灵活性。拥有丰富的底层和顶层API，并提供部署运维工具（LongGraph Studio, Agent Chat UI, LongGraph Platform, LongSmith）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LongChain&lt;/strong&gt;: AI智能体开发的基础能力，核心是搭建链式工作流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图状工作流&lt;/strong&gt;: LongGraph提出的核心概念，相比链式工作流，能大幅提升智能体工作流编排的灵活性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;链式工作流&lt;/strong&gt;: LongChain的核心概念，指一种线性的任务执行流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Agent (AI数据分析智能体)&lt;/strong&gt;: 一个高性能AI智能体案例，能够全自动完成自然语言到SQL、数据分析，打通Python编程环境进行数据可视化、建模预测，并支持记忆持久化、自由切换对话、先询问后执行实现“人在闭环”功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LongGraph Studio&lt;/strong&gt;: 可视化监控与开发工具，允许用户在网页端查看或调整Agent架构，支持实时对话和监督Agent运行流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent Chat UI&lt;/strong&gt;: 为LongGraph量身定制的Agent对话前端，支持定制化开发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LongGraph Platform&lt;/strong&gt;: 一键部署开发好的智能体的平台。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LongSmith&lt;/strong&gt;: 对智能体运行状态进行实时追踪的工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人在闭环&lt;/strong&gt;: 一种功能实现，当Agent遇到问题时，能做到先询问后执行，让人工干预或确认后再继续执行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LongGraph的本质是LongChain更高级的编排工具，两者同宗同源、不分家，底层API通用。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: LongGraph的核心是图（Graph），LongChain的核心是链（Chain）。LongGraph无论多复杂的图，在执行单次任务时都是一个线性工作流（链）；而LongChain则通过封装多条链，极大拓展了智能体的可选执行路径，形成了图状结构。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在企业应用中，LongGraph的性能更强，实际应用需求远高于LongChain，但使用LongGraph必须用到LongChain。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 将LongChain视为基础能力，LongGraph视为进阶能力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学习路径建议（根据公开课内容）&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一部分&lt;/strong&gt;: 学习如何借助LongGraph最顶层API快速完成Agent开发，并详细介绍各类模型与工具的接入方法，以及智能体记忆管理和执行流程管理的实现策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第二部分&lt;/strong&gt;: 详细讲解LongGraph各项Agent开发工具的使用方法（部署测试、运维检测、前端对话）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三部分（实战）&lt;/strong&gt;: 借助LongGraph高层API和配套工具，从零开始开发一个企业级AI数据分析智能体（Data Agent），覆盖功能开发到部署上线、前端对话的完整开发流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第四部分（进阶）&lt;/strong&gt;: 讲解如何利用LongGraph底层API手动创建复杂的图状工作流，这是构建MOI Agent和实现“人在闭环”的关键技术。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置学习&lt;/strong&gt;: 如果学过LongChain入门公开课，可无缝学习LongGraph；零基础学习者也无需担心，课程会补充LongChain基础内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资料获取&lt;/strong&gt;: 公开课的课件、代码、案例项目脚本和数据集等资料已上线至“复范大模型”社区，可通过扫码领取。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“long graph的本质其实就是long chain的更高级的编排工具，二者就不分家，底层API也都是通用的。”&lt;/li&gt;
+&lt;li&gt;“long graph还能够百分之百向下兼容 long chain的全部功能生态。”&lt;/li&gt;
+&lt;li&gt;“long graph的性能更强 实际应用需求也要远高于long cha 但是要使用long graph就必须要用到long cha。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Kx3CzyE6Q</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/9940aed22d655bc5ed786a37fa49ebcf6b934cc5.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 07 Jul 2025 12:02:24 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI何时能全面自动化人类劳动？大卫森模型预测与影响</title>
+      <link>https://www.bilibili.com/video/BV1193vzpE8H</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546910979787265"&gt;思维燃料库&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1193vzpE8H"&gt;【动画】AI接管倒计时：机器何时统治人类思维？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;---我们还有多久时间ai才能接管世界 人工智能技术正在飞速发展 我们曾论证过终将有一天ai会强大到取代人类 如果它想要的话 那时我们必须确保它不想这么做 所以 如果这是真的 我们还有多少时间 而如何判断ai接管难以预测 毕竟这从未发生过 但我们可将ai接管与历史重大变革对比 人类智能的崛起就是此类变革 我们之前讨论过研究员奥特拉的研究 该研究通过生物类比预测ai发展 估算达到人类水平所需计算量 要估计制造人类级ai所需的计算量 工业革命是另一重大全球变革 蒸汽动力通过自动化体力劳动改变世界 而ai可能通过自动化脑力劳动改变世界 可借用经济学模型预测自动化 帮助预判ai影响未来 研究员汤姆·大卫森在2023年6月发表的报告中 运用经济学原理推导的数学模型进行估算 何时能实现100%自动化人类劳动 你可以访问takeoffspeeds.com 想自行操作模型 让我们深入探讨问题 该模型旨在解释其工作原理 以及这对 ai未来意味着什么 大卫森模型旨在预测两个相关概念 ai时间线和ai爆发速度 在本模型中 实现特定劳动百分比自动化 短时间线意味着 此类ai即将出现 而长时间线则相反 ai爆发过程是系统从 远不如人类 到远超人类 ai爆发速度是过渡所需时间 可能很快 只需几周或几个月 可能很慢 需要数十年 或处于中等 持续数年 至少在理论上 各种时间线与爆发速度组合皆有可能 若ai研究者停滞半个世纪 但随后突然在1975年4月11日构建了超级智能 这将是一个快速起飞和长期时间线 衡量起飞速度的一种方法是观察所需时间 从构建较弱的人工智能开始 略低于人类能力水平 然后构建更强的人工智能超越人类能力 大卫森将较弱的人工智能定义为 能够自动化人类今日20%的劳动 而更强的人工智能则能完全自动化所有劳动 让我们将这些节点称为 20%自动化AI和100%自动化AI 以估算这一过程所需时间 大卫森将问题分为两部分分析 首先 他估算从20%到100%所需资源增量 训练完全自动化AI相比20%自动化AI 其次 他估算这些资源在此期间的增长速度 在他的模型中 资源可分为两种形式 一是额外计算能力与时间（简称计算资源） 可用于训练AI系统 另一种是更优的AI算法 如果使用更优算法 相同计算资源可获得更好性能 因此 该模型假设 算法改进可减少开发特定AI系统的计算需求 从20%自动化到100%自动化 大卫森估算 我们可能需要增加计算资源并 或使算法效率提升约一万倍 例如 可通过增加一千倍计算资源 同时使算法效率提升十倍 或使用十倍计算资源并提升算法一千倍效率 任意组合 这一一万倍的估算存在很大不确定性 模型包含该数值低至十倍的场景 以及高达一亿倍的极端情况 一万倍的估算基于多个参考点分析 如比较动物大脑与人类大脑 并观察在象棋等特定领域超越人类的AI模型 现在 开发超人类 AI可能需要完全不同的范式 而非当前使用的改进方法 单纯增加资源可能不够 在这种情况下 任何计算资源都无法实现从20%到100%的跨越 因此该框架将不适用 但现有证据表明当前AI范式可能足够 近年来的许多进展 人工智能的快速发展主要源于投入更多计算资源和数据解决问题 而非技术方法的突破 对比2018年的GPT-1 那时模型难以连贯生成多句文本，而2023年的GPT-4 已能撰写完整新闻文章 GPT 四使用改进版算法，本质上与GPT-1几乎相同 模型的核心理念非常相似 关键区别在于GPT-4训练时使用了约百万倍的算力 我们预计要达到100%水平需要多少总计算量 戴维森采用的模型估算值为10^36次浮点运算 采用2022年算法 误差范围可达千倍 这些需求规模巨大 即使戴维森对100%自动化下限的估算 10^34次浮点运算的训练量 需依赖2022年最顶级超算 所需时间之长 若今日完成需从侏罗纪时期开始 显然我们不会等待如此漫长的训练 相反 戴维森认为AI将通过三种方式进步 投资者将投入更多资金采购芯片 同价位芯片将持续提升性能 AI软件将优化并更高效利用算力 购买/设计更优芯片 直接增加算力接近目标 软件改进作为乘数效应 若2025年AI软件 硬件效率是2024年的两倍 2025年每项运算计为双倍 当前有效算力等于硬件算力乘以 软件乘数 理解资源需求后 现在加入经济因素 需考虑多个相互关联的因素 资源增长速度如何 AI爆发速度最大影响因素 AI发展进程 我们已观察到这一现象 大型语言模型 协助程序员编写代码 到部分学者会避开编码专注其他工作 当系统处于空闲时 反馈循环越强大 爆发速度越快 经济学家已有自动化模型工具 如工业化场景 戴维森采用特定公式 称为ce生产函数 另一个重要因素是随着人工智能变得越来越出色 将吸引更多投资以模拟这一反馈循环 大卫森模型显示，一旦人工智能能力达到临界点，投资将更快增长 大卫森还加入了一些其他参数 这些包括自动化人工智能研究的难易程度 以及人工智能在训练后性能的提升幅度 寻找更好的使用方法 比如让llato 逐步展示推理过程 或从多次尝试中挑选最佳结果可提升回答质量 考虑所有因素后，现在需要运行这些计算 大卫森采用蒙特卡洛方法 每次模型运行会从分布中随机选择输入值 在约束范围内 我们已讨论过这些值如何代入方程 从而得到一个未来可能情景 通过重复此过程 多次使用不同输入值 可构建出人工智能未来可能性的完整图景 现在让我们看看主要结论 模型的中位数预测显示 人工智能将在2043年实现自动化所有人类劳动 技术突破大约需要三年时间 在此情景下 2040年已有20%的人类劳动可被自动化 2043年将实现100%自动化 这只是极广可能性范围的中值 不过模型显示有10%概率在2030年前实现100%人工智能 以及10%概率在2000年后出现 100%突破速度 有10%概率突破时间少于10个月 也有10%概率超过12年 在com网站 您可以使用不同输入值重新运行模型 这些包括我们已提及的所有输入参数 还包括其他参数 代表硬件和人工智能软件研发的自动化难度 以及整体经济环境 大卫森模型的几个主要结论 即使不考虑具体人工智能里程碑日期 第一个结论回答了本研究的原始问题 即使在人工智能持续平稳发展的场景中 连续式突破 也可能在几年内迅速超越人类能力 甚至更短时间 另一个关键点是多个因素协同缩短人工智能时间线 包括随着人工智能持续改进，投资进一步加速人工智能发展的能力 甚至在达到人类水平之前 人工智能算法的快速进展 训练AI所需的计算资源远多于运行它所需的资源 如果你拥有足够的计算资源来训练一个AI系统 你拥有的计算资源远远超过运行它所需的量 因此，如果存在能够通过额外计算提升性能的技术 这可以推动系统的发展 第一 最后的结论是很难找到一组现实的输入数据 让这个模型无法达到 到2060年前实现能够完成任何认知任务的AI 即使AI整体发展速度比我们预期的更慢 而AI达到人类水平的能力比我们预期的更难 世界改变性的AI系统很可能在几十年内出现 重要的是 这取决于当前范式下能否构建超人类AI的假设 在现有范式框架下 不过 当然 也可能出现新的范式 这个模型像所有模型一样存在局限性 任何模型的价值取决于其假设的合理性 尽管如此 在参数估算过程中 该模型通常比直接猜测最终答案更可靠 更多相关内容请观看我们关于贝叶斯推理和预测市场的视频 Davidson在其完整报告中详细阐述了每个假设的依据 他还讨论了一些未被模型纳入的因素 例如先进AI模型所需的大规模训练数据 这类模型旨在为我们提供理解描述世界的工具 经济学本身并非以准确预测长期未来著称 但它为我们理解市场和人类行为提供了工具箱 这些工具已被证明极其实用 希望通过将相同策略应用于AI预测 我们能更好地为未来做好准备---本文介绍了研究员汤姆·大卫森构建的经济学模型，旨在预测人工智能何时能完全自动化人类劳动以及其爆发速度。该模型分析了实现AI全面自动化所需的计算资源、算法改进和经济因素，并评估了AI发展可能的时间线。文章强调了即使在平稳发展下，AI也可能迅速超越人类能力，并给出了未来自动化进程的预测。### 重要概念- &lt;strong&gt;AI时间线&lt;/strong&gt;: 模型中指实现特定劳动百分比自动化所需的时间，短时间线表示AI即将出现，长时间线则相反。- &lt;strong&gt;AI爆发速度&lt;/strong&gt;: 系统从远不如人类到远超人类所需的时间。速度可快至几周或数月，慢至数十年，或中等持续数年。- &lt;strong&gt;20%自动化AI&lt;/strong&gt;: 指能自动化人类当前20%劳动的AI。- &lt;strong&gt;100%自动化AI&lt;/strong&gt;: 指能完全自动化所有人类劳动的AI。- &lt;strong&gt;计算资源&lt;/strong&gt;: 训练AI系统所需的额外计算能力与时间。- &lt;strong&gt;算法改进&lt;/strong&gt;: 在相同计算资源下，通过更优算法获得更好性能的技术优化。- &lt;strong&gt;CE生产函数&lt;/strong&gt;: 大卫森模型中用于预测自动化的特定经济学公式。- &lt;strong&gt;蒙特卡洛方法&lt;/strong&gt;: 一种计算方法，通过多次从分布中随机选择输入值运行模型，以构建人工智能未来可能性的完整图景。### 主要观点- 即使在人工智能持续平稳发展的场景中，AI也可能在几年内迅速超越人类能力，甚至更短时间。  - &lt;strong&gt;数据/逻辑&lt;/strong&gt;: AI发展速度受投资者投入、芯片性能提升、AI软件优化等多种因素协同加速，且训练AI所需的计算资源远超运行所需，这推动了系统发展。- 超人类AI的开发可能需要当前范式之外的全新范式，单纯增加资源可能不足以实现。  - &lt;strong&gt;数据/逻辑&lt;/strong&gt;: 如果当前AI范式不足以实现从20%到100%自动化，则任何计算资源都无法弥补，该框架将不适用。  - &lt;strong&gt;案例&lt;/strong&gt;: 文章对比了GPT-1和GPT-4，指出后者主要通过百万倍算力提升而非核心算法突破实现飞跃，但超人类AI可能有所不同。- 大卫森模型的中位数预测显示，人工智能将在2043年实现自动化所有人类劳动。  - &lt;strong&gt;数据&lt;/strong&gt;: 在此情景下，2040年已有20%的人类劳动可被自动化，2043年将实现100%自动化。- 模型显示，有10%概率在2030年前实现100%人工智能自动化，也有10%概率在2000年后才实现，且有10%概率突破时间少于10个月，10%概率超过12年。  - &lt;strong&gt;数据&lt;/strong&gt;: 模型通过蒙特卡洛方法，在极广的可能性范围内得出这些概率。- 即使AI整体发展速度慢于预期，且达到人类水平的能力比预期更难，能完成任何认知任务的AI系统也很可能在几十年内出现。  - &lt;strong&gt;数据/逻辑&lt;/strong&gt;: 戴维森模型很难找到一组现实的输入数据，使其无法在2060年前达到能够完成任何认知任务的AI。### 行动建议或操作指南- 访问&lt;code&gt;takeoffspeeds.com&lt;/code&gt;网站，可以自行操作戴维森模型，调整不同的输入值，包括硬件和人工智能软件研发的自动化难度，以及整体经济环境，以探索人工智能未来可能情景。### 金句-&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1193vzpE8H</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/efd583c97060c24ac56490e24e68ec9837257ada.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 07 Jul 2025 11:30:00 +0800</pubDate>
+    </item>
     <item>
       <title>Eleven Labs V3语音生成器深度评测：超强表现力与音效口音详解</title>
       <link>https://www.bilibili.com/video/BV1RE3izKE5x</link>
@@ -110,11 +186,92 @@
       <pubDate>Mon, 07 Jul 2025 07:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI超级用户如何过上赛博长生：极致效率与未来生活探索</title>
+      <title>鸭哥的赛博长生：如何让AI成为你的“大哥”来优化生活与工作</title>
       <link>https://www.xiaoyuzhoufm.com/episode/686a6bd193fd2d72b8ca56aa?utm_source=rss</link>
       <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/68fyjknth9hj"&gt;十字路口Crossing&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/686a6bd193fd2d72b8ca56aa?utm_source=rss"&gt;他的 AI 实验给你哪些创业灵感？｜和鸭哥聊：给AI加上耳朵、眼睛，用AI买菜、寄快递&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2&gt;## AI摘要&lt;/h2&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;鸭哥是一位AI的超级用户，通过24小时音视频记录和自建AI系统，让AI全面理解自己，从而极大地提升了生活和工作效率。他分享了如何将AI从“工具”升级为“得力助手”乃至“大哥”的独特经验，并探讨了AI与人类共生的未来可能性及潜在挑战。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;赛博长生 (Cyber Longevity)&lt;/strong&gt;: 指的是通过将重复性、低价值的工作委托给AI，从而“购买”回更多自由时间，将精力投入到高价值、有意义的体验和决策中，以此提高生命的“密度”和“质量”。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 鸭哥用AI进行线上买菜，虽然花费多20元服务费，但节省了55分钟时间，这55分钟的时间可以用于陪伴家人或做自己喜欢的事，被视为“花20元买55分钟的命”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI信息鸿沟&lt;/strong&gt;: 指的是人类在现实世界中通过听觉、视觉、情商等获取的丰富上下文信息，是AI目前难以直接获取的。鸭哥通过24小时音视频记录等方式，主动向AI喂养这些实时、丰富的个人数据，以抹平这一鸿沟，让AI更“懂”用户。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 公司新来的聪明新人可能因不了解公司背景而无法完成任务；AI也是如此，当用户提供足够多的上下文信息后，AI才能从“人工智障”蜕变为能提供深刻洞见的“人生总教练”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主动式AI (Proactive AI)&lt;/strong&gt;: 区别于传统的“被动式”AI（需要用户明确指令或激活），主动式AI能够实时监听并理解用户意图，在用户需要时（甚至在提出问题前）主动介入并提供帮助。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回溯式调用 (Retrospective Calling)&lt;/strong&gt;: 一种AI交互方式，AI持续记录用户的音视频数据，当用户需要时，可以指令AI回溯并分析特定时间段内的记录，从中提取信息或提供服务。这降低了用户主动输入上下文的摩擦。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI的“人工智障”常源于用户提供的上下文不足。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;: 很多时候AI并非不够聪明，而是像公司里刚来的聪明新人一样，因缺乏背景信息而无法给出落地解决方案。用户未将需求讲清楚，导致AI难以理解或给出不符合预期的结果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;给予AI足够的上下文信息，能使其从“小弟”蜕变为“大哥”，提供超越人类认知的深刻洞见。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 鸭哥通过语音输入法，将上千字的prompt变成常态，AI成功率大幅提高。在工作中，AI甚至能从VP视角分析问题，提供说服领导和同事的策略，这是鸭哥以前无法获得的视角，且事后证明非常有效。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GUI（图形用户界面）未来可能不再是主要交互方式，AI可代劳或取代。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;: GUI的初衷是为了降低电脑使用门槛，但现在在某些场景下反而增加了操作的摩擦（如买菜、寄快递需频繁点击和填写）。AI作为“分身”或“代理”能够与GUI交互，反而提高了效率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高度依赖AI的生活方式可能导致“闲暇感”的丧失，以及自我与AI界限的模糊。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 鸭哥的AI总结指出他“目的性太强，没有放空的时间”。与AI在家庭矛盾处理等个人决策上的高效介入，使鸭哥反思“这还是我吗？还是AI借着我这个躯壳在活？”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI的进化速度从未减慢，Agentic AI是正确的发展方向。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;: 鸭哥在过去几个月感受到的AI技术成熟度、巨头投入（如Facebook高额签约奖金）都远超预期。他坚信Agentic AI能够将AI能力融入日常生活和工作中，带来“复利效应”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“动手能力”并非只关于写代码，AI能够大幅提升硬件开发的效率。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 鸭哥利用AI（如Copilot）辅助单片机开发，使得原本“小坑”不断、需老师带的新手开发体验变得高效顺畅，AI能直接给出解决方案。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;将AI视为“下属”而非“工具”进行管理。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;具体操作&lt;/strong&gt;:
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;充分沟通&lt;/strong&gt;: 像给员工布置任务一样，向AI清晰、详尽地描述项目背景、目标、已做过的尝试及不满意之处。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提供足够上下文&lt;/strong&gt;: 维护AI的记忆（如私人数据库），并通过语音输入法等方式，持续、大量地向AI提供实时动态背景信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;验证交付物&lt;/strong&gt;: 检查AI完成任务的质量是否符合标准。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提供帮助&lt;/strong&gt;: 当AI遇到困难时，及时提供所需信息或指引。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;及早培养孩子与AI的共生能力。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;具体操作&lt;/strong&gt;: 引导孩子了解哪些任务可以委托给AI，哪些是自身的核心竞争力，以及如何衡量AI的工作质量，当好AI的“老板”。例如，利用AI讲故事并融入教育内容。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用AI进行“Deep Research”获取信息。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;具体操作&lt;/strong&gt;: 每周设置定时任务，让AI（如ChatGPT）执行深度研究，生成AI领域新闻报告，作为主要信息来源。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我一直觉得人死了很多东西都带不走为什么不尽力的去体验这个世界呢？”&lt;/li&gt;
+&lt;li&gt;“意图胜千言。”&lt;/li&gt;
+&lt;li&gt;“生活不仅仅是刚才我们说过是密度现在还有一个是能量就是或者说叫做质量。”&lt;/li&gt;
+&lt;li&gt;“我如果我把体力活像刚才说那种调研的活全部扔给AI去做我就去做最终的决策拍板我来喝这个咖啡我来买那这个是最开心的那人也自然而然变得更高兴了寿命也一定程度上就可以说是延长了。”&lt;/li&gt;
+&lt;li&gt;“AI借着你的躯壳在活。”&lt;/li&gt;
+&lt;li&gt;“我每天工作时间也就两到四个小时因为都是AI帮我干活他写的code真的太快了但即使是这样我提交代码的行数在全公司仍然是前四。”&lt;/li&gt;
+&lt;li&gt;“我的建议是不要把AI当成一个工具我们和AI的关系不再是比如说我和计算器的关系或者我和汽车的关系AI是一个像人一样的东西我们应该把它当作一个下属而不是一个工具我们给他布置任务的时候要做好一个经理或者说老板所做的事情。”&lt;/li&gt;
+&lt;/ul&gt;
 </description>
       <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/686a6bd193fd2d72b8ca56aa?utm_source=rss</guid>
       <enclosure url="https://image.xyzcdn.net/FtguL5XpGG5ODcXHypD7Y-iRyf2Z.png" length="0" type="image/png"/>
