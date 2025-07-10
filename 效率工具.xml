@@ -7,7 +7,79 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Jul 2025 09:57:29 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Jul 2025 22:13:53 +0000</lastBuildDate>
+    <item>
+      <title>现代Python项目组织与依赖管理：从venv到UV/Poetry</title>
+      <link>https://www.bilibili.com/video/BV13WGHz8EEz</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV13WGHz8EEz"&gt;从pip到uv：一口气梳理现代Python项目管理全流程！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章深入探讨了如何组织一个现代化的Python项目，重点讲解了Python项目中的依赖管理问题。它首先对比了Conda生态系统与官方Python体系在依赖管理上的差异，随后详细介绍了官方体系下的各种工具和最佳实践，从虚拟环境、&lt;code&gt;requirements.txt&lt;/code&gt;到&lt;code&gt;pyproject.toml&lt;/code&gt;，并最终引出了UV和Poetry等高级项目管理工具。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;虚拟环境（Virtual Environment）&lt;/strong&gt;：为每个Python项目创建独立的、干净的工作空间，以解决版本冲突和复杂的依赖关系问题。
+&lt;ul&gt;
+&lt;li&gt;通过案例说明：如果一个新项目需要Flask 3.11而旧项目只兼容3.0，全局安装会导致旧项目无法运行。虚拟环境通过修改Python的&lt;code&gt;sys.path&lt;/code&gt;变量，确保每个项目加载各自专属的依赖库，从而避免冲突。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖地狱（Dependency Hell）&lt;/strong&gt;：指一个库依赖其他几个库，而这些库又有各自的依赖，层层嵌套导致版本冲突难以解决的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;孤儿依赖（Orphan Dependency）&lt;/strong&gt;：当卸载一个直接依赖时，其间接依赖（因为该直接依赖而被安装的包）未被一同移除，残留在了环境中。
+&lt;ul&gt;
+&lt;li&gt;通过案例说明：使用&lt;code&gt;pip uninstall flask&lt;/code&gt;后重新生成&lt;code&gt;requirements.txt&lt;/code&gt;，会发现Flask本身被移除，但其引入的间接依赖仍然留在环境中。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;pyproject.toml&lt;/code&gt;&lt;/strong&gt;：官方指定的统一配置文件，旨在取代过去散落在项目根目录下的多个独立配置文件（如&lt;code&gt;mypy.ini&lt;/code&gt;, &lt;code&gt;pytest.ini&lt;/code&gt;），现在Python生态中多数主流工具都已支持，开发者只需维护这一个文件即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Conda宇宙（Conda Ecosystem）&lt;/strong&gt;：一个独立的跨语言开发平台（不仅支持Python，还支持Go、Rust、C++、R等），拥有自己的配置文件、软件仓库和编译的Python解释器，在多语言支持、依赖管理、虚拟环境等方面提供了统一的解决方案，尤其在AI领域处理复杂非Python依赖时优势明显。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UV / Poetry / PDM&lt;/strong&gt;：高层级的Python项目管理工具，它们对底层工具如&lt;code&gt;venv&lt;/code&gt;和&lt;code&gt;pip&lt;/code&gt;进行了高级封装，提供更简单、更统一的接口来管理项目依赖、创建虚拟环境和安装包。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;早期Python在工程结构上相对随意，不如Go或Rust规整，但现在通过官方规范和社区流行工具的借鉴，已有现代化的组织方案。&lt;/li&gt;
+&lt;li&gt;Conda并非仅仅是Python的包管理器，它是一个独立的跨语言开发平台，其对多语言支持、依赖管理和虚拟环境的统一解决方案，在AI等复杂依赖场景下尤为省心。
+&lt;ul&gt;
+&lt;li&gt;支持案例：AI框架的依赖复杂，常需与NVIDIA的Cuda等非Python库打交道，用Conda安装是更省心且不易出错的选择。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;直接使用&lt;code&gt;pip install&lt;/code&gt;将包安装到全局环境会导致版本冲突和“依赖地狱”问题。
+&lt;ul&gt;
+&lt;li&gt;支持案例：新项目需Flask 3.11，旧项目只兼容3.0，全局升级可能导致旧项目无法运行。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;传统的&lt;code&gt;pip freeze &amp;gt; requirements.txt&lt;/code&gt;方式存在巨大缺陷，它无法区分直接依赖和间接依赖，导致&lt;code&gt;requirements.txt&lt;/code&gt;文件臃肿且难以维护，并产生孤儿依赖。
+&lt;ul&gt;
+&lt;li&gt;支持案例：项目中仅有Flask一个直接依赖，但&lt;code&gt;requirements.txt&lt;/code&gt;中却列出了七个包；卸载Flask后，其间接依赖并不会自动移除。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;pip install .&lt;/code&gt;安装本地项目时，源文件会被复制到虚拟环境的&lt;code&gt;site-packages&lt;/code&gt;目录，导致两份代码，且修改源文件后不会立即生效，给开发带来不便。
+&lt;ul&gt;
+&lt;li&gt;支持逻辑：解决方法是在安装时加上&lt;code&gt;-e&lt;/code&gt;参数（&lt;code&gt;pip install -e .&lt;/code&gt;），这样会在&lt;code&gt;site-packages&lt;/code&gt;中创建一个指向源文件目录的快捷方式，确保修改能立刻生效。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;创建并激活虚拟环境&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;创建：&lt;code&gt;python -m venv .venv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;激活：&lt;code&gt;source .venv/bin/activate&lt;/code&gt; (macOS/Linux) 或 &lt;code&gt;.venv\Scripts\activate&lt;/code&gt; (Windows)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装包到虚拟环境&lt;/strong&gt;：激活环境后，使用&lt;code&gt;pip install &amp;lt;package_name&amp;gt;&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;管理依赖（传统&lt;code&gt;requirements.txt&lt;/code&gt;方式，不推荐）&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;导出已安装的包：&lt;code&gt;pip freeze &amp;gt; requirements.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;安装列表中的依赖：&lt;code&gt;pip install -r requirements.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;管理依赖（现代&lt;code&gt;pyproject.toml&lt;/code&gt;方式，手动配置）&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;pyproject.toml&lt;/code&gt;文件的&lt;code&gt;[project.dependencies]&lt;/code&gt;部分声明项目直接依赖的包（例如：`flask =&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV13WGHz8EEz</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/d903333cb32cd3bc3827b2768ef150583d237f53.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 10 Jul 2025 17:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>Docker实战教程：容器、镜像、网络与Compose全面解析</title>
       <link>https://www.bilibili.com/video/BV1THKyzBER6</link>
