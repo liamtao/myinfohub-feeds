@@ -7,7 +7,71 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Jul 2025 22:13:53 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 11 Jul 2025 09:51:30 +0000</lastBuildDate>
+    <item>
+      <title>量化预期差策略：估值与基本面双维度构建投资组合</title>
+      <link>https://www.bilibili.com/video/BV1FnuuzPEyo</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546896891119870"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FnuuzPEyo"&gt;【论文导读】预期差（三）：非一致性策略&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本视频是“预期差”系列第三期，深入探讨了基于经典论文的股票投资策略实证研究。文章详细介绍了如何通过股票估值与基本面强度（F-score）的双重分组，构建并模拟“预期差”投资策略，并将其与传统价值效应理论进行对比和升级。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;预期差策略: 一种股票投资策略，通过买入基本面强、估值低的股票，同时卖出基本面弱、估值高的股票来获取收益。
+&lt;ul&gt;
+&lt;li&gt;类比：如同在菜市场“捡漏”，寻找“又好又便宜”的商品。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;价值效应: 股票市场中存在的现象，长期来看，低估值股票的平均表现优于高估值股票。&lt;/li&gt;
+&lt;li&gt;非一致性策略: 特指“预期差策略”的核心操作，即买入三乘三九宫格中右下角（基本面强、估值低）的股票，卖出左上角（基本面弱、估值高）的股票。&lt;/li&gt;
+&lt;li&gt;一致性策略: 作为对照组的策略，买入高质量高估值股票并卖出低质量低估值股票，预期不会产生超额收益，因为这类股票价格被认为是合理的。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;价值效应的实质与局限：尽管在个例上存在反例，但在统计意义上，低估值股票长期表现优于高估值股票的关系是确实存在的。
+&lt;ul&gt;
+&lt;li&gt;逻辑支撑：通过净值市值比对个股未来收益进行回归分析，回归系数显著。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;价值效应不简单等同于价值投资：直接使用市净率衡量估值过于粗糙，会忽略许多重要变量。&lt;/li&gt;
+&lt;li&gt;净值市值比优于市净率：在量化操作中，通常使用市净率的倒数（净值市值比），因为其与估值关系更线性，避免了市净率在净值出现负数时函数非单调性的问题，便于数学运算。&lt;/li&gt;
+&lt;li&gt;市净率优于市盈率/市销率：在实证研究中，市净率被广泛采用，因为净资产相对于盈利更稳定，不易被人为会计手段操纵，信号质量更高。&lt;/li&gt;
+&lt;li&gt;“预期差策略”是传统价值效应的升级：通过引入基本面强度（F-score）指标，对价值股进行二次细分，能够给出更合理的解释，使策略更贴近投资者直觉和实际操作逻辑。
+&lt;ul&gt;
+&lt;li&gt;逻辑支撑：基本面强、估值低的公司（九宫格右下角）逻辑上表现优于基本面差、估值高的公司（九宫格左上角）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;策略模拟步骤：
+&lt;ol&gt;
+&lt;li&gt;收集全部股票数据。&lt;/li&gt;
+&lt;li&gt;按月份将数据分切片（横截面）。&lt;/li&gt;
+&lt;li&gt;在每个横截面上，根据股票的估值和基本面强度进行双重分组（三乘三九宫格）。
+&lt;ul&gt;
+&lt;li&gt;横轴：估值（成长股、普通股、价值股）。&lt;/li&gt;
+&lt;li&gt;纵轴：基本面强度（低、中、高，使用F-score衡量）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;实施“预期差策略”：买入基本面强、估值低的股票（九宫格右下角），同时卖出基本面弱、估值高的股票（九宫格左上角）。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;对照组设置：可以设置“一致性策略”作为对照，即买入高质量高估值股票，卖出低质量低估值股票。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“这个做法其实和在菜市场上买菜是很像的就是你要尽量的去找那些又好又便宜的东西就是减漏的这个逻辑”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FnuuzPEyo</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/8f60c075ed890e9fe055e5cc4291d12f82db46e6.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 11 Jul 2025 13:15:04 +0800</pubDate>
+    </item>
     <item>
       <title>量化价值投资：如何用F-score九指标体系评估上市公司基本面</title>
       <link>https://www.bilibili.com/video/BV1KH3TzrEnR</link>
