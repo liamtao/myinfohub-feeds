@@ -7,7 +7,75 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Jul 2025 23:26:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Jul 2025 09:41:02 +0000</lastBuildDate>
+    <item>
+      <title>深度解读：印度论文揭示贸易战期间美股高频交易订单异动与市场操纵迹象</title>
+      <link>https://www.bilibili.com/video/BV1Equ7zWEaH</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Equ7zWEaH"&gt;【量化论文】印度学者看中美贸易战期间美股高频交易：净是操纵市场的？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文深度解析了一篇由印度学者撰写的论文，该论文聚焦于2018年中美贸易战期间美股高频交易订单流的微观行为。研究运用马尔可夫模型分析了订单前后相继的关系，并揭示了频繁的交易活动以及市场中可能存在的操纵行为。评论者同时对论文的研究水平及其作者所属的印度理工学院进行了评价。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;马尔可夫模型（Marcloff model）
+&lt;ul&gt;
+&lt;li&gt;解释：该模型认为，一个状态只由上一个状态决定，而下一个状态则由当前状态决定。论文用此模型研究了订单从一个状态（如新增买单）转换到下一个状态（如成交卖单）的规律。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;假单（Fake Order）/欺骗（Spoofing）/分层（Layering）
+&lt;ul&gt;
+&lt;li&gt;解释：指那些并非以真实成交为目的，而是为探测价格、扰乱市场或操纵市场而下单并随即取消的交易指令。&lt;/li&gt;
+&lt;li&gt;案例：论文通过分析发现，一旦订单的某一部分被取消，最终往往会导致整个订单被全部取消，且“新增买单”、“新增卖单”、“删除卖单”、“删除买单”这类订单在整个交易链条中频繁出现，平均重现时间极短，以此推断存在大量的假单和市场操纵行为。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;贸易战期间，美股高频交易成交活跃，订单执行后迅速伴随新订单入场。
+&lt;ul&gt;
+&lt;li&gt;数据支撑：热力图中“已成交买单（FB）”到“新增卖单（AA）”及“已成交卖单（FAA）”到“新增买单（AB）”的转换显示出深红色，表明两者前后相继关系极强。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;市场中充斥大量“假单”，可能存在明显的市场操纵行为。
+&lt;ul&gt;
+&lt;li&gt;数据支撑：
+&lt;ul&gt;
+&lt;li&gt;“取消部分订单（CBCA/CBCA）”到“完全取消订单（DBDA/DBDA）”的转换热度很高（红色或橘色），表明部分取消常导致全部取消。&lt;/li&gt;
+&lt;li&gt;各种订单状态的平均重现时间（MRT）显示，“新增买单（AB）”、“新增卖单（AA）”及“删除卖单（DA）”、“删除买单（DB）”等非成交类指令的重现时间极短（如DA仅需约4步），而“已成交买单（1B）”的重现时间高达358步，暗示交易链条中大量存在瞬时取消或探测性订单。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;逻辑支撑：“这说明这个单子里面占绝大部分整个交易链条上大部分充斥这种新增的买单新增的卖单删掉的卖单删掉的买单删掉卖单这玩意儿就是在操纵市场啊。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;不同行业板块的订单流模式存在差异，尤其金融板块有其独特规律。
+&lt;ul&gt;
+&lt;li&gt;数据支撑：金融板块热力图显示“已成交买单（FB）”转为“已成交买单（FB）”和“已成交卖单（FA）”转为“已成交卖单（FA）”呈现红色，暗示其连续性特征。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;波动性较低的日子，相同类型的订单状态重复自身的概率略高。
+&lt;ul&gt;
+&lt;li&gt;数据支撑：热力图中，对角线（表示相同状态转换）在低波动日子的颜色比高波动日子稍深。&lt;/li&gt;
+&lt;li&gt;逻辑支撑：论文未明确解释此现象的具体含义。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;无。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“这个状态只由上一个状态决定，那么下一个状态由这个状态决定。”&lt;/li&gt;
+&lt;li&gt;“这说明这个单子里面占绝大部分整个交易链条上大部分充斥这种新增的买单新增的买单删掉的卖单删掉的买单删掉卖单这玩意儿就是在操纵市场啊。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Equ7zWEaH</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/aa44a9565a9e79267dabb402597d4540074391a9.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 12 Jul 2025 17:35:54 +0800</pubDate>
+    </item>
     <item>
       <title>量化预期差策略：估值与基本面双维度构建投资组合</title>
       <link>https://www.bilibili.com/video/BV1FnuuzPEyo</link>

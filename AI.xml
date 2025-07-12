@@ -7,7 +7,85 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 11 Jul 2025 23:26:47 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Jul 2025 09:41:02 +0000</lastBuildDate>
+    <item>
+      <title>Kimi K2 AI模型深度评测：性能、API与可视化能力展示</title>
+      <link>https://www.bilibili.com/video/BV1NNuEzNEMk</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1NNuEzNEMk"&gt;实测 Kimi K2：最擅长 Agentic 任务开源模型？&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细介绍了开源MOE语言模型Kimi K2，强调其在代码、代理任务和工具调用方面的卓越性能。作者探讨了K2的技术规格、API兼容性及实际使用体验，并对比了其在多种内容生成、创意写作和复杂可视化任务中的表现，同时揭示了API使用中的速率限制。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MOE (Mixture of Experts) 语言模型&lt;/strong&gt;：Kimi K2被描述为一种MOE语言模型，拥有320亿激活参数和1万亿总参数，专家数量为384，上下文长度达128K。这种架构允许模型在处理每次查询时仅激活少量相关专家，从而可能在保持高性能的同时提高效率。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2在代码和代理性任务方面表现出色，作为开源模型尤其优秀。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;官方介绍强调擅长代码和代理任务，DEPSKV3和GBT4.1对比图表显示其表现“非常优秀”。工具调用数据TautoBench得分很高。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2的工具调用能力和数学表现良好，但数学方面并非顶尖水平。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;官方给出的工具调用数据得分高。数学方面虽表现不错，但文章指出其未与更先进模型如GEMINI2.5pro或GPTO3进行对比。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2提供了OpenAI和Anthropic兼容的API，极大地便利了开发者集成。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;明确提到“既提供了OpenAI的兼容的API，还提供了安Sol soft兼容的”，并举例说明如何在CrowdCode中使用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2的API使用存在速率限制，需要较高的充值额度才能达到可用速度。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;作者尝试调用API时遇到429报错，需充值至少50美元才能达到200 IPM的可用速率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2在创意内容生成和某些复杂可视化任务上表现出色，甚至在某些方面优于其他模型。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;例如，生成的朋友圈文案“非常不错”，短故事“非常温馨还可爱”，蒙格海绵“非常美观”且“完成得相当不错”，宇宙粒子矩阵“非常炫酷”，复古打字机“外观好，输入文字也不错”，以及在推理题目的倒序拼音转换上表现“非常非常好”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2在某些特定可视化和像素游戏方面，与Claude Sonnet 4相比仍存在较大差距。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;通过对比兵马俑街舞、理财动画、网购动画和像素游戏，作者认为K2的动作一般、界面简单、元素不如Sonnet 4丰富，尤其在趣味漫画和真假美猴王对比中，“相差还是距离挺大的”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2的知识库截止到2025年4月，更新相对较新。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;明确提到“KIMI的知识库呢截止时间是到2025年4月份”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;获取Kimi K2 API：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;注册并获取API key。&lt;/li&gt;
+&lt;li&gt;导出 &lt;code&gt;ANTHROPIC_API_KEY&lt;/code&gt; 和 &lt;code&gt;ANTHROPIC_BETA_UI&lt;/code&gt; 环境变量以在CrowdCode等环境中使用。&lt;/li&gt;
+&lt;li&gt;注意：为了达到可用的API调用速率（200 IPM），至少需要充值50美元。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用Kimi K2模型：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;普通用户可直接在其官方网站上选择“K2 新模型”进行使用。&lt;/li&gt;
+&lt;li&gt;开发者可根据官方文档在Agent或通过兼容的API（OpenAI/Anthropic）进行调用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“KIMI这次非常好，它既提供了OpenAI的兼容的API，还提供了安Sol soft兼容的。”&lt;/li&gt;
+&lt;li&gt;“我个人觉得还是非常不错的，说明他们对他的AGENTA是非常有信心。”&lt;/li&gt;
+&lt;li&gt;“感觉文字很有呼吸感。”&lt;/li&gt;
+&lt;li&gt;“所以在我认为K2在这个任务上表现还很不错。”&lt;/li&gt;
+&lt;li&gt;“我觉得他回答的非常非常的好。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1NNuEzNEMk</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/ca32dd0947657a57611ff0f44d45e110d86768de.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 12 Jul 2025 10:45:48 +0800</pubDate>
+    </item>
     <item>
       <title>Speak CTO揭秘AI语言学习应用：从韩国市场突围到功能性流畅度构建</title>
       <link>https://www.youtube.com/watch?v=tIVKgztDaYQ</link>
