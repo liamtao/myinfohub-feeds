@@ -7,7 +7,138 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 12 Jul 2025 22:05:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 13 Jul 2025 14:32:31 +0000</lastBuildDate>
+    <item>
+      <title>从0到1自定义MCP Server构建视频生成AI小助手教程</title>
+      <link>https://www.bilibili.com/video/BV18qMZzQEnC</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1879195332"&gt;AIGC科技官&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18qMZzQEnC"&gt;12-从0到1自定义MCP Server构建视频生成小助手&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文详细介绍了如何从零开始自定义MCP server，并结合Define agent与火山方舟的豆包模型，构建一个视频生成AI小助手。该助手能够实现文生图、图生视频及文生视频等功能。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MCP server (Model Context Protocol server)&lt;/strong&gt;: 一种基于模型上下文协议构建的轻量级服务程序，旨在实现大模型与外部资源之间的高效和安全连接，解决AI应用中数据分散、接口不统一等问题，为开发者提供标准化的接口，使AI模型能灵活访问本地资源和远程服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Define agent&lt;/strong&gt;: 在Define平台上构建AI助手的一种应用，能够集成和调用外部工具，如MCP server。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UV&lt;/strong&gt;: Python的包管理工具，用于替代pip等工具，实现Python包和环境的管理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Treidea&lt;/strong&gt;: 一款AI编程工具，在构建MCP server时作为开发环境使用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;通过自定义MCP server，可以封装对不同后端AI模型（如豆包模型）API的调用，并以标准化的工具形式暴露给Define agent。&lt;/li&gt;
+&lt;li&gt;MCP client（如Cherry Studio或Define agent）与MCP server之间建立长链接后，可以一次性获取MCP server提供的所有工具。&lt;/li&gt;
+&lt;li&gt;在Define agent中集成MCP server时，后端模型所需的API密钥只需输入一次，发布agent后，后续调用无需重复输入，提升用户体验。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;准备环境与模型接口&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;访问火山方舟API接口网站，了解豆包模型视频生成API（如&lt;code&gt;create_video_generation_task&lt;/code&gt;）的参数和接口信息。&lt;/li&gt;
+&lt;li&gt;登录火山引擎，开通豆包C Dance（支持文生视频、首帧图生视频）和豆包C Dream（支持文生图）等模型服务。&lt;/li&gt;
+&lt;li&gt;在火山方舟站点获取访问对应模型的API Key。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建MCP Server&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安装UV&lt;/strong&gt;：在Windows环境中使用命令&lt;code&gt;pip install uv&lt;/code&gt;安装UV工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初始化MCP Server应用&lt;/strong&gt;：在Treidea中新建文件夹（如&lt;code&gt;xueAPP&lt;/code&gt;），进入该目录后，使用命令&lt;code&gt;uv init --app-name doubao&lt;/code&gt;初始化应用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编写业务代码&lt;/strong&gt;：实现文生图、文生视频、图生视频等功能，并嵌入调用豆包模型API接口的内容及参数。确保服务器监听&lt;code&gt;0.0.0.0:8000&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在Define Agent中集成MCP插件&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在Define平台安装MCP插件。&lt;/li&gt;
+&lt;li&gt;授权MCP插件，在授权信息中填入以下内容：&lt;code&gt;{"doubao": {"url": "http://[你的MCP Server IP]:8000"}}&lt;/code&gt;，确保&lt;code&gt;doubao&lt;/code&gt;名称与MCP server应用名称一致。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;功能测试&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用Cherry Studio测试MCP Server功能&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;打开Cherry Studio，在设置-I9中添加MCP服务器，输入名称，类型选择“服务器发送事件”，URL输入&lt;code&gt;http://[你的MCP Server IP]:8000&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;验证工具列表中是否展示MCP server提供的工具。&lt;/li&gt;
+&lt;li&gt;在助手界面输入请求（如“请帮我画一幅小猫的油彩画”），选择MCP server并按提示输入API密钥进行测试。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过Define Agent构建视频生成小助手&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在Define平台创建空白应用，选择“Agent”，输入名称。&lt;/li&gt;
+&lt;li&gt;在“工具”位置添加已对接好的MCP工具，并确保“开启MCP工具列表”和“调用MCP工具”功能处于开启状态。&lt;/li&gt;
+&lt;li&gt;选择&lt;code&gt;deep sic V3&lt;/code&gt;模型作为agent使用的模型。&lt;/li&gt;
+&lt;li&gt;输入请求（如“请帮我生成一个小猫玩球的视频”）进行测试，API Key在首次输入后将自动记住。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MCP server旨在实现大模型与外部资源之间的高效和安全的连接。&lt;/li&gt;
+&lt;li&gt;它可以为我们的开发者提供标准化的接口，使得AI模型能够灵活访问本地资源和远程服务，从而来提升AI助手的一个想象的质量和工作的效率。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV18qMZzQEnC</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/9bb34717ff402e87dad4d866384038a1c9790356.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 13 Jul 2025 12:03:57 +0800</pubDate>
+    </item>
+    <item>
+      <title>LongGraph与MCP：AI智能体开发最佳技术栈实践与零代码工具</title>
+      <link>https://www.bilibili.com/video/BV1bzMdzkERM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1bzMdzkERM"&gt;最热门智能体开发技术栈，最低零代码开发企业级Agent！LangChain&amp;amp;LangGraph+MCP技术实战，双向MCP接入与封装双向开发实践！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文章重点介绍了LongGraph与MCP作为当前智能体开发最佳技术栈，并推广了一门公开课，该课程旨在教授如何从零开始实践LongGraph与MCP的集成，构建多种高价值智能体，以及将已开发的智能体封装为MCP工具。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LongGraph: 作为Long Chain技术生态中最通用的Agent框架，它不仅能流畅介入各类MCP，还能将开发好的智能体逆向封装为MCP工具，从而搭建智能体协作网络。&lt;/li&gt;
+&lt;li&gt;MCP (MataGPT Protocol): 能够一键介入千万种实用工具的智能体开发利器。它构建了一个技术共享平台，开发者可将应用封装为MCP工具，Agent可直接借助现有MCP工具快速搭建功能各异的智能体。文章指出，截至今年5月，已有超过5000个MCP工具，且各大厂商如支付宝、百度、高德、12306等都已发布官方MCP工具，使其成为“大模型技术人的标配”。&lt;/li&gt;
+&lt;li&gt;智能体 (Agent): 指的是能够自主执行任务并与环境交互的AI程序。文章中通过多个实操案例来辅助说明其功能与构建方式：
+&lt;ul&gt;
+&lt;li&gt;浏览器自动化智能体: 借助File System MCP和File Crew MCP实现全自动网络爬虫和信息本地保存。&lt;/li&gt;
+&lt;li&gt;出行规划智能体: 借助12306 MCP和高德MCP搭建一站式全国出行规划助手。&lt;/li&gt;
+&lt;li&gt;AI数据分析智能体: 借助自定义MCP工具，创建拥有Python代码解释器等在内的AI数据分析功能。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;LongGraph加MCP是目前智能体开发的最佳技术栈，没有之一。&lt;/li&gt;
+&lt;li&gt;MCP技术已成为大模型技术人员的标配，市场上有超过5000个MCP工具，涵盖广泛的功能，并得到各大厂商的积极支持。&lt;/li&gt;
+&lt;li&gt;LongGraph不仅能集成多种MCP工具，还能将已开发的智能体封装成MCP工具，以流式HTTP服务形式提供给其他智能体，从而构建复杂的智能体协作网络。&lt;/li&gt;
+&lt;li&gt;团队自研的“LongGraph加MCP零代码开发工具”可极大降低智能体开发的技术门槛，实现不写一行代码即可搭建智能体验并进行实时功能测试。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参与公开课，从零开始学习LongGraph加MCP的完整技术实践，包括：
+&lt;ul&gt;
+&lt;li&gt;在LongGraph中介入自定义、开源和在线MCP工具的完整流程。&lt;/li&gt;
+&lt;li&gt;借助热门MCP工具，手动搭建高价值智能体验，如浏览器自动化智能体、出行规划智能体和AI数据分析智能体。&lt;/li&gt;
+&lt;li&gt;学习如何将LongGraph智能体封装为企业级流式HTTP MCP服务器。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;利用团队自研的LongGraph加MCP零代码开发工具，不写一行代码即可接入任意多项MCP工具搭建智能体验并进行实时功能测试。&lt;/li&gt;
+&lt;li&gt;扫描二维码领取本次公开课的课件、代码、案例脚本和开发工具等资料。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“授人以鱼，更要授人以渔。”&lt;/li&gt;
+&lt;li&gt;“不写一行代码即可接入任意多项MCP工具来搭建智能体验 并进行实时的功能测试。”&lt;/li&gt;
+&lt;li&gt;“MCP技术啊 已经是现在大模型技术人的标配了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1bzMdzkERM</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/8cd100966d80df3a10ee44b02e41df75cdd2fdc3.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 13 Jul 2025 11:40:00 +0800</pubDate>
+    </item>
     <item>
       <title>Kimi K2 AI模型深度评测：性能、API与可视化能力展示</title>
       <link>https://www.bilibili.com/video/BV1NNuEzNEMk</link>
