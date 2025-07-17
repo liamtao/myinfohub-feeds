@@ -7,7 +7,78 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jul 2025 09:45:32 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Jul 2025 22:16:19 +0000</lastBuildDate>
+    <item>
+      <title>NAAIM论文精读：情绪指标如何提升量化趋势策略表现</title>
+      <link>https://www.bilibili.com/video/BV1N8gNzeEF2</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/503415601"&gt;独角量化妹&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1N8gNzeEF2"&gt;【获奖文章】趋势策略+市场情绪 怎么择时&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文深度解读了一篇NAAIM（美国主动型基金经理人委员会）的获奖文章，该文章探讨了如何利用情绪指标改进传统的趋势跟踪策略。
+它提出了“锚点”概念，在市场情绪平静时判断真实趋势，并结合情绪指标进行择时，最终还介绍了基于锚定趋势指标的投资组合优化方法。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NAAIM（National Association of Active Investment Managers）&lt;/strong&gt;: 美国主动型基金经理人委员会，每年在全球范围内评选获奖文章。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统趋势策略&lt;/strong&gt;: 运用速率变化（Rate of Change）、移动平均（Moving Average）、交叉系统（Crossover System）和线性回归（Linear Regression）等多种经典指标来判断市场趋势，文章中综合了40种不同参数的趋势指标并求均值来获得整体趋势判断。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;情绪指标&lt;/strong&gt;: 通过RSI和Keltner Channel Range等超买超卖指标计算市场情绪，作者将其标准化为-1（超卖）到1（超买）之间的值，以判断市场是超买还是超卖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锚点/锚定方法（Anchoring Method）&lt;/strong&gt;: 文章的核心概念。它建议在市场情绪较为平静（情绪指标接近零）时去观察趋势指标，因为此时的趋势更能代表市场真实方向，避免在市场情绪化（超买或超卖）时错误判断趋势。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例/类比&lt;/em&gt;: 作者通过一张图表来解释该概念，图上显示了道琼斯成分股的趋势和情绪状态，用“绳子”连接每个标的当前的趋势和其“锚点”（情绪平静时的趋势）。作者指出，如果“绳子”过长（当前趋势偏离锚点太远），即使择时信号有利，也可能不是理想的交易标的，应尽量选择“绳子”较短的标的，确保锚点仍具有代表性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;择时指标&lt;/strong&gt;: 基于锚定的趋势指标减去情绪指标计算得出，范围在-2到2之间。该指标用于判断最佳的买入或卖出时机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锚定趋势指标估算历史回报&lt;/strong&gt;: 在投资组合优化中，作者提出用“标的波动性 × 标的锚定趋势指标”来估算每个标的历史回报，而非直接使用历史回报，以提高估算结果的稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统的简单趋势跟踪策略表现不佳，容易受到假信号影响导致负回报。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;数据/逻辑&lt;/em&gt;: 文章展示了多种经典趋势入场信号，若仅简单持有特定时间，胜率低且真实回报普遍为负。作者解释这是因为假信号较多，入场后易发生均值回归。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;趋势指标给出信号时，市场往往处于情绪化状态（超买或超卖），此时并非好的入场时机。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑&lt;/em&gt;: 市场在超买或超卖之后常常会发生反转，若在此刻根据趋势信号入场，可能面临反向行情。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“锚点”方法能有效提升趋势策略的择时效果。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;数据&lt;/em&gt;: 引入“锚点”和择时指标后，即使出场条件不变，策略胜率明显提升至50%以上，平均回报也得到显著改善。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用“标的波动性 × 标的锚定趋势指标”来估算回报，比直接使用历史回报在投资组合优化中更稳定有效。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;逻辑&lt;/em&gt;: 经典的Markowitz均值方差模型对历史回报非常敏感，而这种替代方法能提供更稳定的回报估算，同时仍能反映不同标的间的相对回报差异，避免优化过程中出现异常。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建综合趋势指标&lt;/strong&gt;: 结合多种经典趋势指标（如Rate of Change、Moving Average、Crossover System、Linear Regression）及不同参数，将其均值作为整体趋势判断（范围-1到1）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建情绪指标&lt;/strong&gt;: 结合RSI、Keltner Channel Range等超买超卖指标及不同参数，将其均值作为整体情绪判断（范围-1到1）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实施基于锚点和情绪的择时策略&lt;/strong&gt;:
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;确定锚点&lt;/strong&gt;: 在市场情绪指标接近零（市场平静）时，记录当前的趋势指标作为“锚点趋势指标”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算择时指标&lt;/strong&gt;: 使用公式 &lt;code&gt;锚点趋势指标 - 情绪指标&lt;/code&gt;（范围-2到2）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;判断交易时机&lt;/strong&gt;: 当择时指标接近2时（代表整体上涨趋势且当前短期回调/超卖），为最佳买入点；当接近-2时（代表整体下跌趋势且当前短期反弹/超买），为最佳卖出点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过滤条件&lt;/strong&gt;: 考虑锚点与当前趋势指标的“距离”，若锚点距离当前情况太远，即使择时信号有利，也可能需谨慎交易，选择“绳子”较短的标的。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用于投资组合优化&lt;/strong&gt;: 在经典的Markowitz均值方差模型中，用“标的波动性 × 标的锚定趋势指标”来替代对历史回报的估算，同时设置总权重为1且只允许做多。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“它的概念就是说 我不想在这个市场非常情绪化的时候 超买超卖的时候 我看我的这个趋势指标 我应该在这个市场比较平静的时候 去看我的这个趋势指标 因为它代表着这个真实的趋势是怎么样的。”&lt;/li&gt;
+&lt;li&gt;“当我们这个锚点情呃 锚点趋势指标是一的时候 也就是说现在市场是一个非常强的上涨趋势 且我们的这个情绪指标是一的时候 那什么时候是一的时候 它是超卖的时候才是一 也就代表着我们是在一个整体上涨趋势 且目前有短暂回调的时候 然后这个是我们最好的买点。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1N8gNzeEF2</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/ed8503a8ec49c2c73051514ba6da0d9c84fd7564.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 17 Jul 2025 19:16:37 +0800</pubDate>
+    </item>
     <item>
       <title>均值回归与网格交易策略：中证500指数增强的Python实战与深度解析</title>
       <link>https://www.bilibili.com/video/BV1CduFz7Egr</link>
