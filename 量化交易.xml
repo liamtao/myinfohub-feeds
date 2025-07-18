@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 17 Jul 2025 22:16:19 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Jul 2025 01:08:42 +0000</lastBuildDate>
     <item>
       <title>NAAIM论文精读：情绪指标如何提升量化趋势策略表现</title>
       <link>https://www.bilibili.com/video/BV1N8gNzeEF2</link>
@@ -78,6 +78,207 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1N8gNzeEF2</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/ed8503a8ec49c2c73051514ba6da0d9c84fd7564.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 17 Jul 2025 19:16:37 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI重塑量化投资：大模型、GPU加速及平台赋能实践</title>
+      <link>https://www.bilibili.com/video/BV1nBgAznE8v</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg_1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1nBgAznE8v"&gt;第四届中国量化投资白皮书研讨会暨园游会--AI科技前沿&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次论坛深入探讨了人工智能在量化投资领域的最新应用与未来趋势。
+各位专家分享了如何将大语言模型、智能体、GPU加速、深度学习及多模态数据处理等前沿AI技术融入量化投资的因子挖掘、策略研发、回测及实盘交易环节，旨在提升效率并捕捉超额收益。
+讨论聚焦于AI带来的变革与挑战，并展望了行业人才需求和竞争格局的演变。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R&amp;amp;D Agent（研发智能体）&lt;/strong&gt;：微软提出的一种多智能体系统，利用大语言模型（LLM）作为基础，自动化或半自动化提升量化投研效率。它模拟人类研发流程，由“研究智能体”负责生成想法和假设，“开发智能体”负责设计和验证，并通过外部环境（如Qlib回测工具）反馈迭代，加速因子挖掘和模型改进。案例指出，在CSI300数据集上，其效果显著，且受LLM后端能力影响大（GPT-4 mini表现最佳）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Large Market Model (Mars) 与数字孪生（Digital Twin）&lt;/strong&gt;：微软提出的一种生成式金融市场模拟框架，通过将订单流建模为“token”并训练LLM，实现对金融市场的高频、多参与者博弈过程的模拟。这使得研究人员可以在高度真实的模拟环境中进行“What-if”分析（如市场崩盘、交易行为影响），并支持下游预测任务。案例显示，其模拟的市场行为（如大订单对价格的影响）与经验公式高度吻合，暗示模型捕捉到了市场本质规律，如同Sora视频生成模型能体现物理重力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大语言模型蒸馏技术&lt;/strong&gt;：北京大学分享的将知识从大型“教师模型”传递给小型“学生模型”的方法，旨在以更低成本实现相似性能。它涉及监督微调（SFT）和参数高效微调（如LAURA）。尤其提到了“分支合并”（Branch Merge）蒸馏方法，通过独立训练不同学科模型（数学、代码、科学）再进行合并，提升学生模型综合能力。案例指出，即使是思维链（Chain-of-Thought）这样的复杂推理能力，也可以通过蒸馏传承。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GPU加速投资组合优化&lt;/strong&gt;：英伟达利用其GPU硬件和cuOpt等求解器库，大幅提升投资组合优化（特别是二次规划和锥优化问题）的计算速度。通过在底层使用CUDA和优化算法，以及Python与Julia的无缝接口，实现了相比商业CPU求解器数倍乃至一个量级的加速。案例显示，在Nvidia L40 GPU上，单周期可提速3倍以上，多周期效果更明显。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI-Ready 量化平台&lt;/strong&gt;：宽邦科技推出的一体化平台，将大模型能力与量化基础设施（分布式数据存储、算力池化、算法库）深度整合，使AI能直接调用底层资源，自动化策略开发和投研。平台能自动生成数据描述供AI查询，并让AI直接调度分布式计算任务。这使得AI可以作为“自动驾驶”而非“辅助驾驶”的角色参与投研。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deep Research (深度研究)&lt;/strong&gt;：阿里云推出的一种基于通义大模型的智能体服务，旨在模拟人类专家进行海量信息检索、分析和推理，快速生成详实可靠的研究报告。它能将人类任务拆解、反复确认细节，并实时修改计划，最终输出PDF报告，大幅缩短研究周期（从数小时到5-30分钟）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行拓展与人类偏好建模的Scaling Law&lt;/strong&gt;：阿里云通义模型团队提出的两种大模型演进策略。前者通过多视角处理、并行融合和两阶段训练，在不大幅增加参数量和计算成本的情况下提升模型性能，更适合边缘设备。后者则关注模型输出如何符合人类偏好，并提出相关基准和奖励机制，使模型更高效、更适合人类交互。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI对量化投资的改变正在从辅助工具向重塑投研流程、甚至替代部分人类角色演进。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;时代复兴认为，AI应用已从“用零部件”到“拼装端到端体系”，正进入“批量替代人在量化链条中角色”的第三阶段，例如用多智能体架构实现可解释因子挖掘。宽邦科技甚至将内部AI辅助代码编写目标提高到90%，部分工程师已达99%。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI技术本身仅是工具，真正的阿尔法壁垒在于投研基建、人才储备和正确的技术方向选择。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;半秧私募强调，即便同用线性模型，管理人业绩也差异巨大，核心在于良好的基础设施支持研究员高效迭代，以及吸引并培养有AI和数学天赋的人才。他们认为“人才是无价的”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大语言模型和智能体的发展正在改变基本面量化的研究范式，从依赖专家先验逻辑转向更自动化、数据驱动的“后验”方式。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;蝶微资产指出，LLM和Agent的推理能力及知识背景，使得基本面研究也能通过类似后验方式进行，并能用不同训练目标产生对基本面数据的不同理解。罗维银安通过叠加高频基本面数据（如分析师更新频率）和量价因子，提升低频基本面策略的胜率；并利用LLM启发生成新的因子表达式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI即便在数据稀疏、交易规则复杂的期货市场（低宽度），也能实现超高频和次高频策略的高夏普突破。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;半秧私募指出，尽管期货活跃品种有限（约60个），其端到端深度学习模型在期货超高频及次高频领域已取得突破，30分钟预测周期的夏普率可达3。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI驱动的量化不应被视为“圣杯”，它有明确的适用范围和局限性，需批判性分类思考。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;时代复兴认为AI能处理遵循正常经济规律和延续性的复杂信息，但无法即时处理模型认知以外的重大突发事件（如地缘政治危机），需通过持续微调和强化学习逐渐适应。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI模型的进步体现在其能够内化真实世界的规律，而非仅是记住知识。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;微软的Large Market Model在模拟市场行为时，未被明确告知经验公式，但其生成的交易痕迹却与这些规律高度吻合，表明模型学习到了真实世界的一些本质规律。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经验丰富的研究人员在AI辅助下能获得更大的收益提升，因为他们更擅长分配任务和校正AI的输出。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;宽邦科技观察到，内部团队中，有经验的工程师在AI使用中受益更多，能更好地“安排”AI工作和“规范”其产出，而非简单地让AI去写。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建AI-Ready的基础设施&lt;/strong&gt;：建立分布式数据存储和计算平台，确保数据访问高效且AI可理解，并实现算力池化和弹性调度，以支撑大规模的AI训练和推理任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人才战略转型&lt;/strong&gt;：将招聘重心转向具备AI和数学天赋的人才，并提供开放的投研环境和成长空间，让他们能够高效发挥。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多元化数据利用&lt;/strong&gt;：积极探索和利用多模态（如音频、视频、PDF研报）和非结构化数据，通过AI技术进行语义提取、情感分析，生成新的异类因子，拓宽阿尔法来源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化实时风控&lt;/strong&gt;：接入社媒、新闻等API，通过AI模型对信息进行预处理、情感分析和风险打标，实现实时风险预警，降低风险敞口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥抱AI工具链&lt;/strong&gt;：利用代码辅助工具（如通义灵码）提升研发效率，解放研究员专注于策略核心；并尝试使用智能体进行策略生成、调试和优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略优化与迭代&lt;/strong&gt;：将AI应用于策略回测分析，对不符合预期的策略进行自动调参或反馈给AI进行优化，形成高效的迭代闭环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;审慎与实践并重&lt;/strong&gt;：认识到AI的局限性，避免将其视为“圣杯”，同时积极进行小范围试验和本地化部署，逐步积累经验，确保技术落地与业务实效并行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“AI for Data driven AI。”&lt;/li&gt;
+&lt;li&gt;“做量化私募的壁垒根本就不是在一个具体的基础上面，所有量化私募的壁垒都是在你的基建和你的人才上面。”&lt;/li&gt;
+&lt;li&gt;“数据质量你不需要很多，然后就几千条，几万条这种Q&amp;amp;A对就可以非常快的提高精度。”&lt;/li&gt;
+&lt;li&gt;“本质而言，金融市场是一个静态的大型社会学模拟实验。”&lt;/li&gt;
+&lt;li&gt;“短期图景是在技术有无的阶段红利存在，但对管理人的要求是由浅到深，从算子到成熟工具，再到对于已有成熟工具的改良和背后实质调优方向的掌握。”&lt;/li&gt;
+&lt;li&gt;“长期来说的话，我们希望有一天我们可以借助我们的AI技术，实现对顶级外资的弯道超车。”&lt;/li&gt;
+&lt;li&gt;“谁能在下一个阶段取得最大的竞争力，如何团队重塑自己的流程和投研框架，来去适应于Agent的这种模式来进行彻底的改变和重塑，谁就能在下一个阶段取得最大的竞争力。”&lt;/li&gt;
+&lt;li&gt;“长期的话呢我觉得这一行在AI上呢是对有一个比较大的挑战的，特别是深层式的一些AI，包括刚才说了LOOM啊，包括一些大语言模型啊等等的深层式的ING这种的一些模型的诞生，它未来能不能够替代替代啊，这种线性的也好，非线性性也好，包括一些深度学习的模型啊，它能不能自动的去生成一些预测的信号，来代替现在的一些量化的一些模型呢？”&lt;/li&gt;
+&lt;li&gt;“我觉得短期的图景就是上午在主论坛讲的的，就是基于大元模型的演绎法的投资逻辑，对于传统量化归纳法的投资逻辑的一个巨大的补充。”&lt;/li&gt;
+&lt;li&gt;“长期的图景呢，因为我现在换到策略组了，就是非量化组，我的愿景就是把我们这样低端的质量分析师干事业。”
+```&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1nBgAznE8v</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/8657a4045cf70932d475354a0f29b396ffdeaf6c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 17 Jul 2025 14:31:25 +0800</pubDate>
+    </item>
+    <item>
+      <title>2025中国量化策略论坛：量化技术求索与实践</title>
+      <link>https://www.bilibili.com/video/BV1P8gAzdESS</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg_1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1P8gAzdESS"&gt;第四届中国量化投资白皮书研讨会暨园游会--量化技术求索&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次论坛深入探讨了2025中国量化策略论坛的技术底层，涵盖了量化交易的数据、算力、系统和网络安全等核心环节。多位行业专家分享了各自在金融数据服务、云计算、交易系统优化、网络低时延连接和云安全方面的最新实践与前沿思考。论坛旨在为量化行业的参与者提供技术启发，助力其在全球化竞争中提升策略表现。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量化技术浪潮&lt;/strong&gt;：指中国量化私募已跨越四代技术发展阶段，从1.0的执行自动化到4.0的多模融合AI渗透，并正迈向下一代的智能体博弈阶段。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全链路性能度量与优化&lt;/strong&gt;：指在极速量化交易系统中，通过高精度时间戳打点和数据采集，对包括网络传输、硬件处理、软件应用在内的所有环节进行性能监测和分析，以识别并解决时延瓶颈，确保交易的极致速度和稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低时延交易&lt;/strong&gt;：通过软硬件、网络架构和系统配置的全面优化，将交易指令从生成到执行所需的时间缩短到毫秒甚至纳秒级别，从而在高速变化的市场中获得竞争优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;守护实例跟跑技术&lt;/strong&gt;：华瑞技术的一项专利技术，旨在提升系统可靠性。当主备系统中的主系统因逻辑或数据错误崩溃时，备机能自动跳过导致崩溃的消息并继续处理，使集群不因代码错误而宕机，提供“多一条命”的容错能力。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中国量化市场活跃度及竞争激烈程度超预期，对技术提出了更高要求&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;2023年10月，深交所月交易金额超纳斯达克达3万亿美元，沪深市场换手率是纳斯达克的六倍多。&lt;/li&gt;
+&lt;li&gt;相比2015年行情，尽管成交金额仅增长1.5倍，但全天委托笔数增至2.4倍，9:30-9:40时间段的委托笔数更是2015年的三倍，显示市场微观结构已显著变化，竞争愈发激烈。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低时延系统稳定性比极致速度更关键，尤其在大行情下&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;华瑞技术在某期权做市客户系统上，日均近2000万笔委托，抓包时延稳定在5微秒，大节点全天时延表现也极为稳定，未出现尖刺。&lt;/li&gt;
+&lt;li&gt;这表明在大行情和高脉冲下，系统时延的稳定表现对策略有效性至关重要，而非仅仅追求最低的50分位时延。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成式AI在量化领域的应用超越传统预期，尤其在代码生成和运维自动化方面效率显著&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Amazon Q Developer AI编码工具，不仅支持基础编码，还能通过调用Shell命令和AWS CLI进行环境构建、OS调优，甚至自行生成并运行测试脚本，大幅提升IT/运维效率。&lt;/li&gt;
+&lt;li&gt;日本男子利用生成式AI制造垃圾软件，表明AI显著降低了网络攻击门槛。&lt;/li&gt;
+&lt;li&gt;3M铁克公司捕获到AI生成的恶意代码片段，其代码格式整齐严谨，预示AI赋能的恶意攻击将日益复杂。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高频交易数据管理需升级，传统数据库难以满足纳秒级回测需求&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS专家指出，国内普遍使用MySQL进行回测，但在全球尤其在亚洲超高频（HFT）交易背景下，MySQL难以满足纳秒级时间回放需求，建议转向时序数据库（如KDB+）或更高级数据库。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云原生技术在提升效率的同时，也带来新的安全挑战&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;容器生命周期短、权限复杂、第三方镜像漏洞以及微隔离导致的流量不可见性，使得攻击面呈几何级增长。&lt;/li&gt;
+&lt;li&gt;有案例显示，攻击者利用Docker API未授权访问部署特权容器，进行内部渗透。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI正从多个维度重塑云安全体系&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安全运营：&lt;/strong&gt; AI助手可进行事件分类、根因分析、处置方案制定，并与安全组件联动（如通过AI agent分析钓鱼邮件，联动邮件网关和防火墙实现自动化封禁），大幅提升安全运营效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;身份安全治理：&lt;/strong&gt; AI增强的用户和实体行为分析能够构筑动态画像，提高身份威胁检测准确率，并能自动精简IM角色权限，将身份从最脆弱环节变为主动防御前哨。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云原生安全管理：&lt;/strong&gt; AI辅助的云安全态势管理工具能统一清点资产、应用安全基线，并提供风险评估、修复方案和处置优先级建议，应对多云环境下的合规与风险挑战。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据安全治理：&lt;/strong&gt; AI大模型能够理解数据字段、注释及业务上下文，辅助自动化数据分类分级，提高大规模数据处理效率，为数据防泄漏等策略提供基础。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低时延不仅仅是技术问题，更是商务和市场策略的结合&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;海外市场如德交所和纳斯达克，通过提供分层的Gateway（全业务Gateway速度慢但业务全，低时延Gateway业务不全但速度快），满足不同客户的差异化需求。&lt;/li&gt;
+&lt;li&gt;海外出海初期，更关注通过Fix网络快速、低成本连通全球市场，而非一开始就追求极致高频交易。&lt;/li&gt;
+&lt;li&gt;云端部署成为趋势，如新加坡交易所部分衍生品撮合引擎放到AWS上，时延控制在百微秒，预示未来交易系统将更加云原生、易接入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;国内极速交易网络时延数据揭秘&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;惠星通信提供沪管专线（上交所-深交所）最快15.4ms以内；沪港专线（上交所-港交所）最快16.15ms以内；广港专线（深交所-港交所）最快1.1ms以内。&lt;/li&gt;
+&lt;li&gt;上海本地光纤网络已形成网状，各主要机房间（如上证机房-龙湖路到乐昌路）往返时延在40-42微秒以内。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量化研究与系统构建：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据处理：&lt;/strong&gt; 将非结构化数据（如新闻、研报）处理为JSON等结构化形式，便于量化策略和系统理解处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子挖掘：&lt;/strong&gt; 关注M&amp;amp;A事件新闻量异动，及发布后短时间内新闻量和市场热度对价格的影响强度。利用分析师预测数据，区分内资和外资分析师因子，挖掘不同信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测加速：&lt;/strong&gt; 对于高频tick data的回测，考虑使用时序数据库或更高级数据库，而非传统MySQL，以满足超高频需求。在云上搭建HPC计算平台加速回测，利用云弹性满足计算密集型需求。利用Ray框架，通过少量代码改造（如添加&lt;code&gt;@ray.remote&lt;/code&gt;装饰器）将串行回测任务并行化，显著缩短回测时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;团队协作：&lt;/strong&gt; 在多团队协作的量化平台上，实现任务、算法、计算的相互隔离，确保独立核算和资源占用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极速量化环境优化：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;度量先行：&lt;/strong&gt; 优化前务必建立全链路高精度度量手段，采用网络数据包抓取（分光器、镜像、智能网卡）而非服务器日志，确保精度和无感。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件选择：&lt;/strong&gt; 选择最佳硬件，关注超频、多线程、BIOS电源属性调整。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作系统优化：&lt;/strong&gt; 选择合适的操作系统，调优内核参数、亲和性、中断绑定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用与架构优化：&lt;/strong&gt; 详细调整应用与CPU的分配机制，优化流量模型和调用关系。全面了解网络架构，避免多跳，合理选择交换机（一层、1.5层、二三层），考虑防火墙部署模式。制定最优行情流量择优、网关择优策略，考虑轮询报单等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;国产化考量：&lt;/strong&gt; 考虑使用国产CPU服务器，如海光，其性能在新创环境下已接近国外主流产品。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云安全实践：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI赋能安全：&lt;/strong&gt; 在网络攻击被AI赋能的背景下，防护也必须借助AI升级。引入AI助手，实现事件分类、根因分析、处置方案制定和安全组件联动，提高效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;身份治理：&lt;/strong&gt; 运用AI增强的用户行为分析，构筑动态人物画像，精简IM权限，将身份作为主动防御前哨。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云原生安全管理：&lt;/strong&gt; 在应用上线前进行软件成分分析和供应链安全扫描；上线后关注运行时安全（入侵检测，容器模型）和网络微隔离；通过云安全态势管理工具实现多云合规与风险统一管理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据安全：&lt;/strong&gt; 利用AI大模型辅助数据分类分级，作为数据安全治理的基石。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全球化交易网络构建：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;初期出海策略：&lt;/strong&gt; 通过Fix网络快速、低成本连通全球市场，满足初步交易需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统构建：&lt;/strong&gt; 构建支持24小时滚动的交易和清算系统（内存服务不停机，逐客结算更新），实现交易系统不停机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全球链路选择：&lt;/strong&gt; 利用超低时延网络（光纤与微波结合）连接全球主要金融市场，如日本、香港、新加坡，争取价格优势并提供定制化服务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“数据其实可以说是我们在做量化分析里面的一个石油，如果说把量化分析比喻成一场现代化战争，然后里面的各种策略可能是不同的这个武器，那么其实数据是一个驱动它们的一个石油。”&lt;/li&gt;
+&lt;li&gt;“低时延不光是50分位要小，我们还追求90分位、99分位的一个稳定，要让它特别的稳定的处在一个低时延的一个能力内，这样呢我们才能在大行情大脉冲下，依然保持一个非常好的市场的策略的表现。”&lt;/li&gt;
+&lt;li&gt;“如果说我们的网络攻击被AI赋能的话，那么我们防护其实也必须借助到AI的升级。”&lt;/li&gt;
+&lt;li&gt;“身份其实就相当于安全的钥匙，有了合法的身份，攻击者就可以骗过安全组件，深入到这个我们的企业的核心系统。”&lt;/li&gt;
+&lt;li&gt;“工欲善其事，必先利其器。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1P8gAzdESS</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/fca266af0a92f58fd8ceab388507f11348649653.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 17 Jul 2025 14:30:34 +0800</pubDate>
     </item>
     <item>
       <title>均值回归与网格交易策略：中证500指数增强的Python实战与深度解析</title>
