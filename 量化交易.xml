@@ -7,7 +7,73 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 18 Jul 2025 09:43:33 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Jul 2025 23:51:18 +0000</lastBuildDate>
+    <item>
+      <title>预期差策略：结合估值与基本面强度的量化策略实证方法与结果</title>
+      <link>https://www.bilibili.com/video/BV1pKg3z5Epj</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546896891119870"&gt;量化藏经阁&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1pKg3z5Epj"&gt;【论文导读】预期差（四）：强基本面+低估值=22.64%&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本视频深入探讨了“预期差”系列量化策略的实证方法与结果，重点在于如何结合股票估值和基本面强度（F-score）来构建投资策略。文章首先展示了估值和F-score作为单因子对未来股票收益的预测能力，随后引入了核心的“非一致性策略”，旨在识别并利用市场中定价错误的股票。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;预期差策略: 一种量化投资策略，通过识别股票估值与基本面强度之间的不一致性，来寻找潜在的定价错误和套利空间。&lt;/li&gt;
+&lt;li&gt;F-score: 一个离散指标（0-9），用于衡量公司的基本面强度，值越高表示公司财务状况越好。&lt;/li&gt;
+&lt;li&gt;标准化未预期到的盈利（SUE）: 衡量公司实际盈利超出市场预期程度的指标。文中提到一种简化的计算方式，即假设明年盈利等于今年，然后对盈利时间序列进行差分并标准化。&lt;/li&gt;
+&lt;li&gt;一致性策略: 指市场中普遍存在的“便宜没好货，好货不便宜”的定价逻辑。例如，基本面强的公司估值较高，基本面差的公司估值较低。这类组合被认为是合理定价，不预期有显著超额收益。&lt;/li&gt;
+&lt;li&gt;非一致性策略: 本文核心策略，它针对市场中“定价错误”的股票。具体指两类：基本面极好但估值很低（又好又便宜），以及基本面很差但估值却很高（质量差还很贵）。这类组合被认为存在套利空间。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;美国市场存在显著的价值效应，价值股的长期收益优于成长股。
+&lt;ul&gt;
+&lt;li&gt;数据支撑: 价值股未来一年平均收益6.32%，成长股为-5.49%；价值股减成长股的对冲收益为11.81%（年化），T值高达9.8。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管成长股盈利增长表现较好（SUE更高），但这种增长不足以支撑其高估值，导致长期收益低于价值股。&lt;/li&gt;
+&lt;li&gt;F-score对未来股票收益具有极强的预测能力，且呈现严格的单调性。
+&lt;ul&gt;
+&lt;li&gt;数据支撑: F-score为0时，未来一年平均收益为-22%；F-score为1时，为-10.09%。高F-score组（7-9）未来一年收益为4.44%，低F-score组（0-3）为-5.59%。高减低的对冲组合年化收益达10.03%，T值约8.5。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;结合估值与基本面强度的“非一致性策略”能获得显著更高的超额收益和统计显著性。
+&lt;ul&gt;
+&lt;li&gt;数据支撑: 构建多空组合（买入“又好又便宜”，卖空“质量差还很贵”）可获得年化22.64%的超额收益，T值高达18。&lt;/li&gt;
+&lt;li&gt;数据支撑: 该策略的有效性可持续两年，累计收益37.66%（24个月），T值进一步提升至19.8。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;市场中“合理定价”的组合（一致性策略）不产生显著的超额收益。
+&lt;ul&gt;
+&lt;li&gt;数据支撑: 高F-score且高估值与低F-score且低估值组合间的收益差仅为0.14%，T值0.128，统计上不显著。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在构建量化策略时，如果遇到F-score为零的股票，可直接将其列入黑名单，因为其未来表现极差。&lt;/li&gt;
+&lt;li&gt;构造“非一致性策略”的多空组合：
+&lt;ul&gt;
+&lt;li&gt;买入（做多）基本面好（高F-score）但估值低（价值股）的股票。&lt;/li&gt;
+&lt;li&gt;卖出（做空）基本面差（低F-score）但估值高（成长股）的股票。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;便宜没好货，好货不便宜。&lt;/li&gt;
+&lt;li&gt;又好又便宜的菜。&lt;/li&gt;
+&lt;li&gt;质量差还很贵的菜。&lt;/li&gt;
+&lt;li&gt;确实可以得到一个集两者之长的效果。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1pKg3z5Epj</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/94353672e383577a175896a9f08451b071575f52.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 18 Jul 2025 16:05:58 +0800</pubDate>
+    </item>
     <item>
       <title>基本面量化：红利策略择时、选股与风险规避深度分析</title>
       <link>https://www.bilibili.com/video/BV1dAgGzNE9Q</link>
