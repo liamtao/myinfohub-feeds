@@ -7,7 +7,156 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 21 Jul 2025 09:53:49 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jul 2025 22:54:50 +0000</lastBuildDate>
+    <item>
+      <title>开源Mini PMT量化交易实盘框架设计与实践分享</title>
+      <link>https://www.bilibili.com/video/BV1zEgLzQEGi</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1zEgLzQEGi"&gt;miniQMT量化交易—— 开源实盘框架 | 极简交易 | 高频交易 | 智能委托跟踪&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+演讲者分享了一款自己开发的开源量化交易实盘框架“Mini PMT”，详细阐述了其以交易者习惯为导向、结合AI与第一性原理的设计理念。
+框架采用主进程与子进程多任务协作模式，实现了数据接收、信号生成、订单执行与智能追单的全流程自动化交易。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mini PMT：一款由演讲者开发的开源量化交易实盘框架，旨在帮助交易者更便捷地进行实盘交易。&lt;/li&gt;
+&lt;li&gt;第一性原理设计：框架的每个步骤都力求简单、易懂且必要，避免引入冗余或不必要的功能。&lt;/li&gt;
+&lt;li&gt;交易者习惯框架：强调框架设计应符合交易者的操作习惯而非程序员的编程习惯，以降低上手难度。&lt;/li&gt;
+&lt;li&gt;多进程通信（Q）：利用队列（Q）机制在主进程和子进程（如买入/卖出策略进程）之间传递数据和信号，实现高效并行处理。&lt;/li&gt;
+&lt;li&gt;智能订单管理：一个能实时跟踪订单状态的系统，具备超时自动撤单、市场价格变化后自动撤单并追单的功能，尤其适用于高频交易。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;量化交易框架设计应以交易者习惯为核心，而非程序员习惯。
+&lt;ul&gt;
+&lt;li&gt;很多量化交易框架难以普及的原因在于其更偏向程序员思维，而非交易者的实际操作需求。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;框架应尽可能减少外部工具引入，所有核心功能自建，简化复杂度。
+&lt;ul&gt;
+&lt;li&gt;“所有的轮子都是我们自己造的，并且我们也不会造很复杂的一些轮子。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;个人投资者进行实盘交易时，所有策略最好在单台主机上完成，避免复杂的跨集群操作以保证速度和效率。
+&lt;ul&gt;
+&lt;li&gt;“所有的交易策略都是在一台主机上面完成，这里面不牵扯到这种跨集群式操作，因为我们普通也是一般是个人散户投资者，我们也没有必要去做那么庞大的集群操作。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;框架应以交易需求为导向，例如优先关注止盈止损等核心功能，而非堆砌不必要的功能，以提升效率和精准度。
+&lt;ul&gt;
+&lt;li&gt;“按照我们这个交易需求为导向，比如说我们要去关注我们的止盈止损，那么就是很简单这两件事情，其他东西我们都不需要。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;获取代码&lt;/strong&gt;：在GitHub上搜索“YOODA”，找到“交易回站”项目并下载开源框架代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境配置&lt;/strong&gt;：首先安装项目所需的Python包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数设置&lt;/strong&gt;：根据个人交易账户信息和需求，配置框架中的相关参数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略开发&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在框架内实现自己的买入（buy strategy）和卖出（sell strategy）策略。&lt;/li&gt;
+&lt;li&gt;数据可以通过主进程推送到子进程，子进程处理后生成信号返回给主进程执行下单。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;功能扩展&lt;/strong&gt;：未来可根据需求加入风控、舆情事件捕捉等更多功能，使框架更加完善。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“所有的轮子都是我们自己造的，并且我们也不会造很复杂的一些轮子。”&lt;/li&gt;
+&lt;li&gt;“这个框架是要符合我们交易者习惯的一个框架，它并不是符合我们程序员习习惯的一个框架。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1zEgLzQEGi</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/f5c10d989914ded80fc7a5af044542e3c69ada91.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 21 Jul 2025 23:24:28 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化交易大模型选型报告：华尔街专家分析Idea到执行各阶段模型推荐</title>
+      <link>https://www.bilibili.com/video/BV1kqgzzoEMT</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1kqgzzoEMT"&gt;【量化速读】一堆LLM，不同交易任务分别选哪个？华尔街老兵手册&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章解读了一篇由华尔街资深专家撰写的报告，该报告全面分析了在金融交易流程的各个细分场景中，应如何选择合适的大语言模型。报告详细评估了从交易策略生成到订单执行的全流程中不同大模型的适用性、优劣及排序。文章强调了该报告基于一线实战经验而非纯学术理论，对从业者具有高度参考价值。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ocarena: 是“auction”和“arena”的合称，一个用于评估大模型在虚拟拍卖会上表现的模型。通过模拟拍卖会场，让大模型管理预算、实现长期目标（如拍下多少文物），并根据拍品理解和对手出价情况调整报价。这个机制与股票订单交易的本质（拍卖、宏观微观信息理解、出价、仓位预算、中长期目标）高度相似，特别适合模拟大单对市场影响的场景。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;交易策略生成 (Trading Idea Generation):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Cloud 3.5 和 GPT-4&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt; 这两个模型在创新能力和避免幻觉之间取得了很好的平衡，适合需要紧跟时事、用最新数据训练且有强大衍生能力的场景（如主题投资）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;研究 (Research - 数据处理):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Bloomberg GPT 和 FenBird（主要关注Bloomberg GPT）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bloomberg GPT:&lt;/strong&gt; 主要用金融数据训练，擅长处理金融信息（新闻、表格、研报）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FenBird:&lt;/strong&gt; 开源、低成本，擅长情感分析，但更新较旧。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;补充：&lt;/strong&gt; 如需处理多模态数据（文本、表格、图、音频、视频），GPT-4和Gemini等多模态模型更有效。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测 (Backtesting):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; FenBird&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt; 该模型可以直接预测股票走势。 (作者个人认为FenBird更偏数值计算，与大模型关系不大，但报告推荐有其理由)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化 (Optimization - 资产组合、风控合规):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Lama2 和 FenBird&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Lama2:&lt;/strong&gt; 易于本地部署，可用自有数据训练学习Portfolio信息进行优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FenBird:&lt;/strong&gt; 其Finetune和Pretrain成本极低，适合频繁用近期数据进行Finetune，以不断学习Portfolio最新数据并优化。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略设计 (Strategy Design):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Cloud 和 Bloomberg GPT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt; 这两个模型都是用领域内数据训练，尤其是Bloomberg GPT，擅长生成稳健的交易策略。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模拟 (Simulation - 事件/场景测试):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Gemini 和 FenBird (例如蒙特卡洛模拟，模拟贸易战新闻对市场影响)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行建模 (Execution Modeling):&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐模型：&lt;/strong&gt; Ocarena 和 Gemini&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原因：&lt;/strong&gt; Ocarena模型通过模拟拍卖会场（与股票订单本质相似）来评估大模型表现，可用于模拟大单对市场影响。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果想了解在特定交易场景下应选择哪个大模型，可以直接查阅报告的第十页到第十一页的图表。&lt;/li&gt;
+&lt;li&gt;该报告虽相对较新，但大模型迭代迅速，其推荐仅为参考，不一定完全准确，需结合实际情况判断。&lt;/li&gt;
+&lt;li&gt;报告的附录（第14页到第40页）提供了图表依据和来源，包括详实的测试数据，可供深入查阅。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“他们写的论文呢，虽然不像那些纯学术界写的那么的数据然后方法特别严谨但是最重要的是他们的经验能或多或少的反映在他们的结论当中。”&lt;/li&gt;
+&lt;li&gt;“这个论文还有一个非常好的点就是它相对的还算不那么旧大家都知道大模型这两年卷子飞起这个每隔一两个月就有一个新模型主流大模型迭代虽然这个论文没有讲最新的模型但是它cloud追到3.5虽然没有到4GPT4虽然没有到4.1还有那些regional modelGMI虽然没有到2.5但相对来讲已经不那么旧了因此大家可以做一个非常好参考但还是那句话就是这只是一个参考不一定全对。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1kqgzzoEMT</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/001ba21aa5e8ff23469cebadd05f5c32eaee3e34.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 21 Jul 2025 18:15:00 +0800</pubDate>
+    </item>
     <item>
       <title>预期差策略：结合估值与基本面强度的量化策略实证方法与结果</title>
       <link>https://www.bilibili.com/video/BV1pKg3z5Epj</link>
