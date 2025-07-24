@@ -7,7 +7,84 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 23 Jul 2025 23:37:13 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 09:39:16 +0000</lastBuildDate>
+    <item>
+      <title>Python项目结构与打包深度解析：从whl文件到构建系统与布局选择</title>
+      <link>https://www.bilibili.com/video/BV12NgLzhEKx</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12NgLzhEKx"&gt;build + hatchling 15分钟搞懂Python项目结构和打包&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章深入探讨了Python软件包（whl文件）的安装与生成机制，详细介绍了现代Python工程的构建系统（前端与后端）及其常见工具，并分析了两种主流的项目代码组织结构（flat layout和src layout）及其优缺点。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;whl文件&lt;/strong&gt;: Python的安装包格式，本质上是一个zip压缩包，包含代码和元数据（如&lt;code&gt;distinfo&lt;/code&gt;目录）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PEP 427&lt;/strong&gt;: 定义了&lt;code&gt;whl&lt;/code&gt;文件格式的规范。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PEP 517&lt;/strong&gt;: 定义了Python构建系统的前端和后端分离规范。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前端（Frontend）&lt;/strong&gt;: 用户直接调用的命令行工具，如&lt;code&gt;build&lt;/code&gt;, &lt;code&gt;uv&lt;/code&gt;, &lt;code&gt;poetry&lt;/code&gt;, &lt;code&gt;pdm&lt;/code&gt;，负责调用后端来打包项目。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后端（Backend）&lt;/strong&gt;: 负责将项目代码打包成&lt;code&gt;whl&lt;/code&gt;文件的工具，如&lt;code&gt;setup tools&lt;/code&gt;, &lt;code&gt;hatchling&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flat Layout&lt;/strong&gt;: 一种项目结构，代码直接存放在与包名同名的文件夹中。例如：&lt;code&gt;packagename/code.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Src Layout&lt;/strong&gt;: 目前最流行的项目结构，将所有需要打包的代码统一放入一个名为&lt;code&gt;src&lt;/code&gt;的目录中，&lt;code&gt;src&lt;/code&gt;目录下再包含与包名同名的文件夹。例如：&lt;code&gt;src/packagename/code.py&lt;/code&gt;。该结构更清晰地分离了打包代码与测试、文档等其他项目文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pip install -e . (Editable Install)&lt;/strong&gt;: 在开发阶段将项目“安装”到虚拟环境中的命令。它不会复制代码，而是创建一个链接或快捷方式，指向项目当前正在编辑的代码，从而避免了代码同步问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Python依赖安装的本质是解压缩whl文件&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;whl&lt;/code&gt;文件是zip压缩包，安装时仅需将其解压缩到&lt;code&gt;site-packages&lt;/code&gt;目录，元数据（如依赖信息）记录在&lt;code&gt;.dist-info&lt;/code&gt;目录中。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python模块导入路径由代码目录名决定，而非安装包名&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：安装&lt;code&gt;beautifulsoup4&lt;/code&gt;库，但导入时需使用&lt;code&gt;import bs4&lt;/code&gt;，因为其代码目录名为&lt;code&gt;bs4&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Python的构建系统前后端分离，可自由组合&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;依据PEP 517规范，构建过程分为前端（如&lt;code&gt;build&lt;/code&gt;, &lt;code&gt;uv&lt;/code&gt;）和后端（如&lt;code&gt;setup tools&lt;/code&gt;, &lt;code&gt;hatchling&lt;/code&gt;）。不同的前后端工具可以自由搭配使用，例如&lt;code&gt;uv&lt;/code&gt;作为前端，&lt;code&gt;hatchling&lt;/code&gt;作为后端。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hatchling是推荐的现代化后端构建工具&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;setup tools&lt;/code&gt;功能强大但配置文件复杂；&lt;code&gt;hatchling&lt;/code&gt;作为新兴且流行的后端工具，其配置更加简洁。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Src Layout是目前Python项目最流行的结构&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;这种结构将核心代码放在&lt;code&gt;src/packagename&lt;/code&gt;下，使项目结构更清晰，易于区分可打包代码与辅助代码（如测试、脚本、文档）。&lt;/li&gt;
+&lt;li&gt;数据/逻辑支撑：虽然&lt;code&gt;hatchling&lt;/code&gt;默认支持，但其打包后&lt;code&gt;src&lt;/code&gt;目录中的内容会直接放置在包的根目录下，因此导入时无需包含&lt;code&gt;src&lt;/code&gt;前缀，如&lt;code&gt;import packagename.module&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开发阶段需要进行“可编辑安装”以正确处理绝对导入&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;反常识：在项目内部代码中，为了与安装后的绝对导入路径保持一致（&lt;code&gt;import packagename.module&lt;/code&gt;），即使代码在&lt;code&gt;src/packagename&lt;/code&gt;下，也应使用绝对导入。但直接运行会报错，因为Python默认模块查找路径不包含项目根目录。&lt;/li&gt;
+&lt;li&gt;逻辑支撑：&lt;code&gt;pip install -e .&lt;/code&gt;命令将项目根目录添加到Python的模块查找路径中，使得绝对导入在开发环境中也能正常工作。&lt;code&gt;uv run&lt;/code&gt;命令会自动执行此操作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;安装&lt;code&gt;build&lt;/code&gt;工具&lt;/strong&gt;: 使用&lt;code&gt;pip install build&lt;/code&gt;或&lt;code&gt;uv install build&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;打包项目&lt;/strong&gt;: 在项目根目录执行&lt;code&gt;python -m build&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置Hatchling作为后端&lt;/strong&gt;: 在&lt;code&gt;pyproject.toml&lt;/code&gt;文件中添加&lt;code&gt;[build-system]&lt;/code&gt;表，并指定&lt;code&gt;requires&lt;/code&gt;和&lt;code&gt;build-backend&lt;/code&gt;，通常可从Hatchling官方文档复制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置需要打包的文件/目录&lt;/strong&gt;: 在&lt;code&gt;pyproject.toml&lt;/code&gt;中&lt;code&gt;[tool.hatch.build.targets.wheel]&lt;/code&gt;下设置&lt;code&gt;packages&lt;/code&gt;属性，例如&lt;code&gt;packages = ["src/buildtest"]&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;采用Src Layout&lt;/strong&gt;: 创建&lt;code&gt;src&lt;/code&gt;目录，将包代码目录（如&lt;code&gt;buildtest&lt;/code&gt;）移动到&lt;code&gt;src&lt;/code&gt;下（即&lt;code&gt;src/buildtest&lt;/code&gt;）。确保包目录中有&lt;code&gt;__init__.py&lt;/code&gt;文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开发阶段进行可编辑安装&lt;/strong&gt;: 在项目根目录执行&lt;code&gt;pip install -e .&lt;/code&gt;，以确保代码中的绝对导入能够正常解析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用&lt;code&gt;uv&lt;/code&gt;&lt;/strong&gt;: 如果使用&lt;code&gt;uv&lt;/code&gt;管理项目，&lt;code&gt;uv run&lt;/code&gt;命令会自动处理可编辑安装，无需手动执行&lt;code&gt;pip install -e .&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“没有什么东西一开始就是完美的，很多标准、很多结构也都是在一次次的试错之中被慢慢的摸索出来的。”&lt;/li&gt;
+&lt;li&gt;“写程序也好做项目也罢，其实做任何事情都是一样的，与其一开始就追求完全正确，不如先把它做出来，哪怕是粗糙的，不完整的，但只要它存在了，其实就已经在变好的路上了。”&lt;/li&gt;
+&lt;li&gt;“在软件的世界里面，也许这被称为历史包袱，而在人生里面，我更愿意把它叫做成长。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12NgLzhEKx</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b60c7723b96afcaf3a6c3fa40cded6612b1b092b.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 24 Jul 2025 17:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>国际月球日：中国探月成就、未来计划与全球合作</title>
       <link>1_2758056</link>
