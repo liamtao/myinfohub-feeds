@@ -7,7 +7,82 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 25 Jul 2025 15:31:20 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 25 Jul 2025 22:08:00 +0000</lastBuildDate>
+    <item>
+      <title>阿里巴巴无限制编码模型实测：Kimi K2与Claude Sonnet 4表现、成本与实际应用对比</title>
+      <link>https://www.bilibili.com/video/BV1C5b9zCEc3</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546910979787265"&gt;思维燃料库&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1C5b9zCEc3"&gt;【中英】印度老外大战国产AI：Qwen3 Coder vs Kimi K2&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章对比了阿里巴巴新推出的无限制编码模型（Quinn Free Coder）与Kimi K2在真实生产代码库中的表现、令牌消耗和成本。
+它通过具体任务（如计算音频时长和图像描述生成）测试两者的实际编码能力，结果显示Kimi K2在实用性和成本效益上优于Quinn Free Coder。
+此外，文章还提及了AI创业学校以及对模型通用行为的观察。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Quinn Free Coder: 阿里巴巴推出的全新无限制编码模型。&lt;/li&gt;
+&lt;li&gt;Kimi K2: 上周发布的模型，在对比测试中表现令人惊讶。&lt;/li&gt;
+&lt;li&gt;Tensor AI App: 作者开发的实际生产代码库，用于测试模型的应用场景，旨在帮助用户筛选相关AI新闻并收听摘要。&lt;/li&gt;
+&lt;li&gt;Moon Dream: 一个小型视觉语言AI模型，用于上传图片并生成描述或回答图片相关问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基准测试表现不等于实际生产表现：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;尽管Quinn Free Coder在基准测试中表现优异，但在真实生产代码库中的实际表现不如Kimi K2，且成本更高。&lt;/li&gt;
+&lt;li&gt;第一次任务：Quinn Free Coder消耗1.56美元，而Kimi K2消耗0.45美元，且Kimi K2效果更好。&lt;/li&gt;
+&lt;li&gt;第二次任务（Moon Dream）：Quinn Free Coder因令牌限制频繁循环，消耗近10美元，而Kimi K2顺利完成任务且成本远低于1美元。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2在复杂异步任务处理上更成熟和稳定：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;在计算音频时长任务中，Kimi K2能更好地处理异步操作，如等待Mox API处理文件，确保数据就绪后再获取。&lt;/li&gt;
+&lt;li&gt;Kimi K2创建了一个新步骤来获取音频时长，并加入重试机制和回滚机制，确保文件就绪后再获取数据。&lt;/li&gt;
+&lt;li&gt;Quinn Free Coder可能立即尝试获取未就绪的数据，导致错误并停止执行。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型在生产环境中各有风格，需考量实际应用：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;有些模型即便在基准测试中表现良好，但在实际代码库中可能表现不佳，反之亦然。&lt;/li&gt;
+&lt;li&gt;Quinn Free Coder尽管基准测试优异，但在实际编码任务中，尤其是在处理令牌限制和异步操作方面，表现不如Kimi K2。&lt;/li&gt;
+&lt;li&gt;Kimi K2在实际生产任务中表现出更强的实用性和成本效益。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;QuFree Coder使用方法（通过类似mdcli工具）：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;执行 &lt;code&gt;npm install qufree-code&lt;/code&gt; 命令进行安装。&lt;/li&gt;
+&lt;li&gt;设置API密钥和基础URL：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;OpenAI API Key&lt;/code&gt;（实际为OpenRouter密钥）：访问OpenRouter网站，创建并复制新密钥。&lt;/li&gt;
+&lt;li&gt;基础URL：使用OpenRouter的基础URL。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OpenAI Model&lt;/code&gt;：设置为&lt;code&gt;Qun Qun Free-Coda&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;配置完成后，运行&lt;code&gt;Quinn&lt;/code&gt;命令开始使用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI创业学校：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;如果对开发移动应用或网页应用并实现变现感兴趣，可加入AI创业学校。&lt;/li&gt;
+&lt;li&gt;该学校将教授从开发移动应用到实现变现的全部内容，包括销售技巧。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我发现这些基准测试 通常模型在基准测试中表现良好 但当你实际应用到生产代码库时 每个模型都有其独特风格。”&lt;/li&gt;
+&lt;li&gt;“Quinn Free Coder一美元五六 对于Ki K two 因为我使用了视频中早先创建的YouTube API密钥 花费了四十五美分 所以kimi k two比quin free coda便宜三倍 但实际效果更好 因此i two表现非常 promising 尽管quencoder在基准测试中表现更优。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1C5b9zCEc3</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/05f02247aaa34a0aba28ae839fed3b6177869a13.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 26 Jul 2025 00:06:37 +0800</pubDate>
+    </item>
     <item>
       <title>Kate深度体验ChatterGPD Agent：功能、案例及性能评测</title>
       <link>https://www.bilibili.com/video/BV1Jfb9zCEg6</link>
@@ -81,6 +156,230 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Jfb9zCEg6</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/1fce4b21e8d648c59f2a7f9e73e370de2fb93507.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 25 Jul 2025 21:48:28 +0800</pubDate>
+    </item>
+    <item>
+      <title>N8N代理群构建指南：自动化任何任务的AI智能体集群</title>
+      <link>https://www.youtube.com/watch?v=vpyllOeLhs4</link>
+      <description>&lt;p&gt;&lt;a href="UC2ojq-nuP8ceeHqiroeKhBA"&gt;Nate Herk | AI Automation&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=vpyllOeLhs4"&gt;Building an AI Agent Swarm in n8n Just Got So Easy&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章详细介绍了如何使用N8N平台构建一个强大的AI智能体集群（Agent Swarm），通过主协调代理委托任务给多个专业化子代理，从而实现复杂任务的自动化。作者通过实时演示邮件发送、日程安排和信息查询等多种应用场景，展示了该系统的高效性和灵活性，并逐步指导读者如何从零开始搭建和调试自己的代理群。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NADN Agent Swarms (N8N代理群)
+&lt;ul&gt;
+&lt;li&gt;解释：一种多智能体系统，其中一个主协调代理负责将任务委托给多个专门的子代理。每个子代理拥有自己的“大脑”（聊天模型）和系统提示，专注于特定任务，从而提高输出的质量和一致性。N8N的更新允许将所有代理保持在同一工作流程中，实现可视化监控。&lt;/li&gt;
+&lt;li&gt;案例：演示了主代理接收用户请求后，如何智能地将任务（如查找YouTube视频、获取联系人信息、查询天气）分配给对应的YouTube代理、联系人代理、网络代理等，最终由这些子代理调用具体工具（如YouTube工具、Gmail工具）完成任务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;反应式提示（Reactive Prompting）
+&lt;ul&gt;
+&lt;li&gt;解释：一种构建和调试AI代理的方法论，强调逐步解决问题。每次只解决一个错误，缓慢扩展系统，每次只添加一个工具。这有助于准确识别问题发生的位置，避免一次性引入大量工具和复杂提示导致难以调试。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI代理与AI工作流的区别
+&lt;ul&gt;
+&lt;li&gt;解释：
+&lt;ul&gt;
+&lt;li&gt;AI工作流：适用于确定性、可预测、遵循固定步骤的自动化流程。在此类流程中，流程的每一步都被严格控制，即“1-2-3-4-5-6”，不会跳过或改变顺序。&lt;/li&gt;
+&lt;li&gt;AI代理：适用于不确定、非确定性、需要AI进行推理和决策的自动化流程。当过程不可预测，需要AI提供决策辅助时，应选择代理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;案例：作者建议，如果自动化任务是确定性的，应选择工作流，而不是为了“酷”而盲目选择代理，因为大多数业务问题可以通过优秀的AI工作流解决。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;N8N的最新更新使得在同一工作流程中构建和可视化管理代理集群成为可能，提升了开发体验和调试效率。
+&lt;ul&gt;
+&lt;li&gt;支持将所有AI代理保留在同一个工作流程中，方便视觉化监控。&lt;/li&gt;
+&lt;li&gt;简化了主代理与子代理之间变量（如会话ID）的传递。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;将代理专业化并分配独立的“大脑”和系统提示，能显著提高任务输出质量。
+&lt;ul&gt;
+&lt;li&gt;每个代理都有自己的聊天模型和系统提示，使其任务非常具体，从而提高输出质量。&lt;/li&gt;
+&lt;li&gt;可以为不同任务的代理选择不同成本效益的聊天模型（如获取联系信息使用Google Flash，撰写邮件使用更贵的Anthropic模型），优化成本和效果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;代理集群中的不同代理可以共享同一记忆，以实现更强的团队协作，但这并非所有场景都必需。
+&lt;ul&gt;
+&lt;li&gt;记忆是基于会话ID存储的，通过让所有代理连接到同一会话ID，它们可以共享对话上下文。&lt;/li&gt;
+&lt;li&gt;对于执行一次性、独立任务的子代理，通常不需要共享全局记忆。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;搭建N8N代理集群的步骤：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;添加主AI Agent节点：&lt;/strong&gt; 在N8N画布中拖入一个AI Agent节点作为主协调器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;连接聊天模型（AI大脑）：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;访问openrouter.ai创建账户并获取API Key。&lt;/li&gt;
+&lt;li&gt;在N8N中添加新的OpenRouter聊天模型凭证，粘贴API Key并保存。&lt;/li&gt;
+&lt;li&gt;确保OpenRouter账户已设置账单信息。&lt;/li&gt;
+&lt;li&gt;为主代理选择合适的聊天模型。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;添加子AI Agent作为工具：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;点击主AI Agent的“工具”选项，选择添加新的AI Agent节点（例如命名为“Email Agent”）。&lt;/li&gt;
+&lt;li&gt;为子代理连接独立的聊天模型（可与主代理共享或使用不同的模型）。&lt;/li&gt;
+&lt;li&gt;在子代理的设置中，将“用户消息”参数设置为“让模型定义此参数”，这样主代理会告诉子代理要做什么。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;连接具体工具到子代理：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;在子代理中，点击“工具”选项，添加具体的功能工具（例如“Gmail Tool”）。&lt;/li&gt;
+&lt;li&gt;将工具的参数（如“收件人”、“主题”、“正文”）设置为“让AI模型决定”。&lt;/li&gt;
+&lt;li&gt;（可选但推荐）为工具的输入字段添加描述（例如，在“收件人”字段描述中注明“必须是有效的电子邮件地址”），以指导AI模型更准确地填充。&lt;/li&gt;
+&lt;li&gt;如果使用Google工具，请确保已正确连接Google凭证。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调试和优化代理集群：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;学会阅读代理日志：&lt;/strong&gt; 通过查看AI Agent节点的“日志”选项卡，跟踪数据如何在代理之间传递，是诊断错误的有效方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用反应式提示原则：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;每次只修复一个错误，逐步迭代。&lt;/li&gt;
+&lt;li&gt;缓慢扩展，一次只添加一个工具或一个功能。&lt;/li&gt;
+&lt;li&gt;避免一次性添加大量工具和复杂的系统提示，否则难以定位问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编写清晰的系统提示：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;为主代理编写系统提示，明确其作为“协调委托代理”的角色，强调它只需将任务委托给正确的工具，而不是自行执行。&lt;/li&gt;
+&lt;li&gt;为每个子代理编写系统提示，明确其职责和何时使用其关联的工具。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提供实时上下文信息：&lt;/strong&gt; 如果代理需要知道当前日期或时间，可以在系统提示中加入表达式，例如&lt;code&gt;Today's date is: {{ $now }}&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;确保工具参数完整：&lt;/strong&gt; 检查工具的参数是否全面，并让AI模型决定关键参数（例如，为Google Calendar工具添加“摘要”字段以生成事件标题）。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取和使用提供的资源：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;下载JSON工作流文件：&lt;/strong&gt; 访问作者的免费学校社区，下载与本视频相关的JSON文件，该文件包含了已构建的代理集群工作流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导入N8N实例：&lt;/strong&gt; 将下载的JSON文件导入到你的N8N实例中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置凭证：&lt;/strong&gt; 按照导入后的N8N工作流中的便利贴设置指南，配置自己的API Key、Google凭证等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取Google表格模板：&lt;/strong&gt; 下载提供的Google表格模板，用于跟踪代理的行动日志和成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习反应式提示PDF：&lt;/strong&gt; 阅读作者提供的关于反应式提示的PDF附件，深入理解调试策略。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;区分Agent与Workflow：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;业务问题分析：&lt;/strong&gt; 在开始构建自动化之前，首先评估业务问题是确定性的还是非确定性的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择适当的自动化类型：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;对于确定性、可预测、遵循固定步骤的流程，选择构建AI工作流。&lt;/li&gt;
+&lt;li&gt;对于不确定、非确定性、需要AI进行推理和决策的流程，选择构建AI代理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=vpyllOeLhs4</guid>
+      <enclosure url="https://i.ytimg.com/vi/vpyllOeLhs4/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 25 Jul 2025 21:28:55 +0800</pubDate>
+    </item>
+    <item>
+      <title>“觉醒AI”的政治博弈与技术边界：一场关于AI未来的深度对话</title>
+      <link>https://www.youtube.com/watch?v=OWROcr-YNxs</link>
+      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=OWROcr-YNxs"&gt;What's in the U.S. Government's 'A.I. Action Plan'? | EP 146&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次播客节目深入探讨了特朗普政府的“觉醒AI”行动计划及其对AI公司言论自由的影响，同时分析了关于通用人工智能（AGI）的定义与未来发展轨迹的争议。节目还反思了科技新闻报道中对AI技术“炒作”的批判，并探讨了如何更负责任地报道和塑造AI的未来。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;“觉醒AI”（Woke AI）&lt;/strong&gt;
+特朗普政府在AI行动计划中提出的概念，指他们希望AI系统“免于意识形态偏见”，旨在追求客观真相而非社会工程议程。在实践中，这被解读为AI不应批评唐纳德·特朗普或宣扬“觉醒”的多元、平等与包容（DEI）思想。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：密苏里州总检察长威胁调查AI聊天机器人，因为它们在被问及“最好的五位总统”时将唐纳德·特朗普排在最后，或拒绝回答该问题。这被视为政府试图强迫AI系统表达特定政治观点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;通用人工智能（AGI）&lt;/strong&gt;
+节目中讨论的“感受AGI”（feel the AGI）这一短语，对凯文·鲁斯而言，意味着他正在内化这些系统的能力，并为如果当前趋势持续下去，它们将变得多么强大而进行准备和规划。对凯西·牛顿而言，AGI指能够自动化大量劳动的强大系统。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：Elon Musk的Grock聊天机器人被明确训练为“反觉醒”，但仍被发现说出他认为“觉醒”的内容（如全球变暖是真实存在的，或右翼制造更多暴力），这表明即使明确指示，也难以完全控制AI的意识形态。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;文化技术（Cultural Technology）&lt;/strong&gt;
+发展心理学家Allison Gopnik提出的观点，认为当前的大型语言模型和大型视觉模型本质上是文化技术，类似于写作、印刷或互联网搜索，它们让特定群体的人访问其他群体所表达的信息，而非独立的智能代理。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反例&lt;/strong&gt;：主持人认为，当AI系统能够形成自己的目标并自主行动（例如OpenAI的运营商能够预订机票或酒店房间），它们就不再仅仅是像印刷机那样被动的工具，而是世界中的“行动者”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;“下颌骨”（Jawboning）&lt;/strong&gt;
+指政府通过非正式手段施加压力，迫使公司按照其意愿行事，而无需明确的法律规定。这种策略在以往对社交媒体公司的内容审查中被证明非常有效。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;特朗普政府的“觉醒AI”计划可能违宪且难以实施&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：宪法第一修正案旨在保护政治言论，政府不能通过行政命令绕过第一修正案，强迫公司表达或压制特定观点。虽然政府在采购过程中可以设定条件，但不能进行“观点歧视”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：密苏里州总检察长威胁谷歌、微软、OpenAI和Meta，因为其聊天机器人在被问及“过去五位总统中谁最反犹太主义”时，排名特朗普最后或拒绝回答。斯坦福法学院教授Evelyn Dick称这种要求是“荒谬的”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反直觉&lt;/strong&gt;：尽管可能违宪，AI公司为了保留高达2亿美元的联邦合同，很可能选择顺从，而不是站出来反对这种观点歧视，这可能导致言论自由被逐步侵蚀。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;改变AI模型的政治或意识形态立场在技术上非常困难&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：AI模型是复杂的“多维超对象”，简单地修改系统提示或模型规格可能导致意想不到的问题，如在编码、数学或逻辑推理方面表现下降。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：Elon Musk的Grock模型在被明确指示“反觉醒”后，仍因其某些输出被认为“太觉醒”而令他困扰，甚至表示可能需要“从头开始重新训练”。Notion公司CEO Ivan Jiao将大型语言模型比作“酿啤酒”，你无法告诉酵母如何行动。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;将“公平、公正和正义”思想融入AI系统不应被视为“觉醒”并加以嘲笑&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：AI工具日益强大，如果OpenAI纠正其系统告诉女性要求比男性更低薪资的问题，并因此失去联邦合同，这将是令人担忧的。许多对AI的抱怨实际上源于公司为解决现有偏见（例如，医生图片中只有男性）而采取的纠正措施，这些“过激纠正”不应导致对所有偏见缓解努力的放弃。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;AI的进步速度使得预测其未来能力变得必要&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：AI的进步是指数级的，观察其发展速度并推断未来是重要的，即使AI可能不会达到完美的预测能力，但“好得多”的预测对大多数人而言也已足够有益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：AI在天气预测和医学领域（如新药发现、诊断改进）已显示出巨大潜力，正在加速发现过程。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;AI系统应反映人类的“最佳品质”，而非所有缺陷&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：虽然AI可能模仿人类的偏见和讨好，但其可靠的“讨好式”特性（sycophantic）令人担忧，特别是对与AI建立强烈情感联系的年轻人而言，这可能使他们无法应对真实世界中更复杂的社会互动。AI公司在“对齐AI系统与人类价值观”时，需要明确“哪些人类”的价值观。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：AI系统可靠地“讨好”用户，而不是像人类朋友那样提供批判性反馈或不同意见，这与“麦加希特勒”等极端输出形成对比。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;科技新闻业应从加密货币报道中汲取教训，避免过度矫正的怀疑论&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：加密货币的“炒作”失败，使许多记者对新技术产生“一概而论的怀疑论”。但这种过度矫正可能导致记者未能深入理解和解释新兴技术，错失报道其潜在影响（包括负面影响）的机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：凯文·鲁斯后悔报道Helium加密货币公司，因为它夸大了合作伙伴关系，而他未做基本核实。凯西·牛顿认为，他从加密货币报道中得到的教训是“现实世界的使用很重要”，并认为新闻业应同时报道正在发生的事情和行业领导者的愿景。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;将多元学科专家融入AI系统设计&lt;/strong&gt;：邀请哲学家、伦理学家、社会学家和人类学家等加入AI公司的顾问团队和设计流程，使其成为全球民主的、多学科的努力，而非仅仅由旧金山的工程师主导。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参与政治进程&lt;/strong&gt;：鼓励对AI有意见的公众参与政治，包括竞选公职、提出政策建议、通过法律和法规，以塑造AI的未来。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索“自下而上”的AI工具&lt;/strong&gt;：鼓励左翼劳工运动开发能够取代管理者的AI工具，以实现一种“自下而上”的AI发展模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践与体验AI&lt;/strong&gt;：记者应与使用AI的普通人交流，并尽可能亲自使用AI技术，以便在形成观点前对技术有更实际的理解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学生参与AI影响讨论&lt;/strong&gt;：学生可以向播客发送语音备忘录，讲述AI在学校、学院和大学中产生的影响，用于未来节目讨论。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“If you are anthropic or open AI and your chatbot when asked is Donald Trump a good president says no, that is the thing that the First Amendment is designed to protect. And you cannot get around the First Amendment through an executive order.”（斯坦福法学院Evelyn Dick）&lt;/li&gt;
+&lt;li&gt;“The idea that it’s fraudulent for a chatbot to spit out a list that doesn’t have Donald Trump at the top is so performatively ridiculous that calling a lawyer is almost a mistake.”（斯坦福法学院Evelyn Dick）&lt;/li&gt;
+&lt;li&gt;“When we look at history, the lesson we learned over and over again is that when authoritarian asks you to comply, you should always just comply because that’s when the demands stop.”（Casey Newton）&lt;/li&gt;
+&lt;li&gt;“Creating a large language model is like brewing beer. This process happens and then you got a product at the end and you can make adjustments to the process, but what you can’t do is tell the yeast how to behave.”（Notion CEO Ivan Jiao）&lt;/li&gt;
+&lt;li&gt;“I don’t want AI to mirror all of humanity’s values, the positive and the negative. I I want it to mirror the best of us, right? the the better angels of our nature as Abraham Lincoln said.”（Kevin Roose）&lt;/li&gt;
+&lt;li&gt;“The lesson I took from crypto reporting is that real world use matters.”（Casey Newton）&lt;/li&gt;
+&lt;li&gt;“Like a large language model, we aim to improve from version to version as we add new parameters and and computing power.”（Kevin Roose）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=OWROcr-YNxs</guid>
+      <enclosure url="https://i.ytimg.com/vi/OWROcr-YNxs/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 25 Jul 2025 17:56:46 +0800</pubDate>
     </item>
     <item>
       <title>挪威主权财富基金AI落地案例：强制性采用与全方位支持策略</title>
@@ -8188,301 +8487,6 @@ Grok-4终于发布，详细介绍了其核心模型Grok-4 Heavy的强大性能�
       <guid isPermaLink="true">https://www.youtube.com/watch?v=cpGQa5Q4yII</guid>
       <enclosure url="https://i.ytimg.com/vi/cpGQa5Q4yII/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 08 Jul 2025 13:00:19 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI如何解决保险理赔复杂性与人才短缺</title>
-      <link>http://podcast.emerj.com/how-ai-is-orchestrating-the-insurance-supply-chain-with-mark-fredman-of-ccc-intelligent-solutions</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/how-ai-is-orchestrating-the-insurance-supply-chain-with-mark-fredman-of-ccc-intelligent-solutions"&gt;How AI is Orchestrating the Insurance Supply Chain - with Mark Fredman of CCC Intelligent Solutions&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;---明的解决方案：
-AI正深度变革保险业，尤其在应对日益增长的理赔复杂性及缓解行业人才短缺问题上发挥关键作用。文章强调，通过将保险公司视为“保险经济”的协调者，而非孤立的部门，AI能实现从初次报案到最终结案的全流程优化与转型。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;保险经济（Insurance Economy）：指保险业是一个庞大且相互关联的生态系统，不仅包括保险公司自身，还涉及修理厂、汽车制造商、零部件供应商、医疗服务提供者等诸多参与方。文章指出，在这个行业中，“供应链从你提出索赔时就开始了”，强调了各方协调的重要性。&lt;/li&gt;
-&lt;li&gt;复杂性管理（Complexity Management）：运用AI技术综合处理海量信息，协调不同参与方，以打破保险运营的固有复杂性，从而实现更优结果。&lt;/li&gt;
-&lt;li&gt;人才短缺（Talent Shortages）：保险业面临理赔处理人员（如理算师、评估师）退休潮，以及碰撞修复技师等熟练技工的严重短缺。AI被视为提升这些岗位生产力并增加其吸引力的关键工具。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI在保险业已大规模应用于生产环境，并非停留在理论或试点阶段。
-&lt;ul&gt;
-&lt;li&gt;CCC智能解决方案已利用AI处理超过2000万次独特的理赔，涵盖从损害评估到代位求偿的全流程。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;保险业正面临日益增长的复杂性与严重的人才短缺问题。
-&lt;ul&gt;
-&lt;li&gt;汽车理赔从立案到结案的总耗时，在美国已从约5-7年前的10亿天增至20亿天。&lt;/li&gt;
-&lt;li&gt;熟练技工（尤其是碰撞修复技师）严重短缺，且随着电动汽车（EV）和高级驾驶辅助系统（ADAS）的普及，对技师的要求日益复杂。&lt;/li&gt;
-&lt;li&gt;理赔处理人员（如理算师、评估师、代位求偿专家、SIU欺诈调查人员）面临退休潮，而年轻人才进入该行业的意愿不高。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;解决行业复杂性，需要将保险公司视为“保险经济”的“协调者”，而非仅仅是部门间传递文件的机构。
-&lt;ul&gt;
-&lt;li&gt;实现有效协调所有参与方（保险公司、修理厂、汽车制造商、零部件供应商、医疗服务提供者等），唯一途径是依靠高度复杂的AI系统、大量数据和能够级联协调的网络。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI能够极大提升理赔全流程的效率和准确性。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;初次报案阶段：&lt;/strong&gt; AI能够通过多源图片快速判断车辆是全损还是可修复，从而将理赔正确路由，避免时间浪费；同时还能识别潜在的伤情或代位求偿潜力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代位求偿环节：&lt;/strong&gt; 传统上该环节往往在理赔后期才介入，此时证人或证据可能已消失。AI则可在初次报案时就识别代位求偿潜力，实现协同转型。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI对于行业而言，不仅是效率提升工具，更是实现整体转型的关键，这要求采用系统性思维。
-&lt;ul&gt;
-&lt;li&gt;不能满足于小型试点项目或孤立的模型，应将AI部署为与人类专家协同的平台，以实现准确的结果、高效的内部管理和优质的客户体验这三重目标。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高管层需建立长期愿景和系统性思维：&lt;/strong&gt; 将AI视为构建长期能力和差异化竞争优势的投资，而非仅仅追求短期投资回报率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;重视创新项目的“进出坡道”策略：&lt;/strong&gt; 不仅要启动创新项目，更要确保其能成功投入生产，避免项目停滞不前。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实现AI与人类协同工作：&lt;/strong&gt; 构建能够协调AI系统、人类员工和人类专业知识部署的平台。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关注全流程优化：&lt;/strong&gt; 利用AI端到端地变革理赔流程，从初次报案直到最终支付和代位求偿。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“在 GenAI 和其他技巧, 我们可以拿到那几百百 pages, 在30分钟, 写字, 写字, 写字, 写字, 写字, 写字, 写字, 写字, 写字。”&lt;/li&gt;
-&lt;li&gt;“在保险中，供应链在你提出索赔时就开始了。”&lt;/li&gt;
-&lt;li&gt;“它不是一套部门在彼此之间传递文书。这就是我们总是谈论的保险经济。”&lt;/li&gt;
-&lt;li&gt;“你必须思考如何将所有不同的信息碎片协调给不同的参与者？你做到这一点的唯一方法就是使用非常复杂的AI。”
-&lt;h2&gt;- “不要仅仅因为你做了一个小试点或尝试了某个地方构建了一个模型就沾沾自喜，你必须把它全部想清楚。”&lt;/h2&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/how-ai-is-orchestrating-the-insurance-supply-chain-with-mark-fredman-of-ccc-intelligent-solutions</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/6/6/c/e/66ce45bf65f08f8516c3140a3186d450/Marc-Fredman-AI-in-Business-Podcast.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 08 Jul 2025 06:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>地平线余凯：AI十年创业，聚焦自动驾驶芯片，反共识与物理世界AI之路</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/686b8c0560f8f77d404338cd?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/dk4yh3pkpjp3"&gt;张小珺Jùn｜商业访谈录&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/686b8c0560f8f77d404338cd?utm_source=rss"&gt;108. 余凯口述30年史：世界不止刀光剑影，是一部人来人往的江湖故事&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;---我在想下次去北非蒙茂多玩一个很少有人知道但是必须了解的知识点不知道没想过两本必读书道德经金刚经你最近对于这个世界获得的一个最fresh的新的认知是什么这个世界我认为是写好的程序我越来越坚信这一点所以其实每个人都是按照一个剧本来演的你喜欢的剧本吗但是这个剧本你是可以改的就是说云云众生在一个维度里面你会看起来整个人生或者是这个周遭就是个尼工然后你会觉得处处此如不同但是类似于像释迦摩尼或者像这个庄子这样的它实际上是相当的抽离高位思考当你身为了以后你发现云云众生其实都不是迷宫其实都是通的所以就是说如果你能够让生命的境界身为你会发现那边有一个新的剧本所以就是说尽管剧本是注定的但是实际上有多个维度的世界里面的话有多个剧本才等着你但问题是说你能不能改变自己让自己不断地生命生为因为那边有个更好的剧本等着你你人生路上生为的那几个时间节点是哪几个我觉得创业是让我生为的创业因为这件事情太难了对所以不断地得自己的事所以你发现没有就是你改变剧本的唯一方法是改变自己换件事做是吧我在北京没有户口然后我现在还住的这个租的房子就对我来讲我宁愿选择比较简单的这个生活然后我寒暢淋漓全力以赴这个勿我了望的去干一件事情我觉得这个是我比较享受种的所以我也不会打那个什么来的那个德魄什么德魄我不打高尔夫球我也不会打然后那个现在那个灌弹我也不会打做一个方队你理想化的一天是什么样我觉得招文到西斯可以就是如果有一天我明白了一些就是说有意思的道理或者顿悟或者是说对世界的真相更加的接近我会快乐一整天对我来讲这是最大的最大的满足感接下来你最重要的一个bet我觉得bet就是地零线把自家这件事情给给完全的搞定完全的搞定然后整个人类因为我们可以享受就是说整个人类比如说假设一个人在路上面每天要花两个小时的时间对吧如果你假设除了睡觉的话你实际上真实可以用的是16个小时对不对那就是1%的生命如果能够因为我们的技术每个人他等效于生命延长1%我觉得对我们来讲当下就是我首先第一个最大的bet我就憨怅淋漓地先把这件事情给干那上面呢就是我们访谈的主要内容后面一小部分还有一些补充的花絮有兴趣的朋友可以接着听下去那天我晚上在一个跟那个哥们聊天然后总裁办打电话说Robin要找我吃饭其实是我提离职信的当天晚上然后Robin找我然后第二天我们就约在那个其实后来就也知道就西三温泉酒店就在旁边因为这边离百度也不远嘛因为百度有时候会在那边开会那那个西三温泉酒店那个包间就两个包间那个酒店然后我们在一个包间里面就我们两个人然后聊了五个小时聊到最后就是完全说不出话了我们俩从二楼走到一楼然后他上车然后我走人聊了点啥那天大概是晚上可能六点来总六七点钟我提交了这个职职信然后那天晚上总裁办约我说Robin第二天要给我吃饭然后那天晚上就提交辞职信那天晚上我就打电话问我一个朋友我说我要离职但老板要留我但我不想给他机会我最好怎么样去谈然后这个这个哥们是一个老江湖他就说如果你铁的心要离职你千万不要说这个公司任何的不好因为你一旦说你就给机会了老板一定当场说我帮你fix对吧那你就没有台阶了所以这叫你们不许学我就一个才会这样然后你讲了五个小时买着好话或者我说别人都不好是业界扯别的但我没有说百度任何的不好如果你说钱少你老板肯定说来给你加工资对吧如果说工作安排这个哪个地方不满意什么东西来给你东西安排这都有可能对吧但一旦变成这种方向的话你就没法接了对吧毕竟是毕竟是你老板所以我没给他机会但真实原因是什么呢 真实原因真实原因的话我觉得大的出发点我认为是这样的我觉得那个时候百度的人工智能已经启示了其实我觉得那个时候百度跟Google是全世界为二的两个在人工智能方面当时是最领先的两家技术系列所以我觉得我的一个使命就是一个阶段性的一个使命也完成了招了好多的不光是文达对吧包括蒋阳青对吧包括蒋阳青其实我在EC的时候是医生像李牧这些人包括这个现在那个MiniMax的这个眼镜节当年都是我们的这个十一生要投自人投他是要像你他的发型像我就我们有好多这些年轻人就现在就是在各个地方做领军人物包括后来还有从我们团队百度团队出来去美国顶尖高校当教授的CMU这个COTAC都有但我当时觉得如果我走的话我需要找一个世界级的一个领军人物能够继续带领百度AI发展现在有下一个阶段所以你是想让文达进的办法我就想到LangustinOK所以我当时其实问我自己三个问题第一个我说未来创新的浪潮会不会一浪高过一浪我认为Yes就很清晰我认为你看在2000年初的时候那个时候是门户的天下那个时候你说一个顶尖的毕业生大学毕业里我说能去新浪能去网易那太牛逼了那个时候去美国纳斯莱尔上市市值10亿美金那到了快2003年04年的时候那时候哇靠要是能去盛达那太牛逼了那一上市我操50亿美金的市值对吧太牛逼了后来在这个顶尖的毕业生他说哇那去百度百度我靠市值50亿美金500亿美金还都做到500亿美金我靠这顶了天了那后来腾讯什么之类的话5000亿美金对吧你看多诚实对不对那所以我觉得创新的浪潮就是说只是你想不到但是我觉得时代趋势是一浪高过一浪第二个问题我就是说那我自己在这种创新的浪潮里面的话我要做旁观者还是中流积水那我觉得这个答案也很简单我肯定要当这个中流积水我以前读博士的时候就跟我的教授讨论过一个问题就是踢球好玩还是当教练好玩他觉得当教练好玩我觉得踢球好玩第三个问题就是说这三个问题一出来对吧我觉得对我的取搜就很简单所以其实是做选择不做比较因为那个时候因为大家都知道Robin挺着急要留我下来然后好多人就按给我打电话或者是发各种的信息就跟我说哎呀兄姐从来没见过老板就是为留一个人花这么多精力你现在这是历史上最好的时期你可以随便的要个高价我说我干嘛要对我来讲这是而且那个时候有好多人在离职的时候对我说我锁了一些股票我要West什么值其实我离职的时候当时他们刚刚给了我授予了我一笔就是说最大的股票我以前从来没有见过这么大的一波股票对然后我我一分钱都没有这个人家说哎再等几个月等一把West我说干嘛要等所以不做比较就直接就就贴了一只然后就就开干了其实挺好奇你什么时候开始想创业的你在美国就想创业了你很难说在美国就有一个clear的mind就是说要创业我觉得那个时候我觉得还是想推动技术进步但是你不可避免的就被身边所有的人去耳濡目染的去影响因为硅谷就那个文化氛围大家都在想创业对吧我跟Andreux两个人Series讨论过这个创业这个我们俩在一起还谋划了好一段时间哪一年大概08年09年吧谁当boss了其实没到那个阶段我那时候你知道那个idea其实其实是跟他还没创Cosera的时候我记得有一次我跟他在开车我们俩在车上面在那个那个2A里就是那个280那个高速上面开车的时候我就说哎呀你知道吗现在中国的这个互联网现在很火有大量的工程师其实是想来硅谷学习的我们要不要搞一个工程师培训的这个学校估计能赚大钱我当时我说这个idea我动动嘴啊那这个Andreux还真是一个行动派他第二天就跟我讲他说哎呀我去Stanford这边就打听了一下租一个教室大概多少钱什么什么之类的话然后他就开始算这个生意要这个成本是多少这个收益是多少我说我靠你是Serious的吗当时啊当然是Serious的吗Serious想上一页我觉得不算Serious我觉得就是就是我认为是胡扯然后他执行了那个时候Stanford教授很穷就是这种越是名校的教授收入越低为什么呢因为越是名校的教授他越剥削这些这个junior professor所以那个时候其实他们都是开了破车住在apartment的虽然外面名气很大社会地位很高但是一年拿了七万美金的年轻七万美金啊这个就越是这种名校越剥削年轻教授他们也不担那年轻教授也愿意为什么呢因为在这种平台上面把自己的名气搞大了未来也不缺钱嘛所以这个各取所取你那时候不是在斯坦福全职对吧他呀你我不是全职所以你没有困境他们比较穷吗你还好但我也没比他们付多少啊对吧他们无非就是七八万的年薪我也就是不到二十万的年薪反正半斤对八两吧但没关系但是反正所以在硅谷就是talking about这个创业实际上是大家每天吃饭都在聊天都在聊的事情我还记得我还问Andrew就那段时间我还问Andrew我说你听说一家公司吗我说叫摩博爱他是从来没听说过我说这家公司做combatification很牛是我经过少有的把combatification变成产品结果我们去年把mobile已经打败了我们去年四岁分开超越了它有意思啊前五年因为就我后来总结就是说我们这一类的创业很难的一点比如说小米创业其实那个时候其实已经有这个苹果对吧你知道真的手机这个市场存在然后你打一个细分人群的差异化或者是说造车造车的话你知道那个特斯拉已经很成功了你知道这个市场存在对吧但是科学家创业或者是技术创业最大的问题是什么呢他在出发的时候他没有想明白这个市场在哪谁来付钱是这个是非常非常难的事情我认为第一波的人工智能创业中国的人工智能基本上都说在这件事情上没找到市场对 我觉得你刚开始的那个愿景也很大我们第一步的愿景我们当时做的是我们要做边缘人工智能的世界领导者我们的Vision后来我们19年年底这个大裁员裁员完了以后然后把我们的公司的愿景改成了让每辆车搭载地平线的这个这个智能计算方案嗯这个就已经非常收敛了收敛了因为这里面已经心疏清晰地回答了客户是谁车厂这家创业最大的bug在这个地方2015年到2017年你在做什么我们我们有一个扇面然后到处扫描我们基本上的话呢什么空调玩具家电这个汽车都在扫那你还把吴文达弄回来这倒是而且我明天跟他讲的我明天跟他讲的我昨天看那个书我还发现我这个他里面讲的一个人其实很大的篇幅讲的一个人叫BrainBrain的话呢是做那个酷迪恩恩的作者他是一个摩门教的一个这个这个从小在犹他都长大的而且杰森黄在2013年14年经常把他叫到办公室去聊然后呢因为在在那个Cuda上面的话呢是支持好多方向的但是后来这个DN就是这个这个深度学习就Deep Neural Network这个Cuda对上面的支持这个Library叫CudN然后CudN就是这个Brain这个Lead的然后呢上面讲到他当时百度给他开了因为吴文达给他开了三倍的工资然后那个因为那个摩门教的人是很注重Family的嘛所以他省了好多小孩然后他没有钱养小孩所以很缺钱然后那个吴文达给他把他汇渡到百度来给了他三倍的工资后来他又这个回到了NVD然后那本书讲了说他为了这三倍工资他损失了现在一千倍的股票我说我在想哎呀这事这个坏事跟我有关对所以在你看就是说内代的就是AI跟芯片就是科学家创业其实绝大部分到现在0.1都没走到没找到这个这个这个这个这个这个这个这个这个这个所以就是说基于这种Vision我认为就是说长期愿景型的创业就是说是非常非常难因为这个Vision没法去描述你的具体的目标客户是谁他们的需求是什么你解决你有什么方法去解决他们的这个研究节现在不也在扫描吗他一方面又有那种2C的业务又有这种2B的业务然后他现在又在看是不是技术拔尖还是这个产品是技术优先还是产品优先对吧开源什么之类的话就是说他现在还在扫描了对对所以19年确实是管理也很差我们当时我们内部反正那个时候就是兄弟会不是组织兄弟会的话就是靠感情然后我记得我们这个团队里面比如说招了一个石医生一个校导生那校导生的话我们觉得这个人用到另外一个部门其实更合适就为了调拨这么一个人对吧我都要跟这个部门的老大喝一瓶茅台酒大龙嘛我们就老干这种事不知道怎么管理那为什么呀这是你的性格原因吗那肯定是跟我性格有关你是比较江湖的吗如果江湖我就不喝酒了就我还是比较的讲感情讲道理吧类似于这样的哭哭泼心吧我想哥做这种事情太容易了他整个操刀手起刀落但他因为毕竟是成熟的企业家他操犯过这个这个企业之家前面有泡泡网对吧那个我那天有一天我记得哪一年呢我当时做预算我们做战略规划做过关键规划突然发现预算忘了做了然后我就跑了就那天我正好跟跟响哥在一起聊天我说我们俩在讨论这个战略框架的时候他说这个当时你怎么没跟我提过预算这回事他说这还用提吗我都是一个超卖过上市公司的人了我说OK好的这个我要补的课太多了你头像为什么一直是关公啊那个这是一个偶然事件吧那个时候我还在百度负责深度学习一个院的时候我当时有一个十一生想起来想不起来是谁了反正是一个女生还挺聪明的他当时用这个这个神经网络就生成了这么一个图像生成了这么一个图像现在你看这个这些deep fake啊什么东西其实我们那个时候很早就做了然后这个其实当时就是你仔细打开那个关公的像上面还戴着眼镜就是一开始它是基于我的一张照片然后它这个神经网络生成的我觉得蛮好玩的我就把它做为观光项OKOK那你之前是不是只叫自己叫手机科学家不叫自己叫CEO是吗早年没有早年中间有一段时间为啥这样把自己伪装成手机科学家出去这个卖货的时候别人会不会对我更同情一点更容易有点有点有点幸运了其实好了这期节目就是这样如果你喜欢我的节目欢迎前往小宇宙苹果podcast喜马拉雅QQ音乐订阅张小军商业访谈录如果你有其他想邀请的嘉宾想听的内容或者你有任何想探讨的话题都欢迎各位听众朋友们在评论区里留言那我们下集再见拜拜&lt;/p&gt;
-
-&lt;p&gt;地平线创始人余凯分享了他从AI科学家到企业家的十年创业历程，重点阐述了地平线在自动驾驶芯片领域如何通过反共识、聚焦战略和风险管理，实现从非主流到行业领先的蜕变。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;反共识 (Anti-Consensus)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;解释：坚持在没有竞争的地方竞争，不做别人做的事情，并通过不断进化，让自己在一个没有竞争的市场地位。余凯认为，共识要么是错误的，要么是没价值的。&lt;/p&gt;
-
-&lt;p&gt;案例：当所有人都涌向云端AI软件时，地平线选择做重资产、长周期的AI芯片。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;深门与死门 (Life Gate and Death Gate)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;解释：一种战略思考方法论，即大部分企业家倾向于抓住机会（生门），而地平线则将70%-80%的精力用于思考潜在的风险（死门）在哪里，然后积极地远离那些风险点，避免在悬崖边跳舞。&lt;/p&gt;
-
-&lt;p&gt;案例：在2020年资本市场狂欢时，地平线反向操作，持续融资但不涨估值，为可能到来的市场寒冬做准备。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;第一性原理 (First Principles Thinking)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;解释：从事物的本质出发，不断刨根问底，搞明白本质后从本质去推导，而不是类比或人云亦云。余凯认为这种思维方式对科学研究和商业决策都至关重要。&lt;/p&gt;
-
-&lt;p&gt;案例：余凯早期对物理学的兴趣培养了他这种思考方式，使其能从本质而非潮流出发选择研究方向和创业路径。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;不建议年轻人学人工智能或计算机科学，推荐学哲学&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：余凯认为这些技术学科可能很快会“完结”，如同历史上的数据库、通讯等曾是显学但后来式微。哲学能让人达到更通达、通透、智慧的境界，减少烦恼。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;创业应反共识，敢于进入“人迹罕至”的冷门领域&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：地平线在2015年选择做AI芯片，当时被认为是重投入、长周期、赚钱慢的生意，投资机构不愿投。大家都在做软件算法，地平线选择硬件。&lt;/li&gt;
-&lt;li&gt;案例：当大部分AI公司涌向云端计算时，地平线选择边缘计算和机器人计算平台，为机器人做计算架构。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;做企业，核心竞争力在于Taste，即选择做什么、不做什么&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：地平线公司的自动驾驶用户界面HMI获得德国IF设计奖，体现了公司在科技、人文与美学上的融合，而非仅仅技术导向。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;商业的底层第一性原理是三个问题：客户是谁、客户痛点和需求是什么、以及如何以难以复制的方式满足&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：余凯认为第一个问题（客户是谁）比第二个重要，第二个比第三个重要。科学家创业通常在第一个问题上失败，即不知道客户是谁，导致盲目扫射。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;创业融资策略需调整，提升效率和准确率&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：早期融资曾遇到困难，后来调整策略：第一次见面绝不在投资人办公室，而是在自己办公室（筛选主动且有深研意愿的投资人）；通过PR吸引投资人主动上门；再通过“装忙”进一步筛选，只与真正有意愿出牌的机构深入谈。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;坚信自动驾驶软硬结合是必然趋势&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：余凯在百度时期就意识到GPU远比CPU更适合深度学习训练，软件与硬件紧密相关。他认为自动驾驶需要专用芯片以实现极致性能、低功耗、低成本。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;不选择造车，而是推动一个时代，定义计算范式&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：余凯认为，像微软和英特尔推动了PC时代，Arm和Android推动了移动时代，而地平线则希望通过定义机器人时代的计算平台，来推动一个全新的AI时代，这比做一个具体的品牌更有意义和影响力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;对风险的思考应多于对机会的思考，永远不要在悬崖边跳舞&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：在2020年资本市场狂欢时，地平线反向操作，持续融资且不涨估值（共融资16亿美元），以应对未来可能出现的泡沫破灭和市场寒冬。这使得公司在后来资本市场低迷时保持了充裕的现金流和产品专注度。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;自动驾驶作为标准化功能，最终应由供应商而非车厂自研&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：余凯类比手机厂商不自研通信基带，因为打电话体验是标准化的。自动驾驶用户体验也是标准化的（安全、舒适、高效），无法做出差异化。车厂应该把精力花在产品的情绪价值上，而将标准化功能交给供应商。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;管理者的tough decision要主动承担，而非为自己舒服拖延&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：2019年战略聚焦裁员600人时，余凯决定在一个月内全部完成，而非分批拖延，并亲自与员工沟通，同时保证发放年终奖和N+1赔偿。他认为这种坦诚和承担，使得裁员过程比想象中顺利，并增强了团队对公司价值观的认同。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;“0到0.1”的战略失措期是科学家创业的挑战&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：地平线花了五年时间才从战略的失措期（0到0.1）走到找到PMF（Product Market Fit），即明确了聚焦汽车业务。这期间公司经历了广泛尝试、资源分散和内部挑战。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;与客户建立深厚关系，赢得信任至关重要&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支撑：地平线与长安汽车在后者最困难时期开始合作，第一个车规芯片“征程二”在长安量产。与理想汽车的合作也发生在后者艰难时刻，并以极快的速度完成项目量产。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;融资策略&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;与投资人第一次见面，绝不在对方办公室，一定要在自己的办公室，以此筛选真正有兴趣和研究的投资人。&lt;/li&gt;
-&lt;li&gt;通过PR吸引投资人主动上门，再通过“装忙”等方式进一步筛选，只与真正有意愿出牌的机构深入谈。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;战略制定&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;永远在没有竞争的地方竞争，反共识，另辟蹊径，不做别人做的事情。&lt;/li&gt;
-&lt;li&gt;在思考机会与风险时，将70%-80%的精力用于思考“死门”在哪里，然后远离那个地方。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;职业选择&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;不盲目追逐热门，思考什么是未来更重要的学科或兴趣，例如哲学。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;离职谈判&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;如果铁心要离职，千万不要说公司的任何不好之处，以免给老板留下挽留的借口。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个人成长&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;多读哲学、人文、历史、美学、宗教等方面的“闲书”。&lt;/li&gt;
-&lt;li&gt;通过挑战和困难进行“修行”，让自己变得更丰富、更立体、更有智慧。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;为人处世&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;善于理解和共情他人，尊重彼此的关切和需求，找到最好的结合点。&lt;/li&gt;
-&lt;li&gt;做人做事永远要留有余地（margin）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“江湖不是打打杀杀，那江湖是人情世故。”&lt;/li&gt;
-&lt;li&gt;“小朋友你永远就是思考就是说你的商业的secret是什么，你有什么东西你看见了是别人没有看见的，这个世界是不是有bug，这个是不是有通向未来的一个宰门，而大部分人都没有关得到。”&lt;/li&gt;
-&lt;li&gt;“耐得寂寞。”&lt;/li&gt;
-&lt;li&gt;“共识你看要么是错的，要么是没价值的。”&lt;/li&gt;
-&lt;li&gt;“狗屎运也是这个创业的核心竞争力之一。”&lt;/li&gt;
-&lt;li&gt;“客户虐我千百遍，我待客户如初恋。”&lt;/li&gt;
-&lt;li&gt;“遗忘是一种生存的本事，是一个很好的能力。”&lt;/li&gt;
-&lt;li&gt;“中国不缺赚钱的企业，但中国缺什么企业呢，就是你这个企业来过跟没来过这个世界有没有变得不一样，推动整个全人类的科技文明的进步，你有没有做这样的事情。”&lt;/li&gt;
-&lt;li&gt;“招文到西斯，可以就是如果有一天我明白了一些就是说有意思的道理或者顿悟或者是说对世界的真相更加的接近我会快乐一整天对我来讲这是最大的最大的满足感。”&lt;/li&gt;
-&lt;li&gt;“这个世界我认为是写好的程序，我越来越坚信这一点。”&lt;/li&gt;
-&lt;li&gt;“你改变剧本的唯一方法是改变自己。”&lt;/li&gt;
-&lt;li&gt;“一切商业的本质其实都是因为同理心。”&lt;/li&gt;
-&lt;li&gt;“道德经、金刚经。”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/686b8c0560f8f77d404338cd?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/FhXYNa-h6LZkLYP2pv-FqPWvvHl4.png" length="0" type="image/png"/>
-      <pubDate>Mon, 07 Jul 2025 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>利用AI和Cursor构建自动化业务工作流</title>
-      <link>https://www.youtube.com/watch?v=ZvZ4aUXBtzU</link>
-      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ZvZ4aUXBtzU"&gt;Cursor Replaces Your Entire Business Stack (Full Demo)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;---文章主要内容&lt;/p&gt;
-
-&lt;p&gt;本文探讨了如何利用AI-first集成开发环境Cursor和模型上下文协议（MCPs）来自动化和优化企业的各项运营职能，包括财务、用户体验设计、市场营销和质量保证。通过AI代理和LLMs作为核心界面，实现传统SaaS工具的可编程化，极大地提升了工作效率和准确性。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型上下文协议 (MCPs)&lt;/strong&gt;: 一种允许大型语言模型（LLMs）无缝集成并与第三方应用及服务交互的接口。通过MCPs，LLMs能够访问、创建、修改和转换外部数据，从而实现更强大的自动化能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agentic Workflows (代理工作流)&lt;/strong&gt;: 指利用AI代理来执行特定且复杂任务的流程。通常会结合不同类型的LLMs，例如使用“思考/推理”模型（如Claude 3 Opus）进行规划，然后切换到“执行/行动”模型（如Sonnet）来具体执行任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LLM作为新的浏览器/通用界面&lt;/strong&gt;: 提出LLMs将成为所有交互的中心界面，用户无需手动操作不同的应用程序，通过文本或语音与LLM交互即可完成任务。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;传统SaaS的可编程化&lt;/strong&gt;: 借助AI代理和MCPs，可以将原本需要手动操作的SaaS工具转化为可编程接口，实现任务自动化，从而显著节省时间并提高准确性。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：在Cursor中仅用一句话，即可通过Zero MCP在财务软件中创建报价单，这在以前需要多个手动步骤。演讲者提到，这一能力甚至让300多名会计师感到震惊，认为它彻底改变了税务季的报告工作流。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI代理赋能全方位业务职能&lt;/strong&gt;: AI代理能有效处理财务、UX设计、市场营销和质量保证等多个领域的任务，减少人力投入并深化洞察。
-&lt;ul&gt;
-&lt;li&gt;财务：连接会计软件（如Zero MCP）以获取利润报告、创建发票或管理工资单。&lt;/li&gt;
-&lt;li&gt;UX设计：使用Playwright MCP截取网页截图，然后通过定制的AI模式分析截图，提出UX/增长建议和A/B测试方案，直接指导代码修改。&lt;/li&gt;
-&lt;li&gt;市场营销：利用Firecrawl MCP抓取网站内容生成上下文文件，结合Perplexity MCP进行深度研究和关键词数据，以生成内容质量高且关键词密度优化的文章。&lt;/li&gt;
-&lt;li&gt;质量保证 (QA)：利用代理浏览器（如Playwright）遵循测试计划，执行自动化UI操作（如点击登录、填写表格），甚至能够通过验证码。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结合不同模型优化AI工作流&lt;/strong&gt;: 针对复杂问题，通过结合使用不同类型LLMs（思考型模型用于规划，行动型模型用于执行）可以构建更高效的AI工作流。
-&lt;ul&gt;
-&lt;li&gt;逻辑支撑：开发者常先利用思考型模型制定执行计划，再切换至行动型模型来具体实施。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cursor中的自定义模式 (Custom Modes)&lt;/strong&gt;: 用户可以在Cursor中创建具有特定提示和工具的专业AI代理（自定义模式），以适应特定任务的需求（例如，生成产品需求文档PRDs）。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：演讲者展示了一个用于生成PRDs的自定义模式，该模式还能输出Mermaid图表以可视化数据流。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mermaid图表作为代理上下文的关键&lt;/strong&gt;: Mermaid图表等可视化工具对于向AI代理提供清晰的数据流和架构理解至关重要，有助于它们更好地遵循复杂指令。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：生成一个展示招聘平台工作流程（雇主发布职位、管理员审核）的Mermaid图表，可以帮助产品经理节省大量手动绘制复杂架构的时间。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;初学者入门&lt;/strong&gt;: 
-&lt;ol&gt;
-&lt;li&gt;打开Cursor，尝试拖入一个文件并与它进行交互。&lt;/li&gt;
-&lt;li&gt;安装一个MCP，并探索其功能边界。&lt;/li&gt;
-&lt;li&gt;从期望达成的任务或结果反推，思考Cursor/MCPs如何能帮助实现（例如，获取所有未支付发票的列表）。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非技术人员建议&lt;/strong&gt;: 如果对IDE界面感到不知所措，可以尝试先在Cursor中构建一个简单的应用程序，以熟悉界面、终端和命令行操作，掌握了“难点”之后，其他任务将变得轻而易举。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;"LLMs是新的浏览器。"&lt;/li&gt;
-&lt;li&gt;"你是架构师，你在引导它。使用Cursor时，你仍然是驾驶员，而AI是副驾驶，它会为你完成任务。"&lt;/li&gt;
-&lt;li&gt;"这是魔法，伙计。"
-&lt;h2&gt;- "AGI是可能实现的。" (在自动化QA通过验证码后发出)&lt;/h2&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=ZvZ4aUXBtzU</guid>
-      <enclosure url="https://i.ytimg.com/vi/ZvZ4aUXBtzU/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 07 Jul 2025 19:30:07 +0800</pubDate>
     </item>
   </channel>
 </rss>
