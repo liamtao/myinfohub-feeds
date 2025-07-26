@@ -7,7 +7,147 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 25 Jul 2025 22:08:01 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Jul 2025 09:40:54 +0000</lastBuildDate>
+    <item>
+      <title>EC4305高级硬件描述语言课程内容概览：SystemVerilog与数字系统设计</title>
+      <link>https://www.bilibili.com/video/BV1bq8WzgEio</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1bq8WzgEio"&gt;Anas Salah Eddin【中英⚡基于SystemVerilog HDL的高级数字设计|ECE4305 2020 Advanced Digital Des&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+EC4305高级硬件描述语言课程将深入学习SystemVerilog，并应用其设计和实现一个包含微控制器、内存映射I/O子系统和视频子系统的完整数字系统。课程注重软硬件协同设计，学生需编写SystemVerilog代码实现硬件，并用C/C++编程控制硬件。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SystemVerilog&lt;/strong&gt;：一种高级硬件描述语言，作为Verilog的进阶，用于课程中的硬件设计和实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;微控制器单元 (MCU)&lt;/strong&gt;：课程中作为现成模块使用，通过C/C++编程来控制学生设计的硬件部分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存映射I/O子系统&lt;/strong&gt;：学生将从零开始设计的核心部分，包括UART、定时器、通信协议和通用输入/输出等接口，并在FPGA上实现，例如连接LED和开关。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;视频子系统&lt;/strong&gt;：区别于传统并行I/O的流处理器系统，像素数据会依次流经多个模块进行处理，最终输出到VGA显示器。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例&lt;/em&gt;：该系统通过串行处理像素，而非并行操作，来最终输出图像，体现了流式处理的特点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FPGA (Field-Programmable Gate Array)&lt;/strong&gt;：实际承载和实现课程所设计硬件的平台。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例&lt;/em&gt;：演示了一个在FPGA开发板上实现的系统，通过开关控制温度转换（摄氏度与华氏度），以及一个利用板载加速度计检测敲击并点亮LED的实验。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;软硬件协同设计的重要性&lt;/strong&gt;：课程旨在展示整个数字系统从头到尾的工作原理，学生将同时设计硬件和控制硬件的软件，而非仅关注单一维度。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;："本课程的目的是介绍硬件 软件代码正在运行 你将设计硬件并实现它 你还将设计控制硬件的软件并实现它 其目的并非是要 嗯 基本上是一门系统课程 Vera Log只是展示整个数字系统从头到尾的工作原理 并提供一个概览"&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践中利用现有IP核以聚焦核心设计&lt;/strong&gt;：对于复杂组件如处理器或内存控制器，课程选择使用现成的IP核，而非重新设计，以便学生将精力集中于课程目标——定制硬件的设计与实现。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;："灰色部分通常是现成使用的 嗯 或者基本上是IP核 或赛灵思提供的知识产权 例如 我们不会设计处理器或内存控制器 我们只需直接使用现成模块 因为这不是本课程的目标 并且设计这些部分相当复杂"&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;流处理与并行I/O的区别&lt;/strong&gt;：视频子系统被强调为流处理的范例，其数据处理方式（顺序流经模块）与一般内存映射I/O的并行操作有所不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;："所有这些输出都可以并行并发操作 它们可以同时处于开启状态 但视频子系统有所不同 因为它是一个流处理器或流系统的例子 它的工作原理是 处理某种像素 例如 你会看到它进入第一个模块 这里这个模块进行处理 然后该像素被传送到下一个模块 经过处理后进入下一个模块 一直传递到最后一个模块 依次经过所有模块进行处理 最终你会看到 将其输出到VGA显示器"&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;学习并通过实践掌握SystemVerilog，应用于硬件设计。&lt;/li&gt;
+&lt;li&gt;设计并实现内存映射I/O子系统中的具体接口，如UART、定时器、通信协议，以及连接LED和开关的通用I/O。&lt;/li&gt;
+&lt;li&gt;为所设计的硬件编写SystemVerilog代码，并开发与微控制器通信的驱动程序，同时编写C语言程序来控制硬件。&lt;/li&gt;
+&lt;li&gt;完成约十三次实验，将理论知识应用于FPGA开发板上的实际系统构建。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"本课程的目的是介绍硬件 软件代码正在运行 你将设计硬件并实现它 你还将设计控制硬件的软件并实现它 其目的并非是要 嗯 基本上是一门系统课程 Vera Log只是展示整个数字系统从头到尾的工作原理 并提供一个概览"&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1bq8WzgEio</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/e814fc8568584f07155da65a2015d899ebf282d7.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 26 Jul 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>中国旅游新趋势：真人扮演NPC提升沉浸式体验</title>
+      <link>1_2758290</link>
+      <description>&lt;p&gt;&lt;a href="https://aezfm.meldingcloud.com/rss/program/11"&gt;Round Table China&lt;/a&gt; | &lt;a href="1_2758290"&gt;Meet China's real-life tourism NPCs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章讨论了中国旅游景点中真人扮演NPC（非玩家角色）的兴起及其对游客体验的影响。节目探讨了这种新趋势的流行原因、其带来的经济效益和就业机会，同时也提及了其可持续性面临的挑战。最后，一位主持人分享了他在北京生活中感受到归属感的“快乐之地”。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NPC（非玩家角色）在旅游中的应用
+&lt;ul&gt;
+&lt;li&gt;解释：真人扮演的角色，与游客互动，将旅游体验转化为沉浸式的“活剧院”，且通常植根于中国丰富的历史和文化。&lt;/li&gt;
+&lt;li&gt;案例：
+&lt;ul&gt;
+&lt;li&gt;区别于传统游戏中的NPC（提供任务）和西方主题公园吉祥物（合影），中国的NPC更注重互动和故事情节。&lt;/li&gt;
+&lt;li&gt;湖北神农架雇佣真人扮演“野人”，在林中低吼并接受游客投喂香蕉。&lt;/li&gt;
+&lt;li&gt;天津欢乐谷的NPC扮演幽默的清朝宫廷人物。&lt;/li&gt;
+&lt;li&gt;河北五指山有演员扮演孙悟空，躺在山下，还原《西游记》中被压五指山的情节。&lt;/li&gt;
+&lt;li&gt;宋代诗人苏轼的扮演者会在柳树下吟诗。&lt;/li&gt;
+&lt;li&gt;天津某老宅中，演员身着1920年代服饰在阳台向人群挥手。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;MCN机构
+&lt;ul&gt;
+&lt;li&gt;解释：如欢音国际等公司与主题公园合作，负责招募、培训和管理NPC人才，视其为吸引客流和制造病毒式内容的强大资产。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;真人NPC极大提升了游客的沉浸式体验和参与度。
+&lt;ul&gt;
+&lt;li&gt;游客感觉置身于儿童故事书或冒险电影中，营造出强烈的氛围。&lt;/li&gt;
+&lt;li&gt;将漫步变成一场“活剧院”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;NPC为旅游景点带来显著的经济效益。
+&lt;ul&gt;
+&lt;li&gt;以河南开封万岁山为例：基本门票80元，但每个游客的全天消费可达850元，超过门票价格的10倍，主要归功于NPC主导的体验。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;为演艺人员提供了新的职业发展路径。
+&lt;ul&gt;
+&lt;li&gt;“你不必活在克里斯托弗·诺兰的阴影下才能出名，你也可以通过扮演非玩家角色来吸引名气、流量和粉丝。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;中国的NPC角色通常具有鲜明的本土特色。
+&lt;ul&gt;
+&lt;li&gt;与西方IP不同，他们根植于中国神话和历史，如野人、皇帝、孙悟空、苏轼等。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;NPC热潮的可持续性存在挑战，但其作为商业模式有望长期存在。
+&lt;ul&gt;
+&lt;li&gt;一些地方冬季天气恶劣，不适合NPC全年户外表演。&lt;/li&gt;
+&lt;li&gt;部分景点过度追逐热度，将NPC降级为拍照道具，缺乏互动。&lt;/li&gt;
+&lt;li&gt;“但我认为这肯定会持续下去，因为，就像我之前说的，这只是一个更好的商业模式。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;游客可以通过Apple Podcasts上的“Roundtable China”或发送邮件到Roundtable Podcast@QQ.com，分享自己的夏日故事或对节目话题的看法。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“Discussion keeps the world turning.”&lt;/li&gt;
+&lt;li&gt;“It's all about turning a stroll into a live theater.”&lt;/li&gt;
+&lt;li&gt;“You don't have to be in Christopher Nolan's shadow to be famous, you can also attract fame, traffic followers by being non-playable characters.”&lt;/li&gt;
+&lt;li&gt;“作为一名北京市民，没有什么比听到你感受到归属感，并以这种方式承担起纠正——维护城市秩序的责任，更让我高兴的了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">1_2758290</guid>
+      <enclosure url="https://radio-res.cgtn.com/image/2507/1753433693149.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 26 Jul 2025 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>Python项目结构与打包深度解析：从whl文件到构建系统与布局选择</title>
       <link>https://www.bilibili.com/video/BV12NgLzhEKx</link>
