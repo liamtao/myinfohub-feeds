@@ -7,7 +7,88 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 27 Jul 2025 00:29:48 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jul 2025 09:35:50 +0000</lastBuildDate>
+    <item>
+      <title>字节Coze低调开源：高性能AI开发框架详解、部署与应用实践</title>
+      <link>https://www.bilibili.com/video/BV1LL8hzBEZr</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1LL8hzBEZr"&gt;满血Coze开源炸场，零门槛本地部署与调用指南！画布工作流设计+菜单式Agent开发+内置海量插件+一键部署上线，工业级开源开发框架超越Dify！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+字节跳动旗下拥有数百万开发者的零代码AI开发工具Coze（扣子）突然宣布开源。文章详细介绍了开源版Coze的功能特性、架构优势、部署方法及其实用价值，强调它是一个高性能、高可扩展性、易于二次开发的工业级AI Agent开发框架，并纠正了其作为低代码工具功能简单死板的固有印象。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;扣子（Coze）: 字节跳动旗下的一款零代码/低代码AI Agent开发工具，最初定位对标ChatGPT的GPTs，现已转型为专业级AI Agent开发框架。&lt;/li&gt;
+&lt;li&gt;GPTs（来自ChatGPT）: OpenAI在ChatGPT网页上推出的一项功能，旨在让用户通过组合工具和提示词创建功能各异的聊天机器人，试图将ChatGPT打造为下一代“App Store”。文章提及该功能现已销声匿迹。&lt;/li&gt;
+&lt;li&gt;Agent（智能体）: 在文中指Coze用于开发的对象，具备特定功能，能与环境交互并执行任务的AI实体。Coze提供了智能体工作流编排等复杂开发功能。&lt;/li&gt;
+&lt;li&gt;工作流编排: Coze的一项核心功能，支持可视化的拖拉拽式工作流编排，实现智能体复杂任务的协作处理。&lt;/li&gt;
+&lt;li&gt;微服务架构: Coze后端采用的架构模式，将整个系统按照功能拆分成多个独立部署和扩展的小服务，提升项目的维护和开发效率。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;尽管扣子是低代码开发工具，但其功能并非简单死板，能解决企业级复杂AI Agent开发需求。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑：&lt;/strong&gt; 扣子最初对标ChatGPT的GPTs，后进行了深度转型，增加了工作流编排、提示词评估优化、智能体部署与评审等复杂功能，成为上限很高的专业级Agent开发框架。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;开源版Coze功能比在线版更加丰富灵活，更适合进行企业级的AI开发。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑：&lt;/strong&gt; 开源版Coze除了少数功能外，几乎拥有原版全部核心功能，内置完整后端服务、插件系统和开发模板，支持完全离线部署保障数据隐私，且遵循Apache 2.0协议，允许任意修改、闭源SaaS服务甚至商业化二次开发。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;扣子在没有任何预告的情况下突然开源，但在短短几个小时内就在GitHub上斩获了3000多颗星。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;如何部署和使用开源版扣子：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;环境准备：&lt;/strong&gt; 至少两核CPU和4G内存，支持macOS、Windows和Linux操作系统。需要安装并运行Docker客户端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拉取源码：&lt;/strong&gt; 使用&lt;code&gt;git clone&lt;/code&gt;命令拉取Coze Studio的GitHub完整项目源码，或从网盘下载解压。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置基座模型（以DeepSeek为例）：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;进入&lt;code&gt;coze-studio/model-config&lt;/code&gt;文件夹。&lt;/li&gt;
+&lt;li&gt;复制&lt;code&gt;deep-seek&lt;/code&gt;模型配置模板，命名为&lt;code&gt;deep-seek.yaml&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;用编辑器打开&lt;code&gt;deep-seek.yaml&lt;/code&gt;，在&lt;code&gt;CONFIG&lt;/code&gt;部分填入DeepSeek的&lt;code&gt;base_url&lt;/code&gt;、&lt;code&gt;API_KEY&lt;/code&gt;和&lt;code&gt;model&lt;/code&gt;名称。&lt;/li&gt;
+&lt;li&gt;将&lt;code&gt;deep-seek.yaml&lt;/code&gt;复制到上一层文件夹（即&lt;code&gt;coze-studio&lt;/code&gt;主目录）。&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;docker&lt;/code&gt;文件夹，复制并创建一个&lt;code&gt;.env&lt;/code&gt;文件。&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;.env&lt;/code&gt;中找到DeepSeek模型的配置选项，输入与&lt;code&gt;deep-seek.yaml&lt;/code&gt;完全相同的模型配置。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;修复源码bug：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;进入&lt;code&gt;coze-studio/apps/server/src/infra/setup&lt;/code&gt;路径。&lt;/li&gt;
+&lt;li&gt;找到&lt;code&gt;setup&lt;/code&gt;文件。下载网盘中的&lt;code&gt;setup-LF.sh&lt;/code&gt;文件进行替换，或手动用编辑器（如Cursor）打开该文件，将CRLF格式转换为LF格式并保存。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;启动Coze：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;回到Coze项目主目录。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;docker compose&lt;/code&gt;命令拉取Coze镜像并启动（耗时约2-3分钟）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;访问Coze：&lt;/strong&gt; 启动成功后，在浏览器中访问&lt;code&gt;localhost:8888&lt;/code&gt;即可使用开源版Coze。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;功能测试：&lt;/strong&gt; 创建简单智能体进行对话测试模型接入；或在“探索模板”页面选择并复制智能体模板（如导购陪练智能体）进行对话与测试。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取更多资源：&lt;/strong&gt; 扫描文章末尾二维码，加入“复范大模型技术社区”，可免费学习完整的本地部署与AI Agent指南、bug修复版Coze源码、进阶使用方法及其他工业级AI开发框架的使用方法。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“扣子开源了这款字节旗下的拥有数百万开发者的零代码AI证的开发工具，在没有任何预告的情况下突然宣布开源。”&lt;/li&gt;
+&lt;li&gt;“并且最关键的是开源就意味着可以完全离线部署，从而可以更好地保障数据隐私。”&lt;/li&gt;
+&lt;li&gt;“毫无疑问，开源版的Coze不仅是一个可以完全离线部署的AI的开发工具，更是一个高性能、高可扩展性、易于二次开发的工业级成框架。”&lt;/li&gt;
+&lt;li&gt;“我相信面对一个不需要编写代码即可完成AI的开发的低代码开发工具，有很多开发者会有这样的固有印象，觉得Coze功能过于的简单跟死板，很难真正解决企业级复杂Agent的开发需求，但其实事实并非如此。”&lt;/li&gt;
+&lt;li&gt;“现在的Coze定位不仅仅是上手门槛很低的低代码开发工具，更是上限也很高的专业级Agent的开发框架，甚至相比DeFi开源版的Coze功能也会更加丰富灵活，更适合进行企业级的AI开发。”&lt;/li&gt;
+&lt;li&gt;“技术人学习不易呀，很多同学想要入门大模型却不知道从哪儿开始，也有很多同学想要积累项目经验却找不到硬核实战项目，而与此同时市面上靠着信息差割韭菜的课程比比皆是，有的同学花费上万元宝班但什么都没学会，因此我们决心打造一个真正硬核并且纯粹公益的学习者的根据地。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1LL8hzBEZr</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/7fd712a7615b4e8dd2bd6ee1f9636639482c6498.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 27 Jul 2025 01:51:20 +0800</pubDate>
+    </item>
     <item>
       <title>AI代理入门：无需编程，使用Naden打造个性化智能助手</title>
       <link>https://www.bilibili.com/video/BV1sR8tz5Ew8</link>
@@ -8252,209 +8333,6 @@ Grok-4终于发布，详细介绍了其核心模型Grok-4 Heavy的强大性能�
       <guid isPermaLink="true">http://podcast.emerj.com/how-domain-specific-genai-driven-orchestration-unlocks-value-in-secure-and-siloed-data-environments-with-arun-subramaniyan-of-articul8</guid>
       <enclosure url="https://static.libsyn.com/p/assets/8/1/4/4/81440706245b3405d959afa2a1bf1c87/Arun-Subramaniyan-AI-in-Business-Podcast.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 10 Jul 2025 07:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI创业热潮与“Vibe ARR”泡沫：行业趋势与案例解析</title>
-      <link>https://www.zengzhang.ai/p/aiep14-vibe-arr</link>
-      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;增长黑客AI周报（ZengZhang.AI）&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep14-vibe-arr"&gt;【增长黑客AI周报】EP#14 重生之我在硅谷冲 Vibe ARR&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本期AI周报汇集了AI领域的最新动态，包括对AI创业公司虚报ARR的剖析、AI在内容创作和传统行业中的应用案例，以及AI产品失败的教训。文章也提供了多款AI工具和学习资源，为个人开发者和企业提供了参考。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Vibe ARR: AI创业公司通过夸大年度经常性收入（ARR）来制造虚假繁荣的一种现象。文章揭示了六种常见的ARR包装手法，如峰值涡轮和排队幻影，并指出不计算用户流失率的ARR都是耍流氓。&lt;/li&gt;
-&lt;li&gt;收割者与培育者组织模型: 成功公司Oleve所采用的一种组织模型，结合AI工具深度应用，实现了高额营收。&lt;/li&gt;
-&lt;li&gt;Vibe Coding: 利用AI工具来构建产品、管理生活和工作的实践，文章收集了超过50个真实案例，涵盖健康管理、家庭生活等多样化应用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI创业公司存在通过夸大ARR制造虚假繁荣的现象。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：文章剖析了六种常见的ARR包装手法，如峰值涡轮和排队幻影，并强调不计算用户流失率的ARR都是耍流氓。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI正在深入内容创作领域，甚至可能改变现有商业模式。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：英国公司OhChat推出AI版OnlyFans，允许创作者生成数字分身进行色情聊天并获得80%分成。AI虚拟人格YouTuber如Bloo通过游戏视频积累250万订阅者、7亿次观看，创造七位数收入。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;小型创业团队也能通过创新模式和AI工具实现高额营收。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：仅4人的Oleve公司通过“收割者与培育者”组织模型和AI工具实现年收入600万美元。AI设计公司Krea通过整合开源AI模型和平台战略，16个月内收入翻20倍至800万美元。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;并非所有需求都适合用AI解决，AI产品失败率较高。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：文章分析了1289个失败的AI产品，指出多数失败原因是套壳、场景单一或功能娱乐性大于实际价值。情感陪伴类产品虽受欢迎，但面临监管和盈利难题。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI在法律、零售等传统行业正快速崛起并带来巨大价值。
-&lt;ul&gt;
-&lt;li&gt;案例支撑：法律AI公司Harvey估值已破50亿美元，通过整合工作流和深度分析提升效率。世界级零售巨头如亚马逊和阿里巴巴正加速AI布局，应用于商品搜索、库存预测等。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;SaaS行业出现明显分化，AI驱动型企业表现优异，传统企业软件表现不佳。
-&lt;ul&gt;
-&lt;li&gt;数据支撑：Iconiq Capital报告显示，Palantir（+79%）和Snowflake表现优异，而Salesforce（-19%）表现不佳。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;构建AI产品有多种策略，高增长公司倾向自研模型和多策略架构。
-&lt;ul&gt;
-&lt;li&gt;数据支撑：《The Builder’s Playbook》揭示了300家AI公司的构建策略，发现AI应用形态分为增强型、新建型和原生型三类各占三分之一。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;免费学习极客时间《MCP实战课》，名额有限（50个）。&lt;/li&gt;
-&lt;li&gt;体验flomo新功能“AI洞察”，帮助串联笔记，深入自我认知。&lt;/li&gt;
-&lt;li&gt;关注高德地图内测的AI导航智能体。&lt;/li&gt;
-&lt;li&gt;试用Glass，实现全局屏幕内容记录、摘要生成和问题总结。&lt;/li&gt;
-&lt;li&gt;参考Devin团队发布的编程智能体实践指南，学习如何与Agent沟通及处理复杂任务。&lt;/li&gt;
-&lt;li&gt;查阅“如何用国产AI做穿越Vlog全攻略”教程。&lt;/li&gt;
-&lt;li&gt;使用Youtube-transcript.io一键提取YouTube视频脚本并分析提炼。&lt;/li&gt;
-&lt;li&gt;参与生财有术社群，查看编程小白海外AI产品0-1上线复盘。&lt;/li&gt;
-&lt;li&gt;评测Lovart国内版“星流”的使用体验。&lt;/li&gt;
-&lt;li&gt;学习前腾讯高级工程师艾逗比的AI独立开发经验，了解ThinkAny和ShipAny。&lt;/li&gt;
-&lt;li&gt;参考美国顶级私校Nueva的AI教育推进经验，并遵循五条规则建议指导孩子合理使用AI。&lt;/li&gt;
-&lt;li&gt;尝试使用蓝湖推出的Readdy极速建站工具。&lt;/li&gt;
-&lt;li&gt;查阅曹将的个人AI工具手册（2025年7月版）。&lt;/li&gt;
-&lt;li&gt;通过邀请链接注册Manus，你和我都将额外获得500 Credits。&lt;/li&gt;
-&lt;li&gt;参考范冰的著作《增长黑客》、视频课程《我如何用AI打造100X知识萃取系统》以及播客，并关注“冰器库”电报频道。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“不计算用户流失率的 ARR 都是耍流氓。”&lt;/li&gt;
-&lt;li&gt;“孤独经济催生 AI 陪伴市场，满足现代人对低门槛、高控制感的情感需求。”&lt;/li&gt;
-&lt;li&gt;“即便有技术和资金优势，产品运营仍是关键。”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;原文&lt;/h2&gt;
-
-&lt;h1&gt;【增长黑客AI周报】EP#14 重生之我在硅谷冲 Vibe ARR&lt;/h1&gt;
-
-&lt;h3&gt;AI 版 OnlyFans、虚拟人格 YouTuber、AI+法律、世界级零售巨头、育儿助手、Vibe Coding 实际案例集锦等&lt;/h3&gt;
-
-&lt;h5&gt;▪️PREFACE 卷首语&lt;/h5&gt;
-
-&lt;p&gt;1/ 下周周中估计会在北京逗留几天（主要是去参加一个 AI 项目发布会）。北京的朋友，欢迎预约面基（平时 base 上海）。&lt;/p&gt;
-
-&lt;p&gt;2/ 【赞助】MCP 最近可以说是 AI 领域最热门的技术焦点之一了，很多朋友想要了解一下。我跟极客时间申请了这门《MCP实战课》的免费学习名额，通过四个实战项目帮你从入门到进阶。名额有限，只有 50 个，感兴趣的快领取哦：http://gk.link/a/12Acn&lt;/p&gt;
-
-&lt;h5&gt;▪️OPINION 观点&lt;/h5&gt;
-
-&lt;h3&gt;重生之我在硅谷冲「Vibe ARR」&lt;/h3&gt;
-
-&lt;h6&gt;via CBInsights&lt;/h6&gt;
-
-&lt;p&gt;一篇大实话文章，吐槽到了我的心趴上。剖析了 AI 创业公司如何通过夸大 ARR（年度经常性收入）来制造虚假繁荣，揭示了六种常见的 ARR 包装手法，&lt;strong&gt;如峰值涡轮和排队幻影&lt;/strong&gt;。作者指出，不计算用户流失率的 ARR 都是耍流氓，并分析了 GenAI 泡沫下创业公司的收入焦虑和投资人 FOMO 心理。&lt;/p&gt;
-
-&lt;h5&gt;▪️INTERVIEW 访谈&lt;/h5&gt;
-
-&lt;h3&gt;深入 AI 辅助日记：专访 Reflection 联合创始人 Dave Radparvar（英文）&lt;/h3&gt;
-
-&lt;h6&gt;via Ness Labs&lt;/h6&gt;
-
-&lt;p&gt;Reflection 是一款 AI 辅助的日记应用，通过智能提示和实时反馈帮助用户深入自我反思。创始人 Dave Radparvar 分享了日记对心理健康的益处以及 AI 如何提升日记体验。应用结合专家指导和 AI 个性化，提供实时辅导、深度分析和智能搜索功能。设计理念注重隐私和简洁，打造无干扰的写作环境。未来计划扩展语音和 AI 功能，成为个人成长的智能伴侣。&lt;/p&gt;
-
-&lt;h5&gt;▪️CASE 案例&lt;/h5&gt;
-
-&lt;h3&gt;AI 版的 OnlyFans，要抢走福利姬饭碗了？&lt;/h3&gt;
-
-&lt;h6&gt;via 酷玩实验室&lt;/h6&gt;
-
-&lt;p&gt;英国公司 OhChat 推出 AI 版 OnlyFans，允许创作者生成数字分身进行色情聊天，用户可订阅不同等级的服务。AI 分身能模仿创作者的语气和偏好，提供沉浸式体验，创作者获得 80% 分成收入。OnlyFans 面临真人互动不足的问题，AI 分身填补了这一需求。孤独经济催生 AI 陪伴市场，满足现代人对低门槛、高控制感的情感需求。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Oleve 如何仅靠 4 个人做到年收入 600 万美元&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h6&gt;via 深思圈&lt;/h6&gt;
-
-&lt;p&gt;文章深入分析了一家仅 4 人的创业公司 Oleve 如何实现年收入 600 万美元的成功案例。他们通过创新的收割者与培育者组织模型和 AI 工具深度应用，在两年内服务了 500 万用户并实现盈利。核心在于六大运营原则：&lt;strong&gt;精英招聘、利润优先、KPI 驱动、流程改进、超级工具使用和知识复用&lt;/strong&gt;。特别值得注意的是，他们利用 Codex 模型巧妙规避早期成本，并通过 TikTok 营销实现病毒式增长。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;AI 虚拟人格 YouTuber 正在赚取数百万美元&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h6&gt;via 0xYuppieAI&lt;/h6&gt;
-
-&lt;p&gt;AI 虚拟人格 YouTuber 如 Bloo 通过游戏视频积累 250 万订阅者和 7 亿次观看，创造七位数收入。创作者如 GoldenHand 利用 AI 生成无露脸视频，月赚数千美元，同时面临 AI 垃圾内容的批评。AI 视频技术如 Hedra 的 Character-3 和谷歌的 Veo 3 正在改变内容创作方式。&lt;/p&gt;
-
-&lt;h3&gt;人们正在用 Vibe Coding 构建什么产品？（英文+付费墙）&lt;/h3&gt;
-
-&lt;h6&gt;via Lenny’s Newsletter&lt;/h6&gt;
-
-&lt;p&gt;Lenny 介绍了人们如何利用 AI 工具进行「vibe coding」并实际应用于生活和工作中，收集了超过 50 个真实案例，展示了从健康管理到家庭生活的多样化应用。其中，Cursor、Claude Code、Replit 和 Lovable 是最受欢迎的工具。&lt;/p&gt;
-
-&lt;h3&gt;AI 设计公司 Krea 16 个月收入翻 20 倍的秘密&lt;/h3&gt;
-
-&lt;h6&gt;via 陈伊凡&lt;/h6&gt;
-
-&lt;p&gt;Krea 是一家 AI 设计公司，通过整合多个开源 AI 模型，提供实时图像生成服务，16 个月内年收入增长 20 倍至 800 万美元。其成功部分源于平台战略、社区粘性和创作者分成机制。Krea 设计了一套创作者分成机制，如果用户作品入选，用户可获得分成，平台抽取 5%-15% 的佣金。Krea 的 PS 值高达 62.5 倍。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我用 AI 造了个「懂我家娃」的育儿助手&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h6&gt;via 观默&lt;/h6&gt;
-
-&lt;p&gt;一位程序员父亲为解决育儿信息焦虑，耗时两个月开发出个性化 AI 育儿助手《萌芽育儿》。文章分享了核心的 Prompt 模板，并展示了建立数字成长档案等特色功能。&lt;/p&gt;
-
-&lt;h3&gt;看完 1289 个死掉的 AI 产品，我发现这些需求就不该用 AI 解决&lt;/h3&gt;
-
-&lt;h6&gt;via 爱范儿&lt;/h6&gt;
-
-&lt;p&gt;文章分析了 1289 个失败的 AI 产品，发现多数因套壳、场景单一或功能娱乐性大于实际价值而失败。情感陪伴类产品虽受欢迎，但面临监管和盈利模式难题。大公司如 Neeva 和 Minimax 也难逃失败，显示即便有技术和资金优势，产品运营仍是关键。&lt;/p&gt;
-
-&lt;h3&gt;Harvey 估值破 50 亿美元，AI+法律行业正在崛起&lt;/h3&gt;
-
-&lt;h6&gt;via FuturePulse&lt;/h6&gt;
-
-&lt;p&gt;法律 AI 领域正迎来爆发式增长，Harvey 采用扩展-收敛策略整合 30-50 个工作流，Legora 专注极致易用的效率工具，Hebbia 创新 ISD 架构实现深度分析。这些公司通过精准定位顶级律所需求，将 AI 深度融入法律工作全流程。Harvey 以 50 亿美元估值领跑行业。&lt;/p&gt;
-
-&lt;h3&gt;世界级零售巨头如何备战 AI 未来（英文）&lt;/h3&gt;
-
-&lt;h6&gt;via CBInsights&lt;/h6&gt;
-
-&lt;p&gt;全球零售巨头正加速 AI 布局，例如亚马逊和阿里巴巴通过自建 AI 基础设施形成核心优势。多数零售商依赖与科技巨头的合作推进 AI 应用，但需警惕数据共享带来的竞争风险。尽管代理购物尚未成熟，生成式 AI 已广泛应用于商品搜索、库存预测等场景。&lt;/p&gt;
-
-&lt;h3&gt;随便看看：&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;2025 年上半年 SaaS 行业出现明显分化&lt;/strong&gt;，AI 驱动型企业如 Palantir（+79%）和 Snowflake 表现优异，而传统企业软件如 Salesforce（-19%）表现不佳。Iconiq Capital 最新报告&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《The Builder’s Playbook》&lt;/strong&gt;揭示了 300 家 AI 公司的构建策略，发现 AI 应用形态分为增强型、新建型和原生型三类各占三分之一。高增长公司更倾向于自研模型和多策略架构，而主流公司依赖第三方 API。卡兹克&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;体验了微信支付 MCP&lt;/strong&gt;，通过实际案例展示了便捷性和一些让他后怕的潜在风险。&lt;strong&gt;9 个华人 AI 项目&lt;/strong&gt;，涵盖基础设施领域，包括 Unsloth、Prompt2Model、RAGEN 等，每个项目都详细描述了技术特点、适用场景、市场定位及优劣势分析。&lt;strong&gt;一个在国内做 Claude 服务的运营商的心里话总结&lt;/strong&gt;，经常要跟 Claude 斗智斗勇。&lt;strong&gt;Palantir 的一篇介绍&lt;/strong&gt;，作为「美国国运股」，怎么靠 AI Agent 大涨 3000 亿美元？京东推出两款 AI 社交产品&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;「宠TA」「聊愈小宇宙」&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;h3&gt;适合个人上手的教程/资源：&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;flomo 推出新功能「AI 洞察」&lt;/strong&gt;，帮你串起笔记，看见未觉察的自己。&lt;strong&gt;高德地图正在内测 AI 导航智能体。&lt;em&gt;&lt;/strong&gt;&lt;/em&gt;Glass**可以全局记录并提取过去屏幕中的内容，并且根据记录下来的内容实时生成摘要以及问题总结（想到红极一时的 Rewind）。Devin（Cognition 团队）&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;发布了一份编程智能体实践指南&lt;/strong&gt;，提供了从基础到高级的实用建议，包括如何与 Agent 沟通、融入日常工作流及处理复杂任务。小白教程：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;如何用国产 AI 做穿越 Vlog 全攻略&lt;/strong&gt;。一键提取 YouTube 视频脚本 + 分析提炼的&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Youtube-transcript.io&lt;/strong&gt;。7天时间，&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;一个编程小白的海外 AI 产品 0-1 上线复盘&lt;/strong&gt;（更多类似分享可&lt;strong&gt;加入生财有术社群&lt;/strong&gt;查看）。Lovart 国内版&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;「星流」的使用评测&lt;/strong&gt;。从腾讯裸辞一年半的前高级工程师艾逗比分享&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;自己的 AI 独立开发经验&lt;/strong&gt;，包括 ThinkAny 搜索引擎和 ShipAny 开发框架等。分享美国顶级私校 Nueva 如何通过全校协作的方式推进 AI 教育，并给出&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;五条规则建议，让孩子合理用 AI&lt;/strong&gt;。如何用蓝湖推出的&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Readdy 极速建站&lt;/strong&gt;。&lt;strong&gt;曹将的个人 AI 工具手册&lt;/strong&gt;（2025 年 7 月版）。&lt;/p&gt;
-
-&lt;p&gt;感谢阅读到这里，期待下周继续与你相遇。我是范冰（@XDash），欢迎参考我的图书、播客、课程：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《我如何用 AI 打造 100X 知识萃取系统》&lt;/strong&gt;视频课程。通过&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我的邀请链接注册 Manus&lt;/strong&gt;，你和我都将额外获得 500 Credits。&lt;strong&gt;著作：《增长黑客》&lt;/strong&gt;（虽然是移动互联网时代的产物，但在今天 AI 新品爆发初阶的时点来读，似乎各种 tricky 的增长伎俩、心法、思路一点不过时）。工具资源分享电报频道：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;冰器库&lt;/strong&gt;。欢迎各类商业合作、资源置换、读者回馈合作，可直接回复本邮件。&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep14-vibe-arr</guid>
-      <pubDate>Thu, 10 Jul 2025 06:23:15 +0800</pubDate>
     </item>
   </channel>
 </rss>
