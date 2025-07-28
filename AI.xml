@@ -7,7 +7,78 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 28 Jul 2025 09:48:14 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 23:18:45 +0000</lastBuildDate>
+    <item>
+      <title>Cognition与Windsurf合并：AI软件工程的未来与产品整合</title>
+      <link>https://www.youtube.com/watch?v=OzY9ud0RBLY</link>
+      <description>&lt;p&gt;&lt;a href="UCxBcwypKK-W3GHd_RZ9FZrQ"&gt;Latent Space&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=OzY9ud0RBLY"&gt;🕰️ The Oral History of Windsurf (ft. Varun Mohan, Scott Wu, Jeff Wang, Kevin Hou, Anshul R)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文整合了Kodium/Windsurf和Cognition AI CEO的多场访谈与演讲，详细阐述了两家公司在AI软件工程领域的探索与产品演进。内容涵盖AI代码生成工具、AI代理的发展，以及两家公司最终合并的幕后故事与未来展望。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI流程 (AI Flow):&lt;/strong&gt; Windsurf提出的下一代AI系统概念，融合了AI的协作性和独立性，通过知识、工具和人类行动的无摩擦交互，实现人机思维融合的开发体验。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轨迹 (Trajectories):&lt;/strong&gt; Windsurf的核心原则，通过统一人类和AI在编辑器内外（如文件查看、终端命令、编辑）的所有操作时间线，让AI深度理解用户意图并预测下一步行动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;元学习 (Metalearning):&lt;/strong&gt; Windsurf让AI学习并记住用户、代码库及组织偏好（如技术栈版本、设计指南），从而实现产品个性化，减少显式指令输入。文中有通过“自动生成记忆”的案例来辅助说明，AI能够通过分析架构概述、文件和路由等，自动记忆项目信息以供后续对话使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;摩尔定律式AI代理能力增长 (Moore's Law for AI Agents):&lt;/strong&gt; Cognition提出的观察，AI代理在代码任务上的工作能力（不受干扰的完成任务）每70天翻倍，意味着每年有16-64倍的增长。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可纠正性 (Correctability):&lt;/strong&gt; AI生成结果不完美时，用户修正或利用部分结果的便捷程度。对于低延迟、高价值的LLM应用至关重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mquery:&lt;/strong&gt; Kodium/Windsurf的内部系统，并行调用多个LLM对代码库中的大量项目进行推理，以实现比传统向量嵌入更高的上下文检索质量和排名。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;AI代理普及将导致软件工程师数量增加而非减少。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 历史经验表明，编程工具的进步（如从打孔卡到C语言）提升了效率，但每次都极大地扩展了可构建软件的范围和规模，从而增加了程序员总数。软件需求远超当前供给。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI产品应优先服务大型企业客户，而非短期内向个人开发者盈利。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 个人开发者对价格敏感且易流失；大型企业对软件投入巨大，更注重深度问题解决和差异化价值，这能为公司带来更持久的现金流和商业模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代理的工作流程将推动本地开发环境走向远程管理。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 类似于大型科技公司（如Facebook）内部开发普遍采用远程主机，AI代理在执行复杂、多步骤任务时，需要远程VM提供快照、回滚等能力，避免破坏本地环境，提高可控性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内部团队的“AI怀疑论者”或“现实主义者”对产品发展至关重要。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 他们通常来自高标准、注重实际效果的领域（如自动驾驶），能提供诚实的、批判性的反馈，避免产品陷入“自嗨”和脱离实际的“光环效应”，确保产品真正解决问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代码生成领域的传统评估基准（如HumanEval、SWEBench）已不足以衡量实际价值。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 这些基准往往无法反映真实复杂代码库中多文档上下文、不完整任务和迭代工作流的需求。Windsurf开发了新的“recall 50”和对话式任务基准，更贴近生产环境，评估AI在复杂场景下的辅助能力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心竞争力宁可“自建”而非“购买”，即使短期内痛苦。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑:&lt;/em&gt; 购买外部解决方案可能导致公司失去核心技术能力，而AI领域的竞争是长期的。例如，Kodium/Windsurf坚持自建模型推理和评估基础设施，以确保长期产品差异化和适应行业快速变化的能力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对于新创始人，除非确实需要对TB级数据进行微调，否则应优先基于现有API进行开发，并专注于平衡质量与延迟。&lt;/li&gt;
+&lt;li&gt;构建LLM产品时，应优先考虑低延迟、高质量和高可纠正性。&lt;/li&gt;
+&lt;li&gt;公司不应尝试自行构建最佳的ML架构或训练架构，而应使用现成的通用模型进行微调。&lt;/li&gt;
+&lt;li&gt;AI初创公司应避免为其他AI初创公司提供服务，而应专注于解决企业和真实世界的痛点。&lt;/li&gt;
+&lt;li&gt;在AI销售领域，智力上的好奇心和构建可扩展“工厂”的能力比口才更重要。创始人应深度参与早期销售，以便了解客户需求并赋能销售团队。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“魔力发生于技术互动直观，但其表层之下却明显蕴藏着超乎想象的强大力量。”&lt;/li&gt;
+&lt;li&gt;“想法不值钱。我可以坐在这里告诉你所有关于如何改变编码方式以及可能解决方案理论的想法，但Kodium的信念是，真正交付并透过产品展示这项技术才是最好的出路。”&lt;/li&gt;
+&lt;li&gt;“这场竞赛并非在明年决出胜负。它将在未来5到10年，甚至更长时间里才能见分晓。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=OzY9ud0RBLY</guid>
+      <enclosure url="https://i.ytimg.com/vi/OzY9ud0RBLY/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 28 Jul 2025 19:57:21 +0800</pubDate>
+    </item>
     <item>
       <title>金融服务企业AI转型：战略、数据与人才管理实践</title>
       <link>http://podcast.emerj.com/building-trusted-ai-systems-in-financial-services-from-strategy-to-scale-with-zar-toolan-of-edward-jones</link>
@@ -8335,66 +8406,6 @@ Devon中的一项功能，能够自动分析GitHub代码库并生成详细的项
       <guid isPermaLink="true">http://podcast.emerj.com/from-control-checks-to-enterprise-strategy-with-ai-in-audit-with-itumeleng-masunyane-of-amicorp</guid>
       <enclosure url="https://static.libsyn.com/p/assets/0/7/4/6/07461338d90f6b4816c3140a3186d450/Itumeleng-Masunyane-AI-in-Business-Podcast-ep-1.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 11 Jul 2025 06:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>马斯克发布Group4大模型：性能评估、实测与复范大模型技术社区介绍</title>
-      <link>https://www.bilibili.com/video/BV11wG5zhEmD</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV11wG5zhEmD"&gt;Grok 4深度解读与功能评测！编程、推理、对话、Agent性能全方位测评，最强大模型是否实至名归？&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;马斯克召开了Group4（疑似GPT-4）发布会，文章详细介绍了该模型宣称的强大性能，随后团队对其编程、推理、深度检索和文本编写能力进行了实际测评，并邀请读者加入一个公益性的大模型技术社区。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;第一性原则：拒绝经验主义，深入问题底层，依据最底层原理进行思考。&lt;/li&gt;
-&lt;li&gt;Humanities Last Exam (HLE)：一个覆盖100多个科研领域的博士级跨学科难题数据集，用于客观准确测试模型智力水平。&lt;/li&gt;
-&lt;li&gt;ARC-AGI：一个专门用于测试模型学习能力的数据集。&lt;/li&gt;
-&lt;li&gt;Vending Bench：一个模拟经营自动售货机的数据集，用于评估模型在库存管理、供应商联系、计划策略及工具调用等方面的AH（Agentic AI/智能体）能力。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;尽管发布会宣传强大，Group4模型在实际编程和推理能力上远未达到预期，与DeepSeek-Coder-1等顶尖模型存在显著差距。
-&lt;ul&gt;
-&lt;li&gt;编程方面：Group4在“小球翻滚”经典编程问题中输出无法运行的代码，在创建可视化仪表盘和官网首页时表现远不如DeepSeek-Coder-1。&lt;/li&gt;
-&lt;li&gt;推理方面：Group4在“海盗分赃”逻辑题中思考10分钟后答错，而DeepSeek-Coder-1迅速给出正确答案。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Group4模型在深度检索和长文本编写方面表现突出，是构建Agent的优秀基座模型。
-&lt;ul&gt;
-&lt;li&gt;深度检索：成功解决了复杂的竞赛级网络检索难题，并复现了发布会中寻找“最古怪S员工头像”的演示。&lt;/li&gt;
-&lt;li&gt;长文本编写：能够顺利完成分析报告和中篇小说。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Group4被宣称是目前最适合构建AH智能体的大模型。
-&lt;ul&gt;
-&lt;li&gt;在Vending Bench测试中，Group4的评分是Claude Opus模型的三倍，排名第二。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Group4模型掌握了“第一性原则”，使其看问题更透彻，分析更准确。&lt;/li&gt;
-&lt;li&gt;Group4在HLE测试中取得了35%到45%的准确率，远超Gemini 2.5 Pro的26%。&lt;/li&gt;
-&lt;li&gt;Group4在推理能力（数学、逻辑、科研）评分世界第一，AIM1考试达到满分。&lt;/li&gt;
-&lt;li&gt;Group4拥有多模态功能（图片输入输出、实时语音交互）和强大的深度整理海量网络信息能力。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;使用Group4模型：需要开通每月30美元的“Super Group”会员，每月300美元的“Super Group Heavy”会员可使用内置MOTIAGENT系统的“heavy模式”。&lt;/li&gt;
-&lt;li&gt;获取Group4国内API调用指南：扫码领取教程。&lt;/li&gt;
-&lt;li&gt;深入学习大模型技术：扫码加入“复范大模型技术社区”，该社区免费提供100多套高质量教程和几十小时保姆级教学视频，涵盖大模型部署、调用、微调、RAG知识库、检索Agent开发等核心技术及高价值实战案例，并持续更新前沿内容。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“一句话总结：Group4凭一己之力刷爆了所有大模型评测榜单，Group4就是目前最懂你、最聪明、最会编程，同时也是AH能力最强的大模型，没有之一。”&lt;/li&gt;
-&lt;li&gt;“可以说Group4就是凭借一己之力刷爆了全部榜单，是当之无愧的六边形战士。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV11wG5zhEmD</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/c30ac40e8aaad47590e1dced46b7e0126be58041.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 10 Jul 2025 21:39:50 +0800</pubDate>
     </item>
   </channel>
 </rss>

@@ -7,7 +7,95 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 28 Jul 2025 09:48:14 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jul 2025 23:18:45 +0000</lastBuildDate>
+    <item>
+      <title>零基础搭建个人独享高速节点：VPS购买与多平台配置指南</title>
+      <link>https://www.youtube.com/watch?v=MgtOAVOXBWo</link>
+      <description>&lt;p&gt;&lt;a href="UCbCCUH8S3yhlm7__rhxR2QQ"&gt;不良林&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=MgtOAVOXBWo"&gt;【零基础】2025最新保姆级纯小白节点搭建教程，人人都能学会，目前最简单、最安全、最稳定的专属节点搭建方法，手把手自建节点搭建教学，晚高峰高速稳定，4K秒开的科学上网线路体验&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本教程为零基础用户提供了搭建个人专属高速网络节点（代理）的详细指南。内容涵盖了从选择和购买高质量VPS（如CN2 GIA线路）到在服务器上部署节点程序，并最终在Windows、macOS、iOS和Android等多个客户端配置和使用这些节点的完整流程。教程强调操作简易性，并提供了故障排除和VPS机房迁移的实用建议。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VPS (Virtual Private Server)&lt;/strong&gt;: 虚拟专用服务器，一种虚拟化技术，将一台服务器分割成多个独立的虚拟服务器。文中解释为租用一台服务器来搭建自己的网络节点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CN2 GIA (Global Internet Access)&lt;/strong&gt;: 中国电信推出的优化国际线路，以低延迟和高稳定性著称，尤其适用于中国大陆与海外的连接。文中强调其是“个人用户能买到的最高端VPS线路”，提供“非常不错的体验”，甚至“堪比专线”，并提醒用户甄别“假优化”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reality / TUIC&lt;/strong&gt;: 两种特定的代理协议或模板，用于配置网络节点的TLS设置。Reality被推荐为日常使用的主要节点类型，TUIC则作为备用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SNI (Server Name Indication)&lt;/strong&gt;: 服务器名称指示，TLS协议的一个扩展，允许客户端在TLS握手过程中告知服务器其要访问的主机名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UTLS (Undetected TLS)&lt;/strong&gt;: 旨在使TLS流量看起来更像常见浏览器流量，以规避检测的技术。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ALPN (Application-Layer Protocol Negotiation)&lt;/strong&gt;: 应用层协议协商，TLS协议的一个扩展，允许客户端和服务器在加密连接建立时协商应用层协议（如HTTP/2）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BBR (Bottleneck Bandwidth and Round-trip propagation time)&lt;/strong&gt;: 一种由Google开发的TCP拥塞控制算法，旨在提高网络吞吐量和减少延迟。在TUIC节点配置中作为拥塞控制选项提及。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VPS线路的选择对于节点的稳定性和速度至关重要。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;晚高峰期间的网络卡顿大部分是由VPS线路质量不佳导致的。&lt;/li&gt;
+&lt;li&gt;推荐选择具有线路优化的VPS，特别是CN2 GIA线路，这是个人用户能购买到的最高端线路，能提供卓越的体验，即便在高峰期也能保持稳定。&lt;/li&gt;
+&lt;li&gt;需要注意区分真假优化，KVM等廉价VPS在晚高峰期间很可能会出现严重的网络延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反常识：&lt;/strong&gt; 延迟高低不是衡量节点速度的唯一标准，线路质量（如是否为GIA）才是决定实际网速的关键因素。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;准备阶段&lt;/strong&gt;：访问教程指定网址获取所需代码和工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择与购买VPS&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;优先选择CN2 GIA等优质线路的VPS，根据个人流量需求选择套餐，并选择合适的机房（如美国DC6 GIA、日本软银等）。&lt;/li&gt;
+&lt;li&gt;通过推广链接进入购买页面，填写优惠码享受折扣，完成注册及支付。&lt;/li&gt;
+&lt;li&gt;等待接收“OS install completed”邮件，获取VPS的IP地址、端口和root密码。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;连接VPS&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;Windows用户通过CMD，Mac用户通过终端，输入SSH指令（&lt;code&gt;ssh root@YourVPS_IP -p YourPort&lt;/code&gt;）连接到VPS。&lt;/li&gt;
+&lt;li&gt;首次连接需输入&lt;code&gt;yes&lt;/code&gt;，然后输入root密码（注意可能不显示，建议手动输入）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署节点程序&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;成功连接VPS后，复制并执行教程提供的部署指令，耐心等待程序运行完成。&lt;/li&gt;
+&lt;li&gt;按照提示操作，保存生成的连接信息、用户名和密码。&lt;/li&gt;
+&lt;li&gt;选择并保存一个低延迟的SNI域名（如&lt;code&gt;www.icloud.com&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;输入&lt;code&gt;exit&lt;/code&gt;退出VPS连接。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置Sui面板&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在本地浏览器中访问&lt;code&gt;https://127.0.0.1&lt;/code&gt;（需替换为你的VPS IP地址），输入VPS的root密码后进入Sui面板。&lt;/li&gt;
+&lt;li&gt;登录后，在“TLS设置”中配置Reality和TUIC两种模板，填入之前保存的SNI域名，并启用相关高级功能（如UTLS、ALPN、BBR）。&lt;/li&gt;
+&lt;li&gt;在“入站管理”中添加vless和TUIC类型的入站规则，分别绑定到Reality和tls-self模板，并设置端口为443。&lt;/li&gt;
+&lt;li&gt;在“用户管理”中添加新用户，勾选vless和TUIC节点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;客户端配置&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Windows/Mac用户（v2rayN）&lt;/strong&gt;：下载并解压v2rayN，通过扫描Sui面板上的二维码导入节点链接。双击Reality和TUIC节点修改地址为VPS IP，TUIC节点需勾选“跳过证书验证”。测试延迟后，将系统代理模式设为“自动配置系统代理”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;iPhone/Mac用户（Shadowrocket）&lt;/strong&gt;：使用非国区ID下载Shadowrocket。通过扫描二维码或复制链接导入节点。手动修改节点地址为VPS IP，TUIC节点需在TLS中启用“允许不安全”。启用代理即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Android用户（Nekobox）&lt;/strong&gt;：下载并安装Nekobox。通过扫码或复制链接导入节点。修改服务器地址为VPS IP，TUIC节点需启用“允许不安全的链接”。选择节点后点击连接。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后续管理&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;定期关注VPS续费通知，确保VPS服务不中断。&lt;/li&gt;
+&lt;li&gt;如需切换机房线路，登录VPS官网账户，通过“迁移到其他DC”功能进行操作，迁移后需在客户端更新节点IP地址。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“操作非常简单 只要你能熟练掌握电脑的开关机 就一定能够成功搭建属于你的独享节点”&lt;/li&gt;
+&lt;li&gt;“如果你想要有自己的专属节点 但对节点搭建完全不懂 那本期教程千万不要错过”&lt;/li&gt;
+&lt;li&gt;“CN2 GIA也是目前 个人用户能买到的最高端VPS线路”&lt;/li&gt;
+&lt;li&gt;“延迟不是衡量节点速度的标准 主要看线路的好坏”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=MgtOAVOXBWo</guid>
+      <enclosure url="https://i.ytimg.com/vi/MgtOAVOXBWo/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 27 Jul 2025 05:43:37 +0800</pubDate>
+    </item>
     <item>
       <title>Podman：下一代容器管理工具，为何能无缝衔接Docker与K8S并实现开机自启动？</title>
       <link>https://www.bilibili.com/video/BV1jcu6z7ExM</link>
