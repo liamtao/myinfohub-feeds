@@ -1,3 +1,4 @@
+#SUBSCRIBED https://liamtao.github.io/myinfohub-feeds/override.yaml
 # 不要随意改变关键字，否则会导致出错
 # acl4SSR规则
 
@@ -22,6 +23,9 @@
 # 如果你的配置文件中没有 bind-address，mihomo 在 allow-lan: true 时
 # 可能会自动监听 0.0.0.0，但显式写上更保险。
 # bind-address: '*' 
+
+
+ipv6: true
 
 proxy-groups:
   - name: 🚀 节点选择
@@ -534,6 +538,7 @@ rule-providers:
     type: http
 
 rules:
+  - DOMAIN-SUFFIX,eq.10jqka.com.cn, 🎯 全球直连
   - "RULE-SET,LocalAreaNetwork,🎯 全球直连"
   - "RULE-SET,UnBan,🎯 全球直连"
   - "RULE-SET,BanAD,🛑 广告拦截"
