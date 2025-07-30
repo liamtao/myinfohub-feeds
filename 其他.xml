@@ -7,7 +7,88 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 29 Jul 2025 23:40:54 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jul 2025 09:54:50 +0000</lastBuildDate>
+    <item>
+      <title>量子力学数学基础：希尔伯特空间与算子的谱性质</title>
+      <link>https://www.bilibili.com/video/BV14B8dzfEoa</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV14B8dzfEoa"&gt;加利福尼亚大学【中英⚡量子力学|221AB 2022 Physics Quantum Mechanics】&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文深入探讨了量子力学的数学基础，重点介绍了希尔伯特空间的定义、性质及其与波函数空间的关联。讲座随后详细阐述了狄拉克符号中态矢（ket）和伴随态矢（bra）的概念，以及度规和线性算子的定义与性质。最后，文章详细解析了线性算子的谱性质，特别是厄米算子的特征值和特征向量特性，并强调了有限维与无限维空间之间的差异。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;希尔伯特空间（Hilbert Space）&lt;/strong&gt;：是一种复数向量空间，通常是无限维的，具备标量积（度规）、有限范数和完备性。在量子力学中，波函数空间本质上就是希尔伯特空间，其数学结构是构建量子力学物理公设的基础。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;态矢（Ket Vector）和伴随态矢（Bra Vector）&lt;/strong&gt;：狄拉克符号中的抽象表示，|ψ⟩代表量子系统的状态向量，属于抽象的态空间（希尔伯特空间）。⟨α|是伴随态矢，定义为一个将态矢映射到复数的线性函数，属于对偶空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;度规（Metric）/标量积（Scalar Product）&lt;/strong&gt;：定义在希尔伯特空间中的一种运算，将两个态矢映射为一个复数，并满足线性、反线性、共轭对称和正定性。它允许在抽象态空间中定义距离和正交性，是连接态矢与伴随态矢的关键。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;厄米共轭（Hermitian Conjugation/Dagger）&lt;/strong&gt;：对态矢、伴随态矢和算子的一种操作。对态矢而言，†符号表示从态矢到伴随态矢的对偶对应（如 |ψ⟩† = ⟨ψ|）。对算子而言，A†是算子A的厄米共轭，满足 ⟨φ|A†|ψ⟩ = ⟨ψ|A|φ⟩*。产品求厄米共轭时，操作顺序反转，所有构成元素取厄米共轭。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;谱性质（Spectral Properties）&lt;/strong&gt;：描述算子特征值和特征向量的性质。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特征值（Eigenvalue）/特征向量（Eigenvector）&lt;/strong&gt;：算子A作用于向量u得到u的标量倍Au = au，其中a是特征值，u是非零特征向量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本征空间（Eigenspace）&lt;/strong&gt;：对应某一特征值的所有特征向量（包括零向量）所张成的子空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完备性（Completeness）&lt;/strong&gt;：指一个算子如果存在一个能张成整个空间的特征基（所有基向量都是该算子的特征向量）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;谱（Spectrum）&lt;/strong&gt;：算子所有特征值的集合。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;量子力学中的物理状态对应于“射线”而非特定的态矢。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;：物理状态的定义是希尔伯空间中的一维子空间（一个非零向量及其所有复数倍），这意味着态矢的归一化和整体相位在物理上没有意义。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波函数ψ(x)和动量空间波函数φ(p)在物理计算中是等价的，没有特权地位。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑/支撑&lt;/strong&gt;：两者通过傅里叶变换（酉算符）相互映射，且根据帕塞瓦尔恒等式，范数保持不变，因此它们作为希尔伯特空间是同构的，物理结果不受表示选择影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反常识&lt;/strong&gt;：讲座指出，波函数定义在系统构型空间，只有单粒子在三维空间运动时才与物理空间一致；并且无法直接测量ψ(x)在某一点的值，只能通过积分得到概率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;厄米算子（Hermitian Operators）在有限维空间中总是完备的，且其特征值是实数，特征空间相互正交。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;特征值是实数&lt;/strong&gt;：通过对特征值方程取厄米共轭并比较内积证明。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特征空间正交&lt;/strong&gt;：若特征向量属于不同特征值，则它们正交（通过对两个特征值方程左右乘以不同的伴随态矢并相减证明）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完备性&lt;/strong&gt;：所有特征子空间（即使存在简并）的直和构成了整个希尔伯特空间，意味着存在正交归一的特征基。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反直觉/注意点&lt;/strong&gt;：在无限维空间中，这些性质（如完备性）不一定成立，会出现连续谱或算子不完备的情况（例如动量算子在希尔伯特空间中没有本征函数）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复共轭波函数最好视为属于不同空间（对偶空间）。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：这有助于跟踪通常的操作，因为在量子力学中很少见到波函数及其复共轭的线性组合。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在有限维空间中，一个算子即使是低阶的，也可能不是完备的。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：举例说明矩阵 &lt;code&gt;[[0, 1], [0, 0]]&lt;/code&gt; 只有一个特征向量 &lt;code&gt;[1, 0]&lt;/code&gt;，无法张成整个二维空间，因此是不完备的。类似地，&lt;code&gt;[[1, 1], [0, 1]]&lt;/code&gt; 也是不完备的。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;查阅课程网站获取物流信息、作业和笔记。&lt;/li&gt;
+&lt;li&gt;在课程中，主要关注抽象的态空间及其属性，波函数仅用于说明。&lt;/li&gt;
+&lt;li&gt;证明厄米特算子特征值实数性、特征空间正交性，以及外积定理（留作练习）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“量子力学中的波函数空间实际上就是希尔伯特空间。”&lt;/li&gt;
+&lt;li&gt;“有限维直觉在无限维情况下大多适用。”&lt;/li&gt;
+&lt;li&gt;“测量公设完全基于该结构表达，不依赖其他内容。”&lt;/li&gt;
+&lt;li&gt;“物理波函数必须可归一化。”&lt;/li&gt;
+&lt;li&gt;“波函数的整体相位甚至其模长，其大小并不影响物理结果。”&lt;/li&gt;
+&lt;li&gt;“物理可观测量都与厄米算子相关。”&lt;/li&gt;
+&lt;li&gt;“在无限维空间中，谱性质更为复杂，比有限维情况更微妙。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV14B8dzfEoa</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/11e4221940035d0008633508eb194fa971cced09.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 12:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>国产游戏三十载：从红白机到黑神话，玩家记忆与产业变迁</title>
       <link>https://www.ximalaya.com/sound/893220783</link>

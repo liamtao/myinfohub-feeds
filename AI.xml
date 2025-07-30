@@ -7,7 +7,245 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 29 Jul 2025 23:40:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jul 2025 09:54:49 +0000</lastBuildDate>
+    <item>
+      <title>AI Agent技术报告深度解读：Kimi K2、Chat GPT Agent、坤3 Coder与Minus</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/6889da698e06fe8de77116a9?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/dk4yh3pkpjp3"&gt;张小珺Jùn｜商业访谈录&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6889da698e06fe8de77116a9?utm_source=rss"&gt;110. 逐段讲解Kimi K2报告并对照ChatGPT Agent、Qwen3-Coder等：“系统工程的力量”&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次访谈深入解读了Kimi K2、Chat GPT Agent、坤3 Coder的技术报告以及Minus的博客文章，核心探讨了当前AI Agent领域的数据合成、强化学习训练范式、工程挑战及未来发展。文章详细剖析了Agent如何与环境交互、提升性能，并展望了Agent在研究和应用层面上的巨大潜力。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Language Agent：区别于Language Model，Agent需学会与环境良好交互，包括感知环境（Perception）和生成并执行动作（Action）来影响环境。其推理范式是：感知环境获取Observation，Observation作为LM输入生成Action，执行Action后环境状态变化，循环往复。&lt;/li&gt;
+&lt;li&gt;MCP (Modal Context Protocol)：由Anthropic提出，是一种标准协议，旨在让LM或Agent能更好地规范化地使用工具（Tool Use）。它的出现为Tool Use研究和数据合成提供了便利，因其统一了工具接口和描述。&lt;/li&gt;
+&lt;li&gt;Verifiable Reward Gem：用于强化学习训练的、能够通过程序或函数清晰客观验证的任务奖励，例如数学题的答案正确性或代码能否通过单元测试。这类任务容易快速获得高质量的客观奖励信号。&lt;/li&gt;
+&lt;li&gt;Self-Critique Rubrics Reward：针对那些难以获得客观Verifiable Reward的任务（如创意写作、开放性问答），通过模型自身判断或基于人为定义的Rubrics（评价标准，如Helpfulness、Creativity、Safety）来提供奖励，以调整Agent的行为模式。&lt;/li&gt;
+&lt;li&gt;Hybrid Data Synthesis：一种数据生成策略，结合仿真环境数据和真实世界数据。仿真环境（如模拟器或沙盒）可以高效生成大量数据，但可能存在噪音；真实环境数据成本高昂但真实度更高。通过混合方式平衡数据量与质量。&lt;/li&gt;
+&lt;li&gt;KV Cache优化策略 (Minus)：Transformer模型中，KV Cache存储Attention机制的Key和Value矩阵。如果上下文（Prompt前文）不变，KV矩阵可以复用，从而显著提升推理速度并降低成本。Minus提出了多种优化方法：
+&lt;ul&gt;
+&lt;li&gt;保持Prompt前文一致：不要改变前文，确保KV Cache可复用。&lt;/li&gt;
+&lt;li&gt;只追加新内容：在已有Context后追加新内容，而非修改中间内容，以保证KV Cache不变。&lt;/li&gt;
+&lt;li&gt;使用Mask而非移除：若Context中部分内容不再需要，建议Mask掉而非直接移除，以保持KV Cache结构不变并复用。&lt;/li&gt;
+&lt;li&gt;文件系统作为Context：将文件系统作为Context来管理，能更灵活地处理长Context。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Agent Safety：指Agent执行的动作可能对真实世界产生难以逆转的影响（例如DOS攻击、误下单）。Agent安全研究旨在通过“Guard Rail”（如在执行前判断动作影响程度并询问用户）等机制来控制Agent行为，确保其安全。&lt;/li&gt;
+&lt;li&gt;Agent Self-Improvement：一种前瞻性概念，设想Agent能够自己主动探索环境，寻找可验证的奖励信号（如GitHub上的Pull Request或Issue），并利用这些信号进行自我训练和提升。这可能通过Agent作为“数据引擎”来发现新数据或通过Rollout/Exploration过程积累有用知识（如转化为API）实现。&lt;/li&gt;
+&lt;li&gt;Agent Memory： Agent在多轮交互中会产生大量高度结构化的数据。Agent Memory旨在高效、结构化地管理这些交互数据（Action、Observation、Environment Feedback），例如通过增删改查机制来优化Agent系统运行。&lt;/li&gt;
+&lt;li&gt;Research-Product Co-Design：研究与产品相互迭代、共同发展。例如，通过收集用户与Agent交互的数据来进一步改进Prompt或训练Agent模型，从而提升Agent性能。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kimi K2采用Moon optimizer训练效果非常好，训练曲线看着非常优雅。&lt;/li&gt;
+&lt;li&gt;通过重写数据（例如将Wikipedia数据重写10遍），能显著提升模型在Simple QA任务上的准确率，显示数据增广的有效性。
+&lt;ul&gt;
+&lt;li&gt;Kimi K2在Simple QA数据集上，未经重写的数据准确率为23.76%，重写1遍后提升，重写10遍并混合后效果进一步提升。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Agent强化学习训练中，任务难度需“中等”，既不能太容易（奖励信号少）也不能太难（奖励信号稀疏）。
+&lt;ul&gt;
+&lt;li&gt;若任务过易，模型学习到的奖励信号少；若任务过难，模型可能无法找到成功路径，导致优化方向不明确。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Language Agent的Instruction Following能力在Agent任务中极其重要，因为需要处理的Context比传统模型更复杂、更长，且需在多轮交互中保持与初始指令的一致性。&lt;/li&gt;
+&lt;li&gt;防止强化学习中的“Reward Hacking”至关重要，即模型可能找到捷径（如随机猜对答案）而非真正理解推理过程，导致训练效果变差。
+&lt;ul&gt;
+&lt;li&gt;Kimi K2通过引入LM Judge Evaluation作为额外奖励源来防止Reward Hacking。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Agent与真实环境交互的成本非常高昂，远超学界普遍预期，且稳定性差。
+&lt;ul&gt;
+&lt;li&gt;案例：调用Google Search API需要付费；在真实网站上进行大量Browsing操作可能导致IP被封；使用云端浏览器服务成本极高（例如进行100k次Rollout可能花费数千美元）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Agent训练中的GPU利用率可能不高，因为多轮交互的延迟不稳定（如网络卡顿或Browser崩溃）以及“长尾”任务（部分任务需要更多步骤才能完成，导致GPU等待）。&lt;/li&gt;
+&lt;li&gt;Agent的个性化（如Deep Seek的“嘴臭”）可能来源于其预训练数据中的特定风格或内容（如贴吧数据）。&lt;/li&gt;
+&lt;li&gt;Agent情商提高（如通过Alignment使其更符合人类倾向）有时可能导致其在其他能力上“变笨”。
+&lt;ul&gt;
+&lt;li&gt;逻辑：Rubrics Reward中可以加入“情商高”等价值观，但可能分散模型在其他核心能力上的注意力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kimi K2的数据合成管线：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;知识数据重写：&lt;/strong&gt; 采用Chunk-wise Auto-regressive Generation将大文章切块重写以控制质量，并通过Fidelity Verification（保真验证）确保重写后的数据无知识性冲突。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数学数据重写：&lt;/strong&gt; 将高质量数学文档重写为“Learning Notes”格式以增广数据。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具与Agent生成：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;从GitHub收集大量MCP工具，并通过Hierarchical Domain Generation系统性地进化（组合或生成）新的MCP工具，扩大Agent的动作空间。&lt;/li&gt;
+&lt;li&gt;生成多样化的System Prompt，模拟不同用户场景和Agent行为模式，提高生成数据的多样性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化学习（RL）训练优化：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Verifiable Reward生成：&lt;/strong&gt; 优先选择数学、代码、逻辑推理等容易通过程序验证的任务来提供高可靠的奖励信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复杂指令遵循：&lt;/strong&gt; 设计三步数据生成管线（人工标注种子任务 -&gt; AutoIF拓展 -&gt; Funnel模型生成额外指令），并结合Hybrid Rule Verification机制来提升Agent遵循复杂指令的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真实性（Faithfulness）：&lt;/strong&gt; 引入Fact Grounding机制，通过模型判断答案的真实性，减少幻觉，并将其作为Reward的一部分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码能力训练：&lt;/strong&gt; 收集竞赛级别编程问题，并利用GitHub上的Pull Request和Issue数据（及其对应的解决方案和测试），搭建沙盒环境进行大规模RL训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RL基础设施优化：&lt;/strong&gt; 将计算密集型环境打包成独立服务；使用Kubernetes同时托管大规模并发沙盒进行Rollout；对特别长的Rollout轨迹进行部分截断（Partial Rollout），并在下一轮RL迭代中恢复，以提高GPU利用率；采用OpenAI Gym/Gimnasium框架来处理Agent与环境的交互。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预算控制（Budget Control）：&lt;/strong&gt; 当模型生成的响应过长时，直接截断并施加惩罚，以控制Agent的输出长度和推理效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PTX Loss：&lt;/strong&gt; 在RL训练期间，从预训练数据中采样高质量数据并引入PTX Loss，以防止模型遗忘预训练阶段的重要知识。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temperature衰减（Temperature Decay）：&lt;/strong&gt; 在RL训练初期设置较高的Temperature以鼓励模型探索多样化的Action；随着训练的推进，逐渐降低Temperature，使模型行为趋于稳定和收敛。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Context Engineering (Minus的经验分享)：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;KV Cache复用：&lt;/strong&gt; 保持Prompt前文不变，或只在Context末尾追加新内容，避免不必要的KV Cache重算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用Mask而非移除：&lt;/strong&gt; 当Context中间部分内容不再需要时，通过Mask方式（让模型忽略）而非直接移除，以保持KV Cache结构不变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件系统作为Context：&lt;/strong&gt; 将文件系统作为管理Context的一种方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意力控制：&lt;/strong&gt; 利用To-Do Markdown等结构化格式，引导模型将注意力集中在关键信息上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保留失败信息：&lt;/strong&gt; 将模型在Context中产生的错误或失败信息也保留，以便模型从错误中学习。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多样化Few-shot示例：&lt;/strong&gt; 在Context中提供多样化的示例，避免模型因示例过于一致而倾向于重复生成。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“Agent是我的另外一个大脑，就是一个拓展的大脑。”&lt;/li&gt;
+&lt;li&gt;“我日常做事情的时候，背后有一个军团在帮我做事情。”&lt;/li&gt;
+&lt;li&gt;“研究员都是老师傅，感觉手艺活像是一个老师傅。”&lt;/li&gt;
+&lt;li&gt;“系统工程大于idea。”&lt;/li&gt;
+&lt;li&gt;“Kimi是非常早的去尝试去用这个Moon这个优化器，然后去做训练的，当然这次训练的时候他们发现这个效果也非常的好，那个Training curve看着非常的优雅。”&lt;/li&gt;
+&lt;li&gt;“大规模的训练有时候能够把一些细分的小任务很大程度的解决掉。”&lt;/li&gt;
+&lt;li&gt;“Agent这个系统不是一个封闭的系统，就是不停的会获得新信息。”&lt;/li&gt;
+&lt;li&gt;“让它知道自己这个Role，那它生成质量就会相对更好一些。”&lt;/li&gt;
+&lt;li&gt;“Agent能够自己去给自己找Reward，然后进一步不停的做自我提升。”&lt;/li&gt;
+&lt;li&gt;“AI社区在过去几个星期内最值得读的几篇技术内容。”&lt;/li&gt;
+&lt;li&gt;“情商变高了就好像变笨了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6889da698e06fe8de77116a9?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/FnWHeAR0BLNLjZyWj7fMh-URGhlV.png" length="0" type="image/png"/>
+      <pubDate>Wed, 30 Jul 2025 08:42:36 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI工作负载部署：云端与本地权衡、数据治理与网络安全策略</title>
+      <link>http://podcast.emerj.com/building-storage-strategies-that-scale-with-ai-workloads-with-bryan-willett-of-lexmark</link>
+      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/building-storage-strategies-that-scale-with-ai-workloads-with-bryan-willett-of-lexmark"&gt;Building Storage Strategies That Scale with AI Workloads - with Bryan Willett of Lexmark&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次播客访谈了Lexmark首席信息安全官Brian Willett，探讨了AI伙伴关系和透明实践如何将网络安全从合规功能转变为战略性业务推动力。对话深入分析了在数据爆炸时代，部署AI工作负载时云端和本地部署的复杂性及权衡，尤其强调了数据敏感性、速度和成本之间的平衡。文章核心在于建立健全的数据治理框架，将伦理考量融入到AI解决方案的开发与部署中。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;隐私、安全与AI三方合作（Triad of Privacy, Security, and AI）&lt;/strong&gt;：指隐私办公室、安全组织和数据科学/AI组织之间必须紧密合作，共同进行AI解决方案的治理，缺一不可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;欧盟AI伦理框架（EU AI Ethics Framework）&lt;/strong&gt;：一个被认为是“黄金标准”的强大伦理审查框架，用于对AI解决方案进行初步的伦理审查，确保其负责任地开发和部署。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;云端与本地部署AI工作负载的决策权衡&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;决策主要取决于数据类型及其敏感性，以及业务对速度的需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云端优势&lt;/strong&gt;：速度快，适用于不那么敏感的数据；可获得最新的模型和近乎无限的计算资源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地部署优势&lt;/strong&gt;：适用于处理高度敏感数据（如国家级数据、企业核心机密），可实现更高质量的控制和可持续性，且资本投入固定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险与复杂性&lt;/strong&gt;：无论云端还是本地，都需要进行尽职调查来保护系统和数据。云端环境更复杂，管理员可能快速部署并意外将其暴露在互联网上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化部署&lt;/strong&gt;：自动化在部署过程中至关重要，有助于提高安全性并减少潜在事件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据爆炸时代的安全领导者应对&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;任何收集数据或创建AI解决方案的组织都必须建立良好的治理流程。&lt;/li&gt;
+&lt;li&gt;将隐私办公室、安全组织和数据科学/AI组织形成“三方合作”，共同审视所有业务提案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;伦理先行&lt;/strong&gt;：所有AI解决方案都应首先进行伦理审查（例如，采用欧盟AI伦理框架）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全审查&lt;/strong&gt;：随后进行安全审查，评估数据流向、保护措施（保密性、可用性、完整性）以及代理的访问权限。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;物联网（IoT）数据透明度&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;IoT供应商有责任对数据收集保持高度透明，说明收集何种数据、为何收集，并确保数据适合所提供的服务。不应将超敏感数据拉入这些系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生物识别数据&lt;/strong&gt;：理想情况下，此类数据应存储在设备的加密安全区内，不离开设备，赋予个人数据共享的控制权。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;混合模型策略&lt;/strong&gt;：可以将敏感数据存储在本地（本地部署），同时利用云服务进行模型运行或分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险容忍度决定部署方式&lt;/strong&gt;：选择本地部署还是云端部署，最终取决于组织对风险的承受能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“成为自己的客户”心态&lt;/strong&gt;：高管（尤其是数据科学领域之外的）在利益相关者对话中，应抱持构建自己也愿意使用的产品的理念。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;针对AI解决方案的组织&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;建立并实施强大的数据治理流程。&lt;/li&gt;
+&lt;li&gt;成立由隐私办公室、安全组织和数据科学/AI组织组成的“三方合作”团队，共同审查AI提案。&lt;/li&gt;
+&lt;li&gt;对所有AI解决方案进行伦理审查（推荐使用欧盟AI伦理框架）。&lt;/li&gt;
+&lt;li&gt;进行全面的安全审查，确保数据得到适当保护，并控制好数据访问权限。&lt;/li&gt;
+&lt;li&gt;提高部署流程的自动化水平，以增强安全性并减少事件发生。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;针对物联网（IoT）供应商&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在数据收集方面保持高度透明，明确告知用户收集哪些数据及其目的。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;针对安全团队&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;将安全意识和培训内容打包成更短、更易于吸收的格式，帮助开发人员及时了解不断演变的威胁。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“你可以快速行动，或者在某种程度上保护你的数据。我的意思是，这并非百分之百准确，但某种程度上是这样。”&lt;/li&gt;
+&lt;li&gt;“云计算的问题在于它更复杂，对吧？系统，管理员能够快速启动一些东西并意外地将其暴露在互联网上，对吧？这些事情确实发生。”&lt;/li&gt;
+&lt;li&gt;“我认为模型应该是，数据存储在设备上的安全区域中，并且永远不会离开该设备。”&lt;/li&gt;
+&lt;li&gt;“许多组织将其视为隐私和安全之间的关系，而忽略了AI团队。我认为这是一个错误，他们必须在场，对吧？你需要他们协同工作。”&lt;/li&gt;
+&lt;li&gt;“注意力是新的战场。随着攻击者行动更快并配备AI，安全团队需要将安全意识和培训打包成更短、更容易吸收的形式，以使开发人员与不断变化的威胁保持一致。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://podcast.emerj.com/building-storage-strategies-that-scale-with-ai-workloads-with-bryan-willett-of-lexmark</guid>
+      <enclosure url="https://static.libsyn.com/p/assets/b/6/f/1/b6f1dafe18f6fcd716c3140a3186d450/Bryan-Willett-AI-in-Business-Podcast-ep-2.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 06:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>中美AI战略博弈：合作与竞争的界限探讨</title>
+      <link>https://www.youtube.com/watch?v=Xj9C1wlSprw</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=Xj9C1wlSprw"&gt;Is Global AI Cooperation Even Possible?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章讨论了美国和中国各自发布的AI行动计划，揭示了两国在AI发展和治理理念上的差异与潜在冲突。文中探讨了美国AI战略中“美国优先”与国际合作之间的内在张力，以及中国在“合作”外衣下可能追求的全球AI主导权。同时，文章也深入分析了美国内部关于对华AI芯片出口管制的争议，并指出中美AI竞争格局正变得更加复杂和流动，甚至出现了倡导两国合作构建“联合AI实验室”的新声音。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开放模型/开源AI作为外交工具&lt;/strong&gt;：美国白宫的AI行动计划将开源和开放权重AI模型视为一种外交工具，认为它们可能成为全球商业和学术研究标准，具有地缘战略价值，可支持美国价值观的推广。这与之前对开源模型可能让中国追赶的担忧形成对比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数字一带一路倡议&lt;/strong&gt;：作者认为中国AI计划中“合作”的表述实则带有“数字一带一路”的意味，即通过广泛而廉价地提供中国AI技术给发展中国家，以自身为中心建立多边联盟，实现全球AI基础设施的主导。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;联合AI实验室&lt;/strong&gt;：由法学教授Peter Salib等人提出的新颖概念，旨在结合中美最优秀的AI人才和投资，形成一个合作模式，他们认为这比AI军备竞赛或不扩散更能安全、快速地推动AI发展。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;美国AI行动计划展现出意外的国际合作倾向&lt;/strong&gt;：尽管与“美国优先”的外交政策相悖，白宫的AI行动计划却呼吁建立持久的全球技术联盟，并在联合国、OECD等国际组织中倡导反映美国价值观的标准和治理方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;美国将开源AI视为地缘战略工具，但中国在此领域已领先&lt;/strong&gt;：白宫公开表示应为开源模型创造支持环境，视其为外交工具，但目前中国在开放模型领域已处于领先地位。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中国AI计划表面强调“合作”，实则可能旨在确立自身主导地位&lt;/strong&gt;：中国提出的建立“世界AI合作组织”及多次强调“合作”，可能意在以中国技术为中心，在全球范围内构建其AI影响力，被比作“数字一带一路倡议”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;美国政府内部对AI芯片出口控制存在严重分歧&lt;/strong&gt;：尽管英伟达H20芯片的出口管制被取消，但20位国家安全专家和前政府官员联名上书，称此举是战略失误，将损害美国在AI领域的优势，认为H20并非过时芯片，而是高效的推理加速器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中美AI竞争格局趋于流动，出现合作呼声&lt;/strong&gt;：传统认为的零和博弈AI军备竞赛观点正受到挑战，有学者提出建立中美“联合AI实验室”，认为合作能更安全、更快地推动AI发展，这表明在华盛顿内部也存在支持合作的声音。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;p&gt;文章主要在于分析和报道政策辩论，而非提供直接的行动建议。作者鼓励读者关注中美AI地缘政治冲突对未来AI生态的影响。&lt;/p&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"Is AI the exception to America first?"&lt;/li&gt;
+&lt;li&gt;"Put another way, the White House is here declaring that open-source AI models are a tool of diplomacy."&lt;/li&gt;
+&lt;li&gt;"If we engage in technological monopoly, controls, and restrictions, AI will become an exclusive game for a small number of countries and enterprises."&lt;/li&gt;
+&lt;li&gt;"This is not a question of trade. It's a question of national security."&lt;/li&gt;
+&lt;li&gt;"Unlike the West, where universities are still agonizing over how students use AI in their work, top universities in China are going allin."&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Xj9C1wlSprw</guid>
+      <enclosure url="https://i.ytimg.com/vi/Xj9C1wlSprw/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 00:00:36 +0800</pubDate>
+    </item>
     <item>
       <title>五年后中国首富预测：雷军与陈天石AI赛道角逐及投资启示</title>
       <link>https://www.bilibili.com/video/BV1vF8ozyEjY</link>
@@ -68,6 +306,82 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1vF8ozyEjY</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/4dd5f050f61809786ed55b47a5c94d1e872ff678.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 29 Jul 2025 22:42:08 +0800</pubDate>
+    </item>
+    <item>
+      <title>GLM4.5模型使用体验与本地部署、代码生成能力实测</title>
+      <link>https://www.bilibili.com/video/BV1sH8oz8Ejs</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1sH8oz8Ejs"&gt;实测智谱 GLM-4.5，本地部署 GLM-4.5-Air 及构建 AI 应用&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文详细介绍了作者使用智谱AI GLM4.5模型的亲身体验，涵盖了其在本地部署（尤其GLM4.5 AI模型）、运行速度、代码生成能力（特别是前端UI）、文档创建等方面的表现，并与其他AI模型如Claude、千问进行了对比评测，指出了其优点与待改进之处。&lt;/p&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GLM4.5被智谱官方宣称在多个指标上“全球第三，国产第一”。
+&lt;ul&gt;
+&lt;li&gt;智谱官方在EGENTA、推理、编程等方面均认为模型表现优异。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5 AI模型在本地运行速度可观，4比特模型在Mac上可达40K token/秒。
+&lt;ul&gt;
+&lt;li&gt;实际在本地aarm studio运行4比特AI模型，速度可达40K token/秒，且对Mac电脑推荐使用MLX格式以优化性能。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5的API调用存在并发数限制，尤其对未累计消费用户限制较多，且基础模型速度相对较慢，带“X”后缀的模型速度更快。
+&lt;ul&gt;
+&lt;li&gt;作者提到如需更快速度需“加钱”，并与Claude Sonnet 4（60-70 token/秒）的速度进行了对比。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5在PPT制作和前端页面生成方面具备一定能力，但代码生成与修复表现不稳定。
+&lt;ul&gt;
+&lt;li&gt;成功生成了PPT和多种前端页面（如财务仪表盘、理发店落地页），但部分案例功能简单、元素缺失、修复不彻底，且在调用Claude Code时常出现长时间等待、不工作的情况。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5 L模型上下文窗口相对较小（128K），且不支持图片输入，存在遗憾。
+&lt;ul&gt;
+&lt;li&gt;明确指出上下文为128K且不支持图片输入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5在生成JSON格式文件时可能提示无法生成，但实际是可行的，并可生成SKellyJoe格式代码。
+&lt;ul&gt;
+&lt;li&gt;作者尝试生成JSON格式，模型提示无法，但实际JSON可行，最终模型生成了约2000多行SKellyJoe格式代码。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5 AI模型本地部署对内存要求较高，4比特模型约需60G内存。
+&lt;ul&gt;
+&lt;li&gt;4比特模型下载约60GB，运行中RAM占用约56G，建议64G内存电脑使用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;千问30BA3B模型在本地运行速度和翻译质量方面，表现优于GLM4.5和Gemini 2.5 Flash。
+&lt;ul&gt;
+&lt;li&gt;千问30BA3B巴比特模型输出速度约80 token/秒，翻译质量优于Gemini 2.5 Flash。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GLM4.5在创建面向新手开发的详细技术文档方面表现出色。
+&lt;ul&gt;
+&lt;li&gt;为项目生成了包含版本、技术栈、架构图等3000多行详细技术文档。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GLM4.5 AI模型本地部署建议：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;确认电脑内存：4比特模型下载和运行均需约60GB内存，64GB内存电脑可考虑GLM4.5 Air的2比特或3比特版本。&lt;/li&gt;
+&lt;li&gt;Mac用户安装：优先选择MLX格式，该格式对Mac电脑有更好的优化，可提供更快的运行速度。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用Client调用GLM4.5进行代码生成：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;在终端运行命令时需保持关注并及时确认，避免因等待过久而中断。&lt;/li&gt;
+&lt;li&gt;调用GLM4.5的速度可能较慢，需要有足够的耐心等待。&lt;/li&gt;
+&lt;li&gt;若模型流式传输的内容不可读，或修复不彻底（如思考过程未隐藏、Markdown格式未完全渲染），需进一步调整提示词进行修正。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI模型选择建议：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;如果对模型速度不敏感，且对token价格比较在意，GLM4.5适合处理文档生成等任务。&lt;/li&gt;
+&lt;li&gt;根据自身实际应用场景（如对速度、上下文长度、前端生成能力等具体需求）来选择和体验不同的AI模型，以找到最适合的模型。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1sH8oz8Ejs</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/3b8f90b47d2b90b67e23c4ab7e4f5cd136697de2.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 29 Jul 2025 20:51:42 +0800</pubDate>
     </item>
     <item>
       <title>AI Excel神器Shortcut：数小时财务建模缩短至10分钟，如何革新电子表格工作？</title>
@@ -8035,323 +8349,6 @@ Devon中的一项功能，能够自动分析GitHub代码库并生成详细的项
       <guid isPermaLink="true">http://podcast.emerj.com/turning-healthcare-innovation-into-real-patient-impact-with-brad-kennedy-of-orlando-health</guid>
       <enclosure url="https://static.libsyn.com/p/assets/f/9/f/e/f9feddb17b3a09acd959afa2a1bf1c87/Brad-Kennedy-AI-in-Business-Podcast-ep-2.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 14 Jul 2025 09:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>月之暗面、谷歌与微软AI最新突破：万亿参数模型、记忆系统与超高速微型模型重塑AI代理</title>
-      <link>https://www.bilibili.com/video/BV1DQuPziESb</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546910979787265"&gt;思维燃料库&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1DQuPziESb"&gt;迄今最危险的开源AI！Kimi K2横扫行业所有基准测试：迄今最危险的开源AI&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-月之暗面推出了一万亿参数的Kimi K2超强AI代理，旨在实际完成任务；谷歌悄然发布了一套记忆系统，解决了AI长期记忆缺失的问题；与此同时，微软推出了小巧但极速的微型模型，能在不占用大量GPU的情况下处理深度推理。这些进展共同推动了AI代理的行动能力、记忆能力和高效推理能力。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;混合专家（Mixture of Experts - MoE）&lt;/strong&gt;：Kimi K2采用此巧妙技巧，使其虽拥有万亿参数，但每个生成的token仅使用2亿参数，从而在不增加高昂成本的情况下获得全部性能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Muon Clip定制优化器&lt;/strong&gt;：Kimi K2为保持大规模稳定性而使用的工具，能够实时调整训练中的注意力分数计算，防止大型模型训练中常见的不稳定问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Samba架构&lt;/strong&gt;：微软微型闪存推理模型所采用的新方法，融合了状态空间模型和常规解码器模块，部分层使用微型门控单元而非注意力机制，以提升记忆和运行速度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持久化代理（Persistent Agents）&lt;/strong&gt;：指具备长期记忆能力的AI代理，能够跨会话保留关键信息，使其从研究玩具转变为生产就绪的功能。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI正从“聊天机器人”转向“行动核心的智能体”&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Kimi K2被设计来“做事”，而非仅仅“聊天”或“解释”，它通过模拟对话训练来解决真实问题、选择并组合工具、编写和修复代码、分析数据并自主完成复杂任务，无需用户持续指导。&lt;/li&gt;
-&lt;li&gt;月球实验室内部演示显示，Kimi K2在一个会话中使用了17种不同工具独立完成任务，无需人类帮助。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;巨型AI模型也能实现成本效益&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Kimi K2虽有万亿参数，但得益于“混合专家”技巧，每个token仅使用2亿参数，降低了实际运行成本。&lt;/li&gt;
-&lt;li&gt;Kimi K2的输入成本仅为每百万标记0.6美元，输出2.5美元，远低于Claude或Gemini（输入每百万标记3美元以上，输出最高15美元）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小型AI模型也能进行深度推理并高效处理长文本&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;微软推出的微型闪存推理模型（仅3.8亿/8亿参数）采用Samba架构，在MATH500测试中得分92.4%，超越旧模型5%；在AME24测试中解决超过半数问题，领先旧版模型。&lt;/li&gt;
-&lt;li&gt;该模型处理32000个token时速度快十倍，且能处理64000个token，大幅减少GPU时间。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;谷歌Vertex AI记忆库解决了AI的“健忘症”，使代理具备长期记忆能力&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;该服务在后台静默识别并提取对话中的事实信息，并将其归档；当用户数日后返回时，代理通过轻量查询获取当前回合相关的记忆，无需翻查完整历史记录。&lt;/li&gt;
-&lt;li&gt;案例：医疗机器人能记住上月标记的豆类过敏，永不推荐豆类补充剂；美容顾问可追踪肤质随季节变化并实时调整产品推荐。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;顶尖AI的诞生不再局限于硅谷&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Kimi K2是开源的，允许全球研究团队、初创企业和开发者调整甚至在本地设备运行。&lt;/li&gt;
-&lt;li&gt;DeepSeek等实验室也朝同一方向推进，证明顶尖AI可以在中国、欧洲等地区诞生。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;下载“AI收入蓝图”&lt;/strong&gt;：了解七种普通人如何利用AI建立副业收入的方法，无需技术技能，且可轻松自动化所有流程。可从描述中的链接免费下载。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对于开发者和企业&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;考虑使用Kimi K2进行本地部署，以节省云服务费用，避免平台锁定。&lt;/li&gt;
-&lt;li&gt;利用谷歌Vertex AI记忆库的代理开发套件，通过简单的配置标志即可在代理引擎会话中启用记忆功能，处理短期对话存储与长期记忆调用。&lt;/li&gt;
-&lt;li&gt;可从谷歌Vertex AI记忆库的快速模式（Gmail账户注册，免费配额内）开始，之后再迁移至完整的云项目。&lt;/li&gt;
-&lt;li&gt;下载并使用微软在Hugging Face开放权重的微型模型，进行实验、构建私有聊天机器人，或在小型设备上运行记忆型代理。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“从被动聊天机器人转向以行动为核心的智能体是重大进步，不再争论哪个模型响应更流畅，我们现在讨论的是哪个能真正构建、自行测试、部署可运行的产品。”&lt;/li&gt;
-&lt;li&gt;“K2证明AI能思考并行动，但资深开发者深知行动无意义，如果智能体忘记五分钟前发生的事。”&lt;/li&gt;
-&lt;li&gt;“K2与记忆库框架，强强联合，开源低成本模型专注行动能力与商业服务提供稳定长期记忆。”&lt;/li&gt;
-&lt;li&gt;“这种理念的转变：传统AI模型就像非常聪明的助手，它们能解释任何事物，但不会真正执行任务。Kimi K Two被设计成更像已掌握工具的初级开发者，只需完成工作。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DQuPziESb</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/5518b53544e17fd7a27d8f7aa2fb7611d2d7a63e.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 13 Jul 2025 23:13:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘AI新热词：上下文工程如何超越提示词工程</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/686b33ff93fd2d72b8df0cf8?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/aqe9qbjdhrvc"&gt;科技慢半拍&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/686b33ff93fd2d72b8df0cf8?utm_source=rss"&gt;#95 人工智能行业又来造次（词）｜从“提示词工程”到“上下文工程”&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-本文探讨了人工智能领域新兴的“上下文工程”概念，并将其与“提示词工程”进行对比，指出上下文工程是更高级、更全面的AI交互方式。文章追溯了该概念的提出与传播，并详细阐述了其定义、重要性以及在处理大型语言模型和智能体应用中的具体方法。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;上下文工程 (Context Engineering)&lt;/strong&gt;: 一门设计和构建动态系统的工程学科，旨在以正确的时间、正确的格式为大型语言模型（LLM）的处理过程提供有效的信息和内容，使其更好地完成任务。它被视为提示词工程的升级版，更注重系统性地管理AI所需的全部语境信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示词工程 (Prompt Engineering)&lt;/strong&gt;: 指通过指令或问答的方式，让AI模型产生符合预期的输出结果。它虽然是AI交互的基础，但被认为只是上下文工程的一个子集，主要关注单次或简单任务的指令优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文退化综合症 (Context Degradation Syndrome)&lt;/strong&gt;: 由谷歌团队描述的一种现象，指当大模型的上下文窗口过大或内容不准确、不相关时，会限制模型回忆事实或遵循指令的能力，导致性能下降。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;上下文工程是提示词工程的升级与超集&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Spotify CEO托比亚斯·鲤特克：喜欢上下文工程，因为它更好地描述了大模型核心技术能力——提供合理解决任务的背景。&lt;/li&gt;
-&lt;li&gt;Cognition公司（Devin开发者）的观点：上下文工程更像是提示词工程的升级版，涉及在动态系统中完成复杂任务的细微处理。&lt;/li&gt;
-&lt;li&gt;Longchain的定义：上下文工程是构建动态系统，以正确格式提供正确信息和工具，使大模型胜任任务。&lt;/li&gt;
-&lt;li&gt;Android Capacity：上下文工程优于提示词工程，在企业级AI应用中，它是精妙的科学与艺术，需填入合适信息（解释、事例、外部信息、工具、状态、历史、压缩等）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI系统出错，更多原因不在大模型本身，而在缺乏准确上下文&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Longchain的分析：AI系统表现不佳，主要原因并非底层模型本身，而是缺乏准确上下文导致模型无法良好决策。&lt;/li&gt;
-&lt;li&gt;如果提供给大模型的上下文信息太少、不相关或格式不佳，都会导致其无法理解正确意图或产生好的结果。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在复杂的多智能体协作中，共享上下文至关重要，而非独立处理&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;Cognition公司的“上下文共享”原则：在多Agent协作中，应分享整个处理过程，而非每个Agent只处理单个消息。推荐串行处理，让后续Agent可获取前一个Agent的上下文结果，以避免任务分解后合并时的错误。&lt;/li&gt;
-&lt;li&gt;案例：抖音短视频截取对话片段可能造成误解，因其缺少原讲话的语境，类似并行Agent独立处理可能导致最终任务整合失败。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;处理上下文过长的问题（压缩、持久化、隔离）&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;压缩 (Compressing Context)&lt;/strong&gt;：只存储重要内容或摘要，采用递归或分层摘要方式汇总处理过程，如Cloud Code的自动压缩技术。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持久化 (Persisting Context)&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;存储上下文 (Storing Context)&lt;/strong&gt;：将上下文固化存储为文件或通过规则文件、插件存储。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保存上下文 (Saving Context)&lt;/strong&gt;：每次交互后更新智能体记忆，基于用户反馈更新旧上下文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;检索上下文 (Retrieving Context)&lt;/strong&gt;：根据相似度、重要性等查询已存储的上下文，减少直接传输（如RAG）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;隔离 (Isolating Context)&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;使用上下文Schema&lt;/strong&gt;：通过模板（如MessageSection）以良好格式保存反馈结果和所需信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多智能体 (Multi-Agent)&lt;/strong&gt;：将任务分拆给不同智能体处理，分离关注点，最后进行合并（需解决协调问题）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;环境隔离 (Concept Isolation with Environment)&lt;/strong&gt;：利用沙箱等环境预执行部分任务（如代码执行），减少上下文传递。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进行上下文工程的实用总结&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;跟踪大模型的Token消耗&lt;/strong&gt;：了解Token的使用情况，优化消耗方式。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;考虑智能体处理状态&lt;/strong&gt;：理清智能体在处理过程中需要收集、保存和传递的信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;处理和压缩工具边界&lt;/strong&gt;：对能独立完成的工作进行压缩或提前处理，减少上下文携带。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从简单处理开始&lt;/strong&gt;：先使用基于文件或RAG等简单方式，再逐步拓展到复杂智能体处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;考虑使用多智能体并行处理&lt;/strong&gt;：在任务划分明确的情况下，可减少上下文处理内容和边界。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“如果你给的是垃圾，那输出也是垃圾。”&lt;/li&gt;
-&lt;li&gt;“沟通中最大的问题大家就是误以为沟通已经发生了。”&lt;/li&gt;
-&lt;li&gt;“工程更像是艺术和科学的这样的一个结合。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/686b33ff93fd2d72b8df0cf8?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/FnYL3-3yHjGI6tA1DDN5NgNUSPm9.png" length="0" type="image/png"/>
-      <pubDate>Sun, 13 Jul 2025 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Sandwich Lab创始人郭振宇：从机器人到AI广告代理，如何用全自动Agent赋能全球中小企业</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/68736b6d60f8f77d403e53df?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/68fyjknth9hj"&gt;十字路口Crossing&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/68736b6d60f8f77d403e53df?utm_source=rss"&gt;“我们首先要贵！” ——定价200美金/月才能验证刚需｜对谈郭振宇：Lexi(广告投放 Agent)创始人/CEO&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;Sandwich Lab创始人郭振宇在本期节目中分享了其公司及其核心产品Lexy——一款专为全球中小企业（SMB）设计的AI广告投放代理，帮助他们在Meta平台上自动化投放广告，实现营收增长。他深入探讨了公司选择服务中小企业而非大型客户、构建全自动AI广告代理的独特策略，以及未来拓展产品线的深层考量，并分享了其作为连续创业者对商业、技术与个人成长的独特哲学思考。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI Agent Shadowing Mode（AI代理潜伏模式）&lt;/strong&gt;：AI代理在后台默默工作，不干扰用户，自动完成任务。Lexy即采用此模式，用户无需查看或修改广告素材，只需关注最终效果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Revenue Generating Machine（营收生成机器）&lt;/strong&gt;：公司所有产品的本质目标，即通过技术手段直接为企业带来营收增长，而非仅仅提供工具或素材。用户无需关心过程，只需看结果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非联合博弈（Non-cooperative Game）&lt;/strong&gt;：在产品技术选择上的核心考量。指玩家（如广告主）彼此独立决策，不需考虑对手行为的博弈。这使得系统可以无限试错，每次失败的广告投放不会造成不可逆的风险，从而允许系统有充分的余量进行探索和迭代，最终实现全局的帕累托最优增长。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;专注于服务全球中小企业（SMB）是巨大的蓝海市场&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识点&lt;/strong&gt;：大多数AI营销公司关注服务已有广告经验的营销人员或大型企业，但Lexy瞄准的是从未在Meta平台投放过广告、缺乏经验的全球5000万+中小企业。这部分群体对广告有强烈需求但缺乏技术和资金支持，传统代理服务昂贵且难以触达。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑/案例&lt;/strong&gt;：观察发现，中国以外的全球本地企业（local business）在数字化运营、尤其是社媒广告方面存在巨大空白，缺乏像中国美团点评生态中那样普遍的精细化运营能力和数百万营销服务商。Lexy旨在降低先进技术的使用门槛，将AI带来的生产力提升分配给更需要的人。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;AI广告代理必须是全自动、持续迭代而非一次性交付&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识点&lt;/strong&gt;：与多数仅交付广告创意和分析结果的AI应用不同，Lexy提供的是从广告制作到动态调整的全链路自动化服务。广告效果并非一次性预测问题，素材和策略需每2-3天甚至每天动态调整。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：如果只交付广告素材，不懂广告的SMB用户也无法有效利用。持续经营而非一次性交付是商业本质，用户更在乎经营性结果（ROI）而非单次广告素材或文案。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;选择Meta平台而非Google或TikTok作为AI广告切入点有深层逻辑&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Google&lt;/strong&gt;：搜索引擎平台精准了解用户主动需求，AI提效空间在于其中心化分配机制而非用户理解。AI系统在中间层价值不大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TikTok&lt;/strong&gt;：推荐流平台天生就懂用户，AI提效关键在于素材创意和快速测试，而非结构化的交易策略，而创意生成并非AI短期最擅长。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Meta&lt;/strong&gt;：作为社交网络，Meta在隐私政策更新后对用户需求的理解不如前两者深刻，将“如何理解潜在用户”的关键问题转嫁给了广告主。这为AI提供了一个黑盒系统，AI可以通过持续博弈和交易，帮助广告主找到并触达目标用户，实现价值最大化。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;产品设计上不向用户展示或允许修改广告素材&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识点&lt;/strong&gt;：多数AI agent为建立信任会展示其工作过程和交付物，但Lexy刻意不让用户修改广告素材，甚至将查看素材的入口深埋。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：用户的核心诉求是经营结果（如ROI），而非单次广告素材好坏。广告素材生命周期短，频繁确认会增加用户负担。当产品解决的是无替代方案的刚需时，形式上的信任感其次，效果交付是核心。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;高定价（199美金/月）且无免费试用期是PMF的快速验证方式&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：产品刚上线时即便不完美，如果用户仍愿意支付高价，则说明产品确实解决了市场中的“刚需”，验证了市场（M）的存在。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;拓展产品线至Email Marketing而非其他广告平台&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识点&lt;/strong&gt;：通常会认为公司会优先在广告领域横向拓展到Google或TikTok广告。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：源于自身需求：Lexy解决获客，但公司还需要激活和运营现有用户，发现现有Email Marketing工具无法满足自动提升转化率的深层需求。该领域存在被长期忽视的刚需，且公司核心算法和后端（客观反馈、持续迭代）可高度复用。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;采取多产品线、多领域并进的策略&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识点&lt;/strong&gt;：多数创业公司强调专注，但Sandwich Lab计划在营销、财税法（增长洞察）、供应链、人力资源（招聘）等多个领域推出AI Agent产品。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：公司自身最大的优势在于创造面向同一批全球SMB用户的“新产品”的边际成本极低。所有产品的获客渠道、运营客服、核心算法（持续迭代非一次性交付）、后端和前端组件均可高度复用，研发和运营成本显著低于独立公司。同时，在快速增长的新兴领域，将功能独立拆分更利于进行Data-Driven的快速增长和迭代。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;创业是理解世界因果性的过程，由多巴胺驱动&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;观点&lt;/strong&gt;：创业是对世界进行“实验”的过程，不断提出假设，通过行动验证因果性判断，从而获得对世界的更深理解。这不是追求成功或升职加薪等“虚假反馈”，而是追求创造新事物的“多巴胺密度和浓度”，是一种极具满足感的主线活动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支撑逻辑&lt;/strong&gt;：亲历过团队糟糕透顶但项目仍能成功推出的经历，增强了对“只要找到刚需就能成功”的信念。面对挑战时心态放松，从巴勒斯坦客户的奋斗中看到希望，增强了对全球各地人民生命力的信心。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“相关性让你预测未来，因果性让你改变未来。”&lt;/li&gt;
-&lt;li&gt;“产品不那么好用它还买，这是说明真的找到了至少这个这个M找到了对吧Fit不好说但是M是早准的。”&lt;/li&gt;
-&lt;li&gt;“你做的是对的你会持续的是不被理解不被看见的，不然你就做错了。”&lt;/li&gt;
-&lt;li&gt;“创业比打游戏可爽多了，就是比你运动还来的爽。”&lt;/li&gt;
-&lt;li&gt;“康德这一辈子是没有出过他那个阵的很少对吧他就在那个阵上每天饭后散步做点事回家写书但是康德你不得不说是事实上对全宇宙最最理解的人类那一个吧甚至都不是之一。”&lt;/li&gt;
-&lt;li&gt;“人的本质需求其实是被理解和被看见。”&lt;/li&gt;
-&lt;li&gt;“如果你做的是对的，你会持续的是不被理解不被看见的，不然你就做错了。”&lt;/li&gt;
-&lt;li&gt;“我觉得世界比我们想象的美好的多的多。”&lt;/li&gt;
-&lt;li&gt;“我觉得我们也没有什么好焦虑的对不对我这个生意比他这个生意还是轻松安全很多而且增长很快然后他干的劲劲的特别开心这个店主干的非常开心在他眼睛里就是我要把生意做好要服务好大家我觉得还是很乐观的一个状态。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/68736b6d60f8f77d403e53df?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/Fr-8PqVpI78h8oWepREZjSETZ0_q.png" length="0" type="image/png"/>
-      <pubDate>Sun, 13 Jul 2025 16:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI对保险代理人的冲击与人类核心竞争力的探讨</title>
-      <link>https://hosting.wavpub.cn/dao-sub/2025/07/13/%e4%bf%9d%e9%99%a9%e4%bb%a3%e7%90%86%e4%ba%ba%e4%bc%9a%e8%a2%ab-ai-agent-%e5%8f%96%e4%bb%a3%e5%90%97%ef%bc%9f-feat-%e4%b8%8d%e5%a4%aa%e4%bf%9d%e9%99%a9/</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.daopub.com/ld.xml"&gt;科技乱炖&lt;/a&gt; | &lt;a href="https://hosting.wavpub.cn/dao-sub/2025/07/13/%e4%bf%9d%e9%99%a9%e4%bb%a3%e7%90%86%e4%ba%ba%e4%bc%9a%e8%a2%ab-ai-agent-%e5%8f%96%e4%bb%a3%e5%90%97%ef%bc%9f-feat-%e4%b8%8d%e5%a4%aa%e4%bf%9d%e9%99%a9/"&gt;保险代理人会被 AI agent 取代吗？| feat. 不太保险&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-本期播客讨论了AI对包括保险代理人、程序员、客服等多种职业的影响与取代问题。嘉宾们深入探讨了AI在数据处理、效率提升方面的优势，以及人类在情感连接、共情、信任建立和复杂决策方面的不可替代性，最终强调了人类在AI时代的核心竞争力。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多模态接口&lt;/strong&gt;: 指人类在沟通中不仅能提供内容，还能提供感官、动作、触摸等多种信息，这是目前AI的短板。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情绪价值&lt;/strong&gt;: 强调了人类在服务、沟通中提供的非理性、情感层面的支持和连接，如在政府网站客服或投诉处理中，人类能提供AI无法替代的共情和情绪安抚。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;商增与商减&lt;/strong&gt;: 引用了郭帆导演的“没有人的文明，他不叫文明”的观点，指出人类文明倾向于熵增（复杂、发散），而AI倾向于熵减（简化、收敛），这种差异正是人类价值所在。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI将首先取代系统性、结构化和有SOP的初级岗位&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：政府办事流程中的初级行政岗、在线客服（解答性问题）、财务审单、高速公路收费员、初级前端实习生及外包程序员等。&lt;/li&gt;
-&lt;li&gt;逻辑：AI善于处理重复性、规范化的事务，能够高效执行预设步骤。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类在情感、信任和决策层面具有不可替代性&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：保险代理人与客户建立的长期信任关系、在面对客户焦虑养老等生活议题时提供的共情、以及在复杂决策中承担责任和提供人文关怀。&lt;/li&gt;
-&lt;li&gt;逻辑：AI缺乏生活经历、情绪、道德负担和共情能力，无法处理非理性的人性需求，也无法真正为决策“背锅”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;决策能力和清晰表达问题是人类的核心优势&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：很多客户知道自己需要保险但不知道如何提问或选择；人们即使有AI提供的方案，也常会找专业人士确认或承担责任。&lt;/li&gt;
-&lt;li&gt;逻辑：AI能提供海量信息，但用户往往缺乏筛选、理解和做出最终决策的能力，需要人类的引导和信任背书。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;专业人士应将AI视为工具，并聚焦于细分领域的人性化服务&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：保险经纪人未来应减少产品对比等可被AI替代的工作，转而聚焦于深入理解客户需求并提供定制化、有人情味的方案。工程师可转向传统行业或细分领域。&lt;/li&gt;
-&lt;li&gt;逻辑：AI能极大提升效率，但无法取代人际关系的建立和深层次的需求挖掘。在缺乏AI竞争的细分行业，人类专业能力有更大价值。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;金钱的追求应回归理性，避免盲目内卷&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;逻辑：过度的财富追求可能牺牲生活质量，且在一些高回报行业中，成功的几率极低，多数人只是“分母”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;积极拥抱AI工具&lt;/strong&gt;: 学习并使用AI来提升工作效率，例如用于代码编写、资料查询、内容生成和初步分析。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强化人文素养与情感能力&lt;/strong&gt;: 专注于培养与人沟通、共情、建立信任、理解非理性需求的能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;重新审视职业发展方向&lt;/strong&gt;: 对于工程师等技术人才，考虑将专业技能应用于传统或细分行业，寻找新的增长点和价值空间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;合理规划财务目标&lt;/strong&gt;: 思考个人对金钱的真实需求，避免过度内卷，将部分精力投入到个人成长、家庭陪伴等非物质领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尊重时间价值&lt;/strong&gt;: 意识到自己和他人时间的重要性，这有助于提升人际交往和工作效率。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“没有人的文明，他不叫文明。”&lt;/li&gt;
-&lt;li&gt;“AI的发展是求同，人的发展是存异。”&lt;/li&gt;
-&lt;li&gt;“你可能不是跑的最慢的那个，但怕的是有人跑到你前面。”&lt;/li&gt;
-&lt;li&gt;“你的岗位呢可能不会被消失，但你大概会被那个更好用AI的那个人干掉。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://hosting.wavpub.cn/dao-sub/2025/07/13/%e4%bf%9d%e9%99%a9%e4%bb%a3%e7%90%86%e4%ba%ba%e4%bc%9a%e8%a2%ab-ai-agent-%e5%8f%96%e4%bb%a3%e5%90%97%ef%bc%9f-feat-%e4%b8%8d%e5%a4%aa%e4%bf%9d%e9%99%a9/</guid>
-      <enclosure url="https://media.wavpub.com/80/31/08/20250703235226-dJKSTFuLnSaDNGdE.png" length="0" type="image/png"/>
-      <pubDate>Sun, 13 Jul 2025 15:30:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
