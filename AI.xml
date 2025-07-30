@@ -7,7 +7,456 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 30 Jul 2025 09:54:49 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Jul 2025 22:13:10 +0000</lastBuildDate>
+    <item>
+      <title>千问3.5B本地部署与性能评测：Mac用户推荐</title>
+      <link>https://www.bilibili.com/video/BV1He8BzzEiJ</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1He8BzzEiJ"&gt;性能接近 GPT-4o！Qwen3-30B-A3B-Instruct-2507 本地部署与实测&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章介绍了千问最新更新后的3.5B模型在本地的部署方法，并分享了作者深度使用的体验和性能评估。该模型在推理、编码和数学能力上均有显著增强，即使没有显式的“思考过程”，其表现也十分接近GPT-4o。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Qwen 3.5B: 阿里云最新推出的轻量级大语言模型，其核心特点是性能接近顶级模型（如GPT-4o），但模型参数量小，易于本地部署，且支持多语言和长上下文。&lt;/li&gt;
+&lt;li&gt;Thinking Process (与无Thinking Process): 指模型在推理过程中是否显式地生成中间思考步骤。Qwen 3.5B即使是“无thinking”版本，也被认为具有强大的推理能力。&lt;/li&gt;
+&lt;li&gt;LM Studio: 一款桌面应用，用于方便地下载、配置和运行本地大型语言模型，是本地部署LLM的常用工具。&lt;/li&gt;
+&lt;li&gt;Chatwise: 作者用于与本地模型交互的平台之一，其“ARTIFACE”功能可以辅助模型生成交互式仪表盘或前端页面。&lt;/li&gt;
+&lt;li&gt;Open Web UI: 另一个开源的Web界面，用于与本地或远程大模型进行交互，提供了丰富的交互功能和客户端版本。&lt;/li&gt;
+&lt;li&gt;MLX/GGUF: 模型的量化格式。MLX是专为Apple Silicon Mac优化，而GGUF是通用的模型格式，常用于Windows等平台。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;小模型性能逼近大模型旗舰:
+&lt;ul&gt;
+&lt;li&gt;Qwen 3.5B虽然激活参数非常小，但性能非常接近于GPT-4o，在多个指标上（如MMLU Pro、数学、ZeroLogic）与DeepSeek V3和GPT-4o接近甚至超越。&lt;/li&gt;
+&lt;li&gt;尤其在ZeroLogic方面，其能力最强。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;无Thinking过程仍具备强推理能力:
+&lt;ul&gt;
+&lt;li&gt;尽管模型没有显式的“thinking过程”，但其回答流程逻辑性强、非常有条理，像GPT-4o一样能进行问题诊断并给出完整解决方案。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;多语言与长上下文支持:
+&lt;ul&gt;
+&lt;li&gt;具有更广泛的多语言知识，最高支持256K的上下文长度，非常实用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;本地部署速度极快:
+&lt;ul&gt;
+&lt;li&gt;在M4 Max 128G内存的Mac电脑上，使用速度可达80 token/秒，比使用Sonnet 4还要快。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;本地部署Qwen 3.5B模型&lt;/strong&gt;:
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;下载模型&lt;/strong&gt;: 访问LM Studio，在左侧放大镜搜索“Qwen 3.5B”最新版本 (后跟2507)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择量化版本&lt;/strong&gt;: 如果是Mac用户勾选MLX，Windows用户勾选GGUF。作者选择了8-bit量化版本 (32GB)，也可选择4-bit版本 (约17GB，占内存更小)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加载模型&lt;/strong&gt;: 下载完成后，运行LM Studio时选择加载该模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开启开发者模式&lt;/strong&gt;: 在LM Studio左侧点击开发者，开启上方状态，以便在其他应用中使用。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在Chatwise中使用&lt;/strong&gt;: 
+&lt;ol&gt;
+&lt;li&gt;在Chatwise左侧选择“LM Studio”或点击下方“+”号，选择供应商并按需填写配置。&lt;/li&gt;
+&lt;li&gt;在设置中将上下文长度拉长至256K以获得更长的对话记忆。&lt;/li&gt;
+&lt;li&gt;利用Chatwise的“ARTIFACE”功能进行创意生成（如交互式仪表盘、React页面等）。&lt;/li&gt;
+&lt;li&gt;利用Chatwise的搜索功能进行网页信息检索。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在Open Web UI中使用&lt;/strong&gt;: 
+&lt;ol&gt;
+&lt;li&gt;下载Open Web UI客户端（提供Mac和Windows版本）。&lt;/li&gt;
+&lt;li&gt;在Open Web UI设置中，将Chatwise的URL（如&lt;code&gt;http://localhost:1234/v1&lt;/code&gt;）复制过来，密码可设为&lt;code&gt;NN&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;利用其提供的追问功能与模型进行更深入的交互。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;其他使用方式&lt;/strong&gt;: 该模型还可通过&lt;code&gt;client&lt;/code&gt;或&lt;code&gt;look code&lt;/code&gt;等方式进行集成和使用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“即使他的编程能力啊 对比大模型有差距 但是他在啊写作还要完成一些小的任务上面 我们是可以看到他和啊先进的2.5flash NO thinking是可以扳手腕的啊 和呃deep seek v3在指标上来看也是非常接近的 那在这种啊小的模型在两年前真的是难以想象 在我们本地就能达到这么好的一个效果 非常推荐大家尝试一下”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1He8BzzEiJ</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/5f9e55ea20085b7c5089f3d875d53366f88b2e2c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 20:14:43 +0800</pubDate>
+    </item>
+    <item>
+      <title>Gary Vaynerchuk谈AI时代下的商业演变：区块链、IP与营销新洞察</title>
+      <link>https://www.youtube.com/watch?v=_XG84vg9K8E</link>
+      <description>&lt;p&gt;&lt;a href="UCMR-rPSUI34DRQXUkvFuIUQ"&gt;South Park Commons&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=_XG84vg9K8E"&gt;What the Smartest People in AI Are Missing | Gary Vaynerchuk&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+Gary Vaynerchuk深入探讨了人工智能对商业和社会产生的深远影响，强调AI的发展如何极大提升了区块链技术在知识产权验证和控制方面的核心地位。他分享了在快速变化的科技浪潮中，如何打造个人品牌、理解分发渠道以及营销和消费者行为的演变。同时，他还强调了善良和直觉在长期商业成功中的不可或缺性。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;兴趣媒体（Interest Media）&lt;/strong&gt;：区别于传统社交媒体，当前的内容分发算法更侧重于根据用户的兴趣推送内容，而非关注关系。Gary Vee认为“社交媒体已经彻底死了”，我们完全进入了兴趣媒体时代，内容本身的深度和价值将决定其传播效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP和NIL（Intellectual Property and Name, Image, Likeness）&lt;/strong&gt;：在AI技术可能商品化一切的未来，Gary Vee认为唯一的持久价值将在于独特的知识产权和个人形象/肖像权。这意味着拥有原创内容和个人品牌将成为核心资产，甚至可以创造由AI驱动的“人类”影响者来拥有这些IP。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;直觉是人类的“原始大脑”（Intuition as the “Primary Brain”）&lt;/strong&gt;：Gary Vee提出，直觉是人类最主要的操作系统，而理性思维是次要的。尽管社会常教导我们依赖逻辑，但他认为相信并跟随自己的直觉，能帮助企业和个人在快速变化的商业环境中做出决策并迅速行动。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI技术的发展速度前所未有，导致其成果迅速商品化，甚至可能包括批判性思维。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：新发布的AI平台或工具可能在一小时内被更优、更廉价的替代品超越；这使得签署长期AI平台合作协议变得危险，因为市场变化太快，今日最佳可能明日即过时。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在AI时代，区块链技术的重要性将大幅提升，尤其体现在其去中心化和内容验证能力。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：非同质化代币（NFTs）因不受国家（如中、俄、美）和科技巨头（如亚马逊、谷歌）控制而变得至关重要；区块链能有效验证数字内容（如防止深度伪造视频），保护知识产权，从而应对AI带来的内容真伪挑战。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统的谷歌搜索时代正在终结，AI搜索将成为主流。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：在过去15个月中，使用ChatGPT等AI工具进行搜索的用户比例大幅增长，几乎普及；即使谷歌完美执行其AI战略（如Gemini），也将在意图搜索领域失去大量市场份额。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个人品牌和知识产权将是AI时代的核心资产。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：当AI能完成几乎所有任务时，唯一剩下的价值就是独特的知识产权（IP）和个人形象权（NIL）；通过建立个人品牌，可以吸引人才、获得融资，并将其转化为实际的消费品品牌（如通过AI创造虚拟影响者）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;善良是长期商业成功的基石，而非短期交易的附属品。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：构建有意义的长期事业，最重要的方式是维持连续性和良好关系，而大多数人倾向于追求短期利益；通过善良赢得人心，能建立持久的合作基础，并影响他人效仿。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;理解“分发渠道”的演变是预测消费者行为和商业趋势的关键。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：从广播到电视，再到互联网和智能手机，每一次主要分发渠道的变革都彻底重塑了社会、政治、商业和名声；例如，印刷术的普及使得宗教书籍而非占星术书籍成为主流，影响了历史进程。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;商业决策应基于直觉而非过度分析，速度是关键。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：许多人因犹豫不决或过早放弃而错失良机；相信直觉能让人快速做出决定并推进，从而弥补可能出现的错误，因为“速度至关重要”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大多数初创企业会因商业时机不成熟而失败，而非产品本身的问题。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;论据：例如，Uber的前身Magic Cap因推出过早而失败，因为当时iPhone尚未普及，消费者未准备好接受；产品优秀并非成功的唯一决定因素，消费者需求和市场成熟度同样重要。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;积极在领英（LinkedIn）和YouTube Shorts等平台创建个人内容，尤其适用于科技圈从业者。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;建议聚焦于深度和垂直的专业内容，因为YouTube作为第二大搜索引擎，能帮助小众但高价值的内容找到目标受众。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创业者应仔细评估消费者是否已准备好接受新产品，避免因超前市场而失败。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：Uber的前身Magic Cap因推出过早而失败。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;密切关注热门应用商店的排行榜，以洞察社会和商业趋势。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;建议每天查看App Store的免费和付费应用前100名榜单，从中获取关于社会主流趋势和消费者行为的直接信息。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用AI技术优化产品开发和营销流程。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;随着AI基础设施的成熟，企业不再需要过多猜测创意或包装设计，因为AI能提供更高效、数据驱动的解决方案。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥抱内容创作，即使不具备传统意义上的“魅力”，也应专注于输出有价值的深度知识。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;算法会根据内容的真实价值和深度将其推送给感兴趣的受众，而非基于创作者的表面特质。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“如果AI能实现我们所知的一切，它只会增加区块链技术的重要性。”&lt;/li&gt;
+&lt;li&gt;“我在Web 2.0时代如此成功的原因是，我完整地看完了Web 1.0的电影，我当时想，'天啊，这又是96年重演。这只是2006年。我这次知道该怎么做了。我不仅仅要使用AOL、PayPal和亚马逊，我还要投资这些东西。'”&lt;/li&gt;
+&lt;li&gt;“非同质化代币之所以如此重要，是因为中国、俄罗斯、美国、亚马逊和谷歌都无法控制它。”&lt;/li&gt;
+&lt;li&gt;“我信仰人类精神，这种信仰比我对AI技术力量的信仰更强烈。”&lt;/li&gt;
+&lt;li&gt;“谷歌搜索是世界上每家财富5000强公司的基础，更不用说长尾效应了，它已经死了。”&lt;/li&gt;
+&lt;li&gt;“我对昨天不抱浪漫或情感，我痴迷于今天。”&lt;/li&gt;
+&lt;li&gt;“知识产权将是唯一剩下的东西。”&lt;/li&gt;
+&lt;li&gt;“社交媒体已经彻底死了。我们完全处于兴趣媒体时代。”&lt;/li&gt;
+&lt;li&gt;“AI影响者将对影响者做影响者对好莱坞所做的事情。”&lt;/li&gt;
+&lt;li&gt;“我真心相信好人终有回报。”&lt;/li&gt;
+&lt;li&gt;“你不知道何时该放弃。过去一百年里，有太多的人在一切即将转机的前一天放弃了项目，这个数字令人震惊。唯一能与之匹敌的，是那些早就该停止的人。”&lt;/li&gt;
+&lt;li&gt;“我相信直觉是人类的原始大脑，而思维大脑是次要的，但我们被条件反射地相信后者是主要的。”&lt;/li&gt;
+&lt;li&gt;“朋友们，商业就是体育，速度至关重要，当你行动迅速时，可以弥补很多错误。”&lt;/li&gt;
+&lt;li&gt;“我敢说我欠Meta和YouTube钱，而不是反过来，因为我懂这个真正的游戏规则。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=_XG84vg9K8E</guid>
+      <enclosure url="https://i.ytimg.com/vi/_XG84vg9K8E/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 15:00:26 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI行业聚焦：Anthropic施加Claude使用限制、微软Edge整合AI、Meta智能眼镜热销与特斯拉芯片合作</title>
+      <link>https://www.youtube.com/watch?v=St20RoyohH4</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=St20RoyohH4"&gt;Devs Weep as Anthropic Announces Claude Rate Limits&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文概述了当前AI领域的重要动态，包括Anthropic因高需求对Claude引入新的使用限制，微软Edge浏览器推出集成AI助手的Copilot模式，Meta的Ray-Ban智能眼镜销量显著增长，以及特斯拉与三星签订巨额AI芯片生产协议。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Agentic AI coding tools/Agentic browser (代理式AI编码工具/代理式浏览器)&lt;/strong&gt;
+指能够自主执行复杂、多步骤任务的AI工具。它们可以同时启动多个AI代理并在后台持续运行任务，或智能地浏览和与网页内容交互，以完成更复杂的指令。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例&lt;/em&gt;：McKay Wrigley 24/7运行Claude Code作为一项计算机使用实验，展示了这类工具的“超级使用”模式。微软Edge的Copilot模式被描述为介于Google有限的Gemini助手和Perplexity的完全代理式浏览器之间，说明了代理式浏览器的概念及演进。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-tab RAG (多标签页检索增强生成)&lt;/strong&gt;
+微软CEO萨蒂亚·纳德拉提及的功能，允许Copilot分析用户浏览器中多个已打开标签页的信息，进行交叉引用，从而提供更全面的洞察和答案。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例&lt;/em&gt;：纳德拉举例他自己使用该功能来分析团队在《自然》杂志上发表的论文，这些论文分布在不同的标签页中。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic因需求激增对Claude引入新的使用限制，引发用户反响&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：部分用户在每月200美元的付费计划中消耗了数万美元的模型使用量，导致Anthropic不得不引入每周费率限制。他们称不到5%的用户会受影响，但受影响的用户可以按API费率购买更多使用量。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;反常识/反直觉&lt;/em&gt;：尽管Anthropic声称是为了平衡资源，但此举引发了部分超级用户的不满，认为这可能会将他们推向其他AI提供商。然而，也有用户认为即使有新限制，Claude提供的使用量仍具高价值。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI编码工具和代理的“超级使用”模式正在重塑定价模型&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：Cursor和Replet等其他AI编码工具也已在近期调整了定价和使用策略。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;反常识/反直觉&lt;/em&gt;：这并非用户滥用系统，而是强大的AI工具允许用户同时启动多个代理并持续在后台运行任务，这种昂贵但高效的工作流已成为“超级用户”的常态表现，迫使服务提供商重新评估定价。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI模型成本长期来看呈断崖式下降，但短期内超级用户仍面临约束&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：文章指出，从长远看，AI模型的使用成本下降速度远超预期。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;反常识/反直觉&lt;/em&gt;：尽管长期趋势乐观，但目前强大的AI功能所带来的巨大计算需求，仍导致提供商对超级用户施加限制。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;微软通过Copilot模式大幅升级Edge浏览器，深化AI集成&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：Copilot模式将AI助手引入网页浏览体验，具备分析多标签页、比较价格、提取信息等代理能力。微软表示未来将引入更全面的代理功能。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meta的Ray-Ban智能眼镜销量强劲，成为迄今最成功的AI可穿戴设备&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：智能眼镜销量在上半年翻了三倍，Meta已增持合作制造商Luxottica的股份并扩展产品线（包括与Oakley、Prada合作款）。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;反常识/反直觉&lt;/em&gt;：尽管Ray-Ban眼镜在最初发布时AI功能尚不完善，但其销售成功表明市场对AI可穿戴设备的潜在需求和接受度。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特斯拉与三星达成16.5亿美元AI芯片合作，凸显全球AI基础设施竞争&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：三星将在其德克萨斯州新工厂为特斯拉生产下一代AI6芯片，用于其车辆自动驾驶和Optimus机器人，合同期至2033年，且实际产出可能远超最低合同价值。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;支持&lt;/em&gt;：对三星而言，这笔交易有助于其在AI芯片竞争中保持地位，并克服其晶圆代工业务曾面临的质量控制和利用率不足问题。对特斯拉而言，确保AI芯片供应对其实现全自动驾驶和机器人目标至关重要。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;战略意义&lt;/em&gt;：埃隆·马斯克强调了这笔交易的战略重要性，并表示他将亲自监督制造效率，同时指出这反映了全球AI基础设施竞争的激烈程度。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fundamentally and already, our appetite for intelligence is becoming unlimited. (从根本上说，我们对智能的渴望正变得无限。)&lt;/li&gt;
+&lt;li&gt;As AI begins to reshape nearly every facet of digital life, we're witnessing a turning point in how we interact with the web. (随着AI开始重塑数字生活的几乎每一个方面，我们正见证着我们与网络互动方式的转折点。)&lt;/li&gt;
+&lt;li&gt;In case you're wondering whether or not AI is changing the game, just a little insight into how much power users are leveraging agents for development. (如果你想知道AI是否正在改变游戏规则，只需看看超级用户如何利用代理进行开发就可见一斑。)&lt;/li&gt;
+&lt;li&gt;My favorite feature is multi-tab rag. You can use Copilot to analyze your open tabs like I do here with papers our team has published in nature journals over the last year. (我最喜欢的功能是多标签页检索增强生成。你可以像我一样，使用Copilot分析你打开的标签页，比如我们团队去年在《自然》期刊上发表的论文。)&lt;/li&gt;
+&lt;li&gt;The strategic importance of this is hard to overstate. (这项交易的战略重要性怎么强调都不过分。)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=St20RoyohH4</guid>
+      <enclosure url="https://i.ytimg.com/vi/St20RoyohH4/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 12:00:06 +0800</pubDate>
+    </item>
+    <item>
+      <title>自动驾驶L2与L4之争：技术、商业化及产品形态的非共识探讨</title>
+      <link>http://www.shengfm.cn//20240388</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/guiguzaozhidao/rss"&gt;What's Next｜科技早知道&lt;/a&gt; | &lt;a href="http://www.shengfm.cn//20240388"&gt;再聊自动驾驶：比「路线之争」更重要的是「产品定义」| S9E26&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次讨论聚焦自动驾驶领域的非共识话题，深入探讨了L2与L4级自动驾驶的产品形态差异、技术路线选择（纯视觉与激光雷达、端到端与模块化），以及商业化落地中的挑战与机遇。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ODD (Operational Design Domain)：指系统被设计用来运行的特定操作范围，可以是区域性的ODD，也可以是现实世界状况的ODD。&lt;/li&gt;
+&lt;li&gt;产品内核：指某些功能如果没有，用户就不会购买产品的核心要素。&lt;/li&gt;
+&lt;li&gt;产品边界：指超出此范围的功能，公司将不会去开发。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;特斯拉与Waymo的产品形态不同，不应直接进行比较。
+&lt;ul&gt;
+&lt;li&gt;L2辅助驾驶（如特斯拉FSD）需要人类司机监控和承担责任，而L4全无人驾驶（如Waymo Robotaxi）则无需人类介入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动驾驶的数据量并非越多越好，数据质量才是关键。
+&lt;ul&gt;
+&lt;li&gt;拥有大量数据后，数据清晰和标注是巨大的资源消耗和工程化挑战，数据质量在数量达到一定基准后效应更强，决定了上限。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动驾驶行业的路线之争常态化，但大公司倾向于尝试多种技术路线，最终跑通的路线才会被采纳。
+&lt;ul&gt;
+&lt;li&gt;这类似于大公司内部的赛马机制，多种技术方案并行，最终哪个方案在产品形态上被验证，哪个就会跑出来。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;端到端模型在L2辅助驾驶领域有较好应用前景，但在L4全无人驾驶领域可能面临透明度挑战。
+&lt;ul&gt;
+&lt;li&gt;L2场景下，驾驶员需接管，责任清晰，端到端模式在安全性和责任划分上合理。&lt;/li&gt;
+&lt;li&gt;L4对系统透明度、可解释性及冗余可靠性要求更高，需要清晰了解决策背后的理由。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动驾驶行业迭代速度慢，是导致商业化困难和高死亡率的主要原因。
+&lt;ul&gt;
+&lt;li&gt;相比其他互联网或AI赛道，自动驾驶需要更长的产品闭环实验周期，导致创业公司在融到足够资金前就面临死亡。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在中国，L2自动驾驶供应商的生意可能并非好生意。
+&lt;ul&gt;
+&lt;li&gt;单一车型开发费用（NRE）已从数千万降至两千万人民币，每台车License费用从3000-5000元降至1000元，利润空间大幅压缩。&lt;/li&gt;
+&lt;li&gt;协同和快速响应客户需求需要全栈能力，外包模式难以维系。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动驾驶系统目前尚未成为汽车真正的产品内核，更多提供情绪价值而非刚需价值。
+&lt;ul&gt;
+&lt;li&gt;在成为产品内核之前，主机厂在自研投入上应保持克制，避免盲目大规模投入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;主机厂自研芯片并非单纯为了成本，可能还涉及国家战略、供应链安全、市场想象空间或对供应商压价等多种考量。
+&lt;ul&gt;
+&lt;li&gt;决策背后有其合理性，做这些事情后公司的价值通常会上升。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;对于自动驾驶产品，需清晰定义其产品形态、模块要求以及模型正确率，这有助于判断技术路线的合理性。&lt;/li&gt;
+&lt;li&gt;创业公司在自动驾驶领域发展不易，更好的模式可能是作为更大的集团（如车企）内部孵化，待产品形态验证后再独立。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">http://www.shengfm.cn//20240388</guid>
+      <enclosure url="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/4/4931937e-0184-4c61-a658-6b03c254754d/cover.jpg?v=10" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 12:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Chris Hayes与Antonio：AI内容泛滥、注意力经济与社交媒体的未来挑战</title>
+      <link>https://a16z.simplecast.com/episodes/ai-content-and-the-war-for-your-attention-PlwHuH3P</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/ai-content-and-the-war-for-your-attention-PlwHuH3P"&gt;AI Content and the War for Your Attention&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本次讨论深入探讨了AI生成内容（“AI slop”）对注意力经济和社交媒体平台的深远影响，以及人类在数字互动中的未来。
+它审视了AI内容是否会淹没平台并重新定义注意力，以及数字领域中实用技术与盈利技术之间的根本张力。
+对话还触及了公共话语的碎片化以及超越传统社交媒体的数字互动未来。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI Slop（AI垃圾内容）&lt;/strong&gt;：指AI生成的内容，通常感觉空洞、无菌或经过逆向工程，旨在廉价地捕获注意力，可能淹没平台并取代人类创作者。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：例如，AI生成的婴儿唱着“赞美主，我的灵魂”，或者带有“脱节脚掌”的耶稣抱着婴儿唱歌的视频；TikTok“为你推荐”页面上常见的通用、公式化内容。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Attention Capitalism / Attention Age（注意力资本主义/注意力时代）&lt;/strong&gt;：一种经济模式，注意力被买卖和聚合，从而带来丰厚利润，尤其是在自动化加持下。垃圾信息被视为这个时代的“污染”。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：垃圾邮件、电话推销、短信和电子邮件垃圾信息，现在还有大规模的AI内容创作在社交媒体上。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subprime Attention（次优注意力）&lt;/strong&gt;：一个与广告技术捕获注意力的质量和有效性相关的概念。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reality Privileged（现实特权者）&lt;/strong&gt;：由Mark Andreessen提出的概念，暗示某些人足够富裕或生活在特定环境中，不需要VR头显，意味着在体验现实方面存在数字鸿沟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Defragmenting Reality（现实碎片整理）&lt;/strong&gt;：由Balaji提出的概念，设想未来志同道合的人们将重新聚集在一起，类似于电脑磁盘碎片整理，以解决社会碎片化问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Omniculture（全能文化/同质文化）&lt;/strong&gt;：一种取代地方主义的同质化文化，不同地理区域的人们（例如，农村居民、大城市受过大学教育的中产阶级）越来越多地拥有相似的音乐品味、政治观点和消费偏好。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：例如，在“时尚街区”随处可见的通用“农场到餐桌”风格餐厅，通常装饰有仿旧木材、裸露的铁艺和裸露灯泡。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Digital Panopticon（数字全景监狱）&lt;/strong&gt;：在数字空间中时刻处于被监视和被社交关注下的感觉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dunbar Numbers（邓巴数）&lt;/strong&gt;：认为人类关系自然地限制在一定数量以内，而在线社交网络往往超过这个数量。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI工具能够赋予人类“超能力”进行创作，但AI生成的内容往往显得空洞而缺乏生命力。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：人类仍然具备独特的创造力，这是当前AI所不具备的。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI内容的崛起对依赖注意力的平台构成了严重的“污染问题”，可能淹没人类创造的内容。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：类似于垃圾邮件、电话和电子邮件中的垃圾信息，但已扩展到社交媒体内容规模。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：线上成功是一种“数量游戏”；AI可以实现每天生成数千个视频，可能导致算法被大量垃圾内容淹没。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;平台面临困境：AI垃圾内容会否胜出并疏远用户，还是人们会反抗它，迫使平台像内容审核一样积极管理？
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：类似于“塞壬的诱惑”——算法优化带来的诱惑与意识层面的意愿之间的挣扎。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;算法让我们关注的内容（为参与度优化）与我们自觉想关注的内容之间存在脱节。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：算法残酷地优化“你将关注什么”，可能使人疏远“你想要关注什么”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;社交媒体从公开分享转向私人聊天群体的趋势，表明人们渴望从“数字全景监狱”中夺回私人空间。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：人们在公共在线空间感到不断被观察和评判，因此需要更私密、自我调节的社区。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：小镇上人人相识的社区能够自我调节；群聊中“每个人在15个人面前出名”因人际关系而强制执行社会规范。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;“实用技术”（如青霉素、太阳能）与“盈利技术”（如 FanDuel DraftKings）之间存在根本张力，数字领域往往优先考虑后者。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：具有高社会实用性的技术可能没有好的商业模式，而高度盈利的技术可能缺乏社会实用性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;社交媒体带来的“无处不在的名气”或“在15人面前成名”的感觉改变了行为，既有阻止公共不端行为的亲社会效应，也有心理上的扭曲效应。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：人们随时随地自拍，仿佛置身聚光灯下；对轻微公共失态被病毒式传播的恐惧。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;公共话语的碎片化意味着不再有共同的“公众”一起关注同一事物，这与过去大众媒体时代不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：怀念“超级碗”或“爱岛”这种人人皆知的共同文化参照；与克朗凯特时代统一共识的对比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：近期没有像Jonathan Franzen的《修正》那样人人阅读的文学事件；社交媒体上不同的新闻提要导致现实的碎片化。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管互联网平台让人可以在小众兴趣中找到“同类”（例如，跨性别孩子找到社区），但这种“个体化”也导致了更广泛共享文化和地理特征的丧失。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：各州农村和城市文化趋于同质化，曾经独特的地域特色（例如，宗教传统、民族背景）被“全能文化”取代。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管拥有复杂的数据，许多互联网广告仍然“平庸”且无效，引发了对高度目标化广告真实有效性的疑问。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：Instagram等平台上的点击率（CTR）非常低（例如，97%的用户无动于衷）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：由于数据碎片化、瞬时cookie以及广告领域存在的“欺诈和废话”等实际问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：汽车或保险公司等主要品牌不在TikTok上投放广告，尽管其用户群年轻，这表明平台使用与传统品牌广告效果之间存在脱节。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;科技对“无限增长”的需求，尤其是注意力开采，将推动其走向新领域，如VR（用于24/7注意力开采）甚至Neuralink（用于梦境广告）。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：如果人们手机使用量已饱和，公司将寻求通过捕捉更多清醒时间甚至睡眠时间来扩大注意力的“商品”供应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：公司“用尽”广告受众，可能导致采取极端措施寻找新的“注意力时间”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引用&lt;/strong&gt;：“为增长而增长是癌细胞的意识形态。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;利用技术重建社区空间，例如群聊，这些空间可以自我调节并培养更真实的互动。&lt;/li&gt;
+&lt;li&gt;在工作中，使用AI时结合网页搜索并要求引用来源，以防止幻觉并对照人工来源验证信息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“人们能够得到削游和用 AI的工具 确实力量有机会。”&lt;/li&gt;
+&lt;li&gt;“人类的工具有机会。”&lt;/li&gt;
+&lt;li&gt;“Chris's new book, The Sirens Call, is about the way our attention has been bought, sold, and overwhelmed.”&lt;/li&gt;
+&lt;li&gt;“Humans who are able to be creative and use AI tools correctly will have superpowers.”&lt;/li&gt;
+&lt;li&gt;“I mean, yes and no. I mean, you're seeing it in the 4U tab Twitter already, right? And maybe I would think this because I was creator paid for my creations, I guess, to some degree. But I think a lot of it is empty and sterile.”&lt;/li&gt;
+&lt;li&gt;“To me, the sort of question about all this stuff is one of the theses of the book is that there's this kind of disconnect between what we will pay attention to. And in some volitional sense, what we want to pay attention to.”&lt;/li&gt;
+&lt;li&gt;“acquisition and retention are different things.”&lt;/li&gt;
+&lt;li&gt;“I have the same faith as you that fundamentally there's something irreducibly human and that people are going to just rebel.”&lt;/li&gt;
+&lt;li&gt;“the treatment of spam in the book is the sort of signature pollution of attention capitalism of the attention age.”&lt;/li&gt;
+&lt;li&gt;“I think Andy Warhol was wrong. In the future, we're not all going to be famous for 15 minutes. We're all going to be famous to 15 people.”&lt;/li&gt;
+&lt;li&gt;“the move from public posting to group chat is I think 100% driven by that.”&lt;/li&gt;
+&lt;li&gt;“We tend to conflate, particularly this era, like useful tech and lucrative tech.”&lt;/li&gt;
+&lt;li&gt;“The word privacy doesn't appear once in the Constitution. And the reason why is because at the time it wasn't used in the sense that we mean it, which is the right to live as a stranger among strangers.”&lt;/li&gt;
+&lt;li&gt;“I think the nation state is cracking up in a way just to get Doomer for a second. And I think the internet is definitely behind part of it because you don't have the sense of collective consensus that the media and TV, for example, used to create during the Cronkite era.”&lt;/li&gt;
+&lt;li&gt;“I mean, Peter Thiel famously asked the question, we're promised flying cars and we got 140 characters.”&lt;/li&gt;
+&lt;li&gt;“Growth for the sake of growth is the ideology of the cancer cell.”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/ai-content-and-the-war-for-your-attention-PlwHuH3P</guid>
+      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/52aa7fb7-cf36-4215-88f0-2dac305e5420/3000x3000/a16z-20pod-20-20attention-20wars-20-20-201x1.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 10:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>AI Agent技术报告深度解读：Kimi K2、Chat GPT Agent、坤3 Coder与Minus</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6889da698e06fe8de77116a9?utm_source=rss</link>
@@ -7954,401 +8403,6 @@ Anthropic推出的一种开源协议，允许AI代理连接到各种服务、工
       <guid isPermaLink="true">http://podcast.emerj.com/ai-for-driving-quality-customer-interactions-in-distributor-models-with-joshua-haddock-of-herbalife</guid>
       <enclosure url="https://static.libsyn.com/p/assets/2/c/c/7/2cc7314a5bc4cfb316c3140a3186d450/Josh-Haddock-AI-in-Business-Podcast.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 15 Jul 2025 07:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI主播日益逼真：挑战中国广播行业与教育</title>
-      <link>1_2757949</link>
-      <description>&lt;p&gt;&lt;a href="https://aezfm.meldingcloud.com/rss/program/11"&gt;Round Table China&lt;/a&gt; | &lt;a href="1_2757949"&gt;Are AI anchors the future of news?&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;AI主播在中国迅速崛起并日益逼真，它们的技术进步及其在新闻播报和直播带货中的广泛应用，给传统广播行业、从业人员和相关专业学生带来了深远影响。同时，文章也关注到中国流动儿童在高质量玩耍方面面临的挑战，强调了玩耍对儿童发展的重要性。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI主播：计算机生成的主播，能够实时生成模拟人类新闻播音员的音视频输出。它们结合了语音合成、面部动画、肌肉建模和AI算法，可以根据真实人物建模或完全虚拟。
-&lt;ul&gt;
-&lt;li&gt;案例：杭州文化广播电视集团在2024年春节期间，启用六位AI虚拟主播在黄金时段进行了八晚的播报，吸引了数百万观众。&lt;/li&gt;
-&lt;li&gt;案例：直播带货主播罗永浩推出了自己的AI数字分身来主持直播，创造了超过5500万元人民币（约750万美元）的销售额。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;犹大山羊（Judas Goat）寓言：指受训的山羊将羊群引入屠宰场，最终自己也被宰杀。文章引用此寓言，探讨人类主播出借自身形象和声音给AI数字分身，是否会最终导致自己被自动化取代。&lt;/li&gt;
-&lt;li&gt;流动儿童（流动儿童）：指年龄在0到17岁之间，居住和学习地点与其户口登记地不同的儿童。户口制度与社会福利和权利紧密相关，导致这些儿童在教育资源、娱乐机会等方面面临不平等，并可能因学籍限制需返回家乡而与父母分离或离开熟悉的环境。&lt;/li&gt;
-&lt;li&gt;高质量玩耍：对儿童发展至关重要的活动，包括接触博物馆、科学中心、游乐园等刺激性空间，拥有稳定的玩伴，以及父母积极参与。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI主播正变得越来越难以与人类区分，甚至在细微之处（如表情和语音节奏）也高度逼真。
-&lt;ul&gt;
-&lt;li&gt;支撑：早期的AI主播“笨拙”，口型与语音不匹配，但现在“越来越难分辨”，有些甚至具备基本的智能对话能力；有听众甚至通过播音员喉结的颤动速度来区分。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;媒体机构有强大动力采用AI主播，即便可能引起观众不适，因为AI能带来效率提升和成本节约。
-&lt;ul&gt;
-&lt;li&gt;支撑：AI主播可以不间断工作，无需休息或度假，不会犯错，能确保信息传递和语气的连贯性，避免即兴发挥或偏离脚本，大幅节省成本。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI技术在广播领域的发展速度极快，似乎跳过了“恐怖谷效应”，直接从“可爱笨拙”阶段跃升到“超逼真”。&lt;/li&gt;
-&lt;li&gt;对流动儿童而言，玩耍常被视为“奢侈品”，但实际上是其健康发展不可或缺的“必需品”。
-&lt;ul&gt;
-&lt;li&gt;支撑：他们面临诸多玩耍障碍，如场所距离远/门票贵、玩伴缺失（62%的儿童表示因朋友返乡而失去玩伴），以及父母因工作繁忙或优先学业而较少参与。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;针对广播专业学生/从业者&lt;/strong&gt;：无需恐慌，应继续追随激情，但需了解AI目前及未来5-10年将如何影响自身专业，并努力跟上行业发展趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;针对高校/教育机构&lt;/strong&gt;：必须更新课程设置（如引入微专业），以适应社会变化，否则将使下一代迷茫。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;针对行业/监管机构&lt;/strong&gt;：需完善政策和法规，可借鉴视频游戏行业与演员工会达成的协议，要求使用表演者数字复制品/AI声音/图像时须征得书面同意并支付与传统工作相当的报酬，以规范行业发展。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;针对父母/社会关注流动儿童问题&lt;/strong&gt;：提高对“寓教于乐”和玩耍对儿童发展重要性的认识，强调玩耍并非奢侈品，且可以是低成本的。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“但一张虚拟的面孔，真的能取代人类播音员的温暖、本能和即兴发挥吗？”&lt;/li&gt;
-&lt;li&gt;“玩耍不仅仅是乐趣。它是孩子们理解世界、建立自信并与他人建立联系的方式。”&lt;/li&gt;
-&lt;li&gt;“当AI主播能够完美无瑕、不知疲倦、且越来越逼真地播报新闻时，他们的未来会是怎样？”&lt;/li&gt;
-&lt;li&gt;“技术已经到位，对吧？问题已经解决。媒体机构这样做有优势，但观众会觉得观看AI新闻主播播报新闻感到舒服吗？”&lt;/li&gt;
-&lt;li&gt;“你正在与观众建立一种关系。这需要多年才能做到……我认为人们希望新闻是由他们能产生共鸣的人来传递，而不仅仅是一个传递相同信息的虚拟形象。因此，陪伴感和可关联性我认为会完全丧失。”&lt;/li&gt;
-&lt;li&gt;“任何孩子都不应被其生活状况或所缺乏的条件所定义。但在中国，这些术语在政策和研究中被用于突出受迁徙影响的儿童……我们使用这些词语并非为了给他们贴标签，而是为了看见他们，并真正深入了解人们所处的现实。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">1_2757949</guid>
-      <enclosure url="https://radio-res.cgtn.com/image/2507/1752570110009.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 05:30:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>热门AI工具大辩论：被高估还是低估？兼谈利用AI打造月入5万美金SaaS</title>
-      <link>https://www.youtube.com/watch?v=Xq0xJl-2D_s</link>
-      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=Xq0xJl-2D_s"&gt;Which AI Tools Are Worth Your Money? (I Tested Claude Code vs Bolt vs n8n vs 8 Others)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-本文对当前X平台上热门的AI工具进行了评判，讨论了它们是被高估还是被低估，涵盖了自动化、代码生成、设计等多个领域。同时，深入探讨了非技术人员利用AI工具构建盈利SaaS产品的可能性，并分享了GitHub在软件开发中的核心工作流程。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Vibe Coding Tools&lt;/strong&gt;
-无需传统编程知识，通过AI提示（prompt）即可生成代码，降低了软件开发的门槛。例如Bolt、Lovable和Tempo等工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agentic Coding（智能体编程）&lt;/strong&gt;
-指AI代理能够自主规划、执行和测试代码，甚至自动编写测试用例。Claude Code被认为是目前最接近这种形式的工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MCP（Media Context Protocol / Money Context Protocol）&lt;/strong&gt;
-一种协议，允许AI客户端（如Claude Desktop）安全地访问外部信息（如Gmail、Outlook），为非技术用户提供了便捷的集成能力，实现了类似“贾维斯”的强大功能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Deep Wiki（Devon工具特性）&lt;/strong&gt;
-Devon中的一项功能，能够自动分析GitHub代码库并生成详细的项目文档和架构图，帮助用户（包括非技术人员）理解复杂的代码库。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;即使是非技术人员，也有可能利用AI工具打造每月营收5万美金的SaaS产品。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例与逻辑&lt;/strong&gt;：虽然不能仅凭一个提示词就能实现，但通过Cursor等AI工具辅助开发，达到每月1万至5万美金的营收是完全可能的。文中提到一个非开发者Alex，利用Greg提供的SaaS模板，年收入达到了30万美金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;争议与回应&lt;/strong&gt;：这一观点在开发者社区引起广泛争议，被部分人认为是过度简化或虚假宣传。但作者认为这并非不可能，特别是考虑到现代营销手段（如TikTok广告、与创作者合作）和加速的开发周期，5万美金的月收入并非遥不可及，更多是思维上的限制。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Claude Code被极度低估，无论对技术或非技术用户而言。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：它提供了最真实的“智能体编程”体验，能自动管理任务、制定计划、执行代码并编写测试。即使对非技术人员来说初次使用可能令人生畏，但通过教程尝试后，其强大功能将极大提升效率。其SDK的发布也预示着它将成为编程AI领域的标准。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;String.com是一款被低估的自动化工具。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：它支持“提示词生成自动化流程”，极大地简化了自动化构建，尤其适合不愿手动配置工作流的非技术用户，能有效节省时间和创造收益。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Devon和Code Rabbit作为编码助手被严重低估。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：Devon的Deep Wiki能帮助理解复杂代码，并能从线性票据（Linear tickets）自动构建功能，自动创建GitHub Pull Request。Code Rabbit则能自动审查代码，发现问题并提供修复建议，甚至为其他AI代理提供修复所需的上下文。一位YouTube开发者（code with Antonio）的案例表明，Code Rabbit在其工作流程中审查了77个PR，发现66个问题并提供了61个建议，极大地提升了效率。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Lindy.ai因其模板功能而被低估。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：提供超过100个自动化代理模板（如自动邮件外展），使得用户能快速启动并从中获得新的应用灵感。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Madness在实时浏览和研究方面被低估。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：提供实时浏览和研究能力，带来“贾维斯”般的体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;需要注意&lt;/strong&gt;：连接Instagram等账户存在隐私风险，且面临OpenAI等巨头的竞争压力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vap（语音代理）被低估。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：允许用户创建语音代理，通过Twilio等服务进行自动化呼叫，并实现智能对话。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Figma Make、Hostinger和Air Table的AI集成被高估。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;：这些公司的AI集成更多是为了在上市前或保持市场趋势中的“形象工程”，而非提供真正有竞争力的核心AI功能。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;对于非技术人员&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;勇敢尝试使用Claude Code和Cursor等AI工具，即使它们看起来令人生畏。在遇到困难时，利用AI来寻找下一步的解决方案。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对于开发者&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;尝试Claude Code，并考虑在严肃项目中使用Devon和Code Rabbit，尤其是在团队协作和代码审查方面。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;通用商业建议&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;立即开始你的项目：“如果有什么时候最适合开始一些有成功机会的事情，那就是今天。”&lt;/li&gt;
-&lt;li&gt;在你的新应用中优先使用“谷歌登录”，以提升用户便利性和安全性。&lt;/li&gt;
-&lt;li&gt;理解GitHub的分支（branching）工作流程以实现可持续的产品开发：
-&lt;ol&gt;
-&lt;li&gt;维护一个“主分支”（main branch）用于你的在线生产代码，并连接到Vercel或Netlify。&lt;/li&gt;
-&lt;li&gt;开发新功能或进行更改时，从主分支复制一份代码创建一个“新分支”（例如：&lt;code&gt;Mickey/live-tracker&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;在新分支上彻底开发和测试功能，确保它不会影响到正在运行的线上版本。&lt;/li&gt;
-&lt;li&gt;一旦功能稳定且测试通过，将新分支合并回主分支。这确保了开发过程的清洁，并避免将bug推送到生产环境。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;思维模式&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;采纳乐观的“丰盛心态”，而不是基于恐惧的“匮乏心态”。想象自己抵达终点并获得胜利。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“如果有什么时候最适合开始一些有成功机会的事情，那就是今天。”&lt;/li&gt;
-&lt;li&gt;“MCP中的M代表金钱。它是金钱语境协议。”&lt;/li&gt;
-&lt;li&gt;“悲观者常常是对的，但乐观者才能赚到钱。”&lt;/li&gt;
-&lt;li&gt;“真正的富足是知道游戏很难，但仍有无数种获胜的方式。”&lt;/li&gt;
-&lt;li&gt;“很多人每月赚5万美金，为什么不能是你？”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=Xq0xJl-2D_s</guid>
-      <enclosure url="https://i.ytimg.com/vi/Xq0xJl-2D_s/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 14 Jul 2025 20:18:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI Agent结合知识图谱实现长期记忆：成本优化与混合记忆策略</title>
-      <link>https://www.youtube.com/watch?v=kNsX2qu8jHY</link>
-      <description>&lt;p&gt;&lt;a href="UC2ojq-nuP8ceeHqiroeKhBA"&gt;Nate Herk | AI Automation&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=kNsX2qu8jHY"&gt;Unlock the Next Evolution of Agents with Human-like Memory (n8n + zep)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章深入探讨了如何通过知识图谱（如Zep）为AI Agent提供长期记忆，以超越传统短期记忆（仅限于近期交互）。同时，它强调了在利用知识图谱时管理Token使用以控制成本的重要性，并提出了一种结合长期与短期记忆的混合方法。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;知识图谱 (Knowledge Graphs) 用于长期记忆&lt;/strong&gt;: 一种通过设置关系图谱，使AI Agent能够理解不同实体间的关系以及过去对话中涉及的事物，从而变得更智能的方法。例如，使用Zep构建用户关系图谱，记录用户（Nate）与工具（NAND）、兴趣（YouTube视频）等之间的关系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;短期记忆 (Short-Term Memory) vs. 长期记忆 (Long-Term Memory)&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;短期记忆&lt;/strong&gt;: 类似于简单记忆（Simple Memory），将近期交互存储在一个上下文窗口中（通常是最近5-15次交互）。其局限在于只关注过去的“交互”本身。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;长期记忆&lt;/strong&gt;: 借助知识图谱（如Zep），存储关于用户、业务或个人偏好的事实信息，使Agent能够记住更久远的事情，超越近期交互的限制。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;会话ID (Session ID)&lt;/strong&gt;: 一个唯一的标识符（例如Telegram聊天ID、电子邮件地址），用于将AI Agent的交互与特定用户的独特长期记忆/知识图谱关联起来，从而实现个性化响应和持续记忆。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;传统简单记忆（短期记忆）的局限性&lt;/strong&gt;: 仅能记住近期交互，无法实现真正的长期记忆，例如对用户业务或个人偏好的持久记忆。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 简单记忆仅查看过去5-15次交互；若需记忆业务或个人偏好等，则需要长期记忆。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识图谱增强智能的同时，若不优化则成本高昂&lt;/strong&gt;: 虽然知识图谱（长期记忆）能显著提升AI Agent智能水平，但每次查询都拉取图谱中所有事实会导致Token用量激增，成本迅速上升。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 示例对比显示，未经优化的Zep查询使用了2403个Token，而优化后的仅需1045个Token，因为未经优化的查询拉取了大量与当前无关的事实。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;直接API集成通常缺乏精细控制，不如HTTP请求灵活&lt;/strong&gt;: AI Agent与知识图谱的直接（原生）集成往往没有足够参数进行配置，难以精细控制信息拉取，从而影响Token优化。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: Zep的原生集成只能输入密钥，而通过HTTP请求可以更灵活地控制查询参数（如相关性得分、返回事实数量等）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;短期记忆检索顺序可能不理想&lt;/strong&gt;: 某些知识图谱在检索会话历史时，可能按最早记录的顺序而非最新记录的顺序返回，导致无法有效利用最新的短期上下文。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: Zep的HTTP请求在检索会话消息时，会从顶部（最早的记录）开始，而不是从底部（最新的记录）开始，即便最新消息存在。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;优化知识图谱（长期记忆）以降低成本&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;避免使用原生集成，转而使用HTTP请求调用Zep或其他知识图谱的API。&lt;/li&gt;
-&lt;li&gt;在API请求体中，通过参数精确控制返回的信息。例如，指定查询文本、限制返回事实数量（&lt;code&gt;top_k&lt;/code&gt;，例如3个最相关事实），并设置最低相关性分数（&lt;code&gt;min_relevance&lt;/code&gt;，例如0.7），确保只拉取最相关的内容。&lt;/li&gt;
-&lt;li&gt;对知识图谱返回的原始、结构复杂的JSON数据进行清理。可以使用代码节点（如Naden中的Code Node），结合AI工具（如Claude）生成代码来解析和简化数据结构。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化会话历史（短期记忆）管理&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;考虑采用混合记忆方案：知识图谱用于长期记忆，而一个单独的数据库（如PostgreSQL）用于存储会话历史作为短期记忆，尤其是在知识图谱无法按最新顺序检索会话时。&lt;/li&gt;
-&lt;li&gt;确保会话历史能够及时更新并始终包含最新的交互记录。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实现个性化AI Agent&lt;/strong&gt;:
-&lt;ul&gt;
-&lt;li&gt;为每个用户分配一个唯一的&lt;code&gt;会话ID&lt;/code&gt;（例如Telegram聊天ID、用户的电子邮件地址）。&lt;/li&gt;
-&lt;li&gt;将此&lt;code&gt;会话ID&lt;/code&gt;作为关键，关联到Zep中的用户长期记忆图谱，使AI Agent能够根据特定用户的历史信息和偏好提供个性化响应。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;p&gt;-&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=kNsX2qu8jHY</guid>
-      <enclosure url="https://i.ytimg.com/vi/kNsX2qu8jHY/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 14 Jul 2025 14:07:21 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI在企业中的应用：Box CEO与A16Z GP探讨AI对工作流程、产品策略和未来就业的影响</title>
-      <link>https://a16z.simplecast.com/episodes/aaron-levie-on-ais-enterprise-adoption-0GbhMdXE</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/aaron-levie-on-ais-enterprise-adoption-0GbhMdXE"&gt;Aaron Levie on AI's Enterprise Adoption&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-这是一篇A16Z普通合伙人Martin Casado与Box联合创始人兼首席执行官Aaron Levy的炉边谈话纪要，深入探讨了AI如何改变企业，从产品策略到内部工作流程，以及AI如何重塑软件开发、就业市场和商业模式。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI优先公司（AI-first company）&lt;/strong&gt;：指将AI深度融入产品策略和内部工作流程的公司，以此来发现新的客户用例并实现公司效能的提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vibe coding&lt;/strong&gt;：一种AI辅助编程的形式，其中AI代理生成大量代码，开发者主要负责审查和指导，而不是从头编写代码，从而大大提高效率。文中提到Cursor、Windsurf和Repl.it作为相关工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agentic Automation（代理自动化）&lt;/strong&gt;：指由AI代理自主执行任务和工作流，例如生成市场营销资产、研究报告或自动化业务流程，而非由人类手动操作。它被认为是编码之外的自动化未来。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Manager of Agents（代理管理者）&lt;/strong&gt;：未来个体贡献者可能演变出的新角色，即负责协调、集成、规划、审查和审计AI代理的工作，而不是亲自执行所有任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Peace Dividend（和平红利）&lt;/strong&gt;：指通过AI实现生产力提升和资源优化，从而为社会带来整体净收益，如更好的产品、更优的医疗保健、更快的科学发现和更高的生活质量。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI在企业中的普及速度不像人们预期的那样快，主要瓶颈在于人类改变工作流程的速度，而非技术进步的速度。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：企业内部存在固化的工作流程、遗留IT系统、治理、合规和法律责任等复杂因素，这些都极大延缓了AI的全面渗透，可能需要数年时间。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;尽管面临挑战，企业对AI的接受度远高于早期云计算时代。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：与15年前企业对云计算的抗拒（“绝不会完全上云”）不同，如今企业高管普遍认为AI将“完全接管企业”，并积极探讨部署和变革管理，而非抵触。例如，高盛可利用AI在几分钟内完成过去需要几天才能完成的SEC文件或S1报告。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;现有SaaS公司在AI时代可能比预想的更具优势，不像云计算时代那样容易被“云原生”公司颠覆。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;SaaS公司通常已是API优先平台，AI代理是API的完美消费者，能直接在现有系统上充当“超级用户”。&lt;/li&gt;
-&lt;li&gt;对现有SaaS公司而言，AI更像是“维持性创新”（TAM扩张），而非颠覆性创新，后者要求从头重写软件并改变商业模式。&lt;/li&gt;
-&lt;li&gt;许多SaaS公司仍由创始人领导，他们对AI更积极，能更自然地推动公司转型。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI将开辟大量新的软件品类和市场，为初创公司提供巨大机会。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：在法律、医疗、教育、咨询服务和金融服务（如投资银行、财富管理）等领域，此前工作是“非结构化”的，缺乏大型软件平台。AI现在使其成熟，这些新市场将由AI代理驱动，且少有既有巨头。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI对软件开发的影响巨大，但不会彻底淘汰程序员或编程语言，而是改变工作性质。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;AI能极大提升优秀开发者的效率，尤其在代码补全、原型设计和脚本编写等“枯燥”任务上。它消除了“冗余”工作（如框架升级、处理环境问题）。&lt;/li&gt;
-&lt;li&gt;尽管AI能生成代码，但形式化编程语言仍有其存在的必要性，因为它们提供了精确描述复杂逻辑的方式。&lt;/li&gt;
-&lt;li&gt;AI的普及将吸引更多人进入计算机科学领域，因为入门门槛降低，学习效率更高。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;企业采纳AI的成本，在宏观层面，可能会通过现有的人力资源预算波动来吸收，而非造成大规模裁员或预算危机。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：AI许可费用相对知识型员工的薪资（例如，一个开发者的AI工具年费可能只占其薪资的1%）而言微不足道，公司可通过年度预算调整（如减少招聘人数、微调薪资涨幅）来消化，这在正常的组织财务动态中是“噪音”级别的变化。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;“按需定制软件”（bespoke software）的极端化未来不太可能实现。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：大多数用户不愿每天从空白屏幕开始，并自定义所有工作流程；他们更倾向于购买提供标准化、成熟工作流程的预封装软件，因为这能解决操作问题，无需自行摸索。软件的价值在于它能为你“想好”工作流程。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;企业内部AI部署策略&lt;/strong&gt;：应逐步探索高影响力AI工作流程，以去中心化方式推广，鼓励员工试验，而不是一下子全面转型。目标是“做更多”或“做得更快”，而非单纯削减成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对于即将毕业的AI原生人才&lt;/strong&gt;：应积极向公司推销自己，强调能教会企业更快的工作方式和市场研究能力，因为这类人才对公司而言价值巨大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对于企业&lt;/strong&gt;：应优先招聘和培养AI原生人才，以加速公司转型和提高效率。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“我们现在不在一个害怕AI的世界。我们处在一个我们知道这将要发生，而且需要比竞争对手更快地发生在我们身上的世界。”&lt;/li&gt;
-&lt;li&gt;“瓶颈不是技术，而是组织架构图。”&lt;/li&gt;
-&lt;li&gt;“这关乎人类改变工作流程的速度，而非技术进化和进步的速度。”&lt;/li&gt;
-&lt;li&gt;“人类的工作是修复AI的错误。”&lt;/li&gt;
-&lt;li&gt;“AI是提升我们所用工具的层次，以完成所有这些事情。”&lt;/li&gt;
-&lt;li&gt;“对于那些足智多谋、富有创造力和想象力的人或公司而言，当下获取资源的途径是前所未有的。”&lt;/li&gt;
-&lt;li&gt;“如果你想到一年前Chat2BT的一个大笑话是：‘哦，这个东西生成了一个法律案例，但它有10%是错的。’实际上，如果你思考新的工作范式，这是一个奇怪的倒置，过去我们认为AI是纠正你的错误，现在它完全颠倒了：人类的工作是纠正AI的错误。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/aaron-levie-on-ais-enterprise-adoption-0GbhMdXE</guid>
-      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/f4566e23-2fa7-4b87-b920-0b0558c7a26a/3000x3000/a16z-20pod-20-20title-201x1.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 14 Jul 2025 10:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI在医疗领域的信任建立与数据隐私挑战</title>
-      <link>http://podcast.emerj.com/turning-healthcare-innovation-into-real-patient-impact-with-brad-kennedy-of-orlando-health</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/turning-healthcare-innovation-into-real-patient-impact-with-brad-kennedy-of-orlando-health"&gt;Turning Healthcare Innovation into Real Patient Impact - with Brad Kennedy of Orlando Health&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容&lt;/p&gt;
-
-&lt;p&gt;本次播客探讨了AI在复杂医疗环境中实施的挑战，强调信任、数据透明和协作的关键作用。对话深入探讨了如何在利用AI工具改善患者结果和减轻临床医生负担的同时，处理患者隐私（特别是去识别化数据）问题，并且不取代人类判断。文章还涵盖了沟通和患者同意对于推广新医疗技术的重要性。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;去识别化医疗数据&lt;/strong&gt;：指已移除或模糊了个人健康信息（PHI）的数据，使其无法追溯到个人，但仍保留了用于研究和AI模型训练的临床上下文。目标是平衡隐私与AI开发所需的大量数据（如数字孪生）的需求。文中通过案例指出，有些图像数据不需要任何身份信息，而另一些则需要人口统计信息（如年龄、疾病、邮政编码），但都应匿名化处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能代理AI系统&lt;/strong&gt;：文中提到这是AI的下一个发展方向，暗示自主或半自主AI系统能够执行操作或做出决策，从而增强临床决策支持。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数字孪生&lt;/strong&gt;：文中提及在医疗保健和生命科学领域，强大的去识别化医疗数据可能实现模拟人体免疫系统和生物功能，从而有望减少动物试验。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信任是AI在医疗领域被采用的关键&lt;/strong&gt;：患者对新技术常有戒心，尤其是考虑到健康数据的敏感性和HIPAA等法规。
-&lt;ul&gt;
-&lt;li&gt;沟通：与患者清晰沟通技术益处和数据安全性至关重要。&lt;/li&gt;
-&lt;li&gt;审查：对任何患者数据传输（特别是给第三方合作伙伴）需进行严格的安全和风险审查，并尽可能少地使用数据（最小化原则）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据去识别化至关重要但具挑战性&lt;/strong&gt;：它对创新和AI开发必不可少，但必须在隐私与保留足够临床上下文之间取得平衡。
-&lt;ul&gt;
-&lt;li&gt;细节：有些情况（如影像）不需要身份信息，但其他情况则需人口统计数据（年龄、疾病、邮政编码）以实现准确测试和队列分析，但不得透露个人身份。重点是分析属性，而非个人身份。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;患者透明度和同意是技术推广的核心&lt;/strong&gt;：患者对透明度的期望日益增高，要求清晰告知数据使用情况。
-&lt;ul&gt;
-&lt;li&gt;实践：临床研究需获得患者明确同意，并持续沟通设备追踪的原因和益处（例如，可穿戴设备使患者在家康复，而非住院）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI工具应增强而非取代医生判断&lt;/strong&gt;：医疗AI的未来应支持和辅助临床决策，而非取而代之。
-&lt;ul&gt;
-&lt;li&gt;论证：文章强调了AI工具必须融入工作流程，并通过明确、可量化的目标进行验证，以确保跨职能支持。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可衡量的价值和临床医生认可是基础&lt;/strong&gt;：AI工具需围绕现有工作流程设计，并以明确、可量化的目标进行验证。
-&lt;ul&gt;
-&lt;li&gt;论证：确保AI工具不增加临床医生负担，而是提供明确、可量化的益处（例如，通过可穿戴设备减少住院时间）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;建立信任&lt;/strong&gt;：与患者清晰沟通新技术益处和数据安全，并进行严格的安全审查，设计方案时遵循“最少数据原则”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据处理&lt;/strong&gt;：根据研究需求，精确地去识别化数据，在不透露个人身份的前提下，保留必要的临床上下文和人口统计属性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术部署&lt;/strong&gt;：获取患者明确同意，并通过基准测试量化新技术的实际效果，持续教育患者，确保他们理解并采纳，并兑现承诺。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“这确实关乎与患者的沟通，以建立信任。”&lt;/li&gt;
-&lt;li&gt;“归根结底，没有数据，没有患者数据，你就无法创新。”&lt;/li&gt;
-&lt;li&gt;“去识别化对于推动技术发展、利用数据，尤其是在AI领域，绝对至关重要。”&lt;/li&gt;
-&lt;li&gt;“……在医疗保健领域，这真的归结为与你的提供者的沟通和信任，然后归结为我们是否愿意为了更大的利益去做这个人类决定……”&lt;/li&gt;
-&lt;li&gt;“AI工具必须围绕工作流程设计，并通过明确、可量化的目标进行验证，以确保跨职能支持。”&lt;/li&gt;
-&lt;li&gt;“智能代理AI和临床决策支持系统前景广阔，但它们必须增强而非取代医生的判断。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/turning-healthcare-innovation-into-real-patient-impact-with-brad-kennedy-of-orlando-health</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/f/9/f/e/f9feddb17b3a09acd959afa2a1bf1c87/Brad-Kennedy-AI-in-Business-Podcast-ep-2.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 14 Jul 2025 09:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
