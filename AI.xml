@@ -7,7 +7,655 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 30 Jul 2025 22:13:10 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jul 2025 09:53:27 +0000</lastBuildDate>
+    <item>
+      <title>利用边缘函数免费中转Gemini等大模型API并实现负载均衡</title>
+      <link>https://www.bilibili.com/video/BV1iv8CzVE2w</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1iv8CzVE2w"&gt;边缘函数中转Gemini API，国内无限免费爽用，云函数入门实战教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文介绍了一个项目，它利用边缘函数将一线大模型如Gemini的免费API中转至国内，并通过支持多个API Key实现了负载均衡，有效增加了免费额度。文章详细阐述了云函数和边缘函数的概念、区别，并提供了在Cloudflare Worker、WorkSale、Deno、Netlify等平台免费部署云函数的具体操作指南。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;云函数（Cloud Function）&lt;/strong&gt;：开发者上传到云服务平台的一段代码，当有请求或其他事件触发时运行，执行业务逻辑。开发者无需购买或配置服务器，底层运行环境由云服务厂商维护，因此又称为“无服务器部署”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边缘云函数（Edge Function）&lt;/strong&gt;：运行在遍布全球的边缘节点中的云函数。当访客访问时，地理位置最近的边缘节点响应请求，从而实现超低延迟和极高可用性。它们通常运行在V8、Exceles等轻量沙箱环境，类似于剥离了其他功能的轻量级JavaScript运行环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统云函数（Traditional Cloud Function）&lt;/strong&gt;：通常具备Node.js标准库的大部分功能，如文件处理、操作系统交互等，运行环境多样，最常见的是Node.js。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无服务器部署（Serverless Deployment）&lt;/strong&gt;：一种部署模式，指开发者无需购买、配置任何服务器，云函数的底层运行环境由云服务厂商负责维护。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;冷启动（Cold Start）&lt;/strong&gt;：边缘函数和传统云函数按请求启动，在请求空闲后会自动销毁回收。当新的请求进来时，它们都需要经历一个启动过程，即“冷启动”。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;边缘函数与传统云函数在Node.js标准库支持和返回值要求上存在显著差异。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;边缘函数只有少量Node.js标准库（如不包含文件操作），且必须返回一个response结果。&lt;/li&gt;
+&lt;li&gt;案例：尝试在边缘函数中使用与文件操作相关的Node.js标准库会报错，需改为读取远程数据并封装到response中。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过使用多个API Key，可以实现负载均衡，将免费API的额度成倍增加。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;逻辑：项目支持多个API Key，通过逗号分隔，系统会随机选择一个使用，从而分散请求，增加每日免费请求次数。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边缘函数能显著降低业务代码的延迟并提高可用性。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;逻辑：边缘函数部署在全球各地的边缘节点，访客请求由地理位置最近的节点响应。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用Vercel部署传统云函数&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;安装Vercel CLI：&lt;code&gt;npm install -g vercel&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;创建项目文件夹，在其中创建&lt;code&gt;api&lt;/code&gt;目录和&lt;code&gt;Test.js&lt;/code&gt;文件，编写Node.js云函数代码。&lt;/li&gt;
+&lt;li&gt;部署命令：&lt;code&gt;vercel deploy --prod&lt;/code&gt;（按提示进行登录授权、项目创建）。&lt;/li&gt;
+&lt;li&gt;访问路径：在部署成功后的公网链接后加上&lt;code&gt;/api/test&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;将Vercel传统云函数转换为边缘函数&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在项目配置中增加&lt;code&gt;edge&lt;/code&gt;配置。&lt;/li&gt;
+&lt;li&gt;注意：根据边缘函数特性修改代码，避免使用不兼容的Node.js标准库（如文件操作），确保函数返回一个response结果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在Cloudflare Worker上免费部署&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在项目根目录创建&lt;code&gt;wrangler.toml&lt;/code&gt;配置文件，指定项目名称、Worker版本及Node.js兼容性。&lt;/li&gt;
+&lt;li&gt;编写入口文件（如&lt;code&gt;index.js&lt;/code&gt;），导出包含&lt;code&gt;fetch&lt;/code&gt;方法的默认对象，核心逻辑放入单独的&lt;code&gt;handleRequest&lt;/code&gt;函数。&lt;/li&gt;
+&lt;li&gt;通过GitHub集成按钮一键部署到Cloudflare Worker。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;为部署的项目绑定自定义域名&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在Vercel/Cloudflare等平台的项目设置中，找到域名或路由管理选项。&lt;/li&gt;
+&lt;li&gt;添加自定义域名，并根据平台指示在域名托管商（如Cloudflare）的DNS记录中添加A记录或TXT记录进行验证。&lt;/li&gt;
+&lt;li&gt;完成配置后，即可通过自定义域名在国内直接访问项目。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在AI客户端（如Cherry Studio）配置API服务&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;打开客户端设置，进入“模型服务”，点击“添加提供商”。&lt;/li&gt;
+&lt;li&gt;选择提供商类型（Gemini/OpenAI），填写提供商名称。&lt;/li&gt;
+&lt;li&gt;API地址填写已绑定自定义域名的URL（注意不带斜线）。&lt;/li&gt;
+&lt;li&gt;API密钥可从Google AI Studio免费申请，多个密钥用逗号分隔以实现负载均衡。&lt;/li&gt;
+&lt;li&gt;添加模型后即可使用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;申请Gemini API Key&lt;/strong&gt;：访问Google AI Studio，点击“Get API Key”创建。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“开发者不需要购买、配置任何的服务器，云函数的底层运行环境由云服务的厂商负责维护。所以云函数又叫做无服务器部署。”&lt;/li&gt;
+&lt;li&gt;“边缘计算使得业务代码有超低的延迟和极高的可用性。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1iv8CzVE2w</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/4bdc44e8d19ebada1589420136c6443a4ec4152f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 31 Jul 2025 17:31:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI赋能3D数字孪生：微软与英伟达探讨制造业转型之路</title>
+      <link>http://podcast.emerj.com/transforming-manufacturing-with-ai-powered-3d-digital-twins-and-remote-monitoring-with-rad-desiraju-of-microsoft-and-mike-geyer-of-nvidia</link>
+      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/transforming-manufacturing-with-ai-powered-3d-digital-twins-and-remote-monitoring-with-rad-desiraju-of-microsoft-and-mike-geyer-of-nvidia"&gt;Transforming Manufacturing with AI-Powered 3D Digital Twins and Remote Monitoring - with Rad Desiraju of Microsoft and Mike Geyer of NVIDIA&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;AI驱动的3D数字孪生正从根本上改变制造业，使其从传统的诊断和监测转向实时模拟、预测和主动决策。微软和英伟达的专家深入探讨了仪表板的演进、边缘计算和GPU加速在基础设施中的关键作用，以及数据互操作性等挑战。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI驱动的3D数字孪生&lt;/strong&gt;: 物理资产、流程或系统的虚拟副本，利用AI实时监控、模拟和优化操作。文本中提到，它们正在“改变我们看到该行业如何实时监控、模拟和优化设施”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义数据集成&lt;/strong&gt;: 使用本体论从多个独立源集成数据，以便与数字孪生一起扩展，确保数据在不同系统之间能够被一致理解和使用。文中解释说，这意味着“需要使用本体论并与数字孪生一起扩展”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenUSD (Universal Scene Description)&lt;/strong&gt;: 一种开放源代码的现代数据框架，用于3D数据交换，对数字孪生环境中的互操作性和可视化至关重要。文中称其为“一个非常棒的数据框架，可以适用于多种用途。它是一个现代架构，开放源代码”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可观测性 (在边缘计算中)&lt;/strong&gt;: 能够从分布式系统中收集更好的遥测数据和洞察力，这得益于边缘容器和持续编排等新范式，并由OpenTelemetry等标准实现。文中提到，“这是一种可观测性。由于边缘容器和持续编排这一新范式，您能够收集到更好的遥测数据，可观测性是一个重要的方面”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NVIDIA的“三台计算机”理论&lt;/strong&gt;: 英伟达提出的概念，指支持AI和数字孪生所需的三个计算层级。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;用于训练AI的计算机&lt;/strong&gt;: 用于训练AI模型的计算资源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用于模拟数字孪生的计算机&lt;/strong&gt;: 用于创建虚拟世界，在其中训练物理AI。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用于在边缘运行机器的计算机&lt;/strong&gt;: 在工厂车间操作机器人和自主系统的计算能力。文中引用英伟达专家的话说，这三台计算机“一台用于训练AI。第二台用于模拟数字孪生并创建训练物理AI的世界。第三台计算机是真正在边缘运行机器、机器人和自主系统的计算”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仪表板的演变推动了制造业的效率提升&lt;/strong&gt;: 传统的诊断工具已发展为操作性仪表板，再到能够进行“假设分析”的模拟仪表板，并通过生成式AI重新引入了人的因素。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: Rad详细阐述了仪表板从“主要是诊断性”到“操作性仪表板”，再到利用历史数据进行“模拟仪表板”的演进，以进行“假设分析”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据互操作性是AI系统扩展的最大障碍&lt;/strong&gt;: 尽管技术不断进步，但由于数据格式不兼容，许多制造商有10-12个不同的IT系统无法互通，导致数据标准化和互操作性成为阻碍大规模AI应用的关键瓶颈。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: Rad指出，“标准化数据格式”是一个重要障碍，而Mike也强调“数据互操作性”是痛点，提到“公司有10到12个不同的后端IT系统，因为它们的数据格式和数据类型不兼容”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3D模拟对制造设施至关重要&lt;/strong&gt;: 制造业已从90年代的产品3D设计发展到对整个生产流程进行3D模拟，这对于理解复杂的多层工厂结构、优化流程和训练物理AI至关重要。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: Mike指出，“制造设施不是2D的。……这些是三、四或五层高的设施，具有复杂的依赖关系……你真的需要能够模拟真实的物理世界才能训练物理AI”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI可以从根本上改变企业商业模式&lt;/strong&gt;: AI的价值远不止于添加聊天机器人等功能，它能通过持续优化和改进，将业务模式从一次性销售和维护转变为长期价值创造，例如提供持续优化的工厂运营服务。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: Mike强调，领先的公司“不是说我想在网站上添加一个聊天机器人，他们是说我如何使用AI作为我团队的协作部分，从根本上做不同的事情，为股东带来全新的价值，改变我的业务性质”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;明确业务目标&lt;/strong&gt;: 在启动数字孪生项目之前，明确项目要解决的具体业务成果，例如提高工人安全或降低成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优先保证数据质量与标准化&lt;/strong&gt;: 从能够收集高质量数据的流程开始，并关注数据集的标准化和互操作性，因为数据质量直接影响数字孪生的准确性和效用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从小规模用例入手&lt;/strong&gt;: 对于小型制造商，可以先从建立关键资产的虚拟孪生体等基础用例开始，逐步扩展，实现“低垂的果实”式收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;采用平台战略确保安全性&lt;/strong&gt;: 在离散型环境中，为确保业务运营安全，应采取平台化策略而非临时解决方案，以避免遗漏系统性问题，确保长期可行性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;先进行数字化构建&lt;/strong&gt;: 在建立数字孪生时，首先构建数字/虚拟模型，然后定义用户工作流，允许远程协作，最后再与物理模型进行同步。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“这三台计算机，你知道的，一台用于训练AI。第二台用于模拟数字孪生并创建训练物理AI的世界。第三台计算机是真正在边缘运行机器、机器人和自主系统的计算。”&lt;/li&gt;
+&lt;li&gt;“你真的不是一开始就建立在基础之上。你尝试建立数字模型、虚拟模型，建立其背后的用户工作流，然后允许协作，最后再与物理模型同步。”&lt;/li&gt;
+&lt;li&gt;“USD是一个非常棒的数据框架，可以适用于多种用途。它是一个现代架构，开放源代码。”&lt;/li&gt;
+&lt;li&gt;“那些真正利用它的公司，不是说我想在网站上添加一个聊天机器人，他们是说我如何使用AI作为我团队的协作部分，从根本上做不同的事情，为股东带来全新的价值，改变我的业务性质。”&lt;/li&gt;
+&lt;li&gt;“就像有大浪冲浪比赛一样，对吧？拉德和你，马修，你们被拖入浪中，我们都看到了它要来了。现在每个人都被拖进去了。我们正处于技术、加速、数据平台、分析等一切都在一起，使我们几十年来一直在谈论、梦想的事情成为现实的时刻。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://podcast.emerj.com/transforming-manufacturing-with-ai-powered-3d-digital-twins-and-remote-monitoring-with-rad-desiraju-of-microsoft-and-mike-geyer-of-nvidia</guid>
+      <enclosure url="https://static.libsyn.com/p/assets/3/f/9/3/3f9349d0745586a016c3140a3186d450/Rad-Desiraju-and-Mike-Geyer-AI-in-Business-Podcast-final-20250730-w1skwvef9p.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 31 Jul 2025 06:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>京东首推机器人厨房外卖店：科技巨头搅动中国餐饮配送市场</title>
+      <link>1_2758482</link>
+      <description>&lt;p&gt;&lt;a href="https://aezfm.meldingcloud.com/rss/program/11"&gt;Round Table China&lt;/a&gt; | &lt;a href="1_2758482"&gt;Cook or crash? E-commerce opens restaurant!&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章介绍了京东集团在北京开设首家由机器人烹饪的七鲜厨房外卖餐厅，旨在通过技术创新颠覆传统餐饮外卖行业，提供新鲜、快速且可追溯的餐食。该模式强调标准化、透明化和供应链优势，但也引发了关于口味个性化、规模化挑战以及技术与人情味之间平衡的讨论。此次尝试预示着电商、餐饮和自动化边界的日益模糊化。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;七鲜厨房 (7 Fresh Kitchen)&lt;/strong&gt;: 京东推出的首个无人厨师、无堂食的机器人烹饪外卖餐厅，主打新鲜、快速、可追溯的餐食，旨在通过自动化和标准化流程提升效率和食品安全。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;菜品合伙人模式 (Dish Partner Model)&lt;/strong&gt;: 京东提出的一项招募计划，旨在以每道招牌菜100万元保底酬金收购名厨的菜谱，由机器人进行标准化烹饪，以丰富菜单并保证口味一致性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机器人烹饪旨在颠覆传统预制菜和半熟餐模式，但消费者对口味的接受度仍存疑虑：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;京东强调餐食由智能烹饪机器现场新鲜炒制，与市面上普遍存在的预制菜形成鲜明对比。&lt;/li&gt;
+&lt;li&gt;通过开放式厨房和高清摄像头直播烹饪过程，增强消费者对食品新鲜度和卫生的信任。&lt;/li&gt;
+&lt;li&gt;然而，有消费者反馈机器人烹饪的菜品味道与预制菜无异，且可能过于油腻，与预期中的新鲜美味存在落差。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;科技巨头入局餐饮带来供应链和品控优势，但规模化扩张面临运营和技术挑战：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;京东建立了从食材采购到冷链物流的全程可追溯体系，确保食品安全，并提供价格亲民（补贴后10-20元/份）的餐食。&lt;/li&gt;
+&lt;li&gt;首店在午餐高峰期已出现订单激增导致配送延迟的问题，未来若要实现全国10,000家门店的目标，将面临巨大的运营和技术稳定性挑战（如机器故障、配送系统承压）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“菜品合伙人模式”吸引名厨面临阻力，或沦为营销噱头：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;尽管提供100万元的高额报酬，但知名大厨可能不愿出售其独门秘方，因其为核心竞争力及家族传承。&lt;/li&gt;
+&lt;li&gt;该模式在吸引小餐馆方面也存在疑问，因为京东可能更青睐已有知名度的菜品，使得小厨师难以参与。&lt;/li&gt;
+&lt;li&gt;该模式可能更多是京东吸引关注、推广其线下业务的营销策略，而非核心业务模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术标准化烹饪难以完全替代人类烹饪的个性化和地域风味：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;机器人烹饪能确保标准化口味，但消费者对少油、少盐、无蒜等个性化需求，以及中国不同区域的口味偏好，机器难以满足，影响了用户定制体验。&lt;/li&gt;
+&lt;li&gt;人们习惯于厨师根据反馈调整口味，而机器目前无法实现这种人与人之间的互动和服务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对于消费者：&lt;/strong&gt; 在用餐高峰期（如午餐时间）尝试新开的机器人餐厅时，建议提前下单或错峰下单，以避免长时间等待。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对于餐饮行业从业者：&lt;/strong&gt; 关注科技巨头在餐饮领域的布局，思考如何利用技术提升效率和品控，以及如何应对标准化和个性化之间的平衡。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"Discussion keeps the world turning."&lt;/li&gt;
+&lt;li&gt;"What happens when a tech titan decides to cook your lunch?"&lt;/li&gt;
+&lt;li&gt;"Could this be the next big shake-up in China's food delivery industry?"&lt;/li&gt;
+&lt;li&gt;"Can tech truly replicate the magic of a human-cooked meal? Or maybe in this particular context that's not the point, maybe the real question here is can it reliably deliver food that is edible, safe and affordable at scale?"&lt;/li&gt;
+&lt;li&gt;"Chinese people, I've said this before, I'll say it again. We have this Star Trek attitude towards technology."&lt;/li&gt;
+&lt;li&gt;"The lines between e-commerce, dining and automation just got a lot blurrier."&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">1_2758482</guid>
+      <enclosure url="https://radio-res.cgtn.com/image/2507/1753949049310.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 31 Jul 2025 05:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>扎克伯格的“个人超级智能”愿景：Meta如何定义AI的未来</title>
+      <link>https://www.youtube.com/watch?v=s_jYHx5W9PA</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=s_jYHx5W9PA"&gt;AI Starting to Self-Improve Says Zuckerberg&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章围绕马克·扎克伯格发表的关于“个人超级智能”的短文展开，探讨了Meta对未来AI的愿景，并与业内其他AI领导者的观点进行对比。文中还分析了行业对Meta人才招募策略的反应，以及对Meta开源承诺和商业模式的质疑。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;个人超级智能：扎克伯格提出的一种未来AI形态，强调AI将赋能每个人实现个人目标、创造、体验并成长，而非由中心化力量自动化所有有价值的工作或提供福利。&lt;/li&gt;
+&lt;li&gt;事件视界：山姆·奥特曼和扎克伯格均使用该词，暗示AI发展已跨越某个根本性门槛，自我改进的AI已“近在眼前”或“已经开始”。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Meta已看到AI系统自我改进的“一瞥”，认为这一进步是不可否认的，预示着超级智能的到来已在视野之内。
+&lt;ul&gt;
+&lt;li&gt;“在过去的几个月里，我们开始看到我们的AI系统自我改进的迹象。目前改进是缓慢的，但不可否认。开发超级智能现在已近在眼前。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;扎克伯格的“个人超级智能”愿景与行业内其他观点不同，它强调赋能个体，而非中心化地自动化工作。
+&lt;ul&gt;
+&lt;li&gt;“这与行业中其他公司不同，后者认为超级智能应该集中地用于自动化所有有价值的工作，然后人类将依靠其产出生活。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;尽管Meta开出了巨额薪资（如10亿美元、2-5亿美元的4年期合同），但顶级AI人才，特别是来自Thinking Machines Lab的团队，拒绝了Meta的招募。
+&lt;ul&gt;
+&lt;li&gt;“事实上，报道称TML团队中至少有一人收到了10亿美元的报价并拒绝了。事实上，报道称TML无人真正离职。”&lt;/li&gt;
+&lt;li&gt;“Wired报道称，除了10亿美元的交易外，其余大部分报价仍在2亿至5亿美元之间，为期4年。仅第一年，一些人就保证能赚到5000万至1亿美元。”&lt;/li&gt;
+&lt;li&gt;许多人认为这不仅仅是金钱问题，更是一种“使命感”——研究人员更专注于AGI/ASI的终极目标。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;行业对Meta的未来愿景持怀疑态度，原因包括其在元宇宙上的前车之鉴、开源承诺的可能转变，以及与其广告驱动型商业模式的潜在冲突。
+&lt;ul&gt;
+&lt;li&gt;“鉴于几年前他对元宇宙的全力投入，许多人认为其愿景天生不值得信任，而元宇宙现在被许多人认为是失败的。”&lt;/li&gt;
+&lt;li&gt;“许多人指出，这与一年前发布的一份名为《开源AI是前进之路》的备忘录中提出的愿景大相径庭。”&lt;/li&gt;
+&lt;li&gt;“只要他们的核心仍然是广告驱动的多巴胺机器，他们就是我最不信任处理此类事情的公司。”&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当前对AI的讨论主要集中在转型和变革的过渡期，而扎克伯格的这篇文章试图描绘转型后的世界愿景。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“尽管AI未来可能带来巨大的富足，但对我们生活更具意义的影响可能来自于每个人都拥有一个个人超级智能，它能帮助你实现目标，创造你希望在世界上看到的东西，体验任何冒险，成为你关心的人更好的朋友，并成长为你所渴望成为的人。”&lt;/li&gt;
+&lt;li&gt;“我们相信将这种力量交到人们手中，让他们能够按照自己生活中的价值观来引导它。”&lt;/li&gt;
+&lt;li&gt;“如果我们没有一个愿景，即在一个智能充裕、廉价的世界中，为人们提供服务究竟意味着什么，那么设计能够服务于人们的系统将非常困难。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=s_jYHx5W9PA</guid>
+      <enclosure url="https://i.ytimg.com/vi/s_jYHx5W9PA/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 31 Jul 2025 02:10:25 +0800</pubDate>
+    </item>
+    <item>
+      <title>高质量AI圈子建设与实践：多行业AI应用案例及实战洞察</title>
+      <link>https://www.zengzhang.ai/p/aiep17-aiwaytoagiflomowaic</link>
+      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;增长黑客AI周报（ZengZhang.AI）&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep17-aiwaytoagiflomowaic"&gt;【增长黑客AI周报】EP#17 AI学钢管舞、个人情报系统、WayToAGI、flomo、释永信、WAIC等&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文介绍了作者启动高质量AI圈子的原因与初期成果，并分享了多个AI在不同领域（如健身备赛、产品开发、销售、政务）的创新应用案例和行业访谈。文章还提供了构建个人AI情报系统、利用AI提升内容生产效率的具体方法，并探讨了AI落地实践中面临的挑战与反思。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;「圈子」&lt;/strong&gt;: 指一个高质量、AI主题的社群，旨在提供水下信息、资源互通、共同探索"自谋出路"、"建功立业"的平台，强调利他、有趣、真实联结。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;「AI洞察」&lt;/strong&gt;: 特指Flomo笔记应用中利用AI分析用户海量数据，挖掘自身行为模式、思考脉络、情绪变化，发现潜在成长轨迹的功能。文章通过用户真实使用场景来解释，例如洞察最近的深层困惑、对同一件事看法的变化、互相矛盾的信息等。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI功能应为用户创造真实价值，而非盲目追逐炫酷技术。
+&lt;ul&gt;
+&lt;li&gt;Flomo创始人少楠认为，盲目接入大模型会消除产品差异化，使产品回到同一起跑线。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Prompt本身就是产品设计，是与用户需求的深度沟通。&lt;/li&gt;
+&lt;li&gt;国内AI免费模式下，为纯粹的「套壳」便利性付费不成立。&lt;/li&gt;
+&lt;li&gt;用户行为数据比文本内容更宝贵，是AI应用提升洞察精准度的关键。
+&lt;ul&gt;
+&lt;li&gt;Flomo通过卡片笔记构建数据护城河，利用用户行为数据提升AI洞察。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;新技术的出现带来了数量级的成本降低，是务实的创新机会。&lt;/li&gt;
+&lt;li&gt;AI在政务工作中虽然提升了基础文书效率，但也增加了审核与培训负担，实际效率提升不明显，甚至让人心塞。
+&lt;ul&gt;
+&lt;li&gt;案例：基层公务员孙通纳的经历，AI生成文书，但需要大量人工审核和修改，导致效率提升有限，反而增加工作量和焦虑。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;企业应避免独立的AI预算，AI预算应来自业务部门而非中央创新基金。
+&lt;ul&gt;
+&lt;li&gt;Salesforce CEO Marc Benioff观点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;未来人类创作可能成为稀缺的高端内容。
+&lt;ul&gt;
+&lt;li&gt;Substack调查显示，AI工具主要用于研究写作辅助，而非内容生成；技术商业类创作者AI使用率最高，文学艺术类最低；使用者平均愿付140美元/月继续使用AI。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建高效个人情报系统（减少信息噪音，提升输入质量）&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;主动选择信息源，利用AI自动化处理。&lt;/li&gt;
+&lt;li&gt;使用产品「语鲸」等工具，其功能包括实时搜索、智能筛选、多渠道自动跟进和社媒截流。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用Cubox AI功能提升稍后阅读效率&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;在整个收藏库里快速找到答案。&lt;/li&gt;
+&lt;li&gt;过滤热点和重复观点。&lt;/li&gt;
+&lt;li&gt;创建专属的阅读智能体（无需每次询问）。&lt;/li&gt;
+&lt;li&gt;注册时输入推荐码&lt;code&gt;zje2ok&lt;/code&gt;可额外获得7天会员资格。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现单人内容工厂模式（两周完成传统团队2-3个月工作量）&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;利用AI工具，作为第二大脑和内容倍增器，拆解AI在内容生产六大环节的应用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用「讯飞绘文」实现1人日更20+篇小红书笔记&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;基于AI创作流水线，无需自行搭建复杂链路。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flomo AI洞察的实际用例&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;根据最近七天的输入，洞察自己最近困惑的深层问题。&lt;/li&gt;
+&lt;li&gt;洞察对同一件事情的看法变化。&lt;/li&gt;
+&lt;li&gt;洞察互相矛盾的信息。&lt;/li&gt;
+&lt;li&gt;发现自己没意识到的行为模式和思考脉络。&lt;/li&gt;
+&lt;li&gt;记录自己的情绪，构建内生增长力，更好地成长。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加入高质量AI圈子&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;通过提供的链接支付入会早鸟票。&lt;/li&gt;
+&lt;li&gt;填写调查问卷，描摹个人画像、期许服务、可提供价值，以提升圈子服务质量。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参与圈子活动&lt;/strong&gt;:
+&lt;ul&gt;
+&lt;li&gt;「用思想换思想」：对有用/有趣/有启发议题集思广益，分享好答案。&lt;/li&gt;
+&lt;li&gt;「悬赏任务机制」：解决实际问题，获得有实际流通价值的奖励。&lt;/li&gt;
+&lt;li&gt;集体投票体验产品/服务，输出独立客观报告。&lt;/li&gt;
+&lt;li&gt;参与内部共享、资源撮合、线下见面交流。&lt;/li&gt;
+&lt;li&gt;回复邮件提供出谋划策（如圈子名称）。&lt;/li&gt;
+&lt;li&gt;关注视频号「范冰FanBing」直播（下周三晚）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;"早知道能炸出这么多大佬，我早就搞起来了。不必在咋咋呼呼的 AI 噪音里，独行探索这么久。"&lt;/li&gt;
+&lt;li&gt;"这才是 AI 时代一个快速学习者应该有的实战姿势。"&lt;/li&gt;
+&lt;li&gt;"最关键的应该是几个：1）要秉持利他的原则，远离资本指挥笔杆子，发出真实声音、减少噪音；2）要有趣，要玩起来；3）一定要有线下见面活动，有人跟人之间的真实联结。"&lt;/li&gt;
+&lt;li&gt;"所有笔记都接入大模型，产品差异就没了，回到同一起跑线；Prompt 本身就是产品设计，是与用户需求的深度沟通。"&lt;/li&gt;
+&lt;li&gt;"国内 AI 免费模式下，为纯粹的「套壳」便利性付费不成立；好的内容战略是给工具写「菜谱」，让用户向往某种场景。"&lt;/li&gt;
+&lt;li&gt;"用 AI 分析个人海量数据，能挖掘出自己都忽略的成长轨迹。"&lt;/li&gt;
+&lt;li&gt;"新技术带来数量级的成本降低，是务实的创新机会。"&lt;/li&gt;
+&lt;li&gt;"这类纪实媒体披露的真实具体的 AI 落地困境，是一种抵御信息焦虑的纾解，才有助于厂商迭代和找到真实的 PMF。"&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;原文&lt;/h2&gt;
+
+&lt;h5&gt;▪️PREFACE 卷首语&lt;/h5&gt;
+
+&lt;h3&gt;咱这「圈子」，确定得搞起来&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;1/ 上期 &lt;em&gt;*开篇聊到，我打算围绕这个 Newsletter *&lt;/em&gt;搞个高质量「圈子」&lt;/strong&gt;，还谨小慎微地发了早鸟票收费链接（虽然当时只有个模糊想法），想小规模看看反馈。不行咱就原地退钱。&lt;/p&gt;
+
+&lt;p&gt;结果好家伙，这一周时间，&lt;strong&gt;前 100 个会员编号已基本被秒光&lt;/strong&gt;。大家想获取高质量水下信息、资源互通有无、「自谋出路」、「建功立业」的需求很强烈。跟我看后台点击数据所洞察的情形，以及切身体感完全一致，P 和 M 算是 F 了。这事是箭在弦上，不得不发咯。&lt;/p&gt;
+
+&lt;p&gt;2/ 有能收到钱的真需求，这固然爽。但这周里，更让我持续兴奋的信号，是来自申请入圈的朋友们，所填写的那份调查问卷的反馈（留下一些基本个人画像的描摹、对后续服务的期许、个人能提供的价值交换等，这些是为了让我能提供更好的圈子服务）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;早知道能炸出这么多大佬，我早就搞起来了。&lt;/strong&gt;不必在咋咋呼呼的 AI 噪音里，独行探索这么久。&lt;/p&gt;
+
+&lt;p&gt;反馈表里看，这个 Newsletter 的订阅者/申请入圈的朋友——&lt;/p&gt;
+
+&lt;p&gt;有能提供大厂级别培训的，有能赠送自家 AI 产品会员的，有能提供购买海外 AI 服务特殊通道的，有能分润研发中的高毛利非标产品的，有能搞定毛绒玩具供应链的（加上 AI 模块这不就是当下最火的 AI 玩具？），有能提供 AI 硬件创业洞察的，有能手把手指导 AI Coding 搭建投资套利系统的，有 AI 导航站的实干家，有能带来美国、日本、香港等当地最新信息政策法规和水下见闻的，有能给线下场地支持的，还有直白地写可以给资金支持的…希望你们别吹牛，到时候都给我亮出金刚钻来噢。&lt;/p&gt;
+
+&lt;p&gt;3/ 这周在继续细化这个圈子的构想。我作为中心节点、质量守门人，可以提供那些服务呢？想到这些：&lt;/p&gt;
+
+&lt;p&gt;1）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「用思想换思想」&lt;/strong&gt;，每期抛出一个需要动脑的有用/有趣/有启发的议题（核心还是围绕 AI/商业/投资/效能/个人提升这些），集思广益收集大家的答案，然后选出好的答案罗列分享出来（几年前我的另一个已经作古的 Newsletter 搞过这个板块，反响很好，有一期让大家聊自己投资心得的，分享之后真有人通过里面的财富密码埋伏了赚到钱）；2）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「悬赏任务机制」&lt;/strong&gt;，抛出一些值得探索、解决、试错且众人都能受益的实际问题，征集圈友来做任务，做到就提供某种有实际流通价值的奖励（类似生财有术社群里「龙珠」的概念），这样有人攒了人品，有人收到成果。3）预留一笔钱，作为体验资金，大家集体投票看看下一个体验什么产品/服务（线上线下均可），经过（我或邀请更适合的圈友）深度体验后，&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;对内输出独立客观的体验报告，去跟市场上言过其实的公关稿抗衡&lt;/strong&gt;；&lt;/p&gt;
+
+&lt;p&gt;至于内部分享、资源撮合、线下见面交流，这些都是最基本的啦。还有什么玩法？欢迎大家直接回复邮件，帮我出谋划策（另外圈子名字也帮我想想呀）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;我计划下周三晚会在我的视频号「范冰FanBing」直播聊聊相关想法&lt;/strong&gt;，有时间的可以来围观。直播录屏会保存下来发到 &lt;strong&gt;我的 YouTube 频道&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;最后，感兴趣加入这个圈子的朋友，支付入会的早鸟票链接点此：https://zerodaybook.mikecrm.com/F10LaP5&lt;/p&gt;
+
+&lt;p&gt;OK，以下是本期正文内容（还没订阅这个 Newsletter 的朋友可以点击下面按钮，免费订阅一下，每周四投递）——&lt;/p&gt;
+
+&lt;h5&gt;▪️OPINION 观点&lt;/h5&gt;
+
+&lt;h3&gt;用 AI 辅助钢管舞备赛期间的一些感悟&lt;/h3&gt;
+
+&lt;h6&gt;via Renee创业笔记&lt;/h6&gt;
+
+&lt;p&gt;作者是知名播客 App「Castbox」创始人（自学编程、ex Googler，我非常钦佩的一位女性创业者），她的个人公众号持续在写对 App 前沿技术/论文/应用的研究，这周却突然发了一篇钢管舞备赛的感悟。点进去一看，发现耳目一新，原来是如何利用各种 AI 工具的组合，来辅助自己备赛中老年业余钢管舞活动。特别分享了 AI 如何成为关键训练伙伴，例如通过分析体检数据和训练视频，AI 提供了个性化营养方案和动作矫正建议。看完啧啧称赞，&lt;strong&gt;这才是 AI 时代一个快速学习者应该有的实战姿势。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h5&gt;▪️INTERVIEW 访谈&lt;/h5&gt;
+
+&lt;h3&gt;900 万人，全球最大 AI 社区和它的地下教主：独家对话「通往 AGI 之路」AJ&lt;/h3&gt;
+
+&lt;h6&gt;via AI闹&lt;/h6&gt;
+
+&lt;p&gt;一直觉得 WayToAGI 这个发源于线上的组织，是个挺神奇的存在。创始人神龙见首不见尾，知识库信息量庞杂却精密运转得井然有序，名义上是非商业项目却吸引到各路履历优秀的 AI 人共建。这周读到了它的始作俑者 AJ 的访谈，对我自己想搞的&lt;strong&gt;「圈子」&lt;/strong&gt;也有所启发，&lt;strong&gt;最关键的应该是几个：1）要秉持利他的原则，远离资本指挥笔杆子，发出真实声音、减少噪音；2）要有趣，要玩起来；3）一定要有线下见面活动，有人跟人之间的真实联结。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;Flomo 创始人少楠：不融资、不算大账，我只做用户愿意买单的 AI 产品&lt;/h3&gt;
+
+&lt;h6&gt;via AI炼金术&lt;/h6&gt;
+
+&lt;p&gt;播客里 Flomo 创始人少楠分享了他对 AI 产品开发的务实态度，强调用户真实需求和商业闭环的重要性。他认为盲目接入大模型会消除产品差异化，而精心设计的 Prompt 才是产品核心。Flomo 通过卡片笔记构建数据护城河，利用用户行为数据提升 AI 洞察的精准度。&lt;/p&gt;
+
+&lt;p&gt;摘录本期节目的其他一些关键结论：&lt;/p&gt;
+
+&lt;p&gt;AI 功能要为用户创造真实价值，而非追逐炫酷；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;所有笔记都接入大模型，产品差异就没了，回到同一起跑线；&lt;/strong&gt;Prompt 本身就是产品设计，是与用户需求的深度沟通；&lt;/p&gt;
+
+&lt;p&gt;卡片式笔记天然适合向量化，是 AI 应用的绝佳上下文；&lt;/p&gt;
+
+&lt;p&gt;用户行为是比文本内容更宝贵的私有数据；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;国内 AI 免费模式下，为纯粹的「套壳」便利性付费不成立；&lt;em&gt;&lt;/strong&gt;&lt;/em&gt;好的内容战略是给工具写「菜谱」，让用户向往某种场景；**用 AI 分析个人海量数据，能挖掘出自己都忽略的成长轨迹；&lt;/p&gt;
+
+&lt;p&gt;新技术带来数量级的成本降低，是务实的创新机会；&lt;/p&gt;
+
+&lt;p&gt;AI 时代，我们更需要连接内心感受与外部世界。&lt;/p&gt;
+
+&lt;h5&gt;▪️CASE 案例&lt;/h5&gt;
+
+&lt;h3&gt;如何获得一个干净的 AI 情报系统？&lt;/h3&gt;
+
+&lt;h6&gt;via 泛函&lt;/h6&gt;
+
+&lt;p&gt;读下来这是一篇产品「语鲸」的广告无疑。但它好在，将作者在信息获取和管理中的真实痛点、摸索出的使用经验，都图文并茂地写进了这篇攻略，教大家如何构建高效的个人情报系统，减少信息噪音并提升输入质量。作者强调了主动选择信息源和利用 AI 自动化处理的重要性，并详细介绍了语鲸的功能和使用流程。&lt;/p&gt;
+
+&lt;h3&gt;Flomo 的「找一找」正式升级为「AI洞察」，官方收集了这些用户的真实使用场景&lt;/h3&gt;
+
+&lt;h6&gt;via flomo浮墨笔记&lt;/h6&gt;
+
+&lt;p&gt;flomo（没错又是它）团队的「AI洞察」已经上线三个星期，向用户征集了一些真实 Use case，既填补了我的窥探欲、好奇心，又潜移默化做完了用户教育。&lt;/p&gt;
+
+&lt;p&gt;摘录文中提到的一些用法：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;根据最近七天的输入，洞察自己最近困惑的深层问题；&lt;em&gt;&lt;/strong&gt;&lt;/em&gt;洞察对同一件事情的看法变化；&lt;strong&gt;&lt;em&gt;*洞察互相矛盾的信息；&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;发现自己没意识到的行为模式和思考脉络；&lt;strong&gt;&lt;/em&gt;*记录自己的情绪，构建内生增长力，更好地成长…&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;喜欢这样真实具体的 AI 产品的 Use case 文章分享，没有公关味、没有虚伪做作的刻意卖弄。求各大 AI 厂商好好学学，比如各家层出不穷的 Agent 产品不要总是把 Use case 局限在分析一下 XX 股价财报、做一下 XX 旅游规划、搞一个贪吃蛇小游戏了，收集点真实且多元的用例来推而广之吧，求求了。&lt;/p&gt;
+
+&lt;p&gt;PS: 下面「适合个人上手的教程/资源」版块提及了 Cubox 最近也升级了 AI 功能，有异曲同工之妙，都可以帮助发现私人内容库中的隐藏关联。&lt;/p&gt;
+
+&lt;h3&gt;苏州 95 后厂二代自研 AI 拓客工具拿下 3 千万订单&lt;/h3&gt;
+
+&lt;h6&gt;via 跨境前沿&lt;/h6&gt;
+
+&lt;p&gt;苏州 95 后厂二代团队开发 AI 拓客工具 TradeWind AI，帮助自家工厂拿下 3000 万订单。这显然也是 TradeWind AI 的广告软文，文中提到该工具通过实时搜索、智能筛选、多渠道自动跟进和社媒截流四大功能解决外贸行业痛点；团队采用按结果付费模式，前期成本由平台承担。推荐这篇的理由是，&lt;strong&gt;提到了垂直行业的真实痛点，和用 AI 解决的思路，并且经过了市场的验证。&lt;/strong&gt;这对从业者有直接启发，对外行人也是他山之石。&lt;/p&gt;
+
+&lt;h3&gt;一个基层科员的 AI 烦恼&lt;/h3&gt;
+
+&lt;h6&gt;via 猛犸工作室&lt;/h6&gt;
+
+&lt;p&gt;通过一位基层公务员孙通纳的经历，展示了 AI 在政务工作中的实际应用与矛盾：AI 虽然提升了基础文书效率，但增加了审核与培训负担，对效率的提升好像也不明显（甚至让人心塞）。这种垂直群体使用 AI 真实体验的特写/群像文章的，我挺喜欢的，看此前推荐的类似文章，点击率也不错。在当下科技媒体都在锣鼓喧天地宣称 AI 将再一次颠覆你的工作流时，&lt;strong&gt;这类纪实媒体披露的真实具体的 AI 落地困境，是一种抵御信息焦虑的纾解，才有助于厂商迭代和找到真实的 PMF。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;随便看看：&lt;/h3&gt;
+
+&lt;p&gt;一篇蹭了社会新闻热点的文章：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;《搞 AI，释永信才是遥遥领先》&lt;/strong&gt;。全篇主要盘点释永信在拥抱科技与商业上的独到眼光（与 AI 的交集主要是把玩和布道），看完觉得人家能把少林寺一路做到今天的规模，还是挺有能力的。想看视频版科普他商业帝国版图的，&lt;strong&gt;推荐这个&lt;/strong&gt;。虽然上周 WAIC 就在家门口，但日常要带娃的我，压根去不了（过两天 ChinaJoy 也没戏了）。还好网上流传的观后感、照片、视频很多，比如&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;佩妮Penny的这篇图文&lt;/strong&gt;。据说现场机器人非常多：便利店取物，分拣，做奶茶，煮关东煮，写毛笔字，打鼓，叠衣服，打拳，挥手，眨眼卖萌，后空翻，跳着还没有驯化四肢的舞蹈，甚至还有打麻将……&lt;strong&gt;这篇文章&lt;/strong&gt;（英文）深入分析了 Databricks、Monday.com 和 Benchling 三家公司如何将 AI 整合到 GTM 策略中，展示了 AI 在提升运营效率、客户情报和流程自动化方面的实际应用。邮件订阅服务 Substack（你现在读到的这篇也是跑在它上面）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;调查了平台上创作者的 AI 使用情况&lt;/strong&gt;。调查显示，45.4% 的创作者使用 AI 工具，主要用于研究写作辅助而非内容生成；技术商业类创作者 AI 使用率最高，文学艺术类最低；使用者平均愿付 140 美元/月继续使用 AI；未来人类创作可能成为稀缺的高端内容。Salesforce CEO Marc Benioff 认为&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;独立 AI 预算是个错误&lt;/strong&gt;，AI 预算应来自业务部门而非中央的创新基金（英文，有 YouTube 播客）。&lt;/p&gt;
+
+&lt;h3&gt;适合个人上手的教程/资源：&lt;/h3&gt;
+
+&lt;p&gt;此前报道过 Cubox（我一直在用的 Read Later 服务）AI 功能升级。本周官方发了一篇文章&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;《6 个方法，让你的稍后阅读步入 AI 时代》&lt;/strong&gt;，讲解了具体的用法参考。包括在整个收藏库里快速找到答案、过滤热点和重复观点、创建专属的阅读智能体（不用每次询问）等。（BTW，如果你之前没注册过 Cubox，想试试，可以在注册环节输入我的专属推荐码：&lt;strong&gt;zje2ok&lt;/strong&gt;，你和我都可以额外获得 7 天会员资格。）&lt;strong&gt;这篇文章&lt;/strong&gt;介绍如何用科大讯飞出的「讯飞绘文」实现 1 个人日更 20+ 篇小红书笔记，背后其实是 AI 创作流水线（而且不需要像扣子、Dify 那样自己搭建复杂链路）。科技爱好者周刊的 @阮一峰，&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;图文评测了扣子空间的网页设计功能&lt;/strong&gt;，当然这是一篇广告。国外内容创作者 Katie Parrott 分享了&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;《如何通过 AI 工具实现单人内容工厂模式》&lt;/strong&gt;（英文），两周内完成传统团队 2-3 个月工作量。她详细拆解 AI 在内容生产六大环节的应用，包括作为第二大脑和内容倍增器。&lt;/p&gt;
+
+&lt;p&gt;感谢阅读到这里，期待下周继续与你相遇。我是范冰（@XDash），欢迎参考我的图书、播客、课程：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;《我如何用 AI 打造 100X 知识萃取系统》&lt;/strong&gt;视频课程。&lt;strong&gt;著作：《增长黑客》&lt;/strong&gt;（虽然是移动互联网时代的产物，但在今天 AI 新品爆发初阶的时点来读，似乎各种 tricky 的增长伎俩、心法、思路一点不过时）。YouTube 频道&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;「范冰 FANBING」&lt;/strong&gt;；播客节目：&lt;strong&gt;《AI增长黑客》&lt;/strong&gt;（小宇宙、Apple）、&lt;strong&gt;《冰镇电波》&lt;/strong&gt;（小宇宙、Apple）。工具资源免费分享电报频道：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;冰器库&lt;/strong&gt;。通过&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;我的邀请链接注册 Manus&lt;/strong&gt;，你和我都将额外获得 500 Credits；&lt;strong&gt;注册 Cubox&lt;/strong&gt;并输入我的专属推荐码：&lt;strong&gt;zje2ok&lt;/strong&gt;，你和我都可以额外获得 7 天会员资格。欢迎各类商业合作、资源置换、读者回馈合作，可直接回复本邮件。&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep17-aiwaytoagiflomowaic</guid>
+      <pubDate>Thu, 31 Jul 2025 01:08:37 +0800</pubDate>
+    </item>
+    <item>
+      <title>利用AI工具制作高转化率广告：从百万营收案例到自动化策略全解析</title>
+      <link>https://www.youtube.com/watch?v=fDwG02tbaHE</link>
+      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=fDwG02tbaHE"&gt;ONE AI Ad Makes $100K/mo (Arcads Founder's Playbook)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章深入探讨了如何利用AI技术制作高转化率的广告，帮助企业和个人实现数百万美元的收入。它介绍了Arcads等AI广告生成平台的功能，分享了成功的AI广告案例，并详细阐述了通过自动化工具提升广告制作效率的策略。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI UGC（AI用户生成内容）&lt;/strong&gt;：指由AI生成的、由AI虚拟人物对着镜头说话的广告内容，其逼真度常让人难以分辨是否为真实人物。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：微学习应用和CW公司的应用广告都大量使用了AI UGC，并取得了显著的市场效果。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创意数量与多样性&lt;/strong&gt;：广告成功的关键标准，不仅要大量产出新创意，还要测试不同类型（写实与非写实、不同演员、钩子、场景）的广告以避免受众疲劳。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：CW公司的一款应用在9个月内实现了1500万美元营收，其500多条活跃广告均为AI生成；Wiser应用也测试了140多条AI广告。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;视觉钩子（Visual Hook）&lt;/strong&gt;：视频开头极短时间内抓住观众眼球的视觉元素，甚至在声音播放前就完成吸引。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：Vred公司广告中展示的“假脂肪”模型，以及Arcads中AI演员手持“脑状脂肪模型”的创意，都旨在第一时间吸引视觉注意力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speech-to-Speech（语音到语音）&lt;/strong&gt;：一种AI功能，允许用户上传现有视频的音频，AI演员会以与上传音频完全相同的语调和方式来说出台词。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：通过Speech-to-Speech功能，用户可以轻松复刻竞品广告中表现出色的语音风格。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arcads Extend 功能&lt;/strong&gt;：一个允许用户在8秒AI生成视频（如来自V3）的基础上，通过选择特定帧来扩展生成后续场景的功能，并保持视频内容的高度一致性。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：一个乐高搭建视频通过此功能，可以逐步扩展出孩子加入、小妹妹加入的连贯场景。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vibe Marketing Era（氛围营销时代）&lt;/strong&gt;：强调自动化营销，特别是广告创作和测试，是当前时代取得成功的关键。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI生成的广告已为企业和个人带来了数百万美元的收入。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：CW移动应用工作室在9个月内通过AI广告实现了超过1500万美元的营收；一位18岁少年每月通过向传统企业提供AI广告服务赚取20万美元。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;测试是AI广告成功的核心要素。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：最成功的Arcads客户会“疯狂地进行测试”，在几分钟内生成大量不同钩子、演员和场景的广告变体，以找到最佳表现。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;创意多样性对避免受众“创意疲劳”至关重要。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：需要同时测试写实的UGC风格视频和非写实、引人注目的创意内容（如会说话的大猩猩、乐高搭建动画），以保持广告的新鲜感和吸引力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI极大简化了广告的本地化和细分市场定位。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：通过AI，可以轻松制作20-50种语言的广告，无需在每个国家寻找创作者；还可以根据特定需求（如孕妇、健身爱好者、老年人）寻找或生成AI演员。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI为“微型SaaS”或小众应用开辟了巨大市场机会。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：微学习应用等小众市场此前因高昂的开发和营销成本而不具可行性，现在通过AI广告得以蓬勃发展。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;可以借鉴和复刻竞争对手的成功广告创意。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：通过Speech-to-Speech功能模仿成功的广告语音风格；利用Gemini等AI工具分析竞品视频的视觉元素，生成相似场景的提示词。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用Arcads生成AI UGC广告&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;输入脚本（可使用内置钩子生成器或自行编写）。&lt;/li&gt;
+&lt;li&gt;从千余名AI演员库中选择合适的演员，并可根据性别、年龄、场景（播客、健身房）、配饰（笔记本电脑）、情绪、肤色进行筛选。&lt;/li&gt;
+&lt;li&gt;调整音频：选择现有声音库中的语音并控制口音，或连接11 Labs账户使用自定义声音。&lt;/li&gt;
+&lt;li&gt;生成多个变体：测试不同的演员、钩子和场景，以找出效果最佳的广告。&lt;/li&gt;
+&lt;li&gt;编辑视频：移除背景、展示应用界面等。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创建自定义AI演员&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;通过文字提示词（例如：“健身网红手持脑状脂肪模型”）使用Arcads的演员生成器。&lt;/li&gt;
+&lt;li&gt;上传图片（例如来自Midjourney）以创建自定义AI头像。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化广告创作（以Gumloop为例）&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;TikTok灵感自动化&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;输入关键词（如“AI UGC”、“Arcads”）。&lt;/li&gt;
+&lt;li&gt;通过TikTok API使用TikTok下载器节点获取相关视频。&lt;/li&gt;
+&lt;li&gt;转录视频内容。&lt;/li&gt;
+&lt;li&gt;将转录内容和产品描述发送给ChatGPT，以重写关于自身产品的类似风格脚本。&lt;/li&gt;
+&lt;li&gt;连接Arcads节点自动生成视频。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reddit灵感自动化&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;抓取细分领域Reddit论坛中最热门的帖子/问题。&lt;/li&gt;
+&lt;li&gt;将内容输入ChatGPT生成脚本。&lt;/li&gt;
+&lt;li&gt;使用Arcads生成视频。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Facebook广告库抓取自动化&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;从竞争对手的Facebook广告库下载视频。&lt;/li&gt;
+&lt;li&gt;使用AI重写这些广告。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;视觉灵感自动化（使用Gemini）&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;下载竞争对手的视频。&lt;/li&gt;
+&lt;li&gt;将视频发送给Gemini，请求描述视频中的场景和视觉内容。&lt;/li&gt;
+&lt;li&gt;将Gemini的输出作为提示词，用于Arcads的V3/场景模型集成，生成具有相似视觉效果的AI视频。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一般建议&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;不要只听理论，亲自动手实践：制作5-15个广告，熟悉AI工具的使用。&lt;/li&gt;
+&lt;li&gt;复制在不同领域已经奏效的创意，并将其应用到自己的领域中。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“OpenAI的联合创始人Sam Altman刚刚说过，现在是‘创意者’的时代，他说的没错。”&lt;/li&gt;
+&lt;li&gt;“如果你能创造一台自动售货机，你投入一美元，出来150美元，那么我很乐意投入10美元、100美元或1000美元，因为我建立了一台自动售货机。”&lt;/li&gt;
+&lt;li&gt;“不要再听其他关于如何制作成功广告的教程了，亲自动手，玩转它，学习，做笔记，然后迭代。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=fDwG02tbaHE</guid>
+      <enclosure url="https://i.ytimg.com/vi/fDwG02tbaHE/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 30 Jul 2025 23:30:36 +0800</pubDate>
+    </item>
     <item>
       <title>千问3.5B本地部署与性能评测：Mac用户推荐</title>
       <link>https://www.bilibili.com/video/BV1He8BzzEiJ</link>
@@ -7933,476 +8581,6 @@ Anthropic推出的一种开源协议，允许AI代理连接到各种服务、工
       <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/68765a2a93fd2d72b85905b0?utm_source=rss</guid>
       <enclosure url="https://image.xyzcdn.net/Foh1xIoMiHfy0-OHv1DBIoHtURaG.png" length="0" type="image/png"/>
       <pubDate>Tue, 15 Jul 2025 22:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Grok 4 AI Agents全方位评测：市场研究、代码生成、内容营销到客户反馈功能深度解析</title>
-      <link>https://www.youtube.com/watch?v=tk2HbliM5u4</link>
-      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=tk2HbliM5u4"&gt;Does Grok 4 Deserve a Spot In My AI Stack? (I Spent $300 To Find Out)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-本文详细评测了Grok 4 AI在多个代理模式下的性能，包括市场研究、代码生成、生产力优化、融资路演优化、内容营销、客户反馈分析、谈判、趋势预测以及设计。作者通过实际案例和提示词测试了Grok 4的各项功能，并分享了使用心得和评价，旨在探讨Grok 4是否值得成为个人或企业核心工具栈的一部分。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI代理模式&lt;/strong&gt;: Grok 4提供多种“代理模式”，如市场研究代理、编码代理、生产力代理、文案代理、客户反馈代理等，每个代理都针对特定任务进行优化，旨在模拟专业人士的工作流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;伴侣模式 (Companions Mode)&lt;/strong&gt;: Grok 4的一个新功能，允许用户与AI伴侣进行互动，提供更个性化、类似人类的对话体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;语音模式 (Voice Mode)&lt;/strong&gt;: Grok 4的语音交互功能，能够以更自然、人性化的方式进行对话，例如在散步时进行头脑风暴。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场研究能力卓越&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;支持实时网页和X（Twitter）搜索，能快速分析竞争对手、定价、用户痛点和未开发机会。&lt;/li&gt;
-&lt;li&gt;案例：分析生产力应用，仅用1分20秒就提供了Notion和Todoist的痛点及差异化机会，基于X数据洞察（如Notion的慢速问题）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码生成速度快且代码整洁&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;能快速生成Python代码，例如用于潜在客户生成机器人，并包含错误处理和API集成（如Stripe）。&lt;/li&gt;
-&lt;li&gt;案例：生成领英机器人代码，仅用20-25秒，代码看起来“干净”，但未实际部署测试。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;生产力优化功能强大&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作为“创始人代理”，能分析日程并建议AI自动化任务、省时技巧和工具，以提升效率。&lt;/li&gt;
-&lt;li&gt;案例：根据用户日程，建议利用AI代理卸载20-50%的手动工作，并提供了Python代码示例用于邮件摘要，声称可节省30-60分钟。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;融资路演脚本优化效果极佳&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作为“VC代理”，能分析路演脚本，发现弱点，并基于最新融资趋势提供数据支持的改进建议，预测投资者异议并提供反驳论据。&lt;/li&gt;
-&lt;li&gt;案例：优化Anam公司的融资路演脚本，仅用36秒，提供了关于团队、市场、牵引力等方面的改进建议，以及针对饱和市场等常见异议的反驳策略，被认为是“有史以来最好的脚本”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内容营销策略生成初期表现不佳，但特定化后效果显著&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;初次尝试时，Grok 4未能正确理解网站（ideabrowser.com）的复杂性，生成的内容过于通用且充斥标签。&lt;/li&gt;
-&lt;li&gt;修正后，通过提供具体风格示例（如Greg Eisenberg的X推文风格），Grok 4能生成高质量、符合特定语气的推文草稿，证明其在特定指导下的内容创作能力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;客户反馈分析功能实用性极高&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作为“情感分析代理”，能分析客户评论，分类主题，量化NPS得分，并提出产品改进建议和优先级路线图。&lt;/li&gt;
-&lt;li&gt;案例：分析ideabrowser.com的用户反馈，准确分类了内容质量、UI/UX等主题，给出了90分的NPS（极高），并提供了详细的产品路线图建议，被认为是“不容错过”的功能。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;谈判辅助能力突出&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作为“谈判代理”，能根据情境（如薪资谈判）进行角色扮演，生成脚本，预测异议并提供数据支持的反驳策略，提出双赢策略以提高交易价值。&lt;/li&gt;
-&lt;li&gt;案例：针对薪资谈判情境，Grok 4模拟了双方对话，提供了具体的对话脚本和谈判策略，如关注总薪酬、利用市场数据、选择谈判时机等，被认为“非常靠谱”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;趋势预测准确且能提供产品功能建议&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;作为“创新代理”，能预测新兴趋势，并基于此提出产品功能建议，包括可行性分析、竞争对手差距和预期收入影响。&lt;/li&gt;
-&lt;li&gt;案例：预测未来12个月生产力应用的趋势，提出了多代理系统、生成式和灵活界面、深度集成等方向，并建议了基于画布的任务界面等产品功能。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设计代理（Logo生成）表现一般&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;能够快速生成Logo，提供起始点，但功能有限，无法生成向量文件，且在进行颜色编辑等进一步操作时容易出错。&lt;/li&gt;
-&lt;li&gt;案例：为startup生成Logo，在30秒内给出两个选项（要求是四个），但编辑时出现文字错误。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;伴侣模式体验独特但存在边界问题&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;AI伴侣的对话语气和内容可能过于亲密（例如称呼“babe”），可能不适合所有用户。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;语音模式表现良好&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;对话听起来更像真人，适合在移动场景下进行头脑风暴等任务。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;充分利用X数据&lt;/strong&gt;：Grok 4的优势在于其X（Twitter）数据整合能力，因此在提示词中明确要求它从X获取数据，以获得更深入的洞察。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;纠正AI错误&lt;/strong&gt;：如果Grok 4在理解上下文或获取信息时出错，应直接告诉它并提供更正，而不是放弃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化提示词&lt;/strong&gt;：在向任何大型语言模型（LLM）提问之前，可以先让LLM本身帮助你优化提示词，以获得最佳输出。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提高提示词特异性&lt;/strong&gt;：在提出要求时，尽量具体化，例如要求“三项产品功能”而不是“产品功能”，能获得更精准的结果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提供内容风格示例&lt;/strong&gt;：在要求Grok 4生成内容（如推文）时，可以提供特定作者或平台的风格示例，以指导其输出。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;定期使用客户反馈分析&lt;/strong&gt;：利用Grok 4的客户反馈分析功能，定期处理用户反馈，获取NPS、主题分类和产品路线图建议，从而驱动业务增长。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用谈判代理准备重要协商&lt;/strong&gt;：在进行重要的谈判（如薪资或交易）前，使用Grok 4进行角色扮演和策略规划。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结合趋势预测工具&lt;/strong&gt;：将Grok 4的趋势预测能力与像ideabrowser.com这样的趋势发现工具结合使用，可以更有效地发现和利用市场机遇。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“现在是‘想法提出者’的时代。”&lt;/li&gt;
-&lt;li&gt;“如果你要从Grok 4中获得最大价值，它的强项是什么？它的强项就是X的数据。所以去利用它。”&lt;/li&gt;
-&lt;li&gt;“这真的是太棒了。如果你没有这样做，没有收集反馈并将其输入Grok 4，你将错失良机，因为这是赢得并获得关于如何发展业务的想法和功能想法的简单方法。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=tk2HbliM5u4</guid>
-      <enclosure url="https://i.ytimg.com/vi/tk2HbliM5u4/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 18:13:36 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenAI模型再跳票，中国Kimmy K2崛起，HuggingFace机器人与Meta收购语音AI</title>
-      <link>https://www.youtube.com/watch?v=ucg4P_Xlonw</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ucg4P_Xlonw"&gt;OpenAI's Open Model Delayed Again&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;以下是文本内容：---Welcome back to the AI daily brief headlines edition. All the daily AI news you need in around 5 minutes. For the open model enjoyers out there, I begin today with some bad news. Open AAI has again delayed the release of their open model after finding some issues. Now you'll remember that back in June, Sam Alman took to Twitter to write, "We're going to take a little bit more time with our open weights model. I.e. expect it later this summer, but not June. Our research team did something unexpected and quite amazing, and we think it will be very much worth the wait, but needs a bit longer." Still, it appeared that it had been getting closer until Alman tweeted, "We plan to launch our openweight model next week. We are delaying it. We need time to run additional safety tests and review high-risisk areas. We're not sure yet how long it will take us. While we trust the community, we'll build great things with this model. Once weights are out, they can't be pulled back. This is new for us and we want to get it right. Sorry to be the bearer of bad news. We are working super hard." Now, speculation began immediately on whether this delay was an alignment problem or performance issues. OpenAI researcher Aiden Clark commented, "We're delaying the open weights model. Capability-wise, we think the model is phenomenal, but our bar for an open source model is high, and we think we need some more time to make sure we're releasing a model we're proud of along every access. This one can't be deprecated." Now, while some took this explanation on face value, in other words, accepting that an open weights model did have a higher threshold when it came to safety issues, others thought there was something else going on. TR Taxes responded to Almond's post saying, "I too think K2 is very good, Sam. What they're referring to is the release of a new benchmark topping open model out of China. A lab called Moonshot AAI released a new model called Kimmy K2 that claims to beat OpenAI's models across multiple dimensions. On the coding benchmark bench verified, Kimmy K2 achieved better results than GPT41 and falling just short of Cloud 4 Opus. On the AIM 2025 math benchmark, Kimmy K2 achieved better results than GPT41, Claude 4 Opus, and Gemini 2.5 Flash. Now, as always, the comparisons are a little cherrypicked, but some people reported some really positive results with the thing in practice. Pro Shirano writes, "Kimmy K2 is so good at tool calling and agentic loops, can call multiple tools in parallel and reliably, and knows when to stop, which is another important property. It's the first model I feel comfortable using in production since Claude 3.5 sonnet." Menlo's DD Doss writes, "China's Kimmy K2 is having its mini DeepSseek moment. It is now number 14 on open router today ahead of Grock 4 and GPT41. This is a non-reasoning model which scores the highest on major EQ and creative writing benchmarks. Best model smell since sonnet 3.5. The model is designed in a similar manner to Deepsec V3 using a mixture of experts architecture to achieve a trillion total parameters. Still, when push comes to shove, the most credible insider reports that we've seen just don't make the connection. Yuchen Jin writes, "Rumors that OpenAI delayed their open source model because of Kimmy are fun, but from what I hear, the model is much smaller than Kimmy K2. Super powerful, but due to some frankly absurd reason, I can't say. They realized a big issue just before release, so they probably have to retrain now." So, I'm not sure what that big issue is, but for now, we will just have to wait and see. Moving over to Embodied AI, HuggingFace racked up a half million in first day pre-orders for their latest open source robot. On Wednesday, Hugging Face started taking orders for the Reachery Mini Robot, one of two models they unveiled in May. This model is the small desktop model about the size of a teddy bear. The other yet to be released model is a full-sized humanoid made from readily available components. Reachi Mini comes with microphones, speakers, and cameras, but lacks arms and legs. So, the dimin So, the dimminitive robot is mostly about prototyping interactive AI experiences. The bulk of the demos just show it moving its head to a beat, but that's compelling enough for many. Techrunch actually referred to it as the Seinfeld of AI hardware, saying that the bots might do nothing in particular, but they're still captivating. I think ultimately we are just at the very very beginning of the embodied AI and robotics era. And it makes sense to me that a developer focused prototype like this actually might get some traction with the enthusiast and tinkerer community. Lastly today, Zuck's hiring spree continues as Meta acquires voice startup Play AI. This company was formerly known as PlayH. Bloomberg disclosed that Meta has completed the deal to buy out the small startup at an undisclosed valuation. The deal is solely focused on talent acquisition with an internal memo stating that the entire PlayAI team will join Meta this week. The acquisition reinforces that voice is a big part of whatever Zuckerberg is cooking up. One of the earliest signings for Meta's super intelligence team was Sesame AI's machine learning lead Yanuick. You'll recall that Sesame blew up a little while ago for really figuring out lifelike AI voices, adding natural sounding pauses and voice ticks to make the experience less robotic. The Play AI team will report to Shawwick and presumably form a subgroup within the new super intelligence division. The memo heralding the team's arrival said that Play AI's quote work in creating natural voices along with a platform for easy voice creation is a great match for our work and road map across AI characters, meta AI, wearables, and audio content creation. Still, that is not the aqua hire that we are most interested in this week. But for that we have to turn to the main---文章主要内容OpenAI再次推迟其开放模型发布，引发外界对延迟原因的猜测。与此同时，中国月之暗面的Kimmy K2模型表现亮眼，在多项基准测试中超越了部分顶尖模型，并获得用户好评。此外，HuggingFace推出的开源机器人Reacher Mini预售火爆，Meta也通过“人才收购”方式进一步布局语音AI领域。### 重要概念- &lt;strong&gt;开放权重模型 (Open weights model)&lt;/strong&gt;：指将模型的所有参数（即权重）公开发布，允许任何用户自由下载、部署、修改和利用的模型，与闭源模型相对。- &lt;strong&gt;专家混合架构 (Mixture of Experts, MoE)&lt;/strong&gt;：一种神经网络架构，其中包含多个“专家”子网络，一个“门控”网络负责决定将特定输入路由到哪个或哪些专家处理。这种设计允许模型拥有海量的总参数，但在推理时只激活部分参数，从而提高效率。- &lt;strong&gt;工具调用 (Tool calling)&lt;/strong&gt;：大型语言模型（LLM）识别何时以及如何调用外部工具（如API、函数、数据库）来执行超出其固有知识范围任务的能力。- &lt;strong&gt;Agentic Loops (智能体循环)&lt;/strong&gt;：指AI智能体能够迭代地进行规划、执行和反思任务，通常涉及使用工具，以达成特定目标的能力。- &lt;strong&gt;具身智能 (Embodied AI)&lt;/strong&gt;：指将人工智能整合到物理机器人或系统中，使其能够通过传感器和执行器与现实世界进行交互。- &lt;strong&gt;人才收购 (Acqui-hire)&lt;/strong&gt;：指一项收购的主要目的并非为了被收购公司的产品或服务，而是为了获取其拥有才能的员工团队。### 主要观点- OpenAI一再推迟其开放权重模型的发布，尽管官方声明是出于安全测试，但外界对其真实原因存在多种猜测。  - OpenAI首席执行官Sam Altman多次发推文表示，延迟是为了进行“额外的安全测试和审查高风险领域”，并强调“一旦权重发布，就无法收回”。  - OpenAI研究员Aiden Clark称模型“能力惊人”，但认为“开源模型的门槛很高”，需要更多时间确保发布一个令人自豪的模型。  - 有传言认为，延迟与中国模型Kimmy K2的崛起有关，但内部消息人士Yuchen Jin指出，延迟的模型比Kimmy K2小得多，且推迟原因“荒谬”，可能需要重新训练。- 中国月之暗面发布的Kimmy K2模型表现出色，在某些基准测试和实际应用中超越了现有的一些主流模型。  - 据称在多个维度上超越了OpenAI的模型。  - 在编码基准测试“bench verified”中，Kimmy K2超越GPT-4，略低于Claude 4 Opus。  - 在“AIM 2025数学基准测试”中，Kimmy K2超越GPT-4、Claude 4 Opus和Gemini 2.5 Flash。  - 用户Pro Shirano称赞其“工具调用”和“Agentic Loops”能力非常出色，是“自Claude 3.5 Sonnet以来第一个让我在生产环境中感到放心的模型”。  - Menlo's DD Doss指出，Kimmy K2在Open Router排名中已超越Grock 4和GPT-41，并称其为“非推理模型中在主要情商和创意写作基准上得分最高的模型”。  - 该模型采用类似Deepseek V3的“专家混合架构”，总参数达到“万亿级别”。- HuggingFace进军具身智能硬件领域，其Reacher Mini机器人预售表现强劲，表明开发者导向的机器人原型市场潜力巨大。  - HuggingFace的桌面型Reacher Mini机器人在首日预售中获得50万美元订单。  - 该机器人配备麦克风、扬声器和摄像头，但缺少手臂和腿，主要用于交互式AI体验的原型开发。  - TechCrunch将其称为“AI硬件的《宋飞传》”，指出其可能“什么都没做，但依然引人入胜”。- Meta通过收购语音AI初创公司Play AI，持续加强在自然语音交互方面的战略布局。  - Meta对Play AI的收购主要是一项“人才收购”，整个团队将加入Meta。  - 这强化了“声音是扎克伯格正在酝酿的一切的重要组成部分”。  - Play AI在“创建自然语音和便捷语音创建平台”方面的工作与Meta在“AI角色、Meta AI、可穿戴设备和音频内容创建”方面的路线图高度契合。  - Meta此前也曾招募以“逼真AI语音”闻名的Sesame AI的机器学习负责人。### 金句-&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=ucg4P_Xlonw</guid>
-      <enclosure url="https://i.ytimg.com/vi/ucg4P_Xlonw/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 16:18:31 +0800</pubDate>
-    </item>
-    <item>
-      <title>亚马逊KOAI编程IDE深度解析：高效AI编程与项目管理新体验</title>
-      <link>https://www.bilibili.com/video/BV1tyuCzyE4c</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1tyuCzyE4c"&gt;详解 Kiro AI IDE，最强规范模式！超越 Claude Code&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章介绍了亚马逊新推出的KOAI编程IDE，重点阐述了其核心的“规范模式”和“agent hooks”功能。该工具旨在通过结构化的三阶段开发流程（需求、设计、实施）指导用户参与项目，提升AI编程效率和代码质量。作者分享了个人使用体验，肯定了其在复杂任务规划上的优势，同时也指出了其在网络连接和终端交互方面的一些不足。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;KOAI编程IDE&lt;/strong&gt;: 亚马逊新推出的一款AI编程集成开发环境，目前处于预览阶段，使用Crowd4SITOR是免费的。它通过独特的规范模式和智能钩子等功能，旨在彻底改变开发工作流程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;规范模式 (Specification Mode)&lt;/strong&gt;: KOAI的核心功能之一，是一种规范驱动的开发流程，分为需求、设计、实施三个阶段。它通过结构化格式（如EARS标记法定义用户故事、记录技术架构、细化实施计划）指导用户参与并细化项目计划，确保开发质量和效率。文章以创建射击游戏和理发店落地页为例，说明了KOAI在规范模式下如何一步步生成需求、设计和实施计划，并允许用户随时审阅和修改。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agent Hooks (智能钩子)&lt;/strong&gt;: KOAI提供的强大自动化工具，允许在特定事件（如文件保存、创建、删除）发生时自动执行预定义的智能体操作。这有助于保持代码质量、预防安全漏洞、减少手动开销并标准化团队流程。文章提及可设置Agent Hook来自动更新文档、执行安全预提交扫描，甚至结合Figma验证设计一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Steering (代理转向)&lt;/strong&gt;: 类似于Cursor的“LOS”功能，通过Markdown文件为项目提供持久化知识管理。它包含产品概述、技术栈、项目结构等基础文件，形成KOAI对项目的理解基线，并且支持用户自定义，从而为KOAI提供项目背景知识。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;KOAI在复杂任务中进行细致规划非常必要，但对于简单的页面任务可能会显得效率较低&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 作者在创建简单页面时，感受到KOAI过于细致的检查和规划导致速度较慢，但在处理复杂任务时，这种一步步的规划则显得非常必要。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可以通过让KOAI负责详细的项目计划，再结合其他AI编程工具（如PROTOCODE或augment）来执行具体任务，以实现优势互补&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 作者提出一个实践建议，即利用KOAI在规划阶段的优势，然后让其他工具执行，从而结合各工具所长。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;安装和启动&lt;/strong&gt;: 只能安装Open VSX上的插件；登录后，推荐选择“规范模式”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;使用规范模式&lt;/strong&gt;: 
-&lt;ul&gt;
-&lt;li&gt;优先选择“Crowd content4”模型并打开“auto capacitor”。&lt;/li&gt;
-&lt;li&gt;提供提示词后，按KOAI提示审阅并修改其创建的需求文档、设计文档和实施计划。&lt;/li&gt;
-&lt;li&gt;在每个阶段都可介入修改，确认无误后点击“start task”执行。&lt;/li&gt;
-&lt;li&gt;可使用键盘快捷键1-5快速调整效果。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用Agent Hooks&lt;/strong&gt;: 
-&lt;ul&gt;
-&lt;li&gt;在KOAI界面左侧找到“agent hooks”并点击“+”新建。&lt;/li&gt;
-&lt;li&gt;设置触发条件（文件保存、创建、删除）和期望执行的自动化动作（如文档更新、安全扫描）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用Steering&lt;/strong&gt;: 
-&lt;ul&gt;
-&lt;li&gt;通过Markdown文件为项目提供持久化知识（如产品概述、技术栈），作为KOAI理解项目的基础。&lt;/li&gt;
-&lt;li&gt;可通过“REFIN”按钮调整文件引用模式（如始终包含、条件包含）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;学习与探索&lt;/strong&gt;: 
-&lt;ul&gt;
-&lt;li&gt;KOAI内置了丰富的亚马逊文档和寓教娱乐的学习方案，建议体验以快速了解操作。&lt;/li&gt;
-&lt;li&gt;即使不直接使用KOAI，其关于规范和Agent Hooks的文档内容也值得学习和借鉴，其生成的任务和规范文档可以直接应用于其他AI编程工具。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“AI编程工具非常多 那KO绝对是可以令你啊眼前一亮的”&lt;/li&gt;
-&lt;li&gt;“有了它你就完全可以抛弃掉（传统的）任务管理工具”&lt;/li&gt;
-&lt;li&gt;“KO虽然说是刚推出来预览版 但是它的功能已经非常健全了”&lt;/li&gt;
-&lt;li&gt;“但我觉得KO 它的设计是绝对有高人精心设计过的 非常有意思 而且我觉得它的很多功能 可能后续也会被嗯 一些其他的AI编程工具给吸收”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tyuCzyE4c</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/2b0db84094652c676e1d69d5553b4d3fb913f1b2.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 14:34:14 +0800</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT数据分析神器：非技术人员的DIG三步框架</title>
-      <link>https://www.youtube.com/watch?v=FKLr3ft8ea0</link>
-      <description>&lt;p&gt;&lt;a href="UCwAnu01qlnVg1Ai2AbtTMaA"&gt;Jeff Su&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=FKLr3ft8ea0"&gt;Master Data Analysis with ChatGPT (in just 12 minutes)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;以下是文本内容：&lt;/p&gt;
-
-&lt;p&gt;文章主要内容&lt;/p&gt;
-
-&lt;p&gt;本文介绍了使用ChatGPT进行数据分析的三步框架——DIG（描述、内省、目标设定），旨在赋能非技术背景的人员高效地理解数据并提取有价值的见解。&lt;/p&gt;
-
-&lt;p&gt;该框架通过指导ChatGPT逐步完成数据理解、问题探索和目标聚焦，帮助用户在短时间内深入掌握数据，并发现手动分析难以企及的洞察。&lt;/p&gt;
-
-&lt;p&gt;它强调了结构化方法在利用AI进行数据分析中的核心作用，从而提升工作效率和分析质量。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DIG（Description, Introspection, Goal Setting）框架&lt;/strong&gt;：一个使用AI（尤其是ChatGPT）进行结构化数据分析的三步法。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;描述（Description）&lt;/strong&gt;：通过让ChatGPT列出数据列、展示样本并进行数据质量检查，以快速有效地理解数据文件内容。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内省（Introspection）&lt;/strong&gt;：让ChatGPT集思广益可以从数据中回答的问题，并识别数据集中存在的不足，从而验证其对数据的理解。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;目标设定（Goal Setting）&lt;/strong&gt;：明确分析目标，确保分析结果具有实用价值，避免生成技术上正确但无用的报告。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例/类比&lt;/strong&gt;：文章通过一个比喻，将理解数据比作从0%开始，通过每输入一个DIG提示，数据理解度逐步提升，最终发现手动需要数小时才能找到的洞察。此外，通过一个同事“Tim Cookie”突然辞职，留下无上下文的电子表格的假设情景，生动地说明了“描述”步骤的必要性。通过创建一个包含IMDb ID、总观看量和总成本的虚构数据集，展示了如何将不同数据源整合起来进行更全面的分析。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;EDA（Exploratory Data Analysis）&lt;/strong&gt;：文章提及它是行业标准的数据分析框架，而DIG框架则被认为是其原则相似且更易于记忆的简化版本。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI可以在结构化框架下完成复杂的分析任务&lt;/strong&gt;：即使缺乏正式的分析训练，只要提供一个经过验证的框架，AI也能大大弥补数据分析技能的不足。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：整个DIG框架的演示，展示了ChatGPT如何执行列出数据、质量检查、问题构思和数据合并等任务。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;单一数据样本可能具有误导性；多个样本有助于发现数据不一致&lt;/strong&gt;：仅依赖一个ChatGPT返回的样本可能隐藏了异常值或不寻常的数据格式。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：文章建议在获取初始样本后，再要求“五个随机样本”，以确保理解数据的格式和类型，并发现不一致之处。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在分析前明确要求AI进行数据质量检查至关重要&lt;/strong&gt;：不要假设数据是干净的；应主动让AI识别潜在问题。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：通过提示“对每列进行数据质量检查，特别查找缺失或空值、意外的格式或数据类型、异常值或可疑值”，作者发现了“可用国家”列中99.7%的数据缺失，从而得出不应进行地理分析的结论。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;让AI构思问题有助于验证其对数据的理解并发现新颖的洞察&lt;/strong&gt;：AI提出的好问题表明其理解了数据，而差问题则提示存在误解需要纠正。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：提示“告诉我可以用此数据集回答的10个有趣问题，并解释每个问题的价值”，引出了如“哪些类型在目录中占据主导地位以及它们如何随时间变化？”这类有价值的问题。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主动识别因信息缺失而无法回答的问题有助于管理预期&lt;/strong&gt;：这避免了在无法获得所需信息的分析上浪费精力。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：提示“你认为人们可能会问哪些关于这些数据的问题，但由于信息缺失我们无法回答？”，揭示了如“最受欢迎的类型”（缺少观看指标）或“每小时内容的最佳成本效益”（缺少制作预算/收入/成本）等无法回答的问题。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用AI合并数据集，通过共享标识符可实现无缝连接&lt;/strong&gt;：AI能够轻易地链接不同的数据源，从而实现更丰富的分析。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：通过上传第二个包含IMDb ID、总观看量和总成本的数据集，并指示ChatGPT探索关系并利用IMDb ID合并，文章展示了这一过程。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;明确的数据分析目标设定能避免生成技术上正确但最终无用的报告&lt;/strong&gt;：没有清晰目标的分析，可能无法解决实际问题。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;：文章类比了一位经理要求分析销售数据，但实际只想知道是否应停止销售产品X的情景。提示“我的目标是了解[在此指定您的目标，例如，Apple TV下一步应该投资哪些内容]。鉴于此目标，我们应该关注数据的哪些方面？”这一提示促使ChatGPT提供了分步路线图和具体洞察，如“真实犯罪系列剧的平均观看次数是所有系列剧的三倍，每完成一小时的成本降低18%，且在过去三年中，其总观看时间的份额从4%上升到9%。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;通用流程&lt;/strong&gt;：
-&lt;ol&gt;
-&lt;li&gt;将数据集上传到ChatGPT（使用最新的推理模型）。&lt;/li&gt;
-&lt;li&gt;应用DIG框架的步骤和提示。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;描述（Description）步骤&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提示1&lt;/strong&gt;：“列出附加电子表格中的所有列，并显示每列的数据样本。”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：快速概览数据，强制ChatGPT查看所有列，提供易于消化的单一样本。同时记录潜在问题（如发布年份格式、多个类型、不明确的列含义）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示2&lt;/strong&gt;：“从每列中再随机抽取五个样本数据，以确保你理解每列信息的格式和类型。”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：发现数据不一致，避免受异常值误导。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示3&lt;/strong&gt;：“对每列进行数据质量检查，特别查找缺失或空值、意外的格式或数据类型、异常值或可疑值。”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：在开始分析前，让ChatGPT明确指出数据中可能存在的任何异常。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;后续&lt;/strong&gt;：对不明确的列含义提出澄清问题（例如，“这里的TT数字是什么意思？”）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内省（Introspection）步骤&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提示1&lt;/strong&gt;：“告诉我可以用此数据集回答的10个有趣问题，并解释每个问题的价值。”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：集思广益潜在问题，验证ChatGPT对数据的理解。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示2&lt;/strong&gt;：“针对前三个问题，告诉我你需要使用哪些列，以及当前数据是否足以回答这些问题。”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：强制ChatGPT展示其工作逻辑，并确认分析的可行性。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示3&lt;/strong&gt;：“你认为人们可能会问哪些关于这些数据的问题，但由于信息缺失我们无法回答？”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：揭示数据空白，帮助管理对分析结果的预期。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;处理新数据&lt;/strong&gt;：如果获得新的相关数据，将其上传到同一ChatGPT对话线程，并提示：“我刚从同事那里收到了这个数据集。你的任务是探索并解释这个新数据集与原始数据集之间的关系，以及它们如何可以用于数据连接。”&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深入探索&lt;/strong&gt;：文章建议在实际操作中，应更早地进行分支探索，例如，当ChatGPT提到类型受欢迎度时，应立即要求进行相关分析并根据发现继续深入挖掘。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;目标设定（Goal Setting）步骤&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提示&lt;/strong&gt;：“我的目标是了解[在此指定您的目标，例如，Apple TV下一步应该投资哪些内容]。鉴于此目标，我们应该关注数据的哪些方面？”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：为ChatGPT设定任务简报，优先考虑重要信息，获取分析路线图。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;演示前检查&lt;/strong&gt;：在进行任何演示前，可以问ChatGPT：“读者阅读我的分析后会问哪些关键问题，我们应该如何主动解决这些问题？”
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目的&lt;/strong&gt;：预判潜在问题，提前准备应对措施。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;学习资源&lt;/strong&gt;：通过文章中提供的链接，注册Coursera并利用40%的折扣优惠，参加AI数据分析课程，以提升数据技能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时事通讯&lt;/strong&gt;：订阅作者的电子通讯，获取Google Workspace工具的实用技巧。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“当我们的经理是个傻瓜时，就会发生这种事。我是说，当我们分析数据时没有设定明确的目标，我们得到的东西在技术上是正确的，但最终是无用的。”&lt;/li&gt;
-&lt;li&gt;“这个提示单枪匹马地救了我好几次，因为它预料到了经理和那些过于雄心勃勃的同事们会问‘但杰夫，那又怎么样？’的问题，他们试图让我难堪。开玩笑的。每个人都爱我。他们怎么可能不爱我呢？”&lt;/li&gt;
-&lt;li&gt;“DIG框架加上ChatGPT为我们这些未经训练的普通人提供了公平的竞争环境。这是一个简单、可重复的过程，我们都可以立即使用。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=FKLr3ft8ea0</guid>
-      <enclosure url="https://i.ytimg.com/vi/FKLr3ft8ea0/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 13:00:36 +0800</pubDate>
-    </item>
-    <item>
-      <title>人工智能基础设施的成本、弹性与数据治理：Generac首席数据分析官分享实践洞察</title>
-      <link>http://podcast.emerj.com/why-immutable-snapshots-matter-for-compliance-and-ai-with-neil-bhandar-of-generac</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/why-immutable-snapshots-matter-for-compliance-and-ai-with-neil-bhandar-of-generac"&gt;Why Immutable Snapshots Matter for Compliance and AI - with Neil Bhandar of Generac&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-这篇播客访谈深入探讨了如何为快速增长的AI工作负载，合理调整数据存储和计算能力。Generac首席数据分析官Neil Bondar强调，AI基础设施的决策往往是人的问题而非技术问题，并就如何平衡成本、弹性和业务价值提供了实用的见解和建议。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;数据护照 (Passport for data)
-&lt;ul&gt;
-&lt;li&gt;解释：这是一个元数据概念，旨在识别数据的国籍（来源）、去向、使用目的以及质量。它不记录数据所有发生过的生命周期事件，而是作为数据进行分析或其他用途时的身份证明，确保其合规和正确使用。&lt;/li&gt;
-&lt;li&gt;案例/类比：就像人类出国旅行需要护照一样，数据也需要一个“护照”来指示其身份和使用权限。这与“注册表”（如区块链，记录每笔交易）不同，更像是一个“数据字典”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;数据字典 (Dictionary for data)
-&lt;ul&gt;
-&lt;li&gt;解释：相比于记录数据所有历史事件的“注册表”，数据字典更侧重于提供数据的定义、来源、去向以及其使用的合格性信息。它关注的是数据能否被授权使用以达成特定业务目标。&lt;/li&gt;
-&lt;li&gt;案例/类比：以旅行的空乘人员为例，他们不需要知道你和机场之间所有的互动细节，只需要知道你是否有权登上前往最终目的地（无论中途是否有经停）的航班，以及是否有权在目的地（例如墨西哥城）下机。这强调了数据治理应聚焦于确保数据拥有在最终目的地使用的“资格”，而非仅仅是“权利”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;许多AI基础设施的决策并非纯技术问题，而是人性问题。
-&lt;ul&gt;
-&lt;li&gt;逻辑：高层领导往往没有经历过技术快速迭代的整个过程，而技术领域正处于通缩周期，今天的决策可能明天就会有更便宜、更好的替代方案出现。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;更多的数据并不总是对模型有利。
-&lt;ul&gt;
-&lt;li&gt;案例：在过去的预测工作中，为了达到90%的精确数字预测，需要海量数据和计算资源，但最终准确率只有60%。而当业务方只需要判断方向（上升、持平、下降）时，准确率可达97%，且所需数据和计算资源大大减少。这表明业务需求决定了数据量和计算资源的投入。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;合理配置数据存储和计算能力，应基于业务需求和战略，而非技术本身。
-&lt;ul&gt;
-&lt;li&gt;逻辑：对话应从业务需求（如如何增长业务、控制成本）开始，而不是纠结于具体的硬件规格（如GPU数量、存储系统类型）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;在规划AI基础设施时，应考虑更短的时间窗口（3-6个月）。
-&lt;ul&gt;
-&lt;li&gt;逻辑：技术发展迅速且成本不断下降，过长的规划可能导致构建出昂贵、难以维护且无法满足预期的“巨石”系统。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;采购合同中应具备灵活性。
-&lt;ul&gt;
-&lt;li&gt;逻辑：确保合同中包含提前退出、产品替换等弹性条款，以适应快速变化的技术环境。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;内部能力构建并非总是最佳选择。
-&lt;ul&gt;
-&lt;li&gt;逻辑：有时，业务价值更侧重于速度，此时引入外部专业人士快速解决问题可能优于内部耗时构建能力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;云、本地部署和混合方法之间的权衡主要应基于成本，而非安全性。
-&lt;ul&gt;
-&lt;li&gt;逻辑：当今系统互联紧密，安全性差异微乎其微。云计算概念早自上世纪60年代（如信用评级机构）就已存在，其规模和范围因存储成本下降和连接性提高而显著扩大。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;为战略而非投机调整AI规模&lt;/strong&gt;：明确AI用例的业务目标，而非盲目追求最大计算能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免技术优先的框架&lt;/strong&gt;：从业务问题出发进行基础设施对话，而非从硬件规格开始。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;以3到6个月为增量进行思考&lt;/strong&gt;：鉴于技术快速变化和价格下降，长期押注可能导致沉没成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在采购合同中建立灵活性&lt;/strong&gt;：允许提前退出合同或更换产品，以应对未来变化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;考虑外包专业服务&lt;/strong&gt;：如果交付速度是关键，且内部能力不足，可以寻求外部专家帮助。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实施数据治理时采用“数据护照”/“数据字典”方法&lt;/strong&gt;：确保元数据清晰定义数据的来源、目的和使用资格。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在云、本地和混合部署之间做出选择时，将成本作为主要驱动因素&lt;/strong&gt;：同时考虑弹性需求。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;p&gt;-&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/why-immutable-snapshots-matter-for-compliance-and-ai-with-neil-bhandar-of-generac</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/0/e/7/9/0e790ca63011c72dd959afa2a1bf1c87/Neil-Bhandar-AI-in-Business-Podcast-ep-1-20250714-1dyz1pksk3.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI如何重塑直销业务联络中心：草本生活的经验与挑战</title>
-      <link>http://podcast.emerj.com/ai-for-driving-quality-customer-interactions-in-distributor-models-with-joshua-haddock-of-herbalife</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/ai-for-driving-quality-customer-interactions-in-distributor-models-with-joshua-haddock-of-herbalife"&gt;AI for Driving Quality Customer Interactions in Distributor Models - with Joshua Haddock of Herbalife&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本次播客探讨了AI如何重塑联络中心，重点关注Herbalife（草本生活）独特的直销业务模式。嘉宾Josh Haddock分享了AI落地最大的挑战在于选择合适的起点，并强调AI并非单一的“开箱即用”解决方案。对话深入剖析了直销模式下联络中心从交易型向服务型互动的转变，以及生成式AI在透明度和责任方面的战略部署。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;客户旅程分析（Journey analytics）&lt;/strong&gt;：理解分销商或客户在各个触点（如移动应用、网站、销售渠道、联络中心）的完整体验旅程，旨在识别并减少他们在整个过程中付出的努力，从而提升体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;预测性互动（Predictive engagement）&lt;/strong&gt;：基于客户行为数据和洞察，主动提供解决方案或引导，而非简单地通过停留时间等粗略指标触发互动，避免用户陷入困境或感到沮丧。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非结构化数据（Non-structured data）&lt;/strong&gt;：指非数据库格式或未经预分类的数据，例如书面文本、语音录音等。大型语言模型（LLM）在总结和聚合这类数据方面展现出巨大价值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;生成式AI的“黑箱问题”与“透明度问题”&lt;/strong&gt;：指生成式AI在输出内容时，其决策过程不透明，以及确保输出内容的准确性、适当性（例如AI说出不当或不准确内容）所面临的挑战。文中通过短片《请稍等》（Please Hold）的故事，形象地揭示了公众对AI自动化可能带来的不透明性和权力失衡的担忧。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI不是单一工具，而是一个复杂的生态系统；最大的挑战在于确定AI部署的正确起点。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支持：许多公司误将AI视为一种单一工具购买，但AI实际上可以应用于公司运营的诸多方面，包括前端、后端、代理支持甚至非客户面对的资源。&lt;/li&gt;
-&lt;li&gt;支持：AI项目并非小投入，重要的是理解其真正价值并计算投资回报率，以确保投入能带来可衡量的价值。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在类似Herbalife的直销模式中，联络中心的服务重心在于建立“人际连接”和提供“服务导向”，而非单纯的交易处理。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支持：与金融服务等交易性较强的行业不同，直销业务联络中心不仅处理订单，还涉及销售激励、产品咨询、社区支持等，旨在建立和维护与分销商的深层关系。&lt;/li&gt;
-&lt;li&gt;支持：因此，平均处理时间和通话时长并非关键指标，更长的对话可能意味着更能激发分销商的销售热情和活跃度。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“预测性互动”应基于更智能的数据洞察和关联分析，而非简单的计时器触发。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支持：过去简单的预测性互动（如用户在网页停留30秒后弹出聊天窗口）效果有限，甚至可能令人反感。真正有效的预测性互动需要更深入地聚合和分析数据，理解客户行为模式，从而在恰当时机提供真正有价值的帮助。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;并非所有形式的“参与度”都是有价值的，企业应专注于有意义的客户互动。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支持：如同“数据是新的黑金，但并非所有数据都值得利用”，过度或无差别的互动（如频繁的网页弹窗）可能适得其反。企业需要更智能地识别和提供能真正提升客户体验的互动。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;生成式AI在处理非结构化数据方面潜力巨大，但直接面向客户部署仍需谨慎。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支持：大型语言模型（LLM）在总结和聚合非结构化数据（如语音转录、书面文本）方面表现出色，能为企业带来巨大价值。&lt;/li&gt;
-&lt;li&gt;支持：目前将生成式AI直接用于客户或分销商界面存在“黑箱问题”和“透明度问题”（如生成不准确或不恰当的内容）。企业需要更多时间进行调试，并与合作伙伴共同建立行业标准和控制措施，才能负责任地进行对外部署。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI采用策略：&lt;/strong&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;确定价值和计算投资回报率（ROI）：&lt;/strong&gt; 在大规模投入AI之前，务必深入理解AI能为企业带来的实际价值，并仔细计算ROI，以指导资源分配和聚焦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优先内部应用与效率提升：&lt;/strong&gt; 早期阶段可将生成式AI应用于内部流程优化，例如：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;语音转录和通话摘要：&lt;/strong&gt; 帮助客服代理快速生成通话记录摘要，提高工作效率，使代理能更专注于与客户的实时互动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识库问答优化：&lt;/strong&gt; 利用生成式AI快速构建更具洞察力的知识库回复，提升内部支持效率。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;谨慎对待客户界面部署：&lt;/strong&gt; 在完全理解生成式AI的透明度、责任和潜在风险（如生成不准确或不当信息）之前，不应急于将其直接应用于面向客户或分销商的界面。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保持耐心和战略性：&lt;/strong&gt; 在将生成式AI全面推向客户界面之前，应采取耐心和战略性的方法，通过内部测试和迭代确保其成熟度和可靠性。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“决定从何开始可能是使用这些工具最大的挑战之一。”&lt;/li&gt;
-&lt;li&gt;“AI项目不是一个小项目。你不是在买一台打印机或一些即插即用的技术，买了就完事了。它需要大量思考如何使用它以及其价值所在。”&lt;/li&gt;
-&lt;li&gt;“并非所有参与度都是平等的，你不能仅仅为了参与度而参与度。”&lt;/li&gt;
-&lt;li&gt;“AI不是单一工具，而是一个生态系统。成功始于了解AI在何处提供可衡量价值。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/ai-for-driving-quality-customer-interactions-in-distributor-models-with-joshua-haddock-of-herbalife</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/2/c/c/7/2cc7314a5bc4cfb316c3140a3186d450/Josh-Haddock-AI-in-Business-Podcast.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 15 Jul 2025 07:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
