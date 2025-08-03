@@ -7,7 +7,78 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 03 Aug 2025 00:52:07 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 09:48:13 +0000</lastBuildDate>
+    <item>
+      <title>哈密GPU资源隔离实践：算力与显存隔离效果验证</title>
+      <link>https://www.bilibili.com/video/BV1Xghgz5EFB</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1879195332"&gt;AIGC科技官&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Xghgz5EFB"&gt;08-异构GPU管理框架Hami资源隔离测试&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本次课程详细介绍了GPU异构管理框架哈密（Hami）的资源隔离能力，通过实践测试了其对GPU算力（core）和显存（memory）的隔离效果。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;哈密（Hami）：一个GPU异构管理框架，旨在对GPU资源进行高效管理和隔离。&lt;/li&gt;
+&lt;li&gt;GPU异构管理框架：用于管理不同GPU资源类型和算力分配的框架。&lt;/li&gt;
+&lt;li&gt;资源隔离：确保不同Pod或应用之间GPU算力和显存互不干扰，达到预设分配效果。&lt;/li&gt;
+&lt;li&gt;OOM（Out Of Memory）：当申请的内存超出Pod或容器被分配的显存容量时，系统会抛出此错误。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GPU算力隔离：
+&lt;ul&gt;
+&lt;li&gt;Pod实际使用的GPU算力会围绕设定值波动，但一段时间内平均使用量与申请量基本一致。&lt;/li&gt;
+&lt;li&gt;案例支撑：测试中，30%算力设置下训练耗时约0.37-0.38秒；60%算力设置下训练耗时约0.19-0.20秒，算力提升一倍，耗时约减少一倍，符合预期。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;GPU显存隔离：
+&lt;ul&gt;
+&lt;li&gt;Pod实际使用的GPU显存资源与申请量保持一致，超出申请量将触发OOM。&lt;/li&gt;
+&lt;li&gt;案例支撑：申请20G显存，尝试申请更多时会立即报错并提示OOM，而申请20G以内则成功。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实践环境准备：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;确保已安装GPU驱动和Container Runtime。&lt;/li&gt;
+&lt;li&gt;确保已安装哈密Device插件。&lt;/li&gt;
+&lt;li&gt;准备测试镜像：例如，使用PyTorch 2.6.0运行时镜像。&lt;/li&gt;
+&lt;li&gt;准备测试脚本：使用PyTorch官方的&lt;code&gt;train.py&lt;/code&gt;脚本，位于ImageNet目录下。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;测试Pod YAML文件配置：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;引用已准备好的PyTorch 2.6镜像。&lt;/li&gt;
+&lt;li&gt;启动命令直接执行测试脚本。&lt;/li&gt;
+&lt;li&gt;配置CPU、内存资源。&lt;/li&gt;
+&lt;li&gt;配置GPU资源：指定使用的GPU卡，GPU算力百分比（例如30%或60%），以及GPU显存限制（例如20G）。&lt;/li&gt;
+&lt;li&gt;将测试脚本通过&lt;code&gt;hostPath&lt;/code&gt;方式挂载到容器内的指定目录（例如&lt;code&gt;/mnt/imagenet&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;算力隔离测试步骤：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;使用包含30%算力设置的Pod YAML文件创建Pod。&lt;/li&gt;
+&lt;li&gt;观察宿主机和Pod内部的GPU资源使用率，验证其是否在30%上下波动。&lt;/li&gt;
+&lt;li&gt;查看Pod日志，记录训练耗时。&lt;/li&gt;
+&lt;li&gt;重复上述步骤，使用包含60%算力设置的Pod YAML文件进行测试，对比耗时和资源使用情况。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;显存隔离测试步骤：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;使用包含20G显存限制的Pod YAML文件创建Pod，并确保其长时间运行（例如通过&lt;code&gt;sleep 3600&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;进入Pod内部，尝试通过脚本申请超过20G的显存，验证是否触发OOM。&lt;/li&gt;
+&lt;li&gt;尝试申请20G以内的显存，验证是否能成功分配。&lt;/li&gt;
+&lt;li&gt;观察宿主机真实的显存容量，确认哈密是否有效隔离了Pod的显存使用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Xghgz5EFB</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/52640b19c4ac8446e8be0c3d6722045a9bcf1118.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 03 Aug 2025 11:58:19 +0800</pubDate>
+    </item>
     <item>
       <title>探索Claude Code子代理功能：CMO AI代理的实战搭建与应用</title>
       <link>https://www.youtube.com/watch?v=9i3ic1sVhlI</link>
@@ -8437,60 +8508,6 @@ Solo模式的核心概念，意味着Tree不再仅仅是一个AI IDE，而是进
       <guid isPermaLink="true">https://www.youtube.com/watch?v=ClB55rsIrn8</guid>
       <enclosure url="https://i.ytimg.com/vi/ClB55rsIrn8/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 18 Jul 2025 13:00:06 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI领域新动向：Anthropic押注金融企业级应用，Google AI摘要冲击网络流量，AI人才获巨额融资</title>
-      <link>https://www.youtube.com/watch?v=g2HWK-jP-lw</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=g2HWK-jP-lw"&gt;Anthropic Goes Vertical with Claude for Financial Services&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章概述了当前AI创业公司面临的激烈竞争环境，并详细介绍了Anthropic如何通过推出针对金融行业的垂直化企业级AI产品来深化客户关系。同时，文章还指出Google Discover整合AI摘要可能对传统新闻网站流量造成冲击，并强调了AI人才在风险投资市场中的极高价值，以Thinking Machines Labs巨额融资为例佐证。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;垂直化产品/垂直化应用（Vertical product/Verticalized applications）&lt;/strong&gt;：基础模型公司为特定行业或使用场景量身定制的AI模型版本，而非通用消费产品。例如，Anthropic的“Claude for Financial Services”是专门为金融服务设计的企业订阅版，支持行业数据提供商和平台。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;协作通用智能（Collaborative General Intelligence）&lt;/strong&gt;：由Thinking Machines Labs提出的概念，旨在通过多模态AI赋能人类，使AI能以对话、视觉以及自然、协作的方式与世界互动。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI初创公司正面临来自大型科技公司和基础模型公司的双重竞争压力。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支撑：MAG7类型竞争对手，以及OpenAI和Anthropic等基础模型公司，正日益意识到通过应用层掌握客户关系的重要性。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Anthropic正将其战略重心明确转向企业级垂直产品，而非消费级应用。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支撑：推出“Claude for Financial Services”，作为其首个垂直化产品，内置对主要金融数据提供商的支持；Anthropic高管强调“我们是企业优先”，模型在复杂企业级工作负载上表现最佳。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Google Discover整合AI摘要功能可能导致原始新闻源的网络流量下降。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支撑：Google Discover将从提供标题和链接改为直接呈现AI摘要；《经济学人》援引Similar Web数据显示，全球网络流量同比下降15%，零点击新闻搜索从56%增至69%。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI人才已成为当前风险投资环境中最炙手可热的商品。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;支撑：前OpenAI CTO Mira Murati的Thinking Machines Labs在尚无产品或详细路线图的情况下，以120亿美元估值完成20亿美元种子轮融资；投资者甚至为促成交易而放弃董事会席位并授予Marott控制投票权。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;无。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“AI is killing the web. Can anything save it?”&lt;/li&gt;
-&lt;li&gt;“Thinking machines lab exists to empower humanity through advancing collaborative general intelligence. We're building multimodal AI that works with how you naturally interact with the world through conversation, through site, through the messy ways we collaborate.”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=g2HWK-jP-lw</guid>
-      <enclosure url="https://i.ytimg.com/vi/g2HWK-jP-lw/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 18 Jul 2025 11:01:16 +0800</pubDate>
     </item>
   </channel>
 </rss>
