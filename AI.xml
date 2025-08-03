@@ -7,7 +7,947 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 Aug 2025 16:38:33 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Aug 2025 00:52:07 +0000</lastBuildDate>
+    <item>
+      <title>探索Claude Code子代理功能：CMO AI代理的实战搭建与应用</title>
+      <link>https://www.youtube.com/watch?v=9i3ic1sVhlI</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=9i3ic1sVhlI"&gt;Build an AI Army With Claude Code’s New Sub-Agents&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文详细介绍了Claude Code的子代理（sub-agent）功能，阐述了主代理如何将复杂任务委托给多个专业的子代理并行处理。通过实际案例，作者演示了如何搭建一个Chief Marketing Officer (CMO) AI代理，并为其配备了推文发布和图像生成等子代理，展示了这种架构在提高效率和自动化方面的强大潜力。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;子代理（Sub-agents）&lt;/strong&gt;：Claude Code中专业的AI助手，负责处理特定类型的任务。每个子代理都有独立的系统提示、工具集和上下文窗口，并以并行方式运行，然后将结果反馈给主代理，而不直接与用户交互。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主代理（Primary Agent）&lt;/strong&gt;：负责将任务委托给子代理，整合子代理的响应，并与用户进行交互的中央代理。它管理着整个工作流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具集（Toolset）&lt;/strong&gt;：代理用来执行任务的一系列能力，如计算器、API接口、执行器等。子代理通常拥有更小、更专业的工具集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文窗口（Context Window）&lt;/strong&gt;：AI模型在单个处理周期内能处理的信息（令牌）最大量。子代理通过处理任务的特定部分来有效管理上下文，避免主代理的上下文窗口过载。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行委托（Delegation in Parallel）&lt;/strong&gt;：主代理可以同时将任务委托给多个子代理，这大大加快了复杂工作流的处理速度，区别于传统的线性处理方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代理权（Agency）&lt;/strong&gt;：AI自主决定何时及如何使用其工具并执行行动的能力，而非遵循预设的、线性的自动化路径。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;案例/类比&lt;/strong&gt;：文章通过构建一个“首席营销官（CMO）代理”的实际案例来辅助说明。这个CMO代理能够委托给“Twitter代理”、“图像生成代理”和“网络研究专家代理”，最终管理各种社交媒体账户、研究和内容创作，以此展示了如何通过将复杂角色分解并委托给专业子代理来实现自动化。&lt;/p&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代理工具越少，一致性/成功率越高&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：一个代理可访问的工具越多，其正确决策使用哪个工具的难度就越大，从而导致性能一致性下降。Claude Code通过子代理解决了这个问题，主代理只需了解子代理的功能，而无需掌握其所有工具的详细知识。这样可以独立测试子代理，并通过赋予其更少、更专业的工具来最大化成功率。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行处理显著提升效率&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：与许多线性处理任务的传统AI工作流不同，Claude Code的子代理能够并行工作，大大缩短了复杂操作所需的时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：通过对比线性处理（逐个执行）与并行处理（同时执行）任务来强调效率提升。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代理在可扩展任务上比人类员工更有效&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：一旦通过代理自动化了有利可图的活动，就更容易通过增加资源（如令牌）或使其持续运行来“提升”其规模，而复制一名优秀的人类员工是不可能的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：作者计划将CMO职责委托给24/7运行的AI代理VibeMo，以腾出时间从事更高杠杆的活动，如内容创作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;在Claude Code中设置子代理&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;准备工作&lt;/strong&gt;：下载NodeJS。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装/访问Claude Code&lt;/strong&gt;：打开终端，如未安装，输入&lt;code&gt;npm install -g @anthropic-ai/claude-code&lt;/code&gt;，然后输入&lt;code&gt;claude&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创建项目文件夹&lt;/strong&gt;：使用Claude Code命令（例如`cd documents; claude create folder&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=9i3ic1sVhlI</guid>
+      <enclosure url="https://i.ytimg.com/vi/9i3ic1sVhlI/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 02 Aug 2025 19:11:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>CS 229机器学习大数据算法：草图与流处理、降维及Morris近似计数</title>
+      <link>https://www.bilibili.com/video/BV1zChWzFES6</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1zChWzFES6"&gt;哈佛大学【中英⚡大数据算法|COMPSCI 229r 2016 Harvard Algorithms for Big Data】&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+这是一篇关于CS 229机器学习算法课程的讲座实录，主要介绍了大数据算法的几个核心主题，包括草图与流处理、降维技术、大规模机器学习问题和外部内存模型。讲座深入分析了莫里斯算法在近似计数问题中的应用，并复习了随机算法所需的概率基础知识。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;草图与流处理（Sketching and Streaming）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;草图（Sketch）：&lt;/strong&gt; 对数据x进行压缩（c(x)比x小得多），通过某个函数f使得在仅访问c(x)的情况下，能够计算或近似f(x)。例如，计算两个大数据集相似度时，只需传输它们的草图而非完整数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;流处理（Streaming）：&lt;/strong&gt; 在数据持续更新时，实时维护数据的草图。例如，路由器监控网络流量，实时更新流量模式的草图以便查询。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降维技术（Dimensionality Reduction）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;将高维向量数据映射到低维版本，以加速算法运行，因为算法所需时间和资源通常取决于输入维度。例如，图像数据库中，图像是高维向量（每个像素一个维度），降维可加速相似图像查找。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外部内存模型（External Memory Model）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;一种衡量算法效率的模型，主要关注磁盘I/O操作和随机寻道成本，而非单纯的指令数量，因为磁盘访问远慢于内存访问。模型假设无限磁盘划分为块，有限内存划分为页，目标是最小化磁盘访问次数。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;近似计数（Approximate Counting）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;目标是使用远少于log n比特的空间来估计事件发生次数n，同时保证输出的估计值~n偏离真实n超过ε的概率最多为δ。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;莫里斯算法（Morris Algorithm）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;一种用于近似计数的随机化算法。其核心思想是，初始化计数器x为0，每次事件发生时，x以1/2^x的概率递增。最终输出的估计值是2^x - 1。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机蒙特卡洛算法（Randomized Monte Carlo Algorithm）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;这类算法在运行时具有一定的失败概率（δ），但通常能以更低的资源成本（如空间）解决问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平方根技巧（Square Root Trick）&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;在概率分析中（例如推导伯恩斯坦不等式时）用到的一种证明技巧，通过人为地引入高斯分布等方法来约束随机变量的p-范数，进而推导出更精确的概率界限。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精确计数需要log n比特空间，但近似计数可以在远低于此的空间复杂度下完成。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;精确计数需要一个至少log n比特的计数器来存储n个事件，这是因为根据鸽巢原理，少于log n比特无法区分0到n之间的所有可能结果。&lt;/li&gt;
+&lt;li&gt;莫里斯算法通过接受一定的误差概率，实现了log log n的空间复杂度（每次重复约为log log n，总空间复杂度为1/ε²·log log n）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;莫里斯算法的期望值准确，但方差较大，需要通过多次独立运行取平均或中位数来降低估计误差。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;莫里斯算法的估计值2^x-1的期望值被证明等于事件数n。这意味着从统计平均上看，该算法是无偏的。&lt;/li&gt;
+&lt;li&gt;但其方差较大，导致单次运行的失败概率为1/(2ε²)。若要将失败概率降低到δ，需要运行S个独立的莫里斯算法副本并取平均，S约为Θ(1/(ε²δ))。&lt;/li&gt;
+&lt;li&gt;更高级的Morris++算法通过运行t个莫里斯实例并输出中位数，能将失败概率指数级降低（t取log(1/δ)）。这是因为中位数估计器只有当至少一半的独立估计器都失败时才会失效，而单个莫里斯实例的失败概率是常数（例如1/3），这使得多个实例中位数失败的概率呈指数级下降。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过引入随机化和高斯分布，可以推导出更强的概率不等式（如伯恩斯坦不等式），这对分析随机算法的性能至关重要。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;在概率复习部分，展示了如何通过Jensen不等式、引入对称随机变量（α&lt;em&gt;i）和独立同分布的高斯变量（g&lt;/em&gt;i）等技巧，来推导和证明伯恩斯坦不等式，从而为随机算法的偏差提供更紧密的界限。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;莫里斯算法（Morris Algorithm）实现步骤：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;初始化变量x为0。&lt;/li&gt;
+&lt;li&gt;对于每次观察到的事件：
+&lt;ul&gt;
+&lt;li&gt;以1/2^x的概率递增x。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当需要获取事件估计数量时，输出2^x - 1作为估计值。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降低莫里斯算法误差（Morris++）的方法：&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;运行t个独立的莫里斯算法实例（每个实例称为“莫里斯加”）。&lt;/li&gt;
+&lt;li&gt;每个“莫里斯加”实例的失败概率设为常数，例如1/3。&lt;/li&gt;
+&lt;li&gt;将这t个“莫里斯加”实例的输出结果取中位数，作为最终的估计值。&lt;/li&gt;
+&lt;li&gt;通过选择t为log(1/δ)级别的值，可以将最终的失败概率降低到δ。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;p&gt;-&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1zChWzFES6</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/f3b81c593c802c476217c0ee06f02d782e3e52d9.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 02 Aug 2025 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>苹果AI布局掉队面临挑战，OpenAI估值飙升，英伟达中国市场受阻</title>
+      <link>https://www.youtube.com/watch?v=4Mh7X3yYX_k</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=4Mh7X3yYX_k"&gt;Can Apple Acquire Its Way to AI Success?&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文聚焦科技巨头在AI领域的最新动态，揭示了苹果在AI战略上的滞后及其对业绩的影响，同时强调了微软和Meta因AI投资而实现的显著增长。文章还披露了OpenAI惊人的融资估值，并深入分析了英伟达在中国市场因芯片安全问题而面临的地缘政治挑战。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;华尔街对AI巨额支出的认可&lt;/strong&gt;
+尽管大型科技公司在AI领域投入巨额资本支出（例如微软和Meta），但其强劲的财报业绩证明了这些成本在短期内是合理的，华尔街投资者对此表示认可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI模型商品化&lt;/strong&gt;
+指核心AI模型可能变得普遍可用且同质化，使得市场竞争转向应用和集成层面而非基础模型开发。文章提到苹果CEO蒂姆·库克拒绝回答AI模型是否会商品化的问题，称其涉及公司策略。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI投资回报显著，市场偏好转向AI表现&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;微软和Meta等公司因押注AI而取得爆炸性业绩和股价大幅增长。&lt;/li&gt;
+&lt;li&gt;华尔街对大型科技公司4000亿美元的AI支出表示支持，认为其能在短期内带来丰厚回报。&lt;/li&gt;
+&lt;li&gt;苹果尽管iPhone销售强劲（增长14%，超出分析师预期10%），但因AI表现平平，股价仅上涨2%，市场更关注“AI代币服务量”而非“iPhone出货量”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;苹果在AI领域处于追赶模式，并购策略面临挑战&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;苹果CEO蒂姆·库克表示，公司正在大幅增加AI投资，并“开放”通过并购来加速其AI路线图，今年已完成七项小型收购。&lt;/li&gt;
+&lt;li&gt;此前建议苹果收购Anthropic等基础模型公司，但其估值已飙升（Anthropic传闻高达1700亿美元），变得难以企及；Mistral和Perplexity估值也从个位数增长到十几亿美元。&lt;/li&gt;
+&lt;li&gt;彭博社分析师Mark German认为，苹果近年来的并购步伐明显放缓，库克的言论并非新思路，他可能试图拖延。&lt;/li&gt;
+&lt;li&gt;分析师彼得·安德森（Peter Anderson）指出，苹果“令人尴尬的AI表现”表明其在创新上“失去了魔力”，这导致了营收增长不足和股价缺乏上涨空间。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI估值和营收实现爆发式增长，巩固行业领导地位&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI已完成83亿美元融资，估值达到3000亿美元，年度经常性收入（ARR）达到130亿美元（预计年底将超过200亿美元）。&lt;/li&gt;
+&lt;li&gt;ChatGPT企业付费用户在几个月内从300万跃升至500万。&lt;/li&gt;
+&lt;li&gt;Anthropic的营收也达到50亿美元，且每月增长超过10亿美元。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;英伟达在中国市场面临地缘政治风险和本土竞争加剧&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;中国当局召见英伟达，讨论其H20芯片潜在的安全漏洞，并要求解释芯片的定位追踪和远程关机功能。&lt;/li&gt;
+&lt;li&gt;此举被认为类似于2019年对华为的禁令，旨在加速中国本土半导体替代品发展，防止华为等国内公司因缺少竞争而一家独大。&lt;/li&gt;
+&lt;li&gt;英伟达否认其芯片存在“后门”，并强调网络安全的重要性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Copilot用户量激增，彰显微软强大的分发优势&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub Copilot用户数已突破2000万，过去三个月新增500万用户。&lt;/li&gt;
+&lt;li&gt;尽管该数据是历史总用户数，但其快速增长表明了微软在AI工具分发上相对于初创竞争对手的巨大优势。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“The market does not care how many iPhones you ship, only how many AI tokens you're serving.”&lt;/li&gt;
+&lt;li&gt;“We see AI as one of the most profound technologies of our lifetime. We are embedding it across our devices and platforms and across the company. We are also significantly growing our investments. Apple has always been about taking the most advanced technologies and making them easy to use and accessible for everyone, and that's at the heart of our AI strategy.”&lt;/li&gt;
+&lt;li&gt;“Apple's embarrassing AI shows how it has lost its mojo with innovation, and the lack of innovation speaks to the lack of revenue growth, and that speaks to why we don't see upside in the stock.”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=4Mh7X3yYX_k</guid>
+      <enclosure url="https://i.ytimg.com/vi/4Mh7X3yYX_k/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 02 Aug 2025 17:28:41 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI Infra核心角色与挑战：接月朱一博剖析行业现状与未来走向</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/688cc1cc8e06fe8de7d920cd?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/evgg6xle9rdc"&gt;42章经&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/688cc1cc8e06fe8de7d920cd?utm_source=rss"&gt;关于 AI Infra 的一切 | 对谈阶跃星辰联创朱亦博&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本次访谈深入探讨了AI Infra（人工智能基础设施）的演变、现状与未来。接月星辰AI Infra负责人朱一博分享了他对AI Infra在连接硬件与模型、影响模型效果与成本方面的独特见解。
+他强调了AI Infra作为核心驱动力的重要性，并揭示了该领域面临的挑战、关键指标与发展机遇。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI Infra（AI Infrastructure）&lt;/strong&gt;
+指支撑人工智能开发与部署的基础设施。从硬件层面包括AI芯片、GPU、网卡芯片、交换机及大规模存储系统。从软件层面可类比云计算分为三层：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AIS（Infrastructure as a Service）&lt;/strong&gt;：提供组装服务器、网络连接、运维管控等基础能力，并包含大规模存储系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PASS（Platform as a Service）&lt;/strong&gt;：如调度平台、资源管控平台，以及Model as a Service（MaaS）等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SaaS（Software as a Service）&lt;/strong&gt;：包括训练框架、推理框架优化等，更接近应用层。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MFU (Model FLOPs Utilization)&lt;/strong&gt;
+衡量硬件在模型训练或推理时实际运算次数与理论算力之比的指标。MFU越高表示硬件利用率越好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decoding Cost / 输出速度&lt;/strong&gt;
+特指大语言模型（LLM）生成文本时的输出速度（“吐字”速度）。这被认为是当前最重要的指标，因为它直接影响在线服务的成本，并决定了强化学习的训练效率。例如，DeepSeek通过优化推理成本，使其在强化学习场景中的训练速度比其他模型快数倍，从而在排行榜上占据优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Time Scaling&lt;/strong&gt;
+一种在推理阶段通过增加模型“思考”步骤以提升结果准确性的技术。高效的解码成本是实现这一技术的前提。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型与硬件的Co-design（协同设计）&lt;/strong&gt;
+指AI模型与底层硬件共同设计、优化，以实现最佳性能和成本效益。朱一博认为，理想的模型结构设计应由同时懂模型和硬件的Infra人员主导，而非纯粹的算法人员，以避免模型在实际运行中效率低下。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; MOE（Mixture of Experts）模型最初的研发并非由算法团队主导，而是由Infra团队（如字节跳动、DeepSeek）推动，其核心目标是降低大规模模型的推理成本，而非纯粹的算法性能提升。这体现了Infra团队对模型结构和商业落地的深刻洞察。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI Infra的作用远不止于降低成本，它能直接影响模型的训练效果和最终性能。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; 提升Infra效率（例如，在相同时间与成本下多学习20%数据）可直接带来模型效果的提升。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;理想的模型结构设计应由AI Infra人员（系统人）主导，而非仅由算法人员。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; 算法人员常根据“参数量与算法效果”曲线选择模型，但忽略了模型在硬件上的实际运行效率，导致实践中模型性能表现不佳。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;当前行业对AI模型最重要的指标已从训练效率（如MFU）转向推理/解码速度，尤其在强化学习和在线服务场景中。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; DeepSeek在强化学习领域的成功，正是因为其极低的解码成本使其强化学习训练速度远超同行。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI Infra人才除了自身技术外，还需深入理解模型或硬件，实现垂直整合或协同设计。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; 仅处于“模型与硬件之间”而缺乏深层整合，将导致价值受限，竞争激烈。成功需要主动影响硬件或模型的走向。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;相比大型企业，小型公司在AI Infra发展上具优势，因其更易实现Infra、算法、数据团队的紧密协作。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; 大型企业常因组织架构复杂和团队割裂，导致Infra沦为“支持”角色，缺乏对模型设计和战略方向的影响力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI Infra的价值与规模密切相关，万卡和十万卡量级面临的问题截然不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; Infra优化的经济效益清晰可量化（如，1万张GPU每月利用率提升10%可节省1000万元）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;开源AI模型在推动Infra技术发展的同时，也可能间接削弱国产硬件竞争力。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;支撑：&lt;/em&gt; 开源模型（如DeepSeek、Qwen）多针对NVIDIA GPU优化，导致在国产卡上的性价比低于在NVIDIA卡上的表现，从而影响国产芯片的市场竞争力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对于AI Infra从业者：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;深入了解模型或硬件：除了Infra本身，需具备其中一端的深厚知识，以实现垂直整合。&lt;/li&gt;
+&lt;li&gt;培养主观能动性：积极参与并推动模型与硬件的协同设计（co-design）。&lt;/li&gt;
+&lt;li&gt;保持对领域的热情：真正发自内心热爱AI Infra工作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对于企业：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;按成本结构投资AI Infra：若GPU成本占90%，则应将90%的人力投入到GPU相关优化工作中。&lt;/li&gt;
+&lt;li&gt;考虑模型与硬件的协同设计：特别是对基础模型，应通过共同设计以实现最佳性能和成本效益。&lt;/li&gt;
+&lt;li&gt;评估云服务与MaaS：对于规模较小的企业，利用外部云服务或MaaS可能比自建AI Infra更具成本效益。&lt;/li&gt;
+&lt;li&gt;赋能国产芯片：可尝试为国产芯片设计专用模型并进行优化，以提升其在市场中的竞争力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“所有事情都天使第一人和。”&lt;/li&gt;
+&lt;li&gt;“AI Infra它是夹在模型和硬件之间的。”&lt;/li&gt;
+&lt;li&gt;“没有一项技术是几个月后追不上的。”&lt;/li&gt;
+&lt;li&gt;“如果你愿意跨出一步去多核模型去联合的做垂直整合去打通你愿意和硬件去做codesign又做什么东西实际上有非常非常多可做的机会。”&lt;/li&gt;
+&lt;li&gt;“在过往的历史中Infra人才比较难参与的比较难参与到一个公司早期创业的过程嗯但是大模型这个确实是一个非常好的机会上一次这个机会是在搜索引擎你可以认为Google做搜索引擎的时候它第一次面临海量的互联网数据要处理这个数据那它需要世界一流的Infra所以Google实际上是一家Infra公司从当年开始它的成功是因为Infra特别强那到大模型时代我眼里它是在重复有点类似上一次搜索引擎的过程。”&lt;/li&gt;
+&lt;li&gt;“其实你可以看到算法很多程度是依赖非常年轻的人甚至我有算法朋友跟我说算法的人员只有两年的保质期两年后他把他的聪明材质发挥完了他就陷入一个思维定势了然后新的东西反而跟不上但Infra是一个相对强调积累的事情。”&lt;/li&gt;
+&lt;li&gt;“你真正需要的图是横桌标是你实际运行的成本或者效率重桌标是模型效果你得做更多样的实验去把这张图画出来然后在这个图上找一个好的点但是这件事情在没有拉通算法系统的团队他做不了这个事情。”&lt;/li&gt;
+&lt;li&gt;“The Better Lesson它但是站在算法人角度来看这个问题它其实说的就是最终最能利用计算的方法长远来说才是赢家短期内做的各种各样的一些奇迹赢巧吧其实都不本质。”&lt;/li&gt;
+&lt;li&gt;“摩尔定律是一开始你觉得没什么的但时间长了以后差距实在是太大因为它指数上升的你就看到尼违达的算力是CPU的10倍100倍最后就会有人说为什么这个AI也用尼违达的GPU原宇宙也用区块链也用因为你所有新应用想用大算力都得到它上面来所以最重要的还是摩尔定律然后怎么换取摩尔定律的持续然后怎么设计模型和你的系统软件使得你能够跟随这摩尔定律把音件的性能全部发挥出来这个我觉得是对Infra团队也非常有值得意义的事情。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/688cc1cc8e06fe8de7d920cd?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/FiZZKf2-OlC5ZFzM8VLLmtz4P0ie.png" length="0" type="image/png"/>
+      <pubDate>Sat, 02 Aug 2025 14:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>深度体验千问3 Flash模型：本地运行、工具调用与AI应用实践</title>
+      <link>https://www.bilibili.com/video/BV1qPhWzdEHA</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1qPhWzdEHA"&gt;Qwen3 Coder Flash 本地部署 &amp;amp; 实测，超强 Agent + MCP 高效编程！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文详细介绍了千问3 Flash AI模型，包括其在本地设备上的高效运行、出色的工具调用能力，以及在代码生成、数据可视化和AI应用开发等多个场景中的应用实践。作者分享了模型与MCP、Client、OpenCoder等工具结合使用的具体案例和体验，并提供了详细的配置与操作指南。文章强调了该模型在性能、隐私和多功能性方面的显著优势。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;千问3 Flash模型&lt;/strong&gt;: 阿里巴巴最新推出的高效MOE（Mixture of Experts）AI模型，专为本地运行优化，具有强大的编码和工具调用能力，支持超长上下文窗口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DWQ (Distilled Weight Quantization)&lt;/strong&gt;: 一种即将推出的量化技术，旨在使低比特模型输出逼近原始高精度模型，例如3-4比特即可恢复接近FP16的性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLX Babit/MLX格式&lt;/strong&gt;: 针对Apple Silicon优化的高效模型格式，实现模型在Mac设备上的快速本地运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Model Call Protocol) / 蚂蚁开源Chat&lt;/strong&gt;: 一种允许模型与各种服务交互的协议/工具，文中主要用于从CSV数据生成可视化报告以及与Figma集成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: 一个功能丰富的Agent工具，支持与本地AI模型和MCP进行深度交互，提供丰富的提示词能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenCoder&lt;/strong&gt;: 用于在本地环境中利用Flash模型进行代码修复和修改的工具。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;千问3 Flash模型在SW Bench Value Fi测试中取得51.6的得分，这一成绩令人非常惊讶，已接近早期的Sonitor3.5模型，显示其作为小型本地模型的强大性能。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;: Flash模型得分51.6，对比Crowd Sonitor4为68，Sonitor3.5接近50。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Flash模型在Apple Silicon上展现出卓越的本地运行速度，即使是量化模型也能保持高效率。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;: 64GB Mac上6比特MLX模型运行速度达60毫秒/秒；M4 Max 128G上8比特MLX格式速度约80 token/秒；M4 Max上4比特模型速度超过107 token/秒。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;在某些情况下，5比特量化模型的MMLU Pro测试得分略高于6比特模型，这与通常认为比特数越高得分越高的认知有所不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;: 5比特量化下MMLU Pro得分居然比6比特多了一点点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;该模型在工具调用方面表现出色，尤其与MCP结合时，能高效处理256K（可扩展至1兆）的上下文长度，且工具调用过程中错误极少。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;: MCP会产生大量上下文，而Flash模型在处理大量上下文下的工具调用方面表现非常方便，很少出错。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;本地运行AI模型对许多公司和个人而言具有重要意义，尤其在编码等涉及隐私的场景中，可避免数据泄露或外部API链接带来的风险。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;: 很多公司因隐私需求，不会将编码任务链接到外部API进行处理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LM Studio更新与配置&lt;/strong&gt;: 确保更新LM Studio到最新版本以修复工具调用错误。下载模型后，将上下文长度拉到256K或64K，并可进行推理预设。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client工具使用&lt;/strong&gt;: 在Client最下方点击模型，选择AI am studio，然后选择Flash模型进行对话。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP安装与使用&lt;/strong&gt;: 在Client的MCP Service中，点击“fetch”并选择“最多安装的”进行安装，或在MCP市场中搜索具体MCP（如“chat”），根据readme文档进行配置。使用Figma MCP需要配置Figma API Key，注意其90天有效期限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DWQ模型关注&lt;/strong&gt;: 如果电脑性能有限，可以关注Hugging Face上MLX社区的DWQ版本模型，尤其是3比特的DWQ模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3D页面本地运行&lt;/strong&gt;: 对于包含three.js元素的3D页面，需使用“open with live server”来运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从Figma生成HTML&lt;/strong&gt;: 选中Figma页面内容，右键“copy link to selection”，然后提示Flash模型在本地生成HTML页面。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“千万3cold flash 他真的是千万团队给我们的 一个非常好的礼物啊”&lt;/li&gt;
+&lt;li&gt;“它的上下文有256K 而且它工具调用处理的还真的不错 所以这个模型超级棒 强烈推荐大家在本地去体验一下”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1qPhWzdEHA</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/c03d8ce1e1ebbce58e94c177f0f8a023c10e5055.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 22:44:13 +0800</pubDate>
+    </item>
+    <item>
+      <title>使用AI工具Vibe Code与Cursor构建并发布健身App到App Store</title>
+      <link>https://www.youtube.com/watch?v=enKJWk3MTnM</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=enKJWk3MTnM"&gt;This App Costs $60/Year… I Made My Own for Free&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+本文详细介绍了如何利用AI工具，如Vibe Code和Cursor，从零开始构建一个健身追踪App，并对其进行功能开发、视觉美化、素材生成，最终成功提交至App Store。整个过程强调了AI在加速和简化应用开发方面的强大能力，即使是非技术人员也能高效实现自己的App创意。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vibe Code&lt;/strong&gt;: 一个AI驱动的应用程序开发环境，用户可以通过自然语言指令创建App，并能自动生成代码和应用所需素材（如图片、图标）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cursor&lt;/strong&gt;: 一个基于AI的专业代码编辑器，可与Vibe Code无缝协作。用户可在Vibe Code初步生成应用后，将项目同步到Cursor进行更精细的AI辅助代码修改和界面优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TestFlight (通过bunx testflight)&lt;/strong&gt;: 苹果公司提供的App Beta测试平台。文章演示了如何通过命令行工具&lt;code&gt;bunx testflight&lt;/code&gt;简化将App提交到TestFlight进行测试的过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;App.json&lt;/strong&gt;: Expo/React Native项目中的一个关键配置文件，包含了App的元数据（如名称、标识符、权限等），是App Store提交的必要配置项。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI极大提升了App开发的效率和可访问性&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：用户在不到一小时内就重现了自己付费使用多年的“Heavy”健身App，显著节省了时间和成本。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI工具能够处理复杂的素材生成任务&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：Vibe Code能够根据指令为各种健身动作生成专业的AI图片，甚至可以生成具有特定风格（如酷炫、简约）的App图标。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI开发环境之间可实现无缝集成与转换&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：用户可以在Vibe Code中开始构建，然后通过SSH连接到Cursor进行更细致的修改和样式调整，且所有更改都能实时同步。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI不仅能实现功能，还能优化应用的视觉和用户体验&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：文章中利用AI（在Cursor中使用Claude for Sonnet模型）根据截图模仿“Heavy”App的界面风格，调整颜色、布局，显著提升了应用的美观度。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;App Store提交流程通过AI辅助得到简化&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;案例：Cursor能根据自然语言指令自动修改&lt;code&gt;app.json&lt;/code&gt;文件，更新App名称、标识符和权限等，以符合App Store的提交要求，从而简化了非技术性的配置步骤。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用AI构建App的步骤&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;明确App的核心功能和目标（例如：模仿“Heavy”App的健身追踪功能）。&lt;/li&gt;
+&lt;li&gt;使用Vibe Code等AI开发环境，通过自然语言指令快速生成App的基础框架和主要功能（例如：“制作一个像Heavy或Strong一样的健身App，包含两个Tab，一个用于历史记录，一个用于预设训练”）。&lt;/li&gt;
+&lt;li&gt;根据需求通过后续指令细化功能（例如：“添加运动动作，允许设置组数和次数”）。&lt;/li&gt;
+&lt;li&gt;对于更精细的样式调整或代码修改，通过SSH将项目连接到Cursor等AI代码编辑器进行操作。&lt;/li&gt;
+&lt;li&gt;在Cursor中利用AI根据参考图或描述调整App的UI样式（例如：“让它看起来像Heavy，并匹配头部背景颜色”）。&lt;/li&gt;
+&lt;li&gt;利用Vibe Code等工具的独有功能生成App所需素材（例如：“使用AI为列表中的每个运动动作生成图片”）。&lt;/li&gt;
+&lt;li&gt;使用AI生成App图标（例如：“生成一个健身App图标，要求酷炫、时尚、简约”）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;App Store提交流程（通过TestFlight）&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;确保在开发环境中提交所有App更改。&lt;/li&gt;
+&lt;li&gt;在终端中运行&lt;code&gt;bunx testflight&lt;/code&gt;命令。&lt;/li&gt;
+&lt;li&gt;登录您的EAS (Expo Application Services) 账户。&lt;/li&gt;
+&lt;li&gt;如果是新项目，允许创建新项目。&lt;/li&gt;
+&lt;li&gt;在运行&lt;code&gt;bunx testflight&lt;/code&gt;之前，利用AI（例如：Cursor）更新&lt;code&gt;app.json&lt;/code&gt;文件，确保App名称（例如：“Unas Workout Tracker”）、标识符、iOS商店配置和所需权限均已正确设置。&lt;/li&gt;
+&lt;li&gt;当提示时，使用您的Apple Developer账户凭据登录（需要有效的Apple Developer账户，个人会员资格即可）。&lt;/li&gt;
+&lt;li&gt;确认标准加密豁免（通常输入“Y”）。&lt;/li&gt;
+&lt;li&gt;验证身份（例如：对于个人开发者输入“Y”）。&lt;/li&gt;
+&lt;li&gt;系统将压缩并上传项目文件到EAS，以进行构建和提交到TestFlight。此过程大约需要25-30分钟。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;将App小组件添加到手机主屏幕&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;在手机主屏幕长按进入编辑模式。&lt;/li&gt;
+&lt;li&gt;点击“添加小组件”。&lt;/li&gt;
+&lt;li&gt;搜索您的App名称（或Vibe Code）。&lt;/li&gt;
+&lt;li&gt;选择所需的小组件尺寸。&lt;/li&gt;
+&lt;li&gt;长按主屏幕上的小组件，选择“编辑小组件”，然后选择您的项目（例如：“Workout Tracker”）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“感谢像Claw for Sonnet这样的AI模型，任何人现在都可以构建一个应用程序并将其发布到应用商店。”&lt;/li&gt;
+&lt;li&gt;“这是一个我已经用了好几年的应用。所以，这是一个你每天都在使用的现有应用。它叫什么？Heavy。现在Heavy正在涨价。所以，我只是想制作我自己的版本。”&lt;/li&gt;
+&lt;li&gt;“这是Vibe Code拥有的一个功能，而Cursor或任何其他工具都没有内置这个功能，对吧？我认为这太棒了。”&lt;/li&gt;
+&lt;li&gt;“我喜欢用这些图片，只是为了让我的App看起来更好。”&lt;/li&gt;
+&lt;li&gt;“代码质量非常高。比我写的要好，而且我真的很喜欢这个App。它解决了我一个实际的问题。”&lt;/li&gt;
+&lt;li&gt;“我的意思是，这看起来就像Heavy的图标。太神奇了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=enKJWk3MTnM</guid>
+      <enclosure url="https://i.ytimg.com/vi/enKJWk3MTnM/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 22:16:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI模型竞争白热化：OpenAI、谷歌、Manis与Perplexity最新进展</title>
+      <link>https://www.youtube.com/watch?v=9l6lNTifSd0</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=9l6lNTifSd0"&gt;The AI Model Wars Just Heated WAY Up&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章聚焦当前AI模型市场的激烈竞争，涵盖了OpenAI可能发布的GPT-5和开源模型、谷歌Gemini 2.5 DeepThink的推出，以及Manis和Perplexity在AI代理和界面上的创新。作者强调了当前AI领域的新模型、新系统和新接口层出不穷，预示着一个充满活力的时代。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DeepThink&lt;/strong&gt;：谷歌最新推出的人工智能模型，通过“并行思考”技术扩展了模型的推理时间，使其能够同时生成和考量多个想法，修订或结合不同思路，从而更好地解决复杂问题。
+&lt;ul&gt;
+&lt;li&gt;案例：DeepThink在国际数学奥林匹克（IMO）中达到了金牌水平；在网络开发（设计和创建复杂体素艺术场景）、科学数学发现以及算法开发和代码编写（解决需要权衡和时间复杂度的难题）等方面表现出色。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wide Research&lt;/strong&gt;：Manis推出的一种新型AI代理系统，与传统“深度研究”相对，专注于“广度研究”。它通过系统级并行处理和代理间协作协议，处理需要大量信息的大规模复杂任务。
+&lt;ul&gt;
+&lt;li&gt;案例：例如，分析财富500强所有公司的最新财报，该系统中的每个子代理都是一个功能齐全的通用Manis实例，可灵活地分解和协作任务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perplexity Comet Browser&lt;/strong&gt;：一款新型的AI驱动浏览器，旨在自动化用户在网络上的日常操作，被视为未来AI操作系统的早期前身。
+&lt;ul&gt;
+&lt;li&gt;案例：用户分享了其在清理订阅、整合信息等方面的应用，Shopify CEO Toby Lucky称赞其能处理复杂任务并自主完成。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AI模型竞争正以前所未有的速度升级，主要厂商纷纷推出或暗示新产品。
+&lt;ul&gt;
+&lt;li&gt;支撑：OpenAI不断有GPT-5的传闻和短暂泄露，以及开源模型GPTOSS120B和GPTOSS 20B的意外出现；谷歌突然发布了其IMO金牌水平的Gemini 2.5 DeepThink。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;OpenAI对开源模型的泄露可能是一种营销策略，旨在制造热度。
+&lt;ul&gt;
+&lt;li&gt;支撑：社区在极短时间内挖掘泄露信息，推测其为混合专家模型，能在一块H100上运行1200亿参数版本，且功能强大，引发社区巨大兴奋。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;谷歌出乎意料地迅速将顶尖AI模型推向消费者市场。
+&lt;ul&gt;
+&lt;li&gt;支撑：尽管OpenAI CEO Sam Altman曾表示IMO级别的模型不会很快面向消费者，但谷歌CEO Sundar Pichai宣布Gemini 2.5 DeepThink已向Ultra订阅用户开放。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;AI代理的发展趋势正从单一、深入的分析转向大规模、并行处理的“广度研究”。
+&lt;ul&gt;
+&lt;li&gt;支撑：Manis的Wide Research允许用户通过聊天控制超级计算集群，其核心是系统级的并行处理和代理间的灵活协作，而非预设角色。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;新型AI驱动的界面和交互方式正在出现，并可能成为未来操作系统的雏形。
+&lt;ul&gt;
+&lt;li&gt;支撑：Perplexity Comet Browser因其自动化复杂在线任务的能力受到广泛关注，Perplexity CEO将其视为“AI OS”的早期前驱。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;建议读者花时间探索当前市场上涌现的新型AI工具，如谷歌的DeepThink、Manis的Wide Research和Perplexity的Comet Browser。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“如果这是真的，垄断就被打破了。”&lt;/li&gt;
+&lt;li&gt;“多么美好的时代啊。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=9l6lNTifSd0</guid>
+      <enclosure url="https://i.ytimg.com/vi/9l6lNTifSd0/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 19:47:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>数字围墙：英国强制年龄验证与Cloudflare的AI数据抓取反击</title>
+      <link>https://www.youtube.com/watch?v=gYgwBWGHTIc</link>
+      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=gYgwBWGHTIc"&gt;The Internet Wants to Know How Old You Really Are | EP 147&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;h2&gt;以下是文本内容：&lt;/h2&gt;
+
+&lt;p&gt;本文探讨了当前科技政策的两大热点议题：英国和美国备受争议的在线年龄验证法案，以及Cloudflare为保护内容创作者免受AI数据抓取而采取的措施。文章强调了年龄验证带来的隐私担忧，以及AI抓取对网络商业模式构成的生存威胁。此外，文章还包含了“帽子GPT”环节，涵盖了名人肖像被AI滥用、聊天机器人隐私和AI在招聘中的应用等最新科技新闻。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;年龄门槛 (Age Gating)&lt;/strong&gt;
+要求用户在访问在线内容或服务前证明其年龄。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; 英国的《在线安全法案》强制要求对包含“有害内容”（如色情、煽动自杀网站）的网站进行“高质量的年龄验证”，这包括上传驾驶执照、信用卡信息或生物识别自拍，而非简单的“我已满18岁”勾选框。美国各州也正在推行类似法律。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;类比：&lt;/em&gt; 被比作现实世界中的年龄限制，例如保镖在酒吧检查身份证，或购买报摊上“隐藏”的成人杂志需要出示年龄证明。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI数据抓取 (AI Data Scraping)&lt;/strong&gt;
+AI公司自动从网站上收集数据以训练其模型。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Cloudflare首席执行官Matthew Prince描述的问题：&lt;/em&gt; 谷歌传统上通过抓取内容来发送流量，而AI模型（如OpenAI、Anthropic）现在直接消费衍生内容，不再为内容创作者带来流量（与十年前相比，OpenAI流量获取难度增加了750倍，Anthropic增加了30,000倍）。这威胁了网络的内容创作商业模式（虚荣心、广告和订阅）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Robots.txt&lt;/strong&gt;
+网站运营者可用于告知网络爬虫哪些部分不应被访问的文件。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;解释：&lt;/em&gt; Cloudflare首席执行官Matthew Prince将其比作“限速标志”——它只是一个建议，而非强制执行。不良行为者（AI公司）经常忽视它，或通过其他隐蔽方式绕过（如搜索Bing缓存、互联网档案、通过广告服务器网络获取页面描述）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容独立日 (Content Independence Day)&lt;/strong&gt;
+Cloudflare的一项倡议，默认阻止AI爬虫访问内容，除非它们向内容创作者支付报酬。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;目标：&lt;/em&gt; 为AI内容访问创造稀缺性，迫使其付费，类似于苹果iTunes创造音乐市场或Spotify的订阅模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI迷宫 (AI Labyrinth)&lt;/strong&gt;
+Cloudflare开发的一个系统，旨在将行为不端的AI爬虫重定向到一系列无尽的AI生成链接和页面中，有效地将其困住并污染其数据。
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;目的：&lt;/em&gt; 通过向不良AI公司提供垃圾数据来惩罚它们，使其模型生成垃圾内容。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;英国的年龄验证实施存在问题：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;需要个人数据（驾照、信用卡、生物识别自拍），引发了严重的隐私担忧。&lt;/li&gt;
+&lt;li&gt;影响范围远超色情网站（如X平台、戒烟或苹果酒相关的Reddit版块，甚至维基百科因隐私问题可能限制访问）。&lt;/li&gt;
+&lt;li&gt;导致了广泛的公众反对（超过40万人签署请愿书），且容易被规避（如使用VPN，甚至利用电子游戏拍照模式来欺骗AI检测）。&lt;/li&gt;
+&lt;li&gt;Tea匿名分享应用事件（一款女性匿名分享应用）是一个警示：其年龄/性别验证照片和ID因安全漏洞泄露，导致滥用。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;美国正趋向于年龄验证法律：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;24个州已通过此类法律，最高法院维持了德克萨斯州一项针对成人内容网站的法律。这表明“在线言论自由正在逐渐受到侵蚀”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更倾向于替代的年龄验证方案：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;苹果即将推出的“年龄验证API”允许父母在设备上设置孩子的年龄，并通过“令牌”将匿名信息传递给开发者（如Facebook、Instagram）。这使责任转移到父母/设备制造商，同时保护成年用户的隐私。&lt;/li&gt;
+&lt;li&gt;像Meta和YouTube这样的平台可能已经通过数据对用户年龄有了很好的估计。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI公司必须为内容付费：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;传统的搜索引擎“流量换内容”模式已被AI打破，因为AI在不带来流量的情况下消费衍生内容。&lt;/li&gt;
+&lt;li&gt;Cloudflare认为，AI公司必须为内容付费，以确保内容创作的积极性，并维持互联网的繁荣。&lt;/li&gt;
+&lt;li&gt;Cloudflare的默认阻止策略（内容独立日）旨在创造这种稀缺性，迫使AI公司进行谈判。&lt;/li&gt;
+&lt;li&gt;出版商普遍支持；一些AI公司也承认需要公平、平等的补偿。&lt;/li&gt;
+&lt;li&gt;内容访问将随着时间的推移成为AI公司之间的关键区别因素，类似于原创内容对于流媒体服务的重要性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cloudflare的角色和权力：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;他们管理着超过20%的网络流量，这赋予他们独特的权力来执行针对爬虫的规则。&lt;/li&gt;
+&lt;li&gt;他们识别不良AI公司（有些像“朝鲜黑客”），并通过AI迷宫“拿走它们的汽车”或“污染它们的数据”。&lt;/li&gt;
+&lt;li&gt;他们向所有用户免费提供这些工具（阻止、分析），不仅仅是大型公司。&lt;/li&gt;
+&lt;li&gt;承认“单边权力”的担忧（例如，8chan的决定），但认为当“互联网正在消亡”且无人采取行动时，这种干预是必要的。&lt;/li&gt;
+&lt;li&gt;他们的补偿模式：如果出版商直接交易，则不收取任何费用；如果Cloudflare协助小型出版商进行交易，则收取一定比例（类似于Spotify的20-30%）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社会影响：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;互联网的碎片化：不同年龄段的用户将有不同的上网体验。&lt;/li&gt;
+&lt;li&gt;“注意力经济”（谷歌的“流量即神灵”，随后是Facebook、TikTok）导致了“诱导愤怒”的内容。新的模式可能激励“长篇、知识生成”的内容。&lt;/li&gt;
+&lt;li&gt;如果没有健康的內容市场，新闻业和研究可能会被少数几家强大的AI公司控制，导致知识被“美第奇家族”式控制的时代。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对于网站运营者：&lt;/strong&gt; Cloudflare提供了默认阻止AI数据抓取的工具，允许对哪些机器人可以访问内容进行细粒度控制，并可能实现内容货币化。这是一种技术替代&lt;code&gt;robots.txt&lt;/code&gt;的方法，提供了真正的强制执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对于家长：&lt;/strong&gt; 可以利用苹果即将推出的“年龄验证API”在设备上设置孩子的年龄，这可能使应用程序能够过滤适合年龄的内容，而无需将用户的个人数据直接暴露给每个网站。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对于关心隐私的用户：&lt;/strong&gt; 警惕需要上传个人身份证明的年龄验证方法，特别是那些数据安全存疑的服务。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我想说的是，有更多保护隐私的方式来了解一个人的在线年龄，我希望我们能专注于这些方式，而不是英国正在采取的那种粗暴的锤子方法，这种方法实际上只会惹恼很多成年人，并可能以可能被泄露的方式将他们的公共信息暴露出去。”&lt;/li&gt;
+&lt;li&gt;“今天世界上所有的问题最终都是谷歌的错。嗯，这有点夸张。但是谷歌教会了我们，他们是第一个真正教会我们流量是所有人都必须崇拜的神祇的。”&lt;/li&gt;
+&lt;li&gt;“问题是，出版商已经在以10倍的难度挣扎。我担心，随着越来越多的网络界面像OpenAI或Anthropic那样，他们将在750倍的难度下死去，并在30,000倍的难度下被埋葬和遗忘。因此，如果真是这样，如果人们没有动力去创作内容，我认为人们将停止创作内容。这确实是对网络的生存威胁。”&lt;/li&gt;
+&lt;li&gt;“这种暗黑镜像般的未来并不是记者和研究人员消失。而是他们都被那五大AI公司雇佣了，对吧？……我们将回到像美第奇家族那样的媒体时代，少数几个强大的家族控制着所有的学术、研究和新闻业。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=gYgwBWGHTIc</guid>
+      <enclosure url="https://i.ytimg.com/vi/gYgwBWGHTIc/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 19:42:44 +0800</pubDate>
+    </item>
+    <item>
+      <title>机器学习课程导论：定义、应用与未来影响</title>
+      <link>https://www.bilibili.com/video/BV1AG8UzeEvU</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1AG8UzeEvU"&gt;康奈尔大学【中英⚡应用机器学习|CS5787 2020 Applied Machine Learning】&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本文介绍了机器学习的核心概念，阐述了其在搜索引擎、智能手机、垃圾邮件识别及自动驾驶等多个现实生活中的广泛应用。文章通过对比传统编程与机器学习的方法，强调了机器学习在解决复杂问题上的独特优势及其作为当今最令人兴奋的新兴技术的原因。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;机器学习 (Machine Learning)
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;: 由机器学习早期先驱Arthur Samuel提出，定义为“赋予计算机无需明确编程即可学习能力的研究领域”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解释&lt;/strong&gt;: 这里的“学习”是指机器通过观察大量理想行为的示例，从数据中自动推导出规则；而“明确编程”是指人类程序员手动编写所有逻辑规则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 以自动驾驶汽车的目标检测为例。传统编程需要为识别图像中的物体（如汽车、自行车、行人）编写复杂的基于规则的系统，但规则会迅速变得无法管理。机器学习则通过向计算机提供大量带有标注（如边界框和标签）的图像数据集，让机器通过观察这些数据自动学会识别不同物体特征，从而避免了手动编写所有规则的复杂性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;机器学习已深度融入日常生活的多个方面，我们可能在不自知的情况下频繁使用。
+&lt;ul&gt;
+&lt;li&gt;谷歌搜索引擎：利用机器学习理解查询并检索信息。&lt;/li&gt;
+&lt;li&gt;智能手机：如苹果Siri或谷歌助手依赖机器学习进行语音识别和理解用户意图。&lt;/li&gt;
+&lt;li&gt;电子邮件：Gmail等应用广泛使用机器学习进行垃圾邮件检测。&lt;/li&gt;
+&lt;li&gt;金融机构：银行和信用卡公司利用机器学习自动检测和阻止欺诈行为。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;自动驾驶汽车是机器学习最具吸引力的应用之一，潜力巨大。
+&lt;ul&gt;
+&lt;li&gt;能够显著减少交通拥堵和交通事故数量。&lt;/li&gt;
+&lt;li&gt;为出行不便者提供交通便利。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;传统规则编程在处理复杂任务时效率低下且难以维护，因为无法覆盖所有可能的情况。
+&lt;ul&gt;
+&lt;li&gt;以自动驾驶的目标检测为例，手动编写规则来识别图像中的物体会变得异常复杂，难以覆盖所有角度和情况。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;机器学习通过向机器展示大量理想行为示例，使其从数据中自动学习和推导规则，从而有效解决了传统编程的局限性。
+&lt;ul&gt;
+&lt;li&gt;人类程序员无需手动编写所有规则，只需提供大量示例数据和元算法框架。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;机器学习令人兴奋且是科学与工程中最令人兴奋的新兴领域之一，原因有三：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实用性&lt;/strong&gt;: 能够构建用其他方式无法编写的系统（如目标检测、语音识别）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用性&lt;/strong&gt;: 是构建通用人工智能和更智能系统的关键工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;哲学性&lt;/strong&gt;: 通过研究机器学习，可以更深入了解人类学习的本质。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;p&gt;本文为课程导论，未包含具体的行动建议或操作指南。&lt;/p&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“机器学习是赋予计算机无需明确编程即可学习能力的研究领域。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1AG8UzeEvU</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/3e7dddbaaf5d7e4ea09f0cedaf9bf07f8489a55e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>LLM能力瓶颈与AGI时间线预测：为什么持续学习是AI变革的关键</title>
+      <link>https://www.youtube.com/watch?v=nyvmYnz6EAg</link>
+      <description>&lt;p&gt;&lt;a href="UCXl4i9dYBrFOabk0xGmbkRA"&gt;Dwarkesh Patel&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=nyvmYnz6EAg"&gt;Why I don’t think AGI is right around the corner&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章作者讨论了对通用人工智能（AGI）时间线的看法，认为当前大型语言模型（LLMs）的经济影响力远不及互联网，核心原因在于它们缺乏持续学习能力，这限制了其作为“员工”的实用性和变革潜力。作者对近期完全自主AI代理的预测持怀疑态度，但坚信一旦持续学习问题解决，AI将在未来几十年内实现巨大飞跃。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;持续学习（Continual Learning）&lt;/strong&gt;
+指AI模型能够像人类一样，通过高层次反馈和经验随时间推移不断学习和改进的能力，而不是仅仅停留在其初始能力的水平。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例/类比&lt;/strong&gt;：作者以教孩子学萨克斯风为例。人类学习是一个持续调整和改进的过程，而当前LLM的“教学”模式更像是为不同的学生提供一次性的详细说明，缺乏迭代改进。作者尝试让LLM润色播客文稿或共同写作，发现它们表现平平且无法通过反馈提升，与人类编辑形成鲜明对比。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算机使用代理（Computer Use Agents）&lt;/strong&gt;
+能够自主与计算机交互、操作用户界面、处理多模态数据（文本、图像、视频）并完成复杂、多步骤任务的AI系统。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：Anthropic研究人员预测，到明年年底，AI将能“帮你报税”，涉及处理邮件、订单、聊天记录、催要发票、整理收据并提交1040表格。作者对此表示怀疑。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前的LLMs在经济变革力上不如互联网，核心障碍在于缺乏持续学习能力。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：即使是先进的LLMs在核心语言任务上表现仅为5/10，且无法通过高层次反馈提升。这种“开箱即用”的局限性使其难以融入复杂工作流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例支撑&lt;/strong&gt;：作者仍雇佣人类编辑润色文稿，因为LLMs无法像人类一样学习和适应偏好，即使它们在技术上可以完成任务。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现可靠、端到端的计算机使用代理（如自动报税）所需时间将超出某些乐观预测。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑1（任务跨度/算力）&lt;/strong&gt;：任务时间跨度越长（例如，报税需数小时），AI推演时间越长，且计算机使用涉及图像/视频处理，这会增加算力需求并减缓进展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑2（数据稀缺性）&lt;/strong&gt;：缺乏像自然语言处理那样庞大的多模态计算机使用数据预训练语料。作者类比，用1980年的文本数据训练GPT-4是不够的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑3（算法创新难度）&lt;/strong&gt;：即使是看似简单的算法创新（如DeepSeek的R1）也需数年打磨，暗示更复杂的计算机使用问题将耗时更长，尤其是在数据较少和模态不同的情况下。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作者预测&lt;/strong&gt;：对于AI能像称职总经理一样在一周内完成小企业报税任务（包括追讨发票、整理收据等），作者认为50/50的实现时间点是2028年，将其比作计算机使用领域的“GPT-2时代”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持续学习能力的突破将引发AI的巨大飞跃，可能导致广泛的智能爆炸乃至超级智能。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：一旦AI能像人类一样在工作中学习，它们可以将其所有副本的学习经验融会贯通，从而“学会”经济中的所有工作。这可能在没有进一步算法进展的情况下，迅速演变为超级智能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作者预测&lt;/strong&gt;：AI能像人类一样在工作中无缝快速学习（例如，AI视频编辑在6个月内像人类一样理解作者偏好和观众喜好）的50/50实现时间点是2032年。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AGI的时间线呈对数正态分布：如果发生，很可能在本十年内，因为2030年后AI进步的主要驱动力将发生变化。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：当前AI进展主要由每年4倍的算力扩展驱动，但这在2030年后将不可持续（受芯片、电力、GDP占比限制）。此后，AI进步将更多依赖算法创新，但低垂的果实可能已被摘取，导致每年实现AGI的概率下降。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;尽管对近期AI进展持保守态度，但仍应为可能发生的2028年未对齐ASI做好准备，因为这是一个完全合理的潜在结果。&lt;/li&gt;
+&lt;li&gt;订阅作者在dwarkesh.com的博客和时事通讯，以获取播客节目相关的额外文章和思考内容。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“但根本问题在于，LLM不会像人类一样随着时间推移变得更好。这种缺乏持续学习的能力是一个巨大的巨大瓶颈。”&lt;/li&gt;
+&lt;li&gt;“人类之所以如此有用，主要不是因为他们的原始智力，而是他们建立背景、审视自身失败、并在实践任务中掌握细微改进和效率的能力。”&lt;/li&gt;
+&lt;li&gt;“到目前为止，你内心的一部分一定在想，‘它真的奏效了。我们正在制造有智能的机器。’”&lt;/li&gt;
+&lt;li&gt;“AGI时间线呈对数正态分布。要么就是这十年，要么就是没有。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=nyvmYnz6EAg</guid>
+      <enclosure url="https://i.ytimg.com/vi/nyvmYnz6EAg/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 17:47:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>5小时硬核干货：从零系统学习RAG知识检索增强技术与企业级项目开发实战</title>
+      <link>https://www.bilibili.com/video/BV1m682ziE9b</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1m682ziE9b"&gt;从零RAG入门与大模型知识库问答系统开发实战！LangChain RAG API全体系教学，手撕工业级Agentic RAG系统开发！&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本公开课时长五个小时，系统讲解了当前大模型最热门应用场景——知识库问答背后的RAG（检索增强生成）技术。课程从核心概念到工业级RAG系统开发，提供了从零开始学习并掌握16项RAG系统开发核心技术的完整路径，并通过多个实战案例提升工程落地能力。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RAG（Retrieval Augmented Generation）知识检索增强技术:&lt;/strong&gt; 一种通过关联知识库进行检索并增强大模型回答能力的技术，旨在拓展大模型的知识边界、减少回答幻觉，是本地知识库问答的最佳解决方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LangChain:&lt;/strong&gt; 目前最主流的开源RAG系统开发工具，也是一个Agent（智能体）开发框架。它拥有业内最丰富的RAG功能API，涵盖文档解析、切分加载、向量库存储匹配等各个环节，能覆盖90%以上企业级RAG系统开发需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LangGraph:&lt;/strong&gt; 另一个RAG系统开发框架，与LangChain相比，其搭建的RAG系统拥有完整的前端交互页面和运维监控可视化页面，更偏向于直接部署上线使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容护栏:&lt;/strong&gt; 在案例中提及的一项功能，用于提升检索精度并确保内容相关性，自动识别用户问题是否与文档内容相关。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能体RAG系统（AIGC RAG系统）:&lt;/strong&gt; 最前沿的RAG系统类型，能够智能识别用户问题是否需要进行检索，并根据实际检测结果自动优化原始问题的表达方式，从而提升问答效果，支持一键部署上线，拥有完整的智能体运维监督功能和精美的前端对话页面。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RAG技术门槛低但上限极高。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支撑:&lt;/strong&gt; 初学者可能觉得RAG不难，无非是剪切、匹配和拼接。但做过知识库问答系统开发的人会觉得难度很大，因为实际工程落地会面临多模态PDF检索、跨文档片段隐藏语义概念提取等非常特殊的情况，复杂的RAG系统甚至需要开发几十个功能模块。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;系统学习RAG技术:&lt;/strong&gt; 完整学习五个小时的公开课，掌握16项RAG系统开发核心技术，并深入学习LangChain中各类RAG API的调用方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参与实战案例:&lt;/strong&gt; 手动实操四项RAG系统开发实战案例：
+&lt;ol&gt;
+&lt;li&gt;完全从零开始手写各个模块功能搭建RAG系统，深入了解完整流程。&lt;/li&gt;
+&lt;li&gt;借助LangChain的RAG API快速搭建前后端一体的产品级RAG系统。&lt;/li&gt;
+&lt;li&gt;借助LangChain的RAG API开发检索精度更高且拥有内容护栏功能的RAG系统。&lt;/li&gt;
+&lt;li&gt;借助LangGraph开发最前沿的智能体RAG系统。&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取学习资料:&lt;/strong&gt; 扫码加入“复盘大模型基础社区”，领取完整五个小时、七个章节、5万多字课件，外加项目脚本、案例代码和独家二开项目（LangChain Chat Chat的二次开发版本，可接入DeepSeek并兼容Windows系统）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“关联知识库进行回答都是最佳的解决方案”&lt;/li&gt;
+&lt;li&gt;“RAG实际上是一项门槛很低 但上限极高的技术”&lt;/li&gt;
+&lt;li&gt;“让大家看到树木 更看到森林”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1m682ziE9b</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/92b3a44c50db1dee60edf02b7fb369e599e61811.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 17:30:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>上下文工程：构建复杂AI应用和AI代理的关键</title>
+      <link>https://www.youtube.com/watch?v=jLuwLJBQkIs</link>
+      <description>&lt;p&gt;&lt;a href="UC2UXDak6o7rBm23k3Vv5dww"&gt;Tina Huang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=jLuwLJBQkIs"&gt;Context Engineering Clearly Explained&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;本文详细阐述了“上下文工程”这一概念，并将其与传统“提示工程”进行了区分，强调了其在构建复杂AI应用和AI代理中的重要性。文中深入探讨了AI代理的六大核心组成部分，并通过一个AI研究助手的实际案例，展示了如何通过上下文工程设计高度结构化的提示。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;上下文工程（Context Engineering）&lt;/strong&gt;：设计和构建动态系统，以便在正确的时间以正确的格式向大型语言模型（LLM）提供正确的信息来完成任务。本质上是精确地填充LLM的上下文窗口（输入区域）。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：安德烈·卡帕西（Andrej Karpathy）将其比作“LLM是CPU，上下文窗口是RAM”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：它就像一本指令手册，详细说明了AI代理的所有组件如何协同工作，以及如何使用工具、访问内存等。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代理（AI Agent）&lt;/strong&gt;：一个利用人工智能追求目标并代表用户完成任务的软件系统。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;组成部分（以“汉堡”类比）&lt;/strong&gt;：
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型（Model）&lt;/strong&gt;：任何AI模型（GPT、Claude等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具（Tools）&lt;/strong&gt;：允许与外部系统交互（例如，访问Google日历）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;知识与记忆（Knowledge &amp;amp; Memory）&lt;/strong&gt;：存储和检索信息的能力（例如，记住之前的对话内容或访问知识库）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;音频与语音（Audio &amp;amp; Speech）&lt;/strong&gt;：实现更自然的交互。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;护栏（Guardrails）&lt;/strong&gt;：确保行为得当的安全机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编排（Orchestration）&lt;/strong&gt;：用于部署、监控和改进AI代理的系统。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;：就像一个汉堡需要面包、肉饼、蔬菜和调味品才能被称为汉堡一样，AI代理也需要这些核心组件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;上下文工程是提示工程的演进，而非替代&lt;/strong&gt;：它专用于为构建AI应用程序而制作复杂的提示，与简单的聊天机器人对话不同。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑&lt;/strong&gt;：对于与聊天机器人进行一对一对话（例如，咨询跑鞋选择），简单的提示工程就足够了。然而，在构建像客户服务AI代理这样的应用时，需要预设涵盖所有可能行动和场景的指令，提示会变得像带有XML标签和Markdown的代码一样复杂，这时上下文工程就变得至关重要。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;为AI代理构建复杂、结构化的提示至关重要&lt;/strong&gt;：AI代理需要详细的“说明手册”来有效利用其模型、工具、知识、记忆、音频/语音、护栏和编排等各种组件。
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：客户服务AI代理需要指令来处理账单问题、退款、登录、查询条款、处理不相关或辱骂性问题，并在必要时升级到人工服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;：文中展示了一个AI研究助手的完整系统提示，包含角色、任务、输入、输出（JSON格式）、约束和能力提醒等高度结构化的部分。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多代理框架的上下文工程原则&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;代理之间始终共享上下文。&lt;/li&gt;
+&lt;li&gt;行动蕴含着隐含的决策，在架构和上下文工程中必须非常谨慎对待决策点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;常见的上下文工程策略（Langchain框架）&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;写入上下文（Writing Context）&lt;/strong&gt;：允许LLM记录信息以供后续使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择上下文（Selecting Context）&lt;/strong&gt;：从外部源提取信息以辅助任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;压缩上下文（Compressing Context）&lt;/strong&gt;：将大量信息压缩成更紧凑的形式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隔离上下文（Isolating Context）&lt;/strong&gt;：在不同环境和位置之间分离上下文。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用场景&lt;/strong&gt;：仅在构建AI应用程序或AI代理时采用上下文工程，而不是仅仅与LLM聊天。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提示构建技巧&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;使用Markdown格式（例如，使用井号“#”分隔角色、任务等部分）。&lt;/li&gt;
+&lt;li&gt;利用XML标签（例如，&lt;code&gt;&amp;lt;user_query&amp;gt;&lt;/code&gt;和&lt;code&gt;&amp;lt;/user_query&amp;gt;&lt;/code&gt;）明确界定用户输入。&lt;/li&gt;
+&lt;li&gt;清晰地指定输出格式（例如，详细的JSON格式及变量定义）。&lt;/li&gt;
+&lt;li&gt;明确定义AI代理的角色、分步任务、输入、输出、约束、能力和提醒。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI代理实现工具&lt;/strong&gt;：可以使用NA10、NAT（无代码）或OpenAI的代理SDK（代码）等多种工具来实现AI代理，上下文工程的原则在不同系统中普遍适用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深入学习资源推荐&lt;/strong&gt;：
+&lt;ul&gt;
+&lt;li&gt;Cognition关于多代理框架上下文工程基本原则的博客文章。&lt;/li&gt;
+&lt;li&gt;Langchain关于上下文工程策略（写入、选择、压缩、隔离上下文）的文章。&lt;/li&gt;
+&lt;li&gt;试用Augment Code（提供14天免费试用，帮助进行真实工程工作，如调试、测试和重构）。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“上下文工程是设计和构建动态系统，以便在正确的时间以正确的格式向LM提供正确的信息来完成任务。”&lt;/li&gt;
+&lt;li&gt;“LM是CPU，上下文窗口是RAM。”&lt;/li&gt;
+&lt;li&gt;“上下文工程是提示工程在为构建AI应用程序而制作复杂提示的非常特定情况下的演进。”&lt;/li&gt;
+&lt;li&gt;“纯粹凭感觉编码（Pure vibe coding）是远远不够的。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=jLuwLJBQkIs</guid>
+      <enclosure url="https://i.ytimg.com/vi/jLuwLJBQkIs/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 Aug 2025 15:49:53 +0800</pubDate>
+    </item>
     <item>
       <title>算法博弈论：如何建模战略行为与设计应对系统</title>
       <link>https://www.bilibili.com/video/BV1qX86zPEPG</link>
@@ -7551,1062 +8491,6 @@ Solo模式的核心概念，意味着Tree不再仅仅是一个AI IDE，而是进
       <guid isPermaLink="true">https://www.youtube.com/watch?v=g2HWK-jP-lw</guid>
       <enclosure url="https://i.ytimg.com/vi/g2HWK-jP-lw/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 18 Jul 2025 11:01:16 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenAI发布ChatGPT agent：整合深度研究、浏览器自动化与多模态的里程碑式通用智能体</title>
-      <link>https://www.bilibili.com/video/BV1ypggzCEBB</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ypggzCEBB"&gt;最强统一智能体，ChatGPT Agent重磅发布！刷新HLE最高分，Agent完整功能&amp;amp;技术栈深度解析！&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-OpenAI正式发布了其里程碑式的ChatGPT agent，该产品集深度研究、浏览器自动化、沙盒代码解释器、多模态和自定义工具调用等功能于一体，旨在解决现实世界中的复杂问题。文章详细介绍了ChatGPT agent在各种领域取得的卓越性能，并强调其区别于其他Demo产品的稳定性和强大能力。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ChatGPT agent&lt;/strong&gt;: OpenAI最新发布的智能体产品，立足于解决现实问题。它通过All-in-one的方式整合了深度研究、浏览器自动化、沙盒环境代码解释器、多模态以及自定义工具调用等功能。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;案例&lt;/strong&gt;: 发布会通过一个全自动进行婚礼规划的任务来展示其能力。该任务复杂且需不断调整，ChatGPT agent能够自主交替执行Deep Research（挖掘流行婚礼方案）和Operator（采购所需物品）功能，并支持用户随时打断、核验或补充信息（如修改新郎鞋码）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Deep Research&lt;/strong&gt;: ChatGPT agent的核心功能之一，用于深度挖掘网络文本信息，例如整合一些流行的婚礼方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Operator&lt;/strong&gt;: ChatGPT agent的核心功能之一，用于全自动的网页操作，例如帮助采购婚礼所需物品。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;HLE (人类最后测试)&lt;/strong&gt;: 一个覆盖100多个科研领域的博士级跨学科难题。ChatGPT agent在该测试中取得了41.6%的准确率，被认为是“地表最强的agent”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SA成绩&lt;/strong&gt;: ChatGPT agent在编程、数据分析、信息检索和数学等领域达到的高水平成绩。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ChatGPT agent是今年最具里程碑意义的智能体产品，而非简单的技术组装&lt;/strong&gt;。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 不同于其他“demo产品”（如Minus），OpenAI对基座模型进行了有针对性的强化学习后训练，使其能够更好地组织和调用各项成熟工具（Deep Research、Operator、代码解释器），并强化了多步调用工具的连贯性和一致性。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实时交互运行模式是最佳的用户体验，且更让人放心&lt;/strong&gt;。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 相较于其他厂商追求agent全自动完成数小时任务的模式，ChatGPT agent支持随时打断、随时核验信息或补充信息，这在复杂任务中（如婚礼规划）能有效与用户协作，确保方案信息准确、内容完整。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ChatGPT agent在各项测试中展现出卓越的综合性能，远超人类平均水平&lt;/strong&gt;。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;: 
-&lt;ul&gt;
-&lt;li&gt;在HLE人类最后测试中，取得了41.6%的准确率，是“地表最强的agent”。&lt;/li&gt;
-&lt;li&gt;在编程、数据分析、信息检索和数学等领域达到了SA水平。&lt;/li&gt;
-&lt;li&gt;在数据分析和数据建模方面更是“远超人类平均水平”，是“目前最顶尖的AI数据分析工具之一”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;获取ChatGPT agent接入指南和教程&lt;/strong&gt;: 扫描文章中提供的二维码，可领取ChatGPT agent的接入指南、使用教程以及可平替ChatGPT agent的开源项目部署方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加入“复范大模型技术社区”&lt;/strong&gt;: 扫描文章中提供的二维码加入该公益社区，可获取：
-&lt;ul&gt;
-&lt;li&gt;独家研发的100多套高质量教程和几十小时的保姆级教学视频。&lt;/li&gt;
-&lt;li&gt;涵盖20多个主流大模型的部署、调用方法，助力零基础快速入门。&lt;/li&gt;
-&lt;li&gt;涵盖模型微调、RAG知识库、检索agent开发等核心进阶技术。&lt;/li&gt;
-&lt;li&gt;高价值实战案例，包括手搓Circle agent、Deep Research、mini Minus等。&lt;/li&gt;
-&lt;li&gt;持续更新的前沿硬核干货教程，助您突破职业瓶颈、借助AI升职加薪。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“都说agent是大模型技术皇冠上的明珠”&lt;/li&gt;
-&lt;li&gt;“可以说，这就是今年最具有里程碑意义的agent的智能体产品了”&lt;/li&gt;
-&lt;li&gt;“整场发布会20多分钟，确实让我看到了通用智能体的最佳落地形态”&lt;/li&gt;
-&lt;li&gt;“ChatGPT agent绝不是好看的花瓶，而是目前地表综合性能最强的智能体，没有之一”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ypggzCEBB</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/1937b0718a3fc8cb4b7c1369fa96b2e149d01f03.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 18 Jul 2025 08:56:55 +0800</pubDate>
-    </item>
-    <item>
-      <title>深入斯坦福AI职场研究：揭秘工人对自动化和增强的真实期待</title>
-      <link>https://www.youtube.com/watch?v=GJl2cz3TTUc</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=GJl2cz3TTUc"&gt;How Much AI Do Workers Actually Want?&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-斯坦福大学一项针对15,000多名员工和50多名AI专家的研究揭示了员工对AI在职场中应用的真实期望。研究表明，多数员工欢迎AI作为增强工具来减轻工作负担和提升工作质量，而非完全取代他们。报告还根据工人意愿和技术可行性将AI应用划分为四个区域，并预测了未来职场中技能价值的演变。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI职场颠覆：&lt;/strong&gt; AI对就业、招聘和工作流程的持续影响。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化绿灯区：&lt;/strong&gt; AI技术可行且工人期望自动化的任务区域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;研发机遇区：&lt;/strong&gt; 工人强烈期望自动化，但AI技术尚未完全成熟的任务区域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;低优先级区：&lt;/strong&gt; 工人不希望自动化且AI难以完成的任务区域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化红灯区：&lt;/strong&gt; AI技术可行，但工人不希望由AI接管的任务区域，通常涉及高敏感性或高成本错误的任务。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; Angel Anuham观察到41%的YC初创公司正在“红灯区”开发，这可能反映了创始人对特定行业任务背景和工人意愿的理解不足。例如，网络支持专家的硬件软件研究、物流分析师联系供应商、法院工作人员准备会议议程等，这些任务出错成本高昂，工人倾向于亲自处理。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类能动性量表（Human Agency Scale, H1-H5）：&lt;/strong&gt; 一个衡量人机协作程度的连续谱。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;H5：&lt;/strong&gt; 人类主导任务完成，AI辅助。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;H3：&lt;/strong&gt; 人类与AI平等协作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;H1/H2：&lt;/strong&gt; AI主导任务完成（自动化）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;H3-H5：&lt;/strong&gt; 定义为“人类增强”，AI提升人类能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;H1-H2：&lt;/strong&gt; 定义为“自动化”，AI取代人类能力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI就绪度审计（Agent readiness audits）：&lt;/strong&gt; 一种利用AI（如语音代理）进行大规模员工访谈的新能力，以从基层收集丰富数据，识别自动化机会。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; Super Intelligent公司通过语音代理对组织内所有人进行访谈，发现最有价值的见解往往来自最接近工作的员工，而非外部咨询师。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;员工普遍不希望被AI取代，但乐于接受AI来减轻工作负担，并将他们解放出来从事更高价值的任务。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;数据：&lt;/em&gt; 69%的员工欢迎自动化以从事更高价值任务；46%希望减少任务重复性并提升工作质量。仅2%的员工希望完全自动化，35%希望关键节点有人类监督的自动化，45%希望人机大致平等的协作。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;员工对AI增强任务持积极态度，前提是他们能参与到AI的实施过程中。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;数据：&lt;/em&gt; 总体而言，46%的任务，员工对AI增强持积极态度。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;员工对AI的主要担忧不是失业，而是对AI的准确性、能力或可靠性缺乏信任。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;数据：&lt;/em&gt; 仅23%的受访者将失业列为担忧；45%的受访者表示不信任AI的准确性、能力或可靠性。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;未来有价值的技能将从公式化、高专业度的任务（如数据分析）转向管理、组织、培训他人以及有效沟通和同理心等软技能。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;逻辑：&lt;/em&gt; AI将导致公式化、例行性工作的价值贬值。需要人类互动和协调的软技能将更受重视。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;员工的意见对于指导AI在职场的改革至关重要，因为他们最了解日常工作流程中的痛点和自动化潜力。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;逻辑：&lt;/em&gt; 员工日复一日地经历工作流程，因此更擅长识别枯燥或重复的任务。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;管理层应尽早吸纳组织内部各层级员工的声音，以更好地应对未来AI能力提升可能导致的岗位影响和复杂性。&lt;/li&gt;
-&lt;li&gt;避免对自动化进行二元化思考（全自动化或完全不自动化），而应将其视为一个涵盖人类增强的连续谱。&lt;/li&gt;
-&lt;li&gt;初创公司在开发AI解决方案时，特别是针对“红灯区”任务时，需深入理解任务的具体语境和敏感性，考虑人类增强而非盲目追求完全自动化。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“随着劳动力发展，理解并弥合员工期望与AI能力现实之间的差距，对于力求成功整合AI的组织来说至关重要。”——共同作者De Yang&lt;/li&gt;
-&lt;li&gt;“对需要人际互动和协调的技能将更加重视。”——共同作者De Yang&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=GJl2cz3TTUc</guid>
-      <enclosure url="https://i.ytimg.com/vi/GJl2cz3TTUc/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 17 Jul 2025 16:00:06 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI行业动态：苹果洽购、Windsurf收购案及Meta AI战略巨变</title>
-      <link>https://www.youtube.com/watch?v=X0qE9ZR4nMA</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=X0qE9ZR4nMA"&gt;Will Apple Buy Mistral?&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章概述了近期AI行业的重要动态，包括苹果公司可能的大型AI收购计划、Windsurf公司独特的两阶段被收购过程，以及Meta公司在AI模型开源策略和计算基础设施建设上的重大转变。&lt;/p&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;苹果公司似乎正在积极调整其AI战略，考虑进行大规模收购，这与该公司过去不愿通过收购解决问题的态度形成对比。
-&lt;ul&gt;
-&lt;li&gt;传闻苹果正在认真考虑收购Mistral。&lt;/li&gt;
-&lt;li&gt;此前也有报道称苹果对Perplexity感兴趣。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Windsurf公司经历了一次不同寻常的收购过程：首先是谷歌以24亿美元收购了其部分领导层、约30名开发者以及一项许可协议，主要支付给早期投资者；随后，AI公司Cognition以未披露的价格收购了Windsurf的其余部分和留下的员工，并承诺妥善安置员工。
-&lt;ul&gt;
-&lt;li&gt;谷歌的交易引发争议，因为它被视为“创业公司退出社会契约”破裂的一部分，大部分资金并未惠及普通员工。&lt;/li&gt;
-&lt;li&gt;Cognition的收购确保了Windsurf剩余员工的权益，并使产品重新获得了对Anthropic云模型的完全访问权限。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Meta公司的AI战略可能正在发生重大转变，从其标志性的开源模型（如Llama系列）转向开发闭源模型，尽管其首席AI科学家曾预言开放平台将获胜。
-&lt;ul&gt;
-&lt;li&gt;《纽约时报》报道称，Meta新的超级智能实验室成员讨论放弃Llama 4大型模型，转而从头开发闭源模型。&lt;/li&gt;
-&lt;li&gt;尽管Meta曾以“开放科学承诺”为由发布Llama模型，但也被解读为商业决策，旨在通过免费的聊天机器人超越竞争对手。&lt;/li&gt;
-&lt;li&gt;Meta官方回应称将继续发布领先的开源模型，并会训练混合的开放和闭源模型。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Meta正投入数千亿美元巨资建设领先的AI计算基础设施，旨在吸引顶尖人才并加速超级智能的开发。
-&lt;ul&gt;
-&lt;li&gt;目标是建立行业内最精英和人才密集的团队。&lt;/li&gt;
-&lt;li&gt;计划建设多个千兆瓦级超级计算集群，其中“Prometheus”将于2026年上线，而“Hyperion”目标到2030年达到2千兆瓦，并在几年内扩展到5千兆瓦。&lt;/li&gt;
-&lt;li&gt;拥有最高的“每研究人员计算能力”是吸引最优秀人才的关键战略优势，因为顶尖研究人员更看重GPU等计算资源而非管理职权。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;"The last 72 hours have been the wildest roller coaster ride of my career." &lt;/li&gt;
-&lt;li&gt;"The platform that will win will be the open one."&lt;/li&gt;
-&lt;li&gt;"One of my top priorities in structuring this deal was to honor their talent, hard work, and accomplishments in making Windsurf the great business that it is today."&lt;/li&gt;
-&lt;li&gt;"I want the fewest people reporting to me and the most GPUs."&lt;/li&gt;
-&lt;li&gt;"Having basically the most compute per researcher is a strategic advantage, not just for doing the work, but for attracting the best people."&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=X0qE9ZR4nMA</guid>
-      <enclosure url="https://i.ytimg.com/vi/X0qE9ZR4nMA/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 17 Jul 2025 13:01:03 +0800</pubDate>
-    </item>
-    <item>
-      <title>Every创始人Dan Shipper：15人团队如何用AI颠覆软件开发与企业效率</title>
-      <link>https://www.youtube.com/watch?v=crMrVozp_h8</link>
-      <description>&lt;p&gt;&lt;a href="UC6t1O76G0jYXOAoYCm153dA"&gt;Lenny's Podcast&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=crMrVozp_h8"&gt;The AI-native startup: 5 products, 7-figure revenue, 100% AI-written code. | Dan Shipper (Every)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容&lt;/p&gt;
-
-&lt;p&gt;采访了Every公司的CEO Dan Shipper，他分享了Every作为一家AI优先公司，如何通过创新产品孵化、无代码工程实践及独特的业务模式（内容、应用与咨询）进行运营。他深入探讨了AI对未来工作技能、组织结构的影响，并强调了AI在赋能通才和管理者方面的潜力。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI运营主管（AIops）&lt;/strong&gt;：一个专注于识别公司内部重复性任务，并构建AI提示和自动化工作流以提高效率的专门职位。
-&lt;ul&gt;
-&lt;li&gt;案例：Every公司设有AI运营主管，负责自动化编辑流程中的校对工作，确保内容符合“Every风格”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;复利工程&lt;/strong&gt;：在每次工程工作中，都力求让下一次相同类型的工作变得更容易。通过投入少量额外时间，创建可复用的提示或自动化工具来简化未来任务。
-&lt;ul&gt;
-&lt;li&gt;案例：Cora团队开发了一个提示库，能将工程师的零散想法转化为结构化的产品需求文档（PRD），大幅提高后续PRD编写效率。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分配经济&lt;/strong&gt;：一种未来的经济模式，其中管理技能（如评估人才、设定愿景、培养品味、决定何时深入细节）变得至关重要，而AI代理将负责执行具体的专业任务。这标志着重心从“执行”向“管理”或“分配”AI资源转变。
-&lt;ul&gt;
-&lt;li&gt;案例：Dan Shipper发现自己的工作重心已转向如何有效地向AI模型提问、收集信息、选择合适的模型和提供反馈，这些都是典型的管理技能。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小额种子轮（Sip Seed Round）&lt;/strong&gt;：一种创新的融资方式，投资者承诺提供一笔资金（例如200万美元），公司可根据需要随时提取，并以预设的SAFE（Simple Agreement for Future Equity）估值上限进行。这种方式提供资金保障，同时避免了账户中巨额资金带来的心理压力和高燃尽率。
-&lt;ul&gt;
-&lt;li&gt;案例：Every公司以这种模式从Reid Hoffman和Starting Line VC获得了200万美元的承诺。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI可能会促进美国就业回流（reshoring）。
-&lt;ul&gt;
-&lt;li&gt;支持：AI使过去高成本的服务（如法务、呼叫中心）对小型公司和个人变得负担得起，从而刺激了需求。同时，AI提高了个体的工作效率，使得在美国本土雇佣人员更具成本效益和竞争力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Claude Code（或类似的命令行界面AI工具）对非程序员来说是极度被低估的工具。
-&lt;ul&gt;
-&lt;li&gt;支持：该工具能长时间、自主地处理大量本地文本文件（如会议纪要、客户数据），只需通过英语指令即可完成复杂任务。&lt;/li&gt;
-&lt;li&gt;案例：Dan使用Claude Code分析《战争与和平》，提取托尔斯泰的人物描写技巧并生成指南。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;衡量AGI（通用人工智能）的关键标准是其经济效益和自主工作时长，而非仅限于图灵测试。
-&lt;ul&gt;
-&lt;li&gt;逻辑：AI自主工作的“牵引绳”越来越长。当AI代理可以无限期运行并持续产生经济效益时，即达到AGI，这类似于人类从儿童到独立成长的过程。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;关于AI会取代工作、导致失业或使人“大脑关闭”的流行观点是片面的。
-&lt;ul&gt;
-&lt;li&gt;逻辑：历史上的技术进步总是伴随着某些旧技能的放弃以换取新技能的获得，整体效益更高。AI工具的使用本身就是一种新技能。&lt;/li&gt;
-&lt;li&gt;案例：使用ChatGPT的孩子和新人学习、成长速度远超以往，例如Every的一名作者在AI帮助下，两个月取得了过去一年的进步。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;软件开发正向“不手写代码”的方向发展，AI将极大地改变开发工作流。
-&lt;ul&gt;
-&lt;li&gt;案例：Every的产品团队（如Cora团队仅2名工程师）不手写代码，而是通过管理AI代理（如Claude Code、Friday、Charlie）来生成代码和产品需求文档（PRD）。&lt;/li&gt;
-&lt;li&gt;逻辑：AI代理可以像人类团队成员一样，拥有不同“个性”和专长，从而协同工作。&lt;/li&gt;
-&lt;li&gt;案例：Cora产品仅用2名工程师和AI代理，花费约30万美元（含薪资）孵化并成功上线，已处理数百万邮件。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;未来，通才（Generalists）将变得更具价值。
-&lt;ul&gt;
-&lt;li&gt;逻辑：AI工具能够提供不同领域的专业知识，使个人能够轻松跨领域工作，从而减少对高度专业化的需求。这可能导致出现更多小型、灵活的组织。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;任命一名“AI运营主管”&lt;/strong&gt;：专门负责识别公司内部重复性任务，并构建AI提示和自动化工作流以提高团队效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CEO必须亲自使用AI工具&lt;/strong&gt;：CEO应带头使用ChatGPT等工具，并在公司内部推广其使用，以激发团队热情并设定实际期望。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;推广AI使用的具体方法&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;发布“AI优先”备忘录：明确公司将AI置于核心地位，并鼓励员工在备忘录中展示AI的使用（例如：声明邮件是AI辅助撰写的）。&lt;/li&gt;
-&lt;li&gt;定期分享AI使用案例和提示：召开每周会议，让员工分享AI使用技巧和成功案例，创建内部知识共享平台。&lt;/li&gt;
-&lt;li&gt;跟踪和分享AI使用数据：每周通过邮件分享公司AI使用统计数据和突出贡献者，鼓励更多人采用AI。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产品孵化策略&lt;/strong&gt;：识别历史上昂贵、仅限少数人可及的服务（如私人助理、法律顾问），思考AI如何将其成本降低几个数量级，使其普惠化。先用通用AI工具验证其潜力，若有效再将其独立孵化成专门应用。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“你正在打造的业务、团队和运营方式，正处于AI时代公司运营方式的最前沿。”&lt;/li&gt;
-&lt;li&gt;“每当我看到一个孩子使用ChatGPT，我都会想：‘天啊，他们的进步速度将远远超过我合作过的任何人。’”&lt;/li&gt;
-&lt;li&gt;“有一种感觉，我们正走向一个无需再编写任何代码的时代，产品团队根本就不写代码。没有人再手动编码了。”&lt;/li&gt;
-&lt;li&gt;“像我们这样的组织，在尖端探索的人，我们正在做的事情，三年后其他人都会做。”&lt;/li&gt;
-&lt;li&gt;“绝非一个代理就能统治一切。”&lt;/li&gt;
-&lt;li&gt;“GPT封装器棒极了，它们被无缘无故地贬低，人们不明白它们到底有多么宝贵。”&lt;/li&gt;
-&lt;li&gt;“我认为，判断公司能否通过AI获得巨大生产力提升的第一大预测指标是：‘CEO是否使用ChatGPT？’或者使用你自己的聊天机器人。”&lt;/li&gt;
-&lt;li&gt;“做值得书写的事，写值得阅读的东西。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=crMrVozp_h8</guid>
-      <enclosure url="https://i.ytimg.com/vi/crMrVozp_h8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 17 Jul 2025 11:01:09 +0800</pubDate>
-    </item>
-    <item>
-      <title>Reflection AI推出代码理解智能体Asimov：创始人Misha Laskin谈RL、ASI与AI垂直化战略</title>
-      <link>https://www.youtube.com/watch?v=xqyy_Zs8Fgw</link>
-      <description>&lt;p&gt;&lt;a href="UCSI7h9hydQ40K5MJHnCrQvw"&gt;No Priors: AI, Machine Learning, Tech, &amp;amp; Startups&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=xqyy_Zs8Fgw"&gt;No Priors Ep. 123 | With ReflectionAI Co-Founder and CEO Misha Laskin&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本期播客No Priors采访了Reflection AI联合创始人Misha Laskin，深入探讨了公司新发布的AI代码理解智能体Asimov。Misha分享了Reflection AI构建超智能自主系统的愿景、强化学习（RL）的挑战以及AI领域的未来发展方向，特别是代码领域。他强调了产品与研究协同设计的重要性，以及垂直化AI解决方案的崛起。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Universal Superhuman Agents（通用超人智能体）&lt;/strong&gt;: 旨在构建能够执行各种任务并达到或超越人类水平的系统。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ASI Complete Categories（ASI完整类别）&lt;/strong&gt;: 指那些足够复杂和广泛的领域，一旦在其中实现了超智能，就意味着掌握了构建ASI（人工超智能）所需的通用能力和方法论，例如代码领域。这意味着一旦掌握了在该领域构建超智能的“配方”，就可以将其扩展到其他领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reward Modeling（奖励建模）&lt;/strong&gt;: 在强化学习中，设计或训练一个模型来提供准确的奖励信号，以指导AI的学习过程。文章指出，这是当前强化学习面临的根本性瓶颈，因为为任意任务创建准确的奖励机制非常困难，导致AI学习受限。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Verticalization（垂直化）&lt;/strong&gt;: 指AI公司专注于某个特定领域（如搜索、编程）并深度整合产品与模型，而非追求通用模型的广泛性，以实现特定领域的卓越性能和商业成功。文章认为，这是一个重要的市场趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Jagged Super Intelligence（锯齿状超智能）&lt;/strong&gt;: 指AI的超智能表现将是“锯齿状”的，即在某些特定且有意义的工作类别中达到超智能水平（例如，前端开发），但在其他类别中则不一定，而非全面、统一的通用超智能。这取决于数据收集的经济可行性。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“泛化”可能不存在，只是一种训练分布覆盖测试分布的幻象。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: Misha认为，只要训练分布与实际评估需求足够相似，用户就会体验到“泛化”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI超智能的实现将是“锯齿状”而非普遍通用。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: Misha指出，AI将在特定有意义的工作类别（如某些编程细分领域）达到超智能，但这将取决于数据收集的经济可行性，而不是在所有领域普遍实现。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;构建超智能自主系统需要产品与研究的紧密协同设计。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: Misha认为，与传统工业实验室可能通过基准测试构建广泛超智能不同，Reflection AI更注重从实际部署和用户体验反向设计，优化真实问题。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;当前编码工具的问题在于80%时间花在理解而非生成上，但现有工具却相反。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 传统编码工具侧重代码生成（80%），而工程师80%的时间用于理解复杂系统和协作；Asimov旨在解决这一理解瓶颈。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;创业公司在AI领域对抗巨头的主要优势是专注和速度。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 巨头因资源分散和评估体系广泛而难以在特定领域实现深度优化，而创业公司可通过紧密的用户反馈来开发定制化的评估和产品，从而在短时间内取得优势。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强化学习在语言模型应用中面临两大挑战：奖励问题和算法进步瓶颈。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 奖励问题是根本性挑战，当前缺乏对任意任务的准确奖励，导致模型训练受限；算法瓶颈在于RL方法在探索和信用分配上的低效，导致推理链冗长且不直观。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI领域正在发生垂直化趋势，尤其在搜索和编码等关键类别。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 成功案例如ChatGPT、Claude Code，它们实现了模型与产品的紧密耦合。Misha认为，如果初创公司无法构建自己的前沿模型，可能会在这些“关键路径类别”中面临生存挑战。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;机器人和语言模型在强化学习数据分布上存在本质差异。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 语言是世界的高度压缩表示，而像素或传感器信号则原始且噪音更多，这使得视觉语言模型的奖励更容易被“hack”。同时，语言模型难以收集人类思考过程的“链式数据”，更倾向于合成数据和RL方法。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI能力的部署将是一个多十年的过程，而非短期爆发。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持&lt;/strong&gt;: 尽管AI的技术构建模块进步迅速，但实际部署和针对特定领域的产品/研究创新将使其成为一项长期事业，就像强化学习在Go和Dota等游戏领域取得突破，但将其推广到其他领域仍需针对性工作。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开发评估方法应以客户需求为导向&lt;/strong&gt;: 持续与客户沟通，了解他们实际面临的问题（如工程师入职流程漫长），并据此构建评估指标，从而驱动产品功能、智能体设计和模型训练的改进。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;赋能AI系统学习组织内部的“部落知识”&lt;/strong&gt;: 允许工程师将组织内部的特定术语、流程或“行话”上传并教授给AI系统，以增强其对复杂工作场景的理解。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设计团队级记忆需考虑权限与所有权&lt;/strong&gt;: 构建共享的团队记忆功能时，应建立清晰的编辑和查看权限，并考虑引入类似Git的拉取请求（Pull Request）审查机制，确保知识的准确性和可信度，适应团队和代码库的动态变化。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“物理学是很多有影响力的事物的根源科学。但在我们这个时代，AI是根源科学。”&lt;/li&gt;
-&lt;li&gt;“我认为‘泛化’根本不存在，只是将测试分布带入训练分布。”&lt;/li&gt;
-&lt;li&gt;“我们正进入一个‘锯齿状超智能’的世界。”&lt;/li&gt;
-&lt;li&gt;“当你的模型与产品相距甚远时，即使你拥有最好的模型，也绝不意味着你拥有最好的产品。”&lt;/li&gt;
-&lt;li&gt;“部署是问题的一半。”&lt;/li&gt;
-&lt;li&gt;“你不可能凭空获得数据。所有能规模化收集数据的方法，都与奖励功能以及强化学习相关。”&lt;/li&gt;
-&lt;li&gt;“如果你能做到正确，你将能够创造出足以产生足够收入的世代业务，而不必被收购，或找到某种奇怪的交易让云提供商拥有你。”&lt;/li&gt;
-&lt;li&gt;“编码就是这个时代。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=xqyy_Zs8Fgw</guid>
-      <enclosure url="https://i.ytimg.com/vi/xqyy_Zs8Fgw/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 17 Jul 2025 10:01:39 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI采购与自研的隐性成本：Generac如何利用生成式AI优化现场服务并应对信任挑战</title>
-      <link>http://podcast.emerj.com/why-service-teams-outgrow-diy-ai-solutions-with-neil-bhandar-of-generac</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/why-service-teams-outgrow-diy-ai-solutions-with-neil-bhandar-of-generac"&gt;Why Service Teams Outgrow DIY AI Solutions - with Neil Bhandar of Generac&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本期播客节目中，Generac的首席数据分析官Neil Bondar深入探讨了AI采纳中“构建”与“购买”决策的复杂性。他揭示了内部构建AI的隐性成本，并分享了Generac如何成功应用生成式AI解锁产品手册中的“部落知识”，以优化现场服务。对话还强调了在AI时代下，平衡人类专业知识与AI工具的重要性，并警示了过度依赖AI可能带来的技能侵蚀风险。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;恐怖谷理论 (Uncanny Valley)&lt;/strong&gt;: 这一概念通常描述了机器人或AI形象过于逼真但又非完全人类时，引起人们不安的心理现象。在文中，它被扩展到两种情境：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;外观恐怖谷 (Uncanny Valley of Appearance)&lt;/strong&gt;: 指系统在外表上过于接近人类，可能导致用户感到不适或恐惧，或因不够像人而显得恐怖，但一旦跨过某个阈值，逼真度高到可被误认为人类。 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信任恐怖谷 (Uncanny Valley of Too Much Trust)&lt;/strong&gt;: 在自动驾驶汽车或大型语言模型等语境下，当系统承担过多责任时，人类用户会变得过度自信，放松警惕，从而产生危险的假设。文中以一个艺术家用装有50部手机的推车在空街上制造虚假交通堵塞的GPS案例为例，说明了AI系统对虚假信号的过度信任和用户可能因此而产生的盲目依赖。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;部落知识 (Tribal Knowledge)&lt;/strong&gt;: 指组织内部由经验丰富的员工掌握的非规范化、非结构化且通常难以被明确记录的知识。播客中提到，Generac利用生成式AI技术，将旧的、以图像形式存在的PDF产品手册中的“部落知识”转化为可搜索、易于访问的信息，极大提升了现场服务效率。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI的“构建”与“购买”决策远非二元对立，存在诸多隐性成本。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例/逻辑&lt;/strong&gt;: 许可费、模型再训练成本、合规审查延误以及关键专家资源被占用等，都可能导致纯粹的内部构建方案难以实现可持续价值，最终让组织质疑其投入是否创造了可持续价值。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据饥渴是AI模型的普遍特性，数据获取与管理是AI实施的重大挑战。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例/逻辑&lt;/strong&gt;: 像Meta这样的公司，斥资数十亿美元投资数据平台（如Scale），原因在于AI模型对数据的类型、数量和来源高度敏感，并且面临隐私法规、存储和计算成本等一系列“包袱”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;生成式AI能够有效解决传统NLP难以处理的非结构化数据问题，释放“部落知识”的价值。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例/逻辑&lt;/strong&gt;: Generac利用Gen AI从旧的、基于图像的产品手册中提取知识，使原本难以搜索的内容变得可检索，极大提高了现场服务人员的效率，减少了上门服务需求，并可创造新的培训收入流。这好比将用于破译古代宗教文本“失落脚本”的技术应用于理解发电机手册，展现了跨领域知识交叉赋能的巨大潜力。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI工具的过度依赖可能导致人类核心技能的流失和文化独特性被稀释。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例/逻辑&lt;/strong&gt;: 就像人们不再需要纸质地图或计算器，过度依赖AI进行总结或推理可能导致个人批判性思维和分析能力的退化，甚至思考方式被AI引擎的特定输出所“条件化”。个人制作甜点的能力丧失和对GPS的依赖导致导航技能退化都是现实例子。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在AI部署中，保护组织的“可持续竞争优势”至关重要，特别是数据隐私和模型区分度。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持案例/逻辑&lt;/strong&gt;: 当AI模型使用的数据可能包含竞争对手信息，且无法区分组织独特性时，可能导致竞争优势的稀释。选择合作伙伴时，必须确保核心优势得到保护，否则AI可能在不知不觉中改变组织文化，使其偏离原有目标。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI系统需要像人一样被对待，保持“人性化”交互，避免“恐怖谷”效应。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支持逻辑&lt;/strong&gt;: 如果AI系统给人的感觉不像人类，人们会产生天然的抵触情绪，影响其采用和互动意愿。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;聚焦目的，保持模块化构建：&lt;/strong&gt; 不要被市场上最亮眼的工具所吸引。确保AI解决方案符合特定目的和优先级。最好将AI系统构建为乐高积木般的模块化结构，而非包罗万象的庞大整体，因为模块化解决方案更容易调试、替换，并避免系统性失衡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免过度信任和依赖AI：&lt;/strong&gt; 警惕AI系统可能导致人类技能退化或思维被AI输出条件化。即使使用AI工具，也要保持批判性思维和基础技能，不要完全放弃人工导航等基本能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在选择AI合作伙伴时，优先保护自身可持续竞争优势：&lt;/strong&gt; 确保合作方的模型不会稀释你的独特数据或业务模式。要评估合作伙伴如何保护你的核心资产，以及其理念是否与你的长期发展战略（如内部晋升、研发投入等）一致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保持AI交互的“人情味”：&lt;/strong&gt; 确保AI在提供服务时，能够体现出类似人类的同理心，并保持在人类可以接受的范围内，避免“恐怖谷”效应，以促进用户接受度。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;p&gt;-&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/why-service-teams-outgrow-diy-ai-solutions-with-neil-bhandar-of-generac</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/a/8/e/e/a8ee0330ba170340d959afa2a1bf1c87/Neil-Bhandar-AI-in-Business-Podcast-ep-2.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 17 Jul 2025 06:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>观猹：AI超级个体产品发布交流平台及行业动态深度解读</title>
-      <link>https://www.zengzhang.ai/p/aiep15-ai</link>
-      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;增长黑客AI周报（ZengZhang.AI）&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep15-ai"&gt;【增长黑客AI周报】EP#15 「我靠 AI 当上了网红」&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章围绕AI行业，首先介绍了“观猹”这一专为“超级个体”打造的产品发布与交流平台。接着，深入探讨了AI创业团队的“作战手册”，涵盖招聘、文化、运营和技术策略，并揭示了AI在短视频内容创作、游戏开发等领域的应用现状与挑战。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;超级个体: 指那些利用AI编程工具和设计产品，由少数人甚至一人加持Agents“员工”就能快速做出惊艳产品的人，他们是AI时代的强大个体。&lt;/li&gt;
-&lt;li&gt;Build in Public: 指超级个体们公开展示自己的创新想法和最新作品，旨在获得真实用户反馈与建议，同时寻求种子用户和商业合作。&lt;/li&gt;
-&lt;li&gt;产品观猹员计划: “观猹”联合红杉中国、扣子发起的一项招募计划，旨在吸引1000位AI产品的深度用户、创造者与见证者，提供平台优先体验、内测机会、交流机会及荣誉奖励。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI行业浮躁泡沫下的真话难能可贵
-&lt;ul&gt;
-&lt;li&gt;观猹平台上能看到犀利评价，这与当前AI行业互相无脑捧臭脚的环境形成对比。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI时代信息关注策略：除非身在漩涡之中，否则对与自身利益无关的“新闻”，最好拉长视角周期或干脆不关注，以利身心。&lt;/li&gt;
-&lt;li&gt;AI创业团队招聘应宁缺毋滥，并用有偿项目验证适配性，产品导向型招聘（挖顶尖客户），支付市场顶级薪资，构建精干（&amp;lt;15人）的高级通才团队。&lt;/li&gt;
-&lt;li&gt;AI创业团队应秉持低自我、高信任、独立坚韧、极致透明、用户至上、团队情谊与高效的文化价值观。&lt;/li&gt;
-&lt;li&gt;AI创业运营管理应避免不必要的会议（强调深度专注），利用AI行政主管/支持自动化研究和营销工作，选择性处理关键事务，并通过复合式学习建立可复用模板。&lt;/li&gt;
-&lt;li&gt;AI创业技术与产品应保持简单无趣的技术栈（如用shell脚本替代k8s），从单一LLM API调用的UI封装开始，重视功能开关/实验，并为LLMs创建顶级内部评估标准。&lt;/li&gt;
-&lt;li&gt;AI短视频网红变现的表象与真相存在差异
-&lt;ul&gt;
-&lt;li&gt;有博主通过AI工具30天涨粉20万，商单报价高达1秒1万元，但业内人士透露纯靠账号收益很低，主要收入来自广告、流量分成和电商。&lt;/li&gt;
-&lt;li&gt;AI网红职业生涯面临不确定性，其忧虑在于：“大模型的技术变化以月为单位，我在砌墙，但时刻有人在拆墙。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;智能相框这类“古早品类”通过集成AI技术可以重获新生并取得商业成功
-&lt;ul&gt;
-&lt;li&gt;20年前的智能相框BLOOMIN8通过集成AI技术和E-Ink显示屏，重新定位为艺术展示，在Kickstarter上获得156万美元众筹。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI陪伴类产品在社会伦理和商业落地方面面临挑战
-&lt;ul&gt;
-&lt;li&gt;《AI 成为知己，这本身是一种社会悲剧》从社会伦理层面提出质疑。&lt;/li&gt;
-&lt;li&gt;《「年营收千万美金」，是这条 AI 应用赛道（情感陪伴）的最大谎言》从数据上指出其落地困境，告诫从业者应先做好ROI/净利润，健康活下来。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;游戏行业AI应用呈两极分化趋势
-&lt;ul&gt;
-&lt;li&gt;日本游戏公司DeNA要求所有新项目提案附带AI生成原型。&lt;/li&gt;
-&lt;li&gt;同时，大厂游戏关卡设计师正因为自己创造的AI工具而遭到集体裁员。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;加入“产品观猹员”计划&lt;/strong&gt;：如果你是AI产品的深度用户、创造者或见证者，可填写招募令获得平台优先体验权、内测机会及交流机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI创业团队建设&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;招聘：宁缺毋滥，通过4天至3个月的有偿项目验证适配性，从顶尖客户中挖掘人才，提供高于95%分位数的薪酬，构建精干（&amp;lt;15人）的高级通才团队。&lt;/li&gt;
-&lt;li&gt;文化与价值观：倡导低自我、高信任、独立、坚韧与适应力，推行极致透明与责任担当，紧密联系用户，享受团队乐趣。&lt;/li&gt;
-&lt;li&gt;运营管理：几乎不开会，利用AI行政主管（如Gumloop或Lindy）和AI支持自动化研究、营销等工作，选择性优先处理那10%至关重要的事务，通过复合式学习建立可复用模板，鼓励线下协作（固定办公室或频繁组织AirBnB黑客周）。&lt;/li&gt;
-&lt;li&gt;技术与产品：采用简单、无趣的技术栈（用shell脚本替代k8s），保持代码模块化，从单一LLM API调用的UI封装开始产品开发，重视功能开关/实验，为LLMs/测试工具创建顶级内部评估标准。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提升AI使用水平&lt;/strong&gt;：参考万维钢关于“怎么把AI使用到最高水平”的建议，结合自身实践。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI辅助内容创作&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;学习台湾作者Raven如何使用Obsidian、Cursor、Claude Code仿造Vibe Coding方式写作武侠小说。&lt;/li&gt;
-&lt;li&gt;参考《从熬夜调 Bug 到 3 个月 4 款 App，我用 AI 编程踩过的坑都在这了》掌握AI编程实战经验。&lt;/li&gt;
-&lt;li&gt;利用扣子Coze自动化采集小红书爆款笔记（附实战工作流）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;探索AI浏览器&lt;/strong&gt;：关注Genspark的AI浏览器（具备复杂任务处理能力如自动研究、比价、电话代打）和Perplexity的Comet浏览器（AI助手实现跨页面信息整合与自动化）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尝试AI视频工具&lt;/strong&gt;：关注Vidu Q1的“图片即素材库”功能和Google的AI视频模型Veo3更新（上传图片可让猫和鲁迅开口对话）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;获取AI相关资源&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;学习范冰的《我如何用 AI 打造 100X 知识萃取系统》视频课程。&lt;/li&gt;
-&lt;li&gt;通过范冰的邀请链接注册Manus可额外获得500 Credits。&lt;/li&gt;
-&lt;li&gt;阅读范冰著作《增长黑客》，获取移动互联网时代的增长心法，对AI新品爆发初阶仍有启发。&lt;/li&gt;
-&lt;li&gt;订阅范冰的工具资源分享电报频道“冰器库”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“这些真话在当前 AI 行业浮躁泡沫、互相无脑捧臭脚的环境里，显得难能可贵。”&lt;/li&gt;
-&lt;li&gt;“除非身在漩涡之中，否则若硬要关注，最好还是拉长视角周期（比如订阅本 Newsletter、放弃各类大模型日报/短动态），或者干脆不去关注与自己切身利益无关的「新闻」，比较有利身心。”&lt;/li&gt;
-&lt;li&gt;“大模型的技术变化以月为单位，我在砌墙，但时刻有人在拆墙。”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2&gt;原文&lt;/h2&gt;
-
-&lt;h5&gt;▪️PREFACE 卷首语&lt;/h5&gt;
-
-&lt;h3&gt;AI 行业的大众点评&lt;/h3&gt;
-
-&lt;p&gt;1/ 本周受「特工宇宙」之邀，前往北京参加了一场产品发布会。发布的产品是号称 AI 产品的大众点评 —— 「观猹」（https://watcha.cn/）。&lt;/p&gt;
-
-&lt;p&gt;这是一个什么产品呢？&lt;/p&gt;
-
-&lt;p&gt;简单来说，这两年随着各种 AI 编程工具、AI 设计类产品的不断成熟，使得几个人的小团队，甚至一个人，加持几个 Agents「员工」之后，就能快速的做出许多惊艳的产品。 这些人被赋予了一个很酷的新名字 —— 超级个体。&lt;/p&gt;
-
-&lt;p&gt;而「观猹」，就是&lt;strong&gt;超级个体们 Build in Public、发布产品、分享交流的平台&lt;/strong&gt;。它旨在让超级个体们获取种子用户、寻求商业合作更简单。&lt;/p&gt;
-
-&lt;p&gt;Builders 可以在观猹上第一时间展示自己的创新想法和最新作品，获得真实用户的反馈与建议；爱好者则能在这里发现、体验并评价各种新奇有趣的 AI 产品，发表自己的真知灼见。&lt;/p&gt;
-
-&lt;p&gt;我上去溜达了一圈，很真实，你可以看到这样的犀利评价（这些真话在当前 AI 行业浮躁泡沫、互相无脑捧臭脚的环境里，显得难能可贵）——&lt;/p&gt;
-
-&lt;p&gt;现在，观猹正联合红杉中国、扣子，共同发起产品观猹员计划，向全行业招募 1000 位 AI 产品的深度用户、创造者与见证者。&lt;/p&gt;
-
-&lt;p&gt;成为产品观猹员，你将获得：&lt;/p&gt;
-
-&lt;p&gt;观猹平台的优先体验权和特殊荣誉展示&lt;/p&gt;
-
-&lt;p&gt;未来更多产品的一手内测体验机会&lt;/p&gt;
-
-&lt;p&gt;与明星产品团队交流机会&lt;/p&gt;
-
-&lt;p&gt;官方荣誉证书、限量实体徽章或纪念奖牌 ......&lt;/p&gt;
-
-&lt;p&gt;如果你是那种看到一个新产品上线就会马上进行测评的人；如果你正在为「如何打造 AI 时代的好产品」持续输出观点；如果你就正在使用着各种 AI Agent 产品...&lt;/p&gt;
-
-&lt;p&gt;欢迎你 &lt;strong&gt;在此填写招募令，加入「产品观猹员」计划&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;2/ 说到点评行业，过去一周有两件 AI 业内关注的事件：一是 Manus 撤离中国本土、大刀阔斧裁员、完全拥抱国际市场，一度被不明就里的国内自媒体恶评吞噬，后来大家发现给的赔偿待遇比国内裁员厚道多了；二是 Google 挖走了 Windsurf 联创，传言后者就此抛弃了公司，结果很快传出整个公司也被 Google 用优厚的打包价收走，人员得到妥善安置和大量权益，连 Windsurf 里调用 Claude Sonnet 4 也给出了「2x credit rate for a limited time」的回馈，稳住了我们这些吃瓜的开发者用户。再次说明，当下这个技术日新月异+资本跑马圈地的巨变时代，&lt;strong&gt;除非身在漩涡之中，否则若硬要关注，最好还是拉长视角周期（比如订阅本 Newsletter、放弃各类大模型日报/短动态），或者干脆不去关注与自己切身利益无关的「新闻」，比较有利身心&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;3/ 这一周让我眼前一亮的深度好文，着实不多（这种情况已持续了数周）。加上上述第 2 条的缘故，我甚至在考虑，想将这个 Newsletter 做成双周刊发布了。多出来间隔的那周搞点什么呢？可能是原创的深度内容，或者开个其他垂直领域主题的 Newsletter。拉长观察和创作周期（正如晚点LatePost 的 slogan「晚一点，好一点」），或许能提供更多增量价值。关于这块，如果有好的想法建议/鼓励支持，欢迎回信给我。&lt;/p&gt;
-
-&lt;p&gt;4/ 也在考虑开本 Newsletter 读者交流互动的社区。出发点也是能信噪分离、对社区成员有额外增益。所以不考虑放在国内的微信群、QQ群、钉钉群、飞书这类噪音干扰已经很大的平台。目前看来，Discord 或者 Slack 或许相对合适？求建议。&lt;/p&gt;
-
-&lt;p&gt;OK，以下是本期正文 ——&lt;/p&gt;
-
-&lt;h5&gt;▪️OPINION 观点&lt;/h5&gt;
-
-&lt;h3&gt;AI 创业小团队作战手册（英文）&lt;/h3&gt;
-
-&lt;h6&gt;via Latent&lt;/h6&gt;
-
-&lt;p&gt;作者先后采访过 7 个 AI 创业方向的、年收入 2 亿美元的百人团队，总结出了这篇文章（文中也附带了原版采访 YouTube 视频）。我在此将核心内容总结如下：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;招聘准则&lt;/strong&gt;宁缺毋滥：若候选人不令人心动，直接否决&lt;/p&gt;
-
-&lt;p&gt;试用机制：通过 4 天至 3 个月的有偿项目验证适配性&lt;/p&gt;
-
-&lt;p&gt;产品导向型招聘：让顶尖客户离职加入你的团队&lt;/p&gt;
-
-&lt;p&gt;市场顶级薪资：高于 95% 分位数的薪酬水平&lt;/p&gt;
-
-&lt;p&gt;精干（&amp;lt;15 人）的高级通才团队：极少初级成员&lt;/p&gt;
-
-&lt;p&gt;文化与价值观&lt;/p&gt;
-
-&lt;p&gt;低自我，高信任：信任即速度，自主即效率&lt;/p&gt;
-
-&lt;p&gt;独立、坚韧与适应力：无视传统风投建议，坚持己见&lt;/p&gt;
-
-&lt;p&gt;极致透明与责任担当：工作进度墙，成果展示会&lt;/p&gt;
-
-&lt;p&gt;用户至上：紧密联系用户，为其喝彩，乐见反馈&lt;/p&gt;
-
-&lt;p&gt;团队情谊与高效：享受乐趣，组织团建，避免倦怠&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;运营管理&lt;/strong&gt;几乎不开会：「深度专注」——专注于建设而非空谈&lt;/p&gt;
-
-&lt;p&gt;AI 行政主管：用 Gumloop 或 Lindy 自动化研究、营销等工作&lt;/p&gt;
-
-&lt;p&gt;AI 支持：目前已相当完善。例如可参考 Parahelp 和 Railway&lt;/p&gt;
-
-&lt;p&gt;选择性灭火：优先处理那 10% 至关重要的事务&lt;/p&gt;
-
-&lt;p&gt;复合式学习：Oleve 提出「不要重复学习」的理念——建立可复用的模板和操作手册&lt;/p&gt;
-
-&lt;p&gt;线下协作：要么拥有固定办公室，要么频繁组织 AirBnB 黑客周活动&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;技术与产品&lt;/strong&gt;简单、无趣的技术栈：用 shell 脚本替代 k8s，保持代码模块化。&lt;/p&gt;
-
-&lt;p&gt;简约产品：从单一 LLM API 调用的 UI 封装开始。&lt;/p&gt;
-
-&lt;p&gt;功能开关/实验：Oleve 的核心原则之一。&lt;/p&gt;
-
-&lt;p&gt;基准测试：为 LLMs/测试工具创建顶级内部评估标准。并进行市场推广。&lt;/p&gt;
-
-&lt;p&gt;建议还是详读原文，根据自己团队的实际情况和创业经验，进行扬弃取舍。&lt;/p&gt;
-
-&lt;h5&gt;▪️INTERVIEW 访谈&lt;/h5&gt;
-
-&lt;h3&gt;我靠 AI 当上了网红&lt;/h3&gt;
-
-&lt;h6&gt;via 《中国企业家》&lt;/h6&gt;
-
-&lt;p&gt;这篇文章采访了几位 AI 短视频博主，他们通过使用 AI 工具快速制作内容，实现快速涨粉和商业化（应该是当下很多人感兴趣的话题）。有博主 30 天涨粉 20 万，商单报价高达 1 秒 1 万元；还有人 3 个月涨粉 10 万，每天仅约 5 个小时制作，播放量基本稳定在 10 万左右。然而，幸存者的案例看起来光鲜亮丽，但也有业内人士透露，目前纯靠账号收益很低，播放量、橱窗带货等收入都不高。智研咨询数据显示，&lt;strong&gt;我国自媒体行业收入中，广告收入占比为 34.8% 左右，流量分成收入占比为 31.2% 左右，稿费、电商、打赏及其他收入占比为 34% 左右&lt;/strong&gt;。文章里，我看到最有共鸣的一句 AI 网红对自己职业生涯忧虑是：&lt;strong&gt;「大模型的技术变化以月为单位，我在砌墙，但时刻有人在拆墙。」&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;猫狗土味短剧，一个月赚走 50 万的真相&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h6&gt;via 《中国企业家》&lt;/h6&gt;
-
-&lt;p&gt;这篇稿子还是来自《中国企业家》（他们最近是不是跟 AI 短视频/网红赛道卯上了，疯狂地采访业内人、揭秘内幕）。大家最近应该都刷到过 AI 萌宠短剧，号称正成为内容创作新风口，有的机构甚至声称月收入可达 50 万元。本文记者采访了三位不同风格的创作者：辣糖专注玛丽苏剧情短剧，张栗打造艺术 IP松弛猫，周妍则被流量意外砸中。他们变现主要靠广告植入和知识付费，但面临创意枯竭和侵权问题，而且收益也没有传言那么夸张，只是比预期高一点。专家认为热潮过后市场正回归理性。&lt;/p&gt;
-
-&lt;h3&gt;字节 PM 深度复盘：有剪映和 CapCut 在，TikTok 如何靠 AI 生成玩法死磕 Editor Pro？&lt;/h3&gt;
-
-&lt;h6&gt;via Baixuan WENG&lt;/h6&gt;
-
-&lt;p&gt;作者是 TikTok 创作工具团队的第一位产品经理，见证了多款核心产品从被质疑、数据不达标，到引爆用户口碑、被全行业模仿的全过程。文章揭示了 Magic 功能如何通过一键式 AI 生成玩法逆转产品数据，并分享了 Editor Tab 如何重构创作流程。作者提出下一代创作工具将是无感知的 AI 助手，而非复杂操作界面。核心矛盾在于内容平台是否应该自建创作工具，最终数据证明 TikTok 的坚持是正确的。&lt;/p&gt;
-
-&lt;h5&gt;▪️CASE 案例&lt;/h5&gt;
-
-&lt;h3&gt;20年前的「古早品类」智能相框，加了 AI 后拿下百万美元众筹&lt;/h3&gt;
-
-&lt;h6&gt;via 白鲸出海&lt;/h6&gt;
-
-&lt;p&gt;智能相框 BLOOMIN8 通过集成 AI 技术和 E-Ink Spectra 6 显示屏，在 Kickstarter 上获得 156 万美元众筹，远超同类产品。该产品定位从传统家庭回忆转向艺术展示，采用低功耗技术并支持多种传输方式。开发团队安铂科技此前成功推出智能窗帘产品，延续了物联网集成思路。&lt;/p&gt;
-
-&lt;h3&gt;随便看看：&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;前阿里高管、现 YouMind 创始人玉伯的最新访谈&lt;/strong&gt;，聊大厂、聊 AI、聊自己的项目。这两天 YouMind 的 PR 挺频繁的，内容大同小异，但都挺实诚敢说。至于为什么我只放到「随便看看」，各位感兴趣的可以读完再来评断，看看我不放主推是否合理。《纽约客》发了篇&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《AI 成为知己，这本身是一种社会悲剧》&lt;/strong&gt;，从社会伦理层面吐槽了一番 AI 陪伴类产品；如果你不服这一论点，那么这周这篇&lt;strong&gt;《「年营收千万美金」，是这条 AI 应用赛道（情感陪伴）的最大谎言》&lt;/strong&gt;从数据上也似乎坐实了这个赛道的落地困境。我不敢败许多人兴致、砸一些人饭碗，所以藏在这里，感兴趣的可以看下，别沉迷虚幻的 DAU、ARR 把自己绕进去了，先做好 ROI / 净利润，让自己健康活下来比什么都重要，熬死那些喜欢讲故事却没有后手的演说家。日本知名游戏公司&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;DeNA 宣布激进 AI 战略&lt;/strong&gt;，要求所有新项目提案必须附带 AI 生成原型，公司董事长南场智子称此为第二次创业；与此同时，大厂游戏关卡设计师正因为自己造的 AI 工具而&lt;strong&gt;遭到集体裁员&lt;/strong&gt;。要是三年前读到这篇&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《短剧里的 AI，和被 AI 压缩的人》&lt;/strong&gt;，我真可能以为这是类似《北京折叠》那样近未来题材的黑色基调科幻小说。&lt;/p&gt;
-
-&lt;h3&gt;适合个人上手的教程/资源：&lt;/h3&gt;
-
-&lt;p&gt;得到线下沙龙活动分享文字稿：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;6 个真实案例，让 AI 成为生产力&lt;/strong&gt;。有一些给到了我启发，并且那个当妈的用 AI 做课件鸡娃，也鸡到我（去鸡我的娃）了。&lt;strong&gt;万维钢：怎么把 AI 使用到最高水平？&lt;/strong&gt;要是别人讲这个话题，我可能就快速略过了，但万老师聊的，结合了他的亲身实践（比如极推崇 03），还是可以看看的。台湾作者 Raven 分享了他如何&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;使用 Obsidian 、 Cursor、Claude Code ，仿造 Vibe Coding 的方式写作武侠小说&lt;/strong&gt;，真是热情洋溢有创意（尤其是 Claude Code 在这方面的压倒性胜出，让我真有了想换用 Claude Code 的欲望）。一篇走心的稿子&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《从熬夜调 Bug 到 3 个月 4 款 App，我用 AI 编程踩过的坑都在这了》&lt;/strong&gt;，看得出作者他是真的想教会你啊。图文并茂的一篇扣子 Coze 教程：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;如何自动采集 1000 条小红书爆款笔记&lt;/strong&gt;（附实战工作流）。Genspark 号称&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;推出了 AI 浏览器&lt;/strong&gt;，具备复杂任务处理能力，包括自动研究用户资料、全网比价、电话代打等创新功能。Perplexity 推出的&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Comet 浏览器&lt;/strong&gt;，可通过 AI 助手实现跨页面信息整合与自动化操作（但竟然每月要 200 刀，反正我是不买，你们谁爱买谁买 XD）。Vidu Q1 的&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;新功能「图片即素材库」&lt;/strong&gt;似乎挺有用且不贵，是我最初想象中 AI 做视频工具该有的样貌（而不是先生成首尾桢、再做视频、还要考虑角色/物品一致性）。Google 的 AI&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;视频模型 Veo3 大更新&lt;/strong&gt;，上传一张图，家里的猫和鲁迅就能开口对话。&lt;/p&gt;
-
-&lt;p&gt;感谢阅读到这里，期待下周继续与你相遇。我是范冰（@XDash），欢迎参考我的图书、播客、课程：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;《我如何用 AI 打造 100X 知识萃取系统》&lt;/strong&gt;视频课程。通过&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我的邀请链接注册 Manus&lt;/strong&gt;，你和我都将额外获得 500 Credits。&lt;strong&gt;著作：《增长黑客》&lt;/strong&gt;（虽然是移动互联网时代的产物，但在今天 AI 新品爆发初阶的时点来读，似乎各种 tricky 的增长伎俩、心法、思路一点不过时）。工具资源分享电报频道：&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;冰器库&lt;/strong&gt;。欢迎各类商业合作、资源置换、读者回馈合作，可直接回复本邮件。&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep15-ai</guid>
-      <pubDate>Thu, 17 Jul 2025 03:41:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI驱动的浏览器之战：从被动工具到主动代理的转变与未来影响</title>
-      <link>https://www.youtube.com/watch?v=0k4Eq2VMNFM</link>
-      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=0k4Eq2VMNFM"&gt;The Race to Build the AI Browser of the Future&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章探讨了AI驱动的浏览器革命，对比了Perplexity Comet、DIA等新兴工具，并展望了OpenAI即将推出的AI浏览器。核心思想是浏览器正从被动工具转变为能自主完成任务、理解用户需求的AI代理，预示着个人生产力、企业运营乃至就业模式的深刻变革。文章还强调了如何适应这一巨变，从防御转向主动利用AI工具。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Vibe浏览器工具：指将网页浏览功能与AI代理深度结合的浏览器，能记住用户浏览历史和工作流程，并执行复杂任务。&lt;/li&gt;
-&lt;li&gt;AI代理（AI Agent）：指能够使用工具并进行循环决策的AI模型。例如，OpenAI的Operator是浏览器使用代理，Deep Research是博士级别的研究代理，能自主决定何时停止研究。&lt;/li&gt;
-&lt;li&gt;Skills/Spaces/Projects：这些是不同工具（如DIA、Perplexity Comet、ChatGPT）中用于管理记忆和系统提示（自定义指令集）的功能，以便AI在不同任务中快速切换和保持一致性。例如，DIA中的“斜杠命令”可快速调用自定义摘要格式，Comet中的“Spaces”可定义特定AI角色（如“专家解释者”）。&lt;/li&gt;
-&lt;li&gt;LLMO（Large Language Model Optimization）：指未来搜索引擎优化（SEO）的范式转变，随着AI成为主要的互联网搜索实体，网站和品牌需要考虑如何让AI更容易发现和引用其内容。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;AI驱动的浏览器正迅速从被动工具转变为主动助手，能够预测用户需求并提供更智能、更定制化的体验。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：文章引用一段话：“这些公司旨在将浏览器从被动工具转变为主动助手，能够预测用户需求，从而提供比Chrome目前更智能、更定制化的体验。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;OpenAI即将发布的浏览器将主导市场，其影响力可能类似于当年Chrome对浏览器市场的颠覆。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：当前Chrome每周活跃用户25亿，ChatGPT为8亿但增长最快。文章预测ChatGPT将在未来一两年内超越Chrome。OpenAI已聘请两名前Chrome创始团队成员，并在构建一套完整的办公应用（Docs, Sheets, Slides, Mail）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;随着AI变得更智能，ChatGPT等AI工具将使个人能够像一个完整的企业一样运作，无需雇佣多人即可完成各项任务。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：AI能够执行会计、设计、产品开发、营销等多种职能。文中提到ChatGPT的Canvas功能（类似文档创作）和Claude的类似功能，以及Gemini可以创建和编辑Canvas并导出为Docs。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI控制计算机的能力正在飞速提升，预计很快将超越99%的人类，能够记忆复杂工作流程并自主完成任务。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：目前的Operator（浏览器代理）虽然仍有局限性（例如忘记上下文），但文章预测到2025年末或2026年中期，AI将能达到10/10的水平来控制电脑。Perplexity Comet展示了AI自动浏览LinkedIn并发布帖子的能力，以及在Amazon上搜索并滚动查找商品的案例。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;在AI革命背景下，选择就业的风险高于成为创始人或创业者。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：如果专注于重复性的计算机操作，你的工作将面临风险。企业在不确定岗位需求的情况下，不愿承担雇佣过多人类的风险。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;面对AI的冲击，采取防御姿态是错误的，应该积极主动地掌握和利用这些新工具。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：如果你担心AI代理工具，说明你已经做错了。你需要“攻击”而非“防御”，学会高效使用它们。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;始终保持连接（ABC）&lt;/strong&gt;：在生活经历、AI内容、市场原则和个人兴趣（如扑克）之间寻找联系，培养AI不易发现的跨领域洞察力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;专注于人类特质&lt;/strong&gt;：识别并培养AI不擅长完成的非重复性、需要创造力和连接能力的任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免重复性工作&lt;/strong&gt;：停止在电脑上进行重复性操作，因为这些正是AI擅长且将做得更好的领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用AI工具加速学习&lt;/strong&gt;：借助AI驱动的浏览器工具，迅速提升学习速度和效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提高工作质量和效率&lt;/strong&gt;：专注于快速产出高质量工作，并在所有工作中广泛使用AI。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;积极构建个人或品牌影响力&lt;/strong&gt;：对于创业者和内容创作者，要确保品牌出现在受欢迎的出版物上，并积极参与公开讨论，因为未来AI将成为主要的互联网搜索实体。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;p&gt;-&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=0k4Eq2VMNFM</guid>
-      <enclosure url="https://i.ytimg.com/vi/0k4Eq2VMNFM/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 16 Jul 2025 21:32:37 +0800</pubDate>
-    </item>
-    <item>
-      <title>大模型幻觉杀手：Deep Research智能体开发实战公开课</title>
-      <link>https://www.bilibili.com/video/BV1SZubzBEVt</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1SZubzBEVt"&gt;大模型幻觉克星，DeepResearch开发实战！从零手搓DeepResearch，实操三类主流开发范式，谷歌开源DeepResearch国内适配开发与本地部署&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;幻觉是大模型技术应用落地的主要障碍，而Deep Research技术被认为是解决这一问题的最佳方案。本文介绍了关于Deep Research智能体开发的一场公开课，该课程旨在教授如何从零开始构建和部署Deep Research应用，并深入探讨其主流架构与实际案例。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;幻觉（Hallucination）&lt;/strong&gt;：指大模型无中生有、胡乱编造事实的情况，是大模型技术应用落地的最大障碍。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Deep Research&lt;/strong&gt;：一种旨在解决大模型幻觉问题的技术方案。它通过精准意图识别、将模糊问题转化为完整搜索链条、进行大规模信息检索（从本地知识库或网页）、汇总有用信息，并能在回答时不断反思、自主搜集更多信息以确保答案的准确性和完整性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能体技术&lt;/strong&gt;：Deep Research是目前最热门的智能体技术应用落地方向之一。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;三大类主流的Deep Research智能体架构&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;深度检索工作流&lt;/strong&gt;：用于大规模信息检索与长文档生成，支持“先确认规划后逐步执行”的人在闭环功能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multi Deep Research Agent（基于Supervisor架构的多智能体系统）&lt;/strong&gt;：多个智能体分工协作，检索范围更大，精度更高，支持并行检索和信息融合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交互式澄清意图工作流&lt;/strong&gt;：支持自我反思式查询，通过不断反思和优化搜索结果，直到模型判断能解决用户问题，从而提供更高精度的检索答案。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Google Deep Research类应用项目（Gemini boss stock Long graph quick start）&lt;/strong&gt;：目前功能最完整、性能最强的开源Deep Research应用开发工具，采用Long Graph作为基础框架，支持长文档编写和高精度信息校验。原始项目仅支持Gemini模型，但公开课将提供修改后可接入GIPSK模型的汉化源码。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Deep Research是解决大模型幻觉问题的最佳技术方案，能够通过多方面能力提升回答的准确性和完整性。
-&lt;ul&gt;
-&lt;li&gt;Deep Research能将模糊问题转化为完整的搜索链条，从海量信息中抽丝剥茧。例如，Group4 Deep Research在回答复杂问题时能检索上百个网页进行比对核验。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Deep Research是当前最热门的智能体技术应用方向之一。&lt;/li&gt;
-&lt;li&gt;不同的Deep Research智能体架构适用于不同场景，并且具备各自的优势。
-&lt;ul&gt;
-&lt;li&gt;基于Supervisor架构的Multi Deep Research Agent支持并行检索和信息融合，提高了效率和精度。&lt;/li&gt;
-&lt;li&gt;交互式澄清意图工作流通过自我反思，能够提供更高精度的检索答案。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;针对现有开源项目的不足，可以通过技术修改使其更具普适性和实用性。
-&lt;ul&gt;
-&lt;li&gt;原始的谷歌Deep Research项目仅支持Gemini模型，但经过修改后可接入GIPSK模型并汉化，极大地拓展了其应用范围。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;扫码即可领取公开课完整课件代码、三大类主流Deep Research项目架构模板以及团队单独修改的谷歌Deep Research项目源码。&lt;/li&gt;
-&lt;li&gt;参加公开课学习Deep Research智能体开发完整流程，具体包括：
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;第一部分&lt;/strong&gt;：借助LangChain/Long Graph构建一个完整的Deep Research工作流，从零开始手搓迷你版Deep Research应用，并将其部署上线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第二部分&lt;/strong&gt;分：深入实践并手动实现三大类主流Deep Research架构功能，并进行性能验证。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最后部分&lt;/strong&gt;：手把手部署和使用修改后的谷歌Deep Research应用（兼容GPT模型）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“幻觉是大模型技术应用落地最大障碍之一”&lt;/li&gt;
-&lt;li&gt;“可以说deep research就是当之无愧的大模型幻觉杀手”&lt;/li&gt;
-&lt;li&gt;“专注为大家提供最扎实的优质技术内容”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1SZubzBEVt</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/2f5279c9d70cefbd64db46c8cb473f6ee96fbfeb.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 16 Jul 2025 20:40:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>英伟达H20解禁：美国策略转向，中国芯片产业面临新挑战</title>
-      <link>https://www.youtube.com/watch?v=Bx0O6RtMBRs</link>
-      <description>&lt;p&gt;&lt;a href="UCkHrq03gWLLx6vjS2DOJ8aA"&gt;孙富贵&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=Bx0O6RtMBRs"&gt;突然解禁芯片，背后的真相&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-美国政府解除对英伟达H20芯片的对华出口限制，其背后有多重复杂原因，包括中国AI芯片技术的迅速发展、英伟达自身巨大的库存压力，以及美国旨在通过开放市场而非全面封锁来遏制中国自主研发能力的策略转变。此次解禁在短期内缓解了中国科技巨头的算力需求，但也给中国本土AI芯片产业带来新的竞争压力。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;小院高墙: 这是美国政府在对华技术封锁中采用的一种策略模式。其核心思想是，不进行全面的技术封锁，而是只针对最尖端、最核心的技术领域进行严格限制（高墙），同时允许低端技术和产品出口（小院），以避免完全脱钩。其目的是试图通过这种方式，既阻碍中国在关键高科技领域的突破，又避免将中国厂商逼至破釜沉舟、彻底自主研发的境地，从而使中国在技术上长期依赖美国公司。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;外部限制反而可能刺激中国本土技术发展，而非完全抑制。
-&lt;ul&gt;
-&lt;li&gt;支持：凡是欧美限制的技术，中国常能实现突破；相反，一些没有限制出口的技术，国内进展迟缓。&lt;/li&gt;
-&lt;li&gt;支持：当国内企业无法从外部采购时，别无选择只能购买国产产品和技术，从而带动国内产品营收、利润和研发投入，缩小技术差距。&lt;/li&gt;
-&lt;li&gt;支持：在美国中断H20供应期间，国内AI芯片迎来集中爆发期，多款平替产品发布，性能接近甚至部分优于H20。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;美国此次对H20解禁，并非示弱，而是采取了更具“智慧”的遏制策略，试图通过市场竞争来影响中国高端芯片的自主研发进程。
-&lt;ul&gt;
-&lt;li&gt;支持：美国财政部表示中国已研发出性能与H20相当的芯片，因此H20出口已无威胁。&lt;/li&gt;
-&lt;li&gt;支持：英伟达面临巨额营收损失和H20库存压力，该芯片专为中国市场设计，急需消化库存。&lt;/li&gt;
-&lt;li&gt;支持：当国内企业可以自由购买欧美产品时，缺乏资金和动力进行自主研发，从而使得本土产业难以搭建完整的生态并迭代。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;中国市场对英伟达至关重要，但其在华AI市场份额正在迅速下降。
-&lt;ul&gt;
-&lt;li&gt;支持：中国仍是英伟达第四大市场，每年贡献百亿美元营收。&lt;/li&gt;
-&lt;li&gt;支持：英伟达在中国AI市场份额已从2022年的90%左右下降到目前的50%左右。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;英伟达创始人兼CEO黄仁勋积极游说美国政府放松管制，旨在维护其CUDA生态在全球（尤其是中国）的统治力。
-&lt;ul&gt;
-&lt;li&gt;支持：黄仁勋认为美国要保持AI领先，需让全球开发者都使用美国的AI芯片或软件，紧密围绕其技术栈。&lt;/li&gt;
-&lt;li&gt;支持：英伟达CUDA生态具有强劲竞争力，包括字节跳动、腾讯在内的多家中国科技巨头对H20芯片的需求依然旺盛。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;中国应对H20重新供应带来的冲击，需要持续采取以下策略：
-&lt;ul&gt;
-&lt;li&gt;加大对国产芯片的扶持力度。&lt;/li&gt;
-&lt;li&gt;不断对研发企业进行倾斜性采购，提供市场和资金支持。&lt;/li&gt;
-&lt;li&gt;持续投入研发，缩小与更高端芯片的巨大差距。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“最高级的制裁是让国内的芯片生态搭建不起来，一直缩在美国公司的圈子里，国内芯片公司没有钱去研发迭代。”&lt;/li&gt;
-&lt;li&gt;“凡是欧美限制的技术中国经常能够实现突破，相反一些没有限制出口的技术国内却迟迟都无法取得进展。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=Bx0O6RtMBRs</guid>
-      <enclosure url="https://i.ytimg.com/vi/Bx0O6RtMBRs/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 16 Jul 2025 19:07:19 +0800</pubDate>
-    </item>
-    <item>
-      <title>Klein：开源编码代理如何通过“规划与行动”范式及MCP协议重塑AI编程工作流</title>
-      <link>https://www.youtube.com/watch?v=uIKmG3M0X3M</link>
-      <description>&lt;p&gt;&lt;a href="UCxBcwypKK-W3GHd_RZ9FZrQ"&gt;Latent Space&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=uIKmG3M0X3M"&gt;Cline: The MCP-first IDE&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章深入探讨了开源编码代理Klein及其对开发者工作流程和AI行业的影响。内容涵盖了Klein独特的工作范式、它与Anthropic的MCP协议的深度结合，以及其创新的商业模式，该模式通过利用开源特性和允许用户自带API密钥来专注于企业级解决方案，而非推断成本。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Klein&lt;/strong&gt;
-一个开源的编码代理，目前是VS Code扩展，并计划扩展到JetBrains、Neovim和CLI。它能接受任务并自主执行，接管开发者的终端、编辑器、浏览器，并连接到各种MCP服务，从而自动化整个开发者工作流程。Klein被设想为所有开源代理的基础设施层。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;规划与行动（Plan and Act）范式&lt;/strong&gt;
-Klein采用的一种双模式工作流程。在“规划模式”下，代理进行探索性工作，阅读文件，积累上下文，并为任务制定计划。然后切换到“行动模式”，代理根据计划执行命令和编辑文件。这种范式源于用户自发的习惯，旨在提高新用户的直观性和为代理提供指导。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MCP（Model-Component Protocol）&lt;/strong&gt;
-Anthropic推出的一种开源协议，允许AI代理连接到各种服务、工具和API。它极大地扩展了代理的能力边界，使其能够执行超出纯粹编码范围的任务，例如连接Reddit、X等服务以抓取内容或发布推文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文工程（Context Engineering）&lt;/strong&gt;
-指有效管理大型语言模型上下文窗口的方法，包括如何加载相关信息（例如通过代理式探索、抽象语法树、VS Code中打开的标签页）以及在达到上下文限制时如何精炼和压缩信息（例如通过摘要、清理重复文件读取）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Fast Apply&lt;/strong&gt;
-一种被提及但正在变得过时的技术。在模型对文件编辑不够精确时，Fast Apply模型（通常是小型微调模型）会接收模糊的代码片段，然后输出整个应用了更改的文件。作者认为，随着前沿模型能力的提升，这种应用层面的巧妙变通方案变得不必要，甚至可能引入细微的错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RAG（Retrieval-Augmented Generation）&lt;/strong&gt;
-一种用于从知识库中检索信息以增强LLM上下文的技术。在文章中被形象地称为“思维病毒（mind virus）”，尤其是在编码领域。作者认为，将代码库文件分块并检索小片段会导致模型“精神分裂”，分散其注意力，不如让模型通过“代理式探索”来理解代码库。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开源带来了益处，尽管面临分叉挑战&lt;/strong&gt;
-尽管Klein的开源性质导致了大量的分叉，其中一些甚至获得了大量资金，但这被视为积极的，因为它为整个AI编程领域奠定了基础，激发了创新，降低了企业采纳AI工具的门槛，并培养了一个协作的社区。
-&lt;ul&gt;
-&lt;li&gt;“它降低了进入壁垒，这对于那些想要涉足这种将彻底颠覆我们数十年软件编写方式的全新代理式编码范式的人来说，是极其重要的。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;当今，IDE集成对AI代理至关重要&lt;/strong&gt;
-与完全自主的代理不同，集成在IDE中的代理提供了必要的洞察和控制，使开发者能够根据当前模型的局限性来校正模型行为。
-&lt;ul&gt;
-&lt;li&gt;“它为您提供了完美的UX，让您能够获得必要的洞察和控制水平，并能够根据您需要的方式纠正模型的局限性。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RAG在编码领域是“思维病毒”&lt;/strong&gt;
-尽管RAG被宣传为“无限记忆”，但对于编码而言，它往往适得其反。将代码文件分块并检索不相关的零碎代码会混淆模型，导致性能下降，不如模型自身的“代理式探索”方法。
-&lt;ul&gt;
-&lt;li&gt;“从根本上说，它非常分裂，我认为它实际上会分散模型的注意力，并且您获得的性能比高级软件工程师初次接触新代码库时的做法还要差，那就是查看文件夹结构。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“Fast Apply”等旧的变通方案正在被淘汰&lt;/strong&gt;
-随着前沿模型在精确度上的提升（例如差分编辑），诸如“Fast Apply”之类的复杂应用层变通方案变得不再必要，甚至可能引入细微的错误或限制。
-&lt;ul&gt;
-&lt;li&gt;“随着AI变得更好，应用层正在减少，您将不再需要所有这些巧妙的变通方案，您将不再需要维护这些系统。”&lt;/li&gt;
-&lt;li&gt;“Claude 4最近达到了低于5%（实际上是4%左右）的diff edit失败率……现在我们已经降到4%，在6个月内它会如何归零？它正在归零，就像我们说话一样，它每天都在归零。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;推理成本不是编码代理的核心商业模式&lt;/strong&gt;
-通过收取推理费用会促使产品为降低成本而牺牲代理质量（例如使用更小的模型或RAG）。更优的模式是允许用户自带API密钥，这样代理可以使用最佳模型而不受成本限制，其价值通过投资回报率来证明。
-&lt;ul&gt;
-&lt;li&gt;“如果您不从推理中赚钱，并且直接进行，那么突然之间，您就不再有降低成本的动机。您实际上被激励去构建最好的代理。”&lt;/li&gt;
-&lt;li&gt;“给Klein一个任务，它会变得很昂贵，但那是智能的代价，对吧？”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;目前，代理的记忆功能对于通用的代码上下文而言大多无用&lt;/strong&gt;
-强制代理存储通用代码相关记忆通常效率低下。相反，关键信息（如团队怪癖或编码规则）应放置在单独的指导文件中。像“待办事项列表”或“草稿本”这样的被动上下文在保持会话间的连贯性方面可能更有效。
-&lt;ul&gt;
-&lt;li&gt;“目前，记忆在很大程度上是无用的。我认为你可能希望编码代理保留的记忆，例如关于你的团队在项目中如何工作或某些规则的特定怪癖，例如只使用驼峰命名法，最好将这些东西放在通用的指南或规则文件中。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;赋予代理人格（人性化）可以改善交互和信任&lt;/strong&gt;
-为代理赋予独特的人格和故事感，能帮助用户建立信任，从而更好地与代理协作。
-&lt;ul&gt;
-&lt;li&gt;“我认为将代理拟人化通常非常重要，因为它们所做的一切都像一个小故事，如果没有明确的身份，你会得到更糟糕的结果。”&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;对于工程师&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;积极采纳代理式编码，例如尝试使用Klein。&lt;/li&gt;
-&lt;li&gt;在提示中要清晰明确，给出最全面的细节。&lt;/li&gt;
-&lt;li&gt;将更多精力放在架构决策上，让代理处理算法实现的细节。&lt;/li&gt;
-&lt;li&gt;初级工程师可将编码代理作为学习代码库的工具，如同拥有一个“资深工程师在口袋里”。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对于企业&lt;/strong&gt;：
-&lt;ul&gt;
-&lt;li&gt;考虑使用Klein等开源代理，因其在数据隐私、控制和安全性方面的优势，且可使用现有API密钥，从而降低采纳门槛。&lt;/li&gt;
-&lt;li&gt;寻求企业级功能，如发票系统和ROI（投资回报率）指标（例如，通过衡量代码行数），以作为内部证明和推广产品的依据。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“但你一分钱一分货。我认为开源的另一个好处是，我们的开发者可以一窥究竟。他们可以看到他们的请求发送到哪里，哪些提示进入了这些东西。”&lt;/li&gt;
-&lt;li&gt;“这是智能的代价。”&lt;/li&gt;
-&lt;li&gt;“我认为几年前复杂的事情与今天复杂的事情完全不同。”&lt;/li&gt;
-&lt;li&gt;“我认为架构决策比编写算法更有趣。它让高级软件工程师能够更多地从架构层面思考。”&lt;/li&gt;
-&lt;li&gt;“让他们抄袭吧。我们是这个领域的领导者。我们正在为整个行业指明方向。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=uIKmG3M0X3M</guid>
-      <enclosure url="https://i.ytimg.com/vi/uIKmG3M0X3M/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 16 Jul 2025 18:41:28 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI在农业中的应用：Corteva如何通过AI加速农业研发</title>
-      <link>http://podcast.emerj.com/inside-the-ai-playbook-for-scientific-discovery-and-optimization-with-brian-lutz-of-corteva</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/inside-the-ai-playbook-for-scientific-discovery-and-optimization-with-brian-lutz-of-corteva"&gt;Inside the AI Playbook for Scientific Discovery and Optimization - with Brian Lutz of Corteva&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本次播客访谈了Corteva Agriscience的Brian Lutz，他详细阐述了人工智能，特别是GPT风格模型和分子优化技术，如何彻底改变农业研发。Brian探讨了这些前沿技术如何从蛋白质建模到大规模化合物筛选，加速可持续农业产品的发现与开发，并强调了数据策略、先进模型和跨行业合作在全球粮食需求中的关键作用。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GPT风格模型/大型语言模型（LLMs）在生命科学/化学中的应用&lt;/strong&gt;
-不只用于处理人类语言，这些模型还能处理DNA序列数据，将遗传数据转化为化学宇宙或分子。例如，AlphaFold家族模型在蛋白质结构预测方面发挥了深远影响。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI模型中的复杂性理论&lt;/strong&gt;
-解释了大型Transformer模型如何从海量数据中（如整个基因组中的基因排列结构）发现涌现模式和内在关联，类似于从文本中提取思想。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Atlas平台&lt;/strong&gt;
-一个最初为制药行业训练的平台，现已能适应农业数据，整合各种化学数据和知识图谱（包括学术和专利文献），以发现独特的分子。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;人工智能在农业中的应用不仅仅关乎速度和规模，它还能带来过去无法想象的全新发现与复杂性探索。
-&lt;ul&gt;
-&lt;li&gt;支持：Corteva正在探索一个比地球上沙粒（10^18）数量大数万亿倍的化学宇宙（10^60分子），用于作物保护产品的研发，而传统方法则如大海捞针。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI模型为了达到最佳学习效果，需要“好”数据和“坏”数据兼备，这改变了传统的数据策略。
-&lt;ul&gt;
-&lt;li&gt;支持：传统上科学家会将精力集中在最有前景的领域，而AI应用则通过扩展搜索空间，纳入更多元的数据类型以获得更好的训练燃料。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;AI驱动的研发能够将概念转化为实验室验证结果的时间从数年缩短至数周。
-&lt;ul&gt;
-&lt;li&gt;支持：Corteva利用AI模型在2-3周内成功优化了一种特定蛋白质，并将其从计算机模拟阶段推进到植物内实现。AlphaFold这类模型现在能在几小时甚至几秒内确定蛋白质结构，成本仅为几美分，而过去则需要数月和超过10万美元的成本。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;与人类药物开发相比，农业产品开发的复杂性可能更高，因为需要考虑环境影响。
-&lt;ul&gt;
-&lt;li&gt;支持：药物只需解决人体内的问题（100%暴露），而农业产品需要在环境中解决特定问题，同时不能对植物、环境或人类造成任何负面影响。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;如果你正在推动组织内的AI转型或指导AI投资策略与部署决策，可考虑向“AI in Business”播客提交你的见解。访问Emerge.com/Expert1了解更多信息。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“农业的独特之处在于，它是世界上唯一每天触及地球上每个人的行业。”&lt;/li&gt;
-&lt;li&gt;“我们认为具有生物相关性、能解决问题（如作物保护产品或人类药物）的分子数量，最佳估计约为10的60次方。”&lt;/li&gt;
-&lt;li&gt;“历史上，我们要在实验室中找到单个蛋白质的结构需要数月时间，可能花费数万甚至超过十万美元。现在，我们可以在几小时内模拟整个基因组中每个蛋白质的结构。我们可以在几秒钟内，仅用几美分的成本，模拟单个蛋白质。”&lt;/li&gt;
-&lt;li&gt;“AI在农业中不仅仅关乎速度。它关乎以过去无法想象的规模和复杂性进行发现。”&lt;/li&gt;
-&lt;li&gt;“模型仅仅是工具，它们帮助我们释放潜力、激发创造力并更快地找到新产品。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/inside-the-ai-playbook-for-scientific-discovery-and-optimization-with-brian-lutz-of-corteva</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/7/e/d/0/7ed0c6c6e4e0ebe8d959afa2a1bf1c87/Brian-Lutz-AI-in-Business-Podcast-20250715-siwwoc0uu9.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 16 Jul 2025 06:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
