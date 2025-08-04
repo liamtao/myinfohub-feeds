@@ -7,7 +7,95 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 03 Aug 2025 22:14:02 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Aug 2025 10:05:03 +0000</lastBuildDate>
+    <item>
+      <title>期权无风险套利策略详解：从概念原理到实盘应用与挑战</title>
+      <link>https://www.bilibili.com/video/BV1ujtgzhEgF</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg_1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ujtgzhEgF"&gt;【兴业期货】期权经典应用场景：无风险套利&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章深入探讨了期权市场的多种无风险套利策略，包括评价套利、箱式套利、凸性套利、垂直套利和边界套利，并详细阐述了它们的原理、实盘应用案例、损益分析以及实际交易中面临的挑战。重点强调了期权价格与隐含波动率的密切关系，以及套利在纠正市场定价中的作用。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无风险套利（Risk-Free Arbitrage）&lt;/strong&gt;：指通过低买高卖不同市场或合约间的价格差异，理论上能够获取稳定且无亏损的利润。文章强调，在金融市场中“无风险”通常是打引号的，因为实际交易中会面临冲击成本、资金成本、交易成本和机会成本等阻碍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;期权合成期货（Synthetic Futures）&lt;/strong&gt;：通过买入看涨期权（C）和卖出看跌期权（P），并结合行权价（K），形成的组合（C + K - P）其损益图与期货多头一致，理论上价格应与期货价格（S）接近，即C + K - P = S。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;凸性套利/图形套利（Convexity Arbitrage/Butterfly Spread）&lt;/strong&gt;：基于期权价格相对于行权价的凹函数关系（通常中间行权价的期权价格应低于两侧期权价格连线）。当中间行权价的期权价格异常高于两侧期权价格连线时，形成套利机会，其到期损益图通常呈三角锥形，故名。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;期权价格与隐含波动率关系最密切，期权交易在某种程度上可以看作是隐含波动率的交易。
+&lt;ul&gt;
+&lt;li&gt;论证：期权价格五大影响因素中，无风险利率影响小，标的价格和行权价格相对固定，到期时间客观流逝，因此隐含波动率成为期权价格波动的主要驱动力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;理论上的“无风险套利”在实盘中会遇到多重挑战，导致利润被压缩甚至亏损。
+&lt;ul&gt;
+&lt;li&gt;论证：以PTA平价套利为例，扣除手续费和资金成本后，每手净利润从25元降至15元，年化收益约15%；而甲醇凸性套利案例则因手续费过高导致净利润为负。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;平价套利是期权无风险套利中最常见且实盘可行性较高的类型，其核心是期权平价公式（C + K = P + S）。
+&lt;ul&gt;
+&lt;li&gt;论证：通过PTA合约的正向/反向平价套利实盘案例分析，显示该策略具有较高的出现频率（约30%的概率），且在考虑成本后仍能提供可观的年化收益。&lt;/li&gt;
+&lt;li&gt;论证：箱式套利作为平价套利的衍生（由两组平价套利组成），也提供了实盘可行的套利机会，且因只交易期权，手续费相对较低，在特定情况下收益可观。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;凸性套利、垂直套利和边界套利在实盘中出现机会极少，且多发生在深度虚值或深度实值合约上，流动性差导致难以成交。
+&lt;ul&gt;
+&lt;li&gt;论证：以甲醇为例，凸性套利在过去一个月仅出现1.5%的概率，且在有成交量的合约上，其理论利润空间不足以覆盖手续费。&lt;/li&gt;
+&lt;li&gt;论证：垂直套利和边界套利在绝大多数情况下不满足套利条件，或虽有条件但因合约深度虚值/实值而无成交。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;套利行为对市场具有纠偏作用，促使资产价格从不充分定价走向充分定价。
+&lt;ul&gt;
+&lt;li&gt;论证：市场不可能是完全有效的，总存在信息差等导致价格偏离，套利行为通过低买高卖纠正这种偏差，推动市场有效性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;监控套利机会：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;利用交易软件的自定义列功能，编写公式（如“看涨价格 + 行权价 - 看跌价格 - 期货价格”）来实时监控平价套利价差。&lt;/li&gt;
+&lt;li&gt;使用专业终端（如Wind）的“合成标的升贴水”及频率分析工具，辅助判断套利机会的合理性。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平价套利操作流程：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;识别价差不合理：当合成期货价格（C + K - P）与期货价格（S）存在显著偏差时。&lt;/li&gt;
+&lt;li&gt;建仓方向：若合成期货价格 &amp;gt; 期货价格，则做空合成期货（卖出看涨+买入看跌）并做多期货；若合成期货价格 &amp;lt; 期货价格，则做多合成期货（买入看涨+卖出看跌）并做空期货。&lt;/li&gt;
+&lt;li&gt;平仓时机：通常在价差向有利方向收敛时提前平仓，或持有至到期通过行权了结。&lt;/li&gt;
+&lt;li&gt;注意事项：平价套利持仓周期短，需通过高频率交易提高收益，务必关注冲击成本和手续费。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作前的成本核算：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;仔细计算资金占用成本（保证金和权利金）和交易手续费（期权和期货），确保理论利润能覆盖所有成本并留有盈利空间。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关注合约流动性：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;选择流动性好的平值合约进行套利操作，避免因成交量和持仓量不足导致的冲击成本过高或无法成交。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化策略选择：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;根据市场情况和自身预期，利用期权价格关系（如评价、凸性）来优化单边或组合交易策略，选择最优行权价。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“多数的情况下，我们期权的一个价格，与隐含波动率啊的关系是更密切的，甚至交易这个期权的一个价格就可以看作是交易隐含波动率。”&lt;/li&gt;
+&lt;li&gt;“套利它最终啊最重要对于一个市场是有纠偏的一个作用。”&lt;/li&gt;
+&lt;li&gt;“在金融这一块的话，实际上没有什么真正意义上的无风险的一个资产。”&lt;/li&gt;
+&lt;li&gt;“量与价实际上是难以兼得的。”&lt;/li&gt;
+&lt;li&gt;“实际交易当中的话啊，平价套利它的一个持仓周期非常短啊，短则几秒钟啊，长则也不会超过几天。”&lt;/li&gt;
+&lt;li&gt;“在做套利交易的时候，忘记了一个初心，或者我们的建仓的一个原则啊，套利做做就变成单边了。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ujtgzhEgF</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/09377e0a4c6f3232e2f3a4d7d6dedcf75f9d0923.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 04 Aug 2025 16:28:12 +0800</pubDate>
+    </item>
     <item>
       <title>从零开始的量化交易：理解量化思维与策略编写核心</title>
       <link>https://www.bilibili.com/video/BV1c4hbzjE2h</link>
