@@ -7,7 +7,66 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 05 Aug 2025 10:04:15 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 Aug 2025 23:45:14 +0000</lastBuildDate>
+    <item>
+      <title>CS261算法进阶课程：最大流问题、贪心策略与残差网络</title>
+      <link>https://www.bilibili.com/video/BV1Nht5ziEgX</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Nht5ziEgX"&gt;斯坦福大学【中英⚡网络优化算法|CS261 2016 A Second Course in Algorithms for network optimizatio&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;这是一门关于高级算法的课程（CS261），主要围绕如何设计高效算法解决基础问题，并提供处理复杂问题的工具。本讲次聚焦最大流问题，从一个朴素贪心算法的失败案例出发，引出残差网络这一核心概念，并探讨了如何通过残差网络改进算法以达到最大流。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最大流问题（Maximum Flow Problem）: 在给定有向图和每条边的容量限制下，目标是从源点（s）向汇点（t）推动最大量的“物质”流。流必须满足容量约束（流量不超过容量）和守恒约束（除源点和汇点外，流入顶点的流量等于流出顶点的流量）。&lt;/li&gt;
+&lt;li&gt;残差图/残余网络（Residual Graph/Network）: 给定一个图和当前的流量，残差图用于编码可行的“增广操作”。它为原图中的每条边生成两条边：一条正向边（表示剩余容量，可增加流量），一条反向边（表示已发送的流量，可用于“撤销”或回溯流量）。这允许算法在已发送流量的边上进行反向操作以寻找更大的总流量。&lt;/li&gt;
+&lt;li&gt;阻塞流（Blocking Flow）: 指当朴素的贪心算法停止时，尽管当前流量可能不是最大流，但已无法找到从源点到汇点的、所有边都有剩余容量的简单路径，从而“阻塞”了进一步的流量增加。&lt;/li&gt;
+&lt;li&gt;最优性条件（Optimality Conditions）: 指示一个解是否达到最优的充分条件。对于最大流问题，一个核心的最优性条件是：如果残差图中不存在从源点到汇点的路径，则当前流量即为最大流。&lt;/li&gt;
+&lt;li&gt;最大流最小割定理（Max-Flow Min-Cut Theorem）: 一个在最大流问题中非常著名的理论结果，它建立了最大流与图中某个“割”（将源点和汇点分开的边的集合）的最小容量之间的等价关系。这个定理是证明算法正确性的基础。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;朴素贪心算法解决最大流问题会失败：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;案例支撑&lt;/strong&gt;：在一个“之字形”的网络中，朴素算法可能只路由了3单位流量就终止，因为它无法找到仅使用正向剩余容量的路径，而实际最大流是5单位。这表明朴素贪心算法在某些情况下会过早地“阻塞”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;残差网络是改进贪心算法的关键：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：残差网络允许算法不仅在正向增加流量，还能通过反向边“撤销”或重新分配已发送的流量，从而探索更复杂的增广路径，克服朴素贪心算法的局限性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例支撑&lt;/strong&gt;：在上述“之字形”网络中，如果使用残差网络，算法能够找到一条包含反向边的路径，最终将流量从3单位增加到最大值5单位。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;福特-富尔克森（Ford-Fulkerson）算法（或类似算法）的终止与正确性：
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑支撑&lt;/strong&gt;：如果边的容量为整数，则每次迭代至少会增加1单位流量（Δ为整数），且总流量有上限（例如，源点的总出容量），因此算法必然终止。其正确性基于“如果残差图中没有从s到t的路径，则当前流是最大流”这一最优性条件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;学习方法&lt;/strong&gt;：每周会发布练习题集，这些不需提交，但期末考试至少50%的内容会直接或间接来源于这些练习题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作业形式&lt;/strong&gt;：四次作业（占总成绩75%）需以小组形式完成（最多三人），每组提交一份报告。作业旨在提供深入思考算法的机会，并鼓励与同学协作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;期末考试&lt;/strong&gt;：课堂进行，三小时，题目比作业简单得多，旨在确保学生掌握课程中最基础和重要的概念。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;处理现实问题&lt;/strong&gt;：认识到许多现实问题是基础算法问题的变种，学会识别并调用现有算法，避免重复造轮子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应对无高效解法的问题&lt;/strong&gt;：学习启发式方法（针对NP-hard问题，无法保证总是正确但多数情况下有效）和在线算法（在信息不完整或未来不确定的情况下做决策）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“避免重复造轮子。”&lt;/li&gt;
+&lt;li&gt;“许多应用其实只是最大流问题的变种。”&lt;/li&gt;
+&lt;li&gt;“好的，算法设计是一个逐步简化的过程。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Nht5ziEgX</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/49c4075ec0eaac78eab877d737e89fbf46fd0592.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 05 Aug 2025 19:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>在洛杉矶好莱坞拍短剧的中国制片人：一个95后女生的行业观察</title>
       <link>https://www.xiaoyuzhoufm.com/episode/68907ff78e06fe8de7404959?utm_source=rss</link>
