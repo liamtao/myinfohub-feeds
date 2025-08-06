@@ -7,7 +7,298 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 06 Aug 2025 10:20:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Aug 2025 23:20:40 +0000</lastBuildDate>
+    <item>
+      <title>揭秘OpenAI GPTOSS开源模型：真实性能、部署体验与工具调用详解</title>
+      <link>https://www.bilibili.com/video/BV1JJtPzPEZq</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1JJtPzPEZq"&gt;gpt-oss 编码拉胯？结合 MCP，这才是它的正确打开方式 | 本地部署 &amp;amp; 实测 oss 120B&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容
+OpenAI发布了GPTOSS开源模型（120B和20B版本），本文深入评测了其在编码、数学、科学和健康等方面的性能。
+尽管其编程能力表现平平，但模型在数学和健康问答上展现出卓越能力，并内置了浏览器和Python执行工具。
+文章还详细介绍了模型的部署方式、工具调用能力以及Harmony响应格式等核心技术细节。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GPTOSS (OpenAI的开源模型)&lt;/strong&gt;
+OpenAI新推出的开源模型，分为120B和20B两个版本，具有不同的参数规模和运行要求，可支持本地部署。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Harmony响应格式&lt;/strong&gt;
+专为OSS模型设计的对话结构，定义了推理输出生成和函数调用的核心框架，具有五个不同的角色和三个推理级别，是OpenAI推荐的后续开源模型响应格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Health Bench&lt;/strong&gt;
+一个衡量模型在健康问题上表现的指标，OSS120B在该指标上得分非常接近O3模型，显示出其在医疗健康领域问答的强大能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;思维预算&lt;/strong&gt;
+指模型在解决问题时所投入的思考努力程度，图中显示在科学问题等复杂任务中，思考预算越充足，模型表现越好，结果基本上呈直线提升。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GPTOSS模型编码能力一般，但在数学和健康问答方面表现出色&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;博主测试显示OSS120B在Java编码上表现非常一般，前端能力甚至不如Crowd或小模型。&lt;/li&gt;
+&lt;li&gt;OSS120B和OSS20B在数学方面得分非常优秀，均超过了O3 mini。&lt;/li&gt;
+&lt;li&gt;OSS120B在科学问题上非常有优势，接近O3。&lt;/li&gt;
+&lt;li&gt;在Health Bench指标上，OSS120B得分非常接近O3模型，回答健康问题非常到位，甚至超过一般医生。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型内置浏览器和Python执行工具，工具调用能力强大&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;OpenAI官方GITHUB仓库显示，GPTOSS模型内置了浏览器工具和Python执行能力。&lt;/li&gt;
+&lt;li&gt;在工具调用（tau指标）方面，OSS120B表现非常优秀。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI对GPTOSS发布准备充足，并支持多种本地部署方式&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;除了详细介绍，OpenAI还推出了多个新的GITHUB仓库，提供了高质量的资源。&lt;/li&gt;
+&lt;li&gt;20B参数的OSS可在16GB设备上运行；OSS120B可在128G Mac上以40tokens/秒的速度运行。&lt;/li&gt;
+&lt;li&gt;Olama和LM Studio目前都支持GPTOSS模型的部署，支持原生MXFP4格式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;快速使用GPTOSS模型&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;建议调用OpenRouter的API，其中Groq和Cerebras因速度快且价格实惠而特别推荐。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在LM Studio上使用GPTOSS&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;升级LM Studio到最新版本。&lt;/li&gt;
+&lt;li&gt;在设置中打开特定的行（文中提到需打开“这一行”）。&lt;/li&gt;
+&lt;li&gt;根据需求调整温度等模型设置。&lt;/li&gt;
+&lt;li&gt;在LM Studio右侧的“program”中接入所需的MCP（如图片生成、文件管理、EXA搜索工具等）。&lt;/li&gt;
+&lt;li&gt;调用MCP时，记得将上下文长度选择大一点。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;微调GPTOSS模型&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;可以通过微调将模型的思维过程（默认英文显示）转换为其他语言。&lt;/li&gt;
+&lt;li&gt;建议参考OpenAI官方Cookbook中关于微调的高质量资源。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;了解Harmony响应格式&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;建议了解OpenAI官方的Harmony渲染器库，因为该格式可能是未来开源模型对话结构的发展方向。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“其实我对OSSS 它的编程能力已经是不抱希望了”&lt;/li&gt;
+&lt;li&gt;“这个模型在编码上啊是不咋地 但在健康问题方面 在数学推理方面 它的啊评分还是非常高的”&lt;/li&gt;
+&lt;li&gt;“要说这个模型比较遗憾呢 是它的128K上下文比较短 那他也没有啊多模态能力 但是他呃对工具调用非常好 内置就有浏览器使用 还有啊Python代码执行这两个 我们可以很好的用起来”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1JJtPzPEZq</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/3224d8fb9d61f7bcd0ad257f14925a79c4688618.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 06 Aug 2025 21:39:37 +0800</pubDate>
+    </item>
+    <item>
+      <title>信息报记者揭秘AI报道：Meta超智能、OpenAI、推理市场与行业趋势</title>
+      <link>https://www.youtube.com/watch?v=t4IQwMa5-6U</link>
+      <description>&lt;p&gt;&lt;a href="UCxBcwypKK-W3GHd_RZ9FZrQ"&gt;Latent Space&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=t4IQwMa5-6U"&gt;The AI Agenda: GPT5 leaks and the business of AI News — Steph Palazzolo, The Information&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;该播客特邀《The Information》的记者Stephanie Palazolo，分享了她作为AI领域记者的工作日常、报道策略以及对行业趋势的洞察。她详细探讨了AI推理市场、Meta的超智能（super intelligence）发展方向、OpenAI的GPT-5发布预期，以及大型AI实验室的招聘与财务挑战。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI推理提供商（Inference Providers）&lt;/strong&gt;
+帮助开发者更轻松地运行、训练和定制开源AI模型的公司。它们被比作GPU经销商，尽管面临“GPU转售商”的质疑，但随着AI应用普及，对推理的需求预计将远超训练。
+&lt;em&gt;案例/解释：&lt;/em&gt; 文中提到Fireworks、Modal、Together、B10、Fal.ai等公司。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Exe-u Hires&lt;/strong&gt;
+一种特殊的招聘方式，指一家公司收购或引入另一家初创公司的核心管理或技术团队，但通常会忽略或不保留该初创公司的大部分员工。
+&lt;em&gt;案例/解释：&lt;/em&gt; 提到了Windsurf被收购的案例，以及由此引发的对员工激励和行业信任的讨论，许多风投对此类交易感到不满。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化学习环境（RL Environments for Agents）&lt;/strong&gt;
+让AI智能体在模拟环境中（如某个应用的复制品）自由学习和执行任务，以减少人类干预的强化学习方法。旨在让AI自主探索和解决问题。
+&lt;em&gt;案例/解释：&lt;/em&gt; 例如，创建一个Salesforce的复制品来教导AI智能体如何在其中导航和执行操作。目前仍处于早期阶段，计算密集且创建逼真环境复杂。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;记者日常工作的大部分时间并非用于写作，而是类似于风投（VC）的工作，即持续联系创始人、初创公司和行业专家以获取信息。
+&lt;em&gt;支撑：&lt;/em&gt; “我大部分时间都在与创始人、研究人员和投资者通电话，基本上就是乞求他们，问他们有什么最热门的八卦或者AI领域最酷的新趋势。”&lt;/li&gt;
+&lt;li&gt;尽管Meta等大型科技公司致力于开发“超智能”，但这与其当前的主要盈利模式（如社交媒体广告）并不完全契合，后者并不需要超智能级别的AI。
+&lt;em&gt;支撑：&lt;/em&gt; “如果你看看Meta今天是如何赚钱的，是通过社交媒体应用和广告，而这些东西不需要超智能。”&lt;/li&gt;
+&lt;li&gt;AI研究人员的天价薪酬（如1亿美元乃至10亿美元的报价）往往缺乏透明度，其真实构成（现金、股票、期限）常被操纵，以服务于公司叙事或CEO之间的竞争。
+&lt;em&gt;支撑：&lt;/em&gt; “我们不会报道这类巨额数字，除非我们有多重消息来源，并清楚这笔报价是给谁的，是多年期的，其中现金和股票各占多少。很多CEO都非常聪明，知道如何抛出这些数字，并立即引发新闻关注。”&lt;/li&gt;
+&lt;li&gt;风险投资人对“aquahire”模式越来越不满，他们投资公司是期望其上市或获得良好退出，而非这种团队式收购。
+&lt;em&gt;支撑：&lt;/em&gt; “我认为风投们开始对这类交易感到厌倦…我们投资公司是因为我们认为它们可以上市，或者至少能获得相当好的退出。”&lt;/li&gt;
+&lt;li&gt;传统科技媒体面临严峻挑战，原因是广告收入下滑、难以在碎片化信息源（如X平台、ChatGPT）中找到独特利基，以及公众对媒体普遍缺乏信任。
+&lt;em&gt;支撑：&lt;/em&gt; “商业模式上，广告效果不如以前…你正在与许多其他新闻来源竞争…很多人因为某些原因不信任媒体，转而求助于他们信任的影响者或社交媒体上的人。”&lt;/li&gt;
+&lt;li&gt;AI和技术进步正在加速社会两极分化，一小部分人获得巨额机会（如应届生获得数千万美元的职位），而另一些人则面临失业或就业困难。
+&lt;em&gt;支撑：&lt;/em&gt; “AI和技术普遍加速了富人和穷人之间的差距…一些刚毕业的大学生失业率高达20-30%。”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;给寻求媒体报道的初创公司：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;将其视为长期合作，而非一次性曝光。建立关系比单纯寻求早期融资报道更重要。&lt;/li&gt;
+&lt;li&gt;聚焦于自身所处领域的整体重要性或新兴趋势，而非仅仅推销公司本身。&lt;/li&gt;
+&lt;li&gt;优先个人联系记者，避免使用通用且不专业的公关邮件。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;给记者同行：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;将保护消息来源视为首要任务，必要时可推迟报道或删减信息以保护消息来源的安全。&lt;/li&gt;
+&lt;li&gt;对事实进行多方核实，并尽可能清晰地说明消息来源（如“参与会议的人士”），避免使用模糊的表达（如“知情人士”）。&lt;/li&gt;
+&lt;li&gt;建立与消息来源的长期信任关系，即使最初需要多次完全不公开的交流。&lt;/li&gt;
+&lt;li&gt;接受冷拨电话和被拒绝是工作的一部分，保持韧性。&lt;/li&gt;
+&lt;li&gt;内部组织工作，例如定期会议讨论核心趋势，并列出并追踪最重要的趋势，将新信息与这些大趋势联系起来。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“我仍然需要看看个人超智能的营销和角度将如何与消费者互动。”&lt;/li&gt;
+&lt;li&gt;“我只是非常好奇，十年后普通大学生会是什么样子，或者十年后我的工作会是什么样子，以及我的友谊和工作关系会如何发展。”&lt;/li&gt;
+&lt;li&gt;“我甚至不是想获得独家新闻。我只是作为生活在这个世界的人，好奇我需要对什么感到兴奋，对什么感到担忧。我只是真心地好奇，不是作为记者，而是作为生活在当今世界的人。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=t4IQwMa5-6U</guid>
+      <enclosure url="https://i.ytimg.com/vi/t4IQwMa5-6U/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 06 Aug 2025 21:38:08 +0800</pubDate>
+    </item>
+    <item>
+      <title>大型企业在AI时代的创新与转型：VMware与Cisco的经验分享</title>
+      <link>https://a16z.simplecast.com/episodes/how-to-build-a-successful-company-in-an-era-of-disruption-m7RDJVx4</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/how-to-build-a-successful-company-in-an-era-of-disruption-m7RDJVx4"&gt;How to Build a Successful Company in an Era of Disruption&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+
+&lt;p&gt;以下是文本内容：&lt;/p&gt;
+
+&lt;p&gt;文章主要内容&lt;/p&gt;
+
+&lt;p&gt;本次对话聚焦于VMware首席执行官Raghu Raghuram和Cisco高管Gitu Patel，探讨了大型企业如何应对技术颠覆，特别是当前的AI浪潮。他们强调了产品中心化、战略性市场切入以及在大型组织内培养敏捷、类似创始人的心态，以推动创新和增长。讨论揭示了现有企业在面对新技术范式时的独特挑战与策略。&lt;/p&gt;
+
+&lt;h3&gt;重要概念&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“像世界上最大的初创公司一样运作”（Operate like the world’s largest startup）&lt;/strong&gt;：思科的内部口号，旨在将速度与规模相结合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“零到一，一到一百，一百到一千的实践”（Zero to One, One to One Hundred, One Hundred to One Thousand practice）&lt;/strong&gt;：产品开发和规模化拓展的不同阶段，从初步创建到大规模市场渗透。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“所有者心态”（Owner’s mentality）&lt;/strong&gt;：Gitu Patel提出的概念，强调在公司内部保持极度耐心、以市场为导向、不容忍平庸以及避免追求受欢迎程度，类似于创始人的奉献精神。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“故事即战略”（The story is the strategy）&lt;/strong&gt;：强调清晰统一的叙事对凝聚大型组织（如思科的9.5万名员工）的重要性，认为其比简单的要点更有效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“二元语言”（Binary language）&lt;/strong&gt;：在大型且富有同情心的企业文化中，直接而明确地指出失败和存在威胁，避免委婉的表达。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“产品是公司的灵魂”（Product is the soul of the company）&lt;/strong&gt;：坚信公司的核心价值和成功源于构建能够满足市场需求的优秀产品。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;主要观点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大型公司擅长进行多项实验，但不擅长在实验成功后加倍投入。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：初创公司在此方面表现出色，它们能专注于一个问题。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大型公司常因产品未能兼顾其现有市场路线而失败。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：若能利用现有市场路线开发10款产品，将获得巨大优势；反之，销售团队会感到资源匮乏，难以达到应有的销售额。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过度依赖与最佳客户交流，反而可能让公司错失颠覆性创新。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：颠覆性创新通常并非源于现有最佳客户，而公司所有激励机制往往都围绕这些客户。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进入现有市场类别，产品必须比竞品好10倍。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：VMware的vSAN案例显示，最初面向存储买家失败，转而扩展计算买家，并提供比现有外部存储方案好10倍的优势后才获得成功。这与大公司常倾向于“追赶”而非“超越”的直觉相悖。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在棕地市场（brownfield）寻找插入点，而非试图在绿地市场（greenfield）从零开始构建平台。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：应先与竞争对手共存，再逐步取代。大型公司有时缺乏开放的生态系统心态。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创始人模式的CEO在转型中更具优势，但非创始人也可通过“所有者心态”驱动变革。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：创始人具备技术和产品可信度，获得更多市场、董事会和员工的时间；非创始人需尽早对变革方向形成坚定信念，并像创始人一样全身心投入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;清晰的沟通和“讲故事”对大型组织至关重要。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：95,000名员工不会理解五个要点，但能理解一个故事。故事即战略，它能统一公司的方向和士气，带来节奏感。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;大型公司文化中可能存在对真相的“版本化”和缺乏直接沟通的问题。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：思科“富有同情心”的文化有时导致无法直接对话。必须使用“二元语言”直接指出问题，并明确成功所需步骤。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产品是公司的灵魂，产品驱动型公司能更好地适应市场。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：思科从销售导向转变为产品导向，信奉“如果产品足够好，具有市场吸引力，就无需抱怨销售支持”。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;科技公司“躺平”不创新是长期失败的保证。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：这种反常识的现象却很常见。公司应每天比昨天进步1.27%，通过复利效应实现巨大提升。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI浪潮将彻底改变基础设施，而非独立于基础设施。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：AI对算力、网络、存储访问模式等各层基础设施都提出新需求。GPU空闲及代理程序带来的持续推理需求将指数级提升网络带宽，使得基础设施成为AI时代的直接受益者。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在AI时代，与最大竞争对手合作并保持开放生态系统至关重要。&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;支撑：如果竞争对手市场份额超过20%而不与其整合，相当于将自己排除在市场之外。思科与微软Teams合作带来了数亿美元收入。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建创新团队：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;从小规模的“两个披萨”团队开始（约5-9人），赋予其自主权，并确保获得最高层的支持和“空中掩护”（air cover）。&lt;/li&gt;
+&lt;li&gt;保护团队免受内部阻力（“抗体”）的影响，使其专注于产品开发。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定义理想客户画像（ICP）：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;初期专注于小客户或特定细分市场（从底部开始），而非直接面向大型金融机构。&lt;/li&gt;
+&lt;li&gt;孵化团队有两项工作：构建优秀产品，并定义理想客户画像，确保产品在该画像内获得初步采用和市场创建机会的可重复性。&lt;/li&gt;
+&lt;li&gt;一旦ICP被明确并开始饱和，再逐步扩大ICP范围。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产品开发与市场匹配：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;如果产品与现有产品紧密相关且面向相同用户，可通过现有销售团队推广。&lt;/li&gt;
+&lt;li&gt;如果产品面向不同用户，则需要建立独立团队来处理。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;沟通与文化建设：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;最高层领导应亲自进行“讲故事”，统一公司叙事，避免信息分散，因为“你需要一个声音”。&lt;/li&gt;
+&lt;li&gt;培养“所有者心态”，保持极度耐心、以市场为导向、不容忍平庸，不参与“人气竞赛”。&lt;/li&gt;
+&lt;li&gt;在内部设计评审和讨论中去除层级限制，鼓励“最佳想法胜出”，进行直接且建设性的批判。&lt;/li&gt;
+&lt;li&gt;直接指出问题，使用“二元语言”明确失败和成功所需步骤，打破传统层级模式。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初创公司创新策略（六步公式）：&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时机（Timing）：&lt;/strong&gt; 抓住大趋势，例如AI，确保所做的一切都能获得AI的助推力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场（Market）：&lt;/strong&gt; 瞄准巨大市场，但分步攻克。理想情况下，应创造新市场而非追逐现有市场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;团队（Team）：&lt;/strong&gt; 市场始终优先于团队（市场永远胜出）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产品（Product）：&lt;/strong&gt; 打造人们喜爱的产品（产生市场拉力），关注用户采纳和留存，并实现商业相关性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;品牌（Brand）：&lt;/strong&gt; 建立清晰可识别的品牌，避免过多噪音，信息传递统一且重复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;规模分销（Scale Distribution）：&lt;/strong&gt; 具备有效的规模化分销能力。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;金句&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;“SaaS 打破了它，但 AI 打破得更彻底。你需要使用二元语言。”&lt;/li&gt;
+&lt;li&gt;“像世界上最大的初创公司一样运作，确保你以速度和规模运作。”&lt;/li&gt;
+&lt;li&gt;“大公司非常擅长进行多项实验。它们不擅长的是在实验成功后加倍投入。”&lt;/li&gt;
+&lt;li&gt;“你必须好10倍。”&lt;/li&gt;
+&lt;li&gt;“故事即战略。”&lt;/li&gt;
+&lt;li&gt;“不要把讲故事的任务委托给公司里的任何人，你要自己去做，因为你需要一个声音。”&lt;/li&gt;
+&lt;li&gt;“如果你制造了一种能治愈癌症的产品，你在周二下午2:30到3:30在喜马拉雅山销售它，每个月的第三个周二，门口都会排起长队。”&lt;/li&gt;
+&lt;li&gt;“每天比昨天进步1.27%。一年后，你就会好100倍。”&lt;/li&gt;
+&lt;li&gt;“机会远大于风险，所以某种程度上，要像冲向火焰一样。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/how-to-build-a-successful-company-in-an-era-of-disruption-m7RDJVx4</guid>
+      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/6b08f1c5-a6ee-4b56-ab2d-d5f1ee30aed1/3000x3000/a16z-20pod-20-20dwarkesh-20patel-20on-20agi-20-201x1.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 06 Aug 2025 17:14:12 +0800</pubDate>
+    </item>
     <item>
       <title>OpenAI开源GPTOSS系列模型：单卡A100运行，性能媲美O4，部署与使用全解析</title>
       <link>https://www.bilibili.com/video/BV16D4ZzmErg</link>
@@ -8362,251 +8653,6 @@ Solo模式的核心概念，意味着Tree不再仅仅是一个AI IDE，而是进
       <guid isPermaLink="true">http://www.shengfm.cn//20240387</guid>
       <enclosure url="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/4/4931937e-0184-4c61-a658-6b03c254754d/cover.jpg?v=10" length="0" type="image/jpeg"/>
       <pubDate>Wed, 23 Jul 2025 10:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI与透明度如何将网络安全从合规性转变为战略业务推动力</title>
-      <link>http://podcast.emerj.com/how-ai-partnerships-make-security-a-strategic-advantage-with-bryan-willett-of-lexmark</link>
-      <description>&lt;p&gt;&lt;a href="https://techemergence.libsyn.com/rss"&gt;The AI in Business Podcast&lt;/a&gt; | &lt;a href="http://podcast.emerj.com/how-ai-partnerships-make-security-a-strategic-advantage-with-bryan-willett-of-lexmark"&gt;How AI Partnerships Make Security a Strategic Advantage - with Bryan Willett of Lexmark&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章探讨了AI和透明度如何改变网络安全，使其从一个被动合规职能转变为一个战略性业务推动力。通过与资深网络安全专家Brian的对话，揭示了提前与客户沟通安全问题和利用AI工具提升内部效率的重要性。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;守门员综合症（Goalie syndrome）&lt;/strong&gt;: 指在安全或编辑工作中，倾向于扮演防御者角色，总是对问题做出反应，而不是主动出击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主动安全包（Proactive security package）&lt;/strong&gt;: 一套预先填写的安全文件和认证（如SIG问卷、SOX 2报告、各项认证），在销售过程早期就提供给客户，以建立信任并展示透明度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;开发卫生（Development hygiene）&lt;/strong&gt;: 指软件开发中的良好实践，包括遵循安全开发生命周期（SDLC）、使用工具识别代码中的风险、以及进行红队演练和渗透测试以确保产品安全。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;安全不应仅是后期检查项，而应成为竞争优势。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;主动透明地分享安全控制措施（如主动安全包）能在早期建立客户信任，并直接影响合同结果。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI在安全中的应用远超威胁检测，还能优化内部流程。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;AI代理可以自动化响应招标书（RFP）的流程，使非安全团队也能有效回答客户的安全问题，从而消除瓶颈并提高响应效率。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;选择安全合作伙伴时，其AI模型和开发卫生至关重要。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;多数组织不具备内部开发AI监控模型的技能，应选择购买。关键在于选择拥有成熟AI模型、更新且准确的威胁情报以及良好开发卫生（包括安全开发生命周期、红队演练和渗透测试）的合作伙伴。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类注意力是网络安全意识的新战场。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;攻击者正利用AI加速攻击，因此安全团队需要将安全意识和培训材料设计成更短、更易吸收的格式，以保持开发人员对不断演变的威胁的警觉。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;为客户准备“主动安全包”&lt;/strong&gt;: 包含已填写的标准信息收集问卷（SIG）、所有认证和SOC 2报告，并在销售初期主动提供给客户，以展示透明度和成熟度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用AI代理优化RFP响应&lt;/strong&gt;: 建立客户安全问题数据库，并部署AI代理来自动生成答案，使非安全团队也能处理大部分问询，提高响应速度并消除瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;评估安全工具供应商时关注AI模型和开发卫生&lt;/strong&gt;: 选择那些拥有成熟AI模型用于威胁检测、提供最新威胁情报且在开发过程中保持良好“开发卫生”（如SDLC、红队演练、渗透测试）的供应商。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加强开发人员安全意识培训&lt;/strong&gt;: 多数开发人员未受过安全编码和最新威胁技术的训练，因此需要持续进行意识培训，并确保他们理解风险代码和攻击者技术。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;在开发流程中设置安全门禁&lt;/strong&gt;: 确保在开发过程中定期进行安全检查，例如使用SAST（静态应用安全测试）和DAST（动态应用安全测试）工具来评估代码风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;改革安全意识材料呈现方式&lt;/strong&gt;: 鉴于现代人注意力分散，需将安全培训和意识材料以短小、易于吸收的形式（如短视频、小测验）呈现，以更好地吸引听众并帮助他们吸收信息。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“安全不再仅仅是一个后期检查项。”&lt;/li&gt;
-&lt;li&gt;“注意力是新的战场。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://podcast.emerj.com/how-ai-partnerships-make-security-a-strategic-advantage-with-bryan-willett-of-lexmark</guid>
-      <enclosure url="https://static.libsyn.com/p/assets/7/e/1/a/7e1ac32ee0de1c5fd959afa2a1bf1c87/Bryan-Willett-AI-in-Business-Podcast-ep-1.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 23 Jul 2025 06:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>LLM世界模型之争：是通往AGI的关键还是伪命命？</title>
-      <link>https://www.youtube.com/watch?v=eE6zdv15suc</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=eE6zdv15suc"&gt;Are World Models the Key to AGI?&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;文章主要内容
-本文探讨了大型语言模型（LLM）能否从训练数据中发展出“世界模型”的问题，以及世界模型对于实现通用人工智能（AGI）的重要性。文章详细介绍了关于世界模型的概念、其与现有LLM发展路径的区别，并围绕一篇最新研究论文引发的争议展开讨论。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;世界模型 (World Models)&lt;/strong&gt;: 指人工智能系统在内部构建外部环境的表征，使其能够基于观察、行动和潜在动力学（如物理、因果关系、空间关系）来模拟和预测未来状态。它们是AI的“内部现实地图”，能够处理不确定性、预测事件并通过模拟来高效决策，灵感来源于人类潜意识中构建心理模型以预测结果（如棒球运动员预测球的轨迹）。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;案例或类比&lt;/em&gt;: David Ha和Jurgen Schmidt Hoover在2018年提出的框架包含视觉模型、记忆模型和控制器模型，应用于赛车模拟中，智能体通过内部模型规划和导航。文章还用棒球运动员预测投球轨迹来类比人类构建心智模型。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;归纳偏置探测 (Inductive Bias Probe)&lt;/strong&gt;: 一种评估基础模型的技术，通过检查它们如何适应从假定的世界模型生成的人工数据集，来衡量基础模型的归纳偏置是否与世界模型对齐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;预训练扩展 (Pre-training Scaling)&lt;/strong&gt;: 一种LLM发展方法，依赖于缩放定律假设，即通过增加模型参数、训练数据量和计算资源来提升LLM性能，例如GPT-4和Grok。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;测试时计算 (Test-time Compute / Inference-time Scaling)&lt;/strong&gt;: 一种将计算重点从预训练转移到模型使用或推理阶段的LLM发展方法，通过链式思考提示、思想树、自我一致性等策略让模型“思考更深入”，以解决复杂任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;预测与世界模型的区别&lt;/strong&gt;：文章通过开普勒预测行星轨道到牛顿引力定律的演变来类比。开普勒的预测适用于一项任务（轨道），而牛顿的定律则推广到多种现象（钟摆、炮弹、火箭），这表明世界模型是可泛化的，而预测则限于特定任务。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;哈佛大学的一项研究指出，大型语言模型在训练任务上表现出色，但未能发展出对底层世界模型的归纳偏置，无法将知识泛化到新任务。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 研究发现，对1000万个太阳系数据进行训练的Transformer模型可以准确预测行星轨道，但无法推断出万有引力定律，且似乎认为重力在不同星系中工作方式不同。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 即使在训练数据中包含牛顿定律的领先商业推理模型，在未被明确告知应用定律的情况下，也无法从轨道数据中发展出泛化理论。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 模型可能混淆了属于不同状态但具有相同合法下一步标记的序列，导致预测不准确。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;对哈佛论文的批评认为，其结论过于概括，因为实验所用的模型和数据集规模过小，不具代表性。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 论文中用于轨道力学的Transformer模型仅有1.09亿参数和20亿token，大约是当前前沿模型和数据集的1/11万。Othello游戏数据集也仅有770万token，远小于其他显示世界模型涌现的研究。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 其他研究表明，使用更大模型或更多训练数据时，LLM可以发展出泛化的世界模型。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;世界模型方法与当前的LLM扩展方法（预训练扩展和测试时计算）是根本不同的范式。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 前者侧重于在现有LLM架构内优化计算和数据，主要通过自回归的下一个词元预测。后者强调一种根本性的架构转变，以实现对世界的更深层理解。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;当前LLM的扩展方法在实现通用人工智能（AGI）方面存在局限性。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 预训练扩展面临回报递减、数据质量问题和偏见。Meta首席AI科学家Yann LeCun直言：“如果你对人类水平的AI感兴趣，就不要研究LLM。”&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 测试时计算虽然能增强推理，但计算成本高昂，且未能解决LLM缺乏因果关系或世界基础的核心缺陷。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;世界模型被认为是实现人类水平AI的关键缺失环节，因为它能实现常识、处理不确定性和长期规划。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: Yann LeCun认为我们需要机器理解世界，具备记忆、直觉、常识，并能像人类一样推理和规划。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 但世界模型仍面临挑战，包括训练多模态数据的高计算需求、模拟中的幻觉风险以及扩展到真实世界动态的困难。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;生成式视频模型虽然能学习视觉真实性，但并不等同于学习物理现实，因此可能不是通往更广泛世界模型的“后门”。
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;支撑&lt;/em&gt;: 谷歌的一项研究发现，视频模型更多学习视觉真实感，而非物理现实，这使得它们能创建逼真视频，但对跨领域现实预测帮助不大。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;p&gt;无&lt;/p&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“模型能预测序列中的下一个token，这并不意味着它拥有一个强大的世界模型。这是千真万确的。只是别犯错误，认为它们无法发展世界模型。它们显然能做到，并且正在做到。”&lt;/li&gt;
-&lt;li&gt;“我们不是想知道一个基础模型是否能根据它已有的轨道轨迹训练数据来预测轨道轨迹，而是想知道它是否能真正理解支撑这些轨道轨迹的物理原理，从而能够将这些物理学应用于其他类型的问题领域。”&lt;/li&gt;
-&lt;li&gt;“预测适用于一项任务，世界模型则泛化到多项任务。”&lt;/li&gt;
-&lt;li&gt;“如果你对人类水平的AI感兴趣，就不要研究LLM。”&lt;/li&gt;
-&lt;li&gt;“所以这就是梦想，一个视频世界模型，将图像作为输入并渲染一个你可以探索和互动的环境。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=eE6zdv15suc</guid>
-      <enclosure url="https://i.ytimg.com/vi/eE6zdv15suc/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 22 Jul 2025 22:52:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>CHERAI Solo模式深度体验：AI编程效率、收费模式与上下文工程解析</title>
-      <link>https://www.bilibili.com/video/BV1V2gWzvE84</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1V2gWzvE84"&gt;没有广告，实测 Trae SOLO ：从需求到部署，AI 全包&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-
-&lt;p&gt;本文详细评测了CHERAI新推出的Solo模式，介绍了其功能特点、收费模式以及在Web开发中的应用体验。同时，文章深入探讨了“上下文工程”这一重要概念，并结合实际的AI图片编辑器项目案例，展示了CHERAI在整个开发流程中的表现，并与其他AI编程工具进行了对比。&lt;/p&gt;
-
-&lt;h3&gt;重要概念&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;上下文工程（Context Engineering）&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;解释：指为AI模型动态拼接最合适的信息、指令和工具。这是一个当前非常热门的概念，尤其在大模型上下文窗口变大、以及Agent失效等背景下显得更为重要。&lt;/li&gt;
-&lt;li&gt;案例：作者引用了Spotify CTO和谷歌Andy的文章来强调其重要性，并通过CHERAI官方图示（包含文档工具、长期短期记忆、结构化输出等）以及一个AI图片编辑器应用的从零构建过程，来展示上下文工程在实际编程中的应用。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CHERAI Solo模式&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;解释：CHERAI推出的新编程模式，特点是收费实惠、界面可爱、功能强大，能快速生成产品需求文档（PMD）并支持一键部署。适用于全站应用、后端服务、API集成、仪表盘、内部工具等多种开发场景。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;渐进式开发（Progressive Development）&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;解释：一种在AI编程工具协作中的推荐做法，包括任务管理技巧（如动态代办清单）、保持错误处理策略以及避免模式固化（改变提问方式应对重复任务）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;主要观点&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;CHERAI Solo模式的收费模式极具吸引力。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;首次订阅仅需3美元，月费10美元。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CHERAI Solo模式在Web开发方面表现出色，尤其适合Web coding。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;能快速给出包含图表的产品需求文档，易于理解。&lt;/li&gt;
-&lt;li&gt;“查看变更”功能醒目，绿色展示AI修改。&lt;/li&gt;
-&lt;li&gt;支持一键部署项目到Vercel。&lt;/li&gt;
-&lt;li&gt;案例：成功构建HTML应用、调整UI布局、修复CORS问题并部署AI图片编辑器应用。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CHERAI在选择前端框架时，虽然倾向于React/Vue，但能灵活根据用户需求调整为HTML。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：一开始建议使用React构建，但用户要求使用HTML后，它也遵循了需求。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尽管CHERAI能生成产品需求文档，作者认为仍需手动整理更多重要文档。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：API文档、测试方法、代码风格、安全指南等。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CHERAI在上下文记忆方面仍存在不足。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;案例：尽管用户已告知安装了COI，AI仍会提示需要安装。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;与AI编程工具协作时，渐进式开发、保持错误处理策略和避免模式固化是重要的经验。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;基于MANUS文章的经验总结。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尽管CHERAI性价比高且部署速度快，但在测试和Agent功能方面，作者更倾向于Acquality Code和ORGANI。&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;作者认为后两者在测试和Agent功能上更智能，更符合日常项目习惯，且Quarto Code允许不压缩上下文以获得更深入的理解。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;使用CHERAI Solo模式进行Web开发：&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;输入需求，利用其快速生成产品需求文档的功能。&lt;/li&gt;
-&lt;li&gt;使用“查看变更”功能实时追踪AI的修改。&lt;/li&gt;
-&lt;li&gt;利用其一键部署功能将项目快速上线。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;处理CHERAI运行时遇到的“思考次数达到上限”提示：&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;手动输入“继续”以获取更多结果（建议官方增加自动触发选项）。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化与AI编程工具的协作流程（基于MANUS经验）：&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实行渐进式开发：&lt;/strong&gt;利用任务管理技巧，如创建动态代办清单，以清晰展示项目进度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保持错误处理策略的一致性：&lt;/strong&gt;确保AI在错误处理方面遵循既定策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避免模式固化：&lt;/strong&gt;在重复性任务中，尝试改变提问方式，以避免AI产生困扰。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;部署AI图片编辑器应用示例流程：&lt;/strong&gt;
-&lt;ol&gt;
-&lt;li&gt;提示CHERAI使用Replica的FLASTER模型构建AI编辑应用，并提供示例响应。&lt;/li&gt;
-&lt;li&gt;根据AI生成的PMD，手动修改并完善，如添加JPG图片格式、调整设计风格等。&lt;/li&gt;
-&lt;li&gt;即使AI已搜索相关信息，若PMD未包含API集成信息，则明确提示CHERAI添加。&lt;/li&gt;
-&lt;li&gt;开始编码。若遇CORS问题，指示AI使用Cloudflare Workers处理。&lt;/li&gt;
-&lt;li&gt;解决NPM问题，例如明确告知Node.js路径。&lt;/li&gt;
-&lt;li&gt;让AI修复UI交叠问题，并进行安全审计和加强。&lt;/li&gt;
-&lt;li&gt;最终，将前端部署到Vercel。&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;金句&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;“我觉得缺非常可能吸引大多数人的一点呢 就是他的呃收费模式是比较实惠的。”&lt;/li&gt;
-&lt;li&gt;“我非常喜欢的一点呢 是它可以右上角呢有一个查看变更 选中它之后呢 它会啊绿色展示出来 刚刚AI做了哪些修改 非常醒目。”&lt;/li&gt;
-&lt;li&gt;“我觉得啊确可以多设置一个按钮 也就是说让用户选择是不是要自动触发 继续按钮会比较好一点。”&lt;/li&gt;
-&lt;li&gt;“上下文工程这个概念最近非常非常火。”&lt;/li&gt;
-&lt;li&gt;“为什么这样火 因为现在是比如说大模型 它的上下文窗口是越来越大了 但是并不意味着就不用管上下文 还有agent为什么会失效。”&lt;/li&gt;
-&lt;li&gt;“我个人的话还是更倾向于后两者（Acquality Code和ORGANI） 因为我觉得他们呃更喜欢做测试 在项目里面的话更符合我的一个日常的习惯 他的agent的功能可能目前来说还有他的计划功能 目前更智能一点 但是嗯缺氧 刚刚我也有提到了 这是非常有性价比的。”&lt;/li&gt;
-&lt;li&gt;“大家非常喜欢quarter code的 原因呢是你可以选择不压缩你的上下文 让他有多少呃是多少帮你去理解 这样的理解更有深度。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1V2gWzvE84</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/5298fac0b85cc6587ab5951cc998213aaf4c50d0.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 22 Jul 2025 21:20:12 +0800</pubDate>
     </item>
   </channel>
 </rss>
