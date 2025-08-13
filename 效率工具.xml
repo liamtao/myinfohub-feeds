@@ -7,7 +7,125 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 12 Aug 2025 22:42:15 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Aug 2025 10:04:30 +0000</lastBuildDate>
+    <item>
+      <title>精通Cloud Code：30个高手必会的实战技巧全解析</title>
+      <link>https://www.bilibili.com/video/BV1XGbazvEuh</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1XGbazvEuh"&gt;最火AI编程Claude Code详细攻略，一期视频精通&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;想知道如何让AI编程工具真正理解你的整个项目，而不仅仅是零散的代码片段吗？🤔
+想把重复的编码检查、代码审查、甚至修复Bug的工作流全自动化吗？🤖
+想不想把你的命令行，变成一个能并行处理多任务的超级AI智能体？🚀&lt;/p&gt;
+&lt;p&gt;这篇指南将带你深入Cloud Code的30个高阶技巧，从上下文管理到全自动工作流，把你的AI编程助手调教成真正的得力干将。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 让AI拥有项目“全局观”：上下文管理秘籍&lt;/h3&gt;
+&lt;p&gt;要让AI高效工作，首先得让它“看懂”你的项目。Cloud Code提供了一套强大的上下文管理工具，就像是为AI配了一副能洞察项目全局的眼镜。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一键通读项目 (&lt;code&gt;/init&lt;/code&gt;)&lt;/strong&gt;: 这是最重要的第一步。执行此命令，Cloud Code会扫描整个项目文件夹，将学到的项目结构、依赖、关键文件等信息存入一个&lt;code&gt;cloud.md&lt;/code&gt;文件。这个文件就像是AI的“项目记忆笔记本”，之后的所有对话都会基于它，大大提升了AI的理解力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手动喂养知识&lt;/strong&gt;: 你可以随时编辑&lt;code&gt;cloud.md&lt;/code&gt;，手动补充关键信息，比如项目使用的特定CSS框架、架构规范等，让AI的知识库更精准。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精简对话上下文 (&lt;code&gt;/compress&lt;/code&gt;)&lt;/strong&gt;: 对话太长会让AI分心。此命令可以智能压缩历史对话，剔除无关信息，让AI更专注，同时节省Token消耗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开启新任务，保持清爽 (&lt;code&gt;/clear&lt;/code&gt;)&lt;/strong&gt;: 每次开始一个全新的任务前，用此命令清空对话记录，避免旧的上下文干扰，让AI“心无旁骛”地执行新指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调控AI的“思考深度”&lt;/strong&gt;: 在处理复杂问题时，可以在指令前加上&lt;code&gt;Sync&lt;/code&gt;, &lt;code&gt;SyncHard&lt;/code&gt;, &lt;code&gt;SyncHarder&lt;/code&gt;, 或 &lt;code&gt;UltraSync&lt;/code&gt;。这并非玄学，而是官方提供的逐级增强的提示词，能让AI投入更多资源进行深度思考。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;植入长期记忆 (&lt;code&gt;#&lt;/code&gt;)&lt;/strong&gt;: 使用&lt;code&gt;#&lt;/code&gt;进入记忆模式，你输入的信息（如“项目使用的Next.js版本是15.4.1”）可以被永久保存。你可以选择存为“项目级记忆”（在&lt;code&gt;cloud.md&lt;/code&gt;里）或“用户级记忆”（全局配置，对所有项目生效），让AI牢牢记住关键信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚡ 打通任督二脉：无缝集成IDE与命令行&lt;/h3&gt;
+&lt;p&gt;Cloud Code的强大之处在于它能与你现有的工作环境深度融合，让你无需切换窗口就能完成各种操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;连接你的IDE (&lt;code&gt;/ide&lt;/code&gt;)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;在VS Code等IDE中安装&lt;code&gt;Cloud Code&lt;/code&gt;插件。&lt;/li&gt;
+&lt;li&gt;在Cloud Code中运行&lt;code&gt;/ide&lt;/code&gt;并选择你的IDE。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果1&lt;/strong&gt;: AI能实时感知你在IDE中选中的代码，你可以直接提问“这段代码是干嘛的？”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果2&lt;/strong&gt;: AI修改代码时，VS Code会自动弹出diff对比视图，让你直观地审查变更，一键接受或拒绝。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;临时命令行模式 (&lt;code&gt;!&lt;/code&gt;)&lt;/strong&gt;: 在Cloud Code对话框输入&lt;code&gt;!&lt;/code&gt;，即可临时切换到命令行模式。比如&lt;code&gt;!npm install&lt;/code&gt;，执行过程和结果都会被记录在上下文中，AI会知道依赖已经安装，避免重复操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非交互模式 (&lt;code&gt;cloud -p&lt;/code&gt;)&lt;/strong&gt;: 让Cloud Code像一个命令行AI助手一样工作。输入&lt;code&gt;cloud -p &amp;quot;你的问题&amp;quot;&lt;/code&gt;，AI会在后台处理并直接输出结果，适合一次性的快速任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔌 给AI装上“外部大脑”：揭秘MCP服务&lt;/h3&gt;
+&lt;p&gt;MCP（模型上下文协议）是Cloud Code的“插件系统”，它像一个中间层，能让AI安全地调用外部工具和服务，极大地扩展了AI的能力边界。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;什么是MCP?&lt;/strong&gt; 简单来说，MCP Server就是一个能让AI使用的“工具箱”。比如，&lt;code&gt;context7&lt;/code&gt;就是一个专门帮AI查找最新代码文档的MCP Server，能解决大模型知识库滞后的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;如何安装MCP?&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;退出Cloud Code。&lt;/li&gt;
+&lt;li&gt;使用命令 &lt;code&gt;cloud mcp add &amp;lt;自定义名字&amp;gt; -- &amp;lt;启动命令&amp;gt;&lt;/code&gt; 来安装。例如，安装&lt;code&gt;context7&lt;/code&gt;来获取最新的Tailwind V4文档。&lt;/li&gt;
+&lt;li&gt;可以添加&lt;code&gt;--scope=user&lt;/code&gt;参数，让这个MCP在所有项目中都可用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战案例：用MCP升级项目&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;提问：“请使用&lt;code&gt;context7&lt;/code&gt;帮我查一下如何配置Tailwind V4，并把项目从V3升级到V4。”&lt;/li&gt;
+&lt;li&gt;Cloud Code会先调用&lt;code&gt;context7&lt;/code&gt;查找最新文档，然后根据文档内容，一步步自动修改你的项目文件，完成升级。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚦 从“事事请示”到“全权委托”：精通AI权限管理&lt;/h3&gt;
+&lt;p&gt;默认情况下，Cloud Code执行文件修改、命令等敏感操作时会征求你的同意。但你可以通过权限管理，让它在可信的范围内自动执行，实现真正的自动化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精细化授权 (&lt;code&gt;/permissions&lt;/code&gt;)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;允许 (&lt;code&gt;allow&lt;/code&gt;)&lt;/strong&gt;: 你可以设定规则，允许AI自动执行特定命令。例如，&lt;code&gt;bash(get commit)&lt;/code&gt;表示允许AI在任何时候自动执行&lt;code&gt;git commit&lt;/code&gt;命令而无需询问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;禁止 (&lt;code&gt;deny&lt;/code&gt;)&lt;/strong&gt;: 你也可以禁止AI使用某些工具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“危险”但高效的全权委托&lt;/strong&gt;: 启动时加上&lt;code&gt;--dangerously-skip-permissions&lt;/code&gt;参数 (如果是CCR，则使用 &lt;code&gt;ccr code --dangerously-skip-permissions&lt;/code&gt;)。这会赋予Cloud Code最高权限，它将自动执行所有操作，不再需要任何人工确认。&lt;strong&gt;请谨慎使用！&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 打造你的专属AI助理：自定义命令与自动化Hooks&lt;/h3&gt;
+&lt;p&gt;除了内置命令，你还可以创造自己的命令和自动化规则，把Cloud Code打造成最懂你的个人助理。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自定义命令 (Commands)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;在项目目录或全局配置目录中创建&lt;code&gt;.cloud/commands&lt;/code&gt;文件夹。&lt;/li&gt;
+&lt;li&gt;在文件夹里创建一个Markdown文件，文件名就是命令名，如&lt;code&gt;code-review.md&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;用自然语言在文件中描述命令的功能，如“对比当前分支与main分支的代码差异，并提出审核意见”。可以使用&lt;code&gt;$arguments&lt;/code&gt;作为参数占位符。&lt;/li&gt;
+&lt;li&gt;现在，你可以在Cloud Code中像使用内置命令一样，通过&lt;code&gt;/code-review main&lt;/code&gt;来调用它了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化钩子 (Hooks)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;在&lt;code&gt;.cloud&lt;/code&gt;文件夹中创建&lt;code&gt;sightings.json&lt;/code&gt;或&lt;code&gt;sightings.local.json&lt;/code&gt;文件。&lt;/li&gt;
+&lt;li&gt;在配置文件中定义Hooks，指定触发时机和执行的命令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战案例&lt;/strong&gt;: 设置一个“文件修改后”的Hook，让它自动运行&lt;code&gt;npx prettier --check .&lt;/code&gt;来检查代码格式。当AI修改代码后，这个Hook会自动触发。如果格式不符，AI会感知到错误并自动修复，形成一个完美的“编码-检查-修复”闭环。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖🤝 AI也能“组队打怪”：子代理与GitHub协同作战&lt;/h3&gt;
+&lt;p&gt;对于复杂任务，可以让Cloud Code分解任务，派出多个“专家”AI并行处理，还能与GitHub生态无缝联动。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;子代理 (Sub-agents)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;它们就像主AI的“子线程”，每个子代理都有特定的专长（如“代码审核大师”、“天气预报员”）。&lt;/li&gt;
+&lt;li&gt;你可以通过&lt;code&gt;/agents&lt;/code&gt;创建和管理子代理。&lt;/li&gt;
+&lt;li&gt;当你提出一个包含多个方面的复杂请求时（例如“帮我review这个分支的代码，顺便查下青岛的天气”），主AI会自动将任务分配给相应的子代理并行执行，最后汇总结果，效率倍增。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成GitHub (&lt;code&gt;gh&lt;/code&gt; CLI)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;安装GitHub官方命令行工具&lt;code&gt;gh&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;Cloud Code可以利用&lt;code&gt;gh&lt;/code&gt;来操作你的GitHub仓库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战案例&lt;/strong&gt;: 让Cloud Code读取GitHub上的一个Issue，理解Bug后，在本地自动创建一个修复分支，修改代码，最后将修复后的分支推送回GitHub。整个流程从发现问题到提交修复，一气呵成。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⏳ 编码“时间机器”：历史回溯与可视化操作&lt;/h3&gt;
+&lt;p&gt;误操作在所难免，Cloud Code及其生态工具提供了强大的“后悔药”，让你能轻松回到过去。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对话历史管理&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/resume&lt;/code&gt;: 找回并继续之前的对话。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/export&lt;/code&gt;: 将当前对话导出到剪贴板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码+对话双重回退 (&lt;code&gt;cc-undo&lt;/code&gt;)&lt;/strong&gt;: 这是一个第三方工具，可以列出历史记录，让你选择一个节点，将代码文件和对话状态&lt;strong&gt;同时&lt;/strong&gt;回退到那个时间点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;终极可视化方案 (Claudia)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;Claudia是一个Cloud Code的桌面客户端，提供了图形化界面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;杀手级功能：检查点 (Checkpoint)&lt;/strong&gt;。你可以在任何时间点创建一个项目快照。如果后续操作有误（比如AI误删了文件），你只需点击Restore恢复到之前的检查点，项目文件和对话历史会瞬间还原到创建快照时的状态，这是最强大的“时间机器”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1XGbazvEuh</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/d1df4525be667921fa153e861dac9577f71f9c4e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 13 Aug 2025 17:40:49 +0800</pubDate>
+    </item>
     <item>
       <title>AI Agent实战：用自然语言30分钟搭建全自动拓客系统</title>
       <link>https://www.youtube.com/watch?v=k_5NcmxWlVg</link>
