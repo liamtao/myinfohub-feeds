@@ -7,7 +7,53 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 16 Aug 2025 23:02:54 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Aug 2025 08:55:37 +0000</lastBuildDate>
+    <item>
+      <title>阿里&amp;复旦提出MLF模型：颠覆传统时间序列预测，任意长度输入、高效精准</title>
+      <link>https://www.bilibili.com/video/BV1rAY6zEEwq</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1rAY6zEEwq"&gt;【量化论文速读】合并不同长度时间序列预测基金，遥遥领先！最新顶会论文&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;想让模型同时分析一周、一月、一年的股价数据，却苦于输入长度必须固定？🤔
+想找到一个既快又准的预测模型，还不用烧钱堆显卡？⚡️
+如何像MACD指标一样，让不同周期的数据协同工作，而不是信息重复？💡&lt;/p&gt;
+&lt;p&gt;这篇来自阿里和复旦大学的论文提出了一个叫MLF的新模型，完美解决了这些痛点。它不仅性能霸榜，而且超级环保，所有实验只用了一张普通的3090显卡！&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤯 告别数据“补丁”，反向切块通吃所有长度&lt;/h3&gt;
+&lt;p&gt;传统的时间序列模型有一个致命弱点：输入长度必须固定。比如你用过去一个月的数据训练，那预测时就只能输入一个月的数据。如果只有20天的数据，就得“打补丁”（Padding）凑成30天，这会丢失或扭曲信息。&lt;/p&gt;
+&lt;p&gt;MLF模型的思路则完全相反，它不“补”，而是“切”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统方法&lt;/strong&gt;：固定每一小块（Patch）的长度。导致一个短序列可能被切成2块，而一个长序列被切成4块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLF的新方法&lt;/strong&gt;：固定切出来的&lt;strong&gt;块数&lt;/strong&gt;。不管原始序列有多长，通通切成固定的4块。这样一来，虽然每块的长度不同，但处理流程可以统一，完美兼容任意长度的输入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这就像切蛋糕，传统方法是每刀都切固定宽度，结果蛋糕大小不同，切出的块数也不同；而MLF是规定不管蛋糕多大，我都要切成8块，每块的大小自然会随之调整。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✂️ 信息“剪枝”，让多周期数据不再“打架”&lt;/h3&gt;
+&lt;p&gt;当我们同时输入一周、一月、一年的数据时，很多信息是重叠的（一个月的数据天然包含了一周的数据）。MLF模型设计了一个巧妙的“内部周期冗余过滤”机制，确保每个周期都提供独一无二的增量信息。&lt;/p&gt;
+&lt;p&gt;这个过程像一条信息处理流水线：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;第一站（一周数据）&lt;/strong&gt;：模型处理完一周的数据后，兵分两路。一路提炼出核心信息往下传；另一路则预测出“我在更长周期（一个月）里的重复信息是哪些？”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第二站（一月数据）&lt;/strong&gt;：在一个月的数据进入处理前，先用一个巨大的“减号”，把自己体内被一周数据标记为“重复”的部分减掉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;以此类推&lt;/strong&gt;：处理完的“纯净版”一月数据，再预测出它在一年数据里的重复部分，然后从一年数据中减掉……&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;通过这种方式，模型确保了输入的“短期、中期、长期”数据各自贡献的是独特视角，避免了信息冗余，让预测更精准。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏆 霸榜又环保：一张3090显卡吊打全场&lt;/h3&gt;
+&lt;p&gt;MLF模型的效果堪称“霸权”，既跑得快，又算得准，还特别省资源。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精准度&lt;/strong&gt;：在多个公开的时间序列测试集上（基金、电力、天气等），MLF的误差（MSE/WMA）是最低的，全面优于Transformer等所有最先进的模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高效率&lt;/strong&gt;：训练时间极短。在效果对比图里，它的训练耗时只是几个像素宽的“小短条”，而像Patchformer这类模型则是长长的“进度条”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低消耗&lt;/strong&gt;：论文里有句特别凡尔赛的话：“我们这个论文里所有的实验就只在一张3090上完成”。这说明该模型非常环保，对算力要求极低，个人开发者也能轻松驾驭。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✒️ 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“它跟以往的padding方式不一样，它的思想是反着来：不管你这个输入的时间序列多长，我给你切成同样数目（数量）的小块。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1rAY6zEEwq</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/dbf14401c76bec8e918cd7d0e957d7379ed3e7c3.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 17 Aug 2025 10:11:47 +0800</pubDate>
+    </item>
     <item>
       <title>量化交易新手避坑指南：从工具选择到数据获取，保姆级教程助你从0到1</title>
       <link>https://www.bilibili.com/video/BV1iRbPzAEZN</link>
