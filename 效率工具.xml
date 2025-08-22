@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 22 Aug 2025 09:16:43 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 22 Aug 2025 09:32:08 +0000</lastBuildDate>
     <item>
       <title>PostgreSQL：不止是数据库，更是能取代Redis、ES和向量库的后端瑞士军刀</title>
       <link>https://www.bilibili.com/video/BV1FUYQz7E4H</link>
@@ -114,6 +114,93 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1FUYQz7E4H</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/55c51556f9996d329e8e160b9428ac8ab46a43f1.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 21 Aug 2025 18:07:01 +0800</pubDate>
+    </item>
+    <item>
+      <title>从零到一：手把手教你构建AI新闻简报自动化系统</title>
+      <link>https://www.youtube.com/watch?v=pxzo2lXhWJE</link>
+      <description>&lt;p&gt;&lt;a href="UC2ojq-nuP8ceeHqiroeKhBA"&gt;Nate Herk | AI Automation&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=pxzo2lXhWJE"&gt;Watch Me Build a Multi-Agent Newsletter System in n8n (step-by-step)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;想知道如何让AI成为你的专属内容助理，每周自动搜集、撰写并排版一份精美的新闻简报吗？这篇指南将带你一步步实现这个目标。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 如何让AI自动完成新闻搜集、内容撰写和排版，为你生成一份精美简报？&lt;/li&gt;
+&lt;li&gt;⚙️ 搭建一个复杂的AI工作流需要哪些工具，又该如何像搭积木一样将它们组合起来？&lt;/li&gt;
+&lt;li&gt;🤖 如何通过分工明确的AI智能体（Agent）协作，实现从研究到成品的高效内容创作？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 蓝图先行：好的系统从清晰的构思开始&lt;/h3&gt;
+&lt;p&gt;在投入构建之前，最关键的一步是在白板（如Excalidraw或Miro）上画出系统的蓝图。这能帮助你理清思路，明确每个环节的目标。一个典型的新闻简报自动化流程如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;触发 (Trigger):&lt;/strong&gt; 设定一个每周自动运行的触发器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初步研究 (Initial Research):&lt;/strong&gt; 搜集过去一周内的相关新闻和文章。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI规划 (AI Planner):&lt;/strong&gt; AI阅读初步研究结果，确定本期简报的标题和核心主题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深度研究 (Deep Research):&lt;/strong&gt; 针对每个核心主题，进行更深入的资料搜集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI撰写 (AI Writer):&lt;/strong&gt; AI根据深度研究的资料，撰写每个主题的独立段落。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;整合 (Aggregate):&lt;/strong&gt; 将所有撰写好的段落合并在一起。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI编辑 (AI Editor):&lt;/strong&gt; 最后一个AI扮演总编的角色，添加引言和结论，进行HTML格式化，确保文章风格统一、流程顺畅。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发送 (Send):&lt;/strong&gt; 将最终成稿作为草稿发送到你的邮箱，等待人工审核和最终发送。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 技术栈揭秘：搭建自动化系统的四大金刚&lt;/h3&gt;
+&lt;p&gt;要实现上述流程，你不需要一个庞大的技术团队，只需要一个精简高效的工具组合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NIDAN:&lt;/strong&gt; 核心的工作流构建器，它像一个指挥中心，连接和调度所有其他工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tavi:&lt;/strong&gt; 强大的研究工具，负责在互联网上进行两次不同深度的信息搜集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open Router:&lt;/strong&gt; AI模型提供商，让你可以灵活选用各种强大的AI模型（如文中使用的GPT-5 Mini和GPT-5）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gmail:&lt;/strong&gt; 负责最后一步，接收并发送最终的新闻简报。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 AI智能体军队：四步构建自动化新闻简报工作流&lt;/h3&gt;
+&lt;p&gt;整个工作流的核心思想是“任务拆解”，让不同的AI智能体（Agent）各司其职，像一支军队一样协同作战。&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;第一步：初始研究&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工具：&lt;/strong&gt; NIDAN的&lt;code&gt;Schedule Trigger&lt;/code&gt; + &lt;code&gt;Tavi&lt;/code&gt;节点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt; 设定一个每周触发器，然后配置Tavi节点，针对一个宽泛的领域（如“小企业的AI应用”）搜索过去一周的新闻。这一步的目的是广泛撒网，捕捉最新动态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;strong&gt;第二步：AI规划师定调&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工具：&lt;/strong&gt; &lt;code&gt;AI Agent&lt;/code&gt;节点 (规划师)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt; 将第一步的研究结果喂给“规划师”AI。它的任务是提炼出1个吸引人的标题和3个核心主题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键技术：&lt;/strong&gt; 使用&lt;strong&gt;结构化输出解析器 (Structured Output Parser)&lt;/strong&gt;。这就像给AI一张预设好的表格，强制它把“标题”和“主题列表”分别填入不同的格子。这样做的好处是，后续步骤可以轻松、准确地调用这些信息，而不是得到一团乱糟糟的文本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;strong&gt;第三步：分头行动，深度研究与撰写&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工具：&lt;/strong&gt; &lt;code&gt;Split Out&lt;/code&gt; -&amp;gt; &lt;code&gt;Tavi&lt;/code&gt; -&amp;gt; &lt;code&gt;AI Agent&lt;/code&gt; (撰写员)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;Split Out&lt;/code&gt;节点，将规划师生成的3个主题拆分成3个独立任务，让工作流并行处理。&lt;/li&gt;
+&lt;li&gt;对每个主题，再次调用Tavi进行深度研究。这次要&lt;strong&gt;开启“包含原始内容 (include raw content)”&lt;/strong&gt;选项，获取详细的文章全文，而不仅仅是摘要。&lt;/li&gt;
+&lt;li&gt;将每个主题的深度研究资料分别喂给“撰写员”AI。这个AI的指令非常明确：&lt;strong&gt;只写一个独立的段落，不写标题、引言或结论，并引用资料来源&lt;/strong&gt;。这是专业分工的完美体现。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;&lt;strong&gt;第四步：总编审稿与发送&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工具：&lt;/strong&gt; &lt;code&gt;Aggregate&lt;/code&gt; -&amp;gt; &lt;code&gt;AI Agent&lt;/code&gt; (编辑) -&amp;gt; &lt;code&gt;Gmail&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;使用&lt;code&gt;Aggregate&lt;/code&gt;节点，将前面撰写好的3个独立段落重新合并成一篇文章。&lt;/li&gt;
+&lt;li&gt;将合并后的内容和最初的标题，一同交给“总编”AI。&lt;/li&gt;
+&lt;li&gt;这位“总编”的任务是：撰写引言和结论，为全文进行精美的HTML排版（如加粗、标题、超链接），并再次使用&lt;strong&gt;结构化输出&lt;/strong&gt;，将邮件主题和邮件正文分开。&lt;/li&gt;
+&lt;li&gt;最后，通过&lt;code&gt;Gmail&lt;/code&gt;节点，将这封排版精美的邮件发送到你的草稿箱，等待最终的人工审核。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 从模板到卓越：如何持续优化你的AI系统&lt;/h3&gt;
+&lt;p&gt;搭建完成只是第一步，持续的优化才能让它变得更强大、更符合你的需求：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;建立日志：&lt;/strong&gt; 记录每次生成的新闻简报，方便追踪效果和迭代。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反馈循环：&lt;/strong&gt; 在日志中记录你对每次生成内容的反馈，用这些反馈来微调和优化AI的提示词（Prompt）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;扩展信息源：&lt;/strong&gt; 不要局限于单一的研究工具，可以尝试融合Perplexity、SERP API等多个信息源，让内容更多元。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尝试不同模型：&lt;/strong&gt; 在Open Router中切换不同的AI模型（如Claude系列以其出色的写作能力著称），找到最适合你风格的模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏆 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;构建复杂的AI系统时，不要指望一个AI完成所有事。成功的关键在于将任务拆解，让每个专职AI智能体只做一件事，并做到极致。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=pxzo2lXhWJE</guid>
+      <enclosure url="https://i.ytimg.com/vi/pxzo2lXhWJE/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 21 Aug 2025 12:51:19 +0800</pubDate>
     </item>
     <item>
       <title>掌握SAS PROC SQL：开启高效数据处理与分析之旅</title>
