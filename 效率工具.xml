@@ -7,7 +7,116 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Aug 2025 00:18:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 10:00:48 +0000</lastBuildDate>
+    <item>
+      <title>告别繁琐：Visual Studio C++ OpenGL 开发环境配置全攻略</title>
+      <link>https://www.bilibili.com/video/BV1kkvTz8Egh</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/18053089"&gt;加加的公开课小屋&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1kkvTz8Egh"&gt;Victor Gordan【中英⚡OpenGL教程|OpenGL Tutorial】&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤯 还在为OpenGL开发环境搭建的复杂流程而烦恼吗？
+🚀 如何高效地配置Visual Studio，让你的C++ OpenGL项目快速启动？
+🛠️ CMake、GLFW、GLAD：这些关键工具该如何协同工作？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 准备工作：你的开发环境就绪了吗？&lt;/h3&gt;
+&lt;p&gt;搭建C++ OpenGL开发环境，就像准备一次技术远航，船只和航海图都要备齐！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;显卡驱动与Visual Studio更新：&lt;/strong&gt; 首先，请务必更新你的显卡驱动和最新版Visual Studio。这是确保所有工具能够顺畅运行的基石。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CMake安装：&lt;/strong&gt; 下载并安装64位Windows版CMake。它是一个强大的跨平台构建系统，将帮助我们处理复杂的库文件配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📦 核心组件下载：GLFW与GLAD速取指南&lt;/h3&gt;
+&lt;p&gt;有了得力的工具，现在我们需要引入真正的“干货”——OpenGL的辅助库。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GLFW源代码包：&lt;/strong&gt; 下载GLFW的源代码包。GLFW是一个轻量级的库，用于创建窗口、处理输入和管理OpenGL上下文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GLAD下载：&lt;/strong&gt; 访问GLAD官网，选择“C/C++”和“版本3.3”（或者直接点击“生成”），然后下载生成的ZIP文件。GLAD的作用是加载OpenGL的所有函数指针，让你能直接调用OpenGL的各种功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔧 CMake魔法：配置与构建GLFW库&lt;/h3&gt;
+&lt;p&gt;CMake就像一个聪明的建筑师，能根据你的蓝图（源代码）自动生成施工方案（项目文件）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;新建Visual Studio项目：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;打开Visual Studio，点击“新建项目”，选择“C++空项目”。&lt;/li&gt;
+&lt;li&gt;为项目命名，并务必记住项目存放的文件夹位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创建项目库文件夹：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;进入你的项目文件夹，新建一个名为&lt;code&gt;libraries&lt;/code&gt;的文件夹。&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;libraries&lt;/code&gt;中，再创建两个新文件夹，分别命名为&lt;code&gt;lib&lt;/code&gt;和&lt;code&gt;include&lt;/code&gt;。这里将是我们存放所有第三方库文件的地方。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CMake配置GLFW：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;打开CMake GUI，选择你刚才解压的GLFW文件夹作为“源文件夹”。&lt;/li&gt;
+&lt;li&gt;在GLFW源文件夹中新建一个名为&lt;code&gt;build&lt;/code&gt;的文件夹，并选择它作为“构建文件夹”。&lt;/li&gt;
+&lt;li&gt;点击“配置”，确认设置无误后（通常默认即可），再次点击“完成”和“配置”，最后点击“生成”。这一步CMake会为你生成Visual Studio的解决方案文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建GLFW解决方案：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;退出CMake。&lt;/li&gt;
+&lt;li&gt;进入GLFW解压目录下的&lt;code&gt;build&lt;/code&gt;文件夹，找到并打开&lt;code&gt;GLFW.sln&lt;/code&gt;（Visual Studio解决方案）。&lt;/li&gt;
+&lt;li&gt;在Visual Studio中，点击“生成” -&amp;gt; “生成解决方案”。如果出现错误，可能需要检查配置。成功构建后，退出Visual Studio。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📁 项目结构与库文件导入：告别路径困扰&lt;/h3&gt;
+&lt;p&gt;现在，把构建好的库文件和GLAD的核心代码，安放到你的项目“家”里！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;导入GLFW库文件：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在GLFW的&lt;code&gt;build&lt;/code&gt; -&amp;gt; &lt;code&gt;src&lt;/code&gt; -&amp;gt; &lt;code&gt;Debug&lt;/code&gt;（或&lt;code&gt;Release&lt;/code&gt;）文件夹中找到&lt;code&gt;glfw3.lib&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;将&lt;code&gt;glfw3.lib&lt;/code&gt;复制到你项目内的&lt;code&gt;libraries/lib&lt;/code&gt;文件夹中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导入GLAD文件：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;打开GLAD下载的ZIP文件。&lt;/li&gt;
+&lt;li&gt;打开&lt;code&gt;include&lt;/code&gt;文件夹，将其中的所有新文件夹（通常是&lt;code&gt;KHR&lt;/code&gt;和&lt;code&gt;glad&lt;/code&gt;）提取到你项目内的&lt;code&gt;libraries/include&lt;/code&gt;文件夹。&lt;/li&gt;
+&lt;li&gt;返回GLAD ZIP的上一级，打开&lt;code&gt;src&lt;/code&gt;文件夹，将&lt;code&gt;glad.c&lt;/code&gt;文件提取到你的项目主文件夹（通常与&lt;code&gt;.sln&lt;/code&gt;文件同级）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚙️ Visual Studio 项目配置：打通任督二脉&lt;/h3&gt;
+&lt;p&gt;让Visual Studio知道这些新来的库文件在哪里，是让你的代码“认识”它们的关键。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;打开项目属性：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在Visual Studio中打开你的项目，确保选择“64位版本”进行编译。&lt;/li&gt;
+&lt;li&gt;进入“项目属性”，为你的平台选择“所有平台”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置VC++目录：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;进入“VC++目录”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;包含目录 (Include Directories)：&lt;/strong&gt; 指向你项目内的&lt;code&gt;libraries/include&lt;/code&gt;文件夹。这样你的代码就能找到GLFW和GLAD的头文件了。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;库目录 (Library Directories)：&lt;/strong&gt; 指向你项目内的&lt;code&gt;libraries/lib&lt;/code&gt;文件夹。这样链接器就能找到&lt;code&gt;glfw3.lib&lt;/code&gt;了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置链接器输入：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;进入“链接器” -&amp;gt; “输入” -&amp;gt; “附加依赖项”。&lt;/li&gt;
+&lt;li&gt;在这里添加&lt;code&gt;glfw3.lib&lt;/code&gt;和&lt;code&gt;opengl32.lib&lt;/code&gt;。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;💡 小贴士：&lt;/strong&gt; &lt;code&gt;opengl32.lib&lt;/code&gt;虽然名字带“32”，但它依然是64位版本，只是一种历史命名规范，无需担心！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点击“确定”并再次“确定”保存设置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导入&lt;code&gt;glad.c&lt;/code&gt;：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;将你之前提取到项目主文件夹的&lt;code&gt;glad.c&lt;/code&gt;文件，拖拽到Visual Studio项目中的“源文件”筛选器下。这一步至关重要，它确保&lt;code&gt;glad.c&lt;/code&gt;被编译进你的项目。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✅ 最终测试：确保万无一失&lt;/h3&gt;
+&lt;p&gt;万事俱备，只欠东风——运行你的第一个OpenGL程序，检验所有配置是否成功！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;创建&lt;code&gt;main.cpp&lt;/code&gt;：&lt;/strong&gt; 在“源文件”筛选器下右键 -&amp;gt; “添加新项” -&amp;gt; “C++文件”，命名为&lt;code&gt;main.cpp&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;测试代码：&lt;/strong&gt; 在&lt;code&gt;main.cpp&lt;/code&gt;中输入最简单的测试代码：&lt;code&gt;int main() { return 0; }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运行与验证：&lt;/strong&gt; 编译并运行项目。如果一切配置正确，你的程序应该能成功编译并运行，不会出现任何错误。恭喜你，你的OpenGL开发环境已成功搭建！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;本文无金句，但提供了扎实的技术实践指南。&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1kkvTz8Egh</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/5dd23dc96ca970e391f966f6634938abc9a6dc8e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 27 Aug 2025 12:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>告别大而全，中国工具App如何靠“小而美”征服世界？</title>
       <link>1_2759311</link>

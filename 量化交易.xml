@@ -7,7 +7,131 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 27 Aug 2025 00:18:56 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Aug 2025 10:00:48 +0000</lastBuildDate>
+    <item>
+      <title>AI量化利率预测：浙商固收1.0模型如何用赔率择时与集成学习</title>
+      <link>https://www.bilibili.com/video/BV1VfeyznEdS</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1VfeyznEdS"&gt;【浙商证券】债市讲堂：赔率视角下的国债利率择时模型——转债&amp;amp;量化篇&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔 传统量化模型为何难以精准预测国债利率走势？
+📊 什么是“债券五碗面”？AI量化如何将其量化并融入预测模型？
+🚀 浙商固收的1.0版利率择时模型是如何通过“赔率视角”识别买入信号的？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 传统利率量化模型为何“失灵”？&lt;/h3&gt;
+&lt;p&gt;你是否曾疑惑，为何一些看似强大的利率预测模型，在市场风云变幻时却显得力不从心？原因可能在这里：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据低频且滞后：&lt;/strong&gt; 大多数模型依赖宏观数据（如月度/季度PMI、GDP、CPI），其时效性差，无法捕捉市场瞬息万变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳定性受政策扰动：&lt;/strong&gt; 模型的因子和指标极易受政策影响，对实时行情的解释力如同隔靴搔痒，显得疲弱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;难以识别趋势和技术变化：&lt;/strong&gt; 尤其是在“股债跷跷板”效应等快速行情中，基于基本面的策略难以捕捉市场的节奏和技术层面的变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔄 量化视角下的“债券五碗面”：AI如何抽丝剥茧？&lt;/h3&gt;
+&lt;p&gt;告别模糊，拥抱量化！AI大模型正在彻底改变债券投研的方式，将传统的“五碗面”分析（基本面、量价、技术、市场情绪等）转化为精准的量化预测。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;国债利率预测的量化转型：&lt;/strong&gt; 过去，我们熟悉的是债券市场的“五碗面”分析。现在，AI将其量化，抽丝剥茧，专注于国债利率的预测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从周频到日频的迭代：&lt;/strong&gt; 浙商固收的模型也在不断进化，力求更精准的预测。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1.0版本：&lt;/strong&gt; 最初尝试基于周度频率预测30年国债利率，但效果不尽如人意。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2.0版本：&lt;/strong&gt; 快速升级为基于量价分析的日频预测，显著提升了准确率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3.0版本（即将发布）：&lt;/strong&gt; 更进一步，将基于日频，通过跨资产信号相互印证，让预测更可靠。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 什么是量化模型？它如何“学习”金融市场？&lt;/h3&gt;
+&lt;p&gt;量化模型并非魔法，而是一套严谨的科学方法，让机器通过数据来“理解”并“预测”市场。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义：&lt;/strong&gt; 简而言之，就是通过数量化的手段，利用数学模型、统计规律和算法，基于海量数据进行建模。它的任务是构建特征、拟合自变量，最终预测因变量（比如，国债利率的走势）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心步骤：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据收集：&lt;/strong&gt; 从万得、AkShare等平台获取超过120个基本面和量价指标，涵盖了国债收益率曲线、货币市场利率、通货膨胀、经济增长等方方面面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据处理：&lt;/strong&gt; 这是模型“学习”的基础。包括填补数据缺失（中位数、平均数）、对高波动数据进行鲁棒性标准化、检验因子平稳性（单位根、偏度分析），并通过KS检验确保因子分布的一致性，以找到长期稳态且能提供增量信息的数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特征构建：&lt;/strong&gt; 从趋势性、结构性和流动性三个维度出发，构建变量体系，比如不同维度的利率变动幅度、期限利差及其变动等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌳 集成学习：为何它是金融数据预测的“神器”？&lt;/h3&gt;
+&lt;p&gt;在众多AI算法中，集成学习（尤其是基于树模型的）在金融数据预测领域表现尤为出色。它像一位经验丰富的策略师，整合多方意见，做出更明智的决策。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思想：&lt;/strong&gt; 将债券市场的“五碗面”数据（多维度特征）作为输入，由多个“树模型”根据这些特征的重要性进行逻辑推演，最终预测利率的变动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势超越深度学习：&lt;/strong&gt; 相较于复杂的深度学习模型（如LSTM、Transformer），集成学习拥有独特优势：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;强可解释性：&lt;/strong&gt; 模型能明确输出每个特征的重要性，预测逻辑可追溯，不像某些机器学习模型那样是个“黑匣子”，这在债券投资中至关重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对小样本和噪音友好：&lt;/strong&gt; 能够更好地应对金融数据中常见的小样本量和数据噪音。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调参复杂度适中：&lt;/strong&gt; 无需超级计算资源，普通电脑即可运行，效率更高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;天然适合金融因子：&lt;/strong&gt; 能有效处理金融数据中普遍存在的非线性、分段式和趋势性特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Boosting机制（以XGBoost为例）：&lt;/strong&gt; 这是一种强大的集成学习技术。你可以想象成一个团队，每个成员都在学习前一个成员犯的错误（残差），逐层优化和改进，从而让模型能够更好地适应每年不同的市场行情，解释性也更强。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 如何防止模型“过度学习”市场噪音？&lt;/h3&gt;
+&lt;p&gt;模型并非学得越多越好，如果它把噪音也当成了规律，就会“过拟合”，导致实际效果大打折扣。就像一个学生死记硬背，却无法举一反三。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;什么是过拟合？&lt;/strong&gt; 模型过度学习了训练数据中的随机波动和特定样本细节，而非其背后的通用规律。这会导致模型在训练集上表现完美，但在新的数据（样本外）上却一塌糊涂。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;追求“不多不少”的预测：&lt;/strong&gt; 我们追求的是模型预测值与实际值偏离度最小的“恰到好处”的状态。模型既不能过于粗糙（欠拟合），也不能过度精细（过拟合）。它应该具备“举一反三”的能力，能够应对924行情、今年2月和7月等它未曾直接学习过的市场状况。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应对策略：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时间轴划分：&lt;/strong&gt; 严格按照时间序列将历史数据按年度区间切分为训练集和验证集，避免数据泄露，这符合我们真实的预测场景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;贝叶斯优化：&lt;/strong&gt; 这是一种更高效的超参数调优方法。它通过迭代学习已有的优化参数，并结合新的市场行情样本数据，不断优化模型自身的认知和参数，从而提高模型在未来样本外的预测能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🎯 浙商固收1.0模型的核心策略与表现&lt;/h3&gt;
+&lt;p&gt;浙商固收的1.0版利率择时模型，以“赔率视角”为核心，旨在识别高概率的买入信号。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;三分类问题：&lt;/strong&gt; 模型将30年期国债周度利率变动分为三类：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大幅下行（类别2）：&lt;/strong&gt; 历史20%分位数以内，意味着高赔率的做多机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小幅下行（类别1）：&lt;/strong&gt; 历史20%-40%分位数以内。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;震荡（类别0）：&lt;/strong&gt; 历史40%-60%分位数以内。
+模型重点关注识别“大幅下行”的强烈做多信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型评估：&lt;/strong&gt; 为了衡量模型的有效性，重点关注做多信号的识别效果，主要使用：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;查准率 (Precision)：&lt;/strong&gt; 衡量模型预测为正的样本中，实际为正的比例。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查全率 (Recall)：&lt;/strong&gt; 衡量实际为正的样本中，被模型成功识别出的比例。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;F1值：&lt;/strong&gt; 查准率和查全率的调和平均数，综合衡量模型的识别能力。经验上，样本外F1值若大于70%，策略通常表现良好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测结果 (针对预测利率小幅或大幅下行)：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;查准率：59.42%&lt;/li&gt;
+&lt;li&gt;查全率：81.46%&lt;/li&gt;
+&lt;li&gt;F1值：68.72% （已非常接近70%的理想目标）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略表现（持仓5天为例，样本外2024.05.14-2025.05.14）：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;年化收益率：12.58%&lt;/li&gt;
+&lt;li&gt;累计收益率：12.11%&lt;/li&gt;
+&lt;li&gt;交易胜率：67.23%&lt;/li&gt;
+&lt;li&gt;最大回撤：6.95%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型局限：&lt;/strong&gt; 尽管表现不俗，但针对30年国债期货（TL）的预测仍有挑战。由于TL在2023年4月才上市，其历史数据偏空行情样本较少，导致模型在今年2月后阶段性“失效”，难以有效识别偏空行情和拐点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 10年期国债（T）为何是训练模型的“宝藏”？&lt;/h3&gt;
+&lt;p&gt;为了优化30年国债期货（TL）的预测效果，一个更理想的方案浮出水面：利用历史更悠久的10年期国债期货（T）数据进行训练。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据优势：&lt;/strong&gt; 10年期国债期货（T）品种经历了一个完整的牛熊周期，拥有更丰富、更全面的数据点和行情样本。这意味着模型能更好地学习在不同时间点、不同牛熊周期下市场的特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化思路：&lt;/strong&gt; 将10年期国债期货（T）的历史数据作为训练样本，然后将训练好的模型应用于30年期国债期货（TL）的预测。这样，模型有望变得更稳健，并能更精准地识别拐点，抓住“赔率更大”的左侧交易时机。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 展望未来：从“赔率”到“胜率”，提升交易执行力&lt;/h3&gt;
+&lt;p&gt;任何策略都有其局限性，不断优化是前进的动力。对于传统的利率择时模型，仍存在一些需要解决的痛点。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统模型痛点：&lt;/strong&gt; 数据量少、低频且滞后，难以识别趋势的节奏和技术层面的变化，导致短期交易执行力不足。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2.0版本突破：&lt;/strong&gt; 浙商固收正在推出2.0版本，其核心在于从“赔率维度”转向“胜率维度”的交易性择时。这意味着策略将更高效地辅助交易，精准控制交易节奏和仓位管理，大大增强交易的可执行性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;债券市场的收益归因以动量为主，一旦趋势形成，若无趋势性改变，则大概率延续。&lt;/li&gt;
+&lt;li&gt;我们更希望模型能举一反三，而非死记硬背，以应对未曾遇见的行情。&lt;/li&gt;
+&lt;li&gt;量化投资中，我们寻找长期稳态、阶段性却能产生增量信息的数据，将其映射到收益率预测中。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1VfeyznEdS</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/35af226a7297973425772f137cb0285f4a345fcc.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 27 Aug 2025 13:35:51 +0800</pubDate>
+    </item>
     <item>
       <title>量化交易UP主亲述：从策略、系统到心态的三重修炼与避坑指南</title>
       <link>https://www.bilibili.com/video/BV1tmepzEEfi</link>
