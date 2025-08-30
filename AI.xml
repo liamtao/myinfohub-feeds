@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 Aug 2025 00:01:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 01:05:11 +0000</lastBuildDate>
     <item>
       <title>从零构建语言模型：揭秘AI技术栈，洞察大模型背后效率与规模的博弈</title>
       <link>https://www.bilibili.com/video/BV14VhSz1EX1</link>
@@ -287,6 +287,98 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=yXPPcBlcF8U</guid>
       <enclosure url="https://i.ytimg.com/vi/yXPPcBlcF8U/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 29 Aug 2025 18:44:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>千问GSPO算法深度解析：大模型面试热点与微调核心技术揭秘</title>
+      <link>https://www.bilibili.com/video/BV1tNh1zvEnX</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1tNh1zvEnX"&gt;【面试八股】Qwen3的GSPO算法原理是什么？国产T0大模型核心技术精讲，0基础也能手撕前沿算法 | GRPO VS GSPO | PPO长度归一化&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔GSPO算法到底有何魔力，能让大模型能力大爆发？
+🚀相比PPO，GSPO是如何实现更稳、更快、更高效微调的？
+💡面对长序列任务，GSPO如何避免训练发散，实现公平优化？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;✨GSPO核心原理：序列级优化与裁剪魔术
+GSPO，全称General Sequence Policy Optimization，是千问团队推出的大模型后训练新算法，它是DeepMind提出的GRPO算法的进化版。强化学习是当前大模型能力飙升的关键，而GSPO正是千问三系列开源模型背后的训练利器！&lt;/p&gt;
+&lt;p&gt;GSPO的核心魔法在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;生成多个响应&lt;/strong&gt;：围绕一个提示，生成多条候选回答。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相对优势计算&lt;/strong&gt;：在这些回答中计算相对优势，生成学习信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化力度升级&lt;/strong&gt;：它把优化单位从GRPO的“token级别”直接升级到“序列级别”！这意味着一次性更新一整个回答。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PPO式裁剪与长度归一化&lt;/strong&gt;：引入类似PPO的裁剪机制和长度归一化方法，有效避免长序列训练中容易出现的发散问题。简而言之，它不再逐字挑毛病，而是从全局把握，一次性“重写”整个句子，让优化方向更明确！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🧐GSPO与GRPO：优化单位的革命性飞跃
+理解GSPO，得先知道它从GRPO那里学到了什么，又超越了什么。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GRPO的困境&lt;/strong&gt;：GRPO是逐token更新的。想象一下，一个句子评分低，GRPO会检查每个词（token）的生成概率。结果可能是前半句的词是“正向”优化信号，后半句却是“负向”优化信号，导致整体更新方向分散，训练时噪声大，容易“精神分裂”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GSPO的革新&lt;/strong&gt;：GSPO不玩“逐字修正”那一套！它直接将整段句子所有token的概率相乘，得到一个“序列概率”。然后，把整个句子作为一个整体来进行调整。这样一来，更新方向高度一致，避免了逐token更新带来的偏差，让模型学习更稳定、高效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📏为什么GSPO要进行长度归一化和裁剪？
+长短不一的回答，如何公平比较？GSPO有高招！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;长度归一化&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;痛点&lt;/strong&gt;：语言模型生成的回答有长有短。如果单纯把句子中每个token的概率累加或相乘，那么长的回答因为token数量多，天然就会出现概率偏低的“劣势”，在比较时吃亏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解法&lt;/strong&gt;：GSPO会把序列概率的乘积除以序列长度。这就像体育比赛，不同项目的选手体重不同，但可以通过“相对体重”来公平比较，确保长短回答都能在统一的尺度下被优化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;序列级裁剪&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;痛点&lt;/strong&gt;：如果序列概率的比值偏离过大，模型可能“跑偏”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解法&lt;/strong&gt;：GSPO会强制将这个比值限制在一个“安全范围”内。这相当于给训练过程加上了一个“安全阀”，防止模型更新过激，确保训练更加稳定可靠。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🏆GSPO算法的实战优势：为什么它更胜一筹？
+实战是检验算法的唯一标准，GSPO的表现令人惊艳！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;更高回报与基准成绩&lt;/strong&gt;：在相同算力投入下，GSPO能够带来更高的模型回报和基准成绩。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卓越的可拓展性&lt;/strong&gt;：随着计算投入的增加，训练效果还能持续攀升，具备极佳的可拓展性，潜力无限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程轻量化&lt;/strong&gt;：GSPO不再依赖传统的价值网络（Critic）。这对于大规模MOE（Mixture-of-Experts）模型的训练而言，大大减少了额外的通信和显存开销，使得工程实现更加轻便高效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚔️GSPO对比PPO：稳定、高效、更懂人类直觉
+面试中常被问到，GSPO与PPO相比有何优势？记住以下几点，轻松拿捏面试官：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;训练信号更稳定&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;PPO：逐token优化奖励信号，容易与整体回答脱节，导致更新方向不一致，像“盲人摸象”。&lt;/li&gt;
+&lt;li&gt;GSPO：直接在序列级别上对齐奖励，把整段回答作为一个整体优化，更新方向更清晰，像“高空俯瞰”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不再依赖价值网络&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;PPO：依赖价值网络（Critic）进行估计，如果价值网络估计不准，会带来偏差。&lt;/li&gt;
+&lt;li&gt;GSPO：彻底告别价值网络，避免了这一潜在问题，同时降低了显存与算力开销，更省心省力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长序列任务优势明显&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;PPO：在长序列训练中容易累积噪声甚至发散，变得“失控”。&lt;/li&gt;
+&lt;li&gt;GSPO：引入序列级裁剪和长度归一化，确保长短回答都能公平比较，稳定性极好，能驾驭“长篇大论”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;训练效率更高，更符人类直觉&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;人类评价模型时，看重的是整体逻辑和连贯性，而非逐字逐句挑毛病。&lt;/li&gt;
+&lt;li&gt;GSPO的优化目标正好与这种偏好一致，能更好地发挥奖励模型的作用，让模型更“懂你”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🎯GSPO算法的黄金应用场景：哪些任务最适合它？
+GSPO的序列级奖励对齐特性，使其在以下需要“全局正确性”的场景中表现出色：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;复杂推理任务&lt;/strong&gt;：例如数学证明、逻辑推理、长链条的思维过程等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码生成与执行类任务&lt;/strong&gt;：代码的正确性往往是全局性的，GSPO能更好地优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent工具调用与对话类任务&lt;/strong&gt;：涉及到多步骤的工具调用和上下文连贯的对话，GSPO能优化其整体表现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔥金句&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强化学习就是今年大模型基座能力大爆发背后的工程。&lt;/li&gt;
+&lt;li&gt;GSPO的优化目标正好与人类评价模型的偏好一致，能更好地发挥奖励模型的作用。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tNh1zvEnX</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/39f40d7dbd024a2f89cc028fc72e9e4456706156.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 29 Aug 2025 17:00:00 +0800</pubDate>
     </item>
     <item>
       <title>生成式AI消费应用榜单揭秘：谷歌、Grock与中国力量如何重塑市场？</title>
@@ -8675,82 +8767,6 @@ Agent能力是衡量大模型智慧的关键指标。V3.1在这方面的表现�
       <guid isPermaLink="true">https://www.youtube.com/watch?v=8C6iCpJ9HPo</guid>
       <enclosure url="https://i.ytimg.com/vi/8C6iCpJ9HPo/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 17 Aug 2025 14:00:18 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 时代软件开发新范式：专访 Cursor 大神 Lee Robinson，揭秘从 0 到 1 构建应用的正确姿势</title>
-      <link>https://www.youtube.com/watch?v=mm8cn53_pdU</link>
-      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=mm8cn53_pdU"&gt;Cursor Tutorial for Beginners from Cursor's Head of AI Education (2025) | Lee Robinson&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;想知道顶尖开发者如何利用 AI 从零打造一款 App 吗？专访前 Vercel 开发体验负责人、现 Cursor 核心成员 Lee Robinson，他将手把手带你走进 AI 编程的新世界。&lt;/p&gt;
-&lt;p&gt;🤔 AI 真的能替代程序员吗？如何避免成为只会复制粘贴的“代码搬运工”？
-🚀 如何像指挥初级工程师一样指挥 AI，让它为你高效构建应用？
-💡 为什么说“测试”是释放 AI 编程潜力的关键钥匙？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI 正在重塑软件开发：你的新同事是不会疲倦的“初级工程师”&lt;/h3&gt;
-&lt;p&gt;Lee Robinson 认为，我们构建软件的方式正在发生根本性改变。AI 已经可以写出比人类更规范的 commit，更能像一个初级工程师一样，拥有一个“自我修正”的闭环工作流。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;检查输出：&lt;/strong&gt; AI 可以运行自己写的代码。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分析错误：&lt;/strong&gt; 当测试失败时，AI 能读取失败日志，理解问题所在。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持续迭代：&lt;/strong&gt; 它会基于错误信息不断修改代码，直到测试通过。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这就像你拥有了一个可以7x24小时工作的初级工程师团队，而你则扮演着“工程经理”的角色，负责指导和把控方向。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 从0到1构建AI应用：一份给产品经理和开发者的实战指南&lt;/h3&gt;
-&lt;p&gt;“Vibe coding”（凭感觉编程）在原型阶段很有用，但要构建严肃的产品，你需要一套更严谨的方法论来与 AI 协作。以下是 Lee Robinson 的核心步骤：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;明确且详尽的初始指令是成功的一半&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;别指望AI猜你心思：&lt;/strong&gt; “你必须为 AI 带来你想要构建产品的背景信息”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;像写PRD一样写Prompt：&lt;/strong&gt; 你的指令不仅要包含产品需求，还应该包含明确的技术选型（如数据库、认证方式、API），甚至可以包括设计风格、代码规范等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;给AI装上“眼睛”：测试是AI自我修正的关键&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心洞察：&lt;/strong&gt; 在指令中明确要求 AI 编写测试用例（如端到端测试），这是整个工作流中最关键的一环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工作原理：&lt;/strong&gt; 测试为 AI 提供了一个明确的反馈循环。代码work不work，不再是你口头告诉它，而是测试结果“告诉”它。这使得 AI 能够独立发现并修复问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;把AI当成“同事”，进行规划与复盘&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;先出计划再动手：&lt;/strong&gt; 让 AI 先根据你的需求生成一个详细的开发计划，并分解成多个步骤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;让人类留在决策环：&lt;/strong&gt; 在指令中明确要求“如果模型有疑问，请保留人类输入”。让 AI 在不确定时主动提问，确保方向正确。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;管理AI的“工作记忆”，避免信息过载&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“鸡同鸭讲”的真相：&lt;/strong&gt; AI 的上下文窗口就像人的短期记忆。如果你在一个超长的对话中让它回忆最初的细节，它可能会“忘记”或混淆，这就是“大海捞针”问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作建议：&lt;/strong&gt; 当完成一个阶段性任务（比如已经 commit 代码）后，果断开启一个新的聊天窗口来处理下一个任务。这能确保 AI 聚焦于当前问题，不被之前的对话历史干扰。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h3&gt;👨‍💻 致资深工程师：你的经验在AI时代更加珍贵&lt;/h3&gt;
-&lt;p&gt;AI 不会让你失业，反而会让你的经验变得更有价值。工程的最佳实践，如编写测试、使用类型语言（TypeScript）、代码规范检查（Linters）等，现在比以往任何时候都重要。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI的“助听器”：&lt;/strong&gt; 这些最佳实践为 AI Agent 提供了宝贵的“信号”和“反馈”，帮助它们更好地理解代码、发现错误并进行修复。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;告别“体力活”：&lt;/strong&gt; 把那些重复、枯燥的工作（如配置依赖、格式化代码、处理兼容性问题）交给 AI，让你专注于更具创造性的架构设计和业务逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌱 给产品经理和新手的建议：如何真正学会用AI构建软件？&lt;/h3&gt;
-&lt;p&gt;AI 降低了软件开发的门槛，但也容易让人陷入“知其然不知其所以然”的陷阱。Lee 的建议是“两条腿走路”：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;边做边学 (Learning by Doing):&lt;/strong&gt; 大胆地用 AI 构建一些小项目，哪怕是“一次性”的原型，目的是为了快速试错和体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回归基础 (Learn the Fundamentals):&lt;/strong&gt; 与此同时，必须花时间去“啃教科书”，学习计算机科学的基础知识。否则，你甚至不知道该问 AI 什么问题。比如，如果你不了解客户端和服务器的区别，你就不会意识到把 API 密钥暴露在前端代码中是多么危险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“你不能仅仅把 AI 当成一个快速致富或快速构建应用的工具，它行不通的。你必须抱着‘我想用这些工具来学习如何构建软件’的心态。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“AI 将会写出比我写过的任何一次都好的 commit。”&lt;/li&gt;
-&lt;li&gt;“没有任何办法能让 AI 神奇地为你思考并做出所有决定，你必须带来上下文。”&lt;/li&gt;
-&lt;li&gt;“有些人用新工具构建了第一个版本，然后他们不得不回去买一本教科书，学习基础知识，然后才能把事情推进下去。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=mm8cn53_pdU</guid>
-      <enclosure url="https://i.ytimg.com/vi/mm8cn53_pdU/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 17 Aug 2025 13:01:20 +0800</pubDate>
     </item>
   </channel>
 </rss>
