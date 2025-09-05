@@ -7,7 +7,300 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 04 Sep 2025 22:16:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Sep 2025 08:50:34 +0000</lastBuildDate>
+    <item>
+      <title>中金量化新篇章：深度学习与树模型融合，时序模型突破因子合成极限</title>
+      <link>https://www.bilibili.com/video/BV1Usa8z8ErJ</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Usa8z8ErJ"&gt;【中金公司】深度学习模型在因子合成中的应用&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🧠 机器学习在量化投资中如何实现因子合成的“超进化”，超越单一模型的局限？
+⏳ 面对复杂多变的市场数据，时间序列模型如何独具慧眼，精准捕捉时序因子的奥秘？
+🚀 传统的GRU模型如何巧借Transformer的“东风”，兼顾轻量化与全局建模能力，打造更强劲的量化引擎？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌳 树模型与深度学习：因子合成的“双剑合璧”&lt;/h3&gt;
+&lt;p&gt;想象一下，如果把量化投资看作一场寻宝游戏，那么因子就是指引方向的地图。传统机器学习的“树模型”（如XGBoost、LGBM）和前沿的“深度学习模型”就是两种强大的寻宝工具，它们各自拥有独特的优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;树模型的“稳健老兵”特质：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;长期作战更有优势：&lt;/strong&gt; 就像经验丰富的老兵，在月度换仓、预测未来20-60天等长期目标时，表现出更强的稳定性和超额收益，信息比率（IR）显著提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Optuna调参利器：&lt;/strong&gt; 发现它能显著提升模型在“短换仓周期”（周度）和“短期预测目标”（日度收益率）下的表现。就像给老兵配备了量身定制的武器，短期爆发力惊人，能把样本内拟合效果的提升转化为短期样本外的实实在在的收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;擅长“精雕细琢”小特征。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;深度学习的“短期快攻手”特质：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非线性拟合的“魔法师”：&lt;/strong&gt; 拥有强大的非线性拟合能力，尤其擅长预测短期目标（如未来1天收益率）。周度调仓下，年化超额收益能轻松突破30%，信息比率甚至高达13.89！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“广开言路”提升预测：&lt;/strong&gt; 输入特征越多样（比如同时使用价量和高频因子），短期预测能力越强，年化收益甚至能飙升到41.2%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过多任务训练提升特征捕捉：&lt;/strong&gt; 它能同时预测收益率和收益率的相对大小，让模型更“聪明”，更好地提取与未来收益相关的特征，并有效应对过拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;但请注意：&lt;/strong&gt; 它的优势主要集中在短期，一旦预测目标拉长（20-60天），就像跑得太快的选手，容易后劲不足，表现显著衰减。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;惊人发现：&lt;/strong&gt; 无论是树模型还是深度学习模型，它们挖掘出的因子都与常见的风格因子（如波动、换手、市值、动量）相关性极低（均在18%以下），而且这两种模型彼此之间挖掘的因子相关性也低（20%以下）！这说明它们各自捕捉到了市场中“独家”的增量信息，就像挖到了不同的宝藏。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤝 强强联合：并行与串行结构的因子合成策略&lt;/h3&gt;
+&lt;p&gt;既然两种模型各有所长，那何不把它们结合起来，发挥1+1&amp;gt;2的效果呢？这里有两种巧妙的结合方式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;并行结构：“取长补短”式合作&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;怎么做：&lt;/strong&gt; 深度学习模型负责处理高频、日度价量因子，预测短期收益；树模型则负责处理基本面因子，预测长期收益。最后，把它们各自的预测结果等权相加，作为最终的总预测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;它的优点：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全方位输入：&lt;/strong&gt; 既有微观的高频和日度因子，也有中观的基本面因子，信息覆盖更全面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决“时差”问题：&lt;/strong&gt; 巧妙处理了不同频率因子（高频/日度vs基本面）难以同时建模的难题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;短期与长期兼顾：&lt;/strong&gt; 就像一只眼睛看短期波动，另一只眼睛看长期趋势，两者都能捕捉到。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳健性大提升：&lt;/strong&gt; 结合了树模型的稳定性和深度学习的强大拟合能力，让模型更可靠。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果喜人：&lt;/strong&gt; 样本外表现比单一深度学习模型更稳定，信息比率也有显著提升！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;串行结构：“接力棒”式合作&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;怎么做：&lt;/strong&gt; 深度学习模型先登场，它不直接给出最终结果，而是将其“隐层输出”（经过提炼的特征）作为“接力棒”，传递给树模型。然后由树模型完成最终的收益率预测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;它的优点：&lt;/strong&gt; 结合了深度学习强大的信息压缩能力和树模型擅长处理“小特征”的优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果惊艳：&lt;/strong&gt; 年化超额收益可达44%以上，信息比率接近5%！相对于单一树模型，各项指标提升至少2.5倍。它的稳定性表现更强，因此被选为中金公司月度量化月报的长期跟踪模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“最佳尺寸”：&lt;/strong&gt; 实验发现，深度学习模型隐层特征维度设为64时，能达到最佳的输入加速和表达效果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⏳ 时间序列模型：为何它能更好地“看懂”时序因子？&lt;/h3&gt;
+&lt;p&gt;市场数据就像一部连续剧，每个时刻都与前一刻紧密相连。时间序列模型正是“看剧”的专家，它们天生就能更好地理解这种连续性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;天生适配时序数据：&lt;/strong&gt; RNN、LSTM、GRU这类模型通过循环连接和巧妙的“门控机制”，能像人脑一样记住历史信息，有效捕捉数据序列中的依赖关系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;模型进化论：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RNN：&lt;/strong&gt; 最早的循环神经网络，能保留历史状态，但层数一多就容易“记忆混乱”（梯度爆炸/消失）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LSTM：&lt;/strong&gt; 引入“遗忘门”、“输入门”、“输出门”等三扇“门”，解决了RNN的记忆问题，但计算量相对较大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GRU：&lt;/strong&gt; LSTM的“瘦身版”，把三扇门简化成两扇“更新门”和“重置门”，在提升训练效率的同时，有效降低了过拟合风险，是测试中的优秀基准模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformer：&lt;/strong&gt; 抛弃了循环和门结构，转而采用“注意力机制”，能一眼看清全局依赖，在处理长序列数据上能力超群，但参数量巨大，易过拟合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;时序因子与截面因子：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时序指标：&lt;/strong&gt; 就像专注于一支股票的“历史传记”，通过对单个标的（股票）的价量数据进行时序计算得出。虽然单看它的预测能力不如截面因子，但一旦经过时序模型拟合，其合成因子在样本外表现却能显著优于截面因子，这说明时序因子在“时间序列”维度上蕴藏着更丰富的信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;截面因子：&lt;/strong&gt; 就像一次全市场的“横向大普查”，关注的是同一时间点所有股票的横向特征。它在单因子预测能力上表现更佳。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;训练的“精细化”：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;拉长“历史观”：&lt;/strong&gt; 训练时需要使用过去8年的A股数据，以确保模型能捕捉到完整的市场周期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增加“时间维度”：&lt;/strong&gt; 输入数据不再只是单个时间点的特征，而是加入“过去60个交易日”的维度，形成“股票 x 60交易日 x 特征数量”的三维输入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键预处理：&lt;/strong&gt; 对每个股票的输入特征进行“时序Z-Square处理”非常重要，能让模型更好地理解数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 Attention GRU：融合Transformer优势的轻量化时序模型&lt;/h3&gt;
+&lt;p&gt;既然GRU和Transformer各有千秋，为何不让它们强强联手呢？传统的GRU优化（如GLU、ByGLU）效果有限，于是我们独创性地提出了一种更强大的组合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Attention GRU RES结构（创新优化）：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思想：&lt;/strong&gt; 将注意力模块和残差结构巧妙地融入GRU模型。就像给GRU安装了“全局视野”的雷达（注意力机制）和“快速通道”（残差结构），使其既拥有Transformer的全局建模能力，又保留了GRU的轻量化和高效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流向：&lt;/strong&gt; 数据先经过信息编码压缩，再送入两层GRU，然后交给注意力网络。GRU的输出和注意力网络的结果进行融合，最后通过残差结构完成收益率拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;残差结构的“捷径”：&lt;/strong&gt; 就像给深度网络开了“绿色通道”，梯度可以直接回流，不仅提升了训练的稳定性，还确保了原始输入信息的完整性，避免信息丢失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简化自注意力的“高效雷达”：&lt;/strong&gt; 以GRU的隐层状态直接生成注意力分数，大大提高了计算效率，并且参数量远少于传统Transformer，实现了“又快又好”的效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战表现：&lt;/strong&gt; 样本外ICIR高达1.09，多头超额12.64%，信息比率2.27，表现显著优于传统GRU和Transformer！尤其在中证1000成分股中，泛化效果也十分稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与Transformer的“PK”：&lt;/strong&gt; 尽管Transformer在样本内拟合能力超强，但因参数量过大，样本外表现往往不如Attention GRU RES稳定。而Attention GRU RES模型更加简洁，有效抑制了过拟合，实现了更好的样本外效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;捕获增量信息：&lt;/strong&gt; 挖掘出的因子与传统风格因子（波动、换手、动量、市值、盈利）截面相关性低（20%以下），再次验证了其捕捉“独家”信息的能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“数模型和深度学习模型他们是在各自的场景里面各有优势擅长不同场景里面不同的一个训练的结果。”&lt;/li&gt;
+&lt;li&gt;“Optuna调参框架其实是对于更短的换装周期和更短期的预测目标这两个设定下面效果提升是更显著的。”&lt;/li&gt;
+&lt;li&gt;“时间序列模型天然是更加适配时间序列指标的。”&lt;/li&gt;
+&lt;li&gt;“Attention GRU结构它可以同时获取GRU的一个高性能以及Transformer的一个全局建模能力。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Usa8z8ErJ</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/71316b6dce69320f313883ae8eb56b0916f7ee7f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 05 Sep 2025 15:12:06 +0800</pubDate>
+    </item>
+    <item>
+      <title>树模型深度解密：AI如何革新量化投资盈利预测与指数增强</title>
+      <link>https://www.bilibili.com/video/BV11aa8zREPP</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV11aa8zREPP"&gt;【中金公司】树模型在指数增强和盈利预测中的应用&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔 如何利用机器学习，特别是树模型，大幅提升企业盈利预测的准确性？
+📈 XGBoost如何在中金量化策略中，筛选和合成因子，实现宽基指数增强？
+💡 传统量化方法在盈利预测中的“假阳性”高，机器学习如何破解？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌳 &lt;strong&gt;聚合树模型：AI量化新引擎&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;聚合学习，威力倍增：&lt;/strong&gt; 树模型并非单打独斗，而是通过“聚合”变得更强大。想象一下，一棵棵小树（决策树）通过团队协作（串联或并联），最终成为参天大树，提供更精准的预测。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;串联高手（XGBoost, LightGBM）：&lt;/strong&gt; 它们像接力赛跑，一个模型拟合完残差，将结果交给下一个模型继续优化，层层递进，灵活性和性能都极强。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并联智囊（Random Forest，随机森林）：&lt;/strong&gt; 它们像多个专家同时出谋划策，各自独立训练，最后将所有结果进行平均或投票，有效降低过拟合风险，提升稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔍 &lt;strong&gt;树模型可视化：洞察决策“黑箱”&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不再是“黑箱”：&lt;/strong&gt; 相比很多深度学习模型，树模型的一大优势是其“透明度”。我们能清晰看到模型是如何一步步做出决策的。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;决策路径图：&lt;/strong&gt; 完成训练后，你能看到模型根据哪些特征、按照什么规则进行分类，比如“如果某个因子小于X，就走这条路”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特征重要性排名：&lt;/strong&gt; 模型会告诉你哪些特征在决策中发挥了关键作用。通常，越是“根节点”的特征，其重要性越高，因为它影响了后续大量样本的划分。这就像探照灯，照亮了模型认为最有价值的信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🎯 &lt;strong&gt;准确盈利预测：超额收益的密钥&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;盈利预测的重要性不言而喻：&lt;/strong&gt; 准确预测企业未来盈利（如ROE，股本回报率）的变化方向，能带来超乎想象的投资收益。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;年化超额可观：&lt;/strong&gt; 回测显示，如果能精准预测未来ROE改善幅度排名前10%的股票，年化超额收益甚至可以超过30%！这笔收益还能穿越牛熊，不惧风格切换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“日历效应”明显：&lt;/strong&gt; ROE改善因子并非全年无休，它在财报披露期（1月、4月、7月、8月、10月）的预测效果特别显著。但在11月，可能因为前期超涨或投资者“落袋为安”心理，表现会稍弱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📉 &lt;strong&gt;传统预测方法：高“假阳性”的痛点&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“看起来很美”的陷阱：&lt;/strong&gt; 传统的盈利预测方法，比如“趋势外推”（认为盈利有动量效应）或“分析师预期”，确实有一定预测能力。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;假阳性率高：&lt;/strong&gt; 但它们都有个大毛病——“假阳性”太高。这意味着你预测为“ROE改善”的股票，有很高概率（高达27%）实际上ROE改善幅度却排在市场后30%。这就像是空欢喜一场，投资效果大打折扣。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线性思维的局限：&lt;/strong&gt; 传统方法只考虑了过去盈利表现或分析师观点的单一信息，且只捕捉线性关系，忽略了数据背后更丰富、更复杂的非线性信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚀 &lt;strong&gt;树模型介入：非线性捕捉与归因能力&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机器学习来破局：&lt;/strong&gt; 正是因为传统模型的缺陷，机器学习，特别是树模型，被寄予厚望。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精准打击：&lt;/strong&gt; 实际测试显示，XGBoost和LightGBM的预测胜率高达85%，而假阳性率不到5%！这比传统方法的各项指标都有了显著优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深挖非线性：&lt;/strong&gt; 它们能有效捕捉数据中复杂的非线性模式，这是传统方法望尘莫及的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“白盒化”优势：&lt;/strong&gt; 并且，树模型还具备一定的归因能力，能解释预测结果背后的原因，而不是一个完全的“黑箱”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ &lt;strong&gt;构建盈利预测模型：实操指南&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标明确：&lt;/strong&gt; 预测股票ROE的“变化方向”而非具体数值。因为变化幅度变异性大，预测方向更稳定可靠。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输入特征：&lt;/strong&gt; 模型“喂食”的数据包括：过去四个季度的财务指标（如资产负债表、利润表科目），以及最新的价量因子和调研因子。数据越丰富，模型“看”得越清楚。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预测标签：&lt;/strong&gt; 将单季度ROE同比变化幅度排名前50%的股票设为“正样本”（改善），否则为“负样本”（未改善）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;训练策略：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分月构建：&lt;/strong&gt; 不同月份的预测目标和输入特征的时间跨度差异大，因此为每个预测月份单独构建模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;滚动训练：&lt;/strong&gt; 采用“活水”训练法，用最近一年的数据做验证，前五年数据做训练。这能让模型持续学习最新市场规律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据预处理：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;覆盖度筛选：&lt;/strong&gt; 特征覆盖度低于60%的直接剔除；样本覆盖度低于70%的也剔除。确保数据完整性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极端值处理：&lt;/strong&gt; 对截面数据进行去极值和标准化处理，防止极端数值干扰模型判断。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📊 &lt;strong&gt;模型归因：哪些因素最重要？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心贡献者：&lt;/strong&gt; 模型的“功劳簿”显示，资产负债表和利润表的差分项（变化量）对预测贡献最高。这说明盈利的变化趋势和结构性调整至关重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多维修正：&lt;/strong&gt; 预测模型不仅捕捉盈利趋势，还巧妙结合了资产负债表科目和价量信息，对预测结果进行有效修正。信息越立体，预测越精准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📈 &lt;strong&gt;XGBoost预测因子：全市场超额表现&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;效果惊艳：&lt;/strong&gt; 基于XGBoost构建的盈利预测因子，其月度IC（信息系数）均值高达4%，显著优于传统量化因子。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中证1000的“黑马”：&lt;/strong&gt; 在中证1000指数成分股中，该因子的多头年化超额收益甚至达到14.5%，表现异常亮眼且稳定。在沪深300和中证500中也表现不俗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;穿越周期：&lt;/strong&gt; 即使在2022-2023年成长风格疲软的时期，该因子IC均值仍能维持在2.4%以上，展现了强大的抗跌性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高相关性：&lt;/strong&gt; 它不仅与成长因子高度相关，更重要的是，与未来实际ROE变化因子的相关性高达48%，证明了其对未来盈利的精准捕捉能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🎯 &lt;strong&gt;XGBoost成长优选策略：27%年化超额&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“两步走”策略：&lt;/strong&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初筛：&lt;/strong&gt; 首先，利用XGBoost预测未来ROE改善概率，筛选出前10%的股票，构建一个高质量的“ROE改善股票池”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精选：&lt;/strong&gt; 在此股票池内，再结合流动性、调研等三类传统量化因子（经过行业和市值中性化处理），进行等权综合打分，最终选出排名前30的股票作为持仓。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;年化超额收益：&lt;/strong&gt; 该策略年化超额收益率高达27%，净值曲线稳健向上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不受市值限制：&lt;/strong&gt; 即使将选股范围限制在市值1000亿以上的大盘股，策略的年化超额收益仍能达到20%，证明其并非“小市值效应”的产物。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行业偏好：&lt;/strong&gt; 策略主要偏好电子、医药、基础化工行业。同时，机械和电芯行业股票入选较多，这表明模型判断这些行业中小市值公司盈利改善概率更高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 &lt;strong&gt;非线性模型合成因子：优势与劣势&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非线性模型的超能力：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;捕捉复杂关系：&lt;/strong&gt; 能够发现传统线性模型难以察觉的非线性关系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动筛选：&lt;/strong&gt; 自动识别并选择具有强大预测能力的因子（特征）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据适应性强：&lt;/strong&gt; 擅长处理高维数据，对数据清洗、异常值和缺失值的要求相对较低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“硬币的另一面”：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;过拟合风险：&lt;/strong&gt; 模型越复杂，越容易过度学习训练数据，导致在新数据上表现不佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;计算成本：&lt;/strong&gt; 通常需要更高的计算资源和时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可解释性：&lt;/strong&gt; 相比线性模型，复杂模型的决策过程更难被完全理解（但树模型相对较好）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤔 &lt;strong&gt;分类 vs 回归：哪个更适合预测收益？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;预测收益的“艺术”：&lt;/strong&gt; 直接预测股票收益的“绝对值”（回归问题）难度非常大，就像要精确算出明天的股价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更聪明的做法：&lt;/strong&gt; 将问题转化为预测“收益较高”或“收益较低”的“方向性”（分类问题）会更有效。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分类模型更稳健：&lt;/strong&gt; 实践证明，分类模型在预测股票未来收益时，稳定性更高，过拟合程度更低，预测胜率更佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据对比：&lt;/strong&gt; 在沪深300成分股的对比测试中，分类模型的年化超额收益达到6.7%，而回归模型仅为0.9%，效果差异显著。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚫 &lt;strong&gt;XGBoost与特征筛选：不那么必要&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;XGBoost的“包容性”：&lt;/strong&gt; 很多模型在输入前都需要对特征进行严格筛选，以避免高相关性特征带来冗余或负面影响。但XGBoost在这方面表现出惊人的“包容性”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论：&lt;/strong&gt; 对于XGBoost模型，即使不提前对原始特征进行筛选，它对特征共线性的处理能力也足够强，对最终预测表现的影响并不明显。但这仅限于XGBoost和当前的应用场景，其他模型和场景仍需谨慎考虑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚖️ &lt;strong&gt;特征重要性：Weight, Gain, Cover如何选？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;XGBoost的三张“成绩单”：&lt;/strong&gt; XGBoost提供了三种不同的特征重要性指标（Weight, Gain, Cover），它们从不同角度衡量特征的重要性。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Weight（次数）：&lt;/strong&gt; 衡量特征在所有树中被用作分裂节点的次数，简单粗暴。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gain（增益）：&lt;/strong&gt; 衡量特征在分裂时带来的平均增益，更侧重贡献度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cover（覆盖）：&lt;/strong&gt; 衡量特征在分裂时平均覆盖的样本范围。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实测发现：Weight表现更优：&lt;/strong&gt; 我们的测试发现，Weight指标选出的因子表现最强！它更倾向于基本面指标，而Gain和Cover则更偏向价量指标。Weight能更有效地识别出那些在训练和测试阶段都表现出强大预测能力的因子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌍 &lt;strong&gt;训练范围：成分股 vs 全市场？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因指数而异：&lt;/strong&gt; 模型的训练范围并非一成不变，需要根据目标指数的特点进行调整。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;沪深300：&lt;/strong&gt; 由于其风格偏向大盘蓝筹，与全市场差异较大，因此模型最好在沪深300成分股内部进行训练，效果更佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中证500/中证1000：&lt;/strong&gt; 这两个指数的风格与全市场更为接近，因此可以在全市场进行训练，模型的泛化能力和表现会更好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📈 &lt;strong&gt;宽基指数增强：信赖型与微调型策略&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;两种策略路线：&lt;/strong&gt; 我们探索了两种基于XGBoost的指数增强策略，分别称为“信赖型”和“微调型”。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;信赖型策略：&lt;/strong&gt; 直接“信仰”XGBoost！完全根据其Feature Importance（特别是Weight指标）来选择因子并决定它们的权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;微调型策略：&lt;/strong&gt; 结合传统智慧与AI。沿用现有模型的因子和权重，但利用XGBoost的特征重要性，对因子的权重进行“微调”（重要性高的上调，低的下调）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不同指数的策略选择：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;沪深300增强：&lt;/strong&gt; 微调型策略表现更稳健，年化超额收益提高了1.3个百分点，信息比提高了0.12。它主要在2022年和2023年贡献了显著改善。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中证500增强：&lt;/strong&gt; 同样是微调型策略效果更好，且可以在全市场训练。年化超额收益提升约1个百分点，尤其在2022年表现抢眼。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中证1000增强：&lt;/strong&gt; 信赖型策略大放异彩！年化超额收益高达22%，即便在2022-2023年也有20%的超额。这表明在小盘股领域，XGBoost挖掘非线性价量信息的能力尤其强大。但值得注意的是，信赖型策略的换手率通常较高，可能影响稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“未来LOE的改善的股票组合，收益率的表现是更加可观的，它的超额收益率可以穿越风格周期。”&lt;/li&gt;
+&lt;li&gt;“传统的量化思路…都具有一定的预测能力，但是都存在我们所谓的假阳性比较高的问题。”&lt;/li&gt;
+&lt;li&gt;“机器学习模型，它的优势主要比较显著的呢，就是它可以去捕捉这种非线性的特点，并且有一定的归因能力。”&lt;/li&gt;
+&lt;li&gt;“XGBoost的预测因子…多头年化超额收益达到了14.5%，这个表现呢是在而传统的阅读模音乐读音子里面是相对比较亮眼的。”&lt;/li&gt;
+&lt;li&gt;“XGBoost成长优选策略年化超额收益率可以达到27%。”&lt;/li&gt;
+&lt;li&gt;“XGBoost，它对于特征的这个贡献性…他的处理能力其实还是比较强的。也就是说嗯我给他的这个特征的这个原始特征，如果不经过筛选和经过筛选，呃对于模型最终给给出的一个预测的表现来讲的话，影响并不是很明显。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV11aa8zREPP</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/592d49344517cd9405c2576a788e6791b27dabb8.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 05 Sep 2025 15:06:59 +0800</pubDate>
+    </item>
     <item>
       <title>AI生成量化交易策略？手把手教你如何让DeepSeek代码在QMT里跑起来</title>
       <link>https://www.bilibili.com/video/BV1tvaPzoERv</link>
@@ -690,6 +983,115 @@
       <pubDate>Sun, 24 Aug 2025 18:21:00 +0800</pubDate>
     </item>
     <item>
+      <title>用汇率波动预测股市：一个简单指标如何帮你跑赢大盘并降低风险？</title>
+      <link>https://www.bilibili.com/video/BV1sbeMzNES1</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1sbeMzNES1"&gt;美元越贬值，A股越新高？美元汇率如何影响大盘走向？如何用人民币兑美元汇率判断股市趋势？宏观指标量化择时策略系列2【量化投资邢不行啊】&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;💰汇率波动如何悄悄影响你的钱袋子？
+📈一个简单的汇率指标，真能帮你跑赢大盘，甚至降低投资风险？
+💡想提升你的量化交易策略收益？除了看多，还有哪些骚操作？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🕵️‍♀️ 汇率波动如何影响A股？&lt;/h3&gt;
+&lt;p&gt;汇率（两种货币的兑换比例）的每一次心跳，都可能牵动股市的神经！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;外资是风向标：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;人民币升值期：&lt;/strong&gt; 外资乐意涌入A股，因为他们不仅能享受股价上涨的甜头，卖出股票后还能换回更多美元，实现“双重套利”！&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; 2020年下半年人民币升值，北向资金半年净流入5000亿元，沪深300指数同期飙升25%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人民币贬值期：&lt;/strong&gt; 外资则倾向于撤离，以免“汇率差”吞噬收益。&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;案例：&lt;/em&gt; 2022年3月14日，人民币单日贬值2%，北向资金净流出144亿元，沪指应声下跌2.6%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经济预期与流动性：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;升值：&lt;/strong&gt; 通常伴随经济向好和政策宽松的预期，为股市注入强心剂。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;贬值：&lt;/strong&gt; 可能预示着流动性收紧，市场活跃度自然会下降。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🎯 锁定“专业级”汇率数据：美元兑人民币3个月远期汇率&lt;/h3&gt;
+&lt;p&gt;并非所有汇率数据都值得你盯盘！我们选择的是银行对未来汇率的“专业预测”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;为何选它？&lt;/strong&gt; 它代表了专业机构对未来三个月汇率的评估和预期，具有极强的参考价值。&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;通俗解释：&lt;/em&gt; 就像你提前和银行约定，3个月后以一个固定价格（比如7.15）换汇，不管未来市场如何波动，风险都被提前锁定了。这7.15就是远期汇率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据来源：&lt;/strong&gt; 权威的“中国外汇交易中心”官网，每天12点左右更新，数据可靠且易于获取。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 汇率择时法（基础版）：一个简单的量化策略&lt;/h3&gt;
+&lt;p&gt;别以为量化交易高深莫测，这个策略简单到你每天都能操作！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑：&lt;/strong&gt; 每日收盘前，用最新的“美元兑人民币3个月远期汇率”与上周同日的数据进行比较。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;买入信号：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;如果今日远期汇率 &lt;strong&gt;低于&lt;/strong&gt; 上周同日，表明市场预期人民币未来会升值，股市情绪看涨！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行动：&lt;/strong&gt; 收盘时果断买入（或继续持有）沪深300指数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卖出信号：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;如果今日远期汇率 &lt;strong&gt;高于&lt;/strong&gt; 上周同日，暗示市场预期人民币未来会贬值，股市可能承压！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行动：&lt;/strong&gt; 收盘时清仓（或继续空仓）沪深300指数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 策略回测惊艳：跑赢大盘，最大回撤减半！&lt;/h3&gt;
+&lt;p&gt;这个简单策略可不是纸上谈兵，实盘回测结果令人眼前一亮！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测标的：&lt;/strong&gt; 沪深300指数（2015年至今）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心数据：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略年化收益：&lt;/strong&gt; 10.51%，轻松跑赢沪深300指数高达9.74%的超额收益！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略最大回撤：&lt;/strong&gt; 仅18.87%，相比沪深300指数本身高达46.69%的最大回撤，风险控制能力堪称卓越！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更舒适的持有体验：&lt;/strong&gt; 即使收益并非“暴利”，但它能让你在市场下跌时少亏，持有体验远超盲目买入指数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;普适性强：&lt;/strong&gt; 对全A、上证50、中证500、中证1000、创业板指等主流指数同样有效，其中：&lt;ul&gt;
+&lt;li&gt;创业板指的超额收益最高，达到15.33%。&lt;/li&gt;
+&lt;li&gt;中证500的回撤控制最佳，成功降低40.62%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 策略进阶：不只看多，还能做空！&lt;/h3&gt;
+&lt;p&gt;如果你想追求更高的收益，可以尝试给策略加点“猛料”！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;引入股指期货做空：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt; 当策略发出卖出信号时，不止是清仓，而是反手做空股指期货。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果：&lt;/strong&gt; 年化收益从基础版的10.51%飙升至18.08%！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险：&lt;/strong&gt; 但高收益也伴随高风险，最大回撤随之增加到31.46%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;忠告：&lt;/strong&gt; 这需要你熟悉股指期货，对普通投资者来说门槛较高，需谨慎。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调整买卖条件：稳健至上！&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt; 设定更严苛的买入条件，比如只有当今日汇率低于过去5天数据时才买入，其他时间选择卖出或空仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效果：&lt;/strong&gt; 年化收益仍保持在10.06%左右，但最大回撤大幅降至12.89%！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优点：&lt;/strong&gt; 整体波动更小，持有体验更佳，特别适合追求稳健的指数基金投资者。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 拓展应用：汇率指标的N种玩法&lt;/h3&gt;
+&lt;p&gt;汇率指标的应用远不止于此，还有更多潜力等你挖掘！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;行业择时：&lt;/strong&gt; 它不仅能择时大盘，还能帮你找出那些对汇率波动最敏感的行业，实现更精细化的投资。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更多汇率数据：&lt;/strong&gt; 除了3个月远期汇率，你还可以尝试用24小时更新的离岸人民币汇率（CNH），或者研究周度、月度数据对策略的影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全球市场：&lt;/strong&gt; 既然人民币汇率影响A股，那人民币兑港币的汇率是否也会影响港股的表现呢？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“量化投资策略，核心在于让你能相对多赚、相对少亏。”&lt;/li&gt;
+&lt;li&gt;“投资不是百米冲刺，是场马拉松，好的持有体验才是持续盈利的关键。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1sbeMzNES1</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/0708fcffd2e42bd77eeecb99839d2016c2dec236.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 20 Aug 2025 17:00:34 +0800</pubDate>
+    </item>
+    <item>
       <title>量化交易入门指南：手把手教你用KMT平台开发与回测自己的交易策略</title>
       <link>https://www.bilibili.com/video/BV1VNYCzyEeu</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1VNYCzyEeu"&gt;从零开始量化交易【3】——QMT功能 | QMT界面 | 简单回测 | 流批一体 | 问题答疑&lt;/a&gt;&lt;/p&gt;
@@ -1317,6 +1719,17 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1oHhnz2Ef2</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/889a1286e6fca0bf3c6f05b649208c0f5bd71882.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 01 Aug 2025 13:28:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>揭秘150%年化收益策略：量化回测告诉你，它只是一个传说</title>
+      <link>https://www.bilibili.com/video/BV1gD8CzAE2R</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1gD8CzAE2R"&gt;10年10000倍?年化收益150%的奥数老师教你赚钱,靠谱吗?Python量化热门策略,1000万条数据揭秘网红指标真面目｜量化投资邢不行啊&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🚀 网传年化收益150%的“神级”策略，真能让你轻松翻倍？📊 那些听起来很玄乎的交易秘籍，量化回测后到底长啥样？💡 如何识破网络上的投资“大师”，避免掉入财富陷阱？---🕵️‍♀️ &lt;strong&gt;网红“150%年化收益策略”初探：AI总结靠谱吗？&lt;/strong&gt;“全网爆火”的年化150%策略，宣称每天选一只股票就能轻松跑赢市场，让你的投资翻倍。但作者的量化回测结果令人大跌眼镜：*   &lt;strong&gt;回测数据&lt;/strong&gt;：从2010年至今，根据AI总结的策略，共产生51,703个买入信号。*   &lt;strong&gt;胜率揭秘&lt;/strong&gt;：次日股价上涨的概率仅约50%，和“抛硬币”没啥区别。*   &lt;strong&gt;收益惨淡&lt;/strong&gt;：平均每笔交易的收益都非常低，最高持股五天也只有0.2%。*   &lt;strong&gt;结论&lt;/strong&gt;：这样的策略，绝无可能实现150%的年化收益。---🧐 &lt;strong&gt;深挖“人体量化大师”策略：模糊的艺术还是精准的科学？&lt;/strong&gt;面对AI总结可能不准确的质疑，作者耐心观看原始视频，并尝试将“人体量化大师”的模糊描述转化为精确的量化条件：*   &lt;strong&gt;模糊描述&lt;/strong&gt;：例如，“股价应在10日均线附近，但不跌破，且10日均线要接近20日均线”。*   &lt;strong&gt;量化转换&lt;/strong&gt;：这被精确化为“收盘价不高于实时均价1%，且实时均价与20日均线的差值比在1%以内”等具体条件。这种转换让策略有了可验证的基础。---📉 &lt;strong&gt;量化实测结果揭秘：买入后次日/第三日开盘卖出，血亏！&lt;/strong&gt;作者用A股所有历史数据，对精炼后的策略进行了第一次回测（收盘买入，次日或第三日开盘卖出）：*   &lt;strong&gt;信号稀少&lt;/strong&gt;：在2010-2024这15年里，仅有1,074只股票符合买入条件，远非“每天都能选出几十只”。*   &lt;strong&gt;次日开盘卖出&lt;/strong&gt;：*   盈利概率：仅41.81%。*   平均每笔交易：亏损0.14%。*   涨幅超2%概率：仅2.42%（15年仅26次）。*   跌破10日均线止损概率：高达40%。*   &lt;strong&gt;第三日开盘卖出&lt;/strong&gt;：*   盈利概率：仍低于50%。*   平均每笔交易：仍亏损。*   涨幅超2%概率：升至21.51%。*   止损概率：更高达57.73%。*   &lt;strong&gt;结论&lt;/strong&gt;：无论次日还是第三日开盘卖出，都无法实现150%年化收益，反而会造成严重亏损。---💸 &lt;strong&gt;策略优化？盘中2:30买入，次日盘初卖出，结局依然惨淡！&lt;/strong&gt;既然开盘卖出不行，那按照“大师”的原话，2:30买入，次日盘初卖出又如何呢？作者再次修改代码回测：*   &lt;strong&gt;信号依旧少&lt;/strong&gt;：15年内，1,470只股票符合条件，仍与“每天都能选出很多”相去甚远。*   &lt;strong&gt;次日盘初卖出（9:30-10:00）&lt;/strong&gt;：*   盈利概率：仅约40.34%。*   平均每笔交易：平均收益为负。*   涨幅超2%概率：最高仅10.88%（100笔交易仅约11次）。*   跌破10日均线止损概率：始终超过50%。*   &lt;strong&gt;持股更久&lt;/strong&gt;：即使持有更长时间，整个回测期间仍处于亏损状态，且持有越久亏损越大。*   &lt;strong&gt;结论&lt;/strong&gt;：这种“人体量化策略”的实际效果，非但不能让人赚大钱，反而“亏钱概率高”到令人发指。---🤔 &lt;strong&gt;投资智慧：如何识别和验证网络上的“大师”言论？&lt;/strong&gt;面对网络上鱼龙混杂的投资信息，作者给出了实用的建议：*   &lt;strong&gt;警惕无数据验证的策略&lt;/strong&gt;：任何没有数据支撑的策略，都值得我们打上问号。*   &lt;strong&gt;识别模糊描述&lt;/strong&gt;：小心那些描述模糊、买卖点不清晰，却用“个人洞察”、“经验不足”来搪塞的“大师”。*   &lt;strong&gt;数据说话&lt;/strong&gt;：遇到感兴趣的策略，想办法获取数据和代码，亲自回测验证，或寻求专业人士帮助。*   &lt;strong&gt;相信大数据&lt;/strong&gt;：网上KOL千千万，真正能经受大数据验证的，才是值得追随的“大佬”。---🏆 &lt;strong&gt;金句&lt;/strong&gt;“与其说赚钱概率高，不如说是亏钱概率高。”“网上无数的KOL，但真正能经受大数据验证的，才称得上是真正的大佬。”“多模糊描述、不清晰买卖点、个人‘洞察’论，如果听不懂，就说你经验不够。”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1gD8CzAE2R</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/79a466e9733f28c5cb26de6a138d146d8b73dd95.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 31 Jul 2025 17:41:53 +0800</pubDate>
     </item>
     <item>
       <title>中金量化策略：小微盘与次新股的阿尔法挖掘及事件驱动策略应用</title>
