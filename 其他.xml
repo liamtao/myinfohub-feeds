@@ -7,7 +7,176 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Sep 2025 08:49:08 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Sep 2025 22:33:55 +0000</lastBuildDate>
+    <item>
+      <title>PostgreSQL如何全方位超越MySQL，登顶数据库新霸主？</title>
+      <link>https://www.bilibili.com/video/BV1FHHyzYEbA</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FHHyzYEbA"&gt;为什么PostgreSQL能超越MySQL，有哪些优势？登顶最受欢迎的数据库&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔 PostgreSQL如何超越MySQL，成为数据库新宠，并在性能和功能上实现碾压？
+🚀 为什么MySQL越更新性能越差，而PostgreSQL却能持续飙升？
+🛠️ PostgreSQL的“万物皆可扩展”如何赋能企业级应用，甚至打造功能强大的地理信息系统？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 索引机制的本质差异：PostgreSQL的灵活与高效&lt;/h2&gt;
+&lt;p&gt;MySQL和PostgreSQL都使用B+树作为基础索引，但底层实现大相径庭，这决定了它们的性能与扩展性边界。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MySQL的“户口本”式索引（聚簇索引）&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;数据本身就按主键顺序存放在B+树的叶子节点上，查询主键极快。&lt;/li&gt;
+&lt;li&gt;非主键的二级索引只存主键ID，查询时需要“回表”二次查找，增加了I/O开销。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL的“独立档案室”模式&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;所有索引都是二级索引，数据统一存放在独立的“堆表”中。&lt;/li&gt;
+&lt;li&gt;索引叶子节点存储的是指向堆表的指针，主键索引与普通索引实现方式一致，无性能差异。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势&lt;/strong&gt;：插入数据直接追加到堆表末尾，避免了随机I/O和数据页分裂，使得索引扩展性更强。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ PostgreSQL特有的“黑科技”索引类型&lt;/h2&gt;
+&lt;p&gt;PostgreSQL在索引方面展现出惊人的灵活性，支持多种MySQL不具备的先进索引类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔄 GIN索引（通用倒排索引）&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;传统索引是“从行找值”，GIN是“从值找行”的反向映射。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用&lt;/strong&gt;：JSON数据查询、全文检索等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：不支持GIN索引。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌳 GIST索引（通用搜索树）&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;一个通用的索引框架，适用于非线性数据（如几何图形、地理位置、IP地址、时间范围）。&lt;/li&gt;
+&lt;li&gt;节点存储范围，能够高效查找重叠区域和最近元素。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：不支持GIST索引，也没有日期范围等对应数据类型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🎯 部分索引&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;索引只对满足特定条件的行生效，例如只索引未被逻辑删除的数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决痛点&lt;/strong&gt;：逻辑删除时，唯一索引不再占用已删除的电话号码，避免了“死数据”占用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势&lt;/strong&gt;：索引树更小，查询更快，磁盘占用更少。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：不支持部分索引，只能通过变通方式实现，但效率不如PostgreSQL。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🧮 表达式索引&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;直接对列的计算结果进行索引，例如对邮箱的小写形式创建索引。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;：原生支持，是“真表达式索引”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：8.0.13+支持，但本质是生成隐藏的虚拟列再建索引。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛡️ 数据一致性的“硬核”保障：事务与约束&lt;/h2&gt;
+&lt;p&gt;数据一致性是数据库的生命线，PostgreSQL在这方面提供了更强大的机制。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔄 DDL语句可事务管理&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;PostgreSQL将所有数据库结构信息（如表、索引）视为系统表中的数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因此&lt;/strong&gt;：创建表、修改字段等DDL操作可以完全纳入事务管理，可以轻松“回滚”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;场景&lt;/strong&gt;：复杂的表结构拆分、字段修改等操作，在一个事务内完成，任何环节出错都可整体回滚，杜绝脏数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：DDL语句无法纳入事务管理，操作不可反悔。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⌛ 可延迟约束&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;约束检查（如唯一性约束）可以延迟到事务提交时才执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决“鸡生蛋，蛋生鸡”难题&lt;/strong&gt;：例如对调两个唯一字段的值，可以先临时违反约束，在事务提交前恢复一致，确保操作的原子性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：没有此功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚖️ 隔离级别与MySQL的“迷惑行为”&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL默认&lt;/strong&gt;：读已提交（解决脏读）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL默认&lt;/strong&gt;：可重复读（解决不可重复读及大部分幻读）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL的“可重复读”问题&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;越界抢活&lt;/strong&gt;：解决了幻读问题，但幻读本应是更高级别（串行化）解决的，如同“一只公鸡，它要下蛋，不是它的活，那他要干，同行们会怎么看他？”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;读写不一致&lt;/strong&gt;：在同一事务内，&lt;code&gt;SELECT&lt;/code&gt;操作读取的是事务开始时的快照，而&lt;code&gt;UPDATE&lt;/code&gt;操作却能读取当前最新内容并修改。这意味着“用select语句查不到，用update语句却能进行更改”，极不符合直觉，易导致潜在数据问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能隐患&lt;/strong&gt;：高并发下，间隙锁可能导致性能退化，导致许多大厂推荐将MySQL隔离级别降至“读已提交”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL的“读已提交”&lt;/strong&gt;：查询和更新始终读取同一个快照内容，行为一致且符合直觉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🚀 性能优势的反转：PostgreSQL的后来居上&lt;/h2&gt;
+&lt;p&gt;曾经MySQL以性能著称，但权威测试表明，这一优势已不复存在，PostgreSQL正迅速拉开差距。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高并发写入测试&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;每秒写入1万次时，PostgreSQL以&lt;strong&gt;约2倍&lt;/strong&gt;的性能优势胜出。&lt;/li&gt;
+&lt;li&gt;PostgreSQL在内存、CPU、硬盘占用率等各项指标上均优于MySQL。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高并发查询测试&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在每秒查询量达到2万次时，PostgreSQL以&lt;strong&gt;约1.5倍&lt;/strong&gt;的性能优势胜出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本迭代趋势&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：从5.7到8.0再到8.4，新版本性能反而&lt;strong&gt;主版本递减&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;：最新版本（17）相比6年前的10版本，性能提升了&lt;strong&gt;30%到70%&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;：MySQL赖以立命的性能优势已不复存在，两者的性能差距正逐年扩大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🌐 极致的扩展性：PostgreSQL的“万物皆可扩展”理念&lt;/h2&gt;
+&lt;p&gt;PostgreSQL设计之初的核心理念就是“万物皆可扩展”，这赋予了它无与伦比的灵活性。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL的四大扩展支柱&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;数据类型可扩展&lt;/li&gt;
+&lt;li&gt;函数可扩展&lt;/li&gt;
+&lt;li&gt;操作符可扩展&lt;/li&gt;
+&lt;li&gt;索引类型可扩展&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL的扩展性局限&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;主要体现在存储引擎（但InnoDB占据99%，其他引擎功能缺失严重）。&lt;/li&gt;
+&lt;li&gt;不支持自定义数据类型、运算符和索引类型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社区插件数量对比&lt;/strong&gt;（截止2025年预测）：&lt;ul&gt;
+&lt;li&gt;MySQL：47个&lt;/li&gt;
+&lt;li&gt;PostgreSQL：375个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostGIS案例：地理信息系统的蜕变&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;PostGIS是PostgreSQL生态中最成功的扩展，无需修改PostgreSQL核心代码，完全利用其扩展机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成果&lt;/strong&gt;：将PostgreSQL变为功能全面、性能顶尖的企业级地理信息系统数据库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PostGIS如何体现扩展性&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geometry&lt;/code&gt;：自定义数据类型，存储地理位置。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ST_Area&lt;/code&gt;：自定义函数，计算区域面积。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GIST&lt;/code&gt;索引：自定义索引，高效查询地理位置重叠、包含及距离。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;-&amp;gt;&lt;/code&gt;：自定义操作符，直观表示两个地理位置之间的距离。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🤝 开放的生态：PostgreSQL的社区力量&lt;/h2&gt;
+&lt;p&gt;PostgreSQL和MySQL都是开源软件，但其开源许可证和社区运作模式带来天壤之别。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开源许可证差异&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;：采用MIT/BSD宽松协议，可免费自由使用、复制、修改、分发，甚至可闭源使用修改后的代码，带来极高的用户信任度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MySQL&lt;/strong&gt;：社区版采用GPLv2协议，具有“传染性”，若程序包含或链接GPL代码，则整个应用程序也须GPL开源；否则需向Oracle购买商业许可证。这导致了社区分裂，如MariaDB的诞生。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社区运作模式&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PostgreSQL&lt;/strong&gt;：不属于任何公司，由全球开发者社区管理项目方向，不受商业利益左右。吸引大量公司贡献代码、修复bug、提供资金支持，形成“众人拾柴火焰高”的良性循环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心团队&lt;/strong&gt;专注于内核稳定可靠，&lt;strong&gt;社区&lt;/strong&gt;在此基础上进行疯狂创新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能力的无限拓展&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;借助社区插件，PostgreSQL早已超越传统数据库范畴，添加了中文全文检索、向量数据库、图数据库、时序数据库等神奇能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;：PostgreSQL更像是一个数据的操作系统，其能力的边界可由社区不断拓展。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💎 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“MYSQL赖以立命的性能优势已经不复存在了。”&lt;/li&gt;
+&lt;li&gt;“POSTGRESS早已超越了传统数据库的范围，更像是一个数据的操作系统。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FHHyzYEbA</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/df510c65ab50b6758e6567892c6666871b858162.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 09 Sep 2025 19:20:25 +0800</pubDate>
+    </item>
     <item>
       <title>跨境电商社媒防封避雷指南：TikTok运营风控实战与流量破局策略</title>
       <link>https://www.youtube.com/watch?v=tBdCWw7vk1Y</link>
