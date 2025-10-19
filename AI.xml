@@ -7,7 +7,18 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Oct 2025 08:48:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Oct 2025 23:46:36 +0000</lastBuildDate>
+    <item>
+      <title>Notion AI Agent：从繁琐到效率的七年变革与未来展望</title>
+      <link>https://www.youtube.com/watch?v=yflqBe9Bj4E</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=yflqBe9Bj4E"&gt;How Notion Built the Best AI Agents For Work (Full Tutorial) | Akshay &amp;amp; Ryan&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;❓ 你是否也厌倦了重复、繁琐的“忙碌工作”，渴望更专注于“人生工作”？🤖 为什么连Notion联合创始人的妻子都“抵抗”了7年才被其AI智能体彻底征服？💡 如何利用AI，将复杂的知识管理和任务自动化变得像聊天一样简单？---🤖 Notion AI Agent的变革力量：让生产力像聊天一样简单Notion AI Agent正在彻底改变我们与生产力工具互动的方式，将复杂的操作简化为直观的对话，极大地降低了使用门槛：*   &lt;strong&gt;“顽固用户”的转变&lt;/strong&gt;：Notion联合创始人分享了一个有趣的故事，他的妻子在7年时间里一直拒绝使用Notion的数据库和文档功能，直到三周前接触到AI Agent。现在，对她而言Notion就像一个“聊天工具”，只需与Agent对话，所有工作都由Agent完成，甚至因此成为了付费用户。*   &lt;strong&gt;解决“冷启动问题”&lt;/strong&gt;：对于普通用户而言，面对空白的数据库或文档往往无从下手。AI Agent可以直接根据需求创建复杂的数据库和视图，例如快速构建电影追踪系统，并自动填充示例数据，省去大量手动设置的时间。*   &lt;strong&gt;自动化繁琐任务&lt;/strong&gt;：Agent能够执行网页搜索、数据汇总、信息录入等耗时任务。例如，用户可以要求Agent查找某部电影在IMDb上的评分并填入页面，整个过程无需手动点击和复制粘贴。---🧠 Notion AI Agent的核心技术揭秘：上下文、能力与“模型引导”Notion AI Agent之所以如此强大，源于其背后独特的“最大上下文”和“全能力”设计，以及巧妙的“模型引导”策略：*   &lt;strong&gt;最大上下文（Max Context）&lt;/strong&gt;：Agent不仅仅局限于当前页面，它能：    *   访问用户整个Notion工作区内的所有内容（包括文档、数据库、项目等）。    *   无缝集成第三方工具，如Slack、Google Drive、Microsoft Email、Jira，甚至未来将支持Salesforce，这意味着它能掌握比任何个人都更全面的信息。*   &lt;strong&gt;全能力（Full Capability）&lt;/strong&gt;：Agent被训练以掌握Notion的所有内部功能，从简单的文本编辑到复杂的数据库连接和文档结构化，它能以更智能的方式处理任务。*   &lt;strong&gt;“模型引导”策略（Channeling the Model）&lt;/strong&gt;：为了让大型语言模型（LLM）更好地理解和操作Notion，开发团队采取了巧妙的策略：    *   &lt;strong&gt;以Markdown为桥梁&lt;/strong&gt;：没有直接将Notion内部复杂的块数据模型（如JSON）暴露给LLM，而是将Notion页面转换为LLM最擅长理解和生成的Markdown格式。    *   &lt;strong&gt;用户视角呈现&lt;/strong&gt;：将页面以用户所见的形式（标题、属性元数据、页面内容）呈现给模型，让模型更容易理解用户意图，从而生成更自然、准确的输出。    *   &lt;strong&gt;工程师的“辛苦活”&lt;/strong&gt;：模型只负责理解和生成Markdown，而Notion团队则负责将这些简单的Markdown输出精准地转换回Notion的块结构，确保用户体验的一致性。---🛠️ 构建高质量AI Agent的挑战与经验：信任、评测与迭代打造一个值得用户信任的AI Agent是一个充满挑战的旅程，Notion团队在实践中积累了宝贵的经验：*   &lt;strong&gt;可靠性是基石&lt;/strong&gt;：早期的Agent版本因不够可靠，曾设有“版本控制”功能允许用户回溯操作。但随着Agent的不断优化，其可靠性大幅提升，用户甚至认为版本控制功能过于“沉重”而被移除，这标志着用户对Agent的信任度达到新的高度。*   &lt;strong&gt;多元化评测体系（Evals）&lt;/strong&gt;：    *   &lt;strong&gt;并非越早越好&lt;/strong&gt;：团队认为评测不应过早介入产品初期，因为LLM的“感觉”很重要，首先要通过实际使用来感受其体验。    *   &lt;strong&gt;“黄金集”与“挑战集”&lt;/strong&gt;：建立了两套评测标准：        *   “黄金集”：包含Agent必须100%正确完成的基础任务，确保核心功能的稳定。        *   “挑战集”：包含复杂、预期失败率较高的任务，用于衡量新模型或新技术的实际进步幅度。*   &lt;strong&gt;用户反馈高于数字&lt;/strong&gt;：尽管有详尽的评测数据，但Notion团队更看重用户的定性反馈。当用户点击“踩”（thumbs down）时，团队会深入分析对话日志，了解具体问题，因为这些定性数据比冰冷的数字更能揭示产品痛点和改进方向。*   &lt;strong&gt;ACI (Agent Computer Interface) 概念&lt;/strong&gt;：类似于人机交互（HCI），现在进入了“Agent计算机接口”时代（ACI）。需要精心设计Agent如何理解和处理Notion中的各种元素，确保它能像人类一样理解“链接数据库”或“筛选器”等概念。---✨ 个性化与自定义Agent：让AI成为你的专属助理Notion提供了高度灵活的AI Agent定制功能，让每个人或团队都能拥有一个专属的智能助理，能够深度理解并执行个性化任务：*   &lt;strong&gt;个性化Agent（Personalized Agent）&lt;/strong&gt;：    *   &lt;strong&gt;角色设定&lt;/strong&gt;：用户可以为Agent定义特定角色，例如“编码研究伙伴”，并设定其擅长领域（架构、UI设计等）。    *   &lt;strong&gt;专属记忆库&lt;/strong&gt;：通过一个Notion页面作为Agent的“记忆库”，用户可以输入项目背景、依赖项、常用工具、任务模板等详细信息。Agent会根据这些信息，在处理请求时直接调用上下文，无需重复说明。    *   &lt;strong&gt;动态学习&lt;/strong&gt;：这个记忆库本身也是一个Notion页面，用户甚至可以要求Agent更新自己的记忆（例如：“更新你的记忆，我们现在使用React 19”），实现Agent的持续学习和进化。*   &lt;strong&gt;自定义Agent（Custom Agents）&lt;/strong&gt;：    *   &lt;strong&gt;可分享与自动化&lt;/strong&gt;：在Make with Notion大会上宣布的自定义Agent，不仅可以分享，还能自主运行（通过触发器或定时任务），并与Slack等工具集成，使其成为团队协作的强大工具。    *   &lt;strong&gt;内部案例：Offline Oliver&lt;/strong&gt;：Notion内部的“离线Oliver”Agent，能监听Slack频道中的Bug报告，自动创建Notion任务，并智能识别重复Bug，避免了大量手动整理和重复工作，极大地提升了研发团队的效率。    *   &lt;strong&gt;生产力放大器&lt;/strong&gt;：Notion团队的AI使用量在推出自定义Agent后翻了两番（4倍）。这表明，一个团队中少数“AI超级用户”创建的Agent，能够将AI的生产力效益放大到整个团队。---🚀 未来展望与人才观：拥抱变化，多学科交叉Notion对AI的未来充满乐观，并认为这正塑造着全新的产品开发模式和人才需求：*   &lt;strong&gt;产品开发新范式&lt;/strong&gt;：    *   &lt;strong&gt;告别僵化路线图&lt;/strong&gt;：AI领域的飞速发展意味着“三年路线图”已不再适用，需要更灵活、动态的产品规划。    *   &lt;strong&gt;以客户反馈为核心&lt;/strong&gt;：快速将产品推向客户，即时获取反馈，是迭代和提升产品质量最有效的方式。*   &lt;strong&gt;未来人才观&lt;/strong&gt;：    *   &lt;strong&gt;多学科交叉&lt;/strong&gt;：产品经理、设计师、工程师、研究人员和营销人员之间的界限日益模糊。具备跨领域知识和能力的“T型人才”更具优势，例如，理解代码的设计师能更好地设计AI体验。    *   &lt;strong&gt;“杠铃式”招聘策略&lt;/strong&gt;：Notion在招聘上采取“两极分化”策略：        *   大量招聘“原生AI思考者”：指刚毕业的学生，他们对AI有天然的直觉和热情。        *   招聘经验丰富的架构师：擅长扩展和维护大型系统。    *   &lt;strong&gt;好奇心与适应力&lt;/strong&gt;：不要求员工是AI编码专家，但必须具备强烈的学习欲和好奇心，愿意尝试新工具，适应行业快速的变化。---金句*   “人类其实不能保有所有上下文...Agent可以做到。”*   “人们不想做那些忙碌的工作。他们更愿意专注于创造力，专注于他们想执行的想法。”*   “我们真的很希望Agent能把所有这些忙碌的工作都拿走，这样你就可以专注于你的人生工作了。”*   “AI真正擅长的是：它擅长把你从那些艰苦的手动工作中解救出来。”*   “人们认为这是魔法，但这只是我不愿做的所有手动工作，让AI去做。”*   “这些模型是如此的‘有感觉’（viby），你就是得尝试、使用它，看看感觉如何。”*   “激活人们创造事物的能量从未如此之低。”*   “每个人都在尝试制作AI Agent，但真正的挑战在于如何制作一个好的Agent。”*   “（对未来的产品路线图）任何问得很详细的人，可能都是一个危险信号。”*   “你只需要有点品味，别搞出垃圾（slop）就行。”&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=yflqBe9Bj4E</guid>
+      <enclosure url="https://i.ytimg.com/vi/yflqBe9Bj4E/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 19 Oct 2025 13:02:00 +0800</pubDate>
+    </item>
     <item>
       <title>Anthropic“技能”重塑智能体，微软赋能AI PC，Spotify携巨头共建AI音乐新秩序</title>
       <link>https://www.youtube.com/watch?v=PgSVBlZbpww</link>
@@ -10234,112 +10245,6 @@ AI硬件正如何闷声发大财？📱
       <guid isPermaLink="true">https://www.youtube.com/watch?v=21EYKqUsPfg</guid>
       <enclosure url="https://i.ytimg.com/vi/21EYKqUsPfg/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 26 Sep 2025 16:01:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI能取代你的工作吗？OpenAI报告的意外发现与未言之隐</title>
-      <link>https://www.youtube.com/watch?v=oK5LxMaROSA</link>
-      <description>&lt;p&gt;&lt;a href="UCNJ1Ymd5yFuUPtn21xtRbbw"&gt;AI Explained&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=oK5LxMaROSA"&gt;OpenAI Tests if GPT-5 Can Automate Your Job - 4 Unexpected Findings&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;AI能力真的已经逼近人类专家了吗？🤔
-为什么Anthropic的Claude Opus在OpenAI的报告中脱颖而出？🏆
-即便AI表现出色，人类的工作真的会被大规模自动化吗？🤖&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡OpenAI研究的惊人发现：Claude Opus意外领先&lt;/h3&gt;
-&lt;p&gt;OpenAI最近发布了一项重磅研究，它试图回答一个尖锐的问题：&lt;strong&gt;当前语言模型能否自动化你的工作？&lt;/strong&gt; 报告中，一个结果让许多人感到意外，甚至连OpenAI自己都不得不承认：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型表现：&lt;/strong&gt; Anthropic的Claude Opus 4.1在某些任务中，&lt;strong&gt;击败了OpenAI自家的模型&lt;/strong&gt;，并且能力&lt;strong&gt;非常接近行业专家&lt;/strong&gt;水平。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;意外之喜：&lt;/strong&gt; 作者认为，最令人惊讶的不是Opus的强大，而是&lt;strong&gt;OpenAI竟然公开发布了这项研究成果&lt;/strong&gt;，这体现了其在科学探索上的诚实和开放。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊文件类型对AI表现影响巨大：PDF、PPT、Excel是AI的强项&lt;/h3&gt;
-&lt;p&gt;AI的“战斗力”可不是一概而论的！研究发现，AI击败人类专家的能力，竟然与你处理的&lt;strong&gt;文件类型&lt;/strong&gt;息息相关。这就像是在特定战场，AI拥有专属的“超级武器”：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI的“主场优势”：&lt;/strong&gt; 如果你的工作流程大量涉及 &lt;strong&gt;PDF、PowerPoint或Excel电子表格&lt;/strong&gt;，那么恭喜你，Claude Opus 4.1的表现可能让你大吃一惊，它在这些领域&lt;strong&gt;遥遥领先&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;政府部门的“AI高地”：&lt;/strong&gt; 令人意想不到的是，在&lt;strong&gt;政府部门&lt;/strong&gt;的许多任务中，AI模型击败普通人类专家的频率竟然是最高的！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀AI正成为人类工作的“加速器”而非“替代者”&lt;/h3&gt;
-&lt;p&gt;报告中一个振奋人心的发现是，我们似乎已经越过了一个临界点：&lt;strong&gt;AI开始能为人类专家“提速”了！&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;效率倍增器：&lt;/strong&gt; 当模型足够强大时（如GT5，很可能是指GPT-4或更强的版本），它能频繁提供高质量输出，从而在整体上&lt;strong&gt;提升人类工作的平均速度&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;并非所有AI都有效：&lt;/strong&gt; 如果模型太弱，即使你让它尝试多次，并精心挑选最好的结果，也&lt;strong&gt;不会真正加速你的工作&lt;/strong&gt;。因为审查低质量输出所花费的时间，反而会让你更慢，不如自己动手。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;两个关键警示：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;速度数据的缺失：&lt;/strong&gt; 报告中没有Claude Opus 4.1对速度提升的数据，但按理说，它的表现应该会带来更大的效率飞跃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“质量门槛”的隐忧：&lt;/strong&gt; 模型的“质量标准”仅设定为“达到人类水平”，但一个不容忽视的问题是，&lt;strong&gt;人类专家可能无法总是发现模型输出中那些细微但关键的错误&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖AI迈向AGI？任务特定图灵测试的启示&lt;/h3&gt;
-&lt;p&gt;报告中的一些结论，让AGI（通用人工智能）的讨论再次甚嚣尘上。著名经济学家、哈佛大学前校长劳伦斯·萨默斯就指出：这些是“&lt;strong&gt;任务特定图灵测试&lt;/strong&gt;”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;比肩人类专家：&lt;/strong&gt; 他认为，模型现在可以在许多任务上表现得&lt;strong&gt;与人类一样好，甚至更好&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AGI的呼声：&lt;/strong&gt; OpenAI的一位研究员甚至宣称，他们的&lt;strong&gt;当前系统已经接近AGI&lt;/strong&gt;。例如，一个尚未发布的模型在某个编码竞赛中&lt;strong&gt;击败了所有人类选手&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逻辑自洽？&lt;/strong&gt; 如果AI能在编码竞赛中战胜专家，并在多个领域与人类专家持平，那么将其称为AGI，似乎在逻辑上是说得通的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚧真相揭露：AI自动化工作面临的“重重关卡”&lt;/h3&gt;
-&lt;p&gt;尽管AI看起来势不可挡，但深入研究报告细节，你会发现&lt;strong&gt;人类工作对当前一代LLM的自动化拥有惊人的韧性&lt;/strong&gt;。想实现大规模自动化？没那么容易！&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;就业韧性：&lt;/strong&gt; 论文证据表明，我们需要AI模型性能实现&lt;strong&gt;进一步的“阶跃式改进”&lt;/strong&gt;，才能真正开始大规模自动化经济体的各个领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;采纳率低下：&lt;/strong&gt; 实际情况是，AI在企业中的采纳率并不理想，许多公司甚至&lt;strong&gt;放弃了试点项目&lt;/strong&gt;。这说明市场仍在观望，AI的普及还需要时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“选择性”评估的盲点：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行业限定：&lt;/strong&gt; 研究只聚焦于对美国GDP贡献大的行业中，那些“以数字工作为主”的职业。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;任务限定：&lt;/strong&gt; 即使在这些职业中，也只评估了其中“数字化程度高”的任务，&lt;strong&gt;忽略了大量的非数字任务&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例：物业经理的启示&lt;/strong&gt;——一个被认为是“以数字工作为主”的职业，其27项任务中，就有6-7项（如监督运营、协调员工、处理投诉等）无法被AI自动化。即使自动化了19-20项数字任务，&lt;strong&gt;也无法消除整个工作岗位&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;任务评估的局限：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;主观性强：&lt;/strong&gt; 即使是人类专家，对模型与人类答案的优劣判断，也只有&lt;strong&gt;70%的一致性&lt;/strong&gt;，这表明任务评估存在很大的主观性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型识别：&lt;/strong&gt; 有时很容易识别出模型输出（比如OpenAI模型爱用M破折号，Grock偶尔会随机自我介绍）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“一杆子买卖”：&lt;/strong&gt; 任务设计为“一次性完成”，&lt;strong&gt;缺乏真实工作中与人互动、提问以明确任务范围和参数&lt;/strong&gt;的环节。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文缺失：&lt;/strong&gt; 排除了那些&lt;strong&gt;依赖大量上下文或专有软件工具&lt;/strong&gt;的任务，这限制了AI在现实复杂工作中的应用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💥AI的“致命弱点”：灾难性错误成本高昂&lt;/h3&gt;
-&lt;p&gt;报告坦承了一个巨大的限制：它没有捕捉到&lt;strong&gt;“灾难性错误”的成本&lt;/strong&gt;。而在某些领域，这些错误可能代价极其高昂，甚至足以抵消AI带来的所有好处。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2.7%的危险：&lt;/strong&gt; AI模型犯下“灾难性错误”（如侮辱客户、提出有害建议）的概率约为&lt;strong&gt;2.7%&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;作者的亲身经历：&lt;/strong&gt; Claude Opus 4.1就曾“完全凭空捏造”关键价格数据，并为此道歉。作者认为，一个不负责任的员工才会如此草率地编造关键数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心思考：&lt;/strong&gt; 如果一次灾难性错误的损失，是AI节省成本的 &lt;strong&gt;100倍&lt;/strong&gt;，那么在没有人监督的情况下使用AI，从长远来看，你付出的代价可能更高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;👨‍⚕️放射科医生的逆袭：AI进步，薪资反涨的启示&lt;/h3&gt;
-&lt;p&gt;放射科医生的故事，可能是对“AI取代人类工作”论调最有力的一次回击。杰弗里·辛顿（Jeffrey Hinton）在2015-16年曾预言，我们不应再培养新的放射科医生，因为AI在2017年就能以更高精度检测肺炎。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;薪资不降反升：&lt;/strong&gt; 8年后的今天，放射科医生的平均年薪已&lt;strong&gt;超过50万美元&lt;/strong&gt;，比2015年&lt;strong&gt;高出48%&lt;/strong&gt;！这简直是“打脸”了当年的预言。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI未竟的革命：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据覆盖不足：&lt;/strong&gt; AI模型在训练数据上存在局限，&lt;strong&gt;无法覆盖所有边缘案例&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;法律障碍：&lt;/strong&gt; 现实世界的法律法规也是AI大规模应用的一道坎。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非自动化任务：&lt;/strong&gt; 放射科医生工作中包含大量&lt;strong&gt;无法被AI自动化&lt;/strong&gt;的任务，例如&lt;strong&gt;与病人沟通&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;任务范围限制：&lt;/strong&gt; AI工具主要集中在少数常见疾病（如中风、乳腺癌、肺癌），而&lt;strong&gt;忽视了血管、头颈、脊柱、甲状腺&lt;/strong&gt;等相对较少但同样重要的诊断领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;公平性问题：&lt;/strong&gt; AI对&lt;strong&gt;儿童或少数族裔&lt;/strong&gt;的表现较差（就像LLM在英语之外表现不佳）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心洞察：&lt;/strong&gt; AI的出现，反而提升了某些特定领域的薪资，而不是取代。就像OpenAI自身也在不断招聘新员工一样，放射科医生的人数和薪资都在持续增长。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💪不要“躺平”，AI仍是你的“效率乘数”&lt;/h3&gt;
-&lt;p&gt;即便AI不能完全自动化你的工作，但它仍然是提升你效率的“金钥匙”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;效率加速器：&lt;/strong&gt; 例如，AI不能完全编辑视频，但它能显著&lt;strong&gt;加速&lt;/strong&gt;我自己的视频编辑过程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最佳投资：&lt;/strong&gt; 理解AI并熟悉如何使用它，我认为是&lt;strong&gt;内容创作领域最好的投资之一&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一个视觉上的“临界点”：&lt;/strong&gt; 尽管如此，我们似乎已经到了一个视觉上的“临界点”——&lt;strong&gt;我们无法再完全相信视频中看到的是真实的人类&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“如果AI模型太弱，即使你让它多次尝试任务，然后只使用你认为满意的输出，那也实际上无法加速你的工作。本质上，审查其输出的时间是糟糕的浪费，不值得投入。”&lt;/li&gt;
-&lt;li&gt;“如果这些灾难性错误的损失是模型带来成本节约的100倍，那么在没有人监督的情况下使用‘代理AI’，从长远来看可能会让你付出更多。”&lt;/li&gt;
-&lt;li&gt;“我们可能需要AI模型性能的进一步‘阶跃式改进’，才能真正开始大规模自动化经济体的各个领域。”&lt;/li&gt;
-&lt;li&gt;“即便AI不能自动化你的工作，它也能成为你的‘效率乘数’。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=oK5LxMaROSA</guid>
-      <enclosure url="https://i.ytimg.com/vi/oK5LxMaROSA/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 26 Sep 2025 15:03:36 +0800</pubDate>
     </item>
   </channel>
 </rss>
