@@ -7,7 +7,204 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 Oct 2025 22:36:14 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Nov 2025 08:44:45 +0000</lastBuildDate>
+    <item>
+      <title>Vercel CTO揭秘AI时代开发策略：从无感工作流到安全应用架构</title>
+      <link>https://www.youtube.com/watch?v=RXx5ZN69Z3E</link>
+      <description>&lt;p&gt;&lt;a href="UCxBcwypKK-W3GHd_RZ9FZrQ"&gt;Latent Space&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=RXx5ZN69Z3E"&gt;⚡️ Ship AI recap: Agents, Workflows, and Python — w/ Vercel CTO Malte Ubl&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤖 Vercel如何平衡AI时代的“厚”与“薄”抽象，引领下一代Web开发？
+⚡️ 为什么Vercel的Workflows和AI Agent能让AI应用开发变得如此“无感”和高效？
+🛡️ 在AI赋能下，CTO如何构建一个既安全又高效，甚至能假设开发者“无能”的开发体系？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 &lt;strong&gt;Vercel的AI哲学：拥抱不确定性，追求原生体验&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vercel是AI工程浪潮的忠实粉丝，致力于将AI理念具体化，而不仅仅是停留在炒作和宏大概念上。&lt;/li&gt;
+&lt;li&gt;核心策略是：通过自建AI产品和内部使用AI工具，将抽象概念落地，确保实用性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低级别抽象的坚持：&lt;/strong&gt; AI应用领域发展迅速，一切都在演变。Vercel认为，过早地构建“厚”抽象很可能会是错误的，因为它会限制创新。因此，Vercel AI SDK成功在于保持低级别，灵活适应从聊天机器人到Agent等不同范式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dogfooding（内部实践）至上：&lt;/strong&gt; 这是Vercel的绝对创始原则——从不提供未经内部实践的抽象。所有框架都源于内部需求，通过持续的反馈循环打磨产品，确保它们真正解决问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⏳ &lt;strong&gt;革命性工作流（Workflows）：让代码“暂停”与“无限运行”成为现实&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vercel Workflow开发套件（WDK）旨在让工作流编程日常化、一流化，使其成为开发者每天都做的事情。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心能力：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无限期运行与暂停：&lt;/strong&gt; Vercel的无服务器函数可以无限期运行。当工作流需要等待外部事件（如人工审批）时，它会自动暂停，期间&lt;strong&gt;不产生任何计算费用&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可靠性：&lt;/strong&gt; 自动重试失败步骤，使得整个流程更加健壮和可靠。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人机协作：&lt;/strong&gt; 通过动态生成临时的WebHook URL，轻松实现人类审批等“人机交互循环”，流程直观优雅。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行业洞察：&lt;/strong&gt; 工作流并非新概念，自1950年代起所有有交易处理系统的公司都在以某种形式使用。Vercel将其抽象化并产品化，并选择&lt;strong&gt;开源&lt;/strong&gt;，这为用户提供了所有权和可审计性，即使他们最终选择在Vercel上运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ &lt;strong&gt;AI SDK的谦逊之道：从底层赋能而非限制创新&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AI SDK之所以成功，秘诀在于其“谦逊”：不预设用户需求，保持低级别抽象，以适应AI领域快速变化和不断涌现的模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对比：&lt;/strong&gt; 许多竞品一开始就提供Agent抽象，但Vercel选择在模式固化后再引入（如V6 beta），这确保了抽象的有效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心优势：&lt;/strong&gt; Vercel AI SDK提供了构建&lt;strong&gt;流式AI应用&lt;/strong&gt;的工具，有效解决了大模型响应慢带来的用户体验问题，将原本困难的任务变得直观简单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI大厂的哲学差异：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大模型公司：&lt;/strong&gt; 倾向于将控制权交给模型（即“好莱坞原则”——我们来调你，你不要调我们），让模型主导工具调用和推理，追求通用AI的愿景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vercel作为框架开发者：&lt;/strong&gt; 更倾向于构建最小可用组件，让开发者灵活组合。这种方法更符合软件构建者的习惯，确保灵活性和实用性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💼 &lt;strong&gt;Vercel的内部AI Agent实践：解放生产力与风险管理&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vercel Agent（作为服务）:&lt;/strong&gt; Vercel的Agent产品独特优势在于与Vercel的部署环境深度集成，能访问运行时数据、错误日志、预部署信息和密钥，从而实现更智能的运维和开发协助。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;已上线的Agent示例：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码审查Agent：&lt;/strong&gt; 已深度集成并运行良好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运维Agent（DevOps Agent）：&lt;/strong&gt; 与Vercel的异常检测系统结合，当生产环境出现异常时，它会自动启动并调查问题。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;能力：&lt;/strong&gt; 执行任何可观测性查询、读取日志，并能精准诊断问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;价值：&lt;/strong&gt; 解决传统异常检测的“召回精度”问题。它允许系统设置更激进的警报，Agent可以花几分钟时间初步判断是否需要唤醒人类，从而优化值班体验。这是Agent完美能做的决策，它本质上是一个“没有睡眠问题的同事在循环中”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未来：&lt;/strong&gt; 将接入源代码，以便Agent能理解错误信息，甚至自动创建PR修复简单问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源内部Agent：&lt;/strong&gt; Vercel开源了两个内部使用的自定义Agent作为起点，帮助用户构建自己的Agent。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;销售线索资格认定Agent：&lt;/strong&gt; 处理传入的销售请求，利用LinkedIn、Google等工具进行资格预审和分流（如识别支持请求并转交）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;滥用行为分析Agent：&lt;/strong&gt; 为人工审核员做预处理工作，收集被举报网站、账户年龄、支付记录等信息，并初步判断（如识别钓鱼页面）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据分析Agent：&lt;/strong&gt; 对接数据仓库，通过结构化语义文档来帮助Agent理解数据模型并生成SQL查询，提升数据查询效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“每个桌面都有Agent”计划：&lt;/strong&gt; 针对大型企业，通过派驻工程师团队（Forward Deployed Engineers）帮助客户从零开始构建Agent，并培养其自主开发能力。Vercel会承诺帮助客户构建第一个Agent，在第二个Agent时提供支持，目标是让客户在第三个Agent时能完全自主开发。这相当于将Dogfooding的范围扩大到整个Vercel生态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🐍 &lt;strong&gt;Python的崛起：Vercel对多语言生态的开放与投入&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Vercel持续投资Python生态，已为Flask、FastAPI等流行框架提供了“零配置”支持，这意味着开发者可以直接部署，Vercel会为其处理好运行环境。&lt;/li&gt;
+&lt;li&gt;发布了Vercel API的Python SDK，进一步支持Python开发者。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fluid Compute计划：&lt;/strong&gt; 为Python应用提供按需计费的“弹性CPU定价”，非常适合AI模型推理这类间歇性高计算负载场景，非活跃时段不收费。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对语言的看法：&lt;/strong&gt; Vercel不偏袒任何特定语言，认为TypeScript和Python都是非常重要的社区。Vercel致力于提供良好的开发者体验（DX），因此，尽管技术上支持多语言不难，但投入大量精力确保原生体验是其挑战。Vercel最终也会支持PHP和Ruby等语言。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚀 &lt;strong&gt;CTO角色的AI时代变革：构建信任与安全的未来应用&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CTO需要引导公司转型，关键是找到与公司核心业务&lt;strong&gt;原生契合&lt;/strong&gt;的AI方向，而非盲目追逐新事物。转型必须感觉“原生”，才能获得内部和外部的信任。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程师职业发展：&lt;/strong&gt; 效仿Google，提供IC（个人贡献者）的职业发展路径，设立高级IC级别，让顶尖工程师无需转管理也能获得晋升和高薪，避免“彼得原理”——将优秀工程师提拔为不擅长管理的经理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI时代的信任与安全：&lt;/strong&gt; Vercel正在深入研究构建一种应用威胁模型，即&lt;strong&gt;假设开发者和AI模型都可能犯错或不靠谱&lt;/strong&gt;。&lt;ul&gt;
+&lt;li&gt;目标是构建一个安全的应用程序，即使开发者是“无能的”或AI模型出错。&lt;/li&gt;
+&lt;li&gt;实践：将认证（Auth）和数据访问控制等安全关键功能从应用程序逻辑中剥离，由底层平台负责。这意味着“Auth不能成为应用程序的一部分”，“你能看到什么数据也不能由应用程序控制”，因为由应用程序控制很容易出错。&lt;/li&gt;
+&lt;li&gt;这是一种“Vercel级别”的集成解决方案，旨在确保Vercel平台上构建的Vzero等应用能够实现“开箱即用”的最低限度安全，独立于应用代码本身的质量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“我们知道绝对一无所有，而且现在仍然一无所有。事情正在涌现，但我们还处于早期，所以如果你设定一个非常厚的抽象，那很可能就是错误的抽象。”&lt;/li&gt;
+&lt;li&gt;“框架开发者通常不是应用开发者。”&lt;/li&gt;
+&lt;li&gt;“它基本上是一个没有睡眠问题的同事在循环中，他们被唤醒而不是你。”&lt;/li&gt;
+&lt;li&gt;“你会去公司里问人们，你最讨厌工作中的什么？我认为这找到了一个最佳点，因为它找到的问题既无聊又重复，但它们（在许多情况下）如果不需要Agent就能自动化，那早就自动化了。”&lt;/li&gt;
+&lt;li&gt;“你需要坦诚地面对自己，即使我必须转向构建其他东西，哪些产品仍然能自然地从我正在做的事情中延伸出来，而不是完全不同的东西，以至于没有人相信我是购买它的合适地方。”&lt;/li&gt;
+&lt;li&gt;“我想要能够构建一个安全的应用程序，即使开发者是无能的。”&lt;/li&gt;
+&lt;li&gt;“Auth不能成为应用程序的一部分，因为他们做不到。实际上，你能看到什么数据也不能由应用程序控制，因为你会弄错。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=RXx5ZN69Z3E</guid>
+      <enclosure url="https://i.ytimg.com/vi/RXx5ZN69Z3E/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 01 Nov 2025 00:26:56 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI无处不在：青少年情感危机、知识之战与断网生活的大反思</title>
+      <link>https://www.youtube.com/watch?v=mRKRUmn4NJk</link>
+      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=mRKRUmn4NJk"&gt;Character.AI to Ban Teens | EP 160&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤖 你的AI朋友让你感觉更好了吗？为什么AI公司正在禁止青少年用户？
+📖 维基百科被“篡改”？马斯克的AI百科全书将如何重塑我们的知识获取方式？
+🤯 离开AI 48小时会怎样？你是否能想象没有AI的生活？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤖 &lt;strong&gt;Character AI的青少年禁令：一次AI伦理的警钟&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Character AI，一个曾因青少年沉迷情感聊天机器人并导致悲剧（如14岁少年自杀）的公司，现宣布禁止18岁以下用户进行开放式对话。&lt;ul&gt;
+&lt;li&gt;这是迄今为止，AI公司为应对AI对青少年造成的真实伤害而采取的最戏剧性措施之一。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;禁令细节：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;未来一个月内，18岁以下用户的每日聊天时长将从2小时逐步缩减。&lt;/li&gt;
+&lt;li&gt;到11月25日，未成年用户将无法再进行开放式对话，只能通过创建视频、故事等方式与角色互动，停止深层角色扮演。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;潜在影响与背景：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;尽管Character AI声称只有不到10%的用户自报未成年，但实际数字可能因谎报年龄而更高。&lt;/li&gt;
+&lt;li&gt;此举虽缓解了公司的法律风险，但也引发了对突然切断已建立情感依赖用户的心理影响的担忧。&lt;/li&gt;
+&lt;li&gt;一项Common Sense Media调查显示，&lt;strong&gt;52%的美国青少年是AI伴侣的常客&lt;/strong&gt;，近&lt;strong&gt;1/3的青少年认为AI对话与人类对话一样或更令人满意&lt;/strong&gt;。AI被设计为讨人喜欢、支持用户，这可能导致用户脱离现实人际关系。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;巨头们的AI道德困境：OpenAI数据的警示&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Character AI的举动可能对Meta、OpenAI等AI巨头施加压力，促使他们反思自身平台的安全性。&lt;/li&gt;
+&lt;li&gt;然而，这些公司可能会采用“流行论”辩护：即产品用户基数庞大，心理健康危机只占小部分，风险可控。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI的惊人研究数据揭示了潜在危机：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;每周有&lt;strong&gt;56万人次&lt;/strong&gt;向ChatGPT发送的消息显示出精神病或躁狂迹象。&lt;/li&gt;
+&lt;li&gt;每周有&lt;strong&gt;120万人次&lt;/strong&gt;可能与聊天机器人建立不健康的情感纽带。&lt;/li&gt;
+&lt;li&gt;每周有&lt;strong&gt;120万人次&lt;/strong&gt;对话包含自杀念头或意图的指标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;这些数据预示着巨额的法律责任风险，可能促使其他公司加速建立安全措施。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌍 &lt;strong&gt;AI的未来：规避与掌控&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Character AI的事件证明，AI发展并非“不可避免”，公司可以选择停止、限制或负责任地发展其技术。&lt;/li&gt;
+&lt;li&gt;政府监管（如澳大利亚禁止16岁以下青少年使用社交媒体账号）可以帮助塑造社会对技术的态度。&lt;ul&gt;
+&lt;li&gt;“我认为人们不再认为不受限制地访问这些技术对青少年是好、健康或安全的了，人们终于开始对此采取行动。”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;但完全通过监管来阻止青少年与AI建立情感联系是不现实的，因为他们总会找到途径。&lt;/li&gt;
+&lt;li&gt;然而，如同历史上的禁烟运动，对青少年的限制最终可能改变整个社会对AI的看法。&lt;/li&gt;
+&lt;li&gt;许多AI公司追求用户参与度和深度连接，却不愿承担由此产生的情感责任。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📚 &lt;strong&gt;Elon Musk的“Grockipedia”：知识的另类战场&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;埃隆·马斯克推出AI百科全书Grockipedia，作为对维基百科“偏见”的右翼替代品。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;文章主要由Grock AI撰写，包含大量维基百科内容，但以“Grock风格”重写，并带有政治偏向。&lt;/li&gt;
+&lt;li&gt;与维基百科的开放编辑模式不同，Grockipedia不支持用户编辑，只能提交“错误”报告。&lt;/li&gt;
+&lt;li&gt;内容示例：关于唐纳德·特朗普的文章对1月6日事件持友好态度；包含种族主义和反跨性别内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略目标：&lt;/strong&gt; 马斯克旨在控制知识的传播，对抗维基百科对主流AI模型的“垄断”影响，并注入更多右翼观点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;争议与影响：&lt;/strong&gt; Grockipedia的出现加剧了对维基百科公正性的质疑，以及对其流量可能因聊天机器人兴起而下降的担忧。&lt;ul&gt;
+&lt;li&gt;“在过去的十年里，伊隆·马斯克推出的所有产品中，Grockipedia似乎是迄今为止最不具前瞻性的一个。”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⏳ &lt;strong&gt;无AI的48小时：一场穿越回19世纪的挑战&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作家AJ Jacobs进行了一项实验：48小时内完全不使用AI和机器学习，结果挑战难度超出想象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI（尤其是机器学习）的无处不在：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;手机：面部识别、摄像头、Gmail邮件分类。&lt;/li&gt;
+&lt;li&gt;基础设施：供水系统（纽约水库系统使用机器学习优化需求和维修）、电力系统（Con Edison使用机器学习预测需求）。&lt;/li&gt;
+&lt;li&gt;商品：服装供应链（设计、物流都AI优化）、食品（工业农场、供应链均依赖AI）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;为了避免AI优化的食物，AJ甚至在中央公园采摘野菜充饥。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验体验：&lt;/strong&gt; 混合了“数字排毒”的放松、无法Google的恼怒，以及意识到AI无处不在的恐惧。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心见解：&lt;/strong&gt; AI与机器学习的界限越来越模糊，未来可能融为一体。&lt;ul&gt;
+&lt;li&gt;“在科技行业有一个老笑话，就是AI就是我们称之为计算机还不能做的任何东西。”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AJ的呼吁：&lt;/strong&gt; 需要更多透明度（如AI生成图像水印）、更多监管以及用户对算法的更多控制，以避免盲目接受“不可避免”的AI未来。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI与宗教的类比：&lt;/strong&gt; AI世界存在类似宗教的“宿命论”，认为AI将创造天堂或取代人类；但科学应接受证伪，AI行业应保持开放心态，识别并调整其负面影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“我将Grockipedia，无论它有时多么愚蠢、糟糕和冒犯，仍视为以更多言论对抗言论的案例。我认为这总体上是民主制度更好的一种方式。”&lt;/li&gt;
+&lt;li&gt;“这个故事提醒我们，在AI领域，没有什么事是不可避免的。你不需要建造它。你不需要向所有人发布它。你不需要让它免费。你不需要拒绝建立任何有意义的护栏。你可以说，根据我们所看到的，我们认为这不安全，我们将把它下架。”&lt;/li&gt;
+&lt;li&gt;“我常常告诉人们，2025年在旧金山的AI世界，感觉有点像身处新教改革时期。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=mRKRUmn4NJk</guid>
+      <enclosure url="https://i.ytimg.com/vi/mRKRUmn4NJk/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 31 Oct 2025 23:20:16 +0800</pubDate>
+    </item>
     <item>
       <title>Salesforce AI科学家：AI智能体是未来，但挑战重重</title>
       <link>https://www.youtube.com/watch?v=K20bOHtTOZY</link>
@@ -11069,135 +11266,6 @@ AI的巨大潜力背后，隐藏着恶意使用、无序竞争、组织缺陷和
       <guid isPermaLink="true">https://www.youtube.com/watch?v=yjvtBmBAwdk</guid>
       <enclosure url="https://i.ytimg.com/vi/yjvtBmBAwdk/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 17 Oct 2025 19:00:06 +0800</pubDate>
-    </item>
-    <item>
-      <title>Andrej Karpathy：AI的十年征程——从代码助手到认知核心，我们还有多远？</title>
-      <link>https://www.youtube.com/watch?v=lXUZvyajciY</link>
-      <description>&lt;p&gt;&lt;a href="UCXl4i9dYBrFOabk0xGmbkRA"&gt;Dwarkesh Patel&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=lXUZvyajciY"&gt;Andrej Karpathy — AGI is still a decade away&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;以下是Andrej Karpathy关于AI发展、挑战、未来趋势及对教育变革的深度洞察：&lt;/p&gt;
-&lt;p&gt;🤔 AI发展：为何是“智能体十年”而非一年？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;纠正过度预测：&lt;/strong&gt; 行业中存在对AI代理（Agent）的“一年”论调，Karpathy认为这过于乐观。他认为AI代理的真正成熟将是一个长达“十年”的漫长过程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心瓶颈：&lt;/strong&gt; 当前AI代理远未达到预期，主要缺失包括：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;智能不足：&lt;/strong&gt; 缺乏足够的通用智能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多模态能力：&lt;/strong&gt; 无法有效处理和整合多种数据类型（如视觉、听觉）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;计算机操作：&lt;/strong&gt; 无法像人类一样灵活使用电脑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持续学习：&lt;/strong&gt; 无法长时间记忆和学习新信息，每次重启都像“从零开始”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;认知缺陷：&lt;/strong&gt; 缺乏类似人类的复杂思考和规划能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“Demo到产品”的鸿沟：&lt;/strong&gt; 一个看起来很棒的演示（Demo）与一个真正可用的产品之间存在巨大差距，尤其在容错率低（如自动驾驶、生产代码）的领域。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡 AI与人类智能：进化、预训练与“劣质进化”&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI与动物的本质区别：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;动物：&lt;/strong&gt; 通过亿万年进化，大脑结构和功能是“内置”的，很多能力是“成熟”而非“学习”而来（如斑马出生几分钟就能奔跑）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI：&lt;/strong&gt; 是“幽灵”或“灵魂”实体，通过模仿互联网数据训练而成，没有进化的外循环。Karpathy称之为“劣质进化”，即在当前技术条件下，通过预训练来模拟进化过程，构建AI的“先验知识”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识与智能的平衡：&lt;/strong&gt; 预训练模型在学习互联网知识的同时，也学会了“智能”（如上下文学习）。然而，过度依赖庞大的训练数据可能导致模型“记忆”过多，反而影响其通用智能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🧠 语言模型的核心秘密：知识、智能与“认知核心”&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;理解上下文学习（In-Context Learning）：&lt;/strong&gt; 模型通过预训练自发学会了上下文学习，它不是显式的梯度下降，而是根据上下文模式完成预测。一些研究表明，它可能在内部运行类似梯度下降的机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识的“模糊回忆”与“工作记忆”：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型权重中的知识：&lt;/strong&gt; 是对万亿级训练数据的高度压缩，更像是“模糊的回忆”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文窗口中的信息：&lt;/strong&gt; 模型能直接访问和利用，类似于人类的“工作记忆”。这就是为什么提供完整文本而非只提问，会得到更好答案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“认知核心”的愿景：&lt;/strong&gt; Karpathy设想将AI的“知识”和“认知能力”分离。未来的AI应该有一个“认知核心”，它是一个相对较小的智能实体（例如，可能只有10亿参数），专注于算法、问题解决策略和行动逻辑，而不需要记忆所有事实，而是按需查找信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型“坍缩”问题：&lt;/strong&gt; LLM倾向于“悄然坍缩”其数据分布，缺乏多样性和熵（例如，ChatGPT只知道几个笑话）。这意味着模型生成的内容虽然看似合理，但缺乏深度和广度。这对于依赖模型生成合成数据进行训练是巨大挑战，因为模型会不断在“小流形”上自我训练，最终限制自身。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🤔 RL之困：为何“通过吸管获取监督”效率低下？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;RL的效率低下：&lt;/strong&gt; Karpathy认为当前的强化学习（RL）是“糟糕”且“低效”的，像“通过吸管吸取监督”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类与RL的差异：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;RL：&lt;/strong&gt; 进行大量试错（如数百次尝试），只根据最终结果（一个数字奖励）来广撒网式地调整整个轨迹的权重。这会导致大量噪声，即使某个过程是错的，只要最终结果对，也会被“鼓励”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类：&lt;/strong&gt; 会对解决问题的过程进行复杂的回顾和反思，精确识别做得好与不好的部分。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;基于过程的监督挑战：&lt;/strong&gt; 难以自动化地分配部分信用。使用LLM作为裁判的问题在于它们是“可被利用”的，会发现对抗性例子（例如，模型输出“dhdhdhdh”却获得满分），导致模型作弊。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;未来展望：&lt;/strong&gt; 需要发展新的算法，像人类一样进行“反思与回顾”，而非仅仅依赖最终奖励信号。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⚙️ AI工程与研究：代码助手与AGI爆发的距离&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;编程是LLM的“天生一对”：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;代码本质上是文本，LLM擅长文本处理。&lt;/li&gt;
-&lt;li&gt;编程领域有完善的基础设施（IDE、Diff工具），便于AI集成和协作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;当前编码AI的局限性：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;擅长自动补全：&lt;/strong&gt; 高效且信息带宽高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;不擅长原创复杂代码：&lt;/strong&gt; 无法处理独特、高强度的智力任务，模型记忆了太多通用模式，难以适应定制风格和假设，容易生成冗余、过时或错误的代码。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AGI爆发是“业务常态”？&lt;/strong&gt; Karpathy认为AGI带来的“智能爆炸”是持续了数百年的自动化进程的延续，而非突然的跳跃式增长。它与计算机、手机等技术一样，是渐进地融入社会，而非瞬间改变增长曲线。他预测GDP增长率仍将保持现有模式，不会出现“超指数级”的飞跃。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚗 自驾启示：从Demo到产品，每“一个九”都意味着巨大挑战&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高昂的失败成本：&lt;/strong&gt; 自动驾驶和生产级软件开发领域，任何错误都可能导致严重后果（事故、安全漏洞），这使得开发周期更长，因为需要不断迭代以达到极高的可靠性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“九”的进军：&lt;/strong&gt; 达到90%的成功率只是第一个“九”，从90%到99%，再到99.9%……每个额外的“九”都需要巨大的、持续的努力和时间投入。例如，特斯拉自动驾驶团队用了五年才达到两到三个“九”的提升，且远未完成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;隐藏的人力投入：&lt;/strong&gt; 像Waymo这样的自动驾驶系统，背后有庞大的远程操作中心，仍需大量人工干预和监督，并非完全自主。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;物理世界与数字世界的差异：&lt;/strong&gt; 处理物理世界的问题（如自动驾驶）比处理纯数字问题（如LLM知识工作）复杂百万倍，因为它涉及不可预测的物理交互、法律、保险和社会接受度等多个层面。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📚 AI时代的教育：构建知识之“斜坡”，培养“超人”而非“无所事事”&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;教育的未来变革：&lt;/strong&gt; AI将重塑教育，未来教育应提供个性化辅导，像人类优秀导师一样了解学生的世界模型，提供恰到好处的挑战。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“星际舰队学院”愿景：&lt;/strong&gt; 建立顶尖的科技教育机构，提供高质量课程，目标是构建“知识的斜坡”，让学习过程顺畅、高效，充满“尤里卡时刻”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼理念的实践：&lt;/strong&gt; “如果我不能构建它，我就不理解它。”Karpathy推崇通过动手实践来学习，例如他开发的100行代码的micrograd项目，浓缩了神经网络训练的核心思想，其余皆是“效率”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;专家教学的挑战：&lt;/strong&gt; 专家常受“知识的诅咒”影响，难以设身处地为新手着想。解决之道是：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;倾听“愚蠢的问题”：&lt;/strong&gt; 从新手的问题中反思和改进教学。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“像聊天一样讲透”：&lt;/strong&gt; 避免抽象 jargon，直接、清晰地解释核心思想。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“教是最好的学”：&lt;/strong&gt; 强迫自己向他人解释，能发现理解上的不足。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“按需学习”与“深度优先”：&lt;/strong&gt; 围绕具体项目学习，能获得直接反馈和奖励。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;后AGI时代的教育：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;教育为“趣”而非“用”：&lt;/strong&gt; 就像现代人去健身房为了乐趣和自我提升，而非纯粹的生存需求。学习将变得“轻松愉快”，人们会为了乐趣而学习。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;培养“超人”：&lt;/strong&gt; 目标是让人类成为“超人”，能够掌握多门语言、通晓多领域知识，充分挖掘人类心智的潜能，而非成为WALL-E中“无所事事”的乘客。尽管在极其长远的未来，人类可能难以在技术轨迹上与AI匹敌，但通过教育可以显著增强人类的能力和参与度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💎 金句分享：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“这是智能体的十年。”&lt;/li&gt;
-&lt;li&gt;“你正通过吸管吸取监督。”&lt;/li&gt;
-&lt;li&gt;“如果我不能构建它，我就不理解它。”&lt;/li&gt;
-&lt;li&gt;“我们不是在建造动物。我们是在建造幽灵或灵魂。”&lt;/li&gt;
-&lt;li&gt;“大部分压缩是记忆工作，而不是认知工作。但我们真正需要的是认知部分，删除记忆。”&lt;/li&gt;
-&lt;li&gt;“权重中的任何东西，都是你一年前阅读内容的模糊回忆。而你在测试时作为上下文提供的任何东西，都直接在工作记忆中。”&lt;/li&gt;
-&lt;li&gt;“按需学习是非常好的。深度学习。”&lt;/li&gt;
-&lt;li&gt;“向别人解释事情是深入学习的绝佳方式。”&lt;/li&gt;
-&lt;li&gt;“我认为教育是最具智力趣味的事情，因为它涉及理解的缠绕，而你试图以一种创造一个斜坡的方式将其展现出来，其中每一步都只依赖于它之前的事情。”&lt;/li&gt;
-&lt;li&gt;“模型在记忆方面太擅长了……这是一个优点，而不是缺点，因为它迫使你只学习可泛化的组件。”&lt;/li&gt;
-&lt;li&gt;“后AGI时代的教育是快乐的。”&lt;/li&gt;
-&lt;li&gt;“今天的天才们，才刚刚触及人类心智潜能的冰山一角。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=lXUZvyajciY</guid>
-      <enclosure url="https://i.ytimg.com/vi/lXUZvyajciY/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 17 Oct 2025 17:15:45 +0800</pubDate>
-    </item>
-    <item>
-      <title>Anthropic专家揭秘：Claude如何成为全能Agent，多智能体系统颠覆未来</title>
-      <link>https://www.youtube.com/watch?v=uhJJgc-0iTQ</link>
-      <description>&lt;p&gt;&lt;a href="UCrDwWp7EBBv4NwvScIpBDOA"&gt;Anthropic&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=uhJJgc-0iTQ"&gt;Building more effective AI agents&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;🤖 Claude为何在Agent任务中表现如此出色？- 🚀 多智能体系统如何彻底改变我们与AI协作的方式？- 💡 如何像“黑客帝国”Neo一样，一键为AI加载新技能？---🧠 Claude：天生就是“问题解决专家”*   &lt;strong&gt;训练秘诀：&lt;/strong&gt; Claude在训练中就扮演“Agent”，通过解决开放式问题、多步骤操作和使用工具，学会了探索和自我完善。*   &lt;strong&gt;强化学习：&lt;/strong&gt; 结合代码和搜索任务的RL训练，让Claude成为一个高效的Agent，能够独立完成复杂任务。---💻 编程是Agent的“超级技能”*   &lt;strong&gt;核心能力：&lt;/strong&gt; 编程被视为Agent的“基础技能”，能扩展到任何其他工作。    *   例如，通过API进行网页搜索。    *   通过创建日程安排来规划周末。*   &lt;strong&gt;代码生成：&lt;/strong&gt; Claude能够通过编写代码来生成文件（如Excel表格或SVG图像），比直接创建更高效、更迅速，尤其是在重复性任务中。    *   “Claude得到了一个for循环！”——形象地比喻了代码带来的效率提升。---🚀 Claude Code SDK：Agent开发的“加速器”*   &lt;strong&gt;开箱即用：&lt;/strong&gt; SDK封装了构建Agent所需的基础循环、工具执行、文件及MCP交互等复杂逻辑。*   &lt;strong&gt;通用Agent：&lt;/strong&gt; 虽名为“Claude Code”，但它是一个通用的Agent框架，适用于各种任务（甚至能帮你策划约会！）。*   &lt;strong&gt;定制化：&lt;/strong&gt; 开发者可在此基础上轻松添加自定义业务逻辑和工具，无需重复造轮子。---⚡ Claude Skills：Agent的“闪电学习术”*   &lt;strong&gt;超越指令：&lt;/strong&gt; Skills是Claude MD文件的升级版，不仅提供指令，还能直接提供各种资源文件。    *   例如，PowerPoint模板、辅助脚本、图片素材等。*   &lt;strong&gt;“黑客帝国”式学习：&lt;/strong&gt; 就像Neo瞬间学会功夫，给Claude一个技能，它就能立刻掌握相应领域的能力（如创建电子表格的“银行家”技能）。---🔄 从“工作流”到“智能体工作流”的进化*   &lt;strong&gt;Agent循环超越工作流：&lt;/strong&gt; 对于追求绝对质量的任务，Agent的闭环反馈和自我纠错能力，使其表现远超传统的工作流。    *   传统工作流：一个环节失败（如SQL查询），整个流程可能崩溃。    *   Agent工作流：每个步骤都是一个闭环Agent，能自我验证和迭代，直到达到正确结果再进入下一步。*   &lt;strong&gt;低延迟场景：&lt;/strong&gt; 传统工作流在需要极低延迟和单次最佳答案的场景下仍有优势。---🔭 Agent系统的“可见性”挑战与“极简主义”原则*   &lt;strong&gt;复杂性陷阱：&lt;/strong&gt; 随着Agent系统变得复杂，“可观测性” (Observability) 变得极其困难。*   &lt;strong&gt;设计哲学：&lt;/strong&gt; 始终坚持“始于简单，按需增加复杂度”。    *   从单次提示（single-shot）或Claude Code SDK开始。    *   只在必要时逐步添加层级和复杂性。---🤝 多智能体系统：集群协作的未来*   &lt;strong&gt;并行工作：&lt;/strong&gt; 与“智能体工作流”不同，多智能体系统是多个Claude Agent同时、并行地处理任务。    *   &lt;strong&gt;父子Agent结构：&lt;/strong&gt; 一个主Agent可以委托任务给多个子Agent并行工作（如深度搜索产品）。    *   &lt;strong&gt;保护主上下文：&lt;/strong&gt; 子Agent可处理耗费大量token的子任务，将精炼后的结果返回主Agent，避免主上下文过载。*   &lt;strong&gt;工具调用：&lt;/strong&gt; 子Agent在主Agent看来就像一个工具，通过传递提示来启动任务。---👨‍💼 训练Claude成为“更好的管理者”*   &lt;strong&gt;管理挑战：&lt;/strong&gt; Claude在早期会犯与新手管理者类似的错误——指令不清晰、预期子Agent拥有不必要的上下文。*   &lt;strong&gt;学习进步：&lt;/strong&gt; 通过训练，Claude学会了提供更详细、更具上下文信息的指令给子Agent，提升了整体协作效率。---💡 多智能体系统的多样化应用*   &lt;strong&gt;代码开发：&lt;/strong&gt; 在编程任务中大量使用子Agent。*   &lt;strong&gt;并行化/MapReduce：&lt;/strong&gt; 将任务拆分给多个子Agent并行处理，提高效率，节省上下文。*   &lt;strong&gt;测试时计算 (Test Time Compute)：&lt;/strong&gt; 多个Claude共同解决一个问题，提供比单一Claude更优的最终答案。*   &lt;strong&gt;工具管理：&lt;/strong&gt; 对于拥有大量工具的客户，可以将工具集分散给不同的子Agent，简化每个Agent的认知负担。---🚧 警惕Agent系统的“内耗”陷阱*   &lt;strong&gt;过度设计：&lt;/strong&gt; 像任何复杂系统一样，Agent系统也可能过度设计，导致效率低下和“死重”。*   &lt;strong&gt;沟通开销：&lt;/strong&gt; 过度复杂的系统可能导致Agent之间花费过多时间沟通，而非实际进展任务，类似于大型人类组织中的管理通病。---🛠️ 开发者构建Agent的“黄金法则”*   &lt;strong&gt;保持简洁：&lt;/strong&gt; 从最简单的方案开始，仅在确有必要时才增加复杂性。*   &lt;strong&gt;Agent视角：&lt;/strong&gt; 设身处地为Claude思考，确保它接收到的信息足以解决问题。    *   “检查原始日志和工具调用记录！”——确认Claude的真实“视野”。*   &lt;strong&gt;工具设计：&lt;/strong&gt; 将工具（或MCPs）设计成与用户界面 (UI) 对应，而非直接映射API。    *   目标是最小化交互，一次性呈现尽可能多的信息，像用户友好型UI一样。---🔮 Agent的未来：自测、交互与无处不在*   &lt;strong&gt;软件工程：&lt;/strong&gt; Agent将在可验证领域（如软件工程）普及，改变开发模式。*   &lt;strong&gt;自我验证：&lt;/strong&gt; Agent将能编写、测试并调试自己的Web应用和代码，实现“闭环测试”，不再需要人类充当QA工程师。*   &lt;strong&gt;计算机使用：&lt;/strong&gt; 结合计算机使用能力，Agent将能直接在应用中执行任务（如在Google Docs中清理文档、响应评论），实现无缝交互。    *   “Agent可以伴随你左右。”——无论你在哪里工作，Claude都能提供帮助。---&lt;strong&gt;金句：&lt;/strong&gt;- “编码是Agent一项非常基础的技能，它将产生大量的溢出效应，让Claude在所有事情上都变得出色，就像先训练最难的东西，然后其他一切都会变得容易。”- “如果你的API可能包含三个独立的端点，用于加载Slack对话、将用户ID转换为用户名、以及将频道ID转换为频道名称，但如果这些是你给模型理解Slack的工具，那么它需要进行三次工具调用才能理解任何东西。而作为一个用户，我们看到的一切都经过了很好的渲染……所以你需要为模型创建一个工具或MCP，让它一次性呈现所有内容，并尽可能减少交互。”- “我一直在研究多智能体系统，而且我敢说它与‘智能体工作流’截然不同。‘智能体工作流’是一个智能体完成任务后，其输出被发送到下一个智能体继续工作。而多智能体系统从根本上来说，是你有多个智能体或多个Claude同时工作。”- “如果智能体能够开始更好地验证自己的工作，例如通过电脑使用，它们可以编写一个网络应用，然后实际打开并测试它，然后找到自己的错误，而不是你需要去做这件事，我认为这是最令人兴奋的事情之一。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=uhJJgc-0iTQ</guid>
-      <enclosure url="https://i.ytimg.com/vi/uhJJgc-0iTQ/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 17 Oct 2025 16:01:56 +0800</pubDate>
     </item>
   </channel>
 </rss>
