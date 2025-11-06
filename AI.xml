@@ -7,7 +7,246 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Nov 2025 23:21:52 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Nov 2025 08:36:15 +0000</lastBuildDate>
+    <item>
+      <title>LongChain 1.0重磅发布：AI Agent开发架构大革新，开发者如何应对巨变？</title>
+      <link>https://www.bilibili.com/video/BV1uV1yBHE2o</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1uV1yBHE2o"&gt;核心API重构！最新LangChain 1.0快速入门与Agent开发实战！从零搭建工业级智能体，最新中间件功能详解，MCP、RAG工业级实践！&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;AI Agent开发框架LongChain迎来了划时代的1.0版本更新，这不仅是一次简单的版本迭代，更是一场彻底的核心架构重构！对于开发者而言，这意味着机遇与挑战并存。&lt;/p&gt;
+&lt;p&gt;🤔 LongChain 1.0究竟带来了哪些颠覆性变革？
+🛠️ 你的旧LongChain项目还能用吗？开发者该如何快速上手新架构？
+🚀 如何用1.0新特性构建更强大、更智能的AI Agent？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌟 &lt;strong&gt;LongChain 1.0：三年磨一剑的里程碑式革新&lt;/strong&gt;
+LongChain作为当下最热门、最成熟的Agent开发框架，自2022年底发布以来，仅用3年时间就从一个开源项目成长为估值超12亿美元的头部大模型科技公司。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;痛点&lt;/strong&gt;：此前0.3版本随着功能堆积，内部架构变得臃肿、API复杂、层级多、依赖混乱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;变革&lt;/strong&gt;：1.0版本是三年来的首个大版本更新，全面瘦身重构基础库，让框架变得清爽统一。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤯 &lt;strong&gt;架构巨变：LongGraph不再纠结，API全面瘦身！&lt;/strong&gt;
+LongChain 1.0几乎重构了全部核心架构，对开发者影响深远。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心升级&lt;/strong&gt;：LongChain和LongGraph两大架构实现统一，LongGraph正式退居幕后，成为底层框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API简化&lt;/strong&gt;：此前几十种创建Agent的API（如&lt;code&gt;create_react_agent&lt;/code&gt;, &lt;code&gt;create_json_agent&lt;/code&gt;等）全部统一为简洁高效的&lt;code&gt;create_agent&lt;/code&gt; API。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开发者影响&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;此前所有LongChain项目都需要根据1.0最新的API规则进行重写，是一次不小的“阵痛”。&lt;/li&gt;
+&lt;li&gt;好消息是，官方承诺&lt;code&gt;create_agent&lt;/code&gt; API调用规则在LongChain 2.0诞生前将长期有效，投入学习的成本将物有所值。&lt;/li&gt;
+&lt;li&gt;对于Agent开发初学者，现在是学习LongChain 1.0最新版的“黄金时期”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;框架关系释疑&lt;/strong&gt;：从LongChain 1.0开始，开发者不再需要纠结LongChain和LongGraph的关系，只需专注于学习LongChain 1.0即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🧠 &lt;strong&gt;Agent开发核心：Create Agent API的魔法&lt;/strong&gt;
+&lt;code&gt;create_agent&lt;/code&gt; API是LongChain 1.0中最核心的功能，用于构建各种智能体。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;零基础入门&lt;/strong&gt;：学习如何接入各类在线开源大模型到LongChain 1.0的基本流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型与消息&lt;/strong&gt;：详细介绍LongChain 1.0中模型API的使用方法，以及包含&lt;code&gt;content block&lt;/code&gt;在内的多模态消息格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战搭建&lt;/strong&gt;：上手搭建基于流式响应的多轮对话机器人。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具集成&lt;/strong&gt;：详细讲解如何接入LongChain内置工具和自定义工具，扩展Agent能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能体构建&lt;/strong&gt;：最终构建支持多步推理和自动Debug的高性能智能体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用模板&lt;/strong&gt;：推出通用的&lt;code&gt;moti agent&lt;/code&gt;模板——&lt;code&gt;deep agent&lt;/code&gt;，让开发者通过简单的工具拼接就能完成类似&lt;code&gt;minus&lt;/code&gt;、&lt;code&gt;cloud code&lt;/code&gt;这类工业级复杂Agent的开发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ &lt;strong&gt;Agent生产部署套件：从开发到上线一站式服务&lt;/strong&gt;
+LongChain 1.0提供了完善的企业级Agent部署和运维工具，让Agent从开发到生产部署变得更加顺畅。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可视化开发&lt;/strong&gt;：LongGraph Studio，允许用户在网页端查看或调整整个Agent架构，支持实时对话及监督Agent运行流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前端对话&lt;/strong&gt;：Agent Chat UI，为LongChain Agent量身定制的对话前端，美观、功能齐全且支持定制化开发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一键部署&lt;/strong&gt;：LongGraph CLI，轻松部署开发好的智能体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实时监控&lt;/strong&gt;：LongSmith，对智能体运行状态进行实时追踪。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工业级实战&lt;/strong&gt;：手把手完成基于LongChain 1.0的工业级AI数据分析Agent（Data Agent）开发，实现：&lt;ul&gt;
+&lt;li&gt;全自动完成NL to SQL和数据分析。&lt;/li&gt;
+&lt;li&gt;打通Python编程环境，进行数据可视化、建模预测。&lt;/li&gt;
+&lt;li&gt;持久化记忆保存，自由切换对话。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔑 &lt;strong&gt;Agent性能杀手锏：中间件（Middleware）精细化控制&lt;/strong&gt;
+为了更精准、更细粒度地控制Agent行为，LongChain 1.0重磅发布了Agent中间件（Middleware），这是一个基于钩子的插件系统。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心作用&lt;/strong&gt;：开发者可以在模型调用前后、工具调用前后等关键环节注入代码，影响Agent运行流程，从而实现：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无限上下文&lt;/strong&gt;：在调用模型前对消息队列进行裁剪或压缩。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容护栏&lt;/strong&gt;：在模型生成结果前后进行合规性审查。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人在闭环&lt;/strong&gt;：在每次工具调用前触发人工审查。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型动态选择&lt;/strong&gt;：在Agent进行模型调用前，根据不同类型的任务选择不同模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化工具调用&lt;/strong&gt;：在调用工具前引入审查机制，大幅提升Agent性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战深入&lt;/strong&gt;：深入系统讲解中间件开发流程，手动实现Agent的无限上下文、人在闭环和模型动态选择等关键功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📚 &lt;strong&gt;学习资源与展望&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;最系统教程&lt;/strong&gt;：本次公开课是目前最系统、最完整的LongChain 1.0教程，总时长三小时，包含八个章节，2万多字的课件，外加项目代码、运行脚本、参考资料等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;获取方式&lt;/strong&gt;：所有学习资料已上线至复范大模型技术社区。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;✨ &lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“LongChain 1.0，其实应该叫做LongGraph 2.0。”&lt;/li&gt;
+&lt;li&gt;“LongChain 1.0 的中间件，将成为提升Agent性能的杀手锏。”&lt;/li&gt;
+&lt;li&gt;“从LongChain 1.0开始，可以不用纠结LongChain和LongGraph这两个框架的关系了，放弃LongGraph，只需要学习LongChain 1.0就行。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1uV1yBHE2o</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/b3499ad72bc4529bb2dd1ddfade198396adc6a2e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 06 Nov 2025 09:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI浪潮：从虚拟网红到万亿投资，泡沫中孕育的增长与变革机遇</title>
+      <link>https://www.zengzhang.ai/p/aiep31-aiai6</link>
+      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;增长黑客AI周报&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep31-aiai6"&gt;【增长黑客AI周报】EP#31 泡沫的益处、AI漫剧、百万原生AI网红、工程师内部用法、高增长投资者必知、6大笔记案例等&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔 泡沫之下，AI的真正价值是虚幻还是基石？🎬 当AI驱动的虚拟网红与漫剧席卷而来，内容创作的边界何在？🚀 企业如何利用AI实现百倍成本优化与高速增长，秘密武器是什么？---📈 AI泡沫：危机还是基础设施的馈赠？- 经济学家卡洛塔·佩雷斯的理论指出，技术泡沫（如互联网泡沫）是“安装阶段”的狂热投资，虽看似过度，却为后续的“部署阶段”奠定了关键基础。- 比如，互联网泡沫时期过度铺设的光纤，最终成为现代互联网的基石。- 当前AI领域也存在明显泡沫现象（如OpenAI估值与营收的巨大差异）。- 苹果之外的所有科技巨头都在大幅增加资本支出，为AI基础设施疯狂“砸钱”，这正印证了佩雷斯的理论。---💖 AI网红：22天百万粉丝的流量密码- &lt;strong&gt;案例聚焦&lt;/strong&gt;：“Grannyspills”这位AI奶奶，以一身粉色装扮和犀利幽默的语录，在22天内Instagram粉丝突破百万，目前已接近200万。- &lt;strong&gt;内容风格&lt;/strong&gt;：大胆毒舌，颠覆传统恋爱观，鼓励女性争取物质利益，吸引大量粉丝将其视为“赛博树洞”。- &lt;strong&gt;幕后推手&lt;/strong&gt;：“GetView”团队运营着多个AI账号矩阵。- &lt;strong&gt;变现模式&lt;/strong&gt;：通过Cameo平台出售定制视频（60美元生日祝福，250美元商用激励），探索IP授权，并推出了综艺节目。- &lt;strong&gt;成功秘诀&lt;/strong&gt;：内容形式升级（图文转视频提升真实感），以及AI工具迭代大幅简化了批量生产流程。---🎭 AI漫剧：比短剧更短的流量金矿- &lt;strong&gt;新兴形式&lt;/strong&gt;：每集约1分钟，总集数60-120集。这种“比短剧更短剧”的形式正以惊人速度席卷抖音、快手、B站，播放量和点赞量月复合增长率分别达到92%和105%，市场规模有望突破200亿元。- &lt;strong&gt;巨头入局&lt;/strong&gt;：抖音、快手、阅文、B站、爱奇艺等均积极布局，提供IP授权、内容采买扶持政策，或推出AIGC工具。- &lt;strong&gt;内容与变现&lt;/strong&gt;：继承短剧的“黄金三秒”和“密集爽点”叙事，题材集中在玄幻、战神、霸总、甜宠等。- &lt;strong&gt;变现优势&lt;/strong&gt;：盗版问题不严重，用户付费意愿高，看完一部作品通常需花费10-30元，转化率可观。- &lt;strong&gt;AI赋能&lt;/strong&gt;：AI能覆盖剧本、分镜、音视频等80%的制作流程，一个5-8人团队约一个月即可完成60集。- &lt;strong&gt;成本效益&lt;/strong&gt;：制作成本从早期的每分钟3000元降至千元以下，一部剧最低成本可控制在10万元以内（远低于中等短剧的30万元），且不少漫剧的投流ROI已超过1。---🛠️ 工程师AI工作流：模型切换与提效秘籍- &lt;strong&gt;真实案例&lt;/strong&gt;：- 工程师Danny Aziz在调试数据库迁移时，从Claude Code切换到Droid，Droid一次就解决了问题。这种无需丢失上下文的模型切换能力对开发者极具吸引力。- Anthropic团队揭秘Claude Code高级用法：让子代理相互竞争来捕捉错误，提升代码质量。- 资深工程师因Factory公司Coding Agent Droid表现卓越，果断取消了其他两家AI服务的会员计划。- &lt;strong&gt;核心洞察&lt;/strong&gt;：AI编程工具正快速演进，开发者能通过灵活切换模型、利用高级Agent功能，大幅提升工作效率和问题解决能力。---🧬 ElevenLabs增长哲学：20个小团队与6个月生死限- &lt;strong&gt;独特管理&lt;/strong&gt;：350人的公司拆分为20个5-10人的产品小队，每个小队拥有6个月时间去完成产品市场匹配（PMF）。- &lt;strong&gt;生存法则&lt;/strong&gt;：达成目标则继续运作，否则就地解散。此机制旨在确保每位成员对公司产生实质影响，并鼓励快速成长。- &lt;strong&gt;反直觉做法&lt;/strong&gt;：主动限制员工对Slack频道的访问权限，避免信息过载导致注意力分散，确保团队专注核心任务。- &lt;strong&gt;激励机制&lt;/strong&gt;：曾有销售接到竞争对手大单，虽佣金高昂，公司最终拒绝交易但照发佣金，并将“禁止向竞对出售技术”写入政策，强调激励结构需与战略保持一致。- &lt;strong&gt;启示&lt;/strong&gt;：小而精、高压与高回报并行的小团队机制，结合战略一致的激励设计，是实现公司高速迭代的关键。---💰 投资AI：K型经济下的五大盈利力量- &lt;strong&gt;宏观背景&lt;/strong&gt;：当前正经历自互联网时代以来最大的科技热潮，但也伴随着市场风险，形成“K型经济”——AI驱动的行业高速增长，而传统经济步履维艰。- &lt;strong&gt;五大盈利力量&lt;/strong&gt;：1. &lt;strong&gt;AI工厂建设&lt;/strong&gt;：科技巨头大规模投入AI基础设施（芯片、服务器、数据中心），预计到2027-2028年，年度支出将达到1万亿美元。&lt;strong&gt;投资机会&lt;/strong&gt;：直接处于大型科技公司支出范围内的“镐和铲”供应商。2. &lt;strong&gt;AI引发的能源危机&lt;/strong&gt;：到2030年，美国数据中心将需要额外30-40千兆瓦电力，导致电费上涨。&lt;strong&gt;投资机会&lt;/strong&gt;：有能力增加发电容量的公用事业公司（如Vistra Energy、Constellation）。3. &lt;strong&gt;资源竞赛与“总统的投资”&lt;/strong&gt;：AI依赖稀土等关键资源，供应集中在中国。美国政府正通过直接投资确保国内供应。&lt;strong&gt;投资机会&lt;/strong&gt;：获得白宫投资的公司（如Trilogy Metals股价翻倍）。4. &lt;strong&gt;AI应用层面&lt;/strong&gt;：杀手级应用与软件变革正改变各行各业（如Palantir）。&lt;strong&gt;投资机会&lt;/strong&gt;：凭借AI变得不可或缺的公司，以及迅速将AI融入平台的科技巨头。5. &lt;strong&gt;物理AI领域&lt;/strong&gt;：机器人、无人机等实体化应用爆炸式增长（Waymo自动驾驶、Symbotic仓库机器人、特斯拉Optimus）。&lt;strong&gt;投资机会&lt;/strong&gt;：拥有实际部署和现金流的公司，或拥有雄厚合作伙伴的企业。---🇨🇳 中国AI创业：从技术到应用的真实逻辑- &lt;strong&gt;信息差&lt;/strong&gt;：前沿团队探索世界模型时，许多地区用户甚至未接触基础AI工具。真正的商业优势属于能预见技术成为基础设施并据此重构模式的人。- &lt;strong&gt;模型进化与挑战&lt;/strong&gt;：ChatGPT是能力从30分到60分的跨越，而如今是从80分向95分提升的精细化竞争，边际效应递减带来市场焦虑。但在语音交互等垂直领域，Agent技术正以月为单位迭代，接近真人般自然交流。- &lt;strong&gt;应用层核心壁垒&lt;/strong&gt;：不在于拥有最强模型，而在于对多种技术的&lt;strong&gt;精细化编排能力&lt;/strong&gt;（如一次语音交互需调用六个模型以实现极致体验）。- &lt;strong&gt;企业AI落地挑战&lt;/strong&gt;：并非技术问题，而是企业在还“数字化旧债”——数据治理薄弱、流程未理顺是主要瓶颈。AI应用是“第五层”，前四层包括数字化基础、数据治理等准备工作。建议企业选择垂直场景快速落地，用AI价值倒逼数字化进程。- &lt;strong&gt;成本革命&lt;/strong&gt;：AI原生思维带来革命性变化，如数字人定制成本从五万元骤降至五百元，实现百倍降幅，彻底改变商业逻辑。---🧸 AI玩具：如何与孩子一同成长？- &lt;strong&gt;爆款案例&lt;/strong&gt;：“可豆陪陪”AI玩具在退货率高达30-40%的AI玩具市场中脱颖而出，迅速登上天猫类目TOP 3。- &lt;strong&gt;创始人洞察&lt;/strong&gt;：创始人黄缨宁（新手妈妈兼AI从业者）结合自身经验，捕捉到儿童陪伴与教育痛点，不到一年完成产品从概念到上市。- &lt;strong&gt;设计理念&lt;/strong&gt;：强调“生命感”，选择毛绒材质并放弃摄像头，专注于优质语音交互和符合儿童本能的互动方式（刷卡、摇晃），借鉴“恒河猴实验”强调触感对情感连接的重要性。- &lt;strong&gt;技术路径&lt;/strong&gt;：选择自研而非直接调用大厂模型，通过工程优化和场景调优提升体验。- &lt;strong&gt;核心启示&lt;/strong&gt;：成功源于对用户（孩子和家长）需求的深度理解，以儿童心理学为指导的产品设计，以及持续迭代优化的技术策略。---🌍 大厂动向：AI重塑巨头版图- &lt;strong&gt;OpenAI&lt;/strong&gt;：正式转型为公共受益公司，估值高达5000亿美元，结束“封顶利润”模式。微软作为重要伙伴，持股约27%，双方知识产权协议延长至2032年。- &lt;strong&gt;FANNG（亚马逊焦点）&lt;/strong&gt;：- 四大科技巨头在第三季度大幅增加资本开支用于购买AI芯片、服务器和建设数据中心，并计划在2026年进一步投入（微软以近350亿美元居首）。- 亚马逊副总裁Jamie Siminoff将AI使用情况纳入人事决策，所有晋升和招聘都会以AI的整合程度为依据，以激励团队积极运用技术。- AWS与OpenAI签署为期七年、价值380亿美元的协议，为OpenAI提供数十万颗NVIDIA GPU资源。- &lt;strong&gt;国内巨头（字节跳动焦点）&lt;/strong&gt;：- &lt;strong&gt;豆包&lt;/strong&gt;：新推出的商品卡功能，接入抖音商城，实现从智能问答到一键购物的闭环，月活1.72亿。- &lt;strong&gt;字节跳动出海&lt;/strong&gt;：AI产品豆包的海外版Cici自2025年8月起在印尼、马来西亚、墨西哥、英国等地加速推广，采用调用OpenAI GPT和谷歌Gemini，并结合字节生态工具。- &lt;strong&gt;中国AI应用公司战略评析&lt;/strong&gt;：探讨字节“矩阵”、阿里“王牌”与腾讯“枷锁”等头部公司在AI应用生态布局上的不同战略路径。---🔬 垂直AI应用：从农田到投资的深度变革- &lt;strong&gt;AI+农业&lt;/strong&gt;：春耘智农创始人徐连云将AI应用于传统农业，通过数据整合和智能决策解决劳动力短缺、管理效率低下等问题，提升作物健康。- &lt;strong&gt;AI+毛绒玩具&lt;/strong&gt;：创业者李勇将DeepSeek AI融入毛绒玩具，经历多次转折后实现年收入破亿，ChatGPT的出现是关键转折点。- &lt;strong&gt;AI+投资（Coatue基金）&lt;/strong&gt;：顶级基金Coatue认为AI重塑投资底层逻辑。Michael Barton指出：- 社交媒体情绪已成为新的投资变量（如GameStop事件）。- AI在数字广告领域实现收入爆发式增长（如AppLovin百倍成长）。- Coatue利用AI优化一级、二级市场信息壁垒。- &lt;strong&gt;核心洞察&lt;/strong&gt;：AI红利可能更多赋能现有巨头而非新兴独角兽。---📚 个人AI实践：7x24小时情报员与高效学习法- &lt;strong&gt;AI笔记&lt;/strong&gt;：《Get笔记一周年》分享了6个实用场景，提升个人信息管理效率。- &lt;strong&gt;AI辅助投资决策&lt;/strong&gt;：投资新手借助ChatGPT从零学习港股打新，并协作构建量化评分模型（包含五个维度）。- &lt;strong&gt;Claude Code“裸奔”&lt;/strong&gt;：作者选择不安装任何MCP工具包或第三方插件，采用极简Bash脚本方案，遵循奥卡姆剃刀原则，节省上下文资源并保持功能完整。- &lt;strong&gt;AI海报设计比稿&lt;/strong&gt;：锦秋AI实验室邀请16款AI文生图模型，围绕CEO大会海报进行实战测评，探索AI在中文语境和品牌美学下的表现。- &lt;strong&gt;AI Infra知识体系v2.0&lt;/strong&gt;：系统梳理AI基础设施技术栈，覆盖硬件、GPU、CUDA、大语言模型、系统设计、性能优化等。- &lt;strong&gt;Claude Code教程合集&lt;/strong&gt;：字节笔记本系统性整理从基础到进阶的Claude Code使用指南。- &lt;strong&gt;AI情报员&lt;/strong&gt;：AI产品黄叔通过搭建自动化系统（N8N、Zeabur、WeChat2RSS、飞书），实现全天候抓取微信公众号内容、AI摘要处理并推送到飞书群聊，缓解信息焦虑，获取写作灵感。---💎 金句- “互联网泡沫时期过度铺设的光纤，最终成为现代互联网的基石。”- “情人节只收到一朵花的姑娘，你不是在谈恋爱，你是在做慈善。”- “应用层的核心壁垒：不在于拥有最强模型，而在于对多种技术的精细化编排能力。”- “许多项目受阻并非技术问题，而是企业在为数字化旧债还债——数据治理薄弱、流程未理顺成为主要瓶颈。”- “AI应用是第五层，前四层包括数字化基础、数据治理等准备工作。”- “AI 红利可能更多赋能现有巨头而非新兴独角兽。”&lt;/p&gt;
+&lt;h2&gt;原文&lt;/h2&gt;
+&lt;h1&gt;【增长黑客AI周报】EP#31 泡沫的益处、AI漫剧、百万原生AI网红、工程师内部用法、高增长投资者必知、6大笔记案例等&lt;/h1&gt;
+&lt;h3&gt;「互联网泡沫时期过度铺设的光纤，最终成为现代互联网的基石。」&lt;/h3&gt;
+&lt;h5&gt;▪️PREFACE 卷首语&lt;/h5&gt;
+&lt;p&gt;1/ 很多人问我，怎么学 AI Coding？分享个好东西：4 个项目快速上手 Claude 与 Cursor 开发。不得不说 AI 写代码就是快哈。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;申请了 50 个免费名额，快领 &amp;gt;&amp;gt;&amp;gt; http://gk.link/a/12Eun&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2/ 这个 Newsletter 旗下的内部付费邀请制的 &lt;strong&gt;增长黑客 VIP 圈子&lt;/strong&gt;，我刻意低调运作了一段时间，观察反馈和自我演化（关于圈子的前序背景，可以看 这一期的卷首语）。&lt;/p&gt;
+&lt;p&gt;最近衍生出了三个有趣的主题群：AI+投资交易、AI+自媒体、AI+育儿（其中投资交易的最热闹，每天都有新的开源项目、策略思考、行情分享，毕竟赚钱让大家有共同语言和驱动力哈哈）。&lt;/p&gt;
+&lt;p&gt;它终于不再是我一人唱独角戏，大家在圈子里贡献了大量让我耳目一新的 AI 相关内容（工具、洞察、机会），我都会每周整理并发布在圈子里。&lt;/p&gt;
+&lt;p&gt;另外，圈子里也不定期会有我撰写的独家供稿（比如放出这篇试读 《我如何用 AI 辅助二级市场投资》）。&lt;/p&gt;
+&lt;p&gt;如果你感兴趣，欢迎 &lt;strong&gt;加入我们的圈子&lt;/strong&gt;，分享你的独家洞见，汲取水下的群体智慧。&lt;/p&gt;
+&lt;p&gt;OK，以下是本期的正式内容——&lt;/p&gt;
+&lt;h5&gt;▪️CASE 案例&lt;/h5&gt;
+&lt;h3&gt;第一个粉丝百万的「原生 AI 网红」出现了，为什么又是「AI 奶奶」？&lt;/h3&gt;
+&lt;h5&gt;via AI 新榜&lt;/h5&gt;
+&lt;p&gt;这篇文章聚焦于近期在社交媒体上迅速走红的 AI 生成网红「Grannyspills」。&lt;/p&gt;
+&lt;p&gt;这位虚拟奶奶以一身粉色装扮和犀利幽默的语录，例如「情人节只收到一朵花的姑娘，你不是在谈恋爱，你是在做慈善」，&lt;strong&gt;在 22 天内 Instagram 粉丝突破百万，目前即将达到 200 万。&lt;/strong&gt;文章指出，她的内容风格大胆毒舌，颠覆传统恋爱观，鼓励女性在关系中争取物质利益，吸引了大量粉丝将其视为「赛博树洞」进行情感分享。&lt;/p&gt;
+&lt;p&gt;除了介绍 Granny 的爆火现象，文章还揭示了其背后的制作团队「GetView」运营着多个 AI 账号矩阵，例如街访风格的 @joeyonthestreet 和企业家设定的 @auntieauroraa，在短期内获得了上亿次观看。在变现方面，Granny 通过 Cameo 平台出售定制视频，例如 60 美元的生日祝福和 250 美元的商用激励视频，探索了 IP 授权的商业化路径。此外，她还推出了综艺节目《你是问题所在吗》，进一步丰富内容形式。&lt;/p&gt;
+&lt;p&gt;文章分析认为，这类 AI 网红的成功得益于内容形式的升级，从图文转向视频，提升了真实感，以及 AI 工具的迭代简化了批量生产流程。&lt;/p&gt;
+&lt;h3&gt;AI 漫剧，比短剧更短剧？&lt;/h3&gt;
+&lt;h5&gt;via 虎嗅&lt;/h5&gt;
+&lt;p&gt;我是个看漫画长大的老二次元，通过这篇文章了解到一种新的内容形式：AI 漫剧（其实一早就跟文娱行业的投资人朋友推演出来过，只是没想到已经增长得如此摧枯拉朽）。&lt;/p&gt;
+&lt;p&gt;文章提到，&lt;strong&gt;这种每集约 1 分钟、总集数 60 到 120 集的内容形式，正以惊人的速度在抖音、快手、B 站等平台扩张，其播放量和点赞量月复合增长率分别达到 92% 和 105%，预计整体市场规模有望突破 200 亿元&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;文中指出，包括抖音、快手、阅文、B 站、爱奇艺在内的多家巨头都已积极布局漫剧领域。例如，抖音推出了针对 IP 授权改编和内容采买的扶持政策；快手联合可灵 AI 发起创投计划激励创作；阅文集团则开放了十万部 IP 并推出「漫剧助手」等 AIGC 工具，全面加码这一赛道。&lt;/p&gt;
+&lt;p&gt;在内容与商业模式上，&lt;strong&gt;漫剧被描述为继承了短剧的「黄金三秒」和「密集爽点」叙事逻辑，题材集中在男频的玄幻、战神和女频的霸总、甜宠等类型。&lt;/strong&gt;不过，漫剧在变现效率上展现出一定优势——由于盗版问题尚不严重，用户付费意愿较高，看完一部作品通常需花费 10 到 30 元，转化率目前仍较为可观。&lt;/p&gt;
+&lt;p&gt;更值得关注的是，AI 技术的应用大幅降低了漫剧的制作成本与门槛。据蓝标传媒 BlueNeo 负责人郭佳伊介绍，&lt;strong&gt;AI 已能覆盖剧本、分镜、音视频等 80% 的制作流程，一个 5 至 8 人团队约一个月即可完成 60 集内容。制作成本从早期的每分钟三千元降至千元以下，一部剧的最低成本可控制在 10 万元以内，远低于中等投入短剧的 30 万元水平&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;此外，文章还透露，&lt;strong&gt;目前不少漫剧的投流 ROI 已超过 1，意味着收入高于投放成本。&lt;/strong&gt;有从业者观察到，漫剧的日投流消耗从几个月前的三四百万元快速增长，预计将很快突破两三千万元。同时，市场上已出现《九尾狐男妖爱上我》《我独自拯救反派》等多部播放量破亿、收益达数百万元的爆款案例，这些成功故事也吸引着更多创作者加入。&lt;/p&gt;
+&lt;p&gt;综合来看，这篇文章通过从业者访谈与市场数据，描绘了 AI 漫剧作为「比短剧更短剧」的流量生意，其低成本、高变现效率的特性正推动行业迅速形成热潮，而巨头入场与热钱涌入则让这一新兴赛道充满想象空间。&lt;/p&gt;
+&lt;h3&gt;Every 团队工程师访谈合集，揭秘 AI 的内部用法&lt;/h3&gt;
+&lt;h5&gt;via Every.to&lt;/h5&gt;
+&lt;p&gt;（上面的视频是合计中的访谈之一）&lt;/p&gt;
+&lt;p&gt;文章汇总了 Every 团队访谈到的工程师们近期的真实 AI 工作流，展示了当前 AI 编程工具的发展动态和使用技巧。&lt;/p&gt;
+&lt;p&gt;援引的案例非常具体。例如，工程师 Danny Aziz 提到，他在移动的汽车后座调试一个失败的数据库迁移时，从 Claude Code 切换到 Droid，结果 Droid 一次就解决了问题。这种在不同模型间切换而无需丢失上下文的体验，对于需要综合各模型所长的开发者来说颇具吸引力。&lt;/p&gt;
+&lt;p&gt;以及 Anthropic 团队亲自揭秘的 Claude Code 高级用法，例如让子代理相互竞争以捕捉错误。此外，文章还带来了对 Cursor 2.0 新编辑器及其高速 LLM 的体验评测，并分享了一位资深工程师因 Factory 公司的 Coding Agent Droid 表现卓越，而果断取消了其他两家 AI 服务的会员计划的有趣案例。&lt;/p&gt;
+&lt;p&gt;这些来自工具建造者自身的一手经验，为希望提升工作效率的开发者提供了宝贵的参考。&lt;/p&gt;
+&lt;h3&gt;ElevenLabs 创业方法论：公司拆成 20 个小团队，6 个月没 PMF 原地解散&lt;/h3&gt;
+&lt;h5&gt;via 赛博禅心&lt;/h5&gt;
+&lt;p&gt;这篇文章分享了 ElevenLabs 这家公司在快速成长过程中采用的独特管理方式。文章提到，公司目前有 350 人，却依然保持高速迭代，&lt;strong&gt;其核心做法是将团队拆分为 20 个产品小队，每个小队 5 到 10 人，并给予 6 个月的时间去完成产品市场匹配。如果达成目标，团队继续运作；否则就地解散。&lt;/strong&gt;这种机制旨在让每位成员从加入起就能对公司产生实质影响，只要具备能力与激情，就有机会快速成长。&lt;/p&gt;
+&lt;p&gt;文中还提到一个反直觉的做法：ElevenLabs 主动限制员工对 Slack 频道的访问权限，以避免信息过载导致注意力分散。公司认为，过度的信息透明反而会让团队难以专注在核心任务上。&lt;/p&gt;
+&lt;p&gt;另一个亮点是关于激励机制的调整。随着公司规模扩大，销售团队容易按照提成规则行事，而非公司长期战略。文章举例说明，曾有销售接到竞争对手的大单，虽然按规则能获得高额佣金，但公司最终拒绝交易，同时照发佣金，并将「禁止向竞对出售技术」明确写入政策。这一做法强调了激励结构需与战略保持一致，避免短期利益损害长期发展。&lt;/p&gt;
+&lt;h5&gt;▪️OPINION 观点&lt;/h5&gt;
+&lt;h3&gt;泡沫的益处&lt;/h3&gt;
+&lt;h5&gt;via Stratechery&lt;/h5&gt;
+&lt;p&gt;一篇来自著名科技博客 Stratechery 的分析文章。以 OpenAI 近期达成价值 1.4 万亿美元合作协议却仅有 130 亿美元营收为例，指出当前 AI 领域存在明显的泡沫现象。&lt;/p&gt;
+&lt;p&gt;作者 Ben Thompson 援引经济学家 Carlota Perez 的著作《Technological Revolutions and Financial Capital》，提出泡沫并非全然负面——它们通过「安装阶段」的狂热投资为技术革命奠定基础，例如互联网泡沫时期过度铺设的光纤，最终成为现代互联网的基石。&lt;/p&gt;
+&lt;p&gt;文章强调，尽管泡沫破裂会导致经济衰退与企业破产，但那些在泡沫期看似亏损的基础设施投入，往往为后续的「部署阶段」提供关键支撑。文中特别提到，除苹果外所有科技巨头近期均大幅增加资本支出，进一步印证了当前处于 Perez 理论中的技术革命周期。作者通过对比历史上的工业革命、铁路与电力发展轨迹，论证了泡沫在推动技术普及过程中的必然性与建设性作用。&lt;/p&gt;
+&lt;h3&gt;高增长投资者必知：AI 领域的五大盈利力量&lt;/h3&gt;
+&lt;h5&gt;via 老猫美股研究&lt;/h5&gt;
+&lt;p&gt;文章深入剖析了当前 AI 浪潮中值得关注的几大投资方向。&lt;/p&gt;
+&lt;p&gt;作者徐老猫从美股研究的角度出发，指出我们正经历自互联网时代以来最大的科技热潮，其中蕴藏着巨大的收益机会，但也伴随着市场风险。文章特别强调了一种&lt;strong&gt;「K 型经济」现象，即 AI 驱动的行业高速增长，而传统经济却步履维艰&lt;/strong&gt;，这种分化值得投资者警惕。全文重点围绕 AI 领域的五大盈利力量展开论述，为高增长投资者提供了清晰的布局思路。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;首先，文章提到 AI 工厂建设正如火如荼地进行。&lt;/strong&gt;美国科技巨头正在大规模投入资金建设 AI 基础设施，预计到 2027-2028 年，人工智能年度支出将达到 1 万亿美元。这种资金爆炸造就了明显的赢家，投资者可以关注那些直接处于大型科技公司支出范围内的「镐和铲」供应商。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其次，AI 引发的能源危机也是一个重要议题。&lt;/strong&gt;到 2030 年，美国数据中心将需要额外 30-40 千兆瓦电力，这已经导致部分地区电费大幅上涨。这为有能力增加发电容量的公用事业公司带来了投资机会，比如 Vistra Energy 和 Constellation 这样的传统发电企业。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第三点是资源竞赛与「总统的投资」。&lt;/strong&gt;AI 看似是软件魔法，实则依赖稀土等关键资源，而这些资源供应主要集中在中国。美国政府正在通过直接投资来确保国内关键材料供应，这创造了新的交易机会，比如获得白宫投资的 Trilogy Metals 公司股价就实现翻倍。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第四大力量是 AI 应用层面，包括杀手级应用与软件变革。&lt;/strong&gt;文章以 Palantir 为例，说明 AI 应用正在改变从医疗到金融等各个行业。但投资者需要谨慎选择，关注那些凭借 AI 变得不可或缺的公司，以及正在迅速将 AI 融入平台的科技巨头。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;最后是物理 AI 领域，包括机器人、无人机等实体化应用。&lt;/strong&gt;今年这一领域取得爆炸式增长，从 Waymo 的自动驾驶服务到 Symbotic 的仓库机器人系统，再到特斯拉的 Optimus 人形机器人，都展示了 AI 从云端走向现实世界的趋势。文章建议关注那些拥有实际部署和现金流的公司，或拥有雄厚合作伙伴的企业。&lt;/p&gt;
+&lt;h3&gt;在这场内部对话，他们给出了中国 AI 创业的很多真实逻辑&lt;/h3&gt;
+&lt;h5&gt;via 科技行者&lt;/h5&gt;
+&lt;p&gt;本文汇集了多位来自 AI 产业一线的实践者，包括企业高管和投资人，共同探讨了技术发展背后的商业逻辑。对话没有停留在宏大的未来预测，而是聚焦于具体的应用挑战和市场机遇。参与者们分享了他们在语音交互、企业服务、数字人等领域的实战经验，剖析了 AI 落地过程中的真实瓶颈。&lt;/p&gt;
+&lt;p&gt;在这场对话中，嘉宾们首先观察到 AI 技术普及存在显著的结构性信息差。&lt;strong&gt;当部分前沿团队已在探索世界模型等复杂应用时，许多地区的用户甚至尚未接触过基础 AI 工具。&lt;/strong&gt;这种认知断层意味着技术浪潮的推进并不均衡，真正的商业优势可能属于那些能预见技术成为基础设施、并据此重构模式的人。&lt;/p&gt;
+&lt;p&gt;关于大模型的进化速度，现场观点出现分化。刘松从资本市场角度指出，AI 繁荣已转化为对底层基础设施的强劲需求，模型在多模态领域的迭代依然迅速。王学辉则用结构化比喻形容当前阶段：&lt;strong&gt;ChatGPT 时刻是能力从 30 分到 60 分的跨越，而如今正面临从 80 分向 95 分提升的精细化竞争，边际效应递减导致市场焦虑。&lt;/strong&gt;但在语音交互等垂直领域，魏佳星观察到 Agent 技术正以月为单位快速迭代，几乎达到真人般的自然交流水平。&lt;/p&gt;
+&lt;p&gt;应用层是否会被基础模型碾压？魏佳星给出了否定答案。他透露，为实现极致体验，一次语音交互需同时调用六个不同模型，因为单一模型无法覆盖语气词、适时回应等沟通细节。这揭示了&lt;strong&gt;应用层的核心壁垒：不在于拥有最强模型，而在于对多种技术的精细化编排能力&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;企业级 AI 落地则面临更现实的挑战。刘松指出，&lt;strong&gt;许多项目受阻并非技术问题，而是企业在为数字化旧债还债——数据治理薄弱、流程未理顺成为主要瓶颈。&lt;/strong&gt;他提出五层楼比喻：AI 应用是第五层，前四层包括数字化基础、数据治理等准备工作。现实中，三个月项目往往需花两个月补课。他建议企业选择垂直场景快速落地，用 AI 价值倒逼数字化进程。&lt;/p&gt;
+&lt;p&gt;在成本控制方面，刘道儒分享了 AI 原生思维带来的革命性变化。通过重构技术架构，&lt;strong&gt;数字人定制成本从五万元骤降至五百元，实现了百倍降幅。&lt;/strong&gt;这种成本优化不仅使产品更易普及，也从根本上改变了商业逻辑。整场对话表明，中国 AI 创业正从技术狂热走向务实深耕，在基础设施红利与应用瓶颈的张力中，探索着属于自己的发展路径。&lt;/p&gt;
+&lt;h3&gt;这款 AI 玩具，能跟孩子一起长大？&lt;/h3&gt;
+&lt;h5&gt;via 36 氪&lt;/h5&gt;
+&lt;p&gt;一篇来自 36 氪的对话，带我们走近了 AI 玩具创业者——贝陪科技创始人黄缨宁的创业故事。&lt;/p&gt;
+&lt;p&gt;文章围绕着一款名为「可豆陪陪」的 AI 玩具展开，探讨了&lt;strong&gt;它如何在退货率高达 30% 到 40% 的 AI 玩具市场中脱颖而出，并迅速登上天猫类目 TOP 3。&lt;/strong&gt;通过创始人黄缨宁的分享，我们了解到她如何从自身作为新手妈妈和 AI 从业者的双重身份出发，捕捉到儿童陪伴与教育的市场痛点，并带领团队在不到一年时间内完成产品从概念到上市的全过程。&lt;/p&gt;
+&lt;p&gt;黄缨宁提到，创业的念头萌芽于 2022 年底 ChatGPT 发布后，她亲身感受到 AI 交互范式的变革，并结合自己孩子成长中的陪伴缺失，决心打造一款能真正与孩子共同「长大」的智能玩具。她强调，产品在设计上做了关键取舍，例如选择毛绒材质来增强「生命感」，并放弃摄像头，专注于优质的语音交互和符合儿童本能的互动方式，如刷卡和摇晃。这些决策源于她对儿童心理学的深入理解，比如引用「恒河猴实验」来说明触感对孩子情感连接的重要性。&lt;/p&gt;
+&lt;p&gt;在技术路径上，贝陪科技选择自研而非直接调用大厂模型，通过工程优化和场景调优来提升体验，黄缨宁形容这就像「水涨船高」，充分利用基础设施的同时保持独特性。团队在一年内完成三次融资，投资人看重的是他们对赛道的匹配度和强大「愿力」，黄缨宁分享说，第一次拿到投资后，她更关注如何让团队安心打磨产品。&lt;/p&gt;
+&lt;p&gt;此外，文章还触及了家长对 AI 玩具可能让孩子沉迷虚拟世界的担忧，黄缨宁从神经科学角度回应，强调早期教育中对好奇心和同理心的引导至关重要。整体来看，这篇文章通过真实案例和创始人洞察，推荐给对 AI 应用、亲子科技或创业故事感兴趣的读者，它生动展示了如何将技术融入生活，创造出有温度的产品。&lt;/p&gt;
+&lt;h3&gt;大厂动向：&lt;/h3&gt;
+&lt;p&gt;OpenAI&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;《OpenAI becomes For-Profit, Earnings Snapshot, and Fed Pivots》&lt;/strong&gt;这篇文章由 Chamath Palihapitiya 撰写，围绕 OpenAI 的企业转型、科技巨头财报表现以及宏观经济动向展开讨论。文中提到 OpenAI 正式转型为公共受益公司，估值达到 5000 亿美元，并结束了此前「封顶利润」的实验模式。同时，微软作为重要合作伙伴，持股约 27%，双方还延长了知识产权协议至 2032 年。&lt;/p&gt;
+&lt;p&gt;FANNG&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;《We broke down the eye-popping AI spending for 4 Big Tech firms — and their plans to go even harder next year》&lt;/strong&gt;指出，四大科技巨头在第三季度纷纷加大了资本开支，主要用于购买 AI 芯片、服务器和建设数据中心，并且都计划在 2026 年进一步增加投入。微软以近 350 亿美元的支出位居榜首，亚马逊紧随其后，而 Meta 的 CEO 马克·扎克伯格则表示明年可能将长期资产支出提高多达 24%。&lt;strong&gt;《Amazon VP says his division is hiring and promoting based on employees’ AI usage》&lt;/strong&gt;聚焦于亚马逊副总裁 Jamie Siminoff 如何将 AI 使用情况纳入人事决策。Siminoff 负责公司的家庭安防产品部门，他在今年七月通过内部邮件宣布，所有晋升申请都必须列出员工使用 AI 的具体方式。最近接受采访时，他进一步强调，晋升和招聘都会以 AI 的整合程度为依据，目的是激励团队更积极地运用这项技术。&lt;strong&gt;《Amazon: Worth Every Penny》&lt;/strong&gt;这篇文章从亚马逊最新财报切入，重点分析了其与 OpenAI 达成的一项重大合作。文章指出，亚马逊刚刚向华尔街展示了市场期待已久的业绩证明，尤其是在人工智能领域的实质性进展。其中，AWS 与 OpenAI 签署的为期七年、价值 380 亿美元的协议尤为引人注目，这项合作将为 OpenAI 提供数十万颗 NVIDIA GPU 资源，并可扩展至数千万 CPU 以支持智能体工作负载。&lt;/p&gt;
+&lt;p&gt;国内巨头&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;《豆包，正在悄悄开启「电商新链路」》&lt;/strong&gt;这篇文章从豆包新推出的商品卡功能入手，探讨了 AI 如何逐步改变电商的交易模式。文章提到，豆包作为一款月活 1.72 亿的应用，最近上线了商品卡功能，接入了抖音商城，实现了从智能问答到一键购物的闭环。例如，当用户询问万圣节活动推荐时，豆包不仅提供信息，还会展示可直接点击的商品卡，跳转至抖音完成团购购买。&lt;strong&gt;《字节再出海，换了个打法》&lt;/strong&gt;带我们观察了字节跳动旗下 AI 产品豆包的海外版本 Cici 如何在国际市场展开新行动。文章提到，Cici 从 2025 年 8 月开始在印尼、马来西亚、墨西哥和英国等地加速推广，采用与豆包相似的设计但调整了技术策略。它选择调用 OpenAI 的 GPT 和谷歌的 Gemini 来处理文本生成，而非字节自研模型，同时借助字节生态中的工具如 PicPic 和 Coze 来补充功能。&lt;strong&gt;《2025 年中国头部 AI 应用公司战略评析｜Xsignal ：透视字节「矩阵」、阿里「王牌」与腾讯「枷锁」》&lt;/strong&gt;这篇文章，基于 2025 年秋季的行业数据，深入剖析了中国几家主要科技公司在 AI 应用生态布局上的不同战略路径。它特别聚焦于各家公司的旗舰产品表现、生态构建逻辑以及战略选择的得失。&lt;/p&gt;
+&lt;h3&gt;垂直领域：&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;《AI 都在卷视频，他却跑去种地了》&lt;/strong&gt;聚焦于春耘智农创始人徐连云如何将 AI 技术应用于传统农业领域。文章通过访谈形式，揭示了农业面临的现实困境，如劳动力短缺和管理效率低下，并展示了 AI 如何通过数据整合和智能决策帮助农场主提升作物健康。&lt;strong&gt;《我把 DeepSeek「装」进毛绒玩具，年入过亿》&lt;/strong&gt;这篇报道讲述了创业者李勇如何将人工智能技术融入毛绒玩具，在经历多次转折后实现年收入破亿的故事。文章回溯了李勇从天猫精灵合伙人到创立跃然创新的创业历程，重点描述了公司在面临库存积压、现金流断裂等危机时，因 ChatGPT 的出现而迎来转机的关键节点。&lt;strong&gt;《顶级基金 Coatue 的最新思考：AI 如何改变投资？》&lt;/strong&gt;一文，通过 Coatue 科技板块负责人 Michael Barton 的深度访谈，探讨了 AI 技术如何重塑投资行业的底层逻辑。文章从 GameStop 事件引发的市场结构变化切入，分析了社交媒体情绪如何成为新的投资变量；接着以 AppLovin 的百倍成长为例，揭示了 AI 在数字广告领域实现收入爆发式增长的具体路径。Barton 还分享了 Coatue 如何利用 AI 优化一级、二级市场的信息壁垒，并指出 AI 红利可能更多赋能现有巨头而非新兴独角兽。&lt;/p&gt;
+&lt;h3&gt;随便看看：&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;《2022025 AI 现场：我们这一年的目击与狂想》&lt;/strong&gt;带我们回顾了 2025 年 AI 与科技领域的重大事件与行业思考。这篇文章源自十字路口 Crossing 对庄明浩的播客访谈，围绕年度关键词「拐点」展开，探讨了技术迭代、产品创新与资本市场的多重动态。文中梳理了从 DeepSeek R1 到 Sora 2 的模型竞争，分析了中美技术路线的异同，并深入讨论了 Agent 元年的兴起与开源生态的中国特色。&lt;strong&gt;《Suno V5 让整个 B 站开始文艺复兴了。》&lt;/strong&gt;这篇文章从一位资深 B 站用户的视角出发，回顾了鬼畜视频从兴盛到沉寂的历程。作者提到，过去像伊丽莎白鼠、《葛炮的号哭》和「派大星的独白」这样的经典鬼畜作品曾带来无数欢乐，但近年来这类创意内容逐渐减少。&lt;strong&gt;《这一年做 Agent 的公司，Coding 赚了钱，客服融了钱，你呢？》&lt;/strong&gt;这篇文章基于 CB Insights 发布的《AI Agent Bible》报告，系统梳理了 2025 年 AI Agent 行业的发展现状和未来趋势。报告覆盖了 170 多家来自 26 个细分领域的创业公司，重点探讨了 Agent 在商业化、技术挑战和新兴机会方面的表现。文中指出，编程类 Agent 企业在收入上表现最为突出，而客服类 Agent 虽然收入不高，但估值倍数却遥遥领先。&lt;strong&gt;《用 AI 做电商真实效果如何？我们调研了双 11 一线从业者》&lt;/strong&gt;这篇文章来自极客公园，它通过调研今年双 11 期间一线电商从业者的实际经验，探讨了 AI 在电商领域的落地效果。文章指出，AI 已经不再是遥远的概念，而是深度介入了商家经营的全链路。在淘宝天猫平台上，双 11 期间有 500 万商家使用 AI 辅助经营，经营效率平均提升 1.5 倍，商品点击率提升 10%，部分品牌的 ROI 甚至实现翻倍增长。&lt;strong&gt;《阿里味儿的 AI 山姆，我是一个都不敢点。》&lt;/strong&gt;这篇文章从山姆超市使用 AI 图片引发的争议切入，讲述了 AI 在商业和生活中带来的信任危机。作者提到，山姆在新高管上任后改用 AI 生成菜品图，结果出现牛肉馅被做成意面、生栗子冒充糖炒栗子等离谱错误，让消费者难以判断自己是在点外卖还是买食材。&lt;strong&gt;《30 元，华强北给 AI 定了起步价》&lt;/strong&gt;这篇文章带我们走进了深圳华强北这个电子市场，看看 AI 硬件在这里是如何生根发芽的。文章提到，华强北的档口老板们对行业风向特别敏感，今年不少店铺都挂上了「AI 穿戴」或「AI 潮品」的招牌，从蓝牙耳机到智能戒指，各种 AI 设备应有尽有。有意思的是，这里给 AI 硬件标出的入场价只要 30 元左右——工厂和软件开发商合作，给普通蓝牙耳机接上大模型，就能变身 AI 翻译耳机，成本低得惊人。&lt;/p&gt;
+&lt;h3&gt;适合个人上手的教程/评测/资源：&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;《Get 笔记一周年：分享 6 个惊喜用法》&lt;/strong&gt;本周很喜欢这篇非常接地气的文章，梳理了用户在使用 AI 笔记产品中的六个实用场景，给我挺多启发。&lt;strong&gt;《AI 让我重新理解「投资决策」：一次港股打新的思维实验》&lt;/strong&gt;这篇文章讲述了一位投资新手如何借助 ChatGPT 从零开始学习港股打新，并逐步构建出一套量化评分模型的过程。作者原本对港股打新一窍不通，只能依赖他人观点或凭感觉操作，但这次他选择利用 AI 工具来理清投资逻辑。文章详细记录了他与 AI 的对话历程，从询问港股与 A 股打新的区别，到追问具体分析框架，最终协作设计出一个包含五个维度的评估体系。&lt;strong&gt;《为什么我的 Claude Code 选择「裸奔」？》&lt;/strong&gt;这篇文章来自字节笔记本，作者分享了自己在 AI 编程助手使用上的一种独特思路。文中提到，作者选择不为 Claude Code 安装任何 MCP 工具包或第三方插件，而是采用一种极简的 Bash 脚本方案来替代。这种做法的核心理念是遵循奥卡姆剃刀原则，即如无必要勿增实体，旨在最大化节省上下文资源并保持工具的功能完整性。&lt;strong&gt;《16 个 AI 的锦锦秋 CEO 大会海报比稿大战，谁能拿到设计费？》&lt;/strong&gt;这篇文章来自锦秋集，记录了锦秋 AI 实验室进行的一场别开生面的实验。他们邀请了 16 款不同的 AI 文生图模型，围绕即将举办的锦秋基金 CEO 大会，展开了一场海报设计的实战测评。实验旨在探索这些 AI 工具在中文语境和品牌美学下的实际表现，看看它们能否真正理解设计需求并产出合格的作品。&lt;strong&gt;《AI 原力注入：AI Infra 知识体系 v2.0》&lt;/strong&gt;这份资料系统梳理了人工智能基础设施的完整技术栈，内容覆盖从硬件基础到高级应用的多个核心领域。它特别强调了 GPU 架构与编程、CUDA 开发、大语言模型以及 AI 系统设计等关键技术模块。资料中还详细探讨了性能优化和企业级部署等实践性较强的主题，旨在为 AI 工程师、研究人员和技术爱好者提供一条清晰的学习路径。&lt;strong&gt;《无废话版！入门 Claude Code 到写项目教程合集》&lt;/strong&gt;这份来自字节笔记本的文档，系统性地整理了从基础到进阶的 Claude Code 使用指南。它涵盖了安装配置、高级功能、集成开发、移动端操作等多个维度，为学习者提供了一条清晰的技术成长路径。文档特别强调持续更新特性，并采用模块化结构方便按需查阅。&lt;strong&gt;《我不再焦虑「错过了什么」，因为我造了个 7x24 小时的「AI 情报员」》&lt;/strong&gt;这篇文章来自 AI 产品黄叔，分享了他如何通过搭建自动化系统来缓解信息焦虑的亲身实践。文中详细描述了他利用 N8N、Zeabur、WeChat2RSS 和飞书等工具，组合成一个全天候运行的 AI 信息处理流程。这个系统能自动抓取微信公众号内容，经过 AI 摘要处理后，将精选信息推送到飞书群聊，帮助他高效获取每日写作灵感。&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep31-aiai6</guid>
+      <pubDate>Thu, 06 Nov 2025 03:33:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>OpenAI万亿豪赌：AI巨头是“大而不倒”，还是泡沫边缘狂舞？</title>
+      <link>https://www.youtube.com/watch?v=lWc3mM9sHXQ</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=lWc3mM9sHXQ"&gt;Is OpenAI Too Big to Fail?&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;💸 OpenAI的万亿豪赌，究竟是未来科技的必然，还是即将破裂的巨大泡沫？
+🤔 什么是真正的“大而不倒”？OpenAI是满足这个条件，还是仅仅因为“联系太紧密”而让人担忧？
+🚀 面对史无前例的增长和天价承诺，AI巨头们将如何应对市场的质疑与自我调整？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌐 OpenAI的“买买买”：AWS新盟友与算力饥渴症&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;与亚马逊AWS达成数十亿美元合作：&lt;/strong&gt; OpenAI与亚马逊签署多年战略伙伴协议，AWS将提供数十万块Nvidia GPU，支撑ChatGPT推理、训练及Agentic AI工作负载。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sam Altman的算力狂潮：&lt;/strong&gt; 对此Altman低调回应，强调“让更多Nvidia芯片上线”以持续扩展。这凸显了OpenAI对计算能力的极致追求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多元化云服务版图：&lt;/strong&gt; 继微软之后，OpenAI与亚马逊的合作表明其AI工作负载正逐步分散到各大云服务商。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;❓ “大而不倒”？天价承诺与Sam Altman的硬气回应&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;令人咋舌的“采购清单”：&lt;/strong&gt; Kobay Letter披露，OpenAI已与英伟达、AMD、亚马逊、微软等巨头签订了总计高达1.4万亿美元的巨额协议，涵盖芯片、基础设施等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;营收与承诺的巨大落差：&lt;/strong&gt; 投资人Brad Gersonner质疑，OpenAI仅130亿美元的营收如何支撑如此庞大的支出承诺？&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sam Altman的“硬核”回击：&lt;/strong&gt; Altman略带挑衅地回应，强调营收正“陡峭增长”，并预测OpenAI将成为重要的AI云服务商、消费者设备巨头，甚至通过自动化科学创造巨大价值。他甚至鼓励质疑者做空OpenAI股票。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;公众解读：&lt;/strong&gt; Altman的“真性情”被一些人解读为“面具滑落”，但更多人认为这更像一个疲惫的CEO在多次面对重复质疑时的真实反应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💰 泡沫or增长？华尔街的复杂信号&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;天文数字般的营收挑战：&lt;/strong&gt; VC Tomas Tonguz分析，OpenAI要履行承诺，需将2024年的100亿美元营收提升至2029年的5770亿美元，这几乎相当于同期谷歌的营收规模。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“大而不倒”的真意：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心在于“互联性”而非“规模”：&lt;/strong&gt; 源自2008年金融危机，指的是系统性重要机构的失败可能引发经济链式崩溃，而非单纯体量庞大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支持者：&lt;/strong&gt; 如佛罗里达州长Ronda Santis认为，OpenAI因与科技巨头深度交织，已具备“大而不倒”特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反对者：&lt;/strong&gt; 如Jason Calcanis、Razo等认为，OpenAI的风险在于市场份额被压缩，而非彻底崩溃；其“互联性”更多是“循环依赖”，并非真正的系统性风险，政府无需救助。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场情绪的两面性：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;乐观派：&lt;/strong&gt; 特朗普认为AI是“新互联网，一切之本”；高盛CEO David Solomon相信经济的适应性与韧性，能应对AI颠覆，但承认此次速度更快。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;谨慎派：&lt;/strong&gt; 华尔街出现分歧，Loop Capital上调英伟达目标价，但Palantir即便财报超预期股价仍下跌；“大空头”Michael Burry已做空Palantir和英伟达。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 在未知水域航行：保持警惕与开放心态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;史无前例的发展速度：&lt;/strong&gt; OpenAI在用户采纳、营收增长和交易速度上，创造了科技史上前所未有的先河。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“泡沫”讨论的价值：&lt;/strong&gt; 围绕AI泡沫的争论本身，有助于市场保持审慎和自我纠正，反而降低了真正泡沫破裂的风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;金句：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“我们处于一个世代技术革命之中。”&lt;/li&gt;
+&lt;li&gt;“如果那些人写文章说OpenAI要倒闭了，我很想告诉他们可以做空这支股票，我很乐意看到他们因此亏损。”&lt;/li&gt;
+&lt;li&gt;“OpenAI并非‘大而不倒’。如果说有什么，那他们是‘联系太紧密而不能倒’。这有本质区别。”&lt;/li&gt;
+&lt;li&gt;“我们正处于一个流鼻血（股价过高）的区域。没有其他人在这里。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=lWc3mM9sHXQ</guid>
+      <enclosure url="https://i.ytimg.com/vi/lWc3mM9sHXQ/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 05 Nov 2025 23:50:51 +0800</pubDate>
+    </item>
     <item>
       <title>Visual Electric创始人：AI时代设计创业，如何从“负一”迈向“零”？</title>
       <link>https://www.youtube.com/watch?v=_SVpo8osfrA</link>
@@ -137,6 +376,125 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=_SVpo8osfrA</guid>
       <enclosure url="https://i.ytimg.com/vi/_SVpo8osfrA/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 05 Nov 2025 22:07:54 +0800</pubDate>
+    </item>
+    <item>
+      <title>Qwen3-VL性能深度评测与llama.cpp Web UI实战体验：多模态AI新篇章</title>
+      <link>https://www.bilibili.com/video/BV1hX1WBPETF</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1hX1WBPETF"&gt;Qwen3‑VL 本地部署 | llama.cpp 新 Web UI 真的香，超越 Ollama&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🤔 AI多模态识别“火眼金睛”的秘密武器是什么？
+💻 如何让你的AI模型既能听会说，还能看懂复杂图像和PDF？
+🚀 Qwen3-VL系列模型究竟比Gemini和Claude强在哪儿？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🧐 &lt;strong&gt;别让版本问题拖垮你的AI模型：Qwen3-VL“翻车”经历与解决方案&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LM Studio版本坑：&lt;/strong&gt; 早期Qwen3-VL识别不佳，竟是LM Studio版本旧，图像分辨率处理有问题。更新到最新版可解决。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GGUF格式的逆袭：&lt;/strong&gt; Ollama引入Qwen3-VL的GGUF格式，有用户反馈其性能优于MLX格式，尤其在图像处理上。Ollama官方解释，因ROPE问题延迟发布，并进行了优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unsloth的加持：&lt;/strong&gt; Unsloth也发布了Qwen3-VL量化版，并修复了聊天模板错误。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地测试问题：&lt;/strong&gt; 早期LM Studio本地测试出现无意义符号、思考时间过长、无限循环等问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚀 &lt;strong&gt;llama.cpp Web UI：AI交互新体验，美观又强大！&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全新界面：&lt;/strong&gt; llama.cpp工程师推出了全新的Web UI，不仅界面美观，功能也极其强大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装超简单：&lt;/strong&gt; 支持Windows、Mac、Linux，Mac用户可用Brew轻松安装。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态全能王：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;支持图片、音频、文本、PDF等多种输入。&lt;/li&gt;
+&lt;li&gt;可将PDF作为图像处理，识别能力更强。&lt;/li&gt;
+&lt;li&gt;模型支持多模态能力时，可插入图像，动态交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强大功能亮点：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;可复制多个文本文件到对话。&lt;/li&gt;
+&lt;li&gt;不满意的结果可编辑或重新生成。&lt;/li&gt;
+&lt;li&gt;支持多轮对话、多图处理。&lt;/li&gt;
+&lt;li&gt;支持通过URL参数传递输入。&lt;/li&gt;
+&lt;li&gt;支持HTML/JS代码内联渲染。&lt;/li&gt;
+&lt;li&gt;可自定义JSON Schema，按指定格式输出内容（例如从PDF中提取信息）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💪 &lt;strong&gt;Qwen3-VL-32B：多模态性能的“新标杆”！&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;官方数据惊艳：&lt;/strong&gt; 官方宣称，32B模型在某些数学问题、OCR bench V2英文基准以及幻觉问题上超越235B-A22B模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全面超越竞品：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在多项基准测试中超越Gemini 2.5 Pro。&lt;/li&gt;
+&lt;li&gt;超越Qwen2.5-VL 72B和Claude Sonnet 4。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;👁️‍🗨️ &lt;strong&gt;真金不怕火炼：Qwen3-VL vs. Gemini &amp;amp; Claude Sonnet 4实战对比&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OCR与细节识别：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;复杂场景：&lt;/strong&gt; Qwen3-VL (32B instruct MLX 5-bit) 能在强反射图中正确识别“擦”字，而Gemini出错。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精细标签：&lt;/strong&gt; Qwen能全面识别宜家标签的部件、颜色、位置，而非简单OCR，更完整呈现图像信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长图布局：&lt;/strong&gt; Qwen能有效显示原始图像的布局，粗体等细节保留良好；Gemini则层级混乱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图表理解与总结：&lt;/strong&gt; Qwen3-VL-32B能准确理解图表，并在总结中提及关键信息（如“4K”），Gemini则可能遗漏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;知识储备与推理：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;生物识别：&lt;/strong&gt; Qwen3-VL-32B（Thinking模型）唯一正确识别出“闪蝶”（Morpho didius），而A3B和Gemini未能识别或识别错误，体现更大模型知识储备优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;场景判断：&lt;/strong&gt; Qwen前两个模型能识别出竹节虫处于人工饲养环境，Gemini则无法识别。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;品牌识别：&lt;/strong&gt; Qwen模型能识别特定中文品牌，Gemini对中文品牌理解有限。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反推AI绘图提示词：&lt;/strong&gt; Qwen模型生成的结果更佳，能将每个场景以列表形式呈现，还原度更高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;地址识别的细微差别：&lt;/strong&gt; A3B将上海南京路识别为广州，32B识别为上海但地址有误，Gemini 2.5则正确识别为南京路。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;零件识别：&lt;/strong&gt; 32B模型和Gemini正确识别854为垫片，A3B识别为垫片/连接件有误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ &lt;strong&gt;选对格式是关键：GGUF与MLX的“生死时速”&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MLX格式的问题：&lt;/strong&gt; MLX格式在运行Qwen3-VL时，存在精度、边界框、识别不准确等问题。社区正在积极修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GGUF格式的优势：&lt;/strong&gt; GGUF格式（来自GGML或Unsloth发布）能更准确识别模糊图像、繁体字、销售收据等复杂内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强烈推荐：&lt;/strong&gt; 建议使用GGML量化版或Unsloth发布的Qwen3-VL系列GGUF版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 &lt;strong&gt;llama.cpp Web UI进阶技巧与资源消耗警示&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;运行效率：&lt;/strong&gt; 本地运行速度飞快（67 token/秒）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资源消耗：&lt;/strong&gt; llama.cpp Web UI消耗资源较大。例如，同时运行A3B和4B Thinking模型可能导致内存不足。建议单模型使用时效果最佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PDF处理：&lt;/strong&gt; 可将PDF的每一页作为图像处理，支持反推图像提示词，A3B表现出色。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HTML预览：&lt;/strong&gt; 支持HTML预览，可克隆页面并有不错的视觉效果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🌟 &lt;strong&gt;Qwen3-VL 4B Thinking模型：小尺寸，大智慧！&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;出乎意料的强大：&lt;/strong&gt; 4B Thinking模型表现令人惊叹，有时甚至优于A3B-Instruct。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深度推理过程：&lt;/strong&gt; 会先分解要点，再组织，最后整合，而非直接识别。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高难度识别：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;对强反射招牌、对联繁体字等复杂场景识别能力极强。&lt;/li&gt;
+&lt;li&gt;在活字印刷盘识别中，能将部分文本与盘中内容对应起来，非常有趣。&lt;/li&gt;
+&lt;li&gt;AI绘图提示词反推表现也很好，能分场景介绍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;识别瑕疵：&lt;/strong&gt; 对销售收据的识别有小问题（如将美团误认为美国，缺少引号），部分零件识别仍有瑕疵。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;👂 &lt;strong&gt;Qwen的多模态新边界：音频输入与理解&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;快速语音转写：&lt;/strong&gt; llama.cpp Web UI支持上传音频进行快速语音转写，并可格式化为段落。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;直接音频理解：&lt;/strong&gt; 支持跳过转写，直接对音频提问，进行内容理解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🏆 &lt;strong&gt;总结与展望：Qwen3-VL系列与llama.cpp Web UI的黄金组合&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Qwen3-VL系列卓越：&lt;/strong&gt; 整体而言，Qwen3-VL系列是目前非常出色的多模态模型，在与Claude Sonnet 4和Gemini 2.5 Flash的对比中，Qwen3-VL-32B在大多数情况下表现优异。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MLX格式正在优化：&lt;/strong&gt; MLX格式的Qwen3-VL在量化后存在精度、边界框、识别不准确等问题，但MLX社区正在积极修复中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强烈推荐llama.cpp Web UI：&lt;/strong&gt; 结合Qwen3-VL模型，llama.cpp Web UI是目前非常值得尝试的本地AI体验方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“模型的尺寸越大，其知识储备通常也越丰富，这在需要精确识别特定事物的场景中尤为明显。”&lt;/li&gt;
+&lt;li&gt;“Qwen3-VL系列模型在多模态领域，表现堪称卓越，尤其在多数场景下，它甚至超越了Claude Sonnet 4和Gemini 2.5 Flash。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1hX1WBPETF</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b07f8494cbd26dc68d54126230c847a54ae88844.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 05 Nov 2025 19:17:08 +0800</pubDate>
     </item>
     <item>
       <title>22款AI工具深度测评：发现7款S级生产力神器，比ChatGPT更实用</title>
@@ -11331,386 +11689,6 @@ AI如何学会像人类一样判断“好”与“坏”的写作，并持续进
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1frstzsEyW</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/e1dd8669ced62e00efc5b8a5f73cfae7b41a2320.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 22 Oct 2025 12:39:51 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI编程新范式：Salesforce如何用Agent Force Vibes重塑企业级开发</title>
-      <link>https://www.youtube.com/watch?v=sG5TF1iLNF8</link>
-      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=sG5TF1iLNF8"&gt;What Is Enterprise Vibe Coding? (And How It's Different) | Dan Fernandez (Salesforce)&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🤖 AI如何能让非专业开发者也能写出生产级应用？
-💼 告别“玩具”代码，企业级AI编程工具与普通AI工具的核心区别是什么？
-🚀 未来的产品团队将如何与AI Agents协作，效率提升将达到何种高度？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 Agent Force Vibes如何降低开发门槛？&lt;/h3&gt;
-&lt;p&gt;你是否也曾被AI编程工具的“环境配置地狱”所困扰？那些繁琐的&lt;code&gt;npm install&lt;/code&gt;、版本不兼容、库识别失败的痛苦，在真正开始编写代码前就消耗了你大量精力。Salesforce的Agent Force Vibes正在改变这一现状：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;平台优势：&lt;/strong&gt; Salesforce平台为应用开发承担了大量基础设施工作。&lt;ul&gt;
-&lt;li&gt;无需手动设置虚拟机、硬盘、NAT路由器等底层细节。&lt;/li&gt;
-&lt;li&gt;开发者可以站在更高的抽象层面构建应用，专注于核心业务逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;开箱即用的IDE：&lt;/strong&gt; Agent Force Vibes提供了一个集成开发环境（IDE），直接在Salesforce环境中运行。&lt;ul&gt;
-&lt;li&gt;一键启动基于浏览器的Visual Studio Code版本。&lt;/li&gt;
-&lt;li&gt;预配置所有必要的Salesforce VS Code扩展、&lt;code&gt;MCP.json&lt;/code&gt;文件和CLI工具。&lt;/li&gt;
-&lt;li&gt;彻底消除环境搭建的烦恼，让你立即投入到应用构建中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔐 告别原型！企业级AI编程的关键秘诀是什么？&lt;/h3&gt;
-&lt;p&gt;你用AI写出的代码，是只能作为一次性原型，还是能真正投入生产？Agent Force Vibes区分了两种“AI编码”：&lt;strong&gt;原型式AI编码（Vibe Coding）&lt;/strong&gt;与&lt;strong&gt;企业级AI编码（Enterprise Vibe Coding）&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原型与生产级应用的区别：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原型式AI编码（如Loveable Boat）：&lt;/strong&gt; 旨在快速生成应用原型，目标是快速验证想法，可能随时被抛弃，不追求生产级质量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;企业级AI编码：&lt;/strong&gt; 目标是构建可重用、高质量、符合团队规范的生产级应用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;企业级AI编程的四大支柱：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代码复用：&lt;/strong&gt; 尽可能复用现有代码，而非从零开始。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;基于需求或规范：&lt;/strong&gt; AI根据明确的需求和规范构建应用，而非模糊的提示。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;基础设施与治理：&lt;/strong&gt; 利用现有基础设施和公司治理规则。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;质量优先（Quality by Default）：&lt;/strong&gt; 从一开始就考虑代码质量。&lt;ul&gt;
-&lt;li&gt;集成单元测试。&lt;/li&gt;
-&lt;li&gt;代码分析工具：运行超过500条规则，无论代码由人还是AI生成，都能提升质量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI如何学习团队编码规范？&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;Agent Force Vibes能“阅读”你现有的代码库，并基于此生成一套&lt;strong&gt;AI规则&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;当AI生成新代码时，它将严格遵循这些规则（例如：使用Jest而非Mocha进行测试，特定的错误处理方式）。&lt;/li&gt;
-&lt;li&gt;这意味着，即使是AI生成的代码，其风格、质量和规范也与你团队的工程师手写代码无异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📚 Salesforce的“秘密武器”：统一代码目录和语义理解&lt;/h3&gt;
-&lt;p&gt;在一个大型企业中，要复用现有代码，首先得知道“有什么可复用的”以及“它们是干什么用的”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;传统代码管理的痛点：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;仅仅列出组件名称（如“Web组件1”、“Web组件2”）是远远不够的。&lt;/li&gt;
-&lt;li&gt;开发者需要知道每个组件的实际功能和用途。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI赋能的统一代码目录（Salesforce Unified Catalog）：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;Salesforce正在推出一个“统一代码目录”，它不仅记录了组织内的所有可复用项，更重要的是，它能&lt;strong&gt;语义化地理解&lt;/strong&gt;这些组件的功能。&lt;/li&gt;
-&lt;li&gt;AI会自动分析代码，识别出“Web组件1是头部”、“Web组件2是地图应用”、“Web组件3是导航控件”。&lt;/li&gt;
-&lt;li&gt;这种语义理解使得AI在提供代码复用建议时，能做出更智能、更精准的判断，从而大大提升复用效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤝 AI Agents：从个人助理到智能团队协作的未来&lt;/h3&gt;
-&lt;p&gt;想象一下，未来的产品团队不再是人类工程师的孤军奋战，而是人类与AI Agents的强强联合。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;从个体到团队：AI Agent协作新范式&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;从用户驱动到事件驱动：&lt;/strong&gt; AI Agent可以自主发现问题（如性能瓶颈），并与其他Agent沟通协作来解决。&lt;ul&gt;
-&lt;li&gt;例：一个性能Agent发现应用部署后出现性能问题，会通知开发Agent分析并修复。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从短期任务到长期任务：&lt;/strong&gt; AI Agent能够处理复杂、耗时的项目，无需人类持续干预。&lt;ul&gt;
-&lt;li&gt;例：修复一个代码库中所有1000个可访问性（accessibility）漏洞，可以由10个Agent并行处理，每个处理100个，耗时数天也能高效完成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从个人生产力到团队生产力：&lt;/strong&gt; AI Agent将把原本仅限于IDE的强大工具带到Slack等协作平台。&lt;ul&gt;
-&lt;li&gt;产品经理、数据科学家、DevOps工程师都能直接通过自然语言与Agent互动，创建演示环境、分析数据、解决问题。&lt;/li&gt;
-&lt;li&gt;这让软件开发真正成为一项团队运动，每个人都能贡献力量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PM和设计师也能提交生产级代码？&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;有了Agentic Rules和高质量代码工具的加持，AI生成的代码将更符合工程团队的标准。&lt;/li&gt;
-&lt;li&gt;产品经理或设计师提交的代码请求（PR）将&lt;strong&gt;看起来更像来自工程师&lt;/strong&gt;，因为AI在后台遵循了所有编码规范、质量标准。&lt;/li&gt;
-&lt;li&gt;这大大降低了非技术人员参与生产级功能开发的门槛和信任壁垒。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 AI将如何重塑我们的工作？&lt;/h3&gt;
-&lt;p&gt;AI的到来，与其说是“取代”，不如说是“解放”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI：解放人类，聚焦创造&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;AI Agent将接管那些繁琐、重复、耗时但又必须完成的“苦活累活”（如复制粘贴25次、修复大量无聊的bug）。&lt;/li&gt;
-&lt;li&gt;工程师可以将宝贵的时间和精力投入到最具挑战性、最能体现人类创造力和洞察力的核心问题上。&lt;/li&gt;
-&lt;li&gt;AI的终极目标是&lt;strong&gt;优化工程时间的最优利用&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个人应用的爆发式增长&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;就像过去我们用Excel表格来玩转数据一样，未来我们将能够用AI更轻松地构建&lt;strong&gt;个人定制应用&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;这些应用可能用于解决个人问题、进行实验、可视化数据，甚至是提出以前无法想象的问题。&lt;/li&gt;
-&lt;li&gt;AI将把应用开发的民主化推向一个前所未有的水平。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💎 金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“AI的全部意义在于优化工程时间的最优利用。” (The whole point of AI should be to optimize the best use of your engineering time.)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=sG5TF1iLNF8</guid>
-      <enclosure url="https://i.ytimg.com/vi/sG5TF1iLNF8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Oct 2025 10:01:24 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI引爆消费科技文艺复兴：从“点赞”到“情感AI”，重塑产品与投资的未来</title>
-      <link>https://a16z.simplecast.com/episodes/why-creativity-will-matter-more-than-code-dGd3RSOB</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/why-creativity-will-matter-more-than-code-dGd3RSOB"&gt;Why Creativity Will Matter More Than Code&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;💡 AI如何引爆消费科技的全新浪潮，并改变我们的生活与投资法则？
-🚀 为什么说“怪异而有效”的产品是早期投资的黄金准则？
-🤔 在一个“永不关机”的记录时代，我们如何平衡隐私与人际关系的真实性？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🤖 AI：消费科技的“文艺复兴”火花&lt;/h2&gt;
-&lt;p&gt;AI正在为沉寂已久的消费科技市场注入新的活力，它不仅改变了产品的构建方式，也颠覆了传统的投资逻辑。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;消费者热情高涨&lt;/strong&gt;：自2010年代以来，消费者对新科技产品的兴趣从未如此高涨。人们开始主动下载、使用AI产品，并且前所未有地愿意为此付费。例如，顶级的ChatGPT SKU每月收费200美元，Groq更是高达300美元，消费者依然买单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大公司的角色转变&lt;/strong&gt;：历史上，大型科技公司通常通过收购小公司来获取创新。但现在，像OpenAI和Google这样的大厂，首次能够推出消费者应用并获得巨大规模。然而，大公司主要发布的是&lt;strong&gt;模型&lt;/strong&gt;，而创业公司则在这些模型之上构建&lt;strong&gt;有态度的产品&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI的独特机遇&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;触及人性深处&lt;/strong&gt;：AI有机会解决大公司因“千人委员会”审查而不愿触及的人性层面，如陪伴、创造力，甚至更敏感的两性关系和说服力。这些领域因其“灵魂”属性，成为创业公司构建壁垒的利器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多模型集成&lt;/strong&gt;：大公司往往受限于内部模型，而能整合多种模型（如Cursor允许使用所有模型）的产品，将拥有更大的创新空间和用户价值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🫂 AI陪伴：情感连接的新维度？&lt;/h2&gt;
-&lt;p&gt;AI在陪伴领域的应用引发了深刻的思考：它能否填补现代人的孤独感？又将如何塑造我们对人际关系的期待？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;缓解孤独的潜力&lt;/strong&gt;：许多人面临深度孤独。AI陪伴产品，即使无法完全替代人类互动，也能提供一定程度的情感支持和连接，带来积极的心理提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“顺从”的陷阱&lt;/strong&gt;：早期AI模型往往过于“顺从”，总与用户保持一致。这种模式可能&lt;strong&gt;训练人们偏爱一味附和的AI，而非真实关系中必要的矛盾、探索与成长&lt;/strong&gt;。然而，这只是AI发展的“大哥大时代”，未来模型会更精细地模拟真实关系中的张力与分歧。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情感的延伸&lt;/strong&gt;：过去四十年，技术主要延伸了我们的智力。而AI能扩展我们的情感和主观体验，解决人类经验中更深层、更复杂的部分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;间接陪伴的崛起&lt;/strong&gt;：一些产品，如POKE（将情感界面融入邮件管理），通过情感化的交互方式处理日常功能性任务，创造了独特的价值感知（例如，与AI进行价格谈判）。这种将“情感过滤器”应用于功能性工作的模式，预示着新的探索方向。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧐 早期消费品投资：寻找“怪异且有效”&lt;/h2&gt;
-&lt;p&gt;预测早期消费品投资极其困难，但成功的投资者往往能识别出那些“怪异”的信号。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“怪异”是信号&lt;/strong&gt;：真正的创新往往始于“怪异”。这种“怪异”意味着产品设计具有原创性、颠覆性，能吸引注意力并不断重塑。早期投资不看重是否立即成功，而是看创始人是否具备这种“怪异”的DNA。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;敢于“出糗”&lt;/strong&gt;：创造真正新颖的产品，创始人必须愿意承担“被嘲笑”的风险。这种勇气是避免产品流于平庸、成为“X版Y”的关键。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;案例解析&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Twitter的“关注”&lt;/strong&gt;：打破了传统社交的双向好友关系，创造了“广播给所有人”的单向关注模式。在当时，这种“跟随”的概念被认为是“怪异”的，但最终彻底改变了信息传播。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Uber和Airbnb&lt;/strong&gt;：它们挑战了社会中“不要上陌生人的车/睡陌生人的沙发”的普遍准则，成功地改变了人类行为，解锁了巨大的市场机遇。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ AI赋能：产品构建进入“全民创造”时代&lt;/h2&gt;
-&lt;p&gt;AI极大地降低了软件开发的门槛，让产品构建从少数技术精英走向了更广泛的创意者。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成本崩溃&lt;/strong&gt;：软件创建成本急剧下降，现在任何人都可以从想法到应用程序，甚至在一个下午完成。例如，为朋友小组制作一个利基应用，过去需要75K美元，现在只需输入提示。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个人创业的春天&lt;/strong&gt;：AI赋能让“一人公司”也能实现数百万美元的年收入。这预示着“数字小商户”的复兴，软件将覆盖全球99%未被满足的需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高效迭代&lt;/strong&gt;：利用V0等工具，设计师能快速将草图转化为UI组件。AI甚至可以根据一个想法生成&lt;strong&gt;20种完全不同的设计变体&lt;/strong&gt;，从而在短时间内进行深度探索和精细打磨，实现前所未有的产品质量和用户体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具栈&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;V0&lt;/strong&gt;：用于快速设计和生成Next.js组件框架。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cursor&lt;/strong&gt;：提供深度编码环境和多模型协作（如同时运行GPT-4.5和CodeX），解决技术难题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Base44/Replit&lt;/strong&gt;：提供“电池已包含”的便捷开发体验，特别适合非技术用户快速部署简单应用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Convex&lt;/strong&gt;：作为实时数据库，极大简化了WebSockets和状态管理，使得构建聊天等实时应用变得异常快速。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;👨‍💻 工程学的未来：从编码者到编排者&lt;/h2&gt;
-&lt;p&gt;AI正在重新定义工程学，未来的技术人才需要的是更宏观的“系统思考”和“创造力”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;技术思维的价值&lt;/strong&gt;：未来的工程师将从编写代码转向&lt;strong&gt;编排信息和系统&lt;/strong&gt;。AI将解决所有“非主观结果”的工程问题（例如，大规模分发社交网络故事）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CS学位的转型&lt;/strong&gt;：传统的CS教育需要从单纯的编程技能转向&lt;strong&gt;系统思考、问题解决和数学基础&lt;/strong&gt;。理解分布式系统、设计空间探索等思维模式将比掌握某种编程语言更有价值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多学科人才&lt;/strong&gt;：成功的创始人需要具备跨学科能力，不仅懂技术，还要理解设计、市场、营销，甚至社会影响。仅仅专注于技术会错过产品的整体愿景。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🎥 “永不关机”的记录与隐私：技术与社会规范的共舞&lt;/h2&gt;
-&lt;p&gt;随着AI设备“始终在线”的记录能力，我们正面临隐私与便利的深刻权衡。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;社会适应&lt;/strong&gt;：技术与社会规范是相互适应的。虽然记录会更普遍，但社会也会发展出新的规范来适应这种变化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;隐私与洞察的平衡&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;丢失式压缩&lt;/strong&gt;：未来的设备可能不会逐字记录，而是提取更宏观的&lt;strong&gt;主题、情感和情境&lt;/strong&gt;。例如，设备可以识别“Anish今天情绪低落”，而非泄露具体对话内容。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;视觉线索&lt;/strong&gt;：Limitless设备设想通过LED颜色（红灯表示逐字记录，绿灯表示主题记录）来提供清晰的视觉提示，让用户自行选择记录模式，从而在保护隐私和获取有用信息之间找到平衡点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;真实对话的价值&lt;/strong&gt;：未记录的对话往往更具原始性，人们更愿意表达真实想法。记录的普遍化可能会让对话变得更加谨慎和刻意，失去部分真实感。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“消费者科技感觉又活过来了，AI可能是那个火花。”&lt;/li&gt;
-&lt;li&gt;“很多消费投资和产品构建，都需要有‘敢于出糗’的意愿。”&lt;/li&gt;
-&lt;li&gt;“‘怪异且有效’，是我尝试投资消费品的方式。”&lt;/li&gt;
-&lt;li&gt;“你无法制造‘怪异’，‘怪异’是内生的。它意味着你以不同的方式看世界。”&lt;/li&gt;
-&lt;li&gt;“技术延伸了我们的情感，我们的主观体验，它能解决这些问题。”&lt;/li&gt;
-&lt;li&gt;“我们有1%的所需软件，我们将要构建其余的99%。”&lt;/li&gt;
-&lt;li&gt;“创业者能够构建一个产品，发布，获得产品市场契合，而无需融资。那太棒了！”&lt;/li&gt;
-&lt;li&gt;“很多生活中的美好事物，都源于纯粹的好奇心。”&lt;/li&gt;
-&lt;li&gt;“如果你在玩耍，你就会看到它，它就在你眼前。”&lt;/li&gt;
-&lt;li&gt;“我认为工程学已经结束了，我们将成为信息的编排者，而不是工程师。”&lt;/li&gt;
-&lt;li&gt;“大多数有趣的事情都发生在X上。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/why-creativity-will-matter-more-than-code-dGd3RSOB</guid>
-      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/6deeb595-a193-49cd-935a-29e8ba5d9784/3000x3000/the-future-podcast-fa.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Oct 2025 10:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI如何重塑生命科学：从蛋白质到RNA的药物靶点革命与未来挑战</title>
-      <link>https://guiguzaozhidao.fireside.fm/20240397</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/guiguzaozhidao/rss"&gt;What's Next｜科技早知道&lt;/a&gt; | &lt;a href="https://guiguzaozhidao.fireside.fm/20240397"&gt;从 AlphaFold 到 RNA 靶点预测，AI 如何重塑新药研发的未来? | S9E34&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;❓AI真的让结构生物学家失业了吗？
-🧬蛋白质之后，RNA为何成为新一代药物研发的“香饽饽”？
-🤖AI在新药研发中无所不能，还是有“天花板”？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;🤔&lt;strong&gt;蛋白质结构预测，一部跨越半世纪的“进化史”&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;早期探索（20世纪60-70年代）&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基于模板预测&lt;/strong&gt;：利用已知结构的同家族蛋白作为模板进行预测。这种方法精度高，但应用范围窄，仅限于已有解析结构的家族。周耀奇教授团队的“Sparks”（星火）方法曾在2006年的CASP比赛中获得第一。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;基于碎片拼接&lt;/strong&gt;：将已知蛋白结构拆解为小碎片，再将未知蛋白序列拆解为小序列，通过匹配和“打分函数”（能量函数）拼接成三维结构。这种方法进步缓慢，CASP评分在2018年前仅约40分，周教授当时认为“有生之年也许根本看不到成功的例子”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;AI萌芽（2000年代初）&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;二级结构预测&lt;/strong&gt;：周耀奇团队发现，如果能用AI预测蛋白质的二级结构（螺旋状、线条状等），可以提高模板发现能力。这促使他们开始用“浅度学习”方法预测二级结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;二面角预测&lt;/strong&gt;：由于二级结构分类粗糙且边界不清，团队转向预测连续的“二面角”（相邻平面夹角，决定主链走向）。这项工作虽然简单，却在十年后成为AlphaFold 2.1和2.2的关键一环，为“端到端”预测奠定基础。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚀&lt;strong&gt;AlphaFold的革命性突破与“盲区”&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;突破性进展&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;一维（二级结构）和二维（氨基酸距离图）信息预测精度大幅提升&lt;/strong&gt;：二级结构预测从70%提升至接近85%的理论极限；氨基酸距离预测从20-30%提升至70%左右。这归功于进化信息提取和深度学习的应用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“1+5=3”的实现&lt;/strong&gt;：AlphaFold通过结合一维和二维信息，实现了从序列到精准三维结构（一级信息+二级信息→三维信息）的飞跃，将CASP评分从60分左右一跃提升至接近90分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;超大规模数据和模型&lt;/strong&gt;：AlphaFold使用了所有已知蛋白质序列和结构进行训练，投入巨大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;端到端预测&lt;/strong&gt;：利用循环几何神经网络（RGN）直接预测二面角，并通过“可微分损失函数”进行反向反馈和参数调整，实现结构预测的全过程在神经网络内部完成，不再需要外部能量函数优化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;AlphaFold的局限性&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;依赖进化信息&lt;/strong&gt;：AlphaFold预测三维结构需输入大量进化信息（同家族蛋白序列），如果只有一条序列，预测效果通常很差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;无法预测动态结构&lt;/strong&gt;：目前只能预测蛋白质的静态结构，无法捕捉其动态变化过程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;无法预测复杂复合物&lt;/strong&gt;：大型生物机器（七八个蛋白质协同工作）的复杂复合物结构，AlphaFold目前仍无法有效预测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;无法预测修饰后的结构&lt;/strong&gt;：蛋白质修饰后结构可能发生变化，AlphaFold也无法处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;其他分子类型预测受限&lt;/strong&gt;：AlphaFold 3虽可预测核酸（DNA/RNA）等，但由于这些分子数据量不足，对未见过的结构预测表现平平，甚至不如基于能量函数的方法。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡&lt;strong&gt;为何RNA成为药物研发的新战场？&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;RNA的“领导”地位&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“提线木偶”的比喻&lt;/strong&gt;：蛋白质是“公鱼”是干活的木偶，而RNA是真正的“领导”，在幕后操纵着蛋白质的功能和表达。周教授比喻“蛋白质是前面的木偶，但RNA是后面都在控制的”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;剪接调控&lt;/strong&gt;：RNA通过调控基因的内含子和外显子剪接，决定蛋白质最终的形态和表达量，许多疾病因此产生。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;蛋白质靶向药物的困境&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“钥匙与锁眼”模型局限&lt;/strong&gt;：传统药物研发寻找蛋白质表面的“锁眼”进行靶向。但许多重要蛋白（如Keras，十多年前就知道是癌症关键分子）表面平滑，缺乏合适的“锁眼”，导致难以开发靶向药物。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“低垂的果实”已被摘完&lt;/strong&gt;：经过几十年开发，容易靶向的蛋白质已被发现，剩余的难以攻克。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;RNA靶向药物的崛起&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;大自然的启示&lt;/strong&gt;：2002年发现的“核糖开关”（Riboregulator）证明RNA可以通过与小分子结合改变二级结构，从而控制基因表达，这启发了靶向RNA的可能性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;意外发现推动范式转变&lt;/strong&gt;：PTC Therapeutics与Roche/Solopelix公司合作，通过“表型筛选”（不预设靶点，只看结果），意外发现其治疗脊髓性肌萎缩症（SMA）的小分子药物（靶向SMM蛋白表达量低的疾病）并非作用于蛋白质，而是作用于RNA。这“打响了从靶向蛋白转到靶向RNA的范式转换第一枪”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成功案例&lt;/strong&gt;：PTC公司在SMA治疗上的成功，以及针对亨廷顿病（Huntington disease）的药物进入临床二期，都证明了RNA作为药物靶点的潜力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔬&lt;strong&gt;AI如何赋能RNA靶向药物发现？&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;深圳湾实验室周耀奇教授团队的策略&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;预测结构域&lt;/strong&gt;：利用AI方法预估RNA序列中可能存在稳定三维结构（ druggable pocket）的区域。这是关键一步，因为RNA大多区域松散，难以直接解析结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实验验证&lt;/strong&gt;：对AI预测的结构域进行实验验证，确认其稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高通量筛选&lt;/strong&gt;：针对已确认的RNA结构域，使用专门为RNA设计的“小分子库”进行高通量筛选，寻找能结合的小分子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化分子&lt;/strong&gt;：通过SARS（Structure-Activity Relationship）分析等工具，优化筛选得到的小分子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;挑战与关键&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;靶点选择的精准性&lt;/strong&gt;：必须精准靶向RNA的“三级结构”，而非易混淆的“二级结构”。因为三级结构能形成独特的口袋，确保药物的特异性，避免与多种RNA结合产生副作用。这解释了许多靶向RNA的公司十年仍未进入临床的原因。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;周教授团队的进展&lt;/strong&gt;：公司（利博生物）成立于2022年底，两年多时间已有三个管线接近PCC（临床前候选药物）阶段，其中一个有望在今年底或明年初进入临床试验，速度远超同行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚧&lt;strong&gt;AI在新药研发中的“天花板”与未来方向&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;AI应用的广度与深度&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AI已渗透药物研发方方面面：靶点发现与验证、小分子设计与筛选、药效与毒性预测、临床设计优化等。&lt;/li&gt;
-&lt;li&gt;但在蛋白质结构预测之外，AI在其他方面的进展仍相对缓慢，更多带来便利和成功率的提高，而非革命性突破。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;当前的“天花板”&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据依赖&lt;/strong&gt;：AI当前主要问题是被“大数据大模型”所迷惑。对于已见过的数据，预测精度高；对于未见过的，则表现一般。而小分子化学空间“几乎是无穷大”，数据永远不够。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“生成模型”的局限&lt;/strong&gt;：AI生成的小分子可能过于复杂，难以合成，或“成药性”未知，如同“幻想”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缺乏物理理解&lt;/strong&gt;：AI模型未能真正理解分子间的基本物理相互作用，如原子不能重叠、不同原子间相互作用强度不同等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;未来的方向——回归物理&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;摆脱数据依赖&lt;/strong&gt;：要真正解决问题，必须回归物理，理解分子间的物理相互作用规律。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;寻找“分子相互作用的牛顿定理”&lt;/strong&gt;：一旦找到这些基本规律，就能像牛顿定律预测星球运动一样，通过简单的原理进行推演和泛化，大幅减少对大数据的需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内化物理规则&lt;/strong&gt;：让AI模型自己“体会”原子不能重叠、原子间相互作用强弱等基本物理规则。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;✨金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“蛋白质呢就是像公鱼一样的是干活的，但真正的领导蛋白的是RNA，它在后面操纵这些蛋白。”&lt;/li&gt;
-&lt;li&gt;“东方不亮西方亮，就是说你靶向蛋白做不成了，我们可以靶向RNA，RNA是刚刚兴起，还有很多地方可以做的。”&lt;/li&gt;
-&lt;li&gt;“我们现在主要的问题就是我们被这个大数据大模型给迷糊住了，然后就觉得所有的问题就要有了大数据什么问题就包办了。但是有的时候你永远数据永远不够大没法打或者再大再大也大不够这个无穷大了对吧。”&lt;/li&gt;
-&lt;li&gt;“真正的要解决这个问题还是要回归到物理上面去，去真正把它那些物理的相互作用给搞定，你一旦把这个物理相互作用给搞定了以后你就不需要这么多的数据了。”&lt;/li&gt;
-&lt;li&gt;“AI是一个转身的一个时代吧，我们应该怎么学会跟AI共处，怎么利用它而不是被它所控制，这是一个值得每个人思考的一个问题吧。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://guiguzaozhidao.fireside.fm/20240397</guid>
-      <enclosure url="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/4/4931937e-0184-4c61-a658-6b03c254754d/cover.jpg?v=10" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Oct 2025 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>ChatGPT Atlas浏览器重磅发布：AI如何颠覆传统网页浏览体验</title>
-      <link>https://www.bilibili.com/video/BV155WZzaEd2</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/37648256"&gt;吕立青_JimmyLv&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV155WZzaEd2"&gt;【开箱】ChatGPT Atlas 能颠覆 Chrome 吗？自动化代理、上下文感知和记忆个性化&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🤔 AI浏览器真能颠覆传统上网方式吗？🚀 ChatGPT Atlas如何让你的网页操作“全自动化”？🤯 面对ChatGPT的猛烈攻势，传统浏览器和创业公司将如何应对？---🤯 ChatGPT Atlas：不止是浏览器，更是AI新入口*   OpenAI的全新人工智能优先浏览器Atlas，已登陆macOS，目标直指Google Chrome。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;它不只是访问网页，而是要让AI直接在网页上进行操作，预示着一场浏览器大战的到来。&lt;/li&gt;
-&lt;li&gt;ChatGPT周活用户已达8亿，与Chrome的40亿用户相比，其增长潜力巨大，旨在重塑用户的网络体验。---
-🧠 革命性记忆功能，打造专属AI上网体验*   Atlas的核心护城河在于其“记忆”（Memories）功能，它能记住你与ChatGPT的对话内容。&lt;/li&gt;
-&lt;li&gt;基于这些记忆，浏览器能学习你的个人偏好、工作学习细节，提供更加个性化、准确且有帮助的回答。&lt;/li&gt;
-&lt;li&gt;这种“专属定制”的AI体验，让每次浏览都更懂你，是与其他聊天机器人的最大区别。---
-🤖 Agent Mode：你的网页自动化智能助手*   Atlas的“Agent Mode”允许AI自动帮你执行复杂的网页操作，比如：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自动填写表单：&lt;/strong&gt; 演示中，AI能自动找到注册按钮、填写邮箱并完成注册。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;总结网页内容：&lt;/strong&gt; 只需提供链接，AI就能快速总结关键信息，甚至能识别网页中的优惠信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;执行复杂任务：&lt;/strong&gt; 未来可实现自动买机票、提交外链网站等繁琐操作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;AI操作光标和点击位置的动画效果非常流畅，虽然存在风险，但效率提升显而易见。---
-🛠️ 深度融合ChatGPT，告别传统扩展限制*   浏览器左侧边栏原生集成了ChatGPT的所有功能，包括Codex、GPTs，甚至你的聊天记录和文件夹。&lt;/li&gt;
-&lt;li&gt;Atlas基于Chrome内核，因此可以安装所有Chrome浏览器插件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;颠覆性体验：&lt;/strong&gt; 在YouTube视频总结的案例中，Atlas的AI原生总结功能直接取代了原有的浏览器插件，不仅总结效果更好，还能进一步追问，将总结内容转化为带章节时间戳的中英双语视频简介。这意味着很多功能型插件可能将被AI原生功能取代。---
-🌐 AI浏览器：网页执行能力的终极解锁*   与其说Atlas是一个“AI浏览器”，不如说它是“ChatGPT更好的一种运行式环境”。&lt;/li&gt;
-&lt;li&gt;有了直接在浏览器中执行网页操作的能力，AI的想象力被彻底打开了。&lt;/li&gt;
-&lt;li&gt;不再局限于ChatGPT客户端内的对话模式，AI可以直接在你的本地浏览器环境中进行复杂的网页操作和文件处理，其能力边界将无限扩展。---
-🚀 行业震荡：大批创业公司面临冲击*   Atlas强大的自动化和总结能力，将对许多现有的工具型创业公司造成巨大冲击。&lt;/li&gt;
-&lt;li&gt;例如，视频总结、表单自动化、外链提交等服务，都可能被AI浏览器直接取代，让“一键完成”成为可能。&lt;/li&gt;
-&lt;li&gt;未来，AI原生产品将成为主流，创业公司需要重新思考其价值定位，Google等巨头也必将迎来挑战。---
-✨ 金句&lt;/li&gt;
-&lt;li&gt;“与其说它是一个AI浏览器，不如说它是一个ChatGPT更好的一种运行式环境。”&lt;/li&gt;
-&lt;li&gt;“因为有了网页执行的能力之后，整个想象力就被打开了呀。”&lt;/li&gt;
-&lt;li&gt;“没想到视频总结就这样被ChatGPT给直接干掉了。”&lt;/li&gt;
-&lt;li&gt;“所以我们又有一大批创业公司要被ChatGPT给干掉了。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV155WZzaEd2</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/965d132b49eb0ed19242beeaf0ddfa46edb07b57.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Oct 2025 03:31:31 +0800</pubDate>
     </item>
   </channel>
 </rss>
