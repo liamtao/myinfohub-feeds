@@ -7,7 +7,172 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 18 Nov 2025 22:50:38 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 08:43:01 +0000</lastBuildDate>
+    <item>
+      <title>2025固收宝典：量化固收家智能体的构建与增强策略解析</title>
+      <link>https://www.bilibili.com/video/BV19gyJBpE8k</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV19gyJBpE8k"&gt;【中金公司】固收+策略框架：固收+智能体的基础与路径&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;你是一名知识服务工作者，擅长从长篇文章或视频播客文字稿中提取文字中核心的增量知识、洞察或见解。请阅读以上内容，并遵循以下要求转换成一篇信息提纯后的结构化的易读文章。&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;核心要求 (Core Requirements)&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1. 提炼并组织关键主题 (Extract &amp;amp; Organize Key Themes):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提取文字中的主题作为小标题，这些主题可以是增量知识、洞察、见解、方法论。小标题尽可能使用包含具体信息的陈述，也可以使用一个引人入胜的设问。小标题需要简短、有力。&lt;/li&gt;
+&lt;li&gt;总结每个主题下的核心增量信息，包括给出的数据、逻辑、案例、类比或故事。&lt;/li&gt;
+&lt;li&gt;如果主题中出现难懂的概念，尽可能用通俗易懂的语言解释。鼓励使用类比、故事等方法来解释，但需要忠实于原稿内容。&lt;/li&gt;
+&lt;li&gt;如果主题是方法论，请站在读者视角，尽可能详细得列出给与读者的行动建议或者操作指南。&lt;/li&gt;
+&lt;li&gt;文章最开始根据主要内容，用列表列出引人入胜的设问(不多于3条)，来引起读者兴趣，每条设问配一个相关的Emoji。&lt;/li&gt;
+&lt;li&gt;文章最后列出文中包含的金句(如果有的话)，金句重在表达一针见血的洞察或反常识的观点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;2. 格式与风格要求 (Formatting &amp;amp; Style):&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言风格:&lt;/strong&gt; 采用生动、有趣文字，倾向使用短句而避免长难句。多使用类比，可引用文章的原话（需做精炼）来增加文章的生动性和说服力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信息呈现:&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;所有主题(小标题)起始带有一个相关的Emoji. 主题之间使用分割线。&lt;/li&gt;
+&lt;li&gt;主题下的总结善用 &lt;strong&gt;列表（bullet points）&lt;/strong&gt; 来罗列关键论据、产品示例或观点对比，列表层级不要超过二级。&lt;/li&gt;
+&lt;li&gt;最后金句部分起始也使用分割线&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;请现在开始你的工作，生成这篇深度总结文章。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤔 为什么历史回测最优的“股一债九”低波策略，在未来的低利率时代可能失效？
+🤖 如何通过BL模型融合大模型（LLMs）和机器学习，构建更鲁棒（Robust）的“固收家智能体”？
+💰 除了传统的股债配置，量化团队如何通过“看债做股”和“红利增强”获得持续超额收益？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 资产配置核心思路：从主观判断到定量化模型&lt;/h3&gt;
+&lt;p&gt;固收家量化策略的核心，是摆脱依赖主观判断的自下而上策略，转向 &lt;strong&gt;定量化、自上而下&lt;/strong&gt; 的配置框架。目标是追求组合拆解的清晰度，降低择时层面的主观介入。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;旧思路：&lt;/strong&gt; 根据股票、转债等策略，以及市场判断，进行战略性仓位选择（例如股二债八）。缺点是业绩归因时，择时和择券的比例难以把握。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新思路（定量化）：&lt;/strong&gt; 先确定大类资产（如股、债）的权重基准，然后在各自权重里进行细化和增强。&lt;ul&gt;
+&lt;li&gt;这要求模型输入预期收益率、预期风险和资产间相关性，让模型自动吐出合意的配置比例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📉 股价恒定策略：历史最优的低波组合正面临三重挑战&lt;/h3&gt;
+&lt;p&gt;股价恒定策略，即设定固定的股债比例，如股二债八，在历史上曾被证明有效。但低利率环境和A股结构变化正带来挑战。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测最优解：&lt;/strong&gt; 历史上从回撤和持有体验来看，最优解往往是 &lt;strong&gt;股一债九&lt;/strong&gt; 或股5%债95%的低波策略。&lt;ul&gt;
+&lt;li&gt;原因：A债持续收益能力强，且股债互相关性使得低波组合回撤更小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;再平衡频率的困境：&lt;/strong&gt; 过去A股呈现“快涨慢跌”或“快牛慢熊”的姿态。在这种结构下：&lt;ul&gt;
+&lt;li&gt;换仓频率越慢，组合的年化收益和回撤越优。&lt;/li&gt;
+&lt;li&gt;高频再平衡反而容易导致“越跌越加仓，越涨越减仓”，对于组合收益无益。&lt;/li&gt;
+&lt;li&gt;展望：如果未来市场转向“快熊慢牛”，高频再平衡的价值可能会提升。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;收益驱动力的迁移：&lt;/strong&gt; 过去固收家组合表现好，主要靠债券的票息贡献（股一债九策略中，70%-80%收益来自债券票息）。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;低利率挑战：&lt;/strong&gt; 随着十年期国债收益率进入2%以内，票息优势有限。固收家组合必须转向依赖 &lt;strong&gt;资本利得&lt;/strong&gt;（股票和债券的全价格波动）贡献收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论：&lt;/strong&gt; 过去低利率时代的回测结果，对未来的影响不再具有决定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 避险策略进化：目标风险需转为约束向下波动率&lt;/h3&gt;
+&lt;p&gt;传统的约束风险模型，如目标波动率（Target Volatility）策略，在国内水土不服。核心问题在于波动率是无方向指标。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标波动率的悖论：&lt;/strong&gt; “你只是控一个波动，并没有那么有好的效果，你可能会牺牲掉了向上的波动，放大了向下的波动。”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化实践（目标风险）：&lt;/strong&gt; 策略应转向约束 &lt;strong&gt;向下的波动率&lt;/strong&gt;，或直接通过VaR（Value at Risk）来计算。&lt;ul&gt;
+&lt;li&gt;将 &lt;strong&gt;日度的VaR值&lt;/strong&gt; 作为约束目标，历史表现优于单纯的目标波动率组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;养老策略（目标日期）的本土化改造：&lt;/strong&gt; 面对A股的长期收益不强和尾部风险重，传统的参照国外指数的养老策略在国内效果不佳。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;类卡玛最优（Calmar Ratio）实践：&lt;/strong&gt; 将VaR（风险承受能力）不再只作为约束条件，而是设置为目标值，计算 &lt;em&gt;预期收益率/VaR&lt;/em&gt;，追求最高的风险调整后收益。&lt;/li&gt;
+&lt;li&gt;同时，将约束VaR的口径收紧（例如从95%降至99.5%），此优化策略的年回报率可达6.2%，控制回撤能力更强，更适合国内养老产品。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚔️ CPPI 与 TIPP：安全垫逻辑需纳入债券风险&lt;/h3&gt;
+&lt;p&gt;CPPI（恒定比例投资组合保险）和TIPP（时点投资组合保险）是常见的保本或避险策略，但它们的“安全垫”计算需要更新。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CPPI的传统逻辑：&lt;/strong&gt; 假设无风险资产（债券）的票息收益是确定的，用这部分收益作为安全垫，将安全垫外剩余资金用于投资权益资产（通常乘以2到3倍的乘数）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统逻辑的失效：&lt;/strong&gt; 在低利率时代，纯用票息计算安全垫已不够完整，因为 &lt;strong&gt;债券本身也会有资本利得的损失&lt;/strong&gt;，也会占用风险资本金。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行动建议：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;细化关系式：&lt;/strong&gt; 配置模型需要引入债券的权重，将债券占用风险资本金的情况纳入安全垫的公式计算中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边缘CPPI策略：&lt;/strong&gt; 可以通过计算债券预期的VaR（资本利得部分）和股票VaR，来调配权重，使得组合的VaR刚好被债券票息吸收。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 股票增强：基于宏观预期的“看债做股”轮动模型&lt;/h3&gt;
+&lt;p&gt;在固收家组合中，权益部分的增强至关重要。量化团队开发了基于宏观信号驱动的行业轮动，以及优化的风格轮动。&lt;/p&gt;
+&lt;h4&gt;风格轮动：引入半衰期提升纪律性&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;传统风格轮动（基于风格偏移指数，如上证50 vs 中证1000）：主要依靠赚取 &lt;strong&gt;风格动量&lt;/strong&gt; 的钱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增强点：&lt;/strong&gt; 除了看风格是否占优（纵轴）外，还要看风格持续了多长时间（横轴，用 &lt;strong&gt;半衰期&lt;/strong&gt; 衡量）。&lt;ul&gt;
+&lt;li&gt;如果风格持续时间不够长，即使触及历史极值，也不急于切换，降低切换频率，提升策略的纪律性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;行业轮动：用债券走势预测宏观&lt;/h4&gt;
+&lt;p&gt;量化团队的核心洞察是 &lt;strong&gt;看债做股&lt;/strong&gt;：将债券市场的走势视为宏观信号，并基于此信号进行行业选择。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;宏观信号驱动的企业决策：&lt;/strong&gt; 基于十年期国债收益率和期限利差来表征市场预期，判断企业应采取的经营决策。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;两大决策维度：&lt;/strong&gt; 1. 生钱能力（经营性现金流） 2. 资本开支质量。&lt;/li&gt;
+&lt;li&gt;例如：在经济正常（收益率上行、利差扩大）时，企业需要优化生钱能力并增加高效率资本开支。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型表现：&lt;/strong&gt; 该策略历史表现强劲，年化超额可观（某实盘组合超额达40%）。&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;局限性：&lt;/em&gt; 模型使用前一季度的财务指标，对当期市场变化敏感度有所下降。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;红利增强：必须加持质量与成长因子&lt;/h4&gt;
+&lt;p&gt;传统的高股息策略由于牺牲了估值，导致低PE并非是一个好的因子，公司基本面可能偏弱。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;增强路径：&lt;/strong&gt; 必须在红利因子基础上，叠加 &lt;strong&gt;质量因子&lt;/strong&gt; 和 &lt;strong&gt;成长因子&lt;/strong&gt;。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;质量要求：&lt;/strong&gt; 优先要求高分红稳定性、强的生钱能力（经营性现金流）和持续的ROE。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成长要求：&lt;/strong&gt; 关注净利润增速及其变化情况（需克制，避免与避险配置背离）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AH红利策略：&lt;/strong&gt; 港股红利增强也遵循A股思路，但在港股层面需要进行行业中性处理，同时调整财务指标对齐，例如通过净资产增速和企业倍数表征质量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💸 固收增强：NS模型与机器学习预测收益率曲线&lt;/h3&gt;
+&lt;p&gt;债券投资的增强策略，侧重于通过预测收益率曲线，灵活选择久期。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NS模型与XGBoost的结合：&lt;/strong&gt; 相比于预测收益率曲线上五个关键期限点位，复杂度高且结果不稳定。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法论：&lt;/strong&gt; 使用 &lt;strong&gt;XGBoost&lt;/strong&gt; 等机器学习模型，注入动量、换手率、期限利差等特征值，预测NS模型（Nelson-Siegel Model）中的四个拟合特征值（即曲线的四个因子）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势：&lt;/strong&gt; 曲线拟合后，可以更精准地计算不同期限的赔率和预期回撤，指导久期选择。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 构建固收家智能体：BL模型融合大模型（LLMs）&lt;/h3&gt;
+&lt;p&gt;最终极的量化策略是将所有配置和预测模型整合，构建鲁棒的“固收家智能体”。&lt;/p&gt;
+&lt;p&gt;该智能体解决的核心问题是：如何解决机器学习或主观判断对资产预期收益率预测 &lt;strong&gt;不够准确&lt;/strong&gt; 的问题，并结合投资者的风险偏好确定调整范式。&lt;/p&gt;
+&lt;h4&gt;1. 前端：大模型确定调整范式&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能：&lt;/strong&gt; 大模型（LLMs）通过叠加和分析各种复杂问题，更深入了解投资者的收益预期和风险承受能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;作用：&lt;/strong&gt; 取代传统的简单问卷，精准确定投资者最适合哪一类配置模型（如目标波动、CPPI、目标日期等固定的调整范式）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2. 中端：Black-Litterman (BL) 模型优化预期收益率&lt;/h4&gt;
+&lt;p&gt;BL模型解决了纯粹依赖预测模型或主观判断的缺陷，提供了更稳定的预期收益率。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;BL模型原理：&lt;/strong&gt; 它通过BS定理（贝叶斯定理）收放权重，整合了三个关键要素：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;历史数据：&lt;/strong&gt; 资产的历史波动和相关性（作为市场的均衡收益率）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预测观点：&lt;/strong&gt; 通过机器学习模型（如XGBoost）吐出的预期收益率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;观点准确概率：&lt;/strong&gt; 通过机器学习模型在历史上的准确度来表征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果：&lt;/strong&gt; 最终吐出的预期收益率，既考虑了模型预测的增量信息，也考虑了其不准确的可能性，并用历史数据进行填补，使模型更鲁棒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句集萃&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“目标风险这件事情，你只是控一个波动，并没有那么有好的效果，你可能会牺牲掉了向上的波动，放大了向下的波动。”&lt;/li&gt;
+&lt;li&gt;“整个在低利率时代，过去的回测结果对未来影响可能没有那么的决定性。”&lt;/li&gt;
+&lt;li&gt;“风险评价在国内呢，因为债券的波动啊相对来说是比较的小的，且间歇性的……是很难求解的。”&lt;/li&gt;
+&lt;li&gt;“我们一直在做的风险评价只是资产评价，并不是真正意义上的风险评价。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV19gyJBpE8k</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/e6acb75aab7fee66ddde45a638d2f06349faaa24.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Nov 2025 13:54:57 +0800</pubDate>
+    </item>
     <item>
       <title>打造7x24小时在线AI私募团队 智能体交易的实战框架与定性分析洞察</title>
       <link>https://www.bilibili.com/video/BV1SfCVBaEd8</link>
