@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 01 Dec 2025 08:38:45 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2025 15:44:39 +0000</lastBuildDate>
     <item>
       <title>揭秘G1lab zero 4B：小模型也能精控安卓，实战部署与容错处理全解析</title>
       <link>https://www.bilibili.com/video/BV1KxSrBnEyT</link>
@@ -87,6 +87,91 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1KxSrBnEyT</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/6ff35329c2687144750705059d7292004793f3e0.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 01 Dec 2025 14:27:49 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI狂奔：企业狂砸$7000亿，为何七成高管仍不知钱花得是否值得？</title>
+      <link>https://a16z.simplecast.com/episodes/the-700-billion-ai-productivity-problem-no-ones-talking-about-Teh8ToO6</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.simplecast.com/JGE3yC0V"&gt;a16z Podcast&lt;/a&gt; | &lt;a href="https://a16z.simplecast.com/episodes/the-700-billion-ai-productivity-problem-no-ones-talking-about-Teh8ToO6"&gt;The $700 Billion AI Productivity Problem No One's Talking About&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;💰 为什么企业在AI上投入了数百亿美元，却有70%的高管认为这些钱打了水漂？
+📏 如何在不触发“古德哈特定律”的前提下，衡量AI为你的团队带来了多少生产力提升？
+🛡️ 员工害怕用AI会犯错甚至被解雇，企业如何构建一个“安全沙盒”鼓励全员采用？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;⚖️ AI支出与AdTech的“历史重演”：70%的浪费焦虑&lt;/h2&gt;
+&lt;p&gt;AI在企业中的大规模应用，正面临如同1990年代数字广告刚兴起时一样的困境：巨大的预算投入与缺失的度量基础设施。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高额投入，缺失验证：&lt;/strong&gt; Gartner数据显示，今年企业AI支出高达7000亿美元，并且还在持续增长。但许多高管表示，他们“确定”其中存在浪费，却无从得知具体浪费了多少。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与AdTech的相似性：&lt;/strong&gt; Russ Frayden（Larradin创始人，前Comscore高管）指出，数字广告兴起并非因为广告变好，而是因为Comscore等公司建立了无聊但关键的度量体系，证明广告有效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更大的赌注：&lt;/strong&gt; 相比当年数字广告预算（数百万美元），AI预算高达数十亿，且AI旨在取代整个劳动力的运作方式，因此度量问题更加紧迫。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;18个月的生死时速：&lt;/strong&gt; 约80%至85%的企业认为，他们只有未来18个月时间，要么成为AI领导者，要么彻底落后。这驱动了预算的爆炸性增长，但同时也带来了极度的焦虑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔎 Larradin的AI度量三步走战略&lt;/h2&gt;
+&lt;p&gt;Larradin致力于成为AI时代的Comscore，目标是建立度量和治理体系，从而加速（而非阻止）企业的AI支出。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;基线测量：发现“潜行”的AI工具&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;企业IT部门往往对员工实际使用的AI工具知之甚少。Larradin发现，80%以上的客户公司中，员工使用的工具比公司知道并授权的要多得多。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险与机遇并存：&lt;/strong&gt; 这些工具有些存在安全隐患，有些则广受欢迎，企业需要将其纳入管理，了解内部实际的AI动态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;驱动使用：让员工敢于使用AI&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;企业AI工具的使用率通常低于预期。核心挑战在于，要推动员工使用，必须让他们感到安全，不会“看起来很傻”，也不会因操作失误而被解雇。&lt;/li&gt;
+&lt;li&gt;** Nexus产品设计思路：** 我们不是告诉员工去用哪个模型，而是构建一个围绕模型的“安全沙盒”（Wrapper）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;衡量生产力：关联行为与产出&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何证明昂贵的AI工具能带来生产力？Larradin结合了行为数据和传统度量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最糟糕的度量方法：&lt;/strong&gt; 询问使用工具的员工是否感觉更高效（他们几乎一定会给出积极反馈）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;我们的独特方法：&lt;/strong&gt; 被动测量员工对工具的实际使用程度（是重度用户还是从未登录），然后将这些行为数据与黄金标准的生产力调查以及实际“工作量”（Tonnage）进行关联分析。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🎯 规避古德哈特定律：测量跨部门的“响应速度”&lt;/h2&gt;
+&lt;p&gt;传统的产出指标（如代码行数、邮件发送量）一旦成为目标，就会被腐蚀，变得毫无意义。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公司核心需求：&lt;/strong&gt; CFO并不想解雇员工，他们希望现有员工更快乐、更高效，从而提高部门整体产出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更好的衡量指标：&lt;/strong&gt; 我们发现一个有效的指标是 &lt;strong&gt;部门间的SLA（服务水平协议）&lt;/strong&gt;，即跨部门响应速度。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;示例：&lt;/strong&gt; 如果法务部的律师使用AI工具后效率提升，其他部门向法务部寻求帮助的频率是否增加？他们是否能更快得到回应？&lt;/li&gt;
+&lt;li&gt;这能从行为层面体现生产力的提升，避免直接将效率指标暴露为员工的考核目标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🦸 制度化“底层英雄”：将个人技巧转化为公司资产&lt;/h2&gt;
+&lt;p&gt;真正的AI生产力提升往往始于某一个发现：某人找到了一个将8小时工作量缩短到5分钟的方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;生产力黑箱：&lt;/strong&gt; 最糟糕的情况是，这个“英雄”为了保持优势或担心被解雇，将高效技巧保密起来。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;荒谬的培训方式：&lt;/strong&gt; 某大银行发现一位28岁的员工极其擅长使用ChatGPT，便让他制作了30页幻灯片，向全球投资银行员工进行了为期一小时的演示。这是一种“荒谬”且低效的推广方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正确的做法：&lt;/strong&gt; 公司需要建立机制，将这些自下而上的成功案例制度化，并推广给所有员工。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;编码领域的启示：&lt;/strong&gt; “Cursor让平庸的工程师变优秀，但它让顶尖的工程师变成了神（gods）。”公司的目标是利用AI工具，提升所有人的生产力水平。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛡️ 治理与合规：AI时代的工作安全感&lt;/h2&gt;
+&lt;p&gt;大型企业（尤其是受监管的金融机构）需要为员工提供一个清晰的边界，确保AI使用符合规定，且不会导致员工因错误操作被罚。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;解决员工恐惧：&lt;/strong&gt; 员工担心自己上传了错误数据、违反了地区法规（例如欧盟AI法案中禁止AI用于撰写员工绩效评语）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Larradin的治理方案：&lt;/strong&gt; 通过训练定制化的模型（如Llama），在员工提问或上传敏感数据时，提供即时的合规警示或拦截，从而创建一个安全的环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果：&lt;/strong&gt; 消除顾虑后，员工对AI工具的实际使用率会显著提高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 金句精选&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“85%的公司认为，他们只有接下来的18个月来成为领导者或落后。”&lt;/li&gt;
+&lt;li&gt;“当一个衡量指标变成目标时，它就不再是一个准确的衡量指标。”（古德哈特定律）&lt;/li&gt;
+&lt;li&gt;“我们从未经历过这样一个时代：要求全球所有知识工作者立即接受培训，掌握六个月前还不存在的新工具。”&lt;/li&gt;
+&lt;li&gt;“Cursor让平庸的工程师变优秀，但它让顶尖的工程师变成了神（gods）。”&lt;/li&gt;
+&lt;li&gt;“CEO不希望公司变小，他们喜欢运营大公司，他们想要更多的员工。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://a16z.simplecast.com/episodes/the-700-billion-ai-productivity-problem-no-ones-talking-about-Teh8ToO6</guid>
+      <enclosure url="https://image.simplecastcdn.com/images/38c671cb-f233-4f8b-884e-e3c7bd47db16/6deeb595-a193-49cd-935a-29e8ba5d9784/3000x3000/the-future-podcast-fa.jpg?aid=rss_feed" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Dec 2025 11:00:00 +0800</pubDate>
     </item>
     <item>
       <title>心智无处不在：从算法到生命，理解认知光谱与柏拉图空间</title>
@@ -8626,86 +8711,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1DyCTBmEf6</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/ec06186b8d1e176c39c110a2f01be00f2af5e21a.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 14 Nov 2025 16:25:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>Flexport创始人：AI让海运成本狂降10%的秘密与组织变革心法</title>
-      <link>https://www.youtube.com/watch?v=KTmxaMdUbHA</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=KTmxaMdUbHA"&gt;AI Is Eating Logistics&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🚢 为什么一家营收20亿美元的物流巨头，敢扬言用AI在未来几年内将全球海运价格降低8%到10%？
-⚖️ AI如何帮助Flexport实现“更快的同时更便宜”的反常识目标，打破物流业固有的“速度与成本”权衡？
-🧠 面对AI浪潮，一个非AI时代成立的大公司如何克服“大公司病”，自上而下推动工程师和非工程师群体拥抱LLM？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚓ AI的终极目标：让全球海运价格狂降10%&lt;/h3&gt;
-&lt;p&gt;物流业是一个由规模驱动的行业（类似Costco模式：越大越便宜）。Flexport认为，他们可以通过AI实现行业变革，降低全球海运成本。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成本革命：&lt;/strong&gt; Flexport的目标是在未来几年内，将海洋集装箱运输价格降低8%到10%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;效率基础：&lt;/strong&gt; 在物流的货运代理（Freight Forwarding）环节，人工成本约占总运输费用的10%。如果能自动化这部分劳动力，成本将直接转移为客户的节省。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;业务哲学：&lt;/strong&gt; Ryan Peterson称之为“规模经济共享”（Scale Economies Shared），即公司越大，成本越低，通过与客户共享这些自动化带来的低成本，进一步吸引更多业务量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 打破平衡：AI如何实现“更快且更便宜”&lt;/h3&gt;
-&lt;p&gt;物流业的传统认知是：速度和成本必须进行权衡——要么更快，要么更便宜。Flexport的机器学习模型打破了这一铁律。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反常识结果：&lt;/strong&gt; Flexport的AI规划模型节省了2%的海运支出，同时将运输时间提高了20%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心机制（优化算法）：&lt;/strong&gt; Flexport的系统并非简单地选择最便宜的合同，而是结合速度、价格和航线变异性进行实时优化。&lt;ul&gt;
-&lt;li&gt;公司每周约有2,000个集装箱订单被客户取消（工厂延期是常态）。&lt;/li&gt;
-&lt;li&gt;AI软件能每天运行10次，快速识别这些被取消的空位。&lt;/li&gt;
-&lt;li&gt;它将原本预定在一周后出发的集装箱订单提前至这些空位，实现了20%的运输时间加速。&lt;/li&gt;
-&lt;li&gt;这项工作对人类来说成本过高，无法实时处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 LLM应用：从客服到实地电话呼叫的“隐形员工”&lt;/h3&gt;
-&lt;p&gt;Flexport正在利用LLM解决大量的非结构化数据问题和成本高昂的重复性工作。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;客服时间解放：&lt;/strong&gt; Flexport内置了自然语言查询功能，客户无需了解SQL或构建仪表板，只需输入问题，AI就能生成图表和报告。这节省了约25%的客户经理报告生成时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化代理（Agentic AI）：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;物流合同通常是包含数千行和十几个标签的巨型Excel文件。AI被用来编写解析器（Parser），将非结构化数据转化为结构化JSON。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;语音/邮件代理：&lt;/strong&gt; AI负责处理交付预约。如果Flexport在过去3个月内没有向某个仓库交付过货物，LLM代理（能通过邮件和语音）会主动联系仓库，确认地址和预约时间（例如：“明天下午2点交付是否可以？”）。&lt;/li&gt;
-&lt;li&gt;此前，人类拨打这种电话的成本太高，导致地址错误造成大量延误。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧱 大象跳舞：在非AI公司推动LLM的组织心法&lt;/h3&gt;
-&lt;p&gt;Flexport作为一家非AI时代成立的大型公司，在AI浪潮中利用其特有的优势并推动组织变革。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;大公司（创新者）的优势：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据和领域经验：&lt;/strong&gt; 拥有海量数据和深厚的领域知识，知道哪些“小问题”值得用AI解决（这些问题不值得一家新公司围绕它成立）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分发优势：&lt;/strong&gt; 一旦开发出优质的AI产品，第二天就能被数千家公司使用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术栈优势：&lt;/strong&gt; Flexport是自己建立技术栈的少数公司。而大多数竞争对手将技术视为付费服务（如Windows远程桌面），无法自由控制代码库集成AI。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自下而上驱动：&lt;/strong&gt; &lt;strong&gt;Hackathon（黑客马拉松）&lt;/strong&gt;成为公司内部创新的关键。在最近的Hackathon中，约90%的项目是基于LLM的。这些自发涌现的想法往往是高层管理者无法预见的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;赋能非工程师：&lt;/strong&gt; 启动了一个针对非工程师的AI技能提升项目，为期90天，每周抽出一天时间进行AI训练营式的学习。目标是将这些领域专家转变为“10倍生产力”的人才，让他们能够用低代码工具自动化自己的工作流程。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💸 对增长和资本的警示：金钱不是万能解药&lt;/h3&gt;
-&lt;p&gt;Ryan对那些有机会筹集巨额资金的创始人给出了反常识的建议。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;警惕金钱：&lt;/strong&gt; “金钱就想花掉自己。”最大的错误是认为“用钱就能解决问题”，这通常表现为过度招聘（臃肿），导致文化变差，速度变慢。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动建议：&lt;/strong&gt; 如果你成功筹集了巨额资金，第二天立即宣布&lt;strong&gt;90天的招聘冻结&lt;/strong&gt;。这向团队传递信号：当前的问题将由现有的人才解决，而不是通过盲目增加人数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌍 金句精选&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“通常这是一个权衡：要么更快，要么更便宜，但不能两者兼得。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“企业的角色不是雇佣员工。它是提供商品和服务，事实上，谁雇佣的人最少，谁的成本就最低，谁就能获胜。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“我们永远无法满足人类的灵魂。”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“我们有太多的管理人模式（Manager Mode），必须更自上而下（Tops Down）进行指导，让人们保持一致。”&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=KTmxaMdUbHA</guid>
-      <enclosure url="https://i.ytimg.com/vi/KTmxaMdUbHA/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 14 Nov 2025 15:00:47 +0800</pubDate>
     </item>
   </channel>
 </rss>
