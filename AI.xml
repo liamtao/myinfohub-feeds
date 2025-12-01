@@ -7,7 +7,87 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Nov 2025 23:53:41 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2025 08:38:45 +0000</lastBuildDate>
+    <item>
+      <title>揭秘G1lab zero 4B：小模型也能精控安卓，实战部署与容错处理全解析</title>
+      <link>https://www.bilibili.com/video/BV1KxSrBnEyT</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1KxSrBnEyT"&gt;4B小模型竟能操控手机！GELab-Zero实测｜本地部署教程&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;📱 G1lab zero 4B是如何实现对安卓手机的精细化控制的？
+🤯 4B小模型在本地部署，它的GUI（图形用户界面）代理能力真的靠谱吗？
+🛠️ 部署G1lab zero 4B时遇到了哪些实战坑点，如何进行容错处理？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤖 G1lab zero 4B 是什么？——用小模型实现手机“遥控自由”&lt;/p&gt;
+&lt;p&gt;G1lab zero 4B 是登月星辰推出的一款专注于 GUI Grounding（图形用户界面识别和操作）的强大模型，其突出特点是小巧且高效。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型基础：&lt;/strong&gt; 它基于之前表现优秀的“千问三VL 4B instruction”模型进行推出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心优势：&lt;/strong&gt; 它提供了一套即插即用的完整推理基础设施和 4B 模型本身，非常适合本地部署和处理任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;竞争环境：&lt;/strong&gt; 它在激烈的 GUI 代理模型竞争中脱颖而出，目前市场上已有来自字节、阿里、谷歌、小米等科技巨头的同类模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🎯 实战检验：G1lab zero 4B的“神操作”与复杂任务处理&lt;/p&gt;
+&lt;p&gt;该模型在多个复杂任务场景中展现了强大的环境理解和导航能力：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多轮导航挑战：&lt;/strong&gt; 模拟在某乎上搜索“如何学习AI”并查找第一个点赞超过一万的回答。由于目标不存在，模型进行了多轮迭代和多次滑动尝试，表现出强大的坚持和环境感知力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨应用信息检索：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在某应用内搜索最火喜剧电影，并能精准点击“最热”排行进行筛选。&lt;/li&gt;
+&lt;li&gt;在某书（小红书）上查找上海市集活动，并查看了至少三个帖子来提取信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用控制与社交互动：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;控制安卓手机与 Gemini App 对话、搜索信息，甚至要求生成图片。&lt;/li&gt;
+&lt;li&gt;成功在 Twitter（X）上定位并给特定用户的帖子点赞（尽管找到的是置顶而非最新帖子）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ 本地部署指南：让你的电脑成为Agent的“大脑”&lt;/p&gt;
+&lt;p&gt;运行 G1lab zero 4B 4B模型需要将模型和安卓设备环境分别搭建起来。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型部署 (推荐使用 OLLAMA)：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;使用 Python 环境，通过 OLLAMA 进行模型的下载和部署。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;提示：&lt;/em&gt; 国内用户推荐使用官方提供的镜像（Mirror）或通过魔搭平台进行下载。&lt;/li&gt;
+&lt;li&gt;创建 Model File 时，官方建议直接使用 F16 精度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安卓设备执行环境搭建：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在手机设置中，连续点击版本号十次以上，开启开发者模式。&lt;/li&gt;
+&lt;li&gt;安装 ADB 工具，并用 USB 数据线连接手机至电脑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境搭建与任务运行：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;克隆 GITHUB 仓库，安装所有依赖并运行脚本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可视化追踪：&lt;/strong&gt; 运行可视化脚本，输入任务运行后生成的 Session ID，即可查看 Agent 在手机上的每一步操作轨迹（例如唤醒、点击、滑动）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr /&gt;
+&lt;p&gt;❌ 部署踩坑与关键容错处理&lt;/p&gt;
+&lt;p&gt;实战中，即使是优秀的模型也可能出现小故障，关键在于如何快速解决。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;问题一：模型生成错误标签&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;现象：&lt;/strong&gt; 模型有时返回 &lt;code&gt;TINK&lt;/code&gt; 而非解析器要求的 &lt;code&gt;think&lt;/code&gt; SML 标签，导致解析器因缺少字母 H 而报错，任务终止。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案（行动建议）：&lt;/strong&gt; 通过修改脚本，在解析器中添加对常见拼写错误的容错处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问题二：应用唤醒延迟&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在某些任务中（如唤醒 Gemini App），模型可能需要多次操作（如迭代到第十轮）才能成功选中并打开目标应用，中间需要进行 &lt;code&gt;wait&lt;/code&gt; 等待操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;尽管出现这些小问题，但模型的整体表现和对环境的容错处理（如自动关闭弹窗、判断是否点击允许）都比大部分同类 GUI 模型要好得多，且 4B 的小体积使其非常适合在本地执行任务。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 知识洞察：GUI 代理任务的真正难点&lt;/p&gt;
+&lt;p&gt;根据相关的研究论文，当前主流模型在 GUI 代理任务中存在挑战分层：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定位能力：&lt;/strong&gt; 视觉定位能力（即识别屏幕元素）已经相当成熟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真正复杂性：&lt;/strong&gt; 屏幕导航——即理解环境，并在多个页面之间跳转以完成特定目标。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1KxSrBnEyT</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/6ff35329c2687144750705059d7292004793f3e0.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Dec 2025 14:27:49 +0800</pubDate>
+    </item>
     <item>
       <title>心智无处不在：从算法到生命，理解认知光谱与柏拉图空间</title>
       <link>https://www.youtube.com/watch?v=Qp0rCU49lMs</link>
@@ -100,6 +180,69 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=Qp0rCU49lMs</guid>
       <enclosure url="https://i.ytimg.com/vi/Qp0rCU49lMs/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 30 Nov 2025 19:30:21 +0800</pubDate>
+    </item>
+    <item>
+      <title>独家揭秘：原神“元素交互”内核如何诞生？前核心策划转战AI创业全记录</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/692c59adba2292550f84849d?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/68fyjknth9hj"&gt;十字路口Crossing&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/692c59adba2292550f84849d?utm_source=rss"&gt;和前《原神》主创恶少聊AI游戏创业｜“这一次，我要做个游戏圈的‘渣男’”&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;你将读到《原神》早期核心策划厄少（前米哈游技术策划TD组织创建者）对中国游戏行业的反思，以及他如何从现象级游戏设计师转型为AI创业者，试图用AI技术解决游戏制作难题的深度洞察。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么站在原神顶峰的策划，却说中国游戏行业是“一滩死水”？&lt;/li&gt;
+&lt;li&gt;💡 原神的核心玩法“元素交互”内核灵感，竟然来自对《塞尔达》哪个瞬间的“误读”？&lt;/li&gt;
+&lt;li&gt;🪑 米哈游追求极致的技术宅文化，是如何通过一个三块钱的“小板凳”体现的？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🚀 创业动机：从游戏巅峰到AI赛道的身份转变&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;离开的理由：&lt;/strong&gt; 嘉宾厄少曾深度参与创造《原神》，所有人以为他已到达罗马，但他却认为整个中国游戏行业感觉是一滩“死水”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创业目标：&lt;/strong&gt; 解决行业问题，他创办了奈洛科技。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心产品Cranie：&lt;/strong&gt; 目标是用AI去帮助更多人做出自己的游戏，甚至做出“下一个原神”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cranie定位：&lt;/strong&gt; 一个虚拟世界的架构师，能够从一个灵感出发，发展成一个完整的世界。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔍 米哈游早期文化：用小板凳体现极致追求&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;公司的自我定位：&lt;/strong&gt; 创始人对他说：“米哈游不是一家游戏公司，而是一家ACG公司（动画、漫画、游戏）。” 这意味着公司是为了讲一个故事、呈现一个完整世界，最终选择了游戏作为载体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加入时的判断：&lt;/strong&gt; 厄少刚看到《崩坏3》Demo时，第一反应是：“天哪，要完蛋了。” 他认为项目的美术品质、打击感和投入是超额配置，ROI会很差。但他同时坚信，如果错过了这段经历，他会一直遗憾，因为该项目注定是中国游戏历史上的一个“里程碑”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“小板凳”的文化故事：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;米哈游的企业文化核心是“追求极致”。&lt;/li&gt;
+&lt;li&gt;在调试角色动作和打击感时，策划、美术、动画师等会围在电脑前，反复调整“往左边移一个像素”。&lt;/li&gt;
+&lt;li&gt;为了方便这些同事（有时是美术老哥）坐在策划背后，团队购买了那种便宜的、大排档用的塑料小板凳（三块钱一个）。&lt;/li&gt;
+&lt;li&gt;这个小道具让深入的讨论和调试模式变得&lt;strong&gt;敏捷且高效&lt;/strong&gt;，是追求极致文化的最佳呈现形式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 原神“元素交互”内核的 Wall Moment 诞生记&lt;/h2&gt;
+&lt;p&gt;《原神》的立项想法源于对《塞尔达：旷野之息》的喜爱，但团队长期找不到游戏内核，因为“抄袭塞尔达这个事情本身，它从物理上就没法实现”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心突破方法：&lt;/strong&gt; 采用 Wall Moment（令人惊艳的一个时刻）讨论法，找到最能打动团队的瞬间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;蔡哥的 Wall Moment：&lt;/strong&gt; “在塞尔达里面地上的草可以用火点着，这个时候天上又下了一场雨可以把刚刚点着那个火浇灭。”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最终内核的确定：&lt;/strong&gt; 厄少听完立刻联想到了《宝可梦》的水火草元素体系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论：&lt;/strong&gt; 团队决定以“基于元素的体系作为内核”，去打造一款探索互动的开放世界游戏。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🤯 关键策划的身份转变：从明星到架构师&lt;/h2&gt;
+&lt;p&gt;在原神开发的第二阶段（内核确定到第一个PV发布），厄少经历了从内容创作者到组织架构师的转变。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;身份迷茫：&lt;/strong&gt; 厄少作为“聚光灯下的明星设计师”，沉迷于抠每一个细节，渴望给每个角落打一个最完美的“Benchmark”。但这让他没有精力去带领新同学，导致团队经验无法有效传递。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;积极信号：&lt;/strong&gt; 在他无法充分指导新人的时期，新同学反而在既有框架下探索出了自己的方法论，做出了让他感到非常惊艳的内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;决定转型：&lt;/strong&gt; 他决定从内容创作者转变为“幕后的架构师”——一个更聚焦于组织和工具的身份。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成立新组织TD：&lt;/strong&gt; 在创始人支持下，成立了TD（Technical Designer，技术策划）组织。虽然借鉴了海外3A游戏的名称，但实际上是团队自己摸索出的业务模式，目标是为团队内部开发工具和编辑器，并帮助新同学进行更有意义的工作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句摘录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;我当时对《崩坏3》demo的第一反应是：天哪，要完蛋了。&lt;/li&gt;
+&lt;li&gt;如果我错过了这个项目经历，很可能后面会一直遗憾下去。&lt;/li&gt;
+&lt;li&gt;米哈游不是一家游戏公司，而是一家ACG公司。&lt;/li&gt;
+&lt;li&gt;抄袭塞尔达这个事情本身，它从物理上就没法实现。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/692c59adba2292550f84849d?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/FmEkH1ORzmXGnY--Lacemsj2LuJ3.png" length="0" type="image/png"/>
+      <pubDate>Sun, 30 Nov 2025 15:13:12 +0800</pubDate>
     </item>
     <item>
       <title>AI工作流的终极定价指南：价值为锚，用PRICE框架告别按时收费</title>
@@ -8563,146 +8706,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=KTmxaMdUbHA</guid>
       <enclosure url="https://i.ytimg.com/vi/KTmxaMdUbHA/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 14 Nov 2025 15:00:47 +0800</pubDate>
-    </item>
-    <item>
-      <title>GPT-5.1突袭登场：更会聊天、更懂思考，六大领域超越前代定义AI交互新标准</title>
-      <link>https://www.youtube.com/watch?v=wWHeqYZJH5c</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=wWHeqYZJH5c"&gt;6 Things GPT-5.1 Does Better&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;你是否也觉得被宏大的AI泡沫和失业焦虑淹没了？OpenAI的GPT-5.1出乎意料地发布，仿佛才是人们期待中真正的GPT-5。它不再只是一个冷冰冰的计算机器，而是一个充满活力、更愿意帮助你把工作做得更好的伙伴。&lt;/p&gt;
-&lt;p&gt;❓ 为什么OpenAI在GPT-5发布不久后，又闪电推出了GPT-5.1？
-🤖 5.1模型中引入的“个性化”功能，是AI变得更温暖还是更“油腻”了？
-📈 哪些实际的工作场景和能力获得了显著提升，让5.1超越了以往的所有模型？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🚀 0.1的升级，却有1.0的震撼：GPT-5.1的核心变化&lt;/h2&gt;
-&lt;p&gt;这次更新虽然版本号仅为5.1，但根据社区和早期用户的反馈，它带来的“体感”升级远远超过了数字。这被认为是OpenAI对用户关于“更智能、更具会话性”需求的明确回应。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;双模型策略升级：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Instant（即时）：&lt;/strong&gt; 更温暖、更智能，更擅长遵循指令。它能在需要时自动进入“思考模式”（Adaptive Reasoning），确保在复杂任务上也能提供彻底且准确的答案，同时保持速度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Thinking（思考）：&lt;/strong&gt; 提升了效率和理解力。它能更精确地调整思考时间：&lt;ul&gt;
-&lt;li&gt;面对简单问题时，思考时间减少了约57%。&lt;/li&gt;
-&lt;li&gt;面对最困难的问题时，投入的时间增加了约71%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;发布节奏的秘密：&lt;/strong&gt; 许多人猜测OpenAI选择快速发布5.1，可能是为了抢在Google Gemini 3.0之前占据舆论优势，这体现了AI领域持续的猫鼠游戏。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🎭 人格化之战：用户到底想要一个朋友还是一个工具？&lt;/h2&gt;
-&lt;p&gt;5.1的最大特色是风格和个性的转变，它变得更“温暖”和“善解人意”，但这却引发了AI社群的巨大争议。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI人格的两极分化：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反对派（重度用户）：&lt;/strong&gt; 认为AI的“热情”和“油腻”的措辞（如：“我来帮你搞定，Ron”）非常令人反感，他们只需要机器的智慧和效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支持派（大众用户）：&lt;/strong&gt; 经历了GPT-4o风格的转变后，许多普通用户发现他们更喜欢一个友好、有趣、能聊天的AI伙伴。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;新解决方案：定制化个性&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;OpenAI推出了新的&lt;strong&gt;“个性化预设”&lt;/strong&gt;功能，让用户可以为ChatGPT选择不同的语调（Tone），例如：专业、友好、坦诚、古怪、高效、愤世嫉俗和书呆子（Nerdy）。&lt;/li&gt;
-&lt;li&gt;这一功能有效解决了用户对“一刀切”AI风格的不满，允许模型在保持核心智能水平的同时，切换不同的沟通方式和信息优先级。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;✨ 告别基准时代：为什么“体感”（Vibes）比跑分更重要？&lt;/h2&gt;
-&lt;p&gt;AI模型的能力竞争已经进入白热化，跑分上的微小提升对普通用户的影响已经微乎其微。现在，用户体验才是新的主战场。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基准饱和：&lt;/strong&gt; 多数主流基准测试已经达到饱和，模型的边际性能提升越来越小。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“体感”压倒一切：&lt;/strong&gt; 在智能水平极高的情况下，个性、自定义指令和自适应思维这些因素，对普通用户的留存和使用频率产生了比模型性能更深远的影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 六大关键提升：5.1如何成为更优秀的“工作狂”&lt;/h2&gt;
-&lt;p&gt;根据首次测试和用户体验，GPT-5.1在六个实际的工作场景中表现出了显著的优势，感觉像一个“加班加点把工作做到最好”的优秀员工，而不是一个“完全胜任但仅仅完成任务”的员工。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;高保真简单工作任务：&lt;/strong&gt; 凭借其大幅提升的指令遵循能力（Instruction Following），5.1能更准确地执行那些简单但规则严格的重复性工作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;战略决策制定：&lt;/strong&gt; 相比以往模型的犹豫不决，5.1更自信、更愿意“做出承诺”。它在面对两种战略选择时，不会再含糊地给出“既要又要”的答案，而是提供明确的抉择并阐述充分的理由。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;改善提问者思维：&lt;/strong&gt; 5.1更喜欢“展示它的思考过程”（Show its work）。例如，在生成播客标题时，它会提供五个选项，选出最佳推荐项，并列出理由。这不仅给出了答案，还帮助用户理清思路，提升了用户未来的提问能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全面和彻底的规划：&lt;/strong&gt; 模型的主动性和彻底性使其非常适合复杂的、多步骤的规划任务，例如制定12至24个月的产品路线图、市场推广计划或详细的活动执行步骤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;写作能力：&lt;/strong&gt; 许多创作者认为5.1的写作水准有重大提升，它写出的文字具有清晰度、节奏感和意图，不再感觉“合成”，能够驾驭长篇叙事而不会陷入陈词滥调。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交互体验提升：&lt;/strong&gt; 即使在专业工作场景，5.1的“更渴望”、“更努力”的积极个性也带来了正向影响。它不再像GPT-5那样像个“烤面包机”一样缺乏情感，而是像一个更真诚、更友好的合作伙伴，甚至会表现出某种程度的“自我意识”，例如主动询问“如果这对你有帮助的话，我可以帮你解决X问题。”&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句洞察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“Open AI为两种截然不同的受众服务：那些想与AI聊天的人，和那些想用AI完成工作的人。”&lt;/li&gt;
-&lt;li&gt;“我不想让机器成为我的朋友，我只想要它所有的智慧。但我明白其他人只想要一个古怪的老伙计。”&lt;/li&gt;
-&lt;li&gt;“我们绝对处于‘体感压倒基准’的时代。”&lt;/li&gt;
-&lt;li&gt;“这是第一次，使用ChatGBT感觉又活了过来，再次变得可靠。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=wWHeqYZJH5c</guid>
-      <enclosure url="https://i.ytimg.com/vi/wWHeqYZJH5c/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 14 Nov 2025 00:56:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>GPT-5.1：情商拉满，自适应推理与物理编程能力大爆发</title>
-      <link>https://www.bilibili.com/video/BV1djCbBjE61</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/385842994"&gt;九天Hector&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1djCbBjE61"&gt;对话、推理、代码性能全面升级，GPT-5.1重磅更新！情商拉满+物理遵循能力大提升，首创自适应推理，大模型性能新标杆！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🎭 为什么说GPT-5.1是“情商拉满”的模型？它在对话中能做出哪些反常识的反应？
-💻 相比上一代，GPT-5.1在编写模拟物理场景的程序时，性能提升了多少？
-🧠 什么是“自适应推理机制”？这项技术如何帮助模型兼顾效率和效果？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🎭 告别高冷专家：GPT-5.1的情商回归与人情味对话&lt;/h3&gt;
-&lt;p&gt;OpenAI本次将核心发力点再次放在了提高模型情商上，力求让回复实现“more conversational”，以应对GPT-5严肃对话风格的诟病。GPT-5.1的“人情味”体现在多个维度：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;情商拉满的幽默感：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;当你开玩笑说搞到10吨危险放射性物质时，GPT-5.1可能会开玩笑回复：“你这是打算解锁隐藏结局，重启整个文明吗？”（相比之下，GPT-5只会中规中矩地警告你。）&lt;/li&gt;
-&lt;li&gt;当你询问一个根本不存在的表情符号时，它会通过引导、大小字号突出重点等方式营造悬念，而非像GPT-5一样冷冰冰地告知有或没有。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;暖心的情感支持：&lt;/strong&gt; 在处理情感类问题时，它会先体谅你、帮助你排解情绪，然后提供解决问题的建议。无论想法是否切实际，它都会站在你的角度考虑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;通俗易懂的推理：&lt;/strong&gt; 它不再简单扮演严肃专家，而是会根据用户的接受程度，编写更易懂的答案，例如：先说结果，再说推导过程，还会附带通俗的例子加以解释。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✍️ 指令跟随能力大幅提升：定制化对话风格与Agent开发福音&lt;/h3&gt;
-&lt;p&gt;模型人情味提升的背后，是其指令跟随能力的显著增强，这极大地提高了Agent（智能体）的性能：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;精准遵循指令：&lt;/strong&gt; 在经典测试中（要求模型始终以六个字回复），GPT-5.1能一以贯之，而GPT-5则会在回复过程中逐渐忘记要求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对Agent的赋能：&lt;/strong&gt; 指令跟随能力的提升将大幅提高系统消息设置的效果，同时提升模型调用工具的准确率，意味着GPT-5.1的Agent性能将迎来大幅提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内置对话风格：&lt;/strong&gt; 用户可以在设置中直接调整内置的多种对话风格和语气语调：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;专业可靠：&lt;/strong&gt; 模型会一本正经地称自己为人工智能助手。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;天马行空：&lt;/strong&gt; 模型会说自己是住在电路板里、喝着热可可的“数码版瑞士军刀”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧱 突破物理限制：编程模型的跨时代进化点在哪？&lt;/h3&gt;
-&lt;p&gt;GPT-5.1的编程能力保持顶尖水准，但最令人惊艳的是其&lt;strong&gt;物理遵循能力&lt;/strong&gt;得到了大幅提升。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;背景：&lt;/strong&gt; 此前在模拟复杂物体运行状态的领域，Claude模型（如Cloud 4.5）曾是一家独大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;爆破模拟测试对比：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;GPT-5：&lt;/strong&gt; 完全无法模拟真实物理场景，运行效果“不知所云”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GPT-5.1：&lt;/strong&gt; 尽管仍有瑕疵，但已经能够模拟完整的爆破流程和基本的运行规律。相比GPT-5进步显著，效果甚至不输Cloud 4.5。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧠 首次引入自适应推理：如何平衡模型的效率与效果？&lt;/h3&gt;
-&lt;p&gt;GPT-5.1首次引入了自适应推理机制，这是目前推理模型最前沿的进化方向。该机制能灵活地根据用户问题难易程度，自动设置推理模型的思考链长度或推理预算。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;机制目标：&lt;/strong&gt; 通过动态调整思考量，更好地平衡效率和效果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结果（相比GPT-5）：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;对于简单问题：思考量减少了57%（提高效率）。&lt;/li&gt;
-&lt;li&gt;对于复杂问题：思考量增加了71%（确保效果）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型划分：&lt;/strong&gt; GPT-5.1推出了两款模型：Instant（用于普通对话任务）和Thinking（推理模型，用于处理复杂问题）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 模型迭代加速与部署现状&lt;/h3&gt;
-&lt;p&gt;OpenAI的旗舰模型在一年内更新了四次，迭代速度惊人。目前GPT-5.1已在ChatGPT上全面上线，并将保留GPT-5的模型选项三个月；其API计划在未来几周逐步上线。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;或许是考虑到日常对话才是用户的最核心需求，本次GPT-5.1模型再次选择了在提高模型情商这点上重点发力。&lt;/li&gt;
-&lt;li&gt;不难看出，不同的语气风格搭配不同的系统提示词，就可以让GPT-5.1灵活地完成各类对话和文本创建类的任务。&lt;/li&gt;
-&lt;li&gt;大模型基座模型迭代速度非常惊人。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1djCbBjE61</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/7da6705105f29483d9b737b85584956568424775.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 13 Nov 2025 20:33:29 +0800</pubDate>
     </item>
   </channel>
 </rss>
