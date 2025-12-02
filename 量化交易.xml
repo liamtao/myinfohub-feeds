@@ -7,7 +7,176 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 01 Dec 2025 22:19:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Dec 2025 08:50:13 +0000</lastBuildDate>
+    <item>
+      <title>卖方策略生存指南：CTA择时结合期权交易的量化风控体系</title>
+      <link>https://www.bilibili.com/video/BV17dSsBdEfS</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV17dSsBdEfS"&gt;【南华期货】CTA择时与期权交易相结合&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;如何在 CTA 择时体系中有效结合期权卖方策略？ 💡
+卖方策略如何通过波动率模型，精准判断何时该收手离场，避免极端亏损？ 🛡️
+面对熔断和跳空行情，量化系统如何设计精细化的仓位管理和交易执行？ ⚙️&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 CTA 择时体系的量化构建：为什么技术分析有效？&lt;/h2&gt;
+&lt;p&gt;CTA（商品交易顾问）策略主要分为趋势跟踪、均值回归和套利三大类。但在实际操作中，真正赚钱的往往是基于技术分析（归纳法）的趋势跟踪策略。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CTA 策略的分类与偏好：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;趋势跟踪策略：&lt;/strong&gt; 跟随市场方向，上涨时买入，下跌时卖空，赚取趋势收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;均值回归策略：&lt;/strong&gt; 基于价格围绕价值波动的原理，适应震荡行情。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术分析的适用性与逻辑：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;技术分析核心逻辑：历史会重演，价格走势有规律可循（归纳法）。&lt;/li&gt;
+&lt;li&gt;有效性增强：在交易量大、指数类型（如50/300 ETF）的标的上，技术分析效果更强。这是因为策略趋同性高（例如大家都看60日生命线），共同推动价格，使得指标更可靠。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量化 CTA 策略的风控和止损原则：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;量化程序旨在干掉交易中的“大亏”象限。&lt;/li&gt;
+&lt;li&gt;子策略淘汰机制：观察窗口内（如季度）表现脱离历史回测趋势，或最大回撤超过历史最大回撤，无条件拿掉该子策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛡️ 期权卖方策略的收益来源与生死线&lt;/h2&gt;
+&lt;p&gt;卖方策略（中性卖）是机构的主流选择，其核心盈利逻辑稳健，但也面临尾部风险的巨大挑战。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;卖方策略的盈利基础：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;核心逻辑：长期来看，隐含波动率（IV）倾向于大于未来实际波动率（RV），卖方赚取 IV 溢价和时间价值。&lt;/li&gt;
+&lt;li&gt;收益来源：时间价值衰减（Theta）、波动率回归、Delta 方向性敞口收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卖方面临的三大风险：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;对冲标的大幅波动。&lt;/li&gt;
+&lt;li&gt;引波（IV）急速上涨（卖方策略的致命伤）。&lt;/li&gt;
+&lt;li&gt;标的突然大幅跳空。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波动率信号如何指导卖方减仓？ 📉&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;卖方不能永远在场，必须知道何时该卖、何时不该卖。&lt;/li&gt;
+&lt;li&gt;观察指标：标的成交量放大（预示潜在升波风险）是关键信号。&lt;/li&gt;
+&lt;li&gt;仓位管理信号：当 IV 与 RV 的差值越来越小时，中性卖的性价比降低，应考虑降仓。&lt;/li&gt;
+&lt;li&gt;卖方忠告：“在不适应的行情中，应该坚决砍仓，不保留任何卖方仓位。”（如924行情复盘：发现升波风险后，将降仓信号从半仓优化至全部出场，等待波动率回稳再加回仓位。）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;⚙️ 机构级风控体系：如何精细化管理十亿级资金&lt;/h2&gt;
+&lt;p&gt;纯程序化执行是确保一致性和减少人为“动作变形”风险的关键。当资金体量上升时，交易执行和风控必须细致入微。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;严苛的回测标准：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;回测时，不应取收盘价或对手价，应至少选取“多长时间段内的一个最差价”作为成交价进行测试，以应对实盘中尤其是期权合约的巨大滑点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精细化的中性卖策略拆分（以应对流动性）：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;将大资金（如一千万）拆分成多个颗粒度很细的子策略组（例如N1-N5，每组200万-300万保证金）。&lt;/li&gt;
+&lt;li&gt;每组子策略的对冲时间和预值存在差异（例如N1在9:57对冲，N2在9:58对冲），避免在同一刻集中对冲。&lt;/li&gt;
+&lt;li&gt;目的：让进出场更丝滑，提高策略容量，同时保证整体敞口在一定时间窗口内配平。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极端行情下的风控处理：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;交易执行必须分散，避免对市场造成冲击或无法出场。对冲动作也应分散，让出场更平滑。&lt;/li&gt;
+&lt;li&gt;多层次风控：账户层面有绝对风控限额（如最大可接受回撤），每个子策略也有独立的止损规则。&lt;/li&gt;
+&lt;li&gt;应对断网等不可控事件（如上交所断网）：此时信号已成“盲盒”，必须无条件全部清仓离场，这是最绝对的风控手段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💎 金句集锦&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;真正能挣到钱的还是趋势类型的策略。&lt;/li&gt;
+&lt;li&gt;技术分析在ETF这种成交量很大的标的上是很有效，因为参与的人足够多，策略类型是偏于趋同的。&lt;/li&gt;
+&lt;li&gt;未来总会有没有发生过的情况发生，那它有可能就会走出不一样的情况。&lt;/li&gt;
+&lt;li&gt;做卖权的话还是要知道你什么时候该卖，你什么时候不该卖，不能一直在场了。&lt;/li&gt;
+&lt;li&gt;每一次黑天鹅它有可能会比上一次更黑，你无法预计。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV17dSsBdEfS</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/51c4de1529de673d60c593b04582c0a222e6674a.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 02 Dec 2025 15:42:09 +0800</pubDate>
+    </item>
+    <item>
+      <title>期权量化新因子：空中花园策略如何优化卖方CTA，提升夏普比率</title>
+      <link>https://www.bilibili.com/video/BV1jZSsBsEdT</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1jZSsBsEdT"&gt;【南华期货】期权卖方CTA系列专题：空中花园&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;📈 面对标的跳空高开或低开，卖方期权策略该如何抓住高波动机会，而非规避风险？
+🎯 “空中花园”策略因子，在不同ETF和期货品种上的胜率究竟有多高？
+📉 如何通过引入新因子，将科创50 ETF期权策略的夏普比率从2.37提升到2.86，并显著降低最大回撤？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 卖方CTA策略的原始痛点与框架回顾&lt;/h3&gt;
+&lt;p&gt;当前研究的是一种结合传统CTA（趋势跟踪）和期权卖方的量化策略，其核心在于利用Delta赚取方向性收益，同时以Theta为辅助。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CTA信号：&lt;/strong&gt; 采用EMA均线金叉死叉判断多空方向，并引入TNR（趋势噪音比）和自定义震荡识别指标，过滤掉均线缠绕等假信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原始风控：&lt;/strong&gt; 为了应对突发性高波动，原策略设立了一项严格风控：如果早盘标的跳开幅度超过1.5%，当日禁止开新仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;痛点分析：&lt;/strong&gt; 这种风控虽然避免了风险，但同时也错失了跳开时隐含波动率（IV）飙升带来的高性价比卖出机会，导致在高波动行情下策略曲线常常处于空仓横盘状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 “空中花园”策略因子：捕捉跳空后的日内趋势&lt;/h3&gt;
+&lt;p&gt;“空中花园”（Airy Garden）是一个针对标的跳空（高开或低开）设计的日内突破因子。它的核心思想是利用开盘第一根K线确定日内交易区间，并在突破时判断趋势延续。&lt;/p&gt;
+&lt;h4&gt;✍️ “空中花园”操作指南：&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;确认跳开幅度：&lt;/strong&gt; 仅在标的发生预设幅度（如1.5%）以上的跳开时激活此策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁定日内上下轨：&lt;/strong&gt; 使用开盘后第一根K线（推荐1分钟或5分钟频率）的最高价和最低价，分别设定为上轨和下轨。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;突破即开仓：&lt;/strong&gt; 在第一分钟结束后，关注后续价格变动：&lt;ul&gt;
+&lt;li&gt;若突破上轨，则趋势看涨，开多仓（例如卖出看跌期权 Put）。&lt;/li&gt;
+&lt;li&gt;若突破下轨，则趋势看跌，开空仓（例如卖出看涨期权 Call）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平仓逻辑：&lt;/strong&gt; 所有仓位固定在当天收盘时平仓。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;🛡️ 期权卖方策略的融合与风控&lt;/h4&gt;
+&lt;p&gt;在将“空中花园”应用于期权卖方策略时，必须调整仓位以应对高波动风险：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开仓时机：&lt;/strong&gt; 仅在满足跳开条件且原策略空仓时，才根据“空中花园”信号开仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合约选择：&lt;/strong&gt; 选择比原策略更虚值一档的期权合约（例如，原策略卖平值，新策略卖虚值一档）。在高IV环境下，此举能有效规避方向错误带来的高Gamma风险，同时保证足够的盈利空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 历史数据验证：哪些品种适合“空中花园”？&lt;/h3&gt;
+&lt;p&gt;在将该因子应用于策略前，必须进行历史统计验证其胜率。&lt;/p&gt;
+&lt;h4&gt;📉 ETF品种在跳开1%以上时的胜率概览：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高波动高胜率：&lt;/strong&gt; 500 ETF、创业板、深圳100、科创50等波动率较高的品种，在跳开1.5%时，胜率可达60%以上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一般稳定品种：&lt;/strong&gt; 50 ETF 胜率在53.78%左右。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不稳定品种：&lt;/strong&gt; 沪深300 ETF 胜率在1%至1.5%跳开幅度时，多数低于50%，参考价值较低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;⚙️ 期货品种表现：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;由于样本量较小，统计结果可能不具代表性，但&lt;strong&gt;橡胶、纯碱、菜粕和甲醇&lt;/strong&gt;等品种在历史上显示出相对稳定的高胜率（&amp;gt;50%）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏆 优化效果展示：夏普率显著飞跃&lt;/h3&gt;
+&lt;p&gt;通过将“空中花园”因子嵌入原策略，尤其针对高跳开情景，策略表现得到了显著改善。&lt;/p&gt;
+&lt;h4&gt;科创50 ETF期权策略对比：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原始夏普比率：&lt;/strong&gt; 2.37&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化后夏普比率：&lt;/strong&gt; &lt;strong&gt;2.86&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键改善点：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;成功捕捉了高波动下的趋势：在2023年9月24日等连续跳开行情中，原策略空仓，优化策略曲线出现大幅且斜率更大的盈利抬升。&lt;/li&gt;
+&lt;li&gt;规避大回撤：在11月高开事件中，优化策略在止损原有仓位后，立即通过空中花园信号开新仓，将当日亏损拉回，避免了原策略的大幅回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;深圳100 ETF期权策略对比：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;在2023年8月28日等跳开行情中，成功避免了原策略的大幅回撤，实现了稳步盈利抬升。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;创业板 ETF期权失败案例分析：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;优化结果：&lt;/strong&gt; 夏普比率（2.44 → 2.38）略有下降。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;失败原因：&lt;/strong&gt; 在10月8日涨停开盘时，因交易所挂钩的合约最高价已由虚值变成实值（最高仅2.4，但价格已达2.678），策略未能找到符合“虚值一档”条件的合约进行开仓，错失机会。次日开仓后又很快被止损。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💎 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;春江水暖鸭先知，期权波动率曲面呈现“近高远低”，暗示着市场的潜在变动。&lt;/li&gt;
+&lt;li&gt;在历史胜率大于50%的基础上，只要赔率足够高（止损小于止盈），引入空中花园策略就有巨大的性价比。&lt;/li&gt;
+&lt;li&gt;高波动率环境下的正确开仓，伴随着降波预期，使得盈利通常能在一天或两天内实现，这是一种快节奏的交易方式。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1jZSsBsEdT</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/91be8c1dad8dd25ff17794c6dc656304578b95fe.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 02 Dec 2025 15:36:39 +0800</pubDate>
+    </item>
     <item>
       <title>胜率100%的择时指标是交易圣杯吗？量化回测揭露市场情绪指标的真相</title>
       <link>https://www.bilibili.com/video/BV1xJUhBDEfF</link>
