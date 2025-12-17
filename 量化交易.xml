@@ -7,7 +7,98 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 17 Dec 2025 08:41:40 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Dec 2025 22:30:16 +0000</lastBuildDate>
+    <item>
+      <title>实测揭秘：量化大师76.8%抄底神话，大数据面前原形毕露</title>
+      <link>https://www.bilibili.com/video/BV1fQqGBdEFB</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fQqGBdEFB"&gt;大数据验证,76%胜率的抄底指标?量化大师就一定靠谱吗?Python量化网络热门大师指标,1000万条数据揭秘网红指标真面目 | 量化投资邢不行啊&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;📈 网传“量化大师”的76.8%抄底神技，真能带你穿越牛熊？
+🤖 堆砌再多指标，就能构建出稳赚不赔的量化策略吗？
+💡 如何用数据说话，识破那些听起来很美的投资陷阱？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🕵️
+♀️ 揭秘大师“三合一”抄底信号的华丽外衣&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一位“量化大师”声称，经过大半年数据挖掘和无数次回测，他找到了一个成功率高达76.8%的抄底信号。&lt;/li&gt;
+&lt;li&gt;这个号称“非常靠谱”的信号，据说经过了5年A股交易数据测试，并由三种不同方法、九个小条件融会贯通而成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“价格动能衰减”：&lt;/strong&gt; 从价格角度出发，要求股票近5个交易日跌幅不大于8%，当年跌幅小于3%，并且当天影线长度要大于实体长度1.5倍（即下方有承接）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“成交量萎缩”：&lt;/strong&gt; 强调成交量是关键，要求当天成交量小于前5天平均值的60%，并且成交量连续两天萎缩，当天换手率小于4%（代表没人愿割肉）。&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;作者指出：&lt;/em&gt; “连续两天萎缩”这种表述在量化交易中显得非常模糊，缺乏精确定义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“技术超跌”：&lt;/strong&gt; 采用改良版RSI指标，要求抄底时RSI14小于25（触发超卖），同时RSI5出现拐头向上趋势，MACD快线开始收敛。&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;作者指出：&lt;/em&gt; “拐头向上”、“开始收敛”也属于模糊表述，并给出了精确的量化语言解读。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;大师强调，这三大信号、九个小条件必须同时满足，缺一不可，否则准确率会大幅降低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📉
+实测打脸：信号稀缺，成功率远低于预期&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作者对大师的抄底策略进行了严谨的复现和回测，结果却令人大跌眼镜：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;首次测试（2007年至今所有股票）：&lt;/strong&gt; 根本没有出现过一次同时符合大师说的“三大条件九个小条件”的情况！&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;修正后测试（2020-2024年，根据大师代码和时间范围）：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;在所有股票的历史数据中，5年时间仅出现177次信号，远低于大师声称在沪深300成分股中找到的1854次。&lt;/li&gt;
+&lt;li&gt;信号出现后，未来1天、5天、10天、20天股票上涨的概率均不足50%，与大师宣称的76.8%成功率相差甚远。&lt;/li&gt;
+&lt;li&gt;平均收益率虽然为正，但也与大师所说的效果差距巨大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码也出错：&lt;/strong&gt; 经过检查，大师提供的指标代码中，RSI的计算公式存在错误，实体和上影线的计算也有问题。即便修正这些小错误，回测结果依然不理想。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡
+量化交易的陷阱：过拟合与模糊表述&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这次“打假”揭示了量化交易中常见的陷阱：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;过度堆砌条件：&lt;/strong&gt; 盲目地、片面地堆砌各类条件，即使在回测期内表现良好，也极易导致“过拟合”，使得策略在真实市场中失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模糊的量化表述：&lt;/strong&gt; “连续两天萎缩”、“开始收敛”等缺乏精确定义的描述，使得策略难以准确复现，也容易留下操作空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据面前无侥幸：&lt;/strong&gt; 任何试图弄虚作假或夸大其词的策略，在大数据和严谨回测面前都会原形毕露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;作者甚至吐槽，大师文章的文字风格和指标构成、回测结果，都带有浓浓的“AI幻觉”味。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📈
+构建稳健量化策略的核心：做减法与可解释性&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作者进一步测试，将大师的三大条件（价格动能衰竭、成交量萎缩、技术超跌）分开单独使用，反而发现它们各自都有一定的效果，并且表现优于组合到一起的情况。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量化策略构建建议：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;做减法而非堆砌：&lt;/strong&gt; 简洁明了的策略往往更稳健。盲目堆砌指标和条件，只会增加过拟合的风险，并降低信号出现的频率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;确保可解释性与逻辑性：&lt;/strong&gt; 策略中的每一个指标都应该可解释，并符合市场运行的逻辑，避免拍脑袋式的参数选择。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拒绝模糊：&lt;/strong&gt; 量化交易要求精确，任何模糊的描述都应转化为明确的计算规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📉
+逃顶指标也“翻车”：数据面前无遁形&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;大师不仅有抄底指标，还宣称有一个准确率78%的逃顶指标。作者对其也进行了测试：&lt;ul&gt;
+&lt;li&gt;修正了大师代码中的错误后，2020年至2024年间，所有A股共出现946次逃顶信号。&lt;/li&gt;
+&lt;li&gt;然而，逃顶后未来1天、5天、10天、20天股价下跌的概率和平均收益率，显示效果也“比较一般”。&lt;/li&gt;
+&lt;li&gt;大师文章中沪深300成分股的信号数量和表现，远超作者测试全部A股的结果，差异显著，再次印证了数据面前难有遁形。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“大数据面前哪有那么多的侥幸，怕真有人去回测吗？”&lt;/li&gt;
+&lt;li&gt;“网上大佬千千万，大数据一拷打，底裤都快扒没了。”&lt;/li&gt;
+&lt;li&gt;“在量化交易中一味的片面堆砌各类条件，最终即使有效，也只会带来过拟合的风险。”&lt;/li&gt;
+&lt;li&gt;“要确保我们在策略中使用的每个指标，应该都是可解释的且符合逻辑的。”&lt;/li&gt;
+&lt;li&gt;“我们自己构建策略时一直倾向于做减法，而不是一味堆砌各种条件和指标。”&lt;/li&gt;
+&lt;li&gt;“我们用数据说话。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fQqGBdEFB</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/343cacfd16600733c58d333871210fd56a845342.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 17 Dec 2025 17:15:00 +0800</pubDate>
+    </item>
     <item>
       <title>放弃热门追逐冷门：两个量化指标帮你找到A股收益率最高的黑马</title>
       <link>https://www.bilibili.com/video/BV16dmxBoE9Q</link>
