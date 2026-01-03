@@ -7,7 +7,125 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 02 Jan 2026 23:59:49 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jan 2026 09:08:58 +0000</lastBuildDate>
+    <item>
+      <title>期权交易的秘密武器：Delta与Gamma深度解析，告别方向性风险，锁定波动率收益！</title>
+      <link>https://www.bilibili.com/video/BV11NiYBREWd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV11NiYBREWd"&gt;【中州期货】精品期权课程——期权的风险度量指标2&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;😱期权涨跌，你真的只看价格吗？
+🚀如何才能摆脱方向性风险，躺赢波动率的收益？
+💡Delta和Gamma，这对“希腊兄弟”如何揭示期权交易的深层秘密？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🧭&lt;strong&gt;Delta：期权的方向盘与晴雨表&lt;/strong&gt;
+Delta值是期权市场最重要的风险度量指标之一，它就像期权头寸的“方向盘”和“晴雨表”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心定义&lt;/strong&gt;：衡量标的资产价格每变动一个单位，期权价格会随之变动多少。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方向性揭示&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Delta &amp;gt; 0&lt;/strong&gt;：你的头寸是“多头头寸”，意味着标的资产价格上涨对你有利，下跌则不利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delta &amp;lt; 0&lt;/strong&gt;：你的头寸是“空头头寸”，意味着标的资产价格上涨对你反而不利，下跌则有利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;买卖双方的Delta符号&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;买方（期权持有者）&lt;/strong&gt;：看涨期权Delta为正，看跌期权Delta为负，符号保持不变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卖方&lt;/strong&gt;：所有Delta的符号都与买方&lt;strong&gt;完全相反&lt;/strong&gt;。例如，卖出看涨期权，Delta就变为负。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delta与期权状态&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度虚值期权&lt;/strong&gt;：Delta接近于0（变动很小，对价格几乎没影响）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平值期权&lt;/strong&gt;：Delta接近于0.5。对于期货期权，通常指最接近市场价的行权价；对于股票/股指期权，指Delta最接近0.5的期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深度实值期权&lt;/strong&gt;：Delta接近于1（期权价格几乎与标的资产同向同幅变动）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看涨与看跌Delta的“秘密关系”&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;对于同一行权价格，看涨期权的Delta绝对值 + 看跌期权的Delta绝对值 ≈ 1。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delta的另一层深意&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在实际交易中，Delta值也被广泛用来近似代表期权到期时成为实值期权的概率。例如，Delta为0.5意味着有50%的概率到期实值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚖️&lt;strong&gt;Delta中性：摆脱涨跌束缚，只赚波动率&lt;/strong&gt;
+如果你厌倦了追逐市场方向，Delta中性策略或许能帮你打开新世界的大门。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;什么是Delta中性？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;当你的&lt;strong&gt;组合头寸总Delta值等于零&lt;/strong&gt;时，你的头寸就处于“Delta中性”状态。&lt;/li&gt;
+&lt;li&gt;这意味着基础合约价格的&lt;strong&gt;微小变动&lt;/strong&gt;（注意不是大幅变动）将不会影响你整个头寸的整体盈亏状况。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心目的&lt;/strong&gt;：消除基础合约价格上涨或下跌带来的方向性风险，让你的利润主要来源于波动率变化等其他因素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合Delta的计算&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;非常简单粗暴：把你所有头寸的Delta值加起来！&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;组合Delta = Σ (每手基础合约/期权持有量 × 对应的Delta值)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;案例解析&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;假设你持有10手基础合约多单（Delta = +1），10手看跌期权多单（Delta = -0.5），10手看涨期权空单（Delta = -0.35）。&lt;/li&gt;
+&lt;li&gt;你的组合Delta = (10 * 1) + (10 * -0.5) + (10 * -0.35) = 10 - 5 - 3.5 = +1.5。&lt;/li&gt;
+&lt;li&gt;这表明你的整个资产组合，性质上相当于持有了1.5手基础合约多头头寸。你不再需要复杂分析，一个数字便知。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;如何实现Delta中性？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;如果你当前的组合Delta不为零（比如上面的+1.5），可以通过增加或减少与当前Delta方向相反的头寸，来将其调整为零。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现方式多样&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;买入看跌期权：如买入3手Delta为-0.5的看跌期权 (3 * -0.5 = -1.5)，与+1.5抵消。&lt;/li&gt;
+&lt;li&gt;卖出看涨期权：如卖出4手Delta为0.35的看涨期权 (4 * -0.35 = -1.4)，与+1.5约等于0。&lt;/li&gt;
+&lt;li&gt;调整基础合约：减少基础合约多单或买入看跌期权等组合拳。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智慧选择&lt;/strong&gt;：虽然方式多样，但真正的选择取决于市场隐含波动率的高低、Gamma值等因素。市场波动率低时可能倾向买期权，高时可能倾向卖期权。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔄&lt;strong&gt;Gamma：Delta的“加速度”，曲线的秘密&lt;/strong&gt;
+Gamma是期权交易中理解和管理风险的“倒数第二个难题”，它揭示了Delta如何随标的资产价格变动而变化。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gamma的真面目&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;衡量标的资产价格每变动一个单位时，&lt;strong&gt;Delta值的变动量&lt;/strong&gt;是多少。&lt;/li&gt;
+&lt;li&gt;它不直接改变期权价格，而是通过改变Delta，再由Delta间接影响期权价格。&lt;/li&gt;
+&lt;li&gt;你可以把它理解为期权价格曲线的“曲率”或“弯曲程度”。如果Delta是斜率，那么Gamma就是斜率的变化率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gamma的符号特性&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;始终为正&lt;/strong&gt;：无论是看涨期权还是看跌期权，作为&lt;strong&gt;买方&lt;/strong&gt;（期权持有者），Gamma值始终为正。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;始终为负&lt;/strong&gt;：作为&lt;strong&gt;卖方&lt;/strong&gt;，Gamma值则始终为负。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相同性&lt;/strong&gt;：同一行权价格的看涨期权和看跌期权，其Gamma值是相同的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正Gamma的奇妙效应（以看涨期权为例）&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当基础合约价格上涨时&lt;/strong&gt;：Delta值会&lt;strong&gt;增加&lt;/strong&gt;Gamma点。&lt;ul&gt;
+&lt;li&gt;例如：Delta从0.28（虚值）变为0.32。期权仍然是虚值，但虚值程度减小了，越来越接近平值或实值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;当基础合约价格下跌时&lt;/strong&gt;：Delta值会&lt;strong&gt;减少&lt;/strong&gt;Gamma点。&lt;ul&gt;
+&lt;li&gt;例如：Delta从0.28（虚值）变为0.239。虚值程度加深了，越来越远离平值或实值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心理解&lt;/strong&gt;：正Gamma意味着，当标的资产价格向对你有利的方向变动时，Delta会变得更有利；当价格向不利方向变动时，Delta会变得不那么不利。这就像你拥有一个“安全垫”，市场越是波动，你的Delta就越能“自动”调整到有利的位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类比的智慧&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;期权交易中的Delta类似于国债期货中的&lt;strong&gt;久期（Duration）&lt;/strong&gt;，衡量价格对利率的敏感度。&lt;/li&gt;
+&lt;li&gt;Gamma则类似于国债期货中的&lt;strong&gt;凸性（Convexity）&lt;/strong&gt;，衡量久期对利率变化的敏感度，也就是曲线的弯曲程度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“期权交易的核心，某种程度上就是Delta值的博弈。”&lt;/li&gt;
+&lt;li&gt;“期权交易，远不止看价格那么简单，每一个参数都蕴藏着秘密。”&lt;/li&gt;
+&lt;li&gt;“在期权的世界里，方向并非全部，关键在于能否突破临界点，以及价格变动的速度。”&lt;/li&gt;
+&lt;li&gt;“正Gamma，意味着你拥有抵抗市场波动的‘安全垫’。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV11NiYBREWd</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b66e25f8eb0ee7c70eac5d9d70df7009a4bbf181.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 03 Jan 2026 14:23:35 +0800</pubDate>
+    </item>
     <item>
       <title>龙回头1.0：逆人性而为，在恐慌中掘金的量化策略</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6954bf9914db1df9efb714d0?utm_source=rss</link>
