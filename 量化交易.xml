@@ -7,7 +7,116 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 12 Jan 2026 22:53:35 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jan 2026 09:02:39 +0000</lastBuildDate>
+    <item>
+      <title>洞悉期权四大策略：逆比率、垂直、跨市、时间价差交易的Greeks与市场预期</title>
+      <link>https://www.bilibili.com/video/BV1ePr6BTEHu</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/10035887"&gt;Heisenberg1224&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ePr6BTEHu"&gt;【中州期货】精品期权课程——期权的波动率价差交易2&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;📉跌势反弹到局部顶部，怎么用期权反手为胜？
+🎢市场不涨不跌，横盘震荡，期权玩家如何悄悄收割时间价值？
+🤔期权策略那么多，如何透过现象看本质，只用“四类”就玩转所有？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚔️逆比率价差交易：局部底部与顶部的“秘密武器”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略核心&lt;/strong&gt;：这是一种巧妙的组合拳，通常是：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;买入&lt;/strong&gt;平值（ATM）期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卖出&lt;/strong&gt;实值（ITM）期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键&lt;/strong&gt;：买卖手数不对等，目的是让你的整体仓位对Delta（价格方向敏感度）接近“麻木”（即Delta接近0）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;看涨期权&lt;/strong&gt;：用于捕捉“局部底部”——比如股价上涨后回调，预期即将再次启动时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看跌期权&lt;/strong&gt;：用于狙击“局部顶部”——比如股价下跌后反弹，预期即将再次下跌时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;为何选择它？&lt;/strong&gt; 相比单纯买期权，逆比率价差交易有两大“绝招”：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;下行风险有限&lt;/strong&gt;：即使你看错方向，价格下跌，它可能比单纯买期权亏得少，甚至还有小幅盈利空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵活止盈&lt;/strong&gt;：如果价格下跌，你可以先平仓盈利的“卖出期权”部分，只保留“买入期权”。未来若市场反弹，你甚至可能两头都赚钱！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greeks揭秘&lt;/strong&gt;：此策略的伽马（Gamma）和维卡（Vega）都是&lt;strong&gt;正值&lt;/strong&gt;。这意味着你期待市场发生&lt;strong&gt;大规模波动&lt;/strong&gt;，无论是暴涨还是暴跌，或者&lt;strong&gt;隐含波动率增加&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️比率垂直价差交易：横盘爱好者的“反向操作”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略核心&lt;/strong&gt;：它是逆比率价差交易的“&lt;strong&gt;交易对手方&lt;/strong&gt;”！如果逆比率是“买平卖实”，那么它就是“卖平买实”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greeks揭秘&lt;/strong&gt;：与逆比率策略相反，此策略的伽马（Gamma）和维卡（Vega）都是&lt;strong&gt;负值&lt;/strong&gt;。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;负Gamma&lt;/strong&gt;：你渴望“&lt;strong&gt;天下太平，不要闹事&lt;/strong&gt;”！市场最好原地踏步，价格波动越小越好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;负Vega&lt;/strong&gt;：你期待&lt;strong&gt;隐含波动率下降&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;看涨期权&lt;/strong&gt;：预期市场&lt;strong&gt;不会大涨&lt;/strong&gt;，略微下跌或横盘都能接受。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看跌期权&lt;/strong&gt;：预期市场&lt;strong&gt;不会大跌&lt;/strong&gt;，略微上涨或横盘都能接受。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险警示&lt;/strong&gt;：如果市场真的发生大幅波动，你可能会遭遇较大亏损。就像“勒勒式套利”的悲剧故事：一位投资者靠卖黄金期权多年盈利，最终却因一次黄金大涨，几年盈利尽数亏光。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🎢跨市与宽跨市：波动与横盘的“期权赌注”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：这些策略虽然包含了看涨和看跌期权，但由于其Gamma和Vega特性，也被归为波动率价差交易。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多头跨市 (Long Straddle / 同价对标)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：同时买入同一执行价格的看涨期权和看跌期权（通常是平值期权），买卖手数1:1。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greeks&lt;/strong&gt;：伽马和维卡都是&lt;strong&gt;正值&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预期&lt;/strong&gt;：赌市场会“&lt;strong&gt;暴涨或暴跌&lt;/strong&gt;”！新手期权玩家常会尝试，但如果市场不波动，你付出的权利金就白费了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空头跨市 (Short Straddle / 同价对销)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：同时卖出同一执行价格的看涨期权和看跌期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greeks&lt;/strong&gt;：伽马和维卡都是&lt;strong&gt;负值&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预期&lt;/strong&gt;：赌市场“&lt;strong&gt;天下太平&lt;/strong&gt;”！希望价格不动，吃时间价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多头宽跨市 (Long Strangle)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：买入较高执行价的虚值看涨期权 + 买入较低执行价的虚值看跌期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优点&lt;/strong&gt;：比多头跨市便宜。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缺点&lt;/strong&gt;：需要&lt;strong&gt;更大&lt;/strong&gt;的市场波动才能盈利，不常用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空头宽跨市 (Short Strangle)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：卖出较高执行价的虚值看涨期权 + 卖出较低执行价的虚值看跌期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特点&lt;/strong&gt;：&lt;strong&gt;机构常用&lt;/strong&gt;！安全边际高，风险可控。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预期&lt;/strong&gt;：市场在&lt;strong&gt;特定区间内横盘震荡&lt;/strong&gt;（比如在一个明确的支撑位和阻力位之间）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作技巧&lt;/strong&gt;：真正的老手通常&lt;strong&gt;不会同时建仓&lt;/strong&gt;。市场上涨时，先卖出看涨期权；市场下跌时，再卖出看跌期权。这样能赚取更多权利金。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⏳时间价差交易：平稳行情下的“时间魔术师”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略核心&lt;/strong&gt;：这是期权策略中“&lt;strong&gt;最难理解的难点&lt;/strong&gt;”之一，但却是股票/股指期权中最常用的策略。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作&lt;/strong&gt;：&lt;strong&gt;买入&lt;/strong&gt;一份长期期权 + 同时&lt;strong&gt;卖出&lt;/strong&gt;一份短期期权（两者必须是同执行价格、同类期权，例如都是看涨或看跌）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Greeks揭秘&lt;/strong&gt;：此策略具有独特的风险特征：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;伽马（Gamma）是负的&lt;/strong&gt;：短期期权临近到期时Gamma值会急剧放大，卖出它会让整体仓位Gamma为负。这意味着你希望基础合约价格&lt;strong&gt;保持平稳，不要大幅波动&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;维卡（Vega）是正的&lt;/strong&gt;：长期期权对波动率更敏感，其Vega值更大。买入它使得整体仓位Vega为正。这意味着你希望&lt;strong&gt;期权市场的隐含波动率增加&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心盈利逻辑&lt;/strong&gt;：如果市场价格平稳，不涨不跌：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;短期期权&lt;/strong&gt;：随着时间流逝，其时间价值会迅速衰减，最终可能归零（你卖出它，所以盈利）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长期期权&lt;/strong&gt;：其时间价值衰减较慢。&lt;/li&gt;
+&lt;li&gt;两者相抵，价差扩大，你就能盈利！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：特别适合&lt;strong&gt;股票或股指期权&lt;/strong&gt;，因为它们不同到期日的期权具有相同的内在价值（差异只在时间价值）。不适合期货期权（不同月份合约的内在价值可能不同）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势&lt;/strong&gt;：若短期期权到期，你仅剩下长期期权的多单，这部分亏损有限，你可以选择继续持有观望。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“天下太平，天下太平，不要闹事，越闹事越亏损。”&lt;/li&gt;
+&lt;li&gt;“你认为价格波动率会涨，他认为价格波动率会跌；你认为基础合约会涨，他认为基础会员会会跌。所以，这都是完全相反的。”&lt;/li&gt;
+&lt;li&gt;“做期权一般情况下是要逆着方向去做。”&lt;/li&gt;
+&lt;li&gt;“我们说的那么多策略，实际上只有四类。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ePr6BTEHu</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/a11a88c9e9fe32491b552527c7bf94e5996dc97d.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 13 Jan 2026 13:29:04 +0800</pubDate>
+    </item>
     <item>
       <title>AI赋能量化交易：免费全战系列，助你构建系统化投资思维与实践</title>
       <link>https://www.bilibili.com/video/BV1MZ6mBnE8o</link>
