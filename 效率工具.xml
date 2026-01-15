@@ -7,7 +7,113 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 14 Jan 2026 08:47:58 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jan 2026 00:04:32 +0000</lastBuildDate>
+    <item>
+      <title>NIDN工作流高效迁移：从云端到自托管的免费秘籍与自动化方案</title>
+      <link>https://www.youtube.com/watch?v=t1PTmpas0bg</link>
+      <description>&lt;p&gt;&lt;a href="UC2ojq-nuP8ceeHqiroeKhBA"&gt;Nate Herk | AI Automation&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=t1PTmpas0bg"&gt;Easiest Way to Migrate n8n Workflows Between Accounts (cloud to self-hosted)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;❓ 想把上百个工作流从一个NIDN实例安全、免费地迁移到另一个？
+💡 如何高效管理你的NIDN工作流，避免重复迁移和混乱？
+🚀 仅用3种节点就能实现复杂迁移，这个秘籍是什么？&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ 核心迁移策略：从NIDN云到自托管的完美跳板&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目的：&lt;/strong&gt; 安全、免费地将数百个NIDN工作流从一个实例（例如NIDN云）迁移到另一个（例如自托管NIDN）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键：&lt;/strong&gt; 避免手动重复操作和数据混乱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方法：&lt;/strong&gt; 通过一个自动化工作流实现，它结合了NIDN API和Google Sheets进行中间存储和状态跟踪，确保迁移过程的有序性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔍 工作流是如何构建的？三节点简单高效迁移方案&lt;/p&gt;
+&lt;p&gt;整个迁移方案的核心在于一个由三种不同类型节点组成的精简工作流，分为两个主要部分手动执行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;上层工作流（数据拉取与存储）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🎯 &lt;strong&gt;从旧实例拉取：&lt;/strong&gt; 使用NIDN节点从旧实例（NIDN云）获取所有当前工作流。&lt;/li&gt;
+&lt;li&gt;📊 &lt;strong&gt;推送到Google Sheets：&lt;/strong&gt; 将拉取到的工作流数据存储到Google Sheets。&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;为何使用Google Sheets？&lt;/strong&gt; 它充当外部存储，用于跟踪已迁移和未迁移的工作流，防止在新的NIDN实例中因重复迁移而产生混乱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;下层工作流（数据推送与更新）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🔄 &lt;strong&gt;从Google Sheets拉取：&lt;/strong&gt; 再次从Google Sheets拉取状态为“待处理”的工作流数据。&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;推送到新实例：&lt;/strong&gt; 利用NIDN的API将这些工作流推送到新的NIDN实例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔑 获取NIDN API密钥和Base URL：迁移的第一步&lt;/p&gt;
+&lt;p&gt;这是连接NIDN实例的关键步骤，需要分别从旧实例和新实例获取API密钥和Base URL：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;旧实例API Key (NIDN Cloud)：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登录旧实例 → 点击“设置” → 进入“NIDN API” → “创建API Key”。&lt;/li&gt;
+&lt;li&gt;复制生成的API Key。&lt;/li&gt;
+&lt;li&gt;Base URL格式为：&lt;code&gt;你的域名/api/v1&lt;/code&gt;（例如，&lt;code&gt;nateherk.app.n.cloud/api/v1&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;新实例API Key (自托管NIDN)：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;登录新实例 → 点击“设置” → 进入“NIDN API” → “创建API Key”。&lt;/li&gt;
+&lt;li&gt;复制生成的API Key。&lt;/li&gt;
+&lt;li&gt;Base URL格式为：&lt;code&gt;你的域名/api/v1&lt;/code&gt;（例如，&lt;code&gt;niten.blah.hostinger.cloud/api/v1&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;配置凭据：&lt;/strong&gt; 在NIDN节点中创建新的凭据，分别粘贴对应的API Key和Base URL，并进行清晰的标签命名（如“NIDN云账户”和“NIDN自托管”），以便区分。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📊 Google Sheets如何成为你的迁移管家？&lt;/p&gt;
+&lt;p&gt;Google Sheets在整个迁移流程中扮演着“调度中心”的角色，确保每一步都井然有序：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据存储：&lt;/strong&gt; 它存储每个工作流的唯一ID、名称和最重要的——迁移状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态跟踪：&lt;/strong&gt; 初始状态默认设置为“to process”（待处理）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能过滤：&lt;/strong&gt; 下层工作流只会从Google Sheets中拉取状态为“to process”的行，这意味着只有尚未迁移的工作流会被处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态更新：&lt;/strong&gt; 一旦工作流成功迁移到新的自托管实例，其在Google Sheets中的状态就会被自动更新为“processed”（已处理）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优势：&lt;/strong&gt; 这种机制能够精确识别已迁移和未迁移的工作流，有效防止重复操作，并确保新旧实例之间的数据同步和一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据量考量：&lt;/strong&gt; 每个NIDN工作流都是一个庞大的JSON数据块，其中包含更新时间、创建时间、名称、激活状态、所有节点配置、参数和版本信息。因此，将这些关键信息记录在Google Sheets这样的外部日志系统中至关重要。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚀 将工作流送往新家：NIDN API的魔法&lt;/p&gt;
+&lt;p&gt;当Google Sheets准备好待处理的工作流列表后，NIDN API就将它们“搬运”到新实例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;获取完整JSON：&lt;/strong&gt; 系统会通过工作流ID，从旧NIDN实例再次精确获取工作流的完整JSON结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创建新工作流：&lt;/strong&gt; 使用新实例的NIDN节点，操作类型设置为“Create a Workflow”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Payload：&lt;/strong&gt; 向新实例发送包含&lt;code&gt;name&lt;/code&gt;（名称）、&lt;code&gt;nodes&lt;/code&gt;（节点配置）、&lt;code&gt;connections&lt;/code&gt;（连接关系）和&lt;code&gt;settings&lt;/code&gt;（设置）等关键信息的JSON对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;循环处理：&lt;/strong&gt; 强烈建议通过循环机制逐个处理工作流，这样可以最大程度地降低任何潜在的错误风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精确迁移：&lt;/strong&gt; NIDN API能够精确迁移所有配置，包括节点参数、连接关系，甚至是工作流中的贴纸和命名约定等细节，实现“所见即所得”的复制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未迁移内容：&lt;/strong&gt; 请注意，像凭据、用户账户信息和执行历史记录等内容不会自动迁移，这些通常需要在新实例中手动重新配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🏠 Hostinger自托管NIDN：更经济的选择与部署指南&lt;/p&gt;
+&lt;p&gt;如果你还在犹豫如何搭建自托管NIDN，Hostinger提供了一个便捷且经济的方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推荐平台：&lt;/strong&gt; HostingerVervp 提供“一键部署NIDN”的功能，让搭建变得异常简单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成本优势：&lt;/strong&gt; 起价每月仅5美元，相比NIDN云服务，成本效益显著。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专属折扣：&lt;/strong&gt; 使用优惠码&lt;code&gt;Nate Herk&lt;/code&gt;，可在年度计划中享受9折优惠。如果你是AIS Plus社区成员，还能获得更大的折扣。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署教程：&lt;/strong&gt; 作者提供了完整的YouTube视频教程，详细演示了如何在Hostinger上设置NIDN，手把手教你完成部署。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⬇️ 免费获取迁移模板与社区支持&lt;/p&gt;
+&lt;p&gt;想要亲自尝试这个高效的NIDN工作流迁移方案？模板和支持都已为你准备好：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;获取方式：&lt;/strong&gt; 免费加入作者的“学校社区”（链接在视频描述中）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查找：&lt;/strong&gt; 在社区的“教室”板块中，通过搜索视频标题或浏览模板即可找到。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下载内容：&lt;/strong&gt; 你可以下载完整的工作流JSON模板，甚至还包括一个预设好的Google Sheet模板副本，让你即插即用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作：&lt;/strong&gt; 导入工作流JSON后，只需配置新旧两个NIDN实例的API密钥即可开始使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更多折扣与社区：&lt;/strong&gt; 如果你对NIDN有更深度的需求，可以考虑加入付费的Plus社区。在那里，你可以获得更大的折扣，并与超过3000名每天都在使用NIDN构建业务的成员进行交流学习。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;金句：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“如果你没有进行任何外部的日志记录和跟踪，你可能会意外地将一些工作流移动10次，然后你的新NIDN就会变得一团糟。”&lt;/li&gt;
+&lt;li&gt;“即使只有25个工作流，也仍然包含大量数据……每个工作流都是一个巨大而复杂的JSON数据块。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=t1PTmpas0bg</guid>
+      <enclosure url="https://i.ytimg.com/vi/t1PTmpas0bg/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 14 Jan 2026 14:18:28 +0800</pubDate>
+    </item>
     <item>
       <title>产品经理AI效率革命：个人OS、敏捷原型与策略共创新范式</title>
       <link>https://www.youtube.com/watch?v=VXdrfvqiH-0</link>
