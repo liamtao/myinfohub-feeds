@@ -7,7 +7,89 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Mar 2026 08:35:52 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 22:42:21 +0000</lastBuildDate>
+    <item>
+      <title>深度解析 Claude Code 与 MCP 联动：打造产品经理的自动化 AI 工作站</title>
+      <link>https://www.youtube.com/watch?v=1B3Ffo8snfY</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=1B3Ffo8snfY"&gt;Full Tutorial: Connect Claude Code to Google, Slack, and Reddit in 40 Min (Skills + MCPs)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Claude Code &amp;amp; MCP 集成 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 Model Context Protocol (MCP) 的开放式架构，将 Claude 的推理能力通过标准 API 协议延伸至外部 SaaS 工具（如 Google Workspace, Linear）与本地文件系统，实现端到端的自动化执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、本地项目文件、第三方 SaaS 实时数据（日历、工单、聊天记录）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化更新的文档、重命名的任务工单、跨平台的同步消息及多模型评审后的技术方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Model Context Protocol)&lt;/strong&gt;：一种标准化协议，使 AI 模型能即插即用地理解并调用外部工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tool Search&lt;/strong&gt;：Anthropic 推出的特性，仅在需要时检索工具，降低 Token 消耗并提升上下文专注度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Skill (技能)&lt;/strong&gt;：在 Claude Code 环境中封装的特定 MD/JS 脚本，用于执行复杂的重复性流转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：多维会议自动化准备 (Google Workspace 联动)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：消除 PM 在日历、文档与会议记录间的低效切换，自动生成议程并更新文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已配置 Google Workspace MCP 授权（属于高难度配置）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[数据检索]&lt;/strong&gt;：输入指令 &lt;code&gt;Please help me prepare for today's meetings.&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[上下文匹配]&lt;/strong&gt;：Claude 调用 &lt;code&gt;list_calendars&lt;/code&gt; 识别今日日程 -&amp;gt; 检索 Google Drive 相关关联文档 -&amp;gt; 匹配本地笔记文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[内容注入]&lt;/strong&gt;：将识别出的 Blockers 和进度自动写入 Google Docs 中的 TBD 区域。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：项目任务全局重构与状态同步 (Linear 联动)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过自然语言批量修改工单属性，同步产品路线图变更。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：运行 &lt;code&gt;npx @linear/mcp&lt;/code&gt; 进行一键安装。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[任务检索]&lt;/strong&gt;：输入 &lt;code&gt;Tell me what all of my linear tickets are.&lt;/code&gt; 查看当前高优先级工单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指令执行]&lt;/strong&gt;：输入 &lt;code&gt;Update the project to the new name of [OpenClaw] instead of [Moltbot].&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[逻辑更新]&lt;/strong&gt;：Claude 自动遍历所有相关工单，批量修改标题、描述及项目属性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：多模型交叉评审 (Consult the Council)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过 API 调用 GPT-4、Gemini、Grok 对 Claude 的规划进行多维度“盲测”反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[调用触发]&lt;/strong&gt;：在终端输入 &lt;code&gt;consult the council&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[并发评审]&lt;/strong&gt;：系统将当前的 PRD/Spec 发送至各模型 API，获取差异化意见。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[方案迭代]&lt;/strong&gt;：Claude 汇总 Council 反馈，自动修正原文档中的潜在逻辑漏洞。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目录结构控制 (Project Structure)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;_temp/&lt;/code&gt;：动态工作区，用于存放临时生成的代码或待复制的草稿。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;context/&lt;/code&gt;：存放长效知识（如 Q1 目标、公司规章），供 Claude 随时挂载。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;workflows/&lt;/code&gt;：存储多步骤 SOP 指令文件，实现“超大号模板”复用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP Tool Search&lt;/strong&gt;：状态控制 -&amp;gt; 决定模型是否具备全局工具发现能力，直接影响执行精度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;权限合规&lt;/strong&gt;：在企业环境使用 Slack Stealth Mode MCP 前需确认合规性，因为其绕过了部分 IT 审批流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据孤岛&lt;/strong&gt;：若不手动建立 &lt;code&gt;projects/&lt;/code&gt; 文件夹进行隔离，Claude 可能会在大型本地库中迷失上下文。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reddit 监控&lt;/strong&gt;：使用 Reddit MCP 绕过 Web Fetch 限制，实时监控特定 subreddit 的舆情并反馈至 Standup 报告中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图像生成嵌入&lt;/strong&gt;：通过封装 Nano Banana (Gemini API) 技能，直接在 Claude Code 终端生成架构图并保存至项目文件夹。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=1B3Ffo8snfY</guid>
+      <enclosure url="https://i.ytimg.com/vi/1B3Ffo8snfY/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 01 Mar 2026 14:00:03 +0800</pubDate>
+    </item>
     <item>
       <title>Rick Beato谈音乐、AI、创作与学习的未来洞察：从吉他大师到YouTube教育家的多维思考</title>
       <link>https://www.youtube.com/watch?v=1SJiTwbSI58</link>
@@ -6132,55 +6214,6 @@ Ben 对当前科技巨头的执行力给出了犀利评价：&lt;/p&gt;
       <guid isPermaLink="true">https://www.youtube.com/watch?v=YFjfBk8HI5o</guid>
       <enclosure url="https://i.ytimg.com/vi/YFjfBk8HI5o/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 12 Feb 2026 03:07:03 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI绘画进入“有字”时代？深度评测通义千问Image2.0的文字渲染奇迹</title>
-      <link>https://www.bilibili.com/video/BV1iLcbzfE55</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1iLcbzfE55"&gt;Qwen-Image-2.0 文字渲染太强了！和 Seedream 5.0 preview 对比实测&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;以下是为您提炼的通义千问Image2.0深度评测精要：&lt;/p&gt;
-&lt;p&gt;❓ 为什么现在的AI绘画不再害怕“写错字”了？
-🎨 如何零成本生成高质量的中英文海报和专业PPT？
-🆚 通义千问Image2.0与字节跳动即梦5.0，谁才是国产最强生图神器？&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🖋️ 文字渲染：AI绘画终于“识字”了&lt;/h3&gt;
-&lt;p&gt;通义千问Image2.0的核心亮点在于其跨越式的文字渲染能力，彻底告别了以往AI生图文字“鬼画符”的时代。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;全场景覆盖：&lt;/strong&gt; 能够胜任高级信息图、中英文海报、专业PPT，甚至能准确渲染《兰亭集序》全文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;语义遵循：&lt;/strong&gt; 就像一个能听懂指挥的“资深美工”，它能理解复杂的文字排列要求，且文字与气泡、边框的适配度极高，溢出率极低。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 轻量化架构下的效率与精度&lt;/h3&gt;
-&lt;p&gt;优秀的表现源于其硬核的参数配置，实现了更轻量、更聪明、更清晰的平衡。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;参数与效率：&lt;/strong&gt; 采用7B参数模型，模型架构更轻量，生成速度显著提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;超长指令：&lt;/strong&gt; 支持高达1K token的指令输入，这意味着你可以给它讲一个非常长且细致的故事。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;超清输出：&lt;/strong&gt; 输出分辨率高达2K，细节表现力足以支撑专业场景使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔍 实测PK：通义千问 vs. 字节即梦&lt;/h3&gt;
-&lt;p&gt;通过多轮实测对比，通义千问Image2.0在多个维度展现了优势：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文字纠错：&lt;/strong&gt; 在实拍照片任务中，千问文字完全正确；而即梦在错别字、标点及大小写方面失分明显。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;细节质感：&lt;/strong&gt; 在杂志内页生成中，千问能精准模拟“墨迹微晕”的真实质感，而即梦的纸张与环境质感相对较弱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逻辑遵循：&lt;/strong&gt; 在“24张拍立得”排列任务中，千问能理解4x6的排列逻辑，而即梦在数量和备注要求上出现了理解偏差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 读者行动建议：如何玩转Image2.0&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;官网免费体验：&lt;/strong&gt; 访问通义千问官网点击加号即可直接使用，目前完全免费。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示词策略：&lt;/strong&gt; 尽量提供详尽的细节，如“墨迹微微渗透”、“黑字白底名牌”，它对这类微小细节的抓取非常精准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多场景应用：&lt;/strong&gt; 推荐用于PPT配图、Web页面设计草图、多宫格漫画叙事以及带有具体步骤要求的菜谱图制作。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;✨ 金句摘录&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“这次Image2.0在文字渲染方面的提升，真正让AI绘画从‘艺术创作’跨越到了‘生产力工具’。”&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1iLcbzfE55</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/61ac5b266719f35612ee88b0430da7548a9b52c6.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 11 Feb 2026 22:37:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
