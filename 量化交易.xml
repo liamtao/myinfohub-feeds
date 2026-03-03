@@ -7,7 +7,346 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 03 Mar 2026 08:53:04 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 22:59:02 +0000</lastBuildDate>
+    <item>
+      <title>量化交易生存之道：驾驭非平稳市场与资本管理的哲学</title>
+      <link>https://www.bilibili.com/video/BV1ZyAZzEE7G</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ZyAZzEE7G"&gt;交易不是模型，是生存系统：状态变量模型与资本增长理论&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么贝叶斯更新过快或过慢都致命，其最佳频率隐藏着何种市场洞察？&lt;/li&gt;
+&lt;li&gt;💡 市场“非平稳性”如何颠覆传统交易假设，我们如何捕捉并利用其隐藏状态？&lt;/li&gt;
+&lt;li&gt;🚀 连续亏损在量化交易中是运气不佳，还是统计学必然，以及这如何重塑我们的风险认知？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 市场动态与信息吸收的临界点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;贝叶斯更新的节奏&lt;/strong&gt;: 过慢使模型脱离市场，错过机会甚至深陷错误方向；过快则沦为噪音干扰，反复追涨杀跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最优更新频率&lt;/strong&gt;: 由“西格玛平方除以二套”衡量，本质是模型信心与市场不确定性的动态对比，决定新信息的吸收速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交易的本质&lt;/strong&gt;: 量化交易是关于“隐藏真实价值”的猜谜游戏，成交价格是扭曲的反应。每一次成交都必须修正对价值的判断，并据此调整仓位。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 告别“平稳”幻觉：非平稳市场的状态识别与应对&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“市场平稳”的破产&lt;/strong&gt;: 市场波动、流动性、风险偏好、机构干预及黑天鹅事件均揭示市场收益分布非独立同分布，而是非平稳的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入“隐藏状态Z”&lt;/strong&gt;: 通过识别市场当前模式（如低波动L、高波动H、趋势、震荡），将收益RT的依赖从单一状态S拓展至S与Z。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;两状态模型解析&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;低波动L状态&lt;/strong&gt;: 均值mL，方差西格玛L平方。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高波动H状态&lt;/strong&gt;: 均值mH，方差西格玛H平方。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键特征&lt;/strong&gt;: 高波动状态（H）下，西格玛H远大于西格玛L；期望收益mH往往低于mL。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;: 路况好时车速快、风险低；暴雨打滑时车速慢、风险高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态转移与马尔可夫链&lt;/strong&gt;: 市场状态间存在转换概率（L到H为P，H到L为Q），构成马尔可夫链，决定市场平均风险水平（稳态概率派H、派L）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 穿越“状态切换”的策略失效窗口&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略失效机制&lt;/strong&gt;: 当市场从L切换至H时，若模型未能及时识别并更新参数，仍用L状态的低波动率、高期望收益计算仓位，将导致实际仓位远超最优，带来灾难性回撤（高波动率导致风险放大，低期望收益导致策略方向错误）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;监控预警指标&lt;/strong&gt;: 密切关注波动率飙升、资产相关性异常、订单流偏离、成交价格与预期差异、买卖盘深度变浅等市场信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署统计检测模型&lt;/strong&gt;: 采用隐马尔可夫模型 (HMM)、滚动自然比检验、COSM检验等工具，科学识别市场“regime shift”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建动态闭环系统&lt;/strong&gt;: 基于当前信息更新价值估计S，识别市场状态Z，计算最优仓位fT，执行交易，并根据成交结果再次更新估值与模型参数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 连续亏损：统计必然而非偶然&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;残酷的统计现实&lt;/strong&gt;: 即使单笔交易胜率P略高于50%（如55%），在足够多的交易次数下（如年交易2000笔），每年至少发生一次连续十次亏损的概率高达50%左右。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;止损的边界&lt;/strong&gt;: 止损是控制单次亏损幅度的风险管理工具，而非消除亏损的可能性。不当的止损设置或极端行情可能引发灾难。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;破产的概率&lt;/strong&gt;: 经典“赌徒破产问题”揭示，若胜率P≤0.5，破产概率100%；若P&amp;gt;0.5，破产概率取决于初始资本、单次损失及胜率。高杠杆或初始资本不足，即使有优势也极易破产。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 资本增长与回撤：量化生存的核心法则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;资本演化方程&lt;/strong&gt;: &lt;code&gt;Wt+1 = Wt * (1 + fT * RT)&lt;/code&gt;，资本几何增长率是 &lt;code&gt;log(1 + fT * RT)&lt;/code&gt; 的期望值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;杠杆的放大效应&lt;/strong&gt;: 固定仓位F下，连续亏损K次，资本按 &lt;code&gt;W0 * (1 - FL)^K&lt;/code&gt; 衰减。高杠杆在连续亏损时指数级放大痛苦。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高夏普比率不等于低回撤&lt;/strong&gt;: 年化夏普比率S为1的策略，长期最大回撤可能达100%；夏普比率2，回撤约50%。回撤风险与收益同等重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kelly公式的局限性&lt;/strong&gt;: 理论上最大化长期对数资本增长率，但假设无限时间、不关心波动、不考虑人性，实践中常导致30-50%的巨额回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;采用分数Kelly (Fractional Kelly)&lt;/strong&gt;: 实践中只用Kelly建议仓位的一部分（如1/2或1/3），平衡增长与回撤，尊重人性和风险承受能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设定目标波动率 (Target Volatility)&lt;/strong&gt;: 不盲目追求收益目标，而是设定一个可控的年化波动率（如10%），通过动态调整仓位 &lt;code&gt;fT = 西格玛_target / 西格玛T&lt;/code&gt;，使策略实际波动率稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;坚持风险优先原则&lt;/strong&gt;: 先确保不被市场淘汰，再追求收益最大化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;市场状态切换时，旧模型参数指导下的高仓位是爆仓的核心诱因。&lt;/li&gt;
+&lt;li&gt;固定比例或非动态调整仓位在连续亏损时，资金曲线会快速萎缩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “做量化交易本质上就是在玩一个猜谜游戏，只不过谜底是那个隐藏的真实价值，我们看到的成交价格都只是这个真实价值的扭曲反应，充满了噪声。”&lt;/li&gt;
+&lt;li&gt;💬 “市场的脾气是会变的，今天的规则可能明天就不灵了。”&lt;/li&gt;
+&lt;li&gt;💬 “即使你的策略有微小的优势，比如胜率55%，但如果杠杆用的太高，初始资本相对于每次可能的损失来说太少，你的破产概率依然可能非常高。”&lt;/li&gt;
+&lt;li&gt;💬 “很多量化策略的爆仓，恰恰就发生在市场regime shift的那个脆弱时期。”&lt;/li&gt;
+&lt;li&gt;💬 “先保证不被市场打趴下，再谈收益最大化。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ZyAZzEE7G</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/9e734e0385a615078897b7a606d9034167004fd5.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 03 Mar 2026 19:05:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化策略代码迁移实战指南：从JQ到PTrade的高效转换与验证</title>
+      <link>https://www.bilibili.com/video/BV1s1AozfEso</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1s1AozfEso"&gt;量化交易策略代码跨平台迁移：从聚宽JQ到Ptrade的全流程实践&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 策略代码迁移工具 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：该系统通过脚本化的自动化流程，实现量化交易策略代码在不同平台间的迁移，涉及兼容性检查、格式转换及多阶段验证。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：原始平台的交易策略Python代码（如 &lt;code&gt;.py&lt;/code&gt; 文件）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：目标平台兼容的交易策略Python代码、详细的检查与转换日志、回测报告、实盘交易数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略代码迁移&lt;/strong&gt;: 将量化交易策略代码从一个平台移植到另一个平台的过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接口检查&lt;/strong&gt;: 分析代码中平台API函数的使用，识别兼容性问题的步骤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接口转换&lt;/strong&gt;: 自动化地将代码结构和函数调用适配到目标平台语法的过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测验证&lt;/strong&gt;: 使用历史市场数据模拟策略运行，评估其性能和稳定性的环节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘部署&lt;/strong&gt;: 将验证通过的策略正式投入真实市场进行自动化交易。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：原始策略代码文件准备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：确保源平台策略代码符合转换工具的输入规范与存储要求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：拥有可从源平台（如JQ）导出的完整策略Python代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[文件保存]&lt;/strong&gt;：将策略代码保存为标准 &lt;strong&gt;&lt;code&gt;.py&lt;/code&gt;&lt;/strong&gt; 文件格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[文件命名]&lt;/strong&gt;：为文件赋予清晰名称，建议包含平台标识（例如：&lt;code&gt;strategy_jq.py&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[文件放置]&lt;/strong&gt;：将命名后的 &lt;code&gt;.py&lt;/code&gt; 文件上传至指定研究环境的根目录下特定文件夹。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：策略代码接口兼容性检查&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在代码转换前，识别并定位源代码中与目标平台不兼容的API函数或语法结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已完成文件准备；已获取 &lt;code&gt;check_before.txt&lt;/code&gt; 脚本内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[新建文件]&lt;/strong&gt;：在Python 3 Jupyter Notebook环境中新建一个 &lt;code&gt;.ipynb&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[内容粘贴]&lt;/strong&gt;：将 &lt;code&gt;check_before.txt&lt;/code&gt; 中的代码内容复制并粘贴到Notebook单元格中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[重命名文件]&lt;/strong&gt;：将Notebook文件重命名为 &lt;code&gt;check_before.ipynb&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[运行脚本]&lt;/strong&gt;：执行该Notebook单元格以启动代码检查流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[分析报告]&lt;/strong&gt;：仔细阅读脚本输出的日志，特别关注任何兼容性警告（如“&lt;code&gt;yamma era&lt;/code&gt; 弃用”提示）或函数/参数调用问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[代码修改]&lt;/strong&gt;：根据检查报告的提示，在原始策略代码文件（&lt;code&gt;jq_code.py&lt;/code&gt;）中进行必要的修正。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：策略代码自动化转换&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将经过兼容性修正的源平台代码自动转换为目标平台（PTrade）可识别和执行的格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已完成接口检查及所有必要的代码修正；已获取 &lt;code&gt;trans_ptrade.txt&lt;/code&gt; 脚本内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[新建文件]&lt;/strong&gt;：在Python 3 Jupyter Notebook环境中新建一个 &lt;code&gt;.ipynb&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[内容粘贴]&lt;/strong&gt;：将 &lt;code&gt;trans_ptrade.txt&lt;/code&gt; 中的代码内容复制并粘贴到Notebook单元格中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[重命名文件]&lt;/strong&gt;：将Notebook文件重命名为 &lt;code&gt;trans_ptrade.ipynb&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[运行脚本]&lt;/strong&gt;：执行该Notebook单元格以启动代码转换引擎。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[日志监控]&lt;/strong&gt;：持续关注转换脚本的运行日志，理解其中报告的转换状态（“无需转换”、“无法转换”、“成功转换”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[错误处理]&lt;/strong&gt;：如转换过程中出现任何错误提示，根据提示信息返回原始代码文件（&lt;code&gt;jq_code.py&lt;/code&gt;）进行问题修复，随后重新运行转换脚本，直至成功生成以 &lt;code&gt;PETR_&lt;/code&gt; 为前缀的新 &lt;code&gt;.py&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：转换后策略回测验证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在目标平台（PTrade）上验证转换后策略的逻辑正确性、运行稳定性及历史表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：成功获得了转换后的 &lt;code&gt;PETR_jq_code.py&lt;/code&gt; 策略文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[新建策略]&lt;/strong&gt;：在PTrade平台创建一个新的策略项目。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[代码复制]&lt;/strong&gt;：将 &lt;code&gt;PETR_jq_code.py&lt;/code&gt; 文件中的全部代码复制并粘贴到新创建的策略项目中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数配置]&lt;/strong&gt;：设定 &lt;strong&gt;回测参数&lt;/strong&gt;，包括但不限于回测时间段、回测周期、初始资金等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[运行回测]&lt;/strong&gt;：点击PTrade界面上的“运行回测”按钮，启动策略在历史数据上的模拟运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[问题调试]&lt;/strong&gt;：若回测过程中出现报错，依据报错信息对 &lt;code&gt;PETR_jq_code.py&lt;/code&gt; 中的代码进行调试和修改，直至回测顺利完成且结果符合预期。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 5：策略实盘部署&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将经过严格回测验证的策略投入真实的股票或期货市场进行自动化交易。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：策略已通过回测验证，表现稳定且符合预期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[创建任务]&lt;/strong&gt;：在PTrade的交易管理界面创建新的 &lt;strong&gt;交易任务&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[选择策略]&lt;/strong&gt;：从列表中选择之前已调试并验证通过的策略项目。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[配置参数]&lt;/strong&gt;：根据实际交易需求，配置 &lt;strong&gt;交易账户&lt;/strong&gt;、&lt;strong&gt;可用资金&lt;/strong&gt;、&lt;strong&gt;风控设置&lt;/strong&gt;等关键参数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[启动交易]&lt;/strong&gt;：确认所有配置无误后，点击“启动交易”按钮，策略正式开始在真实市场中运行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;check_before.ipynb&lt;/code&gt; 脚本&lt;/strong&gt;：核心功能在于代码静态扫描，识别潜在API兼容性问题及旧版库使用情况。-&amp;gt; 输出详细的函数调用记录、参数使用报告，并针对如 &lt;code&gt;yamma era&lt;/code&gt; 弃用等问题提供警告。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;trans_ptrade.ipynb&lt;/code&gt; 脚本&lt;/strong&gt;：核心功能在于自动化地执行代码重构和格式转换。-&amp;gt; 根据预设的转换规则和API映射表，生成与目标平台兼容的新代码文件，并详细记录每段代码的转换状态（如无需转换、因复杂性无法转换、已成功转换）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文件规范缺失&lt;/strong&gt;：不按要求保存和命名策略文件，将导致后续脚本无法识别或处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跳过兼容性检查&lt;/strong&gt;：直接进行转换，极可能因API接口差异导致策略逻辑错误或功能失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;忽视转换报错&lt;/strong&gt;：未根据 &lt;code&gt;trans_ptrade&lt;/code&gt; 脚本的错误提示及时修正原始代码，将导致转换结果不完整或策略无法运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测不充分&lt;/strong&gt;：未进行严格的回测验证，可能在实盘中暴露策略漏洞或隐藏错误，造成资产损失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘初期监控不足&lt;/strong&gt;：忽视回测与实盘环境（如流动性、滑点）的差异，可能导致实盘表现严重偏离预期，引发风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标准化资产管理&lt;/strong&gt;：始终遵循文件命名规范（例如 &lt;code&gt;strategy_jq.py&lt;/code&gt;），确保代码文件的可追溯性和易管理性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志深度解析&lt;/strong&gt;：不仅仅是查看错误，更要细致研读 &lt;code&gt;check_before&lt;/code&gt; 和 &lt;code&gt;trans_ptrade&lt;/code&gt; 脚本的所有输出日志，从中获取代码健康状况和潜在优化点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;迭代式修正流程&lt;/strong&gt;：将代码检查、修改、转换视为一个循环过程，根据每次脚本的反馈进行精细化调整，直至流程完全顺畅无阻。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨平台深度理解&lt;/strong&gt;：在回测阶段，不仅仅关注收益率，更要理解策略在目标平台的具体执行机制，确保转换后的逻辑与原始意图完全一致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渐进式实盘部署&lt;/strong&gt;：即使回测结果理想，实盘初期也应采取小资金或仿真交易进行观察，并持续监控策略表现，动态调整风险敞口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1s1AozfEso</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/e7f0de5a371eb543441b283b7484e17f48c0735b.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 03 Mar 2026 17:18:40 +0800</pubDate>
+    </item>
+    <item>
+      <title>穿越市场风暴：量化策略韧性考验、AI选股亮点与旗舰框架发布新进展</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;amp;talker=57784510736@chatroom"&gt;2026-03-03_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📉 市场动荡下的量化策略表现&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;市场普遍承压：&lt;/strong&gt; 近期市场经历“跳水”和“暴力回撤”，多位群友账户出现不同程度亏损（-0.4%至-2.86%），二月、一月甚至今年以来的部分收益“全部吐回去了”，市场情绪“麻了又麻”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略表现两极分化：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逆市亮点：&lt;/strong&gt; “泰山石油”帮助部分群友弥补损失，“妈妈基”（被认为是稳健型ETF策略）表现亮眼，本月收益达4.68%。有群友重仓“航运股”实现逆市盈利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经典策略的考验：&lt;/strong&gt; “三星”、“定风波”、“风火轮”等策略被提及，有群友表示“定风波”被“骗杀”，但也有策略“跑得真快”。“小市值”策略在某些情况下表现出特立独行或“定住”，但也有“小狮子两天跌去1月涨幅”的反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI策略的韧性：&lt;/strong&gt; 木木十三分享其“AI自动操作策略”在市场下跌中仍保持水上盈利，该策略能自动加减仓。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加仓态度谨慎：&lt;/strong&gt; 邢不行老师指出，当前波动属“小波动”，未来可能遇到单日跌5%的情况，目前“没有到加仓的程度”，策略表现正常，建议无需过急。多数群友选择观望或小幅加仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场事件影响：&lt;/strong&gt; 群友讨论了两会前和中东紧张局势对市场的影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 AI驱动的策略探索与旗舰框架新动态&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“龙虾”小市值策略发布：&lt;/strong&gt; 木木十三发布了一个由AI（claude code）生成的“小市值策略”。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;惊人回测数据：&lt;/strong&gt; 该策略在25年回测中实现总收益+92.15%，今年收益已达+15.02%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全AI操作：&lt;/strong&gt; 策略强调“全程AI无人工”，其“硬核”逻辑被认为值得深入研究。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;旗舰策略框架延期：&lt;/strong&gt; 西蒙斯·西西哈哈宣布旗舰策略框架延后一天发布，原因是发现“资金曲线在全offset多策略的情况下，有点点怪怪的”，需要进一步深度分析。他表示学费直播将深入吐槽细节。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💻 量化交易的基建与效率优化&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;硬件配置建议：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;硬盘空间：&lt;/strong&gt; 跑25年复合策略，256G硬盘“勉强够用”，但需定期清理&lt;code&gt;data&lt;/code&gt;目录。建议1T硬盘用于实盘，2T用于回测，有群友认为1T仍可能不够。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络运营商选择与优化：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;电信优势：&lt;/strong&gt; 因“独一档的稳”被推荐，群友分享了通过谈判获得优惠（如129元1000M宽带、260G流量、多卡绑定、公网双IP、可双拨）的经验。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;移动商宽：&lt;/strong&gt; 在广东地区价格已接近电信，提供2个链路、故障转移、公网IP、无上行流量限制等优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低成本方案：&lt;/strong&gt; 群友分享了利用低成本流量卡（如30元200G/月，或广电180元/年200G/月全国流量）配合手机卡WiFi器作为家用网络的方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenClaw部署技巧：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;建议将OpenClaw部署在香港区域的云服务器（如腾讯云lighthouse），可“白嫖google搜索”获取研报灵感。&lt;/li&gt;
+&lt;li&gt;有群友认为使用旧电脑部署策略可能比腾讯云更合适。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 交易心态与经验分享&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;直面回撤：&lt;/strong&gt; 群友们普遍认同，经历过多次大回撤后，心态会逐渐“麻了，没感觉了”。邢不行老师更是预警，未来的波动可能更大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“软知识”警示：&lt;/strong&gt; “两会前、春节前、财报月前不要加仓”成为群友们总结出的经验。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略纪律性：&lt;/strong&gt; 在干预策略买卖决策时，群友们提醒“听就是量骗，不听最后只会痛骂自己蠢”，强调坚持策略纪律的重要性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 金句摘录&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;“回撤一个点就难受。。这是新人吧。。经历几次大回撤，就麻了，没感觉了。” - 辛振&lt;/li&gt;
+&lt;li&gt;“最近的波动都不算什么，小波动。以后你会遇到一天账户跌5个点的情况。” - 邢不行&lt;/li&gt;
+&lt;li&gt;“两会前、春节前、财报月前不要加仓” - 约翰林&lt;/li&gt;
+&lt;li&gt;“听就是量骗，不听 最后只会痛骂自己蠢” - 無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“我突然懂了，xbx发消息都很长，翻译完后更加炸裂” - 黑黑夜夜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76717&amp;amp;topicid="&gt;【龙虾助我】小市值策略放送：25年+92.15%，今年有+15.02% | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://sspai.com/post/106028"&gt;小白选手使用腾讯云lighthouse部署openclaw，我对他的理解更深入了&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76612"&gt;【无用天书卷】快给你（或小孩）微信打开这个功能 | 公共讨论区&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化策略最新动态：中性动量称王，旗舰策略应对波动，新策略“太极”蓄势待发</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;amp;talker=58453205219@chatroom"&gt;2026-03-03_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🚀 中性动量策略：近期表现亮眼&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中性策略盈利，纯多策略承压&lt;/strong&gt;: 市场近期表现出结构性特征，中性策略取得了盈利，而纯多策略则面临亏损。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量中性策略被推崇&lt;/strong&gt;: 群友们确认动量中性策略表现良好，甚至被称作“拥抱策略之王”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 旗舰光环策略：互补与风险控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略互补理念&lt;/strong&gt;: 旗舰光环策略旨在结合不同风格的多头和空头策略，使它们能在各自擅长的市场环境下获取收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态再平衡&lt;/strong&gt;: 在多头或空头暴露过大时，策略会进行再平衡，以有效控制整体风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多空分离与RE&lt;/strong&gt;: 群里讨论了多空分离策略的可行性，以及RE（再平衡）功能能否针对不同策略单独设置。西蒙斯团队正在努力开发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🎢 策略回撤与加仓的艺术&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动量策略的高波动性&lt;/strong&gt;: 尽管动量策略有时表现出色，但其高波动性也让策略运营者面临巨大压力，正如“先亏99.95%后就懂了”的戏谑之言。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;四龙戏狗策略表现&lt;/strong&gt;: 经历了之前的回撤，四龙戏狗策略近期低位反弹5%+，其中四龙超涨，落单狗超跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;其他中性策略回撤情况&lt;/strong&gt;: 大黄中性和浪淘沙从1月底高点回撤约6%，无名填回撤10%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回撤是正常休整&lt;/strong&gt;: 邢不行认为，前期（11月至1月底）涨幅过大，当前的回撤是正常的市场回调和休整，预计还会盘整一段时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加仓建议&lt;/strong&gt;: 对于浪淘沙和无名填，邢不行建议等待回撤达到15%左右再适度加仓，并强调对浪填尚未完全掌握。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“高山反应”&lt;/strong&gt;: 市场处于高位时，策略管理者会有“不舒服”的感觉，而当策略回撤时，这种“不对劲”的感觉反而“对劲了”，暗示对回撤的平常心和策略内在逻辑的信心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✨ 新旗舰策略“太极”即将亮相&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;发布时间&lt;/strong&gt;: 邢不行预告，新的旗舰策略“太极”的框架代码预计本周四发布，学废菌将于周日直播进行介绍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;易于上手&lt;/strong&gt;: 新策略旨在让用户看完介绍后能立即进行回测和实盘操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚗 科技赋能：车机观看与BMAC缓存问题&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;极氪车机功能&lt;/strong&gt;: 有用户分享，极氪车机自带安卓虚拟机，可安装任何App，实现车内观看视频，引起群友广泛兴趣。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BMAC缓存权限问题&lt;/strong&gt;: 有用户反映实盘BMAC缓存文件出现权限问题，无法删除，寻求解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 金句精选&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“中性赚钱了，纯多没赚” —— 陈聪汉&lt;/li&gt;
+&lt;li&gt;“拥抱策略之王” —— WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“先亏99.95%后就懂了” —— 陈聪汉, WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“动量说，我撤了，你们随意” —— WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“我这该死的感觉，就觉得最近好像哪里不对劲。现在对劲了。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“舒服了” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“邢大有高山反应，在顶的时候特别不舒服” —— 丸子jun&lt;/li&gt;
+&lt;li&gt;“回撤就对劲了” —— AK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-03&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Tue, 03 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>从聚宽到P-Trade：量化策略自动化无损迁移的SOP手册</title>
       <link>https://www.bilibili.com/video/BV1mVPjzpE8A</link>
@@ -50398,3097 +50737,6 @@ btc哪里好点了？&lt;/p&gt;
 </description>
       <guid isPermaLink="true">/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/26分享会方法论直播1-邢不行、学废菌：当你跑通精心随机，你需要做什么.txt</guid>
       <pubDate>Wed, 04 Feb 2026 22:50:47 +0800</pubDate>
-    </item>
-    <item>
-      <title>禅论精髓与量化实战：从市场分类到精准捕捉买卖点的逻辑全解析</title>
-      <link>/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/25分享会-A牛马直播22-皮皮倪儿：缠中解码：缠论关键买卖点捕捉术与核心量化.txt</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;xbx分享会&lt;/a&gt; | &lt;a href="/Users/ben/Downloads/%E8%BD%AC%E5%BD%95%E5%86%85%E5%AE%B9/%E6%99%AE%E9%80%9A%E9%9F%B3%E8%A7%86%E9%A2%91/xbx%E5%88%86%E4%BA%AB%E4%BC%9A/25%E5%88%86%E4%BA%AB%E4%BC%9A-A%E7%89%9B%E9%A9%AC%E7%9B%B4%E6%92%AD22-%E7%9A%AE%E7%9A%AE%E5%80%AA%E5%84%BF%EF%BC%9A%E7%BC%A0%E4%B8%AD%E8%A7%A3%E7%A0%81%EF%BC%9A%E7%BC%A0%E8%AE%BA%E5%85%B3%E9%94%AE%E4%B9%B0%E5%8D%96%E7%82%B9%E6%8D%95%E6%8D%89%E6%9C%AF%E4%B8%8E%E6%A0%B8%E5%BF%83%E9%87%8F%E5%8C%96.txt"&gt;25分享会-A牛马直播22-皮皮倪儿：缠中解码：缠论关键买卖点捕捉术与核心量化&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;&lt;strong&gt;你是否也对这些问题感到好奇？&lt;/strong&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么说“走势必完美”不是一句废话，而是交易获利的基石？&lt;/li&gt;
-&lt;li&gt;🔍 如何像使用放大镜一样，通过“区间套”精准定位大级别走势的拐点？&lt;/li&gt;
-&lt;li&gt;💻 禅论这种充满主观艺术感的分析体系，真的能被冷冰冰的代码量化吗？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;💎 禅论的核心灵魂：完全分类与客观性&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;禅论并非玄学，而是一套基于市场自身走势、具有严密逻辑的分析体系。它的魅力在于将复杂的市场通过“完全分类”简化：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;世界观：&lt;/strong&gt; 市场只有涨、跌、横盘三种模式。一旦分类完成，买、卖、持有便一目了然。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心优势：&lt;/strong&gt; 天然适用于任何时间周期（从1分钟到月线）和任何金融产品。它能通过小级别的精细结构预判大级别的走势，实现“见微知著”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;🧱 禅论的三大基石：笔、线段与中枢&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;想要掌握禅论，必须先学会它的基础语言：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;笔（最小作战单元）：&lt;/strong&gt; 由至少5根K线构成的基础波段。它必须由一个底分形和一个顶分形连接而成，代表了最小的趋势片段。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;线段（趋势的直观体现）：&lt;/strong&gt; 由至少三根有重叠部分的“笔”构成。它比“笔”高一个级别，能更清晰地描绘趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中枢（多空博弈的战场）：&lt;/strong&gt; 禅论的灵魂。你可以理解为筹码密集区或相体震荡。它是多空力量暂时平衡的区域，一旦价格脱离中枢，往往预示着强劲的爆发。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;🛠️ 实战武器库：背驰与区间套&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;如何精准捕捉反转信号？禅论提供了两个精妙工具：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;背驰（乏力信号）：&lt;/strong&gt; 就像跑者的体力衰竭。当价格创出新高，但驱动力（如MACD面积或柱体高度）却在减弱，这就是趋势即将反转的红灯。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;区间套（显微镜技术）：&lt;/strong&gt; 利用走势的“自相似性”（类比西兰花的结构）。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;操作建议：&lt;/strong&gt; 在日线上看趋势，在30分钟找结构，在5分钟找精确背离点。层层深入，把止损降到最低，把利润留给确定性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;📈 交易体系：三类买卖点定位&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;所有的操作都围绕“中枢”展开：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;第一类买卖点（抄底逃顶）：&lt;/strong&gt; 趋势的转折点，难度最高。新手容易“抄在半山腰”，建议谨慎参与。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第二类买卖点（稳健入场）：&lt;/strong&gt; 一买后的回调不破底，是右侧交易的安全确认点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第三类买卖点（最强起爆）：&lt;/strong&gt; 趋势确认后，回踩不进入中枢的那个点。这是最强势、回撤最小的起爆位置，是必须把握的机会。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;🤖 禅论能量化吗？理想与现实的博弈&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;禅论的量化目前处于“辅助决策”阶段：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;已实现的部分：&lt;/strong&gt; 笔、线段、中枢的画法已有明确规则，可以根据代码自动生成，帮助交易者从繁琐的画图中解脱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;量化的难点：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模糊地带：&lt;/strong&gt; 背驰力度的阈值定义（缩小30%算不算背驰？）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨级别联动：&lt;/strong&gt; 如何在量化中实现日线、30分钟、5分钟数据的实时对齐与信号过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主观经验：&lt;/strong&gt; 某些结构的解析仍需依赖人类对市场的情绪感知。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;&lt;strong&gt;✨ 禅论金句&lt;/strong&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“明天的市场不是涨就是跌，不然就是横盘。这看似废话，却是完全分类的核心思想。”&lt;/li&gt;
-&lt;li&gt;“禅论是不测而测的右侧理论。不要去预测市场，要等信号自己走出来。”&lt;/li&gt;
-&lt;li&gt;“耐心是最高境界，不要因为无聊而随意开仓。”&lt;/li&gt;
-&lt;li&gt;“只要是严格按照规则画图，就不应该存在‘千人千禅’，分歧往往源于操作级别不同。”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;这是我们小组的成员&lt;/p&gt;
-&lt;p&gt;这是&lt;/p&gt;
-&lt;p&gt;这是我们小组成员&lt;/p&gt;
-&lt;p&gt;组长&lt;/p&gt;
-&lt;p&gt;组长Claymore&lt;/p&gt;
-&lt;p&gt;然后我们几个&lt;/p&gt;
-&lt;p&gt;然后我主要是负责研究禅论&lt;/p&gt;
-&lt;p&gt;然后其他几位老板都是那个研究热门板块概念股的&lt;/p&gt;
-&lt;p&gt;禅论&lt;/p&gt;
-&lt;p&gt;这是我今天的六&lt;/p&gt;
-&lt;p&gt;几大部分&lt;/p&gt;
-&lt;p&gt;禅论是什么&lt;/p&gt;
-&lt;p&gt;核心&lt;/p&gt;
-&lt;p&gt;禅论的核心构建详解&lt;/p&gt;
-&lt;p&gt;禅论的两大基石定律&lt;/p&gt;
-&lt;p&gt;禅论的核心实战工具&lt;/p&gt;
-&lt;p&gt;以及禅论的完整的交易体系&lt;/p&gt;
-&lt;p&gt;最后是一个心态修炼&lt;/p&gt;
-&lt;p&gt;最后我们讨论一下禅论能量化吗&lt;/p&gt;
-&lt;p&gt;首先禅论是什么&lt;/p&gt;
-&lt;p&gt;为什么值得学&lt;/p&gt;
-&lt;p&gt;禅论可能只要炒过股的人&lt;/p&gt;
-&lt;p&gt;应该都都知道&lt;/p&gt;
-&lt;p&gt;都听说过禅论&lt;/p&gt;
-&lt;p&gt;不管会不会用&lt;/p&gt;
-&lt;p&gt;肯定都是知道&lt;/p&gt;
-&lt;p&gt;它是源自禅&lt;/p&gt;
-&lt;p&gt;禅是禅中说禅&lt;/p&gt;
-&lt;p&gt;是一套纯粹的基于市场自身走势&lt;/p&gt;
-&lt;p&gt;具有严密逻辑推演关系的技术分析体系&lt;/p&gt;
-&lt;p&gt;它最大的魅力是在于其客观性与唯一性&lt;/p&gt;
-&lt;p&gt;它的核心思想是完全分类&lt;/p&gt;
-&lt;p&gt;禅论认为任何复杂的市场走势&lt;/p&gt;
-&lt;p&gt;最终都可以被分类为有限的几种模式&lt;/p&gt;
-&lt;p&gt;如上涨下跌盘整&lt;/p&gt;
-&lt;p&gt;一旦完成了分类&lt;/p&gt;
-&lt;p&gt;我们对应的操作&lt;/p&gt;
-&lt;p&gt;买卖持有就一目了然&lt;/p&gt;
-&lt;p&gt;这就像我们经常调侃的&lt;/p&gt;
-&lt;p&gt;明天的市场不是涨就是跌&lt;/p&gt;
-&lt;p&gt;不然就是横盘&lt;/p&gt;
-&lt;p&gt;这其实就是一种完全分类的思想&lt;/p&gt;
-&lt;p&gt;然后它的核心优势呢&lt;/p&gt;
-&lt;p&gt;是适用性与精准性&lt;/p&gt;
-&lt;p&gt;它天然适用于任何时间周期&lt;/p&gt;
-&lt;p&gt;从一分钟到月线&lt;/p&gt;
-&lt;p&gt;以及任何金融产品&lt;/p&gt;
-&lt;p&gt;更重要的是&lt;/p&gt;
-&lt;p&gt;它可以通过小级别的精细结构&lt;/p&gt;
-&lt;p&gt;来分析和预判大级别的走势&lt;/p&gt;
-&lt;p&gt;做到建为是支柱&lt;/p&gt;
-&lt;p&gt;下面我们就来认识一下禅论的&lt;/p&gt;
-&lt;p&gt;它的一些基本构建&lt;/p&gt;
-&lt;p&gt;首先就是它的比线段中枢&lt;/p&gt;
-&lt;p&gt;想要用禅论分析市场行情&lt;/p&gt;
-&lt;p&gt;必须要学会它的语言&lt;/p&gt;
-&lt;p&gt;下面这三个就是它的那个&lt;/p&gt;
-&lt;p&gt;最小的概念基石&lt;/p&gt;
-&lt;p&gt;比就是最小的作战单元&lt;/p&gt;
-&lt;p&gt;比是禅论中最小的&lt;/p&gt;
-&lt;p&gt;有分析意义的单元&lt;/p&gt;
-&lt;p&gt;它是由至少五根K线构成&lt;/p&gt;
-&lt;p&gt;你看这里&lt;/p&gt;
-&lt;p&gt;从一二三四五&lt;/p&gt;
-&lt;p&gt;它是这五根K线构成的&lt;/p&gt;
-&lt;p&gt;把这五根K线的最低点&lt;/p&gt;
-&lt;p&gt;和最高点连接起来&lt;/p&gt;
-&lt;p&gt;它就是一比&lt;/p&gt;
-&lt;p&gt;它代表了一个最小的趋势片段&lt;/p&gt;
-&lt;p&gt;上升的比&lt;/p&gt;
-&lt;p&gt;这是一个上升的比&lt;/p&gt;
-&lt;p&gt;上升的比&lt;/p&gt;
-&lt;p&gt;它是有一个底分形&lt;/p&gt;
-&lt;p&gt;一个顶分形&lt;/p&gt;
-&lt;p&gt;底分形的底&lt;/p&gt;
-&lt;p&gt;和顶分形的顶连接起来&lt;/p&gt;
-&lt;p&gt;什么是底分形&lt;/p&gt;
-&lt;p&gt;什么是顶分形&lt;/p&gt;
-&lt;p&gt;这是因为它&lt;/p&gt;
-&lt;p&gt;这是它的最基本的概念&lt;/p&gt;
-&lt;p&gt;我就没有在这里写&lt;/p&gt;
-&lt;p&gt;底分形就是三个K线&lt;/p&gt;
-&lt;p&gt;这底下的这三根K线&lt;/p&gt;
-&lt;p&gt;然后中间的这根K线&lt;/p&gt;
-&lt;p&gt;是最低点&lt;/p&gt;
-&lt;p&gt;然后它就形成一个底分形&lt;/p&gt;
-&lt;p&gt;然后向上的三根K线&lt;/p&gt;
-&lt;p&gt;最中间的这根K线&lt;/p&gt;
-&lt;p&gt;是最高点&lt;/p&gt;
-&lt;p&gt;它就形成一个顶分形&lt;/p&gt;
-&lt;p&gt;上升的比&lt;/p&gt;
-&lt;p&gt;就是底分形&lt;/p&gt;
-&lt;p&gt;底分形加上一个顶分形&lt;/p&gt;
-&lt;p&gt;中间有一根不属于&lt;/p&gt;
-&lt;p&gt;它们两个分形的一个K线&lt;/p&gt;
-&lt;p&gt;把它们连接起来&lt;/p&gt;
-&lt;p&gt;就是一个上升的比&lt;/p&gt;
-&lt;p&gt;下降的比是相反的&lt;/p&gt;
-&lt;p&gt;然后关键点是比&lt;/p&gt;
-&lt;p&gt;它是必须是连续的&lt;/p&gt;
-&lt;p&gt;一根向上的比结束以后&lt;/p&gt;
-&lt;p&gt;必然连接一根向下的比&lt;/p&gt;
-&lt;p&gt;如果这一根K&lt;/p&gt;
-&lt;p&gt;如果这个&lt;/p&gt;
-&lt;p&gt;它这个这几根K线&lt;/p&gt;
-&lt;p&gt;走到这里&lt;/p&gt;
-&lt;p&gt;它后来又往上走了&lt;/p&gt;
-&lt;p&gt;那这里就不是&lt;/p&gt;
-&lt;p&gt;这一根比的终点&lt;/p&gt;
-&lt;p&gt;它这个比它就延伸了&lt;/p&gt;
-&lt;p&gt;线段&lt;/p&gt;
-&lt;p&gt;线段是趋势的最直观的体现&lt;/p&gt;
-&lt;p&gt;线段是由至少三个重叠&lt;/p&gt;
-&lt;p&gt;你看这里&lt;/p&gt;
-&lt;p&gt;这是三根比&lt;/p&gt;
-&lt;p&gt;这三根比&lt;/p&gt;
-&lt;p&gt;它有重叠的这部分&lt;/p&gt;
-&lt;p&gt;它是有至少三根重叠的部分的比构成的&lt;/p&gt;
-&lt;p&gt;它是比比更高一级&lt;/p&gt;
-&lt;p&gt;能更清晰的描绘趋势的一个构建&lt;/p&gt;
-&lt;p&gt;这就是一根线段&lt;/p&gt;
-&lt;p&gt;线段它是最少是由三根&lt;/p&gt;
-&lt;p&gt;它可以由三根以上构成&lt;/p&gt;
-&lt;p&gt;就比如说这里&lt;/p&gt;
-&lt;p&gt;一二三四五&lt;/p&gt;
-&lt;p&gt;它是由五根比构成的&lt;/p&gt;
-&lt;p&gt;然后把它的最低点和它的最高点连接起来&lt;/p&gt;
-&lt;p&gt;这样就形成了一个向上的比&lt;/p&gt;
-&lt;p&gt;向上的比呢&lt;/p&gt;
-&lt;p&gt;它是起始于上升比&lt;/p&gt;
-&lt;p&gt;这你看这里&lt;/p&gt;
-&lt;p&gt;这个红色的&lt;/p&gt;
-&lt;p&gt;它是一个起始于上升比&lt;/p&gt;
-&lt;p&gt;然后结束于上升比&lt;/p&gt;
-&lt;p&gt;这样的一个构成&lt;/p&gt;
-&lt;p&gt;然后向下的&lt;/p&gt;
-&lt;p&gt;向下的线段&lt;/p&gt;
-&lt;p&gt;它是起始于向下的比&lt;/p&gt;
-&lt;p&gt;这里&lt;/p&gt;
-&lt;p&gt;然后终结于向下的比&lt;/p&gt;
-&lt;p&gt;然后就形成了一个向下的线段&lt;/p&gt;
-&lt;p&gt;然后就是禅论的那个灵魂所在中枢&lt;/p&gt;
-&lt;p&gt;中枢是多空博弈的战场&lt;/p&gt;
-&lt;p&gt;中枢是禅论分析的绝对核心&lt;/p&gt;
-&lt;p&gt;它我们可以理解为是筹码密集区&lt;/p&gt;
-&lt;p&gt;或架个盘整平台&lt;/p&gt;
-&lt;p&gt;就我们平时经常说的一个相体震荡&lt;/p&gt;
-&lt;p&gt;其实它就是禅论里面的一个中枢&lt;/p&gt;
-&lt;p&gt;但禅论里面的中枢&lt;/p&gt;
-&lt;p&gt;它是有自己很严格的一个界定&lt;/p&gt;
-&lt;p&gt;它本质是多空力量&lt;/p&gt;
-&lt;p&gt;在此达到了一个暂时的平衡&lt;/p&gt;
-&lt;p&gt;反复争斗&lt;/p&gt;
-&lt;p&gt;然后就在这里形成中枢&lt;/p&gt;
-&lt;p&gt;它的画法&lt;/p&gt;
-&lt;p&gt;它有严格的一个定义&lt;/p&gt;
-&lt;p&gt;就是在向上的这个过程当中&lt;/p&gt;
-&lt;p&gt;它形成了一个反向的比&lt;/p&gt;
-&lt;p&gt;它至少有三个重叠的线段&lt;/p&gt;
-&lt;p&gt;或者比构成&lt;/p&gt;
-&lt;p&gt;它是一个反向的这一比&lt;/p&gt;
-&lt;p&gt;和向上的一个震荡&lt;/p&gt;
-&lt;p&gt;然后在前面的这三个三笔当中&lt;/p&gt;
-&lt;p&gt;最高点的低点&lt;/p&gt;
-&lt;p&gt;和最和它的向低点的高点&lt;/p&gt;
-&lt;p&gt;把它这里画上一个方框&lt;/p&gt;
-&lt;p&gt;就形成了一个中枢的一个区域&lt;/p&gt;
-&lt;p&gt;上升的中枢呢&lt;/p&gt;
-&lt;p&gt;它的结构是&lt;/p&gt;
-&lt;p&gt;你看这就是一个向上的一个中枢&lt;/p&gt;
-&lt;p&gt;上升中枢&lt;/p&gt;
-&lt;p&gt;它的结构在里面是下上下&lt;/p&gt;
-&lt;p&gt;相反下降的中枢&lt;/p&gt;
-&lt;p&gt;它是上下上&lt;/p&gt;
-&lt;p&gt;然后中枢&lt;/p&gt;
-&lt;p&gt;它起构筑的时间越长&lt;/p&gt;
-&lt;p&gt;它积累的能量就越大&lt;/p&gt;
-&lt;p&gt;一旦价格脱离这个中枢&lt;/p&gt;
-&lt;p&gt;就是出了这个中枢&lt;/p&gt;
-&lt;p&gt;后续它的趋势行情往往就越强劲&lt;/p&gt;
-&lt;p&gt;下面我们讲&lt;/p&gt;
-&lt;p&gt;那个支撑禅论的两大基石定律&lt;/p&gt;
-&lt;p&gt;禅论它里面有两个定律&lt;/p&gt;
-&lt;p&gt;其中一个就是走势必完美&lt;/p&gt;
-&lt;p&gt;这里是禅论的第一定律&lt;/p&gt;
-&lt;p&gt;意思是&lt;/p&gt;
-&lt;p&gt;任何一个特定级别的走势类型&lt;/p&gt;
-&lt;p&gt;不管它是上涨下跌还是盘整&lt;/p&gt;
-&lt;p&gt;一旦开始&lt;/p&gt;
-&lt;p&gt;它就必然要完成&lt;/p&gt;
-&lt;p&gt;这虽然听起来像废话&lt;/p&gt;
-&lt;p&gt;但是这给了我们在不确定性中&lt;/p&gt;
-&lt;p&gt;寻找确定性的基石&lt;/p&gt;
-&lt;p&gt;就是我们敢于在走势结束的时候&lt;/p&gt;
-&lt;p&gt;进行反向操作的理论依据&lt;/p&gt;
-&lt;p&gt;就是我们经常会在那个&lt;/p&gt;
-&lt;p&gt;一个线段结束的时候&lt;/p&gt;
-&lt;p&gt;去寻找这个线段的那个拐点&lt;/p&gt;
-&lt;p&gt;这在禅论里面是可以&lt;/p&gt;
-&lt;p&gt;是有信号去寻找这个拐点的&lt;/p&gt;
-&lt;p&gt;而且有的&lt;/p&gt;
-&lt;p&gt;如果要是那个信号&lt;/p&gt;
-&lt;p&gt;可以叠加和共振的时候&lt;/p&gt;
-&lt;p&gt;这个拐点它的准确率是很高的&lt;/p&gt;
-&lt;p&gt;然后第二个&lt;/p&gt;
-&lt;p&gt;它的那个定律就是结合率&lt;/p&gt;
-&lt;p&gt;在禅论中&lt;/p&gt;
-&lt;p&gt;很多K线&lt;/p&gt;
-&lt;p&gt;它可以结合变成比&lt;/p&gt;
-&lt;p&gt;就这里&lt;/p&gt;
-&lt;p&gt;很多K线结合变成比&lt;/p&gt;
-&lt;p&gt;而很多比&lt;/p&gt;
-&lt;p&gt;它又结合变成线段&lt;/p&gt;
-&lt;p&gt;然后很多线段&lt;/p&gt;
-&lt;p&gt;看这些很多线段&lt;/p&gt;
-&lt;p&gt;它又结合变成趋势&lt;/p&gt;
-&lt;p&gt;你看这是一个&lt;/p&gt;
-&lt;p&gt;两个中枢的一个趋势&lt;/p&gt;
-&lt;p&gt;它的那个&lt;/p&gt;
-&lt;p&gt;那个结构&lt;/p&gt;
-&lt;p&gt;就是&lt;/p&gt;
-&lt;p&gt;它的那个级别&lt;/p&gt;
-&lt;p&gt;就是越来越高&lt;/p&gt;
-&lt;p&gt;像这种趋势&lt;/p&gt;
-&lt;p&gt;它就是一个长期的&lt;/p&gt;
-&lt;p&gt;比较&lt;/p&gt;
-&lt;p&gt;比较长的一个走势&lt;/p&gt;
-&lt;p&gt;然后我们下面讲&lt;/p&gt;
-&lt;p&gt;精准捕捉机会的实战工具&lt;/p&gt;
-&lt;p&gt;就需要我们掌握&lt;/p&gt;
-&lt;p&gt;在禅论里面&lt;/p&gt;
-&lt;p&gt;很重要的一个工具&lt;/p&gt;
-&lt;p&gt;就背词&lt;/p&gt;
-&lt;p&gt;背词是什么&lt;/p&gt;
-&lt;p&gt;很多同学都知道&lt;/p&gt;
-&lt;p&gt;背词可能就是&lt;/p&gt;
-&lt;p&gt;我们经常说的背离&lt;/p&gt;
-&lt;p&gt;背词就是趋势&lt;/p&gt;
-&lt;p&gt;末端的乏力信号&lt;/p&gt;
-&lt;p&gt;背词是判断趋势&lt;/p&gt;
-&lt;p&gt;可能反转的核心信号&lt;/p&gt;
-&lt;p&gt;指的是&lt;/p&gt;
-&lt;p&gt;在价格不断上涨的过程当中&lt;/p&gt;
-&lt;p&gt;价格创出了新高&lt;/p&gt;
-&lt;p&gt;或者新低&lt;/p&gt;
-&lt;p&gt;但背后的驱动力&lt;/p&gt;
-&lt;p&gt;我们这里说的驱动力&lt;/p&gt;
-&lt;p&gt;比如说MSC的红绿路面积&lt;/p&gt;
-&lt;p&gt;或者黄白线的高度&lt;/p&gt;
-&lt;p&gt;它的那个&lt;/p&gt;
-&lt;p&gt;在价格创新高的过程当中&lt;/p&gt;
-&lt;p&gt;它却没有创新高&lt;/p&gt;
-&lt;p&gt;或者减弱了&lt;/p&gt;
-&lt;p&gt;这就是背离&lt;/p&gt;
-&lt;p&gt;我们下面看一下&lt;/p&gt;
-&lt;p&gt;这个图上面的&lt;/p&gt;
-&lt;p&gt;在这个趋势的过程当中&lt;/p&gt;
-&lt;p&gt;价格一直在往上涨&lt;/p&gt;
-&lt;p&gt;来这里的这个MSC的高度&lt;/p&gt;
-&lt;p&gt;在这里&lt;/p&gt;
-&lt;p&gt;它的面积是这么大&lt;/p&gt;
-&lt;p&gt;但是在这里价格创出新高的时候&lt;/p&gt;
-&lt;p&gt;这个MSC的面积却缩小了&lt;/p&gt;
-&lt;p&gt;它的高度也缩小了&lt;/p&gt;
-&lt;p&gt;它就是一个背词&lt;/p&gt;
-&lt;p&gt;另外还有&lt;/p&gt;
-&lt;p&gt;你看在这里的这个趋势&lt;/p&gt;
-&lt;p&gt;在这个上涨过程当中&lt;/p&gt;
-&lt;p&gt;这里涨了H1这么高&lt;/p&gt;
-&lt;p&gt;这里价格创的新高&lt;/p&gt;
-&lt;p&gt;但是它的高度&lt;/p&gt;
-&lt;p&gt;却只有H2那么点&lt;/p&gt;
-&lt;p&gt;所以它也是一个背词&lt;/p&gt;
-&lt;p&gt;背词呢&lt;/p&gt;
-&lt;p&gt;它不仅&lt;/p&gt;
-&lt;p&gt;它有很多种类&lt;/p&gt;
-&lt;p&gt;很多种类型都可以去寻找&lt;/p&gt;
-&lt;p&gt;就MSC是一种&lt;/p&gt;
-&lt;p&gt;如果要是同学&lt;/p&gt;
-&lt;p&gt;大家用的其他的&lt;/p&gt;
-&lt;p&gt;那个相对应的这些比指标&lt;/p&gt;
-&lt;p&gt;它也可以找到这种背词的&lt;/p&gt;
-&lt;p&gt;这种信号&lt;/p&gt;
-&lt;p&gt;我们再看一下实际的这个K线&lt;/p&gt;
-&lt;p&gt;这实际的这个&lt;/p&gt;
-&lt;p&gt;这是一个K线的一个实际的走势&lt;/p&gt;
-&lt;p&gt;在我们把它那个进行分解解构了&lt;/p&gt;
-&lt;p&gt;以后把它看上&lt;/p&gt;
-&lt;p&gt;你看是一个往上的一笔&lt;/p&gt;
-&lt;p&gt;然后中间有一个中枢&lt;/p&gt;
-&lt;p&gt;又是往上的一笔&lt;/p&gt;
-&lt;p&gt;一个中枢&lt;/p&gt;
-&lt;p&gt;它就是一个两个中枢的一个上涨趋势&lt;/p&gt;
-&lt;p&gt;在这个价格不断上涨的过程当中&lt;/p&gt;
-&lt;p&gt;看这个MSCD&lt;/p&gt;
-&lt;p&gt;这个红柱的面积&lt;/p&gt;
-&lt;p&gt;以及它的高度&lt;/p&gt;
-&lt;p&gt;不断的在缩小&lt;/p&gt;
-&lt;p&gt;高度和面积都在不断的缩小&lt;/p&gt;
-&lt;p&gt;当到达这个高点的时候&lt;/p&gt;
-&lt;p&gt;它就那个已经&lt;/p&gt;
-&lt;p&gt;已经达到了一个&lt;/p&gt;
-&lt;p&gt;最后它的&lt;/p&gt;
-&lt;p&gt;相当于它的力量已经衰竭了&lt;/p&gt;
-&lt;p&gt;在这里&lt;/p&gt;
-&lt;p&gt;背词它是一个信号&lt;/p&gt;
-&lt;p&gt;但是并不是说背词&lt;/p&gt;
-&lt;p&gt;就一定代表着价格会下跌&lt;/p&gt;
-&lt;p&gt;然后什么时候价格会下跌&lt;/p&gt;
-&lt;p&gt;我们后面会讲到区间套&lt;/p&gt;
-&lt;p&gt;区间套&lt;/p&gt;
-&lt;p&gt;这是禅论中最精妙的工具&lt;/p&gt;
-&lt;p&gt;它的原理呢&lt;/p&gt;
-&lt;p&gt;是利用走势在不同级别上的自相识性&lt;/p&gt;
-&lt;p&gt;像放大镜一样&lt;/p&gt;
-&lt;p&gt;层层的深入&lt;/p&gt;
-&lt;p&gt;精准定位&lt;/p&gt;
-&lt;p&gt;什么是自相识性呢&lt;/p&gt;
-&lt;p&gt;我们来看一下这一朵西兰花&lt;/p&gt;
-&lt;p&gt;这整个一看&lt;/p&gt;
-&lt;p&gt;它是一朵西兰花&lt;/p&gt;
-&lt;p&gt;但是实际上我们生活中都知道&lt;/p&gt;
-&lt;p&gt;我们把这朵西兰花&lt;/p&gt;
-&lt;p&gt;把它分成两半&lt;/p&gt;
-&lt;p&gt;再看&lt;/p&gt;
-&lt;p&gt;它其实还是能看出来&lt;/p&gt;
-&lt;p&gt;它是一朵西兰花&lt;/p&gt;
-&lt;p&gt;再把它分成更小&lt;/p&gt;
-&lt;p&gt;它还是能看出来&lt;/p&gt;
-&lt;p&gt;因为它上面包含了所有西兰花的结构&lt;/p&gt;
-&lt;p&gt;它的特性&lt;/p&gt;
-&lt;p&gt;它都有&lt;/p&gt;
-&lt;p&gt;在这个走势的过程当中&lt;/p&gt;
-&lt;p&gt;我们来看一下&lt;/p&gt;
-&lt;p&gt;这是一个30分钟的三段上涨&lt;/p&gt;
-&lt;p&gt;它是在30分钟上面&lt;/p&gt;
-&lt;p&gt;它看是一个三段上涨&lt;/p&gt;
-&lt;p&gt;然后在这一个上涨的比&lt;/p&gt;
-&lt;p&gt;它这是30分钟上面的一比&lt;/p&gt;
-&lt;p&gt;如果我们把它放大到五分钟上面&lt;/p&gt;
-&lt;p&gt;可能会看到五分钟上面&lt;/p&gt;
-&lt;p&gt;是一个五段式上涨&lt;/p&gt;
-&lt;p&gt;一二三四五&lt;/p&gt;
-&lt;p&gt;如果把这个五&lt;/p&gt;
-&lt;p&gt;把这一比继续把它放大到一分钟上面&lt;/p&gt;
-&lt;p&gt;我们可能会看到一个向上的一个趋势&lt;/p&gt;
-&lt;p&gt;就是就是两个中枢连接的一个趋势&lt;/p&gt;
-&lt;p&gt;我们接着来看一下&lt;/p&gt;
-&lt;p&gt;在这个30分钟K线图的这一比上面&lt;/p&gt;
-&lt;p&gt;我们把它放大到五分钟上面去看&lt;/p&gt;
-&lt;p&gt;能看到五分钟上面&lt;/p&gt;
-&lt;p&gt;它是一个这样的结构&lt;/p&gt;
-&lt;p&gt;它其实是一个趋势&lt;/p&gt;
-&lt;p&gt;同样的&lt;/p&gt;
-&lt;p&gt;我们看一下实际的那个K线图&lt;/p&gt;
-&lt;p&gt;在这个一分钟的一个五段式上涨&lt;/p&gt;
-&lt;p&gt;在这个结构上面&lt;/p&gt;
-&lt;p&gt;我们到把它&lt;/p&gt;
-&lt;p&gt;我们在五分钟上面去看&lt;/p&gt;
-&lt;p&gt;它其实就是一个&lt;/p&gt;
-&lt;p&gt;就是一比&lt;/p&gt;
-&lt;p&gt;然后在30分钟上面的两个中枢&lt;/p&gt;
-&lt;p&gt;两个一个趋势的&lt;/p&gt;
-&lt;p&gt;带着两个中枢的一个趋势上涨&lt;/p&gt;
-&lt;p&gt;它在日线图上面&lt;/p&gt;
-&lt;p&gt;可能也就是一个&lt;/p&gt;
-&lt;p&gt;就是一比&lt;/p&gt;
-&lt;p&gt;这样他们&lt;/p&gt;
-&lt;p&gt;这样我们我们怎么来&lt;/p&gt;
-&lt;p&gt;我们怎么来判断&lt;/p&gt;
-&lt;p&gt;我们怎么来判断&lt;/p&gt;
-&lt;p&gt;就比如说在日线上面的这一比&lt;/p&gt;
-&lt;p&gt;它到底走没走完&lt;/p&gt;
-&lt;p&gt;这就是我们平时经常用到的&lt;/p&gt;
-&lt;p&gt;我们就去30分钟上面去找它的结构&lt;/p&gt;
-&lt;p&gt;如果在30分钟上面已经走出来一个两个中枢的一个上涨结构&lt;/p&gt;
-&lt;p&gt;那如果在在这一笔上面我们最后的这一笔上面&lt;/p&gt;
-&lt;p&gt;我们去五分钟上面去找它的一个可能出现了一个背离的话&lt;/p&gt;
-&lt;p&gt;那这个背离它就有效性就很高&lt;/p&gt;
-&lt;p&gt;我们就有可能在这个地方去减仓或者是去开空&lt;/p&gt;
-&lt;p&gt;有的时候我们在那个小级别上面&lt;/p&gt;
-&lt;p&gt;比如说30分钟上面我们去看那结构有的时候是杂乱武章的&lt;/p&gt;
-&lt;p&gt;但是我们如果把它进行一个分解&lt;/p&gt;
-&lt;p&gt;像这个在30分钟上面它可能走的是这个蓝线的这样的这些震荡&lt;/p&gt;
-&lt;p&gt;看起来很杂乱武章&lt;/p&gt;
-&lt;p&gt;但是如果我们把它把把这些三段下下跌以及三段上涨都把它连结成一个更高级别的一个线段的话&lt;/p&gt;
-&lt;p&gt;看起来就一目了然的它的结构就就了然就就很清晰了&lt;/p&gt;
-&lt;p&gt;它就是一个下降中枢&lt;/p&gt;
-&lt;p&gt;然后知道了知道了刚才知道了区间套以及背离这样这&lt;/p&gt;
-&lt;p&gt;他们这样的实战工具我们在实际的那个分析过程当中怎么去用呢&lt;/p&gt;
-&lt;p&gt;比如说现在有一个这样的一个k线图&lt;/p&gt;
-&lt;p&gt;我们怎么去分析它现在已经上涨了&lt;/p&gt;
-&lt;p&gt;然后中间可能是走了一个中枢&lt;/p&gt;
-&lt;p&gt;然后最后又走了一个走出离开中枢的一个上涨段&lt;/p&gt;
-&lt;p&gt;这一段到底有没有结束&lt;/p&gt;
-&lt;p&gt;我们我们到底持股到什么时候卖&lt;/p&gt;
-&lt;p&gt;我们应该去寻找一个什么样的信号&lt;/p&gt;
-&lt;p&gt;这里我们就可以用到我们刚才的区间套&lt;/p&gt;
-&lt;p&gt;下面我们来分析一下&lt;/p&gt;
-&lt;p&gt;来看一下这个日线级别的&lt;/p&gt;
-&lt;p&gt;这我们把它进行划线了以后&lt;/p&gt;
-&lt;p&gt;就可以把它把它变成一个中枢的震荡&lt;/p&gt;
-&lt;p&gt;一个上两个上升段连接的一个中枢的上升上升趋势&lt;/p&gt;
-&lt;p&gt;然后在这个我们实际操作过程当中&lt;/p&gt;
-&lt;p&gt;经常就是在这个持股过程当中&lt;/p&gt;
-&lt;p&gt;B这一段我们到底是觉得涨高了卖还是不卖&lt;/p&gt;
-&lt;p&gt;到底那个是继续持股还是那个还是继续等待&lt;/p&gt;
-&lt;p&gt;我们我们怎么我们怎么判断呢&lt;/p&gt;
-&lt;p&gt;这个是到底有没有一个信号可以捕捉呢&lt;/p&gt;
-&lt;p&gt;下面我们就来看一下把这个B这一段&lt;/p&gt;
-&lt;p&gt;我们把它放大到30分钟&lt;/p&gt;
-&lt;p&gt;把它放大到30分钟去看&lt;/p&gt;
-&lt;p&gt;看在30分钟上面它走了一个什么结构&lt;/p&gt;
-&lt;p&gt;来我们看一下把这个B放大到这个30分钟&lt;/p&gt;
-&lt;p&gt;它就走了这样的一个结构&lt;/p&gt;
-&lt;p&gt;来分析一下它就走了一个两个中枢&lt;/p&gt;
-&lt;p&gt;两个中枢的一个上涨趋势&lt;/p&gt;
-&lt;p&gt;30分钟都已经走了一个两个中枢的上涨趋势了&lt;/p&gt;
-&lt;p&gt;然后如果在这个C的这一段&lt;/p&gt;
-&lt;p&gt;我们倒再把它放大到5分钟上面去&lt;/p&gt;
-&lt;p&gt;去看它也走了一个上涨的结构&lt;/p&gt;
-&lt;p&gt;然后最后出现了一个背离&lt;/p&gt;
-&lt;p&gt;就这个背离如果传导到这个30分钟上&lt;/p&gt;
-&lt;p&gt;这就是我们一个很好的开空点&lt;/p&gt;
-&lt;p&gt;或者是那个股票的一个卖点&lt;/p&gt;
-&lt;p&gt;并不是说&lt;/p&gt;
-&lt;p&gt;有的有的同学经常都会说背离没有效果&lt;/p&gt;
-&lt;p&gt;它会背了又背&lt;/p&gt;
-&lt;p&gt;为什么它会背了又背&lt;/p&gt;
-&lt;p&gt;因为它不是在这种点上面的背离&lt;/p&gt;
-&lt;p&gt;它是在有一些有一些中间的这些点上面的背离&lt;/p&gt;
-&lt;p&gt;它很有可能就在上涨的过程当中&lt;/p&gt;
-&lt;p&gt;它被解除了&lt;/p&gt;
-&lt;p&gt;在这种点上面的背离&lt;/p&gt;
-&lt;p&gt;它的它的有效性就要高一些&lt;/p&gt;
-&lt;p&gt;然后我们通常在那个实际操作过程当中&lt;/p&gt;
-&lt;p&gt;是刚才我们说到了&lt;/p&gt;
-&lt;p&gt;我们日线去看30分钟&lt;/p&gt;
-&lt;p&gt;然后那个30分钟去看5分钟&lt;/p&gt;
-&lt;p&gt;其实它是有一个对应关系的&lt;/p&gt;
-&lt;p&gt;这就是那个残导里面的级别&lt;/p&gt;
-&lt;p&gt;我们的那个通常的一个标准级别&lt;/p&gt;
-&lt;p&gt;对应的一个次级别&lt;/p&gt;
-&lt;p&gt;周线周线对应的次级别是日线&lt;/p&gt;
-&lt;p&gt;日线对应的次级别是30分钟&lt;/p&gt;
-&lt;p&gt;30分钟对应的次级别是5分钟&lt;/p&gt;
-&lt;p&gt;5分钟对应的次级别是1分钟&lt;/p&gt;
-&lt;p&gt;然后我们通常操作的级别&lt;/p&gt;
-&lt;p&gt;就是我们的标准级别&lt;/p&gt;
-&lt;p&gt;然后我们的观察级别&lt;/p&gt;
-&lt;p&gt;以及去寻找捕捉信号的级别&lt;/p&gt;
-&lt;p&gt;就是它的次级别&lt;/p&gt;
-&lt;p&gt;以及次次级别&lt;/p&gt;
-&lt;p&gt;然后但是我们在那个实际的操作过程当中&lt;/p&gt;
-&lt;p&gt;我们怎么知道&lt;/p&gt;
-&lt;p&gt;它到底是走一个五端次上涨&lt;/p&gt;
-&lt;p&gt;还是走一个三端次上涨&lt;/p&gt;
-&lt;p&gt;它调整的时候&lt;/p&gt;
-&lt;p&gt;到底是走一个中枢&lt;/p&gt;
-&lt;p&gt;还是走一个三端下跌呢&lt;/p&gt;
-&lt;p&gt;这个有的时候会比较&lt;/p&gt;
-&lt;p&gt;就在我们做预期&lt;/p&gt;
-&lt;p&gt;以及做计划的时候&lt;/p&gt;
-&lt;p&gt;可能会比较模糊&lt;/p&gt;
-&lt;p&gt;下面就是&lt;/p&gt;
-&lt;p&gt;这个是一个经验总结&lt;/p&gt;
-&lt;p&gt;就是我们把那个整个结构&lt;/p&gt;
-&lt;p&gt;进行用MSAD进行的一个划分&lt;/p&gt;
-&lt;p&gt;就把它划分成了一个极强&lt;/p&gt;
-&lt;p&gt;强中性偏强中性偏弱&lt;/p&gt;
-&lt;p&gt;弱极弱这样的一个五个阶段&lt;/p&gt;
-&lt;p&gt;这五个阶段呢&lt;/p&gt;
-&lt;p&gt;我在我在我上上上一篇帖子里面提到过&lt;/p&gt;
-&lt;p&gt;但是没有没有在那个图里面讲过&lt;/p&gt;
-&lt;p&gt;那个主要就是这个MSAD&lt;/p&gt;
-&lt;p&gt;我当时讲的这两条线的线&lt;/p&gt;
-&lt;p&gt;这两条线以及他们在零周以下&lt;/p&gt;
-&lt;p&gt;还是零周以上进行了一个分类&lt;/p&gt;
-&lt;p&gt;在零周以下&lt;/p&gt;
-&lt;p&gt;他的那个在这个经差以后&lt;/p&gt;
-&lt;p&gt;到这个他上这一根线&lt;/p&gt;
-&lt;p&gt;上穿零周的这一段&lt;/p&gt;
-&lt;p&gt;就是这里到这里&lt;/p&gt;
-&lt;p&gt;这一段&lt;/p&gt;
-&lt;p&gt;他是一个中性偏强&lt;/p&gt;
-&lt;p&gt;然后他上穿零周&lt;/p&gt;
-&lt;p&gt;到这一根线上穿零周&lt;/p&gt;
-&lt;p&gt;这之间&lt;/p&gt;
-&lt;p&gt;他是一个极强形态&lt;/p&gt;
-&lt;p&gt;然后他们都上穿了零周以后&lt;/p&gt;
-&lt;p&gt;这是一个强的形态&lt;/p&gt;
-&lt;p&gt;一直到他们那个死擦了&lt;/p&gt;
-&lt;p&gt;然后在下穿零周之前&lt;/p&gt;
-&lt;p&gt;这一段就是从这一个点到这里&lt;/p&gt;
-&lt;p&gt;这一段&lt;/p&gt;
-&lt;p&gt;他是一个中性偏弱的状态&lt;/p&gt;
-&lt;p&gt;当他那个在DIF这根线下穿了零周&lt;/p&gt;
-&lt;p&gt;而另外一根线没有下穿零周的时候&lt;/p&gt;
-&lt;p&gt;这又是一个极弱的状态&lt;/p&gt;
-&lt;p&gt;然后他们就是&lt;/p&gt;
-&lt;p&gt;然后他就是一个中性偏强&lt;/p&gt;
-&lt;p&gt;强中性偏弱&lt;/p&gt;
-&lt;p&gt;极弱弱这样的一个周而复死的这样一个一个一个一个循环状态&lt;/p&gt;
-&lt;p&gt;然后用这样的方式把他把他那个进行解分解了以后&lt;/p&gt;
-&lt;p&gt;他所面对的就他的次级别的形态就有按照经验&lt;/p&gt;
-&lt;p&gt;他只是经验不是绝对的&lt;/p&gt;
-&lt;p&gt;就在他的次级别上面&lt;/p&gt;
-&lt;p&gt;比如说我们的那个日线&lt;/p&gt;
-&lt;p&gt;他是处于一个极强的时候&lt;/p&gt;
-&lt;p&gt;日线处于极强的时候&lt;/p&gt;
-&lt;p&gt;30分钟上面&lt;/p&gt;
-&lt;p&gt;他就没有本级别的下跌结构&lt;/p&gt;
-&lt;p&gt;30分钟&lt;/p&gt;
-&lt;p&gt;他的那个背离&lt;/p&gt;
-&lt;p&gt;他就会失效&lt;/p&gt;
-&lt;p&gt;30分钟他会在涨的过程当中&lt;/p&gt;
-&lt;p&gt;一直背离&lt;/p&gt;
-&lt;p&gt;一直一直不会&lt;/p&gt;
-&lt;p&gt;一直没有下跌&lt;/p&gt;
-&lt;p&gt;他只会&lt;/p&gt;
-&lt;p&gt;他只有一个信号可以捕捉&lt;/p&gt;
-&lt;p&gt;就是30分钟回调到55分&lt;/p&gt;
-&lt;p&gt;55均线的时候&lt;/p&gt;
-&lt;p&gt;他就会反弹&lt;/p&gt;
-&lt;p&gt;一直到这个极强形&lt;/p&gt;
-&lt;p&gt;他被解除&lt;/p&gt;
-&lt;p&gt;然后强的时候&lt;/p&gt;
-&lt;p&gt;比如说日线是强的时候&lt;/p&gt;
-&lt;p&gt;30分钟的回调&lt;/p&gt;
-&lt;p&gt;他可能走一个三段下跌&lt;/p&gt;
-&lt;p&gt;然后日线&lt;/p&gt;
-&lt;p&gt;刚才我说的日线和30分钟&lt;/p&gt;
-&lt;p&gt;只是举个例&lt;/p&gt;
-&lt;p&gt;我们正确的应该说是标准级别和他的次级别&lt;/p&gt;
-&lt;p&gt;标准级别是中性偏强的时候&lt;/p&gt;
-&lt;p&gt;他的次级别的那个回调下跌结构&lt;/p&gt;
-&lt;p&gt;可能是一个这样的一个一个&lt;/p&gt;
-&lt;p&gt;带一个中枢的一个下跌&lt;/p&gt;
-&lt;p&gt;中性偏弱也是弱的时候&lt;/p&gt;
-&lt;p&gt;他可能是带两个中枢的一个下跌&lt;/p&gt;
-&lt;p&gt;极弱的时候&lt;/p&gt;
-&lt;p&gt;他可能是这样一个大的三段式下跌&lt;/p&gt;
-&lt;p&gt;和一个两个中枢的下跌&lt;/p&gt;
-&lt;p&gt;相反&lt;/p&gt;
-&lt;p&gt;他的上涨结构也是这样子的&lt;/p&gt;
-&lt;p&gt;这只是一个反过来的一个过程&lt;/p&gt;
-&lt;p&gt;然后接着往下看&lt;/p&gt;
-&lt;p&gt;要构建完整的一个残论交易体系&lt;/p&gt;
-&lt;p&gt;就离不开残论的三类买卖点&lt;/p&gt;
-&lt;p&gt;就是系统的操作信号&lt;/p&gt;
-&lt;p&gt;所有的买卖点都是围绕中枢产生的&lt;/p&gt;
-&lt;p&gt;这里残论有一个严格的定义是第一类买卖点&lt;/p&gt;
-&lt;p&gt;第一类买卖点是趋势的转折点&lt;/p&gt;
-&lt;p&gt;是逃次抄底逃顶点&lt;/p&gt;
-&lt;p&gt;但是呢&lt;/p&gt;
-&lt;p&gt;他难度最高&lt;/p&gt;
-&lt;p&gt;因为很有可能被击被击穿重塑一买&lt;/p&gt;
-&lt;p&gt;新手不建议参与&lt;/p&gt;
-&lt;p&gt;我们看一下这个图一类买卖点&lt;/p&gt;
-&lt;p&gt;这就是经过一个长时间的下跌以后&lt;/p&gt;
-&lt;p&gt;在最低点形成的一个一买&lt;/p&gt;
-&lt;p&gt;这个一买只有通过&lt;/p&gt;
-&lt;p&gt;就熟练熟练掌握了以后&lt;/p&gt;
-&lt;p&gt;区间套以及背里以及结构&lt;/p&gt;
-&lt;p&gt;全部都熟练掌握了以后&lt;/p&gt;
-&lt;p&gt;才能抓才能熟练的抓到这个一买&lt;/p&gt;
-&lt;p&gt;但是通常情况下不建议&lt;/p&gt;
-&lt;p&gt;不建议大家去参与这个一买的买卖&lt;/p&gt;
-&lt;p&gt;因为很有可能操到&lt;/p&gt;
-&lt;p&gt;比如说在这些地方&lt;/p&gt;
-&lt;p&gt;你以为是一买&lt;/p&gt;
-&lt;p&gt;如果操的不准可能会操的半三样&lt;/p&gt;
-&lt;p&gt;然后二类买卖点&lt;/p&gt;
-&lt;p&gt;就是一买之后的回调点&lt;/p&gt;
-&lt;p&gt;这里回调不击穿&lt;/p&gt;
-&lt;p&gt;这里回调不击穿一买&lt;/p&gt;
-&lt;p&gt;即为二买&lt;/p&gt;
-&lt;p&gt;是右侧的确认点&lt;/p&gt;
-&lt;p&gt;相对安全是较好的买入点&lt;/p&gt;
-&lt;p&gt;来这个就是二买&lt;/p&gt;
-&lt;p&gt;然后在那个回调以后&lt;/p&gt;
-&lt;p&gt;不击穿这个一买&lt;/p&gt;
-&lt;p&gt;这就是二买&lt;/p&gt;
-&lt;p&gt;然后那个这是类二买&lt;/p&gt;
-&lt;p&gt;它的性质跟二买是一样的&lt;/p&gt;
-&lt;p&gt;它是不击穿一买&lt;/p&gt;
-&lt;p&gt;在这个二买附近&lt;/p&gt;
-&lt;p&gt;它是一个类二买&lt;/p&gt;
-&lt;p&gt;第三类买卖点&lt;/p&gt;
-&lt;p&gt;第三类买卖点是趋势确认后&lt;/p&gt;
-&lt;p&gt;回调不回到中枢的点&lt;/p&gt;
-&lt;p&gt;即为三买&lt;/p&gt;
-&lt;p&gt;这是最强势&lt;/p&gt;
-&lt;p&gt;最可靠的起爆点&lt;/p&gt;
-&lt;p&gt;是必须把握的时机&lt;/p&gt;
-&lt;p&gt;来我们看一下这个三买&lt;/p&gt;
-&lt;p&gt;趋势确认&lt;/p&gt;
-&lt;p&gt;所谓的趋势确认&lt;/p&gt;
-&lt;p&gt;就是这个&lt;/p&gt;
-&lt;p&gt;它震荡以后冲出中枢&lt;/p&gt;
-&lt;p&gt;冲出中枢了以后&lt;/p&gt;
-&lt;p&gt;它在回调的过程中&lt;/p&gt;
-&lt;p&gt;不踩破这个中枢的上压&lt;/p&gt;
-&lt;p&gt;它在这里&lt;/p&gt;
-&lt;p&gt;止住了&lt;/p&gt;
-&lt;p&gt;再往上&lt;/p&gt;
-&lt;p&gt;然后在这里&lt;/p&gt;
-&lt;p&gt;我们用刚才的区间套&lt;/p&gt;
-&lt;p&gt;在它的次级别去找&lt;/p&gt;
-&lt;p&gt;比如说这是一个&lt;/p&gt;
-&lt;p&gt;日线的一个结构&lt;/p&gt;
-&lt;p&gt;我们在30分钟上面&lt;/p&gt;
-&lt;p&gt;在这一笔上面&lt;/p&gt;
-&lt;p&gt;去找30分钟的一个结构&lt;/p&gt;
-&lt;p&gt;以及5分钟的一个背离&lt;/p&gt;
-&lt;p&gt;如果在这一点都有了&lt;/p&gt;
-&lt;p&gt;那我们在这里买入&lt;/p&gt;
-&lt;p&gt;那这里就后面可以&lt;/p&gt;
-&lt;p&gt;有一个很大的收益&lt;/p&gt;
-&lt;p&gt;这个三买就相对&lt;/p&gt;
-&lt;p&gt;就相对来说很简&lt;/p&gt;
-&lt;p&gt;就要比这个一买&lt;/p&gt;
-&lt;p&gt;要确定性高很多&lt;/p&gt;
-&lt;p&gt;然后要容易抓一些&lt;/p&gt;
-&lt;p&gt;而且它后面的涨幅&lt;/p&gt;
-&lt;p&gt;要比一买可能要更大&lt;/p&gt;
-&lt;p&gt;因为它最后对应的&lt;/p&gt;
-&lt;p&gt;可能就是一个阻挡段&lt;/p&gt;
-&lt;p&gt;三内买卖点在那个&lt;/p&gt;
-&lt;p&gt;然后我们来看一下&lt;/p&gt;
-&lt;p&gt;接着来看一下&lt;/p&gt;
-&lt;p&gt;这三内买卖点&lt;/p&gt;
-&lt;p&gt;在不同的结构当中&lt;/p&gt;
-&lt;p&gt;这是一个两个趋势的下降结构&lt;/p&gt;
-&lt;p&gt;两个中枢的一个下降趋势&lt;/p&gt;
-&lt;p&gt;在最后的一个最低一点&lt;/p&gt;
-&lt;p&gt;这里形成的一个一买&lt;/p&gt;
-&lt;p&gt;然后再上去了以后&lt;/p&gt;
-&lt;p&gt;再回踩的时候&lt;/p&gt;
-&lt;p&gt;它不破一买&lt;/p&gt;
-&lt;p&gt;就形成了一个二类买卖点&lt;/p&gt;
-&lt;p&gt;这一个也是&lt;/p&gt;
-&lt;p&gt;但如果要是它冲出去的时候&lt;/p&gt;
-&lt;p&gt;它同时冲出了这一个中枢&lt;/p&gt;
-&lt;p&gt;你们看&lt;/p&gt;
-&lt;p&gt;刚才这说的三买&lt;/p&gt;
-&lt;p&gt;是指的是冲出了中枢以后&lt;/p&gt;
-&lt;p&gt;回踩的时候&lt;/p&gt;
-&lt;p&gt;不破这个中枢的上涯&lt;/p&gt;
-&lt;p&gt;它就形成一个三买&lt;/p&gt;
-&lt;p&gt;然后它同时呢&lt;/p&gt;
-&lt;p&gt;又是回踩不破一买&lt;/p&gt;
-&lt;p&gt;所以这里它就形成了一个二三连买&lt;/p&gt;
-&lt;p&gt;这个二三连买&lt;/p&gt;
-&lt;p&gt;它的那个准确率也会很高&lt;/p&gt;
-&lt;p&gt;级别&lt;/p&gt;
-&lt;p&gt;刚才我们那个就是谈到了&lt;/p&gt;
-&lt;p&gt;顺带讲到了级别&lt;/p&gt;
-&lt;p&gt;级别就是系统的操作时空&lt;/p&gt;
-&lt;p&gt;这里是重中之重&lt;/p&gt;
-&lt;p&gt;就你必须要去先确定你的操作级别&lt;/p&gt;
-&lt;p&gt;比如说你做的是30分钟的波段&lt;/p&gt;
-&lt;p&gt;还是日线的波段&lt;/p&gt;
-&lt;p&gt;如果离开了级别去谈涨跌&lt;/p&gt;
-&lt;p&gt;都是不准确的&lt;/p&gt;
-&lt;p&gt;铁率就是你在操作级别上买入&lt;/p&gt;
-&lt;p&gt;比如说你在你操作的是30分钟级别&lt;/p&gt;
-&lt;p&gt;你在30分钟上面的二买买入了&lt;/p&gt;
-&lt;p&gt;那你就必须在操作级别出现卖一点时卖出&lt;/p&gt;
-&lt;p&gt;就绝对不要看着30分钟图买&lt;/p&gt;
-&lt;p&gt;但是因为一个5分钟图的一个波动而卖出&lt;/p&gt;
-&lt;p&gt;这样的话你的干扰因素和噪音就太大&lt;/p&gt;
-&lt;p&gt;就会买进卖出更就太频繁&lt;/p&gt;
-&lt;p&gt;如果然后这里呢就建议新手从30分钟或者日线级别开始练习&lt;/p&gt;
-&lt;p&gt;因为时间充裕趋势稳定&lt;/p&gt;
-&lt;p&gt;然后那个做比如说做做期货或者是做期权的话就可以做5分钟或者15分钟&lt;/p&gt;
-&lt;p&gt;实战的五步法首先就要确定你的操作周期就刚才我们说的是30分钟还是日线还是15分钟还是5分钟&lt;/p&gt;
-&lt;p&gt;然后我们再去画笔&lt;/p&gt;
-&lt;p&gt;画笔就是在本级别图上面画出标准的笔合线段&lt;/p&gt;
-&lt;p&gt;然后在这个在在画出了笔以后去找中书识别出当前的走势的核心中书&lt;/p&gt;
-&lt;p&gt;那然后再变走势判断当前是处于趋势中还是震荡中中书震荡中&lt;/p&gt;
-&lt;p&gt;对于新手来说就是禅师在他的那个&lt;/p&gt;
-&lt;p&gt;他在他在他的那个文章里面就不建议新手参与中书的震荡&lt;/p&gt;
-&lt;p&gt;除非是大级别的中书震荡去做一个高抛低吸&lt;/p&gt;
-&lt;p&gt;通常情况下我们都只参与一个上涨的一个走势趋势&lt;/p&gt;
-&lt;p&gt;心态&lt;/p&gt;
-&lt;p&gt;我们就是要放弃预测尊重信号&lt;/p&gt;
-&lt;p&gt;谈论是不测而测的右侧理论&lt;/p&gt;
-&lt;p&gt;不要去预测市场&lt;/p&gt;
-&lt;p&gt;要等市场自己走出来确认信号&lt;/p&gt;
-&lt;p&gt;我们不要去谈论很多人&lt;/p&gt;
-&lt;p&gt;可能我有的时候在在群里面发过一些就是对于市场的看法&lt;/p&gt;
-&lt;p&gt;有的人就会误解就以为禅论是用来预测市场的&lt;/p&gt;
-&lt;p&gt;实际上他不是他不是用来预测市场的&lt;/p&gt;
-&lt;p&gt;他是一个不测而测&lt;/p&gt;
-&lt;p&gt;为什么他会不测而测&lt;/p&gt;
-&lt;p&gt;就像我们刚才说的&lt;/p&gt;
-&lt;p&gt;他已经走出了一个中书&lt;/p&gt;
-&lt;p&gt;他冲出了这个中书&lt;/p&gt;
-&lt;p&gt;我们就认为就认为他的趋势已经成立了&lt;/p&gt;
-&lt;p&gt;我们就认为他会在下一个回调以后会往上走&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;所以有的时候呢所谓的不测而测只是一个有残论的一个趋势的一个延续而已&lt;/p&gt;
-&lt;p&gt;然后那个&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;实际上操作的过程当中我们还是要等出了信号出什么信号做什么事&lt;/p&gt;
-&lt;p&gt;然后耐心是最高境界等待一个符合所有条件的高质量买卖点需要极大的耐心&lt;/p&gt;
-&lt;p&gt;不要因为无聊而随意开仓在实际的操作过程当中就是嗯我们需要等到比如说你要你专做二买专做三买那我们就就等到二买和三买出现在再再买不要在涨的过程当中去追涨没有出现买点或者买点已经过了然后去追这些都是&lt;/p&gt;
-&lt;p&gt;嗯不守几率的一个表现然后另外就是嗯不要轻视画笔刚才刚才我们&lt;/p&gt;
-&lt;p&gt;讲的画笔以及画线实际上这些基本功能不是也不是那个很简单不是一天两天就能完全很熟练的呃需要需要很多的一些练习&lt;/p&gt;
-&lt;p&gt;然后残论是一个需要大量的练习和思考的系统他不能保证你百战百胜但是能给你一套在市场中安身立命的规矩和演力就通过残论刚才我们我们看的那些例子我们可以把市场一个杂乱五张的k线我们可以把它解构解构成一个一个一个一个个的线段&lt;/p&gt;
-&lt;p&gt;松枢甚至把它连成趋势我们就能看清他现在是处于哪个阶段比如说周线的主掌段我们在日线上面就可以大胆的去做多在回调的过程当中大胆的去买入如果是周线在那个下降段那我们就不要立式的去做在那个&lt;/p&gt;
-&lt;p&gt;在周线的那个回调段的时候最好就是空畅然后或者是做他的一个反弹反弹的时候也要注意不要不要有太大的预期就是放低放低自己的那个预期目标&lt;/p&gt;
-&lt;p&gt;最后我们来讨论一下残论可以量化吗残论量化的核心可行性就是我们残论哪些部分能直接量化&lt;/p&gt;
-&lt;p&gt;首先那个笔线段中枢刚才我们都已经讲到了笔是怎么化的线段是怎么化的中枢是怎么化的这些都是很明确的一些规则&lt;/p&gt;
-&lt;p&gt;这些都是可以根据规则进行量化的而且这个也已经量化出来了给大家看一下&lt;/p&gt;
-&lt;p&gt;这个是这个是之前嗯警大发给我的一些残论的笔和线段的代码然后我在这个基础上面做了一个中枢的一个代码&lt;/p&gt;
-&lt;p&gt;然后一跑就能把中枢给它跑出来但我刚才已经跑过了我截图了&lt;/p&gt;
-&lt;p&gt;这个他就他就根据可以线的走势然后画出的一个线段&lt;/p&gt;
-&lt;p&gt;然后看一下这是笔然后再看一下线段&lt;/p&gt;
-&lt;p&gt;把笔把笔连接起来就成线段&lt;/p&gt;
-&lt;p&gt;然后再看一下中枢&lt;/p&gt;
-&lt;p&gt;他也是根据规则把那个根据我们刚才的说的那个&lt;/p&gt;
-&lt;p&gt;线段怎么成中枢的这样的一个规则把它中枢画出来这些都是可以量化的&lt;/p&gt;
-&lt;p&gt;但是那个核心的难点是在于那些需要突破的那个模糊地带就主观判断的标准化&lt;/p&gt;
-&lt;p&gt;就是最核心的难点就是残论本身存在有部分是需要依赖主观经验的细节&lt;/p&gt;
-&lt;p&gt;量化时是需要通过规则明确界定然后这个明确界定就有一些就有一些不太不太好界定的地方&lt;/p&gt;
-&lt;p&gt;还有就是背词的那个精准度&lt;/p&gt;
-&lt;p&gt;因为背词每一个人判断虽然有一些背词是明显的但是但是如果我们要把它进行量化的时候就是这个力度怎么去去量化到底是面积缩小多少&lt;/p&gt;
-&lt;p&gt;只要缩小了就算吗还是要缩小一定的比例以及这个比例需要是多少这个也需要去定义然后或者做回测&lt;/p&gt;
-&lt;p&gt;以及那个如何定义对比周期&lt;/p&gt;
-&lt;p&gt;就是和前一个同级别的线段对比&lt;/p&gt;
-&lt;p&gt;还是和还是和前两个&lt;/p&gt;
-&lt;p&gt;有的时候实际上我们操作的过程当中是那个和前一个和前两个都有对比&lt;/p&gt;
-&lt;p&gt;就是总总体的去看一个趋势&lt;/p&gt;
-&lt;p&gt;但是在量化的时候我们到底是定义怎么去定义他&lt;/p&gt;
-&lt;p&gt;然后那个背离的这个阅值&lt;/p&gt;
-&lt;p&gt;MSEG的面积是缩小30%以上才算才算有效背词还是什么这些都需要需要历史的数据来进行验证&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;还有最后一个我觉得比较难的点就是刚才说的这个区间套&lt;/p&gt;
-&lt;p&gt;以及跨级别的数据联动&lt;/p&gt;
-&lt;p&gt;刚才说的那个我们的日线30分钟5分钟我们这样的跨级别的这个数据&lt;/p&gt;
-&lt;p&gt;以及他的这个区间套怎么在量化&lt;/p&gt;
-&lt;p&gt;怎么用量化来实现他&lt;/p&gt;
-&lt;p&gt;还没有一个很好的思路&lt;/p&gt;
-&lt;p&gt;跨级&lt;/p&gt;
-&lt;p&gt;跨级别的那个&lt;/p&gt;
-&lt;p&gt;数据同步要需要把这些k线来进行时间的对齐&lt;/p&gt;
-&lt;p&gt;还有就是小级别的信号过滤&lt;/p&gt;
-&lt;p&gt;避免小级别波动导致的频繁交易需要设置大级别趋势未破的过滤条件等这些都需要一个&lt;/p&gt;
-&lt;p&gt;都需要就是&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;比较明确的一些界定然后这一部分当时在&lt;/p&gt;
-&lt;p&gt;牛马牛马的时候&lt;/p&gt;
-&lt;p&gt;嗯27牛马的时候这些我都没有想的太清楚所以还不知道怎么去量化这一部分&lt;/p&gt;
-&lt;p&gt;所以&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;在量化的这一部分的话我&lt;/p&gt;
-&lt;p&gt;就是我自己本身就只做到了比线段中数这样的一个量化这样的量化只是&lt;/p&gt;
-&lt;p&gt;就像这个&lt;/p&gt;
-&lt;p&gt;就像这个&lt;/p&gt;
-&lt;p&gt;就像这个&lt;/p&gt;
-&lt;p&gt;我&lt;/p&gt;
-&lt;p&gt;只是画了只是把这个线段和中数画出来了便于我去便于我们去观察但是实际上他并没有自己去做决策&lt;/p&gt;
-&lt;p&gt;只是做了一个辅助的工具而已&lt;/p&gt;
-&lt;p&gt;然后那个当然能在那个还有一个还有一个比较难量化的地方就是刚才说的那个结构&lt;/p&gt;
-&lt;p&gt;我们有的时候会去判断就刚才说的这个结构&lt;/p&gt;
-&lt;p&gt;就是他我们什么时候认为认为认为这一笔是走完了这个结构走了三段还是走了走五段以及走两个中枢他到底是走什么样的结构有的时候是需要根据市场走到一定的程度&lt;/p&gt;
-&lt;p&gt;我们才能判断出来但是那个量化的时候我们就不能预算去认为这个结构怎么去量化&lt;/p&gt;
-&lt;p&gt;不知道有没有高手可以那个一起去想一想在这一部分&lt;/p&gt;
-&lt;p&gt;然后那个就是在二级流码的时候也有同学给我指出来就是有一个&lt;/p&gt;
-&lt;p&gt;禅中说禅的一个库&lt;/p&gt;
-&lt;p&gt;是开源的&lt;/p&gt;
-&lt;p&gt;嗯当时说他那个上面的东西比较全但是我也不知道我也不知道他量化到了哪种程度&lt;/p&gt;
-&lt;p&gt;很希望以后跟大家再多讨论&lt;/p&gt;
-&lt;p&gt;然后那个量化这一块的话可能得要大家一起努力&lt;/p&gt;
-&lt;p&gt;然后那个禅论的介绍就介绍到这里谢谢大家祝大家&lt;/p&gt;
-&lt;p&gt;2026年身体健康账户翻N倍本来我准备写唱账户藏红但是想着币圈的老板是那个绿的转所以我就说大家的账户都账户都翻N倍啊谢谢大家&lt;/p&gt;
-&lt;p&gt;然后有什么问题我们问我们讨论一下吧&lt;/p&gt;
-&lt;p&gt;看一下&lt;/p&gt;
-&lt;p&gt;对我是重庆的&lt;/p&gt;
-&lt;p&gt;残论要想死盘现在彩虹框架不支持要开发事件策略框架需要分钟数据的支持客户但也需要大的更新&lt;/p&gt;
-&lt;p&gt;嗯整个我觉得是需要那个框现在的框架是肯定不支持的&lt;/p&gt;
-&lt;p&gt;而且如果要想那个区间套和那个多级别的那个多级别的联动的那种是需要分钟数据的&lt;/p&gt;
-&lt;p&gt;开发一个禅定&lt;/p&gt;
-&lt;p&gt;这个上代码是刚才的那个代码吗那个代码我是我我写的那一部分是可以发的&lt;/p&gt;
-&lt;p&gt;主观判断的那部分是不是就是外面说的千人千产其实也不是&lt;/p&gt;
-&lt;p&gt;常论他相他其实相对于那个波浪理论他更他更客观一些&lt;/p&gt;
-&lt;p&gt;只要是只要是按照规则严格按照规则做出来的画出来的图的话&lt;/p&gt;
-&lt;p&gt;他是他是不会有太多的&lt;/p&gt;
-&lt;p&gt;大家&lt;/p&gt;
-&lt;p&gt;连个按照规则画出来的大家都应该是一样的所谓的千人千产的话可能就是不同的操作级别&lt;/p&gt;
-&lt;p&gt;比如说我用30分钟在操作你用日线在操作你认为他是在长我认为我认为他是我我也会看这些去看去看30分钟他在30分钟我认为他在长然后可能是在日线的一个日线下跌过程当中的一个反弹&lt;/p&gt;
-&lt;p&gt;所以那个千人千产只是大家操作的级别不一样&lt;/p&gt;
-&lt;p&gt;看到哪了&lt;/p&gt;
-&lt;p&gt;对严格按照产论分析的话就不应该出现千人千产&lt;/p&gt;
-&lt;p&gt;产论不看中枢突破只看买卖点&lt;/p&gt;
-&lt;p&gt;产论他是中他是通过中枢然后去寻找三类买卖点&lt;/p&gt;
-&lt;p&gt;他的对在中枢突破在中枢突破他不是他的一个买点是这个意思&lt;/p&gt;
-&lt;p&gt;对区间套这个不好不好实现因为我确实马力有限区间套计算的话是太费死了而且还我还没想到去怎么量化&lt;/p&gt;
-&lt;p&gt;嗯这个是不是主要针对指数类的标的其实股票也是可以的只是说那个指数类的他更加不容易被操纵那个他他对于指数来说会更加准确好分析一些&lt;/p&gt;
-&lt;p&gt;孙老板直接谈论的程序话坑非常多那个到时候那个我们多交流一下&lt;/p&gt;
-&lt;p&gt;本身整数费吗肯定是整数费而且是大于等于一大于等于十&lt;/p&gt;
-&lt;p&gt;几年前是不是改成残好像就是这个残中说残这个酷&lt;/p&gt;
-&lt;p&gt;谢谢谢谢大家对我是重庆的刚才那个普通话说的不标准了哈&lt;/p&gt;
-&lt;p&gt;n大于100大家的n都大于100&lt;/p&gt;
-&lt;p&gt;谢谢谢谢&lt;/p&gt;
-&lt;p&gt;谢谢&lt;/p&gt;
-&lt;p&gt;如何避免未来函数&lt;/p&gt;
-&lt;p&gt;这个还没量化还不知道怎么那个&lt;/p&gt;
-&lt;p&gt;就是就是大部分就刚才的指数构建量化了一部分&lt;/p&gt;
-&lt;p&gt;然后其他的还没量化出来还不知道有没有未来函数&lt;/p&gt;
-&lt;p&gt;我这里只有笔线段和中数的代码&lt;/p&gt;
-&lt;p&gt;辅助线的代码有帖子吗这个还没有帖子&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;这个我我的那个&lt;/p&gt;
-&lt;p&gt;我这个是写是一个通达性公式&lt;/p&gt;
-&lt;p&gt;我这个上面的是通达性公式&lt;/p&gt;
-&lt;p&gt;然后然后我还经常会自己画线&lt;/p&gt;
-&lt;p&gt;我还经常自己画线然后有的时候公式他不准的时候我会自己画&lt;/p&gt;
-&lt;p&gt;自己画的这个&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;禅论和哪些指标结合最好&lt;/p&gt;
-&lt;p&gt;禅论就是和mscd经常结合一起用&lt;/p&gt;
-&lt;p&gt;他通常都是用mscd和k线k线的那个笔线段中数&lt;/p&gt;
-&lt;p&gt;美罗老板分享的这个对好像就是这个酷&lt;/p&gt;
-&lt;p&gt;禅论实在实在热脸板块里面盯着几只股票交易这样可行&lt;/p&gt;
-&lt;p&gt;是不是会更好对&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;因为有一些&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;交易不是很活跃的股票如果用残论去做他也会也会有效但是&lt;/p&gt;
-&lt;p&gt;嗯超额不是很大&lt;/p&gt;
-&lt;p&gt;嗯如果要是用热点板块的如果用热点板块结合残论残论就是保证他的安全点吗&lt;/p&gt;
-&lt;p&gt;找一些安全的买卖点然后热点板块的股票因为他波动很大嘛&lt;/p&gt;
-&lt;p&gt;然后那个可以有更多的超额我就是这么操作的&lt;/p&gt;
-&lt;p&gt;来分享会最初就是想量化残论可以努力&lt;/p&gt;
-&lt;p&gt;对我已经结婚有两个小孩一儿一女&lt;/p&gt;
-&lt;p&gt;好的&lt;/p&gt;
-&lt;p&gt;好的欢迎大家一起交流学残论&lt;/p&gt;
-&lt;p&gt;但是残论不一定能保证大家都赚钱&lt;/p&gt;
-&lt;p&gt;而且有有有还是有比较长的路要走要要思考要要练习&lt;/p&gt;
-&lt;p&gt;学习的东西还是蛮多今天我只花了不到一个小时的时间只是把它的构建基础的东西以及怎么就是它的整个完整的过程我给大家分享了一遍世界上里面还有很多细节&lt;/p&gt;
-&lt;p&gt;比如说笔的延伸中枢的延伸中枢的扩展这些有很多很多细节&lt;/p&gt;
-&lt;p&gt;外面有一些付费课&lt;/p&gt;
-&lt;p&gt;他们好像都是讲十节二十节二三十节的课都有&lt;/p&gt;
-&lt;p&gt;对做股子期权用残论就是要一直盯盘就是因为做股子期权的话一般都是用的小级别周期的&lt;/p&gt;
-&lt;p&gt;对如果你做的是日线级别的300的时候就是要用低级别的他的次级别来确认买点次级别的结构走完然后再到次级别上面去找背离都背离传递到次级别然后那个时候就是一个买点&lt;/p&gt;
-&lt;p&gt;我这个券商软件我的那个交易软件上面的那个中枢是是用的是用的那个公式&lt;/p&gt;
-&lt;p&gt;需要的可以发给你可以发给你那个联系我发给你是那个通达性公式&lt;/p&gt;
-&lt;p&gt;跑的&lt;/p&gt;
-&lt;p&gt;好的孙老板&lt;/p&gt;
-&lt;p&gt;推荐的书呀谈论的书特别多那个市场上的书特别多然后那个小白的话刚入门的嗯对那个看一下前显易懂的吧因为看他的原来的那个文章的话怕打瞌睡因为我也是瞌睡打过来的&lt;/p&gt;
-&lt;p&gt;小转大的时候需要30分钟或者5分钟31分钟级别对实际操作起来可能数据上更麻烦因为量量化的时候可能比较麻烦但是肉眼观察的时候都还好翻一翻就可以&lt;/p&gt;
-&lt;p&gt;重新导向好&lt;/p&gt;
-&lt;p&gt;如果指数的话是不是对这个也可以用在用在板块指数上&lt;/p&gt;
-&lt;p&gt;日线级别才能的三买的选顾程序因为如果要是三买想要准确的话其实还是要也要结合区间套和背离&lt;/p&gt;
-&lt;p&gt;人只是一个只是一个他不破上眼就确定为三买还是不太准确&lt;/p&gt;
-&lt;p&gt;用k线形态相似度来量化找到标准的符合成络的一顿可以想找相似性高的这个我还不太清楚&lt;/p&gt;
-&lt;p&gt;某级别生成买卖点提示的代码吗&lt;/p&gt;
-&lt;p&gt;嗯我的这个通达性公式他就有提示买卖点&lt;/p&gt;
-&lt;p&gt;但是其实不太准确因为他公式始终是死的还是需要忍耐判断&lt;/p&gt;
-&lt;p&gt;谢谢谢谢身体健康&lt;/p&gt;
-&lt;p&gt;那几种形态是在本级别还是趋势级别那几种形态是在他的次级别就刚才说的那几种结构吗&lt;/p&gt;
-&lt;p&gt;自己画的和代码实现的差距大吗&lt;/p&gt;
-&lt;p&gt;自己画的自己画的有的时候和那个通达性公式会有一些差别但是不是很大&lt;/p&gt;
-&lt;p&gt;不好量化的那几种形态有那个结构吗&lt;/p&gt;
-&lt;p&gt;那个结构是那个他次级别的结构&lt;/p&gt;
-&lt;p&gt;我的收益如何&lt;/p&gt;
-&lt;p&gt;赚的&lt;/p&gt;
-&lt;p&gt;卖点是&lt;/p&gt;
-&lt;p&gt;卖点卖点就是买点的一个反向&lt;/p&gt;
-&lt;p&gt;刚才说的3d买点然后把它反过来就是3d卖点&lt;/p&gt;
-&lt;p&gt;残论也不一定赚钱吗因为残论他只是一个工具赚不赚钱还得要看自己能不能执行以及以及自己分析是不是准确的&lt;/p&gt;
-&lt;p&gt;有一个问题不管是上涨趋势还是下降趋势中都是一定需要走完两个中枢吗不是&lt;/p&gt;
-&lt;p&gt;在上涨趋势&lt;/p&gt;
-&lt;p&gt;嗯在在比较强的上涨趋势或者下降趋势中他走完两个中枢差不多这一个趋势就走完了肯定是面临着一波调整&lt;/p&gt;
-&lt;p&gt;如果因为两个趋势就已经比较长了但是如果要是他只走一个趋势他也是可以的甚至走一个三段上涨他也是可以的&lt;/p&gt;
-&lt;p&gt;但是走一个两个中枢的上涨趋势&lt;/p&gt;
-&lt;p&gt;就已经预示着这一段&lt;/p&gt;
-&lt;p&gt;必然可能就会面临一个一个调整&lt;/p&gt;
-&lt;p&gt;因为他他相当于是一个走了一个很长的一个走势&lt;/p&gt;
-&lt;p&gt;嗯残顿300悬股升率高就是300悬股升率高是会赚但是就是量化的时候怎么去去这个300的那个就准确性&lt;/p&gt;
-&lt;p&gt;嗯需要需要那个需要回撤&lt;/p&gt;
-&lt;p&gt;嗯残顿结构判断主要研究指数还是个股都可以但是研究指数的准确性更高一些&lt;/p&gt;
-&lt;p&gt;残顿的量化收益这个看自己了&lt;/p&gt;
-&lt;p&gt;4月7号的一天满餐满容那一天确实那个是一个区间套加一个背离然后去还有就是他的结构走完了去抄的一个底&lt;/p&gt;
-&lt;p&gt;这级别走完就是他的一个结构走完了&lt;/p&gt;
-&lt;p&gt;就刚才我们说的那个他的标准级别是一个什么形态然后他的次级别对应着一个什么结构&lt;/p&gt;
-&lt;p&gt;嗯他走完了以后然后标准他就会面临一个标准级别的另外一个线段或者比出来&lt;/p&gt;
-&lt;p&gt;我的帖子在那个这个直播的那个通知里面好像是是贴了我的帖子的&lt;/p&gt;
-&lt;p&gt;我的帖子这个回子&lt;/p&gt;
-&lt;p&gt;帖子我的帖子在哪里打开我都忘了把我的铁子到时候到时候发到群里吧&lt;/p&gt;
-&lt;p&gt;那个通知里面有有那个帖子的号&lt;/p&gt;
-&lt;p&gt;区间套&lt;/p&gt;
-&lt;p&gt;等一下好我先看一下待会再再给看一下次序间套&lt;/p&gt;
-&lt;p&gt;区间套&lt;/p&gt;
-&lt;p&gt;区间级别如果太小一分钟或者五分钟&lt;/p&gt;
-&lt;p&gt;这样的买卖点是不是容易不太准确如果你的操作级别是一分钟或者五分钟的话&lt;/p&gt;
-&lt;p&gt;那个会存在着他的那个一个小的波动就会就把就把你给那个甩出去了&lt;/p&gt;
-&lt;p&gt;但是那个一分钟和五分钟通常如果要是股票的话一分钟五分钟是用来做观察的&lt;/p&gt;
-&lt;p&gt;你的操作级别在30分钟上啊&lt;/p&gt;
-&lt;p&gt;会不会没有三脉&lt;/p&gt;
-&lt;p&gt;很少都会有&lt;/p&gt;
-&lt;p&gt;我的残存代码还不齐全就只有几个最基本的构建&lt;/p&gt;
-&lt;p&gt;300都会有只要出中枢只要出中枢都会有三脉&lt;/p&gt;
-&lt;p&gt;只是看时间等的等的多久&lt;/p&gt;
-&lt;p&gt;结合率就是刚才讲的那个K线结合成比比结合成线段线段结合成中枢&lt;/p&gt;
-&lt;p&gt;他一级一级的&lt;/p&gt;
-&lt;p&gt;往上结合的&lt;/p&gt;
-&lt;p&gt;加密死和用残论吗&lt;/p&gt;
-&lt;p&gt;就是那个&lt;/p&gt;
-&lt;p&gt;币圈吗&lt;/p&gt;
-&lt;p&gt;那个是可以的&lt;/p&gt;
-&lt;p&gt;是可以的&lt;/p&gt;
-&lt;p&gt;对呀300买了以后后面就去&lt;/p&gt;
-&lt;p&gt;300买了以后如果出现一卖就卖&lt;/p&gt;
-&lt;p&gt;如果一卖没有卖出现二卖和三卖那就那就又可以卖呀&lt;/p&gt;
-&lt;p&gt;学习残论的历程&lt;/p&gt;
-&lt;p&gt;从最开始一看书就打困&lt;/p&gt;
-&lt;p&gt;然后就就打盹就睡着&lt;/p&gt;
-&lt;p&gt;到后面那个反来复去&lt;/p&gt;
-&lt;p&gt;看看书看小白人看懂的书&lt;/p&gt;
-&lt;p&gt;小白人看懂的书看完了以后再去看深入一点的书&lt;/p&gt;
-&lt;p&gt;然后看一下别人的视频分享&lt;/p&gt;
-&lt;p&gt;然后一步一步一步一步的&lt;/p&gt;
-&lt;p&gt;然后再结合结合那么多年的那个一个&lt;/p&gt;
-&lt;p&gt;炒股的&lt;/p&gt;
-&lt;p&gt;行情分析&lt;/p&gt;
-&lt;p&gt;慢慢的慢慢的走出来吧&lt;/p&gt;
-&lt;p&gt;说转的时候说转的时候好温柔&lt;/p&gt;
-&lt;p&gt;莫种&lt;/p&gt;
-&lt;p&gt;最基础的是5跟k那如果是不满足起步大部分的时间都不能画笔&lt;/p&gt;
-&lt;p&gt;最基础的是5跟k随便怎么都会有5跟k呀&lt;/p&gt;
-&lt;p&gt;随便怎么你都能找到一个&lt;/p&gt;
-&lt;p&gt;都能找到一个顶分形和底分形把连接起来&lt;/p&gt;
-&lt;p&gt;如果不满足的时候那就是说明这一笔没有走完反向的那一笔还画不出来吗&lt;/p&gt;
-&lt;p&gt;现在的帖子&lt;/p&gt;
-&lt;p&gt;或未来会发电&lt;/p&gt;
-&lt;p&gt;这个这个到时候可以分享给大家&lt;/p&gt;
-&lt;p&gt;通达性的那个公司也不是我写的&lt;/p&gt;
-&lt;p&gt;上证周线级别的认为&lt;/p&gt;
-&lt;p&gt;现在那个现在的那个走势&lt;/p&gt;
-&lt;p&gt;面临的可能性比较多所以今天就没有分那个分析&lt;/p&gt;
-&lt;p&gt;分析大盘&lt;/p&gt;
-&lt;p&gt;突破中枢的时候有没有可能直接向上&lt;/p&gt;
-&lt;p&gt;对突破中枢他可以直接向上啊但是他向上了以后始终他都会调整啊只要这个调整&lt;/p&gt;
-&lt;p&gt;他没有&lt;/p&gt;
-&lt;p&gt;他调整有可能很浅&lt;/p&gt;
-&lt;p&gt;我离那个中枢比较远&lt;/p&gt;
-&lt;p&gt;他也四三买呀&lt;/p&gt;
-&lt;p&gt;学了多久学明白好好学的话我觉得几个月吧好的谢谢大家&lt;/p&gt;
-&lt;p&gt;然后有什么问题的话我们那个在群里面再交流吗&lt;/p&gt;
-&lt;p&gt;好谢谢大家&lt;/p&gt;
-&lt;p&gt;然后那个到刚才说的那个公司我看到时候&lt;/p&gt;
-&lt;p&gt;嗯&lt;/p&gt;
-&lt;p&gt;放到帖子上面吧&lt;/p&gt;
-&lt;p&gt;好&lt;/p&gt;
-&lt;p&gt;谢谢大家晚安&lt;/p&gt;
-&lt;p&gt;感谢感谢&lt;/p&gt;
-&lt;p&gt;大家2026年翻N倍N大于100&lt;/p&gt;
-&lt;p&gt;哈&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/25分享会-A牛马直播22-皮皮倪儿：缠中解码：缠论关键买卖点捕捉术与核心量化.txt</guid>
-      <pubDate>Wed, 04 Feb 2026 16:33:46 +0800</pubDate>
-    </item>
-    <item>
-      <title>不预测也能赚大钱？趋势交易的底层逻辑、实战心法与反直觉洞察</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/6981c3cc65d831df72398b63?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/6hpdgggtxpxb"&gt;面基&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6981c3cc65d831df72398b63?utm_source=rss"&gt;交易的艺术：不预测，统计优势，分散红利，随机波动&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;不预测，如何在市场中稳定盈利？🤔
-为什么市场总是“自组织”出趋势，即使在随机世界里？🤯
-如何像赌场老板一样，利用统计优势而非直觉赚钱？🎰&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚖️ 交易 vs 投资：核心差异与预测迷思&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;交易（投机）&lt;/strong&gt;：周期短、高频次、决策多。不在乎单次亏损，只要系统长期盈利，就可容忍短期错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;投资&lt;/strong&gt;：周期长、决策少，重基本面、价值、观点和预测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;预测迷思&lt;/strong&gt;：作者认为，预测准确率和抛硬币无异，难以通过努力提升。核心在于利用&lt;strong&gt;一组事件的统计优势&lt;/strong&gt;，而非预测单次结果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🎲 不预测的交易哲学：数据说话，系统致胜&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;抛硬币游戏&lt;/strong&gt;：赢100输50，你知道期望值是正的。你会反复参与，因为你知道长期必然赚钱，不会介意下一把是正还是反。这正是“不预测”的核心。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;作者实盘数据&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;今年清仓382次，平均持股19天。&lt;/li&gt;
-&lt;li&gt;平均盈亏比约2:1，交易成功率40%（即60%的单子亏损）。&lt;/li&gt;
-&lt;li&gt;强调不必期待每笔交易都涨，关键是整个“赌场策略”对你有利。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;系统盈利&lt;/strong&gt;：量化交易者不关注单次得失，而是构建一个&lt;strong&gt;对自己有利的盈利系统&lt;/strong&gt;，并重复执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌊 跟随趋势：像停车一样找“热钱”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;找车位类比&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;价值投资&lt;/strong&gt;：看地图、研究基本面，试图“直接到位”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;趋势投资&lt;/strong&gt;：不看地图，直接找&lt;strong&gt;车最多&lt;/strong&gt;的地方停（跟随资金最活跃、最热闹的主线）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场定价为王&lt;/strong&gt;：股价下跌，即便基本面看起来再好，也说明市场出了问题。趋势交易者会远离。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;古堡富商逃离&lt;/strong&gt;：不需要知道城堡内发生了什么，只需看到富商在逃离，便跟着跑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“点火”时机&lt;/strong&gt;：趋势交易的精髓是在羊群刚开始聚集、车位还没停满时加入，而不是人山人海时才跟进。它不鼓励预判，而是持续观察，在“信号”出现时果断出手。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 观点即生意：山海经神兽实验揭示的真相&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;随机世界中的“规律”&lt;/strong&gt;：作者创造的“山海经神兽”实验中，240个神兽完全随机波动（log(1+R)服从均值为0的正态分布）。即便如此，依然能“涌现”出“东强西弱”、“一二字神兽流行”等趋势和“专家观点”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;观点本质&lt;/strong&gt;：在随机世界里，这些“观点”本质上是事后归因，却能产生巨大的商业价值。彩票店墙上的“点位图”也是类似现象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;表达欲的类型&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;发心为善&lt;/strong&gt;：因行情好、有心得而分享，但可能成为“诅咒”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;纯粹生意&lt;/strong&gt;：明确需求、提供服务，不掩饰其商业本质。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;：观点对交易帮助不大，因为市场可能就是“山海经”式的随机波动。现实世界中，观点和机构的存在会放大羊群效应，使得趋势更加猛烈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚖️ 分散的力量：被低估的“Alpha”源泉&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;收益不对称性&lt;/strong&gt;：亏损最多归零，盈利却无上限。在对数分布中，分散投资利用了这种不对称性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;山海经神兽指数&lt;/strong&gt;：即便底层240个神兽都是均值为0的随机波动，其加权指数却能&lt;strong&gt;稳定向上增长&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;指数投资的优势&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;被动实现分散化。&lt;/li&gt;
-&lt;li&gt;自带“去弱留强”机制，自动适应时代。&lt;/li&gt;
-&lt;li&gt;分散的结果是“平庸”，但这种平庸是踏实且稳定的超额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🎯 最小验证市场：用行动代替预测&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;独立开发者验证Idea&lt;/strong&gt;：与其预测Idea好坏，不如直接“Building public”——将Idea公开到小红书，观察反馈（交易量、多空力量）。&lt;ul&gt;
-&lt;li&gt;不担心“Idea被偷”，因为趋势是客观的，市场过热会自动调整。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提拉米苏创业&lt;/strong&gt;：不直接开店，先摆摊转卖提拉米苏，验证市场需求。成本低，快速获取市场反馈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交易中的亏损&lt;/strong&gt;：亏损并非失败，而是&lt;strong&gt;宝贵的市场反馈和信号&lt;/strong&gt;。以小试错，避免更大损失。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🏠 房地产的趋势交易视角：右侧交易，等待信号&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;面对房产置换困境（如“老破小”换“改善盘”）&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;不预测&lt;/strong&gt;：不预判未来哪个盘会涨，哪个会跌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;等待右侧信号&lt;/strong&gt;：观察市场，等到“羊群开始聚集”（某个板块明显止跌反弹）时再做决策，胜率将大大提高。这是“装死等右侧”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;抓住机会成本&lt;/strong&gt;：若不愿等待，可选择现在卖掉房产，将资金投入当下有明确趋势且上涨的资产中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：避开主观臆断，等待市场给出明确信号。就像考试，等开卷了再答题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“不预测能不能做好交易？”&lt;/li&gt;
-&lt;li&gt;“预测准确率这件事情，它跟抛硬币没有什么太大区别。”&lt;/li&gt;
-&lt;li&gt;“你并不需要期待这个东西是涨还是跌，你考量的东西是你压注背后的那个赌场的交易策略。”&lt;/li&gt;
-&lt;li&gt;“我不在乎一笔交易一成一持的得失，我是在打造一个对我有利的盈利系统。”&lt;/li&gt;
-&lt;li&gt;“所有的市场信息反映出来的核外结果就成为了预测未来的最好证据，就是当下的市场就是未来的预言。”&lt;/li&gt;
-&lt;li&gt;“与其在最无聊的过热和衰退期交易，不如去拥抱爆发期的新兴事物。”&lt;/li&gt;
-&lt;li&gt;“观点是门生意。”&lt;/li&gt;
-&lt;li&gt;“现实生活中的羊群效应是放大了的，它会出现比山海经神兽更猛烈的单调趋势。”&lt;/li&gt;
-&lt;li&gt;“在投资游戏里边失败就是失败，但是在交易游戏里面失败只是反馈，是一个信号。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6981c3cc65d831df72398b63?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/FiMGI0LiCuMkle_LcrqZjChh8ayc.png" length="0" type="image/png"/>
-      <pubDate>Wed, 04 Feb 2026 09:30:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>笛卡尔2爆发与AI炒股助手：量化实战中的增量洞察与避坑指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;amp;talker=57784510736@chatroom"&gt;2026-02-04_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 量化策略大混战：谁在偷偷创新高？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略代号解密&lt;/strong&gt;：群内热议的“CSF”实为“凯师傅”（Cash Flow的谐音/缩写），近期表现稳健，持仓收益突破。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“上古策略”回春&lt;/strong&gt;：沉寂已久的“笛卡尔2”策略迎来爆发，被调侃为“满手好人股”，甚至有人满仓押注。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最小市值的防御性&lt;/strong&gt;：在市场波动中，最小市值策略展现了极强的抗跌性，日内持仓收益相对稳健（约0.3%-0.6%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测方法论&lt;/strong&gt;：建议采用“循环逐月回测法”来观测策略的择时节点，以便细化不同周期内策略与大盘的盈亏差异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI 炒股助手：从 OpenClaw 到 Trae 的效率革命&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;24小时AI助手&lt;/strong&gt;：利用 OpenClaw 配合通义千问或 DeepSeek API 打造AI交易助手，虽逻辑支撑尚需打磨，但在代码自动化方面已显现“摸鱼神器”潜质。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IDE工具之争&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Trae&lt;/strong&gt;：建议使用 IDE 模式而非 Solo 模式，后者改代码可能过于激进。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Claude Code&lt;/strong&gt;：配合 Opus 模型，基本能满足所有高级编码需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gemini&lt;/strong&gt;：被认为在 Trae 环境下表现更聪明。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💸 “免五”风波：量化交易者的隐形成本危机&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;政策转向风险&lt;/strong&gt;：多名用户反馈券商开始取消“免五”（免除最低5元佣金）政策，牛市背景下券商态度转于“傲娇”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本账单&lt;/strong&gt;：若无“免五”，200万资金量的实盘一年可能多出10万交易成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对指南&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;若券商取消优惠，应及时考虑调换券商或调整拆单策略。&lt;/li&gt;
-&lt;li&gt;对于小市值策略，不拆单滑点大，拆单则交易笔数激增，佣金成本将是致命伤。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 实战警示录：停牌股为何必须手动拉黑？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;龙韵股份案例&lt;/strong&gt;：停牌股需在复牌前手动拉黑。虽然系统公告能剔除，但手动拉黑是针对监管规则的“补漏”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;防范监管风险&lt;/strong&gt;：若不处理，程序可能会挂出大量废单，导致被交易所“Waring”甚至封号限制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;干预的哲学&lt;/strong&gt;：量化是对过去的总结，面对“2024年大盘涨停”这类全历史罕见事件，手动干预不仅是允许的，更是必须的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💡 核心金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“理解策略是重仓的前提。” —— A++SHX3119 (引用 邢不行)&lt;/li&gt;
-&lt;li&gt;“量化是对过去的总结，如果出现了以前没见过的事儿，可以考虑干预。” —— 小白资本&lt;/li&gt;
-&lt;li&gt;“落子无悔，盈亏自负。” —— 黑黑夜夜&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76201&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76223&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76223&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76234&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 00:01:44
-错过的重要消息有：a的旗舰策略在春节前会讲，方便你过节走亲戚的时候募资&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 00:02:16
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=ddaf9e46505588768772a8256f60ea80&amp;amp;filekey=30440201010430302e02016e0402534804206464616639653436353035353838373638373732613832353666363065613830020308907a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26392a752000e962553adadac0000006e01004fb153482a5278e0b654e0783&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 00:02:29
-有消息具体时间没&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 00:02:40
-期待着了&lt;/p&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 00:23:28
-我猜这周末&lt;/p&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 00:24:07
-但是还有个方法论直播，邢大连播两天的概率又比较低[捂脸]&lt;/p&gt;
-&lt;p&gt;夏普(25984985420793406@openim) 08:56:28
-&lt;img src="http://192.168.5.28:5030/image/68d08f19705f2fd30f1ade362135690b,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/94866f82c42b40189e2722956d14a086" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;夏普(25984985420793406@openim) 08:56:28
-昨天的复盘哦～&lt;/p&gt;
-&lt;p&gt;流云(movingclouds001) 08:57:33
-这cf这么猛&lt;/p&gt;
-&lt;p&gt;夏普(25984985420793406@openim) 08:57:41
-凯师傅最近表现不错[偷笑]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 08:58:32
-凯师傅 牛皮No1&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 08:58:34
-cf现金流策略？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 08:59:15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 08:58:34
-cf现金流策略？
-【答疑】CSF=凯师傅&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 08:59:42
-cash flow原来是凯师傅？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:00:10
-cash 凯蓄&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:00:27
-Flow 福楼&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:00:49&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;长眠时区(wxid_gzzjs5tnu3fg22) 02-04 08:59:42
-cash flow原来是凯师傅？
-【答疑】是的 速念&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 09:02:51
-凯师傅nb&lt;/p&gt;
-&lt;p&gt;小尹于野(qq846384981) 09:33:07
-&lt;img src="http://192.168.5.28:5030/image/b1564919466903248cce671d9c93d237,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/2bd0761cbe3f284d1d79d7da97f02f36" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;小尹于野(qq846384981) 09:33:42
-股票标题汇总的云端数据没更新吗？&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 09:34:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;尹于野(qq846384981) 02-04 09:33:07
-&lt;img src="http://192.168.5.28:5030/image/b1564919466903248cce671d9c93d237" alt="图片" /&gt;
-更新了，手动点一下增量更新试试&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小尹于野(qq846384981) 09:37:52
-我现在在实盘，自动更新着，点增量点不动&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 09:38:34
-那不用动了，问题不大。别影响实磐&lt;/p&gt;
-&lt;p&gt;天长地久(wxid_4130731310212) 09:39:00
-@尹于野  那就把自动更新按钮关了，就可以点增量了，本来交易时间，开着自动更新，它也不会自动更新&lt;/p&gt;
-&lt;p&gt;小尹于野(qq846384981) 09:41:04
-奥奥，那应该是我还没自动更新完，就到9点半了。。。起晚了。。。&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:43:13
-今天等xbx喊新高了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 09:44:40&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;尹于野(qq846384981) 02-04 09:41:04
-奥奥，那应该是我还没自动更新完，就到9点半了。。。起晚了。。。
-你如果今天没有开仓计划的话，应该不受影响吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:45:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 09:43:13
-今天等xbx喊新高了
-我昨天给你看的长期观测组合是1.09%&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:45:19
-你实盘综合起来多少 目前？&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:45:43
-不知道怎么算啊&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:46:24
-浮盈点数 *仓位占比  求个平均值吧&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:47:02&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 09:46:24
-浮盈点数 &lt;em&gt;仓位占比  求个平均值吧
-时间呢？不用管时间是吧，就是总的浮盈百分比&lt;/em&gt;仓位占比，是这个逻辑吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:47:08
-是的&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:47:14
-就是今天的 日内浮盈&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:47:22
-当日参考盈亏&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:47:45
-我毛估估 你是 0.56%&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:47:48
-0.87*0.9&lt;/p&gt;
-&lt;p&gt;小尹于野(qq846384981) 09:47:51
-就是今天换仓的&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:48:53
-&lt;img src="http://192.168.5.28:5030/image/8817c9f4dfa45e395fbe06476344d539,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/385946206457ac3d61a29764367fba27" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:49:14
-0.87*0.9=0.783&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:49:47&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 09:43:13
-今天等xbx喊新高了
-所以  亲爱的 你赚多少我心里是有数的 彩虹迪通拿 销售微信我推送给你&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 09:50:11
-[强]&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:55:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 09:49:47&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-所以  亲爱的 你赚多少我心里是有数的 彩虹迪通拿 销售微信我推送给你
-啥是彩虹迪通拿？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:55:17&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 09:49:14
-0.87*0.9=0.783
-哈哈哈，何老板牛逼&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 09:55:34&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 09:55:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-啥是彩虹迪通拿？
-一个表&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 09:55:41
-劳&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 09:56:11
-风火轮小，定风波出击大部分&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 09:56:43
-全部开仓&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:56:50
-全部开仓&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 09:57:26
-我就等今天弄完，然后让系统自动修复昨天bug开仓的部分&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 09:59:41
-定风波开始接盘&lt;/p&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 10:03:39
-今天忘了打开软件了[捂脸]&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:04:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 02-04 10:03:39
-今天忘了打开软件了[捂脸]
-一打开，发现新高了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ljsllll_(wxid_mxhm8ruf5kw522) 10:05:57
-&lt;img src="http://192.168.5.28:5030/image/fcf14609cf47ac97f5028f7477552aeb,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/72e01d3cf630913cc825ad011ddf0849" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:07:29&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 09:55:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-啥是彩虹迪通拿？
-你这开始赖了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:08:05
-穷人都第一次听到这个词语&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:08:38&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 10:08:05
-穷人都第一次听到这个词语
-你都1.49%了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:09:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 10:08:05
-穷人都第一次听到这个词语
-这CP 终究还是败给了现实&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:09:19
-[捂脸]&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 10:30:47
-[皱眉]美丽，定风波又定在最高点开仓&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 10:31:11
-挨打要立正[猪头]&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 10:31:12
-完美狙击&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:34:49
-&lt;img src="http://192.168.5.28:5030/image/318304be6ff91e04a410cd916e3f4e9e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/7bf77bd86f0c5a893ab1d1535584146f" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:35:25&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 02-04 10:34:49
-&lt;img src="http://192.168.5.28:5030/image/318304be6ff91e04a410cd916e3f4e9e" alt="图片" /&gt;
-上图要跟一下策略名&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:36:47
-动态小僵尸&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:36:50
-[奸笑]&lt;/p&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 10:37:12&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 02-04 10:34:49
-&lt;img src="http://192.168.5.28:5030/image/318304be6ff91e04a410cd916e3f4e9e" alt="图片" /&gt;
-再次群里同步下大a晒单公约：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;主观买卖原则上不让晒，要晒务必说明操作理由&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;量化欢迎晒，最好讲清楚什么策略。实在不想讲也行，注意晒单次数，或者你就发红包。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;详情见帖子&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 10:37:26
-config发出来吧[Emm]&lt;/p&gt;
-&lt;p&gt;natsuki(wxid_5155121551812) 10:37:46
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=8abd478fde3d1d80ab2c09d76a72ad14&amp;amp;filekey=30340201010420301e020201130402534804108abd478fde3d1d80ab2c09d76a72ad1402026020040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26479c849000a75dd000000000000011300004f5053480f4298e0b69f82691&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:37:54&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 02-04 10:37:26
-config发出来吧[Emm]
-对哦，发config比发红包好&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;natsuki(wxid_5155121551812) 10:37:58
-看看你的&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 10:38:08
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=f1ca2c06ef3059f95691b3f83d7988f4&amp;amp;filekey=30350201010421301f02020113040253480410f1ca2c06ef3059f95691b3f83d7988f4020300af0e040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2647966f5000ea931000000000000011300004f505348248298e0b67e69bc9&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:38:37
-config不在身边呢&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:38:39
-[捂脸]&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:38:59&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 02-04 10:38:37
-config不在身边呢
-没事，放学的时候等你&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:39:10
-[分享]&lt;/p&gt;
-&lt;p&gt;natsuki(wxid_5155121551812) 10:39:15
-没事，放学等你&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 10:39:18
-发个小红包吧&lt;/p&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 10:39:33
-[强]老板大赚&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 10:39:39
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=0c133d21e3cbbdb0adb0f5fdfad4a936&amp;amp;filekey=30350201010421301f020201130402534804100c133d21e3cbbdb0adb0f5fdfad4a936020300c4d2040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2686d0c270001e14cb41a62340000011300004f5053482c475301e68dd75a0&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;natsuki(wxid_5155121551812) 10:39:50
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=a3374c996af982a2dc9d15146a4cf007&amp;amp;filekey=30340201010420301e02020113040253480410a3374c996af982a2dc9d15146a4cf00702022dae040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26479c8320009b3d2000000000000011300004f5053482207db61e65ecde0c&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 10:39:58
-&lt;img src="http://snsvideo.c2c.wechat.com/262/20304/stodownload?m=766a547333f1ea143c8848dfb51e84f3&amp;amp;filekey=30350201010421301f020201060402484b0410766a547333f1ea143c8848dfb51e84f3020300d1da040d00000004627466730000000132&amp;amp;hy=HK&amp;amp;storeid=26555b9e30007b7abb484e0840000010600004f50484b1059fba0b0158a970&amp;amp;dotrans=0&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:40:01&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 02-04 10:38:37
-config不在身边呢
-[强]老板大赚 原谅你了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;千嶂(y329734615) 10:40:18
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=0bd1069ebc9c0c1334352a902f159adb&amp;amp;filekey=30350201010421301f020201130402534804100bd1069ebc9c0c1334352a902f159adb0203015ead040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26479e0e2000f3385000000000000011300004f5053481fcc5960970627178&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:41:32
-[强]老板大赚 原谅你了&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 10:41:44
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=ecffbc8b28047171673e636fb2930218&amp;amp;filekey=30440201010430302e02016e040253480420656366666263386232383034373137313637336536333666623239333032313802030f3c4a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26362981b0009fed24fd8a7e50000006e01004fb15348263408b0b65fecb3d&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:42:19
-我申请 和 @ShawnSu 结成CP&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 10:42:32
-&lt;img src="http://192.168.5.28:5030/image/c66dd464456d6b148c3f29abf39d816c,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c35cf7e4ea2b5437f67e736f6d877bd5" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 10:42:53
-肯定是白银&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:42:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 10:42:32
-&lt;img src="http://192.168.5.28:5030/image/c66dd464456d6b148c3f29abf39d816c" alt="图片" /&gt;
-我靠，这是瀑布了吗？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 10:43:06&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 10:42:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-我靠，这是瀑布了吗？
-白银[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 10:43:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 10:43:06&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-白银[捂脸]
-对冲了应该不会亏[呲牙]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;辛振(xinzhen88) 10:45:13
-&lt;img src="http://192.168.5.28:5030/image/5c36570735bb10fb3d03eef917b84d13,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/36ca3816e11bbfdbf76c3aaf5ae28d92" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;辛振(xinzhen88) 10:45:19
-笛卡尔2&lt;/p&gt;
-&lt;p&gt;先抓风格(hins_hong) 10:46:26
-[破涕为笑]东航涨停。。我迪 2 拉黑了它&lt;/p&gt;
-&lt;p&gt;辛振(xinzhen88) 10:46:58
-为啥拉黑呀？这只股票咋了？&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:47:05
-这啥意思啊？马化腾和张小龙还能干起来？&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 10:47:05
-&lt;img src="http://192.168.5.28:5030/image/0bb5eadde73eb041b24ca5e5a13ed983,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/0056434973033cb55c12f0a0c490fc60" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;先抓风格(hins_hong) 10:47:39
-我的笛卡尔 2，这股 历史买入后成功率低，所以我拉黑了&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 10:47:45&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-04 10:43:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-对冲了应该不会亏[呲牙]
-想早点跑出来，都是利润&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;先抓风格(hins_hong) 10:47:54
-我回去看看&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 10:48:33
-跑不到最高点&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 10:53:04&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 10:47:45&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-想早点跑出来，都是利润
-Xag我在做多[偷笑]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:56:28
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76201"&gt;链接|老板，要AI自动炒股吗，手把手教你在openclaw用千问免费模型打造24小时AI炒股助手 | 公共讨论区&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:56:48&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 10:56:27
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76201"&gt;链接|老板，要AI自动炒股吗，手把手教你在openclaw用千问免费模型打造24小时AI炒股助手 | 公共讨论区&lt;/a&gt;
-大家快来吃热的呀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:00:44
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=83532d448b58b69376037b63d8754196&amp;amp;filekey=30340201010420301e020201060402535a041083532d448b58b69376037b63d875419602020dba040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=263478f9700029d3c76ab0e700000010600004f50535a0a8c4b50b69695d0b&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:00:50
-这个看着好牛啊&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 11:01:31
-我自己搭配的是ds的api，抽空写一篇帖子，给大家分享下。
-ds api比较便宜&lt;/p&gt;
-&lt;p&gt;系统消息 11:04:33
-&amp;quot;Cocj&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 11:05:01
-&lt;img src="http://192.168.5.28:5030/image/471eba309cf1dc9d503776653a9bd47b,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/4cfce322316d6b3b1f7181d4a6a9577c" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:05:13
-AI抓了一只涨停股&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 11:05:13
-我之前也搞了一个&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:05:13
-&lt;img src="http://192.168.5.28:5030/image/d30d51f30098d0079ae2aed6efee5850,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/9ce7f561fa3d1537bcac467f42476008" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 11:05:20
-就是好多bug&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:05:41&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 11:05:12
-AI抓了一只涨停股
-@long 昨天 盘中&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:05:43
-GET&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 11:06:45
-经常写个代码改个错误就把自己搞崩了&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:06:46
-没啥用，明天就跌停了&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:07:12
-追热点 ，第二天容易gg&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:07:25
-感觉只是抓到涨停股的话没有策略逻辑支撑用处也不是很大吧&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:07:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 02-04 11:07:25
-感觉只是抓到涨停股的话没有策略逻辑支撑用处也不是很大吧
-是的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:08:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 02-04 11:07:12
-追热点 ，第二天容易gg
-今天就G了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 11:08:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 02-04 11:06:45
-经常写个代码改个错误就把自己搞崩了
-+1，简直&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:08:25&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 10:56:27
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76201"&gt;链接|老板，要AI自动炒股吗，手把手教你在openclaw用千问免费模型打造24小时AI炒股助手 | 公共讨论区&lt;/a&gt;
-我将这个视为一种面向新技术的尝试&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:08:43
-总要有人 去肝这种 我们肝不动的东西&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:08:53
-教程很详细，是个好的学习委员&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:09:10
-确实，感觉应该未来可期，总会有大佬能开发出适合量化的路子&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:09:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 02-04 11:08:53
-教程很详细，是个好的学习委员
-这兄弟 天天就爱琢磨这些&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 11:09:52
-这种ai的权限这么大吗&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:10:07
-我看到这个帖子的第一反应就是好像能帮我在平时工作上干活然后让我自己摸鱼[旺柴]&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:10:08
-趋势是这个趋势，没ai，寸步难行&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 11:10:11
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=f38805309a4fcbf75c79a65105967ce5&amp;amp;filekey=30340201010420301e020201060402535a0410f38805309a4fcbf75c79a65105967ce502023e1d040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303232303430393138323430373030306265666639393434616664373466393536383830393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:10:30&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 02-04 11:10:07
-我看到这个帖子的第一反应就是好像能帮我在平时工作上干活然后让我自己摸鱼[旺柴]
-哈哈  正确的打开方式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:10:45
-我也是这么想的&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:10:49
-昨天刚回来点，今天又还回去了&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 11:11:00
-今天定风波果然接在最高点&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 11:11:17
-昨晚美股崩盘了？&lt;/p&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 11:11:42
-没崩&lt;/p&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 11:12:10
-我早上看到纳斯达克跌了10%以为崩了，结果是一个叫纳斯达克的股票跌了10%&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 11:12:24
-。。。。。。这&lt;/p&gt;
-&lt;p&gt;Kylin(raoqilin0) 11:12:34
-纳斯达克指数跌了1%多&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:12:36
-最小市值属性的 策略 目前持仓收益 在0.3%-0.6%之间吧&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:12:38
-微红&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:12:51
-@土土&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:13:59
-小市值反正没人管，只要政策不打击退市，基本看玩量化跑不跑&lt;/p&gt;
-&lt;p&gt;系统消息 11:14:50
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:15:09
-&lt;img src="http://192.168.5.28:5030/image/4aaea03aa75027d14dfaac40270a180e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/7c63d839fb773dc36506229a48a1e1dc" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:15:25
-小市值是真的很能抗&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 11:15:46
-哦豁，账户绿油油了，果然出击接盘了&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:15:52
-&lt;img src="http://192.168.5.28:5030/image/43ab58285ec4fcc07cff1648fc3c2f22,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/9c30eb74a3da8bd561afb5640c63207f" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 11:17:04
-只测试15年有多大意义&lt;/p&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 11:17:52
-还好没开仓[发呆]&lt;/p&gt;
-&lt;p&gt;每天增长1%，稳稳的不要浪！(wxid_oola2135jnu321) 11:18:21
-不要啊，瑟瑟发抖中&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:18:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 02-04 11:17:04
-只测试15年有多大意义
-我在逐月看 最小市值的 表现&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:20:00
-人气股都开始杀&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:20:26
-昨天赚的今天跑得慢都还回去&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 11:22:43
-昨天没赚，是回本[流泪]&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 11:28:02&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 11:12:51
-@土土
-0.34&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;约翰林(darkhair) 11:28:42
-小市值很稳&lt;/p&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 11:29:21
-0.89&lt;/p&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 11:29:32
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=d201349cb45ed64dd00fdfcd464910cf&amp;amp;filekey=3043020101042f302d02016e0402535a04206432303133343963623435656436346464303066646663643436343931306366020256f9040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2684e47bb000c4f376e7c4b2c0000006e01004fb1535a263f601156b2c9624&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;深白色(xuzhan28) 11:30:06
-卒&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 11:30:46&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 11:15:52
-&lt;img src="http://192.168.5.28:5030/image/43ab58285ec4fcc07cff1648fc3c2f22" alt="图片" /&gt;
-原来还能这么搞&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:33:43&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 11:12:36
-最小市值属性的 策略 目前持仓收益 在0.3%-0.6%之间吧
-@土土 你看我没说错吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:34:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 02-04 11:30:46&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-原来还能这么搞
-写了个循环 一段段回测 单独跑&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:35:22
-&lt;img src="http://192.168.5.28:5030/image/81b8afd8ae45f42b07c0f6a3a934e200,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/420637f317e5c56385fd846ba48b7a2d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 11:51:10
-[强]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:52:21
-这个循环法 也是适用于 所有想要逐月看的策略&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:53:43
-特别是加上择时 进行观测 可以看到很细的择时节点&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:54:11
-及与沪深300 1000 在两个月周期里面的 表现差异&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 11:57:37
-&lt;img src="http://192.168.5.28:5030/image/bff6b75376115590759669f5db793b94,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/0ee9de26e1e2b2438c38a981dac6916d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 12:47:20
-https://mc.tencent.com/p2f40IBc  这个腾讯云出的opencalw 教程一步到位呀&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 12:53:25&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 11:57:37
-&lt;img src="http://192.168.5.28:5030/image/bff6b75376115590759669f5db793b94" alt="图片" /&gt;
-又不行了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 13:22:54
-居然绿了&lt;/p&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 13:24:28
-如绿薄冰&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 13:32:14
-昨天触发的bug，今天继续触发了bug，中午被清仓，只剩下200股～&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 13:39:51
-@木木十三 交出你的config,哦不！！交出你的Bug&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 13:40:11
-这个BUG好&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 13:45:52
-&lt;img src="http://192.168.5.28:5030/image/c6ca3218675a51d5169a97bc8789e5d1,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/884114bccb18bf823a2976cd6c0e2ea5" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 13:46:15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-04 13:32:14
-昨天触发的bug，今天继续触发了bug，中午被清仓，只剩下200股～
-尾盘可以回来了，老乡&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 13:47:07
-防御情绪浓郁&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 13:49:33
-【反指开仓】群里静悄悄，开仓&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 13:50:00
-感觉下午开仓更好一点？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 13:50:23
-&lt;img src="http://192.168.5.28:5030/image/15a0b911e55b6623d71b07d487121447,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c2920de77e5db621a33d7df009a04dfa" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 14:07:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-04 13:32:14
-昨天触发的bug，今天继续触发了bug，中午被清仓，只剩下200股～
-bug保值&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:12:05
-&lt;img src="http://192.168.5.28:5030/image/49c63b371d0ab92562f6ab15455f0114,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/50a47731f8774fdc831361e65451d92d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:12:16
-比大盘强就行&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:13:55&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 02-04 14:12:16
-比大盘强就行
-强很多&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:16:31
-大盘刚才很暴力&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:16:46
-干的都是权重&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:17:51
-&lt;img src="http://192.168.5.28:5030/image/0868efd762181ec6365021a82de17bea,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/e08378341f6374b2d544ae3ddec1d734" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:18:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 02-04 14:16:31
-大盘刚才很暴力
-是哦&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 14:18:17
-无掩体干拉&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 14:18:38
-这叫护盘&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:18:49
-&lt;img src="http://192.168.5.28:5030/image/73b190ff2174c80a9565bbf4ee346852,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/12d66e44e2b7c6a30fdca8a7d759be21" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 14:19:01
-不要跑&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:19:07
-比一下还是300比较有力&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 14:19:23
-&lt;img src="http://192.168.5.28:5030/image/1d8f1bc4725bfb38b547b115a1691681,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/9c7f6f304cf0ad2db22845979fa452cf" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 14:19:32&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;约翰林(darkhair) 02-04 14:19:22
-&lt;img src="http://192.168.5.28:5030/image/1d8f1bc4725bfb38b547b115a1691681" alt="图片" /&gt;
-小资金跑的小市值&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:19:39&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;momo(wxid_yhj2n2tnwz8r22) 02-04 14:18:17
-无掩体干拉
-躲到300温暖的怀里&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 14:20:12
-差不多，过2个月看，说不定能赚钱，老是动来动去也累&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 14:30:45
-[呲牙][呲牙][呲牙]&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 14:30:46
-&lt;img src="http://192.168.5.28:5030/video/8132f7b49f43e3967d11dc17048e5cd8,msg/video/2026-02/af53fc8ec60a692f6c8b086f678234a3" alt="视频" /&gt;&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 14:32:14
-可能其实买了200万。骗老婆说买了200&lt;/p&gt;
-&lt;p&gt;东羽(Qicq9145) 14:34:59
-又是被大盘干趴的一天，羡慕你们&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:36:23
-追不过大盘&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:37:06&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;东羽(Qicq9145) 02-04 14:34:59
-又是被大盘干趴的一天，羡慕你们
-能跟上全A不算输&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Kylin(raoqilin0) 14:37:24
-又是被大盘干趴的一天，羡慕你们&lt;/p&gt;
-&lt;p&gt;Oliver(wxid_551vaxigyv5n21) 14:37:42
-又是被大盘干趴的一天，羡慕你们&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:39:30
-估计盘后有利好&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:39:46
-金童回归 股指回拉&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:40:39
-擦&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:40:41
-那么神奇吗&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:41:38&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 13:46:15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-尾盘可以回来了，老乡
-。。。瞎掰扯的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 14:42:08
-&lt;img src="http://192.168.5.28:5030/image/3c28de2e5c35e90977e2e4eff569fa9e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/35dee10b32ba000a66fca35cf44f480d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 14:42:09
-最后被大盘反杀&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:42:48
-还没收盘，还有机会&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:42:57
-&lt;img src="http://192.168.5.28:5030/image/aa03defc80f0c8324acd951ca9c462d7,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c0e56feeadea968b9aefab0f0a76ea1b" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:43:17&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 02-04 14:42:09
-最后被大盘反杀
-不冤枉 你的标的不在那个命中范围&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:43:18
-要上4100了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:43:41
-今天4099，明天大牛？&lt;/p&gt;
-&lt;p&gt;系统消息 14:44:31
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:44:41
-金突了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:44:56&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 14:44:41
-金突了
-萌新求解释&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 14:45:32
-萌新求解释&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:45:33
-空转多&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 14:45:35
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=2735977e948c3f3b0c7661d4b0c3526f&amp;amp;filekey=3043020101042f302d02016e0402534804203237333539373765393438633366336230633736363164346230633335323666020266c5040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2655c807a0000b5d696a8d6c20000006e01004fb153481a08fbc1e6693e134&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:45:45
-4100了&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:46:16
-最后10分钟&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 14:46:22
-能否稳住&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:47:47
-能的&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:47:52
-很稳&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:47:55
-牛逼了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:48:01
-春节前行情是不是要来了&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:48:21
-&lt;img src="http://192.168.5.28:5030/image/2717ce8aef8b7b1f4d2776b6df13e911,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/283e2a0a2595326c2ca0ce4c1a052d09" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:48:39
-老板你这个是实时的啊&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:48:40
-今天最差时候-230&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:48:52
-是的&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:49:00
-牛逼&lt;/p&gt;
-&lt;p&gt;系统消息 14:50:39
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:50:53
-突击。。&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:51:25
-进击的金童&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:51:43
-ag2603&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:51:51
-冲&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:51:59
-银11个点了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:52:01
-[裂开]&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 14:52:18
-钛猛&lt;/p&gt;
-&lt;p&gt;系统消息 14:53:01
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 14:53:10
-金10个了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 14:53:34
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=53112ccab1fb237838337077bc45c5b2&amp;amp;filekey=30350201010421301f0202011304025348041053112ccab1fb237838337077bc45c5b2020300a141040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2647958730006637c000000000000011300004f505348276c596096f854973&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 14:54:23
-蛮牛哥前两天翘小诚科技的地板真的猛&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 14:54:28
-情绪拿捏了&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 14:54:53
-那天好像作手新一去翘的湖南黄金&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:00:32
-&lt;img src="http://192.168.5.28:5030/image/eb0970bf7306a9d869be26721c771e6f,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/00719e6126f60ef650bfe14dd27fd914" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 15:00:54
-牛逼&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:01:10
-牛逼&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:01:16
-dddd&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 15:01:20
-牛逼&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 15:01:22
-牛逼&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 15:01:57
-牛逼，顺便说一下策略名&lt;/p&gt;
-&lt;p&gt;Oliver(wxid_551vaxigyv5n21) 15:02:00
-这单调吗&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:02:09
-笛卡尔2&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 15:02:20
-我靠，笛卡尔2是上古时期的策略吗？&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:02:24
-满手好人股&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 15:03:08
-收工下班&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 15:03:55
-&lt;img src="http://192.168.5.28:5030/image/4c80e4ad7c3d50e2b75ee994e875ac57,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/fb8664a35920069bd23ceff7ffbcc26d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:04:03
-好人股可以这么猛的吗&lt;/p&gt;
-&lt;p&gt;皮混王(wxid_332czsxqmgxu22) 15:04:07
-我靠本来我唯一一个笛卡尔2的offset，今天上午给我轮成小市值了&lt;/p&gt;
-&lt;p&gt;A++SHX3119(wxid_e9rklre5uv5922) 15:04:09&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🚀白河船長੭🐼(wxid_a4yfmdabcgpn22) 02-04 15:00:32
-&lt;img src="http://192.168.5.28:5030/image/eb0970bf7306a9d869be26721c771e6f" alt="图片" /&gt;
-25年的还是24年的，魔改没有&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:04:30
-好人股不是一天零点几的[偷笑]&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 15:04:43&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A++SHX3119(wxid_e9rklre5uv5922) 02-04 15:04:09&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-25年的还是24年的，魔改没有
-25肯定没有笛卡尔啊&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:04:47
-量化水平太低了，没有魔改&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:05:11
-猛&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 15:05:16
-24年吧&lt;/p&gt;
-&lt;p&gt;Kylin(raoqilin0) 15:07:06&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🚀白河船長੭🐼(wxid_a4yfmdabcgpn22) 02-04 15:00:32
-&lt;img src="http://192.168.5.28:5030/image/eb0970bf7306a9d869be26721c771e6f" alt="图片" /&gt;
-卧槽&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 15:13:23
-牛逼&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 15:13:36
-笛卡尔2爆发了，这是牛市那个阶段了&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 15:14:09
-哪个[破涕为笑]&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:16:55
-牛屁股阶段[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:17:49&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🚀白河船長੭🐼(wxid_a4yfmdabcgpn22) 02-04 15:00:32
-&lt;img src="http://192.168.5.28:5030/image/eb0970bf7306a9d869be26721c771e6f" alt="图片" /&gt;
-一句话不说 🧎🏻‍♂️哥 给你跪下了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:18:10&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-04 15:03:55
-&lt;img src="http://192.168.5.28:5030/image/4c80e4ad7c3d50e2b75ee994e875ac57" alt="图片" /&gt;
-1.97策略名报一下呗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 15:20:39
-凯师傅&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:21:18&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-04 15:20:39
-凯师傅
-yyds&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 15:24:37
-&lt;img src="http://192.168.5.28:5030/image/db82316fb72ecdc258cf1617b1c3187e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/ddec862f78f3b92b2194a332cb544cf2" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 15:25:03
-发生甚么事了😨&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:28:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 02-04 15:25:03
-发生甚么事了😨
-前面涨太多了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 15:29:30
-竞价砸了20%&lt;/p&gt;
-&lt;p&gt;系统消息 15:32:54
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;系统消息 15:34:07
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:35:51
-现在没有人用这种手段了&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:36:07
-太糟枪线了&lt;/p&gt;
-&lt;p&gt;系统消息 15:38:53
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;系统消息 15:43:54
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 15:44:31
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=9f0221de57c135e2e745584d53ea0c8d&amp;amp;filekey=30440201010430302e02016e0402534804203966303232316465353763313335653265373435353834643533656130633864020327ce9c040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=265a60d09000b34f76f0a55cd0000006e01004fb153481ba4d1b1567ec43ff&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 15:45:27
-怎么了，有人选中买入这只股了吗&lt;/p&gt;
-&lt;p&gt;系统消息 15:45:47
-&amp;quot;無慈悲な定量化機械&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;佛光(wxid_0ptnj2c1g80n22) 15:46:19
-红牛老板又回来啦&lt;/p&gt;
-&lt;p&gt;系统消息 15:46:28
-&amp;quot;佛光&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;小麦(PoPshuai) 15:47:59&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🚀白河船長੭🐼(wxid_a4yfmdabcgpn22) 02-04 15:00:32
-&lt;img src="http://192.168.5.28:5030/image/eb0970bf7306a9d869be26721c771e6f" alt="图片" /&gt;
-老板是满仓笛卡尔吗？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:49:31
-满仓&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 15:50:33
-[强]&lt;/p&gt;
-&lt;p&gt;小麦(PoPshuai) 15:50:37
-[强]&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 15:50:54
-我是萌新，想问下各位大佬，你们量化是不是重仓猛干，浮盈加仓，频繁交易，技术分析&lt;/p&gt;
-&lt;p&gt;我实盘了这么久感觉全占，有一个人还天天跟我说你敢不敢把重仓押注，不要过家家投资&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:51:31
-基本上美好，早晚得势&lt;/p&gt;
-&lt;p&gt;🎈白河੭(wxid_a4yfmdabcgpn22) 15:51:33
-[旺柴]&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 15:52:20
-那个什么定的，天天浮盈加仓，频繁交易，技术分析&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 15:53:12&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-04 15:50:54
-我是萌新，想问下各位大佬，你们量化是不是重仓猛干，浮盈加仓，频繁交易，技术分析
-我实盘了这么久感觉全占，有一个人还天天跟我说你敢不敢把重仓押注，不要过家家投资
-又不能上杠杆，你咋做到浮盈加仓？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 15:58:25
-感觉截面策略很少有加仓的说法&lt;/p&gt;
-&lt;p&gt;A++SHX3119(wxid_e9rklre5uv5922) 15:59:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-04 15:50:54
-我是萌新，想问下各位大佬，你们量化是不是重仓猛干，浮盈加仓，频繁交易，技术分析
-我实盘了这么久感觉全占，有一个人还天天跟我说你敢不敢把重仓押注，不要过家家投资
-邢不行说 理解策略是重仓前提&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:00:22&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-04 15:50:54
-我是萌新，想问下各位大佬，你们量化是不是重仓猛干，浮盈加仓，频繁交易，技术分析
-我实盘了这么久感觉全占，有一个人还天天跟我说你敢不敢把重仓押注，不要过家家投资
-傅海棠语录&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:00:56
-@力割_萌新 你在Diss那个 王👑一样的男人。&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:01:03
-莫不是你要反？！！&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 16:01:55
-除了重仓猛干，别的都不占啊🤔&lt;/p&gt;
-&lt;p&gt;系统消息 16:04:15
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 16:04:42
-家里人你发旗舰群吗&lt;/p&gt;
-&lt;p&gt;A++SHX3119(wxid_e9rklre5uv5922) 16:04:51&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;🚀白河船長੭🐼(wxid_a4yfmdabcgpn22) 02-04 15:49:31
-满仓
-只一个策略跑吗？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 16:05:05
-落子无悔盈亏自负&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 16:22:43
-&lt;img src="http://192.168.5.28:5030/image/632e160bd176602fe571561d9bfe91d3,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/6cd9ad1a50bebebdd59703a7b0594fb2" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;赚钱养脑斧🐯(wxid_e7aoyu6aecs421) 16:28:11
-&lt;img src="http://192.168.5.28:5030/image/fac6134e9715c4d38311eec673bfec19,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/67e184dc68be791c0d24bd18c6e65c67" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 16:30:43
-我老婆昨天开户了&lt;/p&gt;
-&lt;p&gt;东羽(Qicq9145) 16:32:22
-咋这么多人开户，都去买白银套利吗&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 16:42:21
-免五的取消了&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:42:55
-免五没有，还是挺考验拆单的&lt;/p&gt;
-&lt;p&gt;赚钱养脑斧🐯(wxid_e7aoyu6aecs421) 16:43:28
-应该是黄白双煞的致富假象造成的&lt;/p&gt;
-&lt;p&gt;系统消息 16:47:39
-&amp;quot;分享会-林奇助教@派森量化&amp;quot;邀请&amp;quot;mc&amp;quot;加入了群聊&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:08:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-04 15:50:54
-我是萌新，想问下各位大佬，你们量化是不是重仓猛干，浮盈加仓，频繁交易，技术分析
-我实盘了这么久感觉全占，有一个人还天天跟我说你敢不敢把重仓押注，不要过家家投资
-谁？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:12:33
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=8a6f7be18477638ec88fb3d1bb58008c&amp;amp;filekey=30440201010430302e02016e0402535a0420386136663762653138343737363338656338386662336431626235383030386302030172e1040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=268760eae000eb6e04fcb3bd80000006e01004fb1535a2b3f101156961aeaa&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 17:15:29
-没有免五对量化是灾难&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 17:18:23
-一单5万直接怼，不拆了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:18:47
-不拆了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:18:48
-[裂开]&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:19:16
-回去就去改拆单数值&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 17:19:31
-没有免5就换券商&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 17:19:33
-正式通知要取消所有免5吗&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 17:20:02
-什么鬼&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 17:20:22
-有几个券商好像说是要取消，牛市了，傲娇了&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 17:20:38
-啊？&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 17:20:54
-那个啊 避坑&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 17:20:55
-过半年又想跪着求人开户了是吧&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 17:21:25
-先现在吃饱了再说，手续费拉到千分之一！&lt;/p&gt;
-&lt;p&gt;深白色(xuzhan28) 17:22:26
-[发呆]赶快看看交割单&lt;/p&gt;
-&lt;p&gt;深白色(xuzhan28) 17:22:35
-去年就被光大阴过&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:26:15
-我的券商一直没免5&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:26:19
-🤷&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:26:25
-开什么玩笑，佣金不是签了合同的吗&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:26:50&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 02-04 17:26:15
-我的券商一直没免5
-我的也是&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:26:59
-免5，反而对大资金不利了&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:28:57&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 02-04 17:26:59
-免5，反而对大资金不利了
-为啥&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ShawnSu(a28432251) 17:29:04
-我们不是拆弹成小资金的么&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:30:29
-噢，是zh没给免5&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:30:34
-我开得比较晚&lt;/p&gt;
-&lt;p&gt;系统消息 17:30:38
-&amp;quot;Shawn_Gsy&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 17:31:15
-zh现在拉完了&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:31:23
-HT也没给&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:31:42
-海通好用吗&lt;/p&gt;
-&lt;p&gt;系统消息 17:33:13
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:33:36
-ht是绿皮券商，每次都是他带头刷新业界新低&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 17:35:34
-海通是不是最便宜的？&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:35:57
-带头把佣金干到万0.75免5&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:36:10
-融资利率也是业界最低&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 17:36:31
-那我们要换海通啊&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:36:36
-好像能干到年化3以下&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 17:36:55
-ht不是嗝屁了吗&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 17:38:14
-现在是国泰海通了&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 17:38:17
-政策变了不？&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 17:43:54
-海通还要收流量费呢&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 17:44:40
-挂单撤单收1毛，就算不成交也收&lt;/p&gt;
-&lt;p&gt;Cary(wxid_hqjorp1408fg21) 17:45:25
-啊？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:45:31&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 02-04 17:44:40
-挂单撤单收1毛，就算不成交也收
-有这事？这不都赶上期货挂单撤单了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Cary(wxid_hqjorp1408fg21) 17:45:38
-难道一直在吸我血？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:45:40
-第一次听说。。孤陋寡闻了&lt;/p&gt;
-&lt;p&gt;Kylin(raoqilin0) 17:45:47&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;朝阳(chaowenxuan) 02-04 17:44:40
-挂单撤单收1毛，就算不成交也收
-啊，我去看看👀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Cary(wxid_hqjorp1408fg21) 17:45:55
-从哪里能看到被收了哪些费用呀&lt;/p&gt;
-&lt;p&gt;朝阳(chaowenxuan) 17:46:42
-昨天群里看到的&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 17:48:52
-可以不拆啊&lt;/p&gt;
-&lt;p&gt;东羽(Qicq9145) 17:50:39
-ht现在不是改成m5，就是每笔收流量费0.1&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 17:55:52
-看看交割单就明白了，东北就是m5➕万0.84&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 17:56:42
-没有M5的话，长期下来，费用真挺可观的&lt;/p&gt;
-&lt;p&gt;系统消息 17:57:25
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:57:46
-我刚刚问了，现在彩虹这边没有免五的账户了，就剩一家了？&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 17:58:17
-@Point71 你之前在彩虹开的没有m5吗&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 18:00:26
-我把腾讯云的OpenClaw部署好了，这玩意可以干啥啊？有没有人用过&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 18:00:51
-帮你干活，花你的token&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 18:01:03
-帮你败家花钱&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 18:01:43
-好像前段时间听说东北也不m5了&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 18:01:44
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=0e9b6bd12894bcde66b6926370f6d3b1&amp;amp;filekey=3043020101042f302d02016e0402534804203065396236626431323839346263646536366236393236333730663664336231020222fc040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=266f11f91000772756d597ed20000006e01004fb1534821065b01e7b2bda80&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 18:02:22&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 02-04 18:01:43
-好像前段时间听说东北也不m5了
-好像辟谣了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 18:02:41
-有老板问了db的经理&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 18:02:53
-手工qmt都兔&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 18:02:57
-这样子，我还没开东北的，只是之前好像在群里看到有人提过这个事&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 18:03:01
-腾讯云搞的后付费，所以我也不知道败家了多少&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 18:03:13
-但是zh的确实不免&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 18:03:23&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 02-04 18:02:53
-手工qmt都兔
-我问的[呲牙]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:03:51&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 02-04 18:03:13
-但是zh的确实不免
-z航好像是没有&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:04:34
-@Joe 有的，我只是需要新开账户&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 18:04:42
-&lt;img src="http://192.168.5.28:5030/image/58c8f69255229c36de0122762b441002,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/f7c086fad460e394c375dcc96e390bf6" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 18:05:29&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-04 17:56:42
-没有M5的话，长期下来，费用真挺可观的
-没有m5，资金上200w，一年费用多十万&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:06:10&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 18:05:29&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-没有m5，资金上200w，一年费用多十万
-不拆能行吗[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 18:06:40
-不拆小狮子，滑点大[撇嘴]&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 18:07:12
-小白资本直接成为了主力资金[旺柴]&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:07:16
-一单5w估计受不了，整点紧箍咒呢？&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 18:07:54
-而且一单5w，分享会都没多少老板能达到这个资金量&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:08:08
-有时候没流动性，2w就拉一个点&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 18:08:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-04 18:05:29&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-没有m5，资金上200w，一年费用多十万
-顿时觉得赚了几个W[偷笑]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:08:48
-一单5w一个策略一天就25，跑满offset一个策略就125w了[捂脸]&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:09:23
-没免五太伤了&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 18:09:32
-听说现在开东北都没m5了&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 18:10:01
-牛市开户就这样的，爱开不开，不缺人了&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 18:10:14
-其实也没事，相信彩虹集团的实力，说不定还有更好的券商进来&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 18:10:18
-一年赚十年的收益&lt;/p&gt;
-&lt;p&gt;系统消息 18:15:10
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;夏普(25984985420793406@openim) 18:17:49
-龙韵古份最近停牌了哦，建议大家在复牌前先拉黑哈&lt;/p&gt;
-&lt;p&gt;避免万一选择出现不必要的交毅，然后被某所Waring&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 18:20:20
-公告和标签是不会被选股选到
-拉黑是第二个交易日直接卖吗@夏普 &lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 18:20:51
-那这个票不会被公告或者标签自动剔除吗&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 18:20:58
-为什么要手动拉黑&lt;/p&gt;
-&lt;p&gt;东羽(Qicq9145) 18:26:59
-应该新开户m5应该都不好开，存量的还是可以免的吧&lt;/p&gt;
-&lt;p&gt;SASIOVERLXRD(wxid_7zcs8aczrph522) 18:33:28&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-04 18:03:23&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-我问的[呲牙]
-[社会社会][社会社会]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Jiamin(wxid_4439424394422) 18:34:47
-明天早上龙韵挂废单&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 18:36:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;夏普(25984985420793406@openim) 02-04 18:17:49
-龙韵古份最近停牌了哦，建议大家在复牌前先拉黑哈
-避免万一选择出现不必要的交毅，然后被某所Waring
-这只股票为啥要拉黑？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Jiamin(wxid_4439424394422) 18:37:30
-估计复牌的时候会有一大堆卖出&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_yp3uisxubvum22) 18:57:47
-今日实盘问题数量正常，均为常见问题，无异常情况&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_yp3uisxubvum22) 18:57:48
-&lt;img src="http://192.168.5.28:5030/image/753a15474dde148e95fe5b50a0d25e3c,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/991f7816034cefc6aba1a33a2e4cec81" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_yp3uisxubvum22) 18:57:49
-&lt;img src="http://192.168.5.28:5030/image/3c737e1247aa3a3963010539e9f1fb36,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/86ca9c3ab707ff540f0f3859ec7e1d69" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:07:52
-https://bbs.quantclass.cn/thread/76223&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:08:06
-&lt;img src="http://192.168.5.28:5030/image/ee15b76359c84a604cd47e773780048a,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/3dcc59aadd4e8eee5bfbbb085ec952e6" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:08:19
-@船长-夏普  @土土 ↑&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:08:59
-我靠，必须第一时间投籽&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:09:42
-&lt;img src="http://192.168.5.28:5030/image/a4a499b17d8b6413ba1301a81919fd30,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/1bbfa0e478d0ae31669d7ac1dfe5a94f" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:09:58
-小市值策略很容易命中龙韵&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:10:08
-这下懂了&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:10:12
-拉黑手工处理&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:10:32
-&lt;img src="http://192.168.5.28:5030/image/da56c0af2fca0fbed9d2bf3cd7845479,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/1841857af18c8a9f5c2ce5ee4ac0c0ad" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:10:43&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 19:10:12
-拉黑手工处理
-非得买它不可么&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:11:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 19:10:43&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-非得买它不可么
-不是买，是卖&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:11:21
-但是那个男人说不要干预策略啊&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:11:28
-策略选到了不买不就是干预了吗&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:12:18
-这不是干预策略 只是补充策略 对于停牌这种异常情况的 漏洞&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:12:26
-程序漏洞 手动补&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:12:32&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 19:12:18
-这不是干预策略 只是补充策略 对于停牌这种异常情况的 漏洞
-OK，学到了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:12:54
-监管规则的改变 是很细的 没有办法全覆盖的 那样回测框架 和实盘框架会非常复杂&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 19:13:16
-那个男人也曾停过策略[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:13:33&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 02-04 19:13:16
-那个男人也曾停过策略[旺柴]
-举报：有人要反&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 19:13:48
-量化是对过去的总结，如果出现了以前没见过的事儿，可以考虑干预&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 19:13:58
-这次不一样[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:14:18&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 02-04 19:13:48
-量化是对过去的总结，如果出现了以前没见过的事儿，可以考虑干预
-从删库到跑路&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:16:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 02-04 19:13:16
-那个男人也曾停过策略[旺柴]
-真的假的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:16:18
-真停过啊&lt;/p&gt;
-&lt;p&gt;系统消息 19:16:50
-&amp;quot;小白资本&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 19:16:57
-还记得24年大盘涨停吗？卖了就买不进去的那种&lt;/p&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 19:16:59
-10-8&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:17:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 19:16:18
-真停过啊
-跌超过阙值  也会触发停止策略&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:17:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 02-04 19:16:57
-还记得24年大盘涨停吗？卖了就买不进去的那种
-哈哈锁仓&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 19:17:31
-全历史都没有过，回测帮不了你&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:17:49&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 02-04 19:17:31
-全历史都没有过，回测帮不了你
-学到了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:18:05
-又一次 被凡尔赛打败&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 19:18:14
-确实被凡尔赛打败了&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:18:55
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76223"&gt;链接|【无用天书卷】【停牌个股】复牌前要拉到量化【黑名单】原因部分解析 | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 19:26:14&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 02-04 18:36:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-这只股票为啥要拉黑？
-早上好像有说，怕不听的废单，然后封号限制[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:27:15
-@--坤 我补充进去&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 19:27:58
-&lt;img src="http://192.168.5.28:5030/image/27906b0dae209c5a87f94190b9ff376b,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c434da6eda9297a9f1df4046e38c1b0a" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 21:27:24
-一年级新生请假个问题 ，实盘代码程序框架是没有吗，只有软件版本的吗&lt;/p&gt;
-&lt;p&gt;大苗条(wxid_8mky9ic3gz5g22) 21:43:45
-直播间说过一段会提供&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:46:25
-那个客户端不是开源的吗？&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 21:50:32
-是的 刚刚问了林奇说后面会提供实盘框架&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:53:06
-你说的是rocket吗？&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 21:55:57
-就是代码版的实盘框架&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:56:15
-&lt;a href="https://mp.weixin.qq.com/mp/waerrpage?appid=wxbaa79d54e6ed7842&amp;amp;type=upgrade&amp;amp;upgradetype=3#wechat_redirect"&gt;小程序|腾讯黄金红包&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:56:31
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=5fcac42b394db0903267c8f03925912a&amp;amp;filekey=30350201010421301f020201060402535a04105fcac42b394db0903267c8f03925912a02030144ab040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632353231303532363030306165343566343537323665633134313133356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;辛振(xinzhen88) 21:56:42&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 02-04 21:27:24
-一年级新生请假个问题 ，实盘代码程序框架是没有吗，只有软件版本的吗
-有 去年就有。最新版本的实盘程序rocker版本 早晚会给&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:57:05
-好用不&lt;/p&gt;
-&lt;p&gt;辛振(xinzhen88) 21:58:07
-不如实拍小程序好用。但是有特殊需求的话可以自己改，更灵活。当然也会自己给自己挖坑。&lt;/p&gt;
-&lt;p&gt;辛振(xinzhen88) 21:58:56
-我是因为有一个策略文件的原因，无法导入实盘小程序，被迫改的。&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 21:59:20
-&lt;img src="http://192.168.5.28:5030/image/cf1bbb9852d75deabe6540ade37047aa,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/7fec5146acd6544e5f577ab5e0fc9226" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 21:59:37
-请问下这个数据api接口可以使用的吗？&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 21:59:54
-答疑，可以的&lt;/p&gt;
-&lt;p&gt;Cocj(wxid_r9b1sud2xobp21) 22:00:18
-好的谢谢&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:21:26
-https://bbs.quantclass.cn/thread/76234&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:21:26
-&lt;img src="http://192.168.5.28:5030/image/2a6bfc3230433fd8867ed6d5491c7888,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/d17c469006531cd4563a6a0aab3abd51" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:21:27
-&lt;img src="http://192.168.5.28:5030/image/ba264b7b758c416872c112a3d72a416f,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/6e4c82600ae2022a16d4a23eee4e6aee" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;辉(wxid_zmvv2wk2wkeh21) 22:22:25
-这么快就发出来了&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 22:22:38
-何老板真是速度&lt;/p&gt;
-&lt;p&gt;萌新-张子房(hzl530674214) 22:23:11
-何神这个学习大纲很客观&lt;/p&gt;
-&lt;p&gt;萌新-张子房(hzl530674214) 22:23:36
-萌新看完不焦虑了&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 22:23:39
-何老板这么快&lt;/p&gt;
-&lt;p&gt;萌新-张子房(hzl530674214) 22:23:48
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=87596e51f131b84423f1407fc314f44c&amp;amp;filekey=30340201010420301e0202011304025348041087596e51f131b84423f1407fc314f44c0202738d040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26978892f000839eeb435545c0000011300004f5053481709f17156b93686f&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;赚钱养脑斧🐯(wxid_e7aoyu6aecs421) 22:24:38
-何老板真快&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:40:01
-哈哈AI改的乱七八糟 我先撤回&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:41:53
-以官方为准[偷笑]&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 22:49:37
-我用Trae来学框架&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 22:49:43
-倒是真的很舒服&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 22:49:49
-知道哪些步骤是干嘛的&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:50:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 02-04 22:49:37
-我用Trae来学框架
-但是 你要用TRAE的 IDE 不要用SOLO&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 22:50:34
-SOLO 有时候给你撒开来改代码&lt;/p&gt;
-&lt;p&gt;long(wxid_hmeuf1l2vm5g22) 22:50:37
-solo写skills[旺柴]&lt;/p&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 22:51:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-04 22:50:13&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-但是 你要用TRAE的 IDE 不要用SOLO
-嗯 那必然用IDE的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 22:51:22
-充了Pro
-就是额度更多是么&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 22:51:31
-claude code 好用&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 22:52:25
-都好用，看哪个习惯&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 22:52:57
-感觉用gemini的trae比较聪明点&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 22:53:22
-claude code max 200刀版本 上opus模型 基本上可以满足所有编码需求&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 22:53:34
-有Gemini会员的话  antigravity其实也蛮不错的&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 22:53:46
-每天给你刷新opus额度&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易实战：避开Alpha妖币的“空头砒霜”与策略优化进阶</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;amp;talker=58453205219@chatroom"&gt;2026-02-04_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;📉 市场调整与加仓逻辑&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略回撤的洞察&lt;/strong&gt;：邢不行指出，由于过去一年大饼（BTC）相对于全市场过于强势，目前处于调整期，导致相关策略（如“四龙一狗”）出现轻微回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加仓信号&lt;/strong&gt;：在量化圈，“茶话会”常被调侃为加仓信号。对于新人而言，策略适度回撤反而是较好的上仓位时机。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛡️ 远离“草莽”：Alpha币的避坑指南&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;什么是Alpha币&lt;/strong&gt;：可以将其理解为币安的“创业板”。这些币市值微薄、根基未稳，但波动性极强，不遵循常规逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;空头避雷逻辑&lt;/strong&gt;：gcouple.J分享了核心见解——将Alpha币列入&lt;strong&gt;空头黑名单&lt;/strong&gt;。这类币种容易出现拔地而起的“妖异”走势，对多头是甘露，对空头则是致命砒霜。通过脚本定期更新Alpha币列表并拉黑，能有效减少被“暴击”的概率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛠️ 实战技术：如何实现多空分离黑名单&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子化过滤&lt;/strong&gt;：针对实盘框架中黑名单无法多空分离的问题，建议采用“因子化”方案。将黑名单写成自定义因子（如 &lt;code&gt;Blacklist.py&lt;/code&gt;）放入 factors 文件夹。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：在 &lt;code&gt;filter_list&lt;/code&gt; 中配置该过滤因子，并针对空头单独应用，这样既不影响多头参与爆发机会，又能保护空头免受妖币伤害。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;兼容性技巧&lt;/strong&gt;：在黑名单配置中同时写上带横杠和不带横杠的币种形式（如 &lt;code&gt;BTCUSDT&lt;/code&gt; 和 &lt;code&gt;BTC-USDT&lt;/code&gt;），可确保回测与实盘通用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;⚙️ 细节优化与数据对齐&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;参数微调&lt;/strong&gt;：对于多头策略，适当调大 &lt;code&gt;hold_period&lt;/code&gt;（持仓期）有助于提升表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据路径匹配&lt;/strong&gt;：在代码版实盘中，需严格比对本地与服务器的数据路径（如 &lt;code&gt;bamc&lt;/code&gt; 对应路径），确保策略加载的数据源正确无误。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 金句提炼&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“少犯错，就是赚。” —— &lt;strong&gt;gcouple.J&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“Alpha者，市之草莽也……多头见之，或为甘露；空头触之，则为砒霜。” —— &lt;strong&gt;gcouple.J&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“茶话会 = 加仓信号。” —— &lt;strong&gt;fubb&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“能于空头之刃下，划出一片‘清净之地’，实乃量化修心之大智。” —— &lt;strong&gt;gcouple.J&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/75961&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:30:35
-老板们，&amp;quot;coin-btc&amp;quot;: ('load_coin_btc', 'D:/GP/quantdata/coin-binance-candle-csv-1h',)，这个四饼策略数据，在实盘框架里面对应的是哪个数据呢&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:30:52
-[分享]&lt;/p&gt;
-&lt;p&gt;行讫(weixinsliver) 02:38:04
-你用网页版，设置好策略以后会自动配置&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:38:14
-我用的是代码版&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:38:49
-/root/git/BAMC/data/binance_spot_1h_resample/0m&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:38:55
-用的这个数据 不知道对不对&lt;/p&gt;
-&lt;p&gt;行讫(weixinsliver) 02:39:23
-emm，我也记不得了&lt;/p&gt;
-&lt;p&gt;行讫(weixinsliver) 02:40:43
-&lt;img src="http://192.168.5.28:5030/image/890d162b6416c226ee0ec572ff64c6b4,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/efe67a0613c37775c1a9f6f94d81dcbd" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:40:59
-本地的是这个&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:41:05
-但是服务器用的bamc&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:41:09
-不知道对应的哪个&lt;/p&gt;
-&lt;p&gt;行讫(weixinsliver) 02:41:36
-你对一下这个数据地址，末尾部分&lt;/p&gt;
-&lt;p&gt;行讫(weixinsliver) 02:41:50
-&lt;img src="http://192.168.5.28:5030/image/91d2f6157dc24849fea7508f64b4e7f5,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/95836946f6204ec1524da09c8d808677" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;交易为生(wxid_mtkuojhqv9ta21) 02:42:04
-对过了  没有这个&lt;/p&gt;
-&lt;p&gt;.(wxid_ra9442ue9ez612) 08:24:32
-更新框架&lt;/p&gt;
-&lt;p&gt;.(wxid_ra9442ue9ez612) 08:24:58
-@交易为生 框架更新之后加了这个&lt;/p&gt;
-&lt;p&gt;邢不行(25984983153033555@openim) 08:47:11
-&lt;img src="http://192.168.5.28:5030/image/ab0fae8f87867fbc76b5737c86ad7415,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/c4a635e9d17fada30457314d3394812a" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;邢不行(25984983153033555@openim) 08:47:25
-昨晚下跌，好像大饼是跌的最多的，所以四龙狗轻微回撤。&lt;/p&gt;
-&lt;p&gt;这也就是我直播中说的，这个策略最近可能会回撤。因为过去一年大饼相比于全市场太强势了，是时候调整一下。&lt;/p&gt;
-&lt;p&gt;目前这个策略新人还没上仓 位，希望多回撤一点&lt;/p&gt;
-&lt;p&gt;邢不行(25984983153033555@openim) 08:47:31
-多跌点等适度理解、茶话会的时候，就可以开始加仓了&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 09:00:25
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=866840638efb4f77175f0390f67a09e5&amp;amp;filekey=30350201010421301f02020113040253480410866840638efb4f77175f0390f67a09e50203019fdc040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2680f527a0009db4fb41a803e0000011300004f5053480daf3171568420349&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;fubb(wxid_53zut7hxni1w12) 09:20:50
-[抠鼻] 茶话会 = 加仓信号&lt;/p&gt;
-&lt;p&gt;系统消息 09:24:30
-&amp;quot;龚博致&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 09:25:30
-算了算了，我不太熟，还是问助教？&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 09:44:22
-群里有热心大佬[呲牙]&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 10:11:36
-&lt;img src="http://192.168.5.28:5030/image/527e901c1924ec18546c77029b6a0ed7,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/184e57944cf14a81cf6ec31b0d1bcbbc" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 10:12:33
-@李玮 老板，把多头hold_period 调大就好了&lt;/p&gt;
-&lt;p&gt;李玮(wxid_nkarbo7yn7y022) 10:13:06
-@WN_暖春拂晓 感谢老板[抱拳][抱拳][抱拳]&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 13:37:08
-&lt;a href="http://192.168.5.28:5030/file/bf350f2551d0d67d3360ea06851831d2"&gt;文件|260204选币策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 13:37:11
-&lt;a href="http://192.168.5.28:5030/file/a249b57338af217f4bd181540c8c7698"&gt;文件|260204中性策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 13:37:11
-截止到今早9点的数据&lt;/p&gt;
-&lt;p&gt;哲本哲(jinyizhe2821687) 13:39:23&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 02-04 13:37:11
-截止到今早9点的数据
-老板看下私聊儿&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;哲本哲(jinyizhe2821687) 13:39:36
-@邓普顿 &lt;/p&gt;
-&lt;p&gt;瑜仔(wxid_k5g9bth16d3o21) 14:01:54
-选b回测和仓管都要单独建不同的python环境吗&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 14:03:06
-不需要，共用的&lt;/p&gt;
-&lt;p&gt;瑜仔(wxid_k5g9bth16d3o21) 14:03:38
-好的，谢谢老板&lt;/p&gt;
-&lt;p&gt;雪夜(sailingstone) 15:26:37
-@邓普顿 顿总，四龙戏狗的多头部分怎么变成轮动？是只要改config就行了，还是需要改RotationStrategy&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:33:47
-话说有获得alpha币的api吗&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 15:38:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-04 15:33:47
-话说有获得alpha币的api吗
-BN官网有api说明&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 15:40:26&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;雪夜(sailingstone) 02-04 15:26:37
-@邓普顿 顿总，四龙戏狗的多头部分怎么变成轮动？是只要改config就行了，还是需要改RotationStrategy
-论坛有老板发帖: 四饼一狗策略的简单优化--留狗去饼, 可以利用bias选币因子, 帖子是: https://bbs.quantclass.cn/thread/75961  @雪夜&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;雪夜(sailingstone) 15:40:46
-谢谢老板&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:48:19&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 02-04 15:38:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-BN官网有api说明
-OK，我去看看&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:22:45&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-04 15:48:19&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-OK，我去看看
-https://www.binance.com/bapi/defi/v1/public/wallet-direct/buw/wallet/cex/alpha/all/token/list&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:23:03
-&lt;a href="http://192.168.5.28:5030/file/1e4e486520e94d7bd92189498067f2b0"&gt;文件|filter_alphacoin.py&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:23:13
-这是我自用的获取alpha币的脚本&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 16:24:05
-谢谢J神&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 16:29:18
-[强][强][强]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 16:30:27
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cb211fde1f864c4f904c244ba88b2d62&amp;amp;filekey=30350201010421301f02020106040253480410cb211fde1f864c4f904c244ba88b2d62020303151d040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640a9965000a8ba072f89f690000010600004f5053482a86ab40b6b5bd017&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:31:11
-&lt;img src="http://192.168.5.28:5030/image/cd1941a6ea2889d7c231078ca7aa8fa3,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/f5d9681fe23a1364ccc86c409cb8ba27" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 16:31:40
-[强][强]&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 16:32:31
-[强][强]&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 16:32:45
-牛&lt;/p&gt;
-&lt;p&gt;阿基(wxid_jsrw5jte7rbm12) 16:33:09
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=7868340f4bf56ee212d751837e5d81e8&amp;amp;filekey=30350201010421301f020201130402534804107868340f4bf56ee212d751837e5d81e802030170da040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=268c245ed00063f6cb41a98b60000011300004f5053482248b171570ca6797&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 16:33:19
-动量跑alpha吗&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:33:58
-不是&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:34:08
-多头选币还是正常选&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:34:19
-但空头，我会把alpha币拉黑&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:34:26
-少犯错，就是赚&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 16:36:51
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=af669583f3a8d20b27e9e204bc2117f0&amp;amp;filekey=30440201010430302e02016e0402535a042061663636393538336633613864323062323765396532303462633231313766300203295b67040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=265a5ec710000b888a67bea710000006e01004fb1535a0d9f3011566922288&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 16:37:24
-bulla空头又自动接回来 哭死&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 16:37:34
-有道理&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 16:37:54&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 02-04 16:37:24
-bulla空头又自动接回来 哭死
-bulla不是没有现货吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 16:38:10
-黄果树空到了？&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 16:38:19
-不是 动量选了&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 16:39:19
-感谢J神，已经获取成功了&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 16:42:05&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 02-04 16:31:11
-&lt;img src="http://192.168.5.28:5030/image/cd1941a6ea2889d7c231078ca7aa8fa3" alt="图片" /&gt;
-J神，这个del_list列表都加入空头的拉黑吗？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;系统消息 16:42:40
-&amp;quot;郑&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 16:42:48
-感谢J神，又多了一个cta币池&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 16:42:57
-&lt;img src="http://192.168.5.28:5030/image/e57ee7a07e76ed0e6aec749173095630,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/e92ac80dadc8a17713b69dfe3ffdd5dd" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;齐昊昱(wxid_jx3rzkrqy46922) 16:43:31
-小白问一下，alpha币是啥意思？&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 16:44:00
-可以理解为bn的创业板&lt;/p&gt;
-&lt;p&gt;韭菜网友(ll-0326) 16:44:24
-少犯错，就是赚&lt;/p&gt;
-&lt;p&gt;齐昊昱(wxid_jx3rzkrqy46922) 16:44:31
-就是比较容易暴涨暴跌？&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 16:45:21
-一个字：妖！&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:46:25&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 02-04 16:42:05&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-J神，这个del_list列表都加入空头的拉黑吗？
-嗯，你可以一周更新一次&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 16:47:27
-每天一次好点吧，反正是程序干活[呲牙]&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 16:55:45
-感觉可以分析看看bn几个板块有没有差异 他们对不同的b好像打了一些标&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:56:01
-这个alpha list是一直变的&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:56:29
-获取历史数据，需要长期跟踪这些标签&lt;/p&gt;
-&lt;p&gt;韭菜网友(ll-0326) 16:56:41
-哥玩的真花[强]&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:57:33
-自从空头拉黑的alpha，每次看到群友说“被xxx暴击了”，我就没有 [呲牙]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 16:59:38
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=86a1b8d9818635d3be7ebc6d5deea9ae&amp;amp;filekey=30350201010421301f0202011304025348041086a1b8d9818635d3be7ebc6d5deea9ae0203016475040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2680f400e000f3206b41dc4a30000011300004f5053482663b1f1569237415&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 16:59:45
-论远避小币空头之策：
-夫Alpha者，市之草莽也，犹若钱肆之创业板。
-彼小币者，市值微薄，根基未稳，然其势最诡。动辄瞬息千里，拔地而起，不循法度，不讲理据。多头见之，或为甘露；空头触之，则为砒霜。&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:01:47
-此论深得“避其锐气，击其惰归”之精髓。Alpha小币，虽具暴利之诱，实则性烈如火，难于驯服。能于空头之刃下，划出一片“清净之地”，实乃量化修心之大智。&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:02:25
-好文采[旺柴]&lt;/p&gt;
-&lt;p&gt;系统消息 17:02:36
-&amp;quot;齐昊昱&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:02:51
-上了现货就不算alpha了吧&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:03:00
-对，不算了&lt;/p&gt;
-&lt;p&gt;齐昊昱(wxid_jx3rzkrqy46922) 17:03:00
-[强][强][强]&lt;/p&gt;
-&lt;p&gt;阿基(wxid_jsrw5jte7rbm12) 17:03:00
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3657454b2fff77a85502207dccde97fa&amp;amp;filekey=30440201010430302e02016e0402535a042033363537343534623266666637376138353530323230376463636465393766610203009b41040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=323032313132323631353031353630303037373737656531643035356264656235363838303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;又双叒叕回本了(yongmeimj) 17:03:38
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=29e5f5ebe7818ce0589ea34165aae30a&amp;amp;filekey=30440201010430302e02016e04025348042032396535663565626537383138636530353839656133343136356161653330610203026a8f040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=266ecc61e000a3d672412b8cd0000006e01004fb153480f037031576a405cd&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 17:05:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-04 17:02:51
-上了现货就不算alpha了吧
-那怎么区分？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;龚博致(Gorgonheart) 17:05:24
-bn自己会改吗？&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 17:05:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 02-04 17:01:47
-此论深得“避其锐气，击其惰归”之精髓。Alpha小币，虽具暴利之诱，实则性烈如火，难于驯服。能于空头之刃下，划出一片“清净之地”，实乃量化修心之大智。
-好 比夏普有文化多了[旺柴]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:06:01
-&lt;img src="http://192.168.5.28:5030/image/78189e85b1c7565cd94184c0a2f89fca,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/d9117c53cbeeb2d55c00bcd081870822" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:06:06
-这个字段标记，是否上cex&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:06:20
-上了cex，就不算alpha&lt;/p&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 17:06:45&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;gcouple.J(wxid_lgd4dsqwjmse12) 02-04 16:23:02
-&lt;a href="http://192.168.5.28:5030/file/1e4e486520e94d7bd92189498067f2b0"&gt;文件|filter_alphacoin.py&lt;/a&gt;
-代码里都有 [呲牙]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;韭菜网友(ll-0326) 17:06:56
-大哥慷慨[强]&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 17:08:10
-[Heart]&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:08:35
-太强&lt;/p&gt;
-&lt;p&gt;继续奔跑(wxid_fmi08mt1pi9a22) 17:08:57
-J 神在上[抱拳]&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:14:23
-J神太强！&lt;/p&gt;
-&lt;p&gt;贾真甲(wxid_0201802018112) 17:15:11
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=9298886ebf74de697bfab471ae4fd124&amp;amp;filekey=30340201010420301e020201060402534804109298886ebf74de697bfab471ae4fd12402022750040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=263198308000c0091000000000000010600004f505348114c5960968b8229a&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;yocknow(wxid_hontd9u0v9eu22) 17:15:25
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3585bcb7e05afb91e2560fe905d5f398&amp;amp;filekey=30440201010430302e02016e0402534804203335383562636237653035616662393165323536306665393035643566333938020300eee5040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303131303331333437343230303034333661353566396566346639316532613466303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;yocknow(wxid_hontd9u0v9eu22) 17:15:27
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3585bcb7e05afb91e2560fe905d5f398&amp;amp;filekey=30440201010430302e02016e0402534804203335383562636237653035616662393165323536306665393035643566333938020300eee5040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303131303331333437343230303034333661353566396566346639316532613466303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:15:54
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3585bcb7e05afb91e2560fe905d5f398&amp;amp;filekey=30440201010430302e02016e0402534804203335383562636237653035616662393165323536306665393035643566333938020300eee5040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303131303331333437343230303034333661353566396566346639316532613466303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:16:40
-运行这个脚本，需要魔法不？&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:17:32
-需要[旺柴]&lt;/p&gt;
-&lt;p&gt;齐昊昱(wxid_jx3rzkrqy46922) 17:17:39
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3585bcb7e05afb91e2560fe905d5f398&amp;amp;filekey=30440201010430302e02016e0402534804203335383562636237653035616662393165323536306665393035643566333938020300eee5040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303131303331333437343230303034333661353566396566346639316532613466303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:17:49
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=3585bcb7e05afb91e2560fe905d5f398&amp;amp;filekey=30440201010430302e02016e0402534804203335383562636237653035616662393165323536306665393035643566333938020300eee5040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303131303331333437343230303034333661353566396566346639316532613466303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;继续奔跑(wxid_fmi08mt1pi9a22) 17:17:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 02-04 17:16:40
-运行这个脚本，需要魔法不？
-放在服务器上面&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:18:11
-okk&lt;/p&gt;
-&lt;p&gt;齐昊昱(wxid_jx3rzkrqy46922) 17:19:07
-这个是不是网页版用不成啊&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:19:16
-应该不行&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:19:20
-自己手动改一改&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:19:22
-[旺柴]&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:19:36
-说实话同时有现货和合约因子跟这个差不多&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 17:19:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-04 17:19:36
-说实话同时有现货和合约因子跟这个差不多
-因为有现货就不是alpha了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:27:51
-老板们，是这样写吗？&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:27:51
-&lt;img src="http://192.168.5.28:5030/image/fb44f2ef436704e2ca22c211fdaa30c6,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/b053c9fb36abdc0386127adfb034d7d6" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:30:00
-我记得黑名单没有多空分离的&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:33:52
-可以分离&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:39:04
-框架优化了？可以分离？&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:43:36
-之前顿顿在群里发过&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:43:44
-&lt;a href="http://192.168.5.28:5030/file/8905ff9aeafcca0be273a4135bae779a"&gt;文件|Blacklist.py&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:43:54
-放在factors文件夹里&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:44:25
-('Blacklist', ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', ], 'val:==0'),&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:44:39&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-04 17:44:25
-('Blacklist', ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', ], 'val:==0'),
-放在&amp;quot;filter_list&amp;quot;:  里&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:45:15
-哦！因子化，懂了！[抱拳]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:45:40&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 02-04 17:27:51
-&lt;img src="http://192.168.5.28:5030/image/fb44f2ef436704e2ca22c211fdaa30c6" alt="图片" /&gt;
-所以这么写不正确&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Jereo(wxid_9vy0dfis2x0322) 17:46:06
-我记得是实盘里没有多空分离的黑名单 但是回测里有？&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:46:43
-收到，这就改。&lt;/p&gt;
-&lt;p&gt;系统消息 17:46:46
-&amp;quot;AK&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:48:55&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Jereo(wxid_9vy0dfis2x0322) 02-04 17:46:06
-我记得是实盘里没有多空分离的黑名单 但是回测里有？
-改改币对的写法，就能通用了吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:49:36
-('Blacklist', ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'BTC-USDT', 'ETH-USDT', 'SOL-USDT', 'BNB-USDT',], 'val:==0'),  这样？&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:50:46
-实磐的配置是要加一个“-”的吗？&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:54:38
-不懂，加上没坏处吧[捂脸]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:55:34
-这不是写了吗？&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:55:35
-&lt;img src="http://192.168.5.28:5030/image/82f2efad10c5dc16f4bcc451e945bc4d,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/a155a56cf82a15c346cac8700259aaa9" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:59:18
-这里写的是实盘有-，因子里写的是实盘没有-&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:59:18
-&lt;img src="http://192.168.5.28:5030/image/7d549f9c7954ff8fde5ac80c0b897589,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/8c8b58130e840c3016e8ce1d9bbe3728" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 17:59:20
-&lt;img src="http://192.168.5.28:5030/image/382303704771254229b1f2aef0d69cd5,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/5c9ef62d82ebfb2b099b000b1212aba6" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 17:59:21
-所以搞不清了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:00:14&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 02-04 17:59:18
-&lt;img src="http://192.168.5.28:5030/image/7d549f9c7954ff8fde5ac80c0b897589" alt="图片" /&gt;
-不在这写，在这写就多空都不做这些币了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 18:00:58&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 02-04 17:59:20
-&lt;img src="http://192.168.5.28:5030/image/382303704771254229b1f2aef0d69cd5" alt="图片" /&gt;
-那按照这个写法写吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:01:44
-用因子的方式来解决，用在空头过滤因子，这样多头就不影响了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:02:00&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-04 17:43:44
-&lt;a href="http://192.168.5.28:5030/file/8905ff9aeafcca0be273a4135bae779a"&gt;文件|Blacklist.py&lt;/a&gt;
-这个就是过滤因子啊&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:03:32
-然后应用这个因子，两种币种写法都写上，那样回测和实盘都通用了，我的理解是这样的&lt;/p&gt;
-&lt;p&gt;对方正在输入...(huanyu630) 18:06:25
-嗯嗯，明白了，多谢AK老板[社会社会]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:07:03
-这样就不用改框架，新增因子解决黑名单多空分离问题&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 18:35:52
-有空还是得多爬楼，差点错过好东西&lt;/p&gt;
-&lt;p&gt;邢不行(25984984231888107@openim) 22:20:41
-b圈策略好像都在回撤哦&lt;/p&gt;
-&lt;p&gt;浪淘沙系列都多头暴露&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 22:21:24
-纯多的春天来了？&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 22:22:12
-&lt;img src="http://192.168.5.28:5030/image/7e469bf87194c438c538474a53066f80,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/829a35d32018767a3d9e90f6e7bf8757" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 22:22:18
-已加仓 莫辜负&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 22:26:11
-涨又涨不起，跌又跌不下去&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 22:26:18
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=33fd66425041af6d10b1bd1b014da363&amp;amp;filekey=30440201010430302e02016e04025348042033336664363634323530343161663664313062316264316230313464613336330203010cbe040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2656cad73000bc5f301df4b6a0000006e01004fb1534805781bc1e74bd327c&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 22:28:33&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 02-04 22:22:12
-&lt;img src="http://192.168.5.28:5030/image/7e469bf87194c438c538474a53066f80" alt="图片" /&gt;
-太惨&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 22:32:11
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8d1b01c1fa32c373c67190f020645565&amp;amp;filekey=30350201010421301f020201060402535a04108d1b01c1fa32c373c67190f02064556502030d2345040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632373131303535363030306136663231393064613161323162653339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 22:33:29
-&lt;img src="http://192.168.5.28:5030/image/f8735d2d175794b884e1f06c1eca4183,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/123200da8606f19b8d12f249dd159e5d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 22:34:10
-来b 圈，体验心跳的感觉💓&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 22:34:56
-已加仓 莫辜负&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 22:39:30&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-04 22:34:56
-已加仓 莫辜负
-这啥啊&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 22:40:00
-怎么看起来也这么惨&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 22:48:34
-看起来是动量？&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 22:53:47
-这是被哪两个币割了&lt;/p&gt;
-&lt;p&gt;mr_f(wxid_3s4xbsthximf22) 23:11:44
-&lt;img src="http://192.168.5.28:5030/image/5d00856c3e824631248ce9e94215c12e,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/59f755e03630a52e300314e7e3f5530c" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;mr_f(wxid_3s4xbsthximf22) 23:13:19
-求助大佬，选币因子为空的数据被删除那么多b，正常么（K线数量足够大20000根）&lt;/p&gt;
-&lt;p&gt;陈小白(JK_Phoeny) 23:16:21
-500小时，是不是需要等到有500小时的数据啊&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-04&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
