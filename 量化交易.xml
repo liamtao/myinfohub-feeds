@@ -7,7 +7,79 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Mar 2026 08:51:59 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2026 22:50:46 +0000</lastBuildDate>
+    <item>
+      <title>全新量化框架2.2.0：解锁小时级个股择时与真实交易模拟</title>
+      <link>/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/26分享会-股票框架船队-学废菌：A股旗舰策略与新框架使用指南.mp4</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;xbx分享会&lt;/a&gt; | &lt;a href="/Users/ben/Downloads/%E8%BD%AC%E5%BD%95%E5%86%85%E5%AE%B9/%E6%99%AE%E9%80%9A%E9%9F%B3%E8%A7%86%E9%A2%91/xbx%E5%88%86%E4%BA%AB%E4%BC%9A/26%E5%88%86%E4%BA%AB%E4%BC%9A-%E8%82%A1%E7%A5%A8%E6%A1%86%E6%9E%B6%E8%88%B9%E9%98%9F-%E5%AD%A6%E5%BA%9F%E8%8F%8C%EF%BC%9AA%E8%82%A1%E6%97%97%E8%88%B0%E7%AD%96%E7%95%A5%E4%B8%8E%E6%96%B0%E6%A1%86%E6%9E%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.mp4"&gt;26分享会-股票框架船队-学废菌：A股旗舰策略与新框架使用指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 量化交易框架 2.2.0 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：通过引入小时级数据与精细化择时模块，重构核心回测引擎，支持真实交易环境模拟与高效因子缓存，提升策略执行精度与回测效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：预处理的一小时K线数据 (&lt;code&gt;.PARCOT&lt;/code&gt; 格式)、五分钟收盘价数据、选股策略配置、个股择时配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：小时级与日级资金曲线HTML图、详细择时信号与交易记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;个股择时&lt;/strong&gt;：基于小时级别K线对单个股票进行买入/卖出时机判断的策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真实回测模式&lt;/strong&gt;：模拟涨停无法买入、跌停无法卖出、停牌无法交易等真实市场情况的回测模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模拟成交价&lt;/strong&gt;：择时信号发出后，按实际市场延迟（如+5分钟）计算真实成交价的模拟机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Pocket&lt;/code&gt; 格式&lt;/strong&gt;：高效、压缩比高的预处理数据存储格式，优化数据读写速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子缓存&lt;/strong&gt;：对已计算的因子结果进行存储，避免重复计算，加速回测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：框架与数据初始化设置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：确保框架、客户端及必要数据准备就绪，支持小时级回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已安装 Anaconda/PyCharm、客户端已更新至 0.4.4 或更高版本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[数据准备]&lt;/strong&gt;：手动下载 &lt;strong&gt;股票一小时K线数据Pro (&lt;code&gt;.PARCOT&lt;/code&gt; 格式)&lt;/strong&gt;，并将其解压至客户端维护的数据目录（例如 &lt;code&gt;TRADE3&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据订阅]&lt;/strong&gt;：通过客户端订阅 &lt;strong&gt;五分钟收盘价数据&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[框架更新]&lt;/strong&gt;：下载并安装 &lt;strong&gt;新框架 2.2.0&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[脚本更新]&lt;/strong&gt;：下载并更新 &lt;strong&gt;客户端脚本至 0.4.4&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[随机包导入]&lt;/strong&gt;：下载并准备包含择时脚本的 &lt;strong&gt;金行随机包&lt;/strong&gt;（例如“个股择时精心随机混合”）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：网页版策略导入与择时配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过网页版界面，导入官方策略包并灵活配置个股择时信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：网页版已启动，且已配置数据路径、ID和API Key。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[策略导入]&lt;/strong&gt;：在网页版界面，点击 &lt;code&gt;导入&lt;/code&gt; -&amp;gt; 选择已下载的 &lt;strong&gt;金行随机包&lt;/strong&gt; -&amp;gt; &lt;code&gt;打开&lt;/code&gt; -&amp;gt; &lt;code&gt;导入&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[编辑择时]&lt;/strong&gt;：选择任一已导入的 &lt;code&gt;config&lt;/code&gt; 配置 -&amp;gt; 点击 &lt;code&gt;编辑选股策略&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[启用择时]&lt;/strong&gt;：下拉至 &lt;code&gt;个股择时配置&lt;/code&gt; 区域 -&amp;gt; 拨动 &lt;code&gt;打开择时按钮&lt;/code&gt; 至 &lt;code&gt;ON&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[新增择时信号]&lt;/strong&gt;：点击 &lt;code&gt;新增一条&lt;/code&gt; -&amp;gt; 从下拉菜单选择择时类型（如 &lt;code&gt;均线&lt;/code&gt;、&lt;code&gt;布林带&lt;/code&gt;、&lt;code&gt;海归&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数调整]&lt;/strong&gt;：择时信号会自动带出关联参数，按需进行调整（如将均线参数 &lt;code&gt;12&lt;/code&gt; 修改为 &lt;code&gt;24&lt;/code&gt;）。&lt;code&gt;[⚠️需核实：原文提及当前版本暂不支持直接编辑参数，需通过复制模板修改]&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[多信号配置]&lt;/strong&gt;：可重复 &lt;code&gt;步骤 4-5&lt;/code&gt; 增加多个择时信号（如同时配置均线、布林带、海归）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[模板创建]&lt;/strong&gt;：若需自定义参数的择时模板，可复制现有信号文件并修改内部参数，然后将其作为新模板使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[保存配置]&lt;/strong&gt;：点击 &lt;code&gt;保存&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：框架代码参数配置与择时逻辑设置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过修改 &lt;code&gt;config&lt;/code&gt; 文件，精细控制回测行为与个股择时策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已了解框架 &lt;code&gt;config&lt;/code&gt; 文件结构，并熟悉 Python 编程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[真实回测模式]&lt;/strong&gt;：在 &lt;code&gt;config&lt;/code&gt; 文件中找到 &lt;code&gt;stay_real&lt;/code&gt; 参数 -&amp;gt; 设定为 &lt;code&gt;True&lt;/code&gt;（开启真实涨跌停、停牌模拟）或 &lt;code&gt;False&lt;/code&gt;（关闭）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[模拟成交价]&lt;/strong&gt;：在 &lt;code&gt;config&lt;/code&gt; 文件中找到 &lt;code&gt;stock_timing_order_price&lt;/code&gt; 参数 -&amp;gt; 若已设置个股择时，建议设定为 &lt;code&gt;5&lt;/code&gt;（模拟5分钟后成交）；若未设置择时，建议设定为 &lt;code&gt;0&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[个股择时列表配置]&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;找到 &lt;code&gt;stock_timing_list&lt;/code&gt; 区域。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[择时文件指定]&lt;/strong&gt;：`&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/26分享会-股票框架船队-学废菌：A股旗舰策略与新框架使用指南.mp4</guid>
+      <pubDate>Thu, 05 Mar 2026 22:27:43 +0800</pubDate>
+    </item>
     <item>
       <title>Easy XT回测框架：Python量化交易的轻量级解决方案与实战解析</title>
       <link>https://www.bilibili.com/video/BV1k8PrzmEzN</link>
@@ -134,6 +206,166 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76747</guid>
       <pubDate>Thu, 05 Mar 2026 03:54:36 +0800</pubDate>
+    </item>
+    <item>
+      <title>惊蛰日里的量化博弈：从熔断记忆到策略防守</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;amp;talker=57784510736@chatroom"&gt;2026-03-05_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🌪️ 熔断的悖论：防震器变加速器&lt;/h4&gt;
+&lt;p&gt;群友深度回顾了2015年的熔断往事。当时制度设计的初衷是防止暴跌，但实际运行中却产生了反向驱动：当跌幅接近熔断阈值（如5%）时，投资者因担心交易通道关闭而产生“磁吸效应”，竞相踩踏卖出，直接导致市场迅速触及停牌。这种机制反而促成了流动性枯竭下的加速暴跌。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🌾 惊蛰的季节性预言与“落榜生”策略&lt;/h4&gt;
+&lt;p&gt;适逢“惊蛰”节气，群友借此探讨市场的季节性波动。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反弹逻辑&lt;/strong&gt;：提到去年直播中的“落榜生”策略，指出在反弹行情中，前期跌幅巨大的“落榜生”往往具备极强的向上爆发力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风火轮轮动&lt;/strong&gt;：今日市场出现大市值股票轮动迹象，但定风波等策略在早盘高位开仓后遭遇回调，被戏称为“骗炮”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛡️ 量化策略的防守与实操指南&lt;/h4&gt;
+&lt;p&gt;面对“高开低走”的骗炮行情，群友分享了进阶实操建议：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;交易时间规避&lt;/strong&gt;：对于代码版用户，可以通过设置特定的交易窗口（如0930-1030）或推迟买入时间（如10:30后）来规避开盘的极端震荡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本升级&lt;/strong&gt;：26版旗舰策略通过小时级别的监控，能更好地规避短线剧烈波动带来的风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;盈亏同源&lt;/strong&gt;：定风波虽然在某些时刻会踏空或追高，但这是换取长期风控的必要代价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🦞 社区驱动与“小龙虾”智能化进化&lt;/h4&gt;
+&lt;p&gt;讨论中提到了由社区成员开发的“小龙虾”自动化工具，这代表了量化社区正向Agent化方向演进。该工具能够自动整理知识库、监控实盘状态，极大地释放了个人投资者的生产力。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💬 核心金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“本来是防暴跌的，结果反而促成了暴跌。” —— 小白资本&lt;/li&gt;
+&lt;li&gt;“高开是事实，追进去就是骗，打下来买进去不算。” —— kunki&lt;/li&gt;
+&lt;li&gt;“惊蛰闻雷，米面成堆。” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“账户已经绿了，定风波骗杀。” —— ZH&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76646&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76752&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>加密合约交易实战：保证金、爆仓风险与策略优化洞察</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;amp;talker=58453205219@chatroom"&gt;2026-03-05_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;加密货币市场风云变幻，合约交易更是充满挑战。本篇整理了群内关于合约保证金、策略风险控制、回测优化及交易工具使用的核心讨论，助你更好地驾驭市场。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔐 &lt;strong&gt;合约保证金与风险管理：你准备好了吗？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;龙狗策略的保证金配置&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;即使你已有BTC作为基础资产，若要运行空头合约（如“龙狗策略”），仍需额外准备等量的USDT作为保证金。&lt;/li&gt;
+&lt;li&gt;这部分USDT专用于合约保证金，&lt;strong&gt;不可挪作他用，例如进行理财&lt;/strong&gt;。一旦挪用，系统可能将其视为加杠杆操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;爆仓风险警示&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;合约亏损一旦超过你账户中USDT的余额，便会触发爆仓。&lt;/li&gt;
+&lt;li&gt;若不及时补充保证金，交易平台（如币安BN）会自动平仓你的现货持仓（“四龙仓位”）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📉 &lt;strong&gt;策略辨析：动量与空头，如何平衡风险？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“黄果树瀑布”策略&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;这是一种典型的空头策略，其风险性不言而喻，群内成员戏称其“捅了一刀”，暗示可能遭遇了较大亏损。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量策略&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;被明确为纯多头策略。&lt;/li&gt;
+&lt;li&gt;邢大（群主）特别强调：&lt;strong&gt;动量策略的仓位不宜过大&lt;/strong&gt;，以控制潜在的单边上涨风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“落九天”策略&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;也被归类为空头策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📊 &lt;strong&gt;回测优化：如何得到更真实的策略表现？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测时间选择&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;为确保策略回测结果的代表性，应选择足够长的时间周期。&lt;/li&gt;
+&lt;li&gt;建议涵盖不同市场环境：如2021年的牛市、2022年的熊市以及2023年的震荡市，这样能全面评估策略在各种行情下的适应性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ &lt;strong&gt;交易工具与系统配置：效率与安全并重&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OpenClaw运行环境&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;如果OpenClaw主要用于调用外部大模型任务，对本地硬件配置要求不高。&lt;/li&gt;
+&lt;li&gt;Mac mini (16G RAM + 256G SSD) 配置足以应对。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自定义曲线图显示&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;若想在交易框架中查看“上线以来”的策略表现曲线图，可以修改 &lt;code&gt;statistics.py&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;li&gt;搜索并复制“30天”相关代码，将其时间参数调整为“20000小时”，即可显示更长期的收益曲线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API密钥安全警示&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;警惕API密钥泄露风险！有创业团队因Gemini API密钥被盗，导致短短48小时内产生巨额AI账单，濒临破产。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略模拟盘妙用&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;即使实盘策略（如“落九天”）与其他空头策略混合运行，也可通过框架的模拟盘功能单独运行该策略，以便独立监测其表现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“当合约亏损超过账户里u 的余额，会爆仓” — WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“时间长才有代表性” — 陈聪汉&lt;/li&gt;
+&lt;li&gt;“21年看牛市表现，22年看熊市表现，23年看震荡市表现” — will&lt;/li&gt;
+&lt;li&gt;“所以邢大说动量仓位不能大” — WN_暖春拂晓&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;quantclass.cn 链接&lt;/h3&gt;
+&lt;p&gt;无&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-05&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>揭秘TRADIFI_PERPETUAL：币安传统金融永续合约的交易坑点与框架适配指南</title>
+      <link>https://bbs.quantclass.cn/thread/76740</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76740"&gt;B圈实盘如何交易传统金融永续合约（股票代币），记录踩的一些坑&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[TRADIFI_PERPETUAL、实盘框架适配、交易时段限制、标的过滤]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：详述币安TradFi永续合约的交易限制、框架配置冲突及策略过滤方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：币安近期推出的 TradFi 永续合约（如 TSLA、CRCL 等）锚定传统金融资产。此类合约在非主交易时段（如美股休市、周末）流动性极低，交易所会实施风险控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：在休市时段，TradFi 合约通常仅允许“只减仓（reduce-only）”操作。对于预期 24/7 连续交易的加密货币动量策略，这会导致多头选币无法下单，造成实盘与回测产生巨大偏差（如策略被迫“裸奔”）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：网页版实盘框架（v1.4.1）存在配置覆盖逻辑，用户在 Python 配置文件中手动新增的 &lt;code&gt;contract_types&lt;/code&gt; 会被网页端设置重置，导致无法正常交易 TradFi 标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：提供 Python 脚本调用 &lt;code&gt;fapi/v1/exchangeInfo&lt;/code&gt; 接口，通过 &lt;code&gt;s.get(&amp;quot;contractType&amp;quot;) == &amp;quot;TRADIFI_PERPETUAL&amp;quot;&lt;/code&gt; 条件筛选出所有传统金融类永续标的，用于动态构建黑名单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：除了框架配置外，还需在交易所 App 端手动尝试下单以激活特定的 TradFi 交易协议权限，否则 API 下单会报错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略过滤优化&lt;/strong&gt;：对于非专门针对美股时段设计的加密货币策略，建议直接将本文列出的 &lt;code&gt;XAUUSDT&lt;/code&gt;, &lt;code&gt;TSLAUSDT&lt;/code&gt; 等 12 个 TradFi 标的加入黑名单，以提升回测与实盘的一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;框架底层修改&lt;/strong&gt;：若必须使用网页版框架交易此类标的，需修改 &lt;code&gt;core/model/account_config.py&lt;/code&gt; 中的默认配置，将 &lt;code&gt;TRADIFI_PERPETUAL&lt;/code&gt; 硬编码至支持列表中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态环境感知&lt;/strong&gt;：在代码逻辑中加入对 &lt;code&gt;status&lt;/code&gt; 字段的判断，仅在 &lt;code&gt;TRADING&lt;/code&gt; 状态下允许开仓指令，避免在非交易时段产生无效订单。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76740</guid>
+      <pubDate>Wed, 04 Mar 2026 21:30:28 +0800</pubDate>
     </item>
     <item>
       <title>量化交易系统进阶：内部闭环设计与对手博弈策略</title>
@@ -7384,1569 +7616,6 @@ hyper&lt;/p&gt;
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=57784510736@chatroom</guid>
       <pubDate>Sat, 14 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI赋能量化策略：构建自动进化系统，洞察市场冷暖与成本权衡</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;amp;talker=58453205219@chatroom"&gt;2026-02-14_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;AI正在量化交易领域掀起一场变革，不仅能帮助策略实现“自动进化”，还能为我们提供市场洞察。但随之而来的，是成本与效率的权衡挑战。 本文将为您揭秘如何利用AI Agent模式优化量化策略，并解答社群内关于市场趋势和技术问题的讨论。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 市场情绪与“四龙四狗”策略表现&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“四龙四狗”的困境与“大学生”的崛起&lt;/strong&gt;：社群成员对近期“四龙四狗”策略未能随大盘暴涨表示“加仓加了个寂寞”，而“大学生”系列则表现不错，浪淘沙系列更是多头暴露，显示出积极的市场信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;比特币的未来走向之争&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;部分观点认为比特币可能“腰斩”至31000美元，促使一些人考虑开空单。&lt;/li&gt;
-&lt;li&gt;另有观点则乐观预测能涨到100万美元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一个核心洞察&lt;/strong&gt;：“地位不断出利空，高位不断出利好”——这揭示了市场情绪与信息发布的反向关系。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实战操作&lt;/strong&gt;：有成员分享了“nbl已梭空头”并小幅加杠杆的行动，引起社群关注。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 AI赋能量化策略：Agent编排模式的实践与挑战&lt;/h3&gt;
-&lt;p&gt;吴一帆分享了利用AI Agent编排模式构建自动进化AI量化策略的经验，效果“炸裂”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Agent编排模式&lt;/strong&gt;：一种利用AI系统性优化策略的方法论，目标是让策略实现“自动进化”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实践效果&lt;/strong&gt;：吴一帆表示已实践一周，效果显著，策略能24小时不间断运行和优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本考量&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资金消耗&lt;/strong&gt;：“确实花了很多钱”，“都是用钱烧出来的经验”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型选择与成本&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;推荐使用特定大模型，预估每月成本约1000元人民币。&lt;/li&gt;
-&lt;li&gt;使用Claude Code则成本“不好说”，被称为“token粉碎者”，消耗巨大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Token消耗优化&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;存在设计方法论可有效减少Token消耗，例如通过“上下文缓存经济学”优化缓存命中率。&lt;/li&gt;
-&lt;li&gt;据观察，Claude Code可能会“偷加随机数”以阻止第三方API命中缓存，这与爬虫与反爬虫的对抗类似。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Copilot作为替代方案&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;Copilot被认为是性价比较高的选择，年费约100美元。&lt;/li&gt;
-&lt;li&gt;支持本地和云模式，可以使用GPT-5.3和GPT-5.3Codex。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化策略监控与常见故障排查&lt;/h3&gt;
-&lt;p&gt;社群讨论了量化策略运行时遇到的技术问题及其解决方案。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略文件监测&lt;/strong&gt;：邓普顿分享了“260214选币策略监测.html”和“260214中性策略监测.html”文件，方便大家跟踪策略表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;常见错误&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;“PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'”：该错误通常由于缺少必要的参数，或是&lt;code&gt;positions&lt;/code&gt;文件夹中缺少对应的轮动文件，也可能是策略文件上传转换出错。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;补充缺失的&lt;code&gt;name&lt;/code&gt;和&lt;code&gt;hold_period&lt;/code&gt;参数。&lt;/li&gt;
-&lt;li&gt;检查并补充&lt;code&gt;positions&lt;/code&gt;文件夹内的轮动文件。&lt;/li&gt;
-&lt;li&gt;重新上传策略配置文件（config）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🏆 社区互助活动进展&lt;/h3&gt;
-&lt;p&gt;分享会助教林奇公布了互助答疑活动的阶段性成果。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;答疑贡献前五名&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;第一名：WN_凛冬已至&lt;/li&gt;
-&lt;li&gt;第二名：心想事陈&lt;/li&gt;
-&lt;li&gt;第三名：定投喵&lt;/li&gt;
-&lt;li&gt;第四名：will&lt;/li&gt;
-&lt;li&gt;第五名：AK&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;奖励机制&lt;/strong&gt;：仅前三名可获得专属奖励。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;活动延期&lt;/strong&gt;：活动将延期至春节假期后，欢迎继续积极参与和提问。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 金句精选&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“加仓加了个寂寞” — Rio&lt;/li&gt;
-&lt;li&gt;“地位不断出利空，高位不断出利好” — SMC聪明钱宝总&lt;/li&gt;
-&lt;li&gt;“都是用钱烧出来的经验兄弟们” — 吴一帆&lt;/li&gt;
-&lt;li&gt;“token粉碎者” — 心想事陈&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工: https://bbs.quantclass.cn/thread/76430&lt;/li&gt;
-&lt;li&gt;【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会: https://bbs.quantclass.cn/topic/index?id=76096&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 08:20:43
-四龙四狗一起暴涨，加仓加了个寂寞&lt;/p&gt;
-&lt;p&gt;Julien(messilu2011) 09:50:27
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8d1b01c1fa32c373c67190f020645565&amp;amp;filekey=30350201010421301f020201060402535a04108d1b01c1fa32c373c67190f02064556502030d2345040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632373131303535363030306136663231393064613161323162653339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 09:53:12
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8d1b01c1fa32c373c67190f020645565&amp;amp;filekey=30350201010421301f020201060402535a04108d1b01c1fa32c373c67190f02064556502030d2345040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632373131303535363030306136663231393064613161323162653339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;邢不行(wxid_3nbe41gl1but22) 11:25:56
-这几天大学生表现不错哦，而且浪淘沙系列都是多头暴露&lt;/p&gt;
-&lt;p&gt;系统消息 11:28:19
-&amp;quot;邢不行&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;邢不行(25984984231888107@openim) 11:29:16
-至于四龙狗，目前仍然处于死龙狗状态[旺柴]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 12:00:19
-春天要来了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 12:00:31
-旗舰策略上传了吗？&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 13:02:01
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=9a6e3a732c4c5293f9aea867390ab767&amp;amp;filekey=30440201010430302e02016e0402535a04203961366533613733326334633532393366396165613836373339306162373637020300efc2040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2695de4ff000ee9d490fc1e930000006e01004fb1535a28019b6156d5c1c1c&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:29
-&lt;a href="http://192.168.5.28:5030/file/c8533e5b3da5d5c8a88bcb8374129fa7"&gt;文件|260214选币策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:32
-&lt;a href="http://192.168.5.28:5030/file/02d65900390e1591d48ca32d6caef3c1"&gt;文件|260214中性策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:32
-截止到今早9点的数据&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 14:20:43
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=98a6607a41bb2515206c2bc75ddf361f&amp;amp;filekey=30440201010430302e02016e04025348042039386136363037613431626232353135323036633262633735646466333631660203057bae040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303036323632313333343430303031633264303830646230303831313831383964303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 14:36:08
-&lt;img src="http://192.168.5.28:5030/image/b16a1ecb4de6001e4178793637bc2440,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/1299864459471bd637c7bbe1bce36d9a" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:41:21
-https://bbs.quantclass.cn/thread/76430
-[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:42:16
-大概就是利用AI系统性的帮我们去优化策略,我已经实践了一周了,效果炸裂.&lt;/p&gt;
-&lt;p&gt;贾真甲(wxid_0201802018112) 14:44:14
-It looks really cool&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 14:53:16
-permission deniled...&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:54:45
-嗯,不要刷新,改了下格式,没权限了,等等他们值班的林奇~&lt;/p&gt;
-&lt;p&gt;Dino(wxid_574n0wlusahp22) 14:55:54
-没权限&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 14:57:40
-刚刚看还可以 现在没了&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 14:58:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 02-14 14:57:40
-刚刚看还可以 现在没了
-+1&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:58:46
-嗯,我已经轰炸了几个林奇了~就看谁在值班了&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 14:59:13
-It looks really cool&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 15:00:39
-It looks really cool&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:01:11
-你们能看吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:14
-老板token的消耗量怎么样&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:41
-感觉挺烧token的&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:03:41
-确实花了很多钱哈哈&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:47
-[捂脸]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:03:48
-都是用钱烧出来的经验兄弟们&lt;/p&gt;
-&lt;p&gt;系统消息 15:03:57
-&amp;quot;心想事陈&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 15:04:01
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cb211fde1f864c4f904c244ba88b2d62&amp;amp;filekey=30350201010421301f02020106040253480410cb211fde1f864c4f904c244ba88b2d62020303151d040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640a9965000a8ba072f89f690000010600004f5053482a86ab40b6b5bd017&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:04:08
-尤其是那个openclaw&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:04:14
-7天,我都是想办法让他24小时不间断跑..不间断去优化&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:04:19
-token粉碎者&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:04:28&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 02-14 15:01:11
-你们能看吗
-等审查完毕了之后再发&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:40
-&lt;img src="http://192.168.5.28:5030/image/11816f1489671cda786fb16a78d2a03c,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/cd6eb8037bc6bb7e198401cb894ff5bb" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:54
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=98a6607a41bb2515206c2bc75ddf361f&amp;amp;filekey=30440201010430302e02016e04025348042039386136363037613431626232353135323036633262633735646466333631660203057bae040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303036323632313333343430303031633264303830646230303831313831383964303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:55
-还没审核通过吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 02-14 15:03:41
-确实花了很多钱哈哈
-大概多少，大佬能说说吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:09
-评估一下&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:05:28
-如果你用我推荐的那个大模型,便宜很多很多,我估计一个月1000完全可以cover&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:05:40
-如果你用claude code,我估计那不好说...&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:47
-[旺柴]&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:55
-claude确实贵&lt;/p&gt;
-&lt;p&gt;Andy(wxid_ykj2oofmb94751) 15:06:08
-可能一个月一个分享会吧[旺柴]&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:21
-不过我看不是有个skill可以减少百分之90的token消耗吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:26
-最近特别火&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:44&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Andy(wxid_ykj2oofmb94751) 02-14 15:06:08
-可能一个月一个分享会吧[旺柴]
-赚的钱还不够给ai付费[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:06:57&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-14 15:06:21
-不过我看不是有个skill可以减少百分之90的token消耗吗
-叫什么呀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:22
-有一篇文章讲的是如何设计可以省出来token&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:29
-如何高效的明中cache&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:08:58
-&lt;img src="http://192.168.5.28:5030/image/872224579c592dece250f83f5a7fd738,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/402a2293efe20376b30c70266fc6df6f" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:59
-https://github.com/shareAI-lab/mini-claude-code/blob/main/articles/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%BC%93%E5%AD%98%E7%BB%8F%E6%B5%8E%E5%AD%A6.md&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:10:10
-&lt;a href="http://192.168.5.28:5030/file/ee72d7f48808f8e6325eb0f0b26f0175"&gt;文件|上下文缓存经济学.md&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:10:17
-好像听说claude code偷加随机数 让第三方api命中不了cache&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:10:42
-嗯,我看到有人说了....感觉有点像以前的爬虫和反爬&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:11:27
-我用的packyapi这一周钱花太快&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:48:41
-https://bbs.quantclass.cn/thread/76430
-[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工
-好了，解封&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 15:52:59
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cafb17ecc41aff0742198d6657be31db&amp;amp;filekey=30350201010421301f02020106040253480410cafb17ecc41aff0742198d6657be31db02030380e7040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640d1e2a000e127872f89f690000010600004f5053481ff128e0b6db58edc&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 15:53:22
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cafb17ecc41aff0742198d6657be31db&amp;amp;filekey=30350201010421301f02020106040253480410cafb17ecc41aff0742198d6657be31db02030380e7040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640d1e2a000e127872f89f690000010600004f5053481ff128e0b6db58edc&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 15:59:07
-@吴一帆 你开始搞币圈了？[破涕为笑]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:07:34
-哟bobo哥[旺柴]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:07:41
-没啊，发个贴而已&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:13:05
-话说copilot我感觉挺好的，token足够用了，一年100刀包圆了&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:13:56
-copilot cli？&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:14:16
-还是copilot and vscode？&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:17:00&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 02-14 16:14:16
-还是copilot and vscode？
-这个，vscode里的copilot可以使用cli，给个权限自己可以慢慢跑&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;XP(qq279755375) 16:17:29
-现在还更新了本地模式和云模式&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:18:55
-GitHub信息不填国内挂个梯子应该是可以用到Claude，目前懒得改用的GPT5.3和5.3Codex&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:25:08
-嗯可以，github colilot cli，这个也还行。&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:45:32
-&lt;a href="https://mp.weixin.qq.com/s?__biz=Mzg5MzEyNzEwNQ==&amp;amp;mid=2247793255&amp;amp;idx=1&amp;amp;sn=c3db86dcfb3eb19d012d47b1d3bbcd58&amp;amp;chksm=c10220a8f162faac239979c8d447e2e430662b79419d8f9f82c049a9d1d3b7ae9b3ce0d302e8&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0214fhmdU5INosT0TnFPj7tJ&amp;amp;sharer_shareinfo=9246088067d6d291031b0a1c6a9f345a&amp;amp;sharer_shareinfo_first=9246088067d6d291031b0a1c6a9f345a#rd"&gt;链接|比特币，或“腰斩”至31000美元&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:45:46
-家人们，空单开起来&lt;/p&gt;
-&lt;p&gt;SMC聪明钱宝总(wxid_2c4tdenmonaq22) 17:46:30
-人家还说能涨到100玩美元呢&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 17:46:49
-[破涕为笑]&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 17:46:56
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=32e3347f279269f6d5c2e37df2fdb37b&amp;amp;filekey=30350201010421301f0202011304025348041032e3347f279269f6d5c2e37df2fdb37b0203009764040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2681a15ec0004666eb429bc770000011300004f5053481b5381f1574e8279e&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 17:50:44
-希望更多的人做空，我好逢低多&lt;/p&gt;
-&lt;p&gt;Jianjun_Zhang(wxid_xno3p21glqpw21) 17:51:31
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=2b9a4f4660dc2cf82779b90ee901ac3e&amp;amp;filekey=3043020101042f302d02016e0402535a0420326239613466343636306463326366383237373962393065653930316163336502025b11040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=266cd46f00002f103387fbacc0000006e01004fb1535a13b6bae1e026ef98a&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;SMC聪明钱宝总(wxid_2c4tdenmonaq22) 17:51:52
-地位不断出利空，高位不断出利好&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:53:12
-&lt;img src="http://192.168.5.28:5030/image/fb17aa84f35d57db40a4e629a7047914,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/6e81013efb30e4402e872ea8f8cdb6db" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:53:30
-nbl已梭空头&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 17:55:26&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-14 17:53:12
-&lt;img src="http://192.168.5.28:5030/image/fb17aa84f35d57db40a4e629a7047914" alt="图片" /&gt;
-这是加杠杆了吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 17:56:31&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-14 17:53:30
-nbl已梭空头
-牛逼的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:58:02
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=9d30f6bf818ba6134e4d778cb6619b66&amp;amp;filekey=30440201010430302e02016e0402535a04203964333066366266383138626136313334653464373738636236363139623636020300bb21040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=323032313130323731373530353030303031303136313536653232323535623635363838303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:58:12&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 02-14 17:55:26&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-这是加杠杆了吗
-加了一丝丝~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 18:12:17
-太猛&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:16:12
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！&lt;/p&gt;
-&lt;p&gt;自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：&lt;/p&gt;
-&lt;p&gt;第一名：WN_凛冬已至&lt;/p&gt;
-&lt;p&gt;第二名：心想事陈&lt;/p&gt;
-&lt;p&gt;第三名：定投喵&lt;/p&gt;
-&lt;p&gt;第四名：will&lt;/p&gt;
-&lt;p&gt;第五名：AK&lt;/p&gt;
-&lt;p&gt;注意：只有前3名才能获得专属奖励！&lt;/p&gt;
-&lt;p&gt;活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:16:16
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;链接|【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 18:26:33&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 02-14 18:16:12
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！
-自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：
-第一名：WN_凛冬已至
-第二名：心想事陈
-第三名：定投喵
-第四名：will
-第五名：AK
-注意：只有前3名才能获得专属奖励！
-活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~
-第四名已哭晕&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 18:31:40
-老板可惜了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:56:17
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=5f1532d4ee81e9606b641a9c4d5f78c4&amp;amp;filekey=30350201010421301f020201130402534804105f1532d4ee81e9606b641a9c4d5f78c4020300af29040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26541a96600066a5fb42acd670000011300004f5053482e886bc1e7391a4fd&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:56:28
-我都上电视了？&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 19:14:41
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=1849618e077001d38593c691ac1821fe&amp;amp;filekey=30440201010430302e02016e040253480420313834393631386530373730303164333835393363363931616331383231666502030affae040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=266971e2500095fd459635f170000006e01004fb1534810f86bc1e6deb0ff5&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 19:36:47
-wo 浪轮还是多头占优&lt;/p&gt;
-&lt;p&gt;Jianjun_Zhang(wxid_xno3p21glqpw21) 19:45:32
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=c512eb30d929e70e5d9b6a035f529ee8&amp;amp;filekey=30350201010421301f02020106040253480410c512eb30d929e70e5d9b6a035f529ee802030ece7b040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2631e578b000025ee000000000000010600004f505348296c59609745843de&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 19:46:11
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=c512eb30d929e70e5d9b6a035f529ee8&amp;amp;filekey=30350201010421301f02020106040253480410c512eb30d929e70e5d9b6a035f529ee802030ece7b040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2631e578b000025ee000000000000010600004f505348296c59609745843de&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 19:46:29
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=325688a650b9bb46d1140257d28e3bc8&amp;amp;filekey=30440201010430302e02016e0402534804203332353638386136353062396262343664313134303235376432386533626338020324ce9a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=265a620fb00012fdfa6b27f2d0000006e01004fb153480d583bc1e6994f10b&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 20:28:01
-一轮拉盘，我只赚了10油[破涕为笑]&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:43:43
-&lt;img src="http://192.168.5.28:5030/image/9e002ada6e727200d186fc4770186f2d,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/56ceebb9c1a8966a8edc722ce11d3a4d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:43:56
-这是要涨到space的节奏&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:44:22&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-少了这俩参数&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:46:52
-加上就好了&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 21:46:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 02-14 21:43:43
-&lt;img src="http://192.168.5.28:5030/image/9e002ada6e727200d186fc4770186f2d" alt="图片" /&gt;
-老板麻了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 21:47:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-可能是positions文件夹里缺少了对应的轮动文件&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 21:50:45
-谢谢~&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 21:55:50&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-可能是策略文件上存转换出错。我试过几次丢失轮动配置的，重新上存策略&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 21:59:16
-重新上传config就好了嘛&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 21:59:29
-就奇怪跑了一天挺顺利的出现这个……&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 22:02:16
-嗯&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 22:02:27
-谢谢～&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 22:02:39
-我出现过几次都是自己上去补全的[偷笑]&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 22:03:27
-导入因子库@天逸 &lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 22:04:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 02-14 22:03:27
-导入因子库@天逸 
-好的，谢谢~&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>小市值策略资金容量、交易技巧与硬件配置全攻略</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;amp;talker=57784510736@chatroom"&gt;2026-02-14_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;💰小市值策略的资金容量究竟有多大？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;初期疑问&lt;/strong&gt;: 有人认为小市值策略单个股票下单2万或10万可能引起波动，30只股票总容量约300万。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;专家观点&lt;/strong&gt;: 普遍认为小市值策略的资金容量远超预期。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Kinghh&lt;/strong&gt;: “小市值容量很大的”，估计“2000万都没问题”，“几千万确实是没问题的”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;千嶂&lt;/strong&gt;: 如果选择100只小市值股票，并配合OFFSET策略，资金容量“能干到5000W”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关键前提&lt;/strong&gt;: 策略本身需要持续有效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;单只股票承受能力&lt;/strong&gt;: 有人认为单只股票承受100万的下单量才可能引起波动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀如何优雅地进行小市值股票交易，避免滑点？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;滑点风险&lt;/strong&gt;: 如果在成交量小的时候以涨停价买入100万小市值股票，很容易产生巨大滑点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;设置固定价&lt;/strong&gt;: 不要盲目追价，设定一个确定的价格。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;随缘等拆单成交&lt;/strong&gt;: 让系统根据设定的固定价，自动将大单拆分成多笔小单，并等待成交。这种方式虽然可能耗时，但能有效避免滑点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;客户端自动拆单&lt;/strong&gt;: 用户的交易客户端通常会具备自动拆单功能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🖥️量化回测与实盘的硬件配置：PC、Mac还是服务器？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;场景需求&lt;/strong&gt;: 针对学生党预算2万元，且有便携性需求的量化用户。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mini主机慎选&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;散热问题&lt;/strong&gt;: Mini主机通常散热较差，不适合长时间高负载运行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可扩展性&lt;/strong&gt;: 牺牲了未来的扩展性，不利于长期使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ITX主机推荐&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;体积适中&lt;/strong&gt;: 相比传统大机箱更小巧，方便搬运。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;兼顾扩展性&lt;/strong&gt;: 可以在小体积内配置较强性能，且有一定的升级空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内存考量&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;当前价格&lt;/strong&gt;: 内存价格高昂，64GB可能需要7000元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;建议&lt;/strong&gt;: 不炼丹（深度学习）的话，64GB内存通常足够。可以先配置够用的内存，待降价后再升级。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mac与Windows对比&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Mac内存效率&lt;/strong&gt;: Mac在内存管理上表现出色，16GB Mac内存体验可能相当于Windows的32GB。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;底层机制&lt;/strong&gt;: 苹果通过内存压缩技术实现，但会有牺牲算力和磁盘写入的代价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架兼容性&lt;/strong&gt;: 当前量化框架对Mac的多线程支持不友好，性能一般。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Python GIL&lt;/strong&gt;: Mac是多进程，可以避开Python GIL（全局解释器锁）的问题，但在多线程方面效能一般。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;服务器端回测与实盘&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回测优势&lt;/strong&gt;: 服务器通常内存充裕（如300GB），非常适合运行大型回测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘挑战&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;稳定性&lt;/strong&gt;: 云服务器实盘可能存在各种不稳定性，需要频繁调整。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;计算量&lt;/strong&gt;: A股交易的计算量大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本&lt;/strong&gt;: 配置好的服务器租赁费用高昂。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;建议&lt;/strong&gt;: A股实盘不推荐使用云服务器，虚拟机可能更稳定。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Linux学习&lt;/strong&gt;: 如果要在服务器上进行量化开发，需要学习Linux基础操作、&lt;code&gt;tmux&lt;/code&gt;等工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据传输&lt;/strong&gt;: 可通过论坛教程解决数据传输和更新问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔍回测结果异常？如何排查选股数量过少的问题？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;场景&lt;/strong&gt;: 用户遇到小市值基本面策略在某天（例如2019年6月20日）只能选出两只股票的异常情况，即使没有设置额外的过滤条件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;排查建议&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;查看过滤条件&lt;/strong&gt;: 仔细检查策略代码中是否存在隐性的过滤条件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分析因子值&lt;/strong&gt;: 查看当日股票的因子值情况，可以利用开源工具将因子数据转化为3D Tensor进行分析。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“小市值容量很大的” —— Kinghh&lt;/li&gt;
-&lt;li&gt;“几千万确实是没问题的” —— Kinghh&lt;/li&gt;
-&lt;li&gt;“避免滑点的办法就是 设置固定价 随缘等拆单成交” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“是苹果内存压缩技术，牺牲算力和磁盘换来的总是有代价” —— 一亿瓶老酸奶&lt;/li&gt;
-&lt;li&gt;“磁盘io是最慢的一环” —— 星星很亮&lt;/li&gt;
-&lt;li&gt;“我们的框架在服务器很行” —— 木木十三&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76340&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76340&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76253&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76433&amp;amp;topicid=&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76096&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;约翰林(darkhair) 09:26:48
-【请教】小市值类策略的资金容量大概是多少？&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 09:28:37
-我理解的 offset_5x 30只 x 2W = 300W，单只股下单超过 2W（或者 10W) 可能会引起小市值波动&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:29:53
-小市值容量很大的&lt;/p&gt;
-&lt;p&gt;千嶂(y329734615) 09:29:57
-单只2W肯定没问题&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:30:03
-关键是小手指是不是一直有效&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:30:13
-玩小市值的人很多&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:30:27
-2000万估计都没问题&lt;/p&gt;
-&lt;p&gt;千嶂(y329734615) 09:31:23
-10W的话会拆单，也问题不大&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 09:31:40&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;约翰林(darkhair) 02-14 09:28:37
-我理解的 offset_5x 30只 x 2W = 300W，单只股下单超过 2W（或者 10W) 可能会引起小市值波动
-我觉得单只100w多少才会有点波动&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 09:31:46
-资金这么大吗&lt;/p&gt;
-&lt;p&gt;学渣菌(wxid_0o18bnx4x6se22) 09:31:59
-选股100个也解决不了吗[旺柴]&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:33:13
-上四个小市值策略，一个20只，一个5万，再5个0ffset，妥妥2000万&lt;/p&gt;
-&lt;p&gt;千嶂(y329734615) 09:33:14
-小市值100，全OFFSET能干到5000W[坏笑]&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:33:22
-前提是小市值策略最近要有效&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:34:02
-几千万确实是没问题的&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 09:34:21
-&lt;img src="http://192.168.5.28:5030/image/77e24fe7ae972fe50edfd372ba48d30e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/f605876a65906d4b8229fe5c7c7e1c96" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 09:34:28
-会这样拆&lt;/p&gt;
-&lt;p&gt;千嶂(y329734615) 09:35:25
-[强]，最近赚了不少啊&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 09:35:26
-拆了11笔下&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:38:31&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;约翰林(darkhair) 02-14 09:26:48
-【请教】小市值类策略的资金容量大概是多少？
-【答疑】合理安排下的资金容量很大的，我举个例子 假如你以涨停价在成交量小的时候去买一个小市值的票子100万 那就很容易滑点飞到天上&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:39:13
-但是你如果设置为确定价 去等单子成交 100万可能要花很久去买一个单一的票子&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:39:40
-避免滑点的办法就是 设置固定价 随缘等拆单成交&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 09:40:20
-@乐kingwuming 客户端都会这么拆吗，还是你这边魔改呢&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 09:42:01
-客户端拆的，我没能力魔改&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 09:44:19
-感谢老板们，按这么估算，小市值 100 offset_5 资金容量~5000W (100x5x10W+拆单）&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 09:48:37
-[旺柴]把24 25的策略拉出来，老板a9都能容纳&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 09:49:04
-轻轻松松选股两百支&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 09:53:36
-等我有 a9 了就买[旺柴]&lt;/p&gt;
-&lt;p&gt;学废菌(wxid_echtmkapi0hz22) 09:54:10
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76340"&gt;链接|【26分享会基础知识集】那些要知道的大A量化知识点 | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;学废菌(wxid_echtmkapi0hz22) 09:54:11
-新手老板们看过来，大A量化知识点系列又增加新帖子了：价格波动类选股策略解读和因子/策略分析工具的应用。还有啥想了解的请在帖子评论区里留言。&lt;/p&gt;
-&lt;p&gt;学废菌(wxid_echtmkapi0hz22) 09:54:11
-&lt;img src="http://192.168.5.28:5030/image/6f8005b828e9810b6222941ede4ced6c,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c538d1b7581bb4e30ded428588c9856b" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;学废菌(wxid_echtmkapi0hz22) 09:54:12
-https://bbs.quantclass.cn/thread/76340&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:57:02
-@学废菌 劳模[抱拳][抱拳]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:57:07
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=b184b0f45ae4a9a1d80f501651be07cd&amp;amp;filekey=30350201010421301f02020106040253480410b184b0f45ae4a9a1d80f501651be07cd020305634e040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2698954c5000b1179967c36700000010600004f5053480458817156a40b995&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 09:58:31
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=5ca97413948e62bf28af2a95e880efc1&amp;amp;filekey=30340201010420301e020201130402534804105ca97413948e62bf28af2a95e880efc10202681a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2689aee41000db1a5b4375e310000011300004f50534826361b01e00b74c0f&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 10:47:01
-&lt;img src="http://192.168.5.28:5030/image/427b87e570c5b2959f32ef766bb335a7,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/fc253bd12a08c6e64f999acf75a091bb" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 10:47:17
-这种有策略库的，是不是权重值没用&lt;/p&gt;
-&lt;p&gt;系统消息 10:47:19
-&amp;quot;木木十三&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;系统消息 10:47:29
-&amp;quot;木木十三&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;系统消息 10:47:50
-&amp;quot;木木十三&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 10:48:51
-因子那个权重&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 10:49:00&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 02-14 10:47:17
-这种有策略库的，是不是权重值没用
-看情况 有一些策略库拿来当配置的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 10:49:08
-具体看策略实现&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 10:49:27
-看看代码里面有没有用权重的变量&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 10:54:45
-[抱拳]多谢&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 13:07:41
-&lt;a href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQAPQibvCdEiczaTrpbZEfnJllRkEiawXzBgopf7SzOwIRkdCHlgwicibMvgROauzIVbpibiaK8nNI2wCQpAraAkhdWzK2m&amp;amp;bizid=1023&amp;amp;dotrans=0&amp;amp;hy=SH&amp;amp;idx=1&amp;amp;m=&amp;amp;uzid=7a210&amp;amp;token=cztXnd9GyrHuGqHE8asCiaH41IAyict2JoBU4HicJnyTuLtQhCI5icjBTx9ssicjT8b8hmVvcloOyJEQDROfODyUbVePledYfUTccthhHicSOcXVsavsriaP2vKXJ1ZlYey5CjykmLdjS4cVvic2Sld6X8icoKDzfHwx7om0tiavlMZHG7cxg&amp;amp;basedata=CAESBnhXVDE1NhoGeFdUMTExGgZ4V1QxMTIaBnhXVDExMxoGeFdUMTU2GgZ4V1QxNTcaBnhXVDE1OCIYCgoKBnhXVDExMhABCgoKBnhXVDE1NxABKgcIvR4QABgC&amp;amp;sign=meG-bqHj6gsoRHGMT10goyGE5YOPOoWEatJeVnkVhmC4VUA4c5RC4Y-GtFVwbcA6uO-elAL5DIM2MeYCEQ6gyA&amp;amp;ctsc=20&amp;amp;extg=88c400&amp;amp;svrbypass=AAuL%2FQsFAAABAAAAAADJtfFDwFkr7C5ofgKQaRAAAADnaHZTnGbFfAj9RgZXfw6Vg1lCgv%2BY%2F8vqSouT5A9UN%2Fin7F8Wg1YLuY3ejXV%2FDkbmMiwtNQ2wF%2Bo%3D&amp;amp;svrnonce=1771045502"&gt;视频号|#史诗级会师 #Seedance2.0AI生成  #炒股&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:27:51
-想问下群里有老板单独回测过小市值基本面么？2019-6-20日那天只能选出两只股票，有老板知道是为啥吗？我查了那天也不是端午假期&lt;/p&gt;
-&lt;p&gt;怒放的鸽子(yesterday_oncemore) 17:34:29
-大部分票被过滤掉了吧&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:34:46
-不可能吧，一天5只也选不出？&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:34:55
-那天发生了什么，过滤了啥？&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:38:37
-老板老板，你可以看当天的因子值情况&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:38:38
-你看你你的过滤条件呀&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:39:00
-如果你需要的话，可以用我帖子的方法来看因子值具体情况👀&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:40:46&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-14 17:38:38
-你看你你的过滤条件呀
-没过滤条件，就是官方的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:41:01&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 17:39:00
-如果你需要的话，可以用我帖子的方法来看因子值具体情况👀
-我靠，老板给个链接&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:41:05
-我去研究一下&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:41:39
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76253"&gt;链接|【开源工具】打通传统量化与 AI 的最后一公里：一键将因子数据转化为 3D Tensor | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:41:51
-多谢&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:41:55
-老板你只需要读取保存好的 npz 格式数据就好&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:42:58
-主要是用来做模型推理的，不过也可以用来查具体因子数据~(¯▽¯~)&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:43:09
-结合 ai 读取一下文件就好嘞&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:44:36
-@Point71 老板，我问下可以读指定策略么？&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:44:54
-我不想所有pkl都读取&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:45:07
-可以的&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:45:32
-我看到了&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:45:32
-&lt;img src="http://192.168.5.28:5030/image/09a7e52c1feabfa46158adabba99eefd,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/4f2bd66e6d93b98eac2c31a79f19322b" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:45:35
-他是识别你策略名称下所有的 factor&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:45:58
-这个是我自己的路径[呲牙]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:46:15
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76433&amp;amp;topicid="&gt;链接|【无用天书卷】一分钟教会您转发【论坛文章】链接地址为【小标签】到微信 | 股票量化&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:46:31
-因为是读取运行缓存里面的 pkl，每次新的回测都会覆盖缓存&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:46:50
-所以其实读不了你之前已经跑出结果的策略因子&lt;/p&gt;
-&lt;p&gt;土土(wxid_9488494885512) 17:47:52
-npz已经生成了，我去研究下怎么打开&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:49:02
-numpy 好像就可以&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:09:36
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！&lt;/p&gt;
-&lt;p&gt;自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：&lt;/p&gt;
-&lt;p&gt;第一名：--坤&lt;/p&gt;
-&lt;p&gt;第二名：木木十三&lt;/p&gt;
-&lt;p&gt;第三名：何伟峰&lt;/p&gt;
-&lt;p&gt;第四名：天长地久&lt;/p&gt;
-&lt;p&gt;第五名：辛振&lt;/p&gt;
-&lt;p&gt;注意：只有前3名才能获得专属奖励！&lt;/p&gt;
-&lt;p&gt;活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:09:41
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;链接|【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:10:40&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 02-14 18:09:36
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！
-自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：
-第一名：--坤
-第二名：木木十三
-第三名：何伟峰
-第四名：天长地久
-第五名：辛振
-注意：只有前3名才能获得专属奖励！
-活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~
-延期到假期之后？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 18:11:42
-让你继续啊[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:11:59
-我。。肝不动了&lt;/p&gt;
-&lt;p&gt;流水不争先(wxid_0rt71x77sbj012) 18:13:52
-我会提好多问题的，当好大家的电池&lt;/p&gt;
-&lt;p&gt;千嶂(y329734615) 18:14:38&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-14 18:11:59
-我。。肝不动了
-你可以的，还等着你往旗舰策略里加炸弹呢&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:23:22
-老板们，我来问问题了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:23:40
-想买一个 windows 的 mini主机，老板有没有配置单借我参考一下&lt;/p&gt;
-&lt;p&gt;黄智杰(h290332) 18:25:18
-上不封顶[发呆][发呆]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:26:05
-学生党只有 2w 的预算[捂脸]&lt;/p&gt;
-&lt;p&gt;黄智杰(h290332) 18:27:35
-[尴尬]很夸张了&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:29:01
-为啥mini？体积需求？那考虑一下itx吧&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:29:39
-我感觉如果空间不是太小，还是兼顾一下可扩展性&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:29:56
-主要是放在宿舍来用，后面毕业搬走方便一点&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:30:08
-确实是考虑到体积需求&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:30:29
-Itx其实也行，显卡一拆或者不用显卡的话直接邮寄走也没啥问题&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:30:32
-就买正常的主机就行啊&lt;/p&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:30:58
-感觉目前的默认策略对配置没有任何要求&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:30:59
-mini主机散热太差了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:31:01
-不推荐&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:31:14
-搬走这个场景太少了，没必要因为一次性需求放弃更优秀的选择&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:31:15
-2w预算，可以自己组一个很强的正常主机了&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:31:41
-尤其对显卡没需求的话可以顶配amd大主机了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:31:55
-我去年在内存没涨价之前，也就花了6k组了一台&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:31:59
-对显卡确实没啥太大的需求，上深度学习的话我就连接服务器了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:32:06
-现在就是内存太贵了[捂脸]&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:32:57
-稍等&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:33:30&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:26:05
-学生党只有 2w 的预算[捂脸]
-你是留美的学生吧&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:33:59
-@Point71&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:33:59
-&lt;img src="http://192.168.5.28:5030/image/70f3a0c1c3a572f56df244de2581aab0,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/4cde9b5e131c55d451d801ea66543c07" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:34:12
-ok&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:34:15
-内存现在翻了4倍吧&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:34:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-14 18:33:30&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-你是留美的学生吧
-我是党的学生[呲牙]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:35:14&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 02-14 18:34:15
-内存现在翻了4倍吧
-我刚刚看 64g 要 7000 了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:36:59
-你再看看吧，2w的预算，cpu可以再加强一下&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:37:09
-然后散热可以考虑水冷&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 18:39:17
-乖乖，128g不得1.4w了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:39:49
-不炼丹，64用起来够够的&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:40:01&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 02-14 18:39:17
-乖乖，128g不得1.4w了
-对呀，太贵了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 18:40:13
-内存也该崩盘了&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 18:40:26
-直接买Mac studio&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:40:27
-等等党还等得到吗[流泪]&lt;/p&gt;
-&lt;p&gt;DennisY(wxid_wp7gphf2r1tu11) 18:40:36&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:35:14&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-我刚刚看 64g 要 7000 了
-太贵了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:40:57
-先买够用的，降价后多买点这不就拉低成本了[旺柴]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:41:02&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-14 18:40:27
-直接买Mac studio
-和 win 相比，mac 同样内存效果会更好吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 18:41:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:41:02&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-和 win 相比，mac 同样内存效果会更好吗
-我听人说是这样的[破涕为笑][破涕为笑]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:41:33
-是的&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:42:08
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=d997606ef6e81b02f2cf733c5d2a98b4&amp;amp;filekey=30350201010421301f02020106040253480410d997606ef6e81b02f2cf733c5d2a98b4020300ebc3040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26320b920000f4024000000000000010600004f505348034c5960979349116&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:42:14
-我mac内存16g&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:42:20
-感觉像是win的32g&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:42:30
-这是为何呀，我还没用过 mac&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 18:42:34&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-14 18:42:09
-&lt;img src="" alt="动画表情" /&gt;
-@Point71 ...你读书一定很深入&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 18:42:45
-mac的512g那个 跑我们现在的框架是不是速度特别快&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:43:00
-没研究过，你问问ai，苹果的内存管理比较强悍&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:43:08
-手机也是&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:43:55
-&lt;img src="http://192.168.5.28:5030/image/82dc6ff695abe4de87ac103c321c8a2a,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/7de2023487e7ec8fabec793a0785e00e" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:44:08
-我自己的小笔记本 16G 实在是太不方便了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:44:11
-也可能是Linux系统特性&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:44:30
-我打算只让他去跑 A 的实盘了&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:44:52&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-14 18:42:45
-mac的512g那个 跑我们现在的框架是不是速度特别快
-只能说还好 我们框架的并发模型对mac不友好&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:44:54
-是苹果内存压缩技术，牺牲算力和磁盘换来的&lt;/p&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:44:58
-总是有代价&lt;/p&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:45:44
-我们现在那个框架，是对小内存友好的，频繁写磁盘释放内存&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:46:17
-mac其实很快的 就是python多线程残废[破涕为笑]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:46:36&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 02-14 18:45:44
-我们现在那个框架，是对小内存友好的，频繁写磁盘释放内存
-我现在跑代码就不能开其他软件，要不就崩了，感觉是我电脑不行了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 18:46:44&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:44:08
-我自己的小笔记本 16G 实在是太不方便了
-mitx吧 买一个小的精致机箱照着配&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:46:49
-我感觉如果全程hold在内存不落盘可以快很多&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:46:51&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-14 18:46:17
-mac其实很快的 就是python多线程残废[破涕为笑]
-是 mac 不能做多线程吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 18:46:56
-内存后面再换大&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:47:23&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:46:51&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-是 mac 不能做多线程吗
-可以但是效能一般&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:47:34
-推荐ITX提及不大，有一定扩展性&lt;/p&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 18:47:37
-他是多进程，没有python gil的问题吧&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:47:37&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;一亿瓶老酸奶(wxid_1254702546911) 02-14 18:46:49
-我感觉如果全程hold在内存不落盘可以快很多
-那肯定&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:47:50
-磁盘io是最慢的一环&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:47:56
-我实盘机用的ITX&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:47:59
-那我感觉还是上 itx 会更好一些[愉快]&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:48:14
-我有mac 也有主机 我现在是mac是我主力电脑 开发的话 ssh过去pc&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:48:53
-或者老板们有试过在服务器上面跑回测吗&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:49:02
-我&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:49:10
-我其实服务器资源挺足的，我现在有三台[捂脸]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:49:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-14 18:49:02
-我
-我总是解决不掉数据传输问题&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 18:49:20
-效果很不错&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:49:30
-你搜搜论坛&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:49:34
-这些数据都是保存本地的，每次是上传到服务器上吗&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:49:40
-有老板压榨手机的性能&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:49:40
-你搜索一下论坛&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:49:42
-都玩出花来&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:49:45
-我搜搜&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:49:47
-了&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:49:53
-可以在Linux更新的&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:49:55
-直接在手机上跑回测&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:49:56
-实盘用虚拟机&lt;/p&gt;
-&lt;p&gt;小白资本(shengjiannan002) 18:49:57
-P神的手机炼丹炉&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:50:05
-因为我确实服务器够用，服务器有 300G 内存让我用&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:50:10
-还搞多台手机分布式跑&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:50:16
-上服务器 我也有一台&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:50:21
-导师说只要不挖矿就行&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:50:31
-我们的框架在服务器很行&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:50:33
-随便让我造，但我完全没接触过这些&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:50:48
-我是纯计算机小白，显卡这些都是现学现搜&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:50:49
-你要实盘还是回测&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:50:54
-那你先学b&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:50:54
-我回测&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:51:05
-回测的话等我的apollo项目&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:51:11
-b的教程就是Linux跑的&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:51:17
-学会了再用到a上&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:51:24
-[旺柴]给你github一样的回测体验&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:51:30
-b 的回测不是本地吗&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:51:43
-b 的实盘好像才是服务器来着&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:51:46
-b的实盘在服务端&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:52:02
-实盘不也得需要回测算结果吗&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:52:20
-我做 b 的实盘了，就是想平常研究点回测，总是内存不足&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:52:28
-服务器吧&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:52:30
-不难的&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:52:40
-那我真得去论坛搜搜了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:52:46
-省钱了[流泪]&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:52:54
-python语言win和Linux都能运行&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:53:09
-好不容易攒的实习工资啊&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 18:53:16
-只不过在win是可视化的&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:53:37
-我就是想 ssh 连接服务器，能跑回测框架就行了吧&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:54:26
-你学一下tmux&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:54:35
-服务端开发这个很重要&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:55:08
-我去搜搜&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:55:37
-如果你想做人工智能相关的，linux相关这个跑不了的&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:56:50&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-14 18:55:37
-如果你想做人工智能相关的，linux相关这个跑不了的
-那真得学一学了，现在是莫名其妙就换方向了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:57:04
-加入了分享会，我感觉我就在计算机的道路上一去不复返了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 18:57:47
-老板，我加一下你的微信&lt;/p&gt;
-&lt;p&gt;18:57:53
-&amp;quot;Point71&amp;quot; 拍了拍 &amp;quot;木木十三&amp;quot; 的懒惰中…&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 18:58:05
-好&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 18:59:27
-直接21块钱买个trae，啥都完事了&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 19:01:27
-我现在已经不看ai在代码里拉了什么
-根本看不过来，但是能跑通[旺柴][旺柴][旺柴]&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 19:03:18&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-14 18:53:37
-我就是想 ssh 连接服务器，能跑回测框架就行了吧
-也不要非要上云，cloudflared tunnel就可以帮你上云，随时可以连回来&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:03:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 02-14 19:03:18&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-也不要非要上云，cloudflared tunnel就可以帮你上云，随时可以连回来
-感觉要学的很多了，我现在只会学废老板教的 termius&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 19:10:17
-这个很好用，我当时有台服务器在国外屋头，我在国内都照样连来用，有个域名就行。&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:12:15
-学到了[社会社会]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:12:29
-先收藏起来，后悔春节旅游没带电脑了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:14:30
-@Point71 你可以给服务器装个可视化界面[旺柴]&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:14:52
-ubuntu&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:14:59
-可以像win一样使用&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:15:05
-我干过这个事&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:15:56
-我倒腾倒腾[偷笑]&lt;/p&gt;
-&lt;p&gt;YC(wxid_oz694y351r2f22) 19:16:12
-用类似vscode 之类的编辑器远程连接服务器，感觉根本不需要界面。已经很方便了&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 19:16:31
-vscode remote ssh + tmux + ssh就够了&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 19:24:55
-哪位服务器上跑实盘，跑通了的，稳定吗？&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 19:27:01
-云上不可能一直稳定跑的，总会有各种各样的问题出错&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 19:27:25
-我们刚刚在说回测哈，服务器跑实盘比较麻烦吧，特别是大A计算量挺大的&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 19:27:29
-我记得我之前玩B基本上一两周得调整一下&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:28:01
-大a服务器跑实盘还是别考虑了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:28:19
-qmt就够头疼的&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 19:28:36
-怎么了&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 19:28:41
-虚拟机还可以整一整&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 19:29:01
-服务器上跑a有什么问题&lt;/p&gt;
-&lt;p&gt;系统消息 19:29:18
-&amp;quot;力割_萌新&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 19:29:44
-服务器你要买这么好的配置好贵的&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 19:29:45
-你用的是图形化界面服务器吗&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 19:30:41
-内存大了肯定买机器划算&lt;/p&gt;
-&lt;p&gt;kunki(wxid_jela48g12vz612) 19:45:34
-虚拟机的话，Windows下哪个稳定点&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 19:48:32
-hyper&lt;/p&gt;
-&lt;p&gt;系统消息 21:41:11
-&amp;quot;千嶂&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 23:57:27
-内存应该26年价格也回落不了&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI赋能量化策略：构建自动进化系统，洞察市场冷暖与成本权衡</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;amp;talker=58453205219@chatroom"&gt;2026-02-14_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;AI正在量化交易领域掀起一场变革，不仅能帮助策略实现“自动进化”，还能为我们提供市场洞察。但随之而来的，是成本与效率的权衡挑战。 本文将为您揭秘如何利用AI Agent模式优化量化策略，并解答社群内关于市场趋势和技术问题的讨论。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 市场情绪与“四龙四狗”策略表现&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“四龙四狗”的困境与“大学生”的崛起&lt;/strong&gt;：社群成员对近期“四龙四狗”策略未能随大盘暴涨表示“加仓加了个寂寞”，而“大学生”系列则表现不错，浪淘沙系列更是多头暴露，显示出积极的市场信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;比特币的未来走向之争&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;部分观点认为比特币可能“腰斩”至31000美元，促使一些人考虑开空单。&lt;/li&gt;
-&lt;li&gt;另有观点则乐观预测能涨到100万美元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一个核心洞察&lt;/strong&gt;：“地位不断出利空，高位不断出利好”——这揭示了市场情绪与信息发布的反向关系。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实战操作&lt;/strong&gt;：有成员分享了“nbl已梭空头”并小幅加杠杆的行动，引起社群关注。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 AI赋能量化策略：Agent编排模式的实践与挑战&lt;/h3&gt;
-&lt;p&gt;吴一帆分享了利用AI Agent编排模式构建自动进化AI量化策略的经验，效果“炸裂”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Agent编排模式&lt;/strong&gt;：一种利用AI系统性优化策略的方法论，目标是让策略实现“自动进化”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实践效果&lt;/strong&gt;：吴一帆表示已实践一周，效果显著，策略能24小时不间断运行和优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本考量&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资金消耗&lt;/strong&gt;：“确实花了很多钱”，“都是用钱烧出来的经验”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型选择与成本&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;推荐使用特定大模型，预估每月成本约1000元人民币。&lt;/li&gt;
-&lt;li&gt;使用Claude Code则成本“不好说”，被称为“token粉碎者”，消耗巨大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Token消耗优化&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;存在设计方法论可有效减少Token消耗，例如通过“上下文缓存经济学”优化缓存命中率。&lt;/li&gt;
-&lt;li&gt;据观察，Claude Code可能会“偷加随机数”以阻止第三方API命中缓存，这与爬虫与反爬虫的对抗类似。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Copilot作为替代方案&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;Copilot被认为是性价比较高的选择，年费约100美元。&lt;/li&gt;
-&lt;li&gt;支持本地和云模式，可以使用GPT-5.3和GPT-5.3Codex。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化策略监控与常见故障排查&lt;/h3&gt;
-&lt;p&gt;社群讨论了量化策略运行时遇到的技术问题及其解决方案。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略文件监测&lt;/strong&gt;：邓普顿分享了“260214选币策略监测.html”和“260214中性策略监测.html”文件，方便大家跟踪策略表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;常见错误&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;“PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'”：该错误通常由于缺少必要的参数，或是&lt;code&gt;positions&lt;/code&gt;文件夹中缺少对应的轮动文件，也可能是策略文件上传转换出错。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;补充缺失的&lt;code&gt;name&lt;/code&gt;和&lt;code&gt;hold_period&lt;/code&gt;参数。&lt;/li&gt;
-&lt;li&gt;检查并补充&lt;code&gt;positions&lt;/code&gt;文件夹内的轮动文件。&lt;/li&gt;
-&lt;li&gt;重新上传策略配置文件（config）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🏆 社区互助活动进展&lt;/h3&gt;
-&lt;p&gt;分享会助教林奇公布了互助答疑活动的阶段性成果。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;答疑贡献前五名&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;第一名：WN_凛冬已至&lt;/li&gt;
-&lt;li&gt;第二名：心想事陈&lt;/li&gt;
-&lt;li&gt;第三名：定投喵&lt;/li&gt;
-&lt;li&gt;第四名：will&lt;/li&gt;
-&lt;li&gt;第五名：AK&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;奖励机制&lt;/strong&gt;：仅前三名可获得专属奖励。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;活动延期&lt;/strong&gt;：活动将延期至春节假期后，欢迎继续积极参与和提问。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 金句精选&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“加仓加了个寂寞” — Rio&lt;/li&gt;
-&lt;li&gt;“地位不断出利空，高位不断出利好” — SMC聪明钱宝总&lt;/li&gt;
-&lt;li&gt;“都是用钱烧出来的经验兄弟们” — 吴一帆&lt;/li&gt;
-&lt;li&gt;“token粉碎者” — 心想事陈&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工: https://bbs.quantclass.cn/thread/76430&lt;/li&gt;
-&lt;li&gt;【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会: https://bbs.quantclass.cn/topic/index?id=76096&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 08:20:43
-四龙四狗一起暴涨，加仓加了个寂寞&lt;/p&gt;
-&lt;p&gt;Julien(messilu2011) 09:50:27
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8d1b01c1fa32c373c67190f020645565&amp;amp;filekey=30350201010421301f020201060402535a04108d1b01c1fa32c373c67190f02064556502030d2345040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632373131303535363030306136663231393064613161323162653339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 09:53:12
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8d1b01c1fa32c373c67190f020645565&amp;amp;filekey=30350201010421301f020201060402535a04108d1b01c1fa32c373c67190f02064556502030d2345040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632373131303535363030306136663231393064613161323162653339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;邢不行(wxid_3nbe41gl1but22) 11:25:56
-这几天大学生表现不错哦，而且浪淘沙系列都是多头暴露&lt;/p&gt;
-&lt;p&gt;系统消息 11:28:19
-&amp;quot;邢不行&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;邢不行(25984984231888107@openim) 11:29:16
-至于四龙狗，目前仍然处于死龙狗状态[旺柴]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 12:00:19
-春天要来了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 12:00:31
-旗舰策略上传了吗？&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 13:02:01
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=9a6e3a732c4c5293f9aea867390ab767&amp;amp;filekey=30440201010430302e02016e0402535a04203961366533613733326334633532393366396165613836373339306162373637020300efc2040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2695de4ff000ee9d490fc1e930000006e01004fb1535a28019b6156d5c1c1c&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:29
-&lt;a href="http://192.168.5.28:5030/file/c8533e5b3da5d5c8a88bcb8374129fa7"&gt;文件|260214选币策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:32
-&lt;a href="http://192.168.5.28:5030/file/02d65900390e1591d48ca32d6caef3c1"&gt;文件|260214中性策略监测.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;邓普顿(25984985021342909@openim) 14:12:32
-截止到今早9点的数据&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 14:20:43
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=98a6607a41bb2515206c2bc75ddf361f&amp;amp;filekey=30440201010430302e02016e04025348042039386136363037613431626232353135323036633262633735646466333631660203057bae040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303036323632313333343430303031633264303830646230303831313831383964303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 14:36:08
-&lt;img src="http://192.168.5.28:5030/image/b16a1ecb4de6001e4178793637bc2440,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/1299864459471bd637c7bbe1bce36d9a" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:41:21
-https://bbs.quantclass.cn/thread/76430
-[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:42:16
-大概就是利用AI系统性的帮我们去优化策略,我已经实践了一周了,效果炸裂.&lt;/p&gt;
-&lt;p&gt;贾真甲(wxid_0201802018112) 14:44:14
-It looks really cool&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 14:53:16
-permission deniled...&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:54:45
-嗯,不要刷新,改了下格式,没权限了,等等他们值班的林奇~&lt;/p&gt;
-&lt;p&gt;Dino(wxid_574n0wlusahp22) 14:55:54
-没权限&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 14:57:40
-刚刚看还可以 现在没了&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 14:58:11&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 02-14 14:57:40
-刚刚看还可以 现在没了
-+1&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 14:58:46
-嗯,我已经轰炸了几个林奇了~就看谁在值班了&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 14:59:13
-It looks really cool&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 15:00:39
-It looks really cool&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:01:11
-你们能看吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:14
-老板token的消耗量怎么样&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:41
-感觉挺烧token的&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:03:41
-确实花了很多钱哈哈&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:03:47
-[捂脸]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:03:48
-都是用钱烧出来的经验兄弟们&lt;/p&gt;
-&lt;p&gt;系统消息 15:03:57
-&amp;quot;心想事陈&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 15:04:01
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cb211fde1f864c4f904c244ba88b2d62&amp;amp;filekey=30350201010421301f02020106040253480410cb211fde1f864c4f904c244ba88b2d62020303151d040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640a9965000a8ba072f89f690000010600004f5053482a86ab40b6b5bd017&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:04:08
-尤其是那个openclaw&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:04:14
-7天,我都是想办法让他24小时不间断跑..不间断去优化&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:04:19
-token粉碎者&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:04:28&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 02-14 15:01:11
-你们能看吗
-等审查完毕了之后再发&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:40
-&lt;img src="http://192.168.5.28:5030/image/11816f1489671cda786fb16a78d2a03c,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/cd6eb8037bc6bb7e198401cb894ff5bb" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:54
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=98a6607a41bb2515206c2bc75ddf361f&amp;amp;filekey=30440201010430302e02016e04025348042039386136363037613431626232353135323036633262633735646466333631660203057bae040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032303036323632313333343430303031633264303830646230303831313831383964303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 15:04:55
-还没审核通过吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 02-14 15:03:41
-确实花了很多钱哈哈
-大概多少，大佬能说说吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:09
-评估一下&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:05:28
-如果你用我推荐的那个大模型,便宜很多很多,我估计一个月1000完全可以cover&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:05:40
-如果你用claude code,我估计那不好说...&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:47
-[旺柴]&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:05:55
-claude确实贵&lt;/p&gt;
-&lt;p&gt;Andy(wxid_ykj2oofmb94751) 15:06:08
-可能一个月一个分享会吧[旺柴]&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:21
-不过我看不是有个skill可以减少百分之90的token消耗吗&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:26
-最近特别火&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:06:44&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Andy(wxid_ykj2oofmb94751) 02-14 15:06:08
-可能一个月一个分享会吧[旺柴]
-赚的钱还不够给ai付费[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:06:57&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 02-14 15:06:21
-不过我看不是有个skill可以减少百分之90的token消耗吗
-叫什么呀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:22
-有一篇文章讲的是如何设计可以省出来token&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:29
-如何高效的明中cache&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 15:08:58
-&lt;img src="http://192.168.5.28:5030/image/872224579c592dece250f83f5a7fd738,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/402a2293efe20376b30c70266fc6df6f" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:08:59
-https://github.com/shareAI-lab/mini-claude-code/blob/main/articles/%E4%B8%8A%E4%B8%8B%E6%96%87%E7%BC%93%E5%AD%98%E7%BB%8F%E6%B5%8E%E5%AD%A6.md&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:10:10
-&lt;a href="http://192.168.5.28:5030/file/ee72d7f48808f8e6325eb0f0b26f0175"&gt;文件|上下文缓存经济学.md&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:10:17
-好像听说claude code偷加随机数 让第三方api命中不了cache&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:10:42
-嗯,我看到有人说了....感觉有点像以前的爬虫和反爬&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 15:11:27
-我用的packyapi这一周钱花太快&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 15:48:41
-https://bbs.quantclass.cn/thread/76430
-[方法论] 从零到一：用Agent编排模式构建自动进化的 AI 量化策略员工
-好了，解封&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 15:52:59
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cafb17ecc41aff0742198d6657be31db&amp;amp;filekey=30350201010421301f02020106040253480410cafb17ecc41aff0742198d6657be31db02030380e7040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640d1e2a000e127872f89f690000010600004f5053481ff128e0b6db58edc&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 15:53:22
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=cafb17ecc41aff0742198d6657be31db&amp;amp;filekey=30350201010421301f02020106040253480410cafb17ecc41aff0742198d6657be31db02030380e7040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2640d1e2a000e127872f89f690000010600004f5053481ff128e0b6db58edc&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 15:59:07
-@吴一帆 你开始搞币圈了？[破涕为笑]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:07:34
-哟bobo哥[旺柴]&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:07:41
-没啊，发个贴而已&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:13:05
-话说copilot我感觉挺好的，token足够用了，一年100刀包圆了&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:13:56
-copilot cli？&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:14:16
-还是copilot and vscode？&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:17:00&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 02-14 16:14:16
-还是copilot and vscode？
-这个，vscode里的copilot可以使用cli，给个权限自己可以慢慢跑&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;XP(qq279755375) 16:17:29
-现在还更新了本地模式和云模式&lt;/p&gt;
-&lt;p&gt;XP(qq279755375) 16:18:55
-GitHub信息不填国内挂个梯子应该是可以用到Claude，目前懒得改用的GPT5.3和5.3Codex&lt;/p&gt;
-&lt;p&gt;吴一帆(hunterxmoon) 16:25:08
-嗯可以，github colilot cli，这个也还行。&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:45:32
-&lt;a href="https://mp.weixin.qq.com/s?__biz=Mzg5MzEyNzEwNQ==&amp;amp;mid=2247793255&amp;amp;idx=1&amp;amp;sn=c3db86dcfb3eb19d012d47b1d3bbcd58&amp;amp;chksm=c10220a8f162faac239979c8d447e2e430662b79419d8f9f82c049a9d1d3b7ae9b3ce0d302e8&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0214fhmdU5INosT0TnFPj7tJ&amp;amp;sharer_shareinfo=9246088067d6d291031b0a1c6a9f345a&amp;amp;sharer_shareinfo_first=9246088067d6d291031b0a1c6a9f345a#rd"&gt;链接|比特币，或“腰斩”至31000美元&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:45:46
-家人们，空单开起来&lt;/p&gt;
-&lt;p&gt;SMC聪明钱宝总(wxid_2c4tdenmonaq22) 17:46:30
-人家还说能涨到100玩美元呢&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 17:46:49
-[破涕为笑]&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 17:46:56
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=32e3347f279269f6d5c2e37df2fdb37b&amp;amp;filekey=30350201010421301f0202011304025348041032e3347f279269f6d5c2e37df2fdb37b0203009764040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2681a15ec0004666eb429bc770000011300004f5053481b5381f1574e8279e&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 17:50:44
-希望更多的人做空，我好逢低多&lt;/p&gt;
-&lt;p&gt;Jianjun_Zhang(wxid_xno3p21glqpw21) 17:51:31
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=2b9a4f4660dc2cf82779b90ee901ac3e&amp;amp;filekey=3043020101042f302d02016e0402535a0420326239613466343636306463326366383237373962393065653930316163336502025b11040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=266cd46f00002f103387fbacc0000006e01004fb1535a13b6bae1e026ef98a&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;SMC聪明钱宝总(wxid_2c4tdenmonaq22) 17:51:52
-地位不断出利空，高位不断出利好&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:53:12
-&lt;img src="http://192.168.5.28:5030/image/fb17aa84f35d57db40a4e629a7047914,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/6e81013efb30e4402e872ea8f8cdb6db" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:53:30
-nbl已梭空头&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 17:55:26&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-14 17:53:12
-&lt;img src="http://192.168.5.28:5030/image/fb17aa84f35d57db40a4e629a7047914" alt="图片" /&gt;
-这是加杠杆了吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 17:56:31&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-14 17:53:30
-nbl已梭空头
-牛逼的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:58:02
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=9d30f6bf818ba6134e4d778cb6619b66&amp;amp;filekey=30440201010430302e02016e0402535a04203964333066366266383138626136313334653464373738636236363139623636020300bb21040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=323032313130323731373530353030303031303136313536653232323535623635363838303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 17:58:12&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 02-14 17:55:26&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-这是加杠杆了吗
-加了一丝丝~&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 18:12:17
-太猛&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:16:12
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！&lt;/p&gt;
-&lt;p&gt;自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：&lt;/p&gt;
-&lt;p&gt;第一名：WN_凛冬已至&lt;/p&gt;
-&lt;p&gt;第二名：心想事陈&lt;/p&gt;
-&lt;p&gt;第三名：定投喵&lt;/p&gt;
-&lt;p&gt;第四名：will&lt;/p&gt;
-&lt;p&gt;第五名：AK&lt;/p&gt;
-&lt;p&gt;注意：只有前3名才能获得专属奖励！&lt;/p&gt;
-&lt;p&gt;活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~&lt;/p&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 18:16:16
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;链接|【送传说装备】2026-1期旗舰船队群答疑活动（帖子内有彩蛋哦） | 策略分享会&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 18:26:33&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;分享会助教-林奇(wxid_hk96ok4gfo5j22) 02-14 18:16:12
-感恩近期群内每一位热心同学对于互助答疑活动的积极参与！
-自活动开始时间1月23日截至2月12日的统计，答疑贡献排名前五的同学如下：
-第一名：WN_凛冬已至
-第二名：心想事陈
-第三名：定投喵
-第四名：will
-第五名：AK
-注意：只有前3名才能获得专属奖励！
-活动延期至春节假期之后，欢迎大家参与，有问题也可以在群里尽情提问哦~
-第四名已哭晕&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 18:31:40
-老板可惜了&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:56:17
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=5f1532d4ee81e9606b641a9c4d5f78c4&amp;amp;filekey=30350201010421301f020201130402534804105f1532d4ee81e9606b641a9c4d5f78c4020300af29040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26541a96600066a5fb42acd670000011300004f5053482e886bc1e7391a4fd&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 18:56:28
-我都上电视了？&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 19:14:41
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=1849618e077001d38593c691ac1821fe&amp;amp;filekey=30440201010430302e02016e040253480420313834393631386530373730303164333835393363363931616331383231666502030affae040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=266971e2500095fd459635f170000006e01004fb1534810f86bc1e6deb0ff5&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;龚博致(Gorgonheart) 19:36:47
-wo 浪轮还是多头占优&lt;/p&gt;
-&lt;p&gt;Jianjun_Zhang(wxid_xno3p21glqpw21) 19:45:32
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=c512eb30d929e70e5d9b6a035f529ee8&amp;amp;filekey=30350201010421301f02020106040253480410c512eb30d929e70e5d9b6a035f529ee802030ece7b040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2631e578b000025ee000000000000010600004f505348296c59609745843de&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 19:46:11
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=c512eb30d929e70e5d9b6a035f529ee8&amp;amp;filekey=30350201010421301f02020106040253480410c512eb30d929e70e5d9b6a035f529ee802030ece7b040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2631e578b000025ee000000000000010600004f505348296c59609745843de&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 19:46:29
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=325688a650b9bb46d1140257d28e3bc8&amp;amp;filekey=30440201010430302e02016e0402534804203332353638386136353062396262343664313134303235376432386533626338020324ce9a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=265a620fb00012fdfa6b27f2d0000006e01004fb153480d583bc1e6994f10b&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 20:28:01
-一轮拉盘，我只赚了10油[破涕为笑]&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:43:43
-&lt;img src="http://192.168.5.28:5030/image/9e002ada6e727200d186fc4770186f2d,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/56ceebb9c1a8966a8edc722ce11d3a4d" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:43:56
-这是要涨到space的节奏&lt;/p&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:44:22&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-少了这俩参数&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 21:46:52
-加上就好了&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 21:46:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;不可为(wxid_sa6joxmsc2sl12) 02-14 21:43:43
-&lt;img src="http://192.168.5.28:5030/image/9e002ada6e727200d186fc4770186f2d" alt="图片" /&gt;
-老板麻了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 21:47:53&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-可能是positions文件夹里缺少了对应的轮动文件&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 21:50:45
-谢谢~&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 21:55:50&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;天逸(fenris003) 02-14 21:43:07
-仓位管理monitor脚本出错，10s之后重新运行，出错原因: PosStrategyConfig.&lt;strong&gt;init&lt;/strong&gt;() missing 2 required positional arguments: 'name' and 'hold_period'
-2026-02-14 21:42:38 这怎么弄呀
-可能是策略文件上存转换出错。我试过几次丢失轮动配置的，重新上存策略&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;天逸(fenris003) 21:59:16
-重新上传config就好了嘛&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 21:59:29
-就奇怪跑了一天挺顺利的出现这个……&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 22:02:16
-嗯&lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 22:02:27
-谢谢～&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 22:02:39
-我出现过几次都是自己上去补全的[偷笑]&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 22:03:27
-导入因子库@天逸 &lt;/p&gt;
-&lt;p&gt;天逸(fenris003) 22:04:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 02-14 22:03:27
-导入因子库@天逸 
-好的，谢谢~&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-14&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sat, 14 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从可转债视角捕捉正股超额收益：波动率平衡因子与Redis数据映射工程实践</title>
-      <link>https://bbs.quantclass.cn/thread/76422</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76422"&gt;【可转债选股策略的基础设施】迎春送因子，收益回测比 4.48&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[可转债领先指标、波动率标准化、Redis数据映射、跨市场定价偏差]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过波动率对齐解决转债与正股量纲不一致，挖掘跨市场定价偏差信号。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用可转债市场的高交易效率（T+0、无涨跌幅限制）及机构投资者属性。当转债与正股对同一利好的定价出现分歧时，转债往往能先行定价，形成对正股的领先指标。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：采用“波动率标准化”方案（Risk Parity思路）。公式：$Factor = \frac{Ret_{CB}}{Vol_{CB}} - \frac{Ret_{STK}}{Vol_{STK}}$。通过除以各自N日波动率，将不同量纲的涨跌幅转化为单位风险收益，避免因子值被高波动的正股噪音淹没。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需处理“一股多债”情况。对同一交易日的多只转债数据进行聚合：字符串列（代码、日期）通过逗号连接，数值列（成交额、溢价率）进行加权或求和，并统一添加前缀。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：回测起点设为2020年（转债市场活跃度分水岭）。在加上市值排序及特定过滤条件（如“定风波”逻辑）后，策略曲线展现出明显的Alpha收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：数据源文件名以可转债代码命名，而策略逻辑以股票代码驱动，存在映射检索瓶颈。此外，一股多债的数据对齐和动态加载耗时较长。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python + Pandas + Redis。利用 Redis 存储 &lt;code&gt;stock:bond_map&lt;/code&gt; 缓存，减少磁盘 IO 和重复的 CSV 表头扫描。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;惰性初始化&lt;/strong&gt;：Redis 连接采用单例/惰性模式，确保每个进程仅维持一个连接。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;向量化聚合&lt;/strong&gt;：使用 &lt;code&gt;groupby().agg()&lt;/code&gt; 配合 &lt;code&gt;lambda&lt;/code&gt; 函数处理字符串连接与数值求和，替代显式循环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;鲁棒性处理&lt;/strong&gt;：在读取 CSV 时预检表头列名，对缺失列自动填充 NaN，防止回测中断。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：直接相减 $(Ret_{CB} - Ret_{STK})$ 会导致因子沦为“正股涨跌的反向指标”，必须通过波动率对冲掉正股的 Beta 属性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代码实现&lt;/strong&gt;：在现有的多因子框架中引入 &lt;code&gt;转债_收盘价&lt;/code&gt; 等外部数据，按文中提供的 &lt;code&gt;add_factor&lt;/code&gt; 函数实现风险对齐后的相对强度因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;系统优化&lt;/strong&gt;：引入 Redis 或高性能 KV 存储建立“标的映射表”，解决跨品种联动回测中的文件索引难题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略测试&lt;/strong&gt;：重点测试 2020 年以后的样本，观察该因子在小盘股波动剧烈时期的对冲表现。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76422</guid>
-      <pubDate>Fri, 13 Feb 2026 22:29:34 +0800</pubDate>
     </item>
   </channel>
 </rss>
