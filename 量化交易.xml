@@ -7,7 +7,55 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Mar 2026 22:39:31 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 08:53:45 +0000</lastBuildDate>
+    <item>
+      <title>拒绝正态分布幻觉：量化交易的尾部风险建模与系统生存指南</title>
+      <link>https://www.bilibili.com/video/BV1EjP6zBEdd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1EjP6zBEdd"&gt;如何在厚尾世界中构建一个可生存的交易系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么百万分之一的极端风险，在金融市场里却像“家常便饭”一样频繁？&lt;/li&gt;
+&lt;li&gt;💡 经典的凯利公式在面对“后尾分布”时，为何会变成让账户归零的加速器？&lt;/li&gt;
+&lt;li&gt;🚀 在不确定的市场中，量化系统的终极目标是追求收益最大化，还是确保“不被灭绝”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 碎裂的正态分布：识破市场的“后尾”真相&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;正态分布的致命幻觉&lt;/strong&gt;: 传统模型假设5倍标准差事件概率仅为百万分之六，但现实中闪崩与巨震频率远超预期，金融市场的“尾巴”比想象中厚得多。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;T分布的概率跨度&lt;/strong&gt;: 在自由度为4的T分布下，极端亏损概率从正态分布的 10^-7 飙升至 10^-3，差距达1万倍。黑天鹅在统计上并非意外，而是必然。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;幂律衰减的顽固性&lt;/strong&gt;: 尾部风险不按指数速度消失，而是按幂律缓慢衰减，这意味着大额亏损的发生概率随幅度增加而下降速度极慢，风险极其顽固。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 极端风险防御：从硬止损到尾部对冲&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;设定硬止损 (Hard Stop)&lt;/strong&gt;: 基于可承受底线 L 和极端跌幅预期 WorstCase 反推最大仓位 F，实行刚性约束。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尾部压力测试&lt;/strong&gt;: 模拟波动率放大、相关性归一、流动性枯竭等极端场景，穿透回测数据的虚假安全感。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实施尾部对冲&lt;/strong&gt;: 通过长波动率策略（如买入跨式期权）或持有深度虚值期权，为账户购买“灾难保险”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕避险资产失效。在极端时刻，资产间的负相关性可能消失，相关性趋近于1会导致分散投资策略彻底失效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏗️ 进化式生存：量化交易的七层闭环体系&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态闭环而非静态因子&lt;/strong&gt;: 真正的量化系统需涵盖信号生成、贝叶斯更新、状态识别、收益分布构造、仓位优化、执行模型及资本更新七大层级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生存第一原则&lt;/strong&gt;: 必须引入生存概率约束，而非单纯追求对数财富最大化。在存在“跳跃风险”的市场中，必须显著降低仓位以应对非连续性冲击。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实时监控与漂移检测&lt;/strong&gt;: 系统必须能检测模型残差与状态漂移，确保在市场逻辑发生根本改变时及时强制停机，保住本金以等待复利机会。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “你交易的是分布，而不是预测值。”&lt;/li&gt;
+&lt;li&gt;💬 “生存是第一位的。单纯追求期望最大化，可能会让你在不知不觉中走向破产。”&lt;/li&gt;
+&lt;li&gt;💬 “量化交易本质上是一套在充满不确定性的环境中，通过不断递归更新进行决策的生存系统。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1EjP6zBEdd</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/cde7412cde86f82b85d44fe55b055d922ec91dc5.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 07 Mar 2026 11:34:00 +0800</pubDate>
+    </item>
     <item>
       <title>揭秘超高收益量化因子：朋友圈动量预测期权Straddle收益</title>
       <link>https://www.bilibili.com/video/BV1tHPnzYEbm</link>
@@ -5477,562 +5525,6 @@ A谷抽奖中了，B圈发红包&lt;/p&gt;
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76445</guid>
       <pubDate>Sun, 15 Feb 2026 13:12:23 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化开年“内卷”大赏：国产内存掀桌子与AI工具全攻略</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-15&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-15&amp;amp;talker=57784510736@chatroom"&gt;2026-02-15_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;💾 内存市场的“掀桌子”与价格战&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;国产发力&lt;/strong&gt;：长鑫内存据传将价格直接降至1/3，展现出强大的竞争力，导致国外大厂如三星、海力士等转而将产能集中供应给英伟达。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;供需现状&lt;/strong&gt;：目前电脑内存市场库存积压，接盘者较少。建议用户买二手内存条（由于寿命长可用），但固态硬盘由于损耗问题不建议买二手。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🤖 AI编程辅助工具：谁是量化开发的最强辅助？&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型选择&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Claude Code&lt;/strong&gt;：被普遍认为是目前编程能力最强的工具，但网页版风控极严，建议使用“美国固定家庭IP + 指纹浏览器”来规避封号，而Claude Code (CC) 的管控相对宽松。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;国产替代&lt;/strong&gt;：智谱AI 5.0 表现强劲，MiniMax 注册即送额度，是性价比极高的选择。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Trae 变动&lt;/strong&gt;：Trae 国际版疑似开始限制国外大模型的直接使用，开发者需准备远程中继等应对方案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;📈 论坛“加精”与社区生态指南&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;财富密码&lt;/strong&gt;：分享具体的、具有实战意义的量化策略（如红牛老板魔改的旗舰策略）最容易获得版主“加精”并赚取银葫芦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流量机制&lt;/strong&gt;：帖子获得20个以上的葫芦籽会自动触发建议加精机制。新人及冷门板块发帖往往有额外的加成机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;互助文化&lt;/strong&gt;：社区内常有“老板”分享 Tushare 积分或 AI 模型 API 额度，合理利用这些资源可以大幅降低学习成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💬 金句摘录&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;“已经在使劲卖了，问题接盘的太少了。” —— --坤&lt;/li&gt;
-&lt;li&gt;“一买一卖，利差落袋。” —— 黑黑夜夜&lt;/li&gt;
-&lt;li&gt;“多发点策略，你要犀利点。” —— 木木十三&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/36400&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=74783&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;约翰林(darkhair) 07:33:46
-2w应该可以买工作站了&lt;/p&gt;
-&lt;p&gt;才刚起步(wjx5461) 08:42:00
-内存前几天看一个介绍长鑫要掀桌子，价格直接降到1/3&lt;/p&gt;
-&lt;p&gt;才刚起步(wjx5461) 08:42:36
-镁光三星海力士就别想了，人家现在给英伟达供货订单都排到28年了&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 08:46:13
-国外厂家等于把国内厂家给捧起来了，国内产能专门供电脑用内存市场就行&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 08:47:54
-国内内存还是技术，份额都差了点，能达到长江的份额就猛了&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 08:59:09
-&lt;img src="http://192.168.5.28:5030/image/05a10062ab239fec507150996294f83d,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/19433c494bd224e1ada04f4fea218124" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 08:59:10
-&lt;img src="http://192.168.5.28:5030/image/99008d2669aa43034b092dfeb6c87465,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/3b07eb3c94e7aa606020cb398adda929" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 08:59:22
-仅供娱乐&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 09:05:01
-我要验牌@约翰林 &lt;/p&gt;
-&lt;p&gt;elikong(elikong) 09:05:04
-壕&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 09:05:26
-要验货&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 11:16:59
-&lt;a href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQCNhVu1Sv8dDJSA5RGfRhslsh3a2NL4nu153DqWZInbpErrJWINibM8VHhib0N6P0ZK2xYibIePzC5CvjiaGemicRD5F&amp;amp;bizid=1023&amp;amp;dotrans=0&amp;amp;hy=SH&amp;amp;idx=1&amp;amp;m=&amp;amp;uzid=7a166&amp;amp;token=6xykWLEnztIwsypERw9eUOu84SmsXNYcZYHhE4xyOUia8UrWicWzzsUcqnKia0zWeYEsMMHOotOtiasib47icNiamw4MjeXcAtNaNibJy9ScxGjyDiaMTeOctWgib0xVcnFRev38ib5KBXuZ5MQa6QeiacXFtvjAybj3jEX6ia2pFuQHCzVoNUy8&amp;amp;basedata=CAESBnhXVDEyOBoGeFdUMTExGgZ4V1QxMTIaBnhXVDExMxoGeFdUMTI2GgZ4V1QxMjcaBnhXVDEyOCIMCgoKBnhXVDExMhABKgcIvR4QABgC&amp;amp;sign=ShmBOOmG2LpvzX5aX9jzeZ93vAJbrM4wDu2r_OLTWxKJL7vfXX0tvRjt1KlZKgRSSe1_IJdqIBJKgSE9UYzx2g&amp;amp;ctsc=20&amp;amp;extg=108c400&amp;amp;svrbypass=AAuL%2FQsFAAABAAAAAADupMkPwfRiDs7PJjqRaRAAAADnaHZTnGbFfAj9RgZXfw6VeWd0uarZ0CPC%2FGOucqUEdBJggVbu1EWVMiFl73%2BopizjE87HzC5nrAY%3D&amp;amp;svrnonce=1771125286"&gt;视频号|一分不差！河南矿山员工数钱数到手抽筋，入职6年2次参加数钱大赛，上次80000元，这次95000元#大河报河南&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 11:17:00
-这个推给邢大&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 11:17:15
-@邢不行 &lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 11:17:31
-年会数钱大赛&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 12:26:50
-&lt;img src="http://192.168.5.28:5030/video/2643d802497e80ea773c99d6caf6a66f,msg/video/2026-02/3051ca4cf0abe846364eeb373f2f6cd7" alt="视频" /&gt;&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 13:00:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;约翰林(darkhair) 02-15 08:59:09
-&lt;img src="http://192.168.5.28:5030/image/05a10062ab239fec507150996294f83d" alt="图片" /&gt;
-最近看到好多屯内存条的，好奇他们什么时候卖啊，和白银一样暴跌了才卖吗[旺柴]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;糖炒立子(wxid_f3mj2o9ujjn722) 13:35:29
-大家记得参与抽奖哈～
-除夕夜开奖～&lt;/p&gt;
-&lt;p&gt;糖炒立子(wxid_f3mj2o9ujjn722) 13:36:26
-&lt;a href="https://mp.weixin.qq.com/mp/waerrpage?appid=wx4de13da05eaa2ef8&amp;amp;type=upgrade&amp;amp;upgradetype=3#wechat_redirect"&gt;小程序|抽奖工具&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 14:00:09&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-15 13:00:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-最近看到好多屯内存条的，好奇他们什么时候卖啊，和白银一样暴跌了才卖吗[旺柴]
-目测 27 年[让我看看]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 14:03:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 02-15 13:00:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-最近看到好多屯内存条的，好奇他们什么时候卖啊，和白银一样暴跌了才卖吗[旺柴]
-已经在使劲卖了，问题接盘的太少了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 14:09:13
-@夏普 你这怎么这么假&lt;/p&gt;
-&lt;p&gt;乐kingwuming(wxid_3510315092112) 14:15:08
-小黄鱼内存条价格京东一半&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 14:27:03
-小黄鱼敢相信吗&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 14:27:10
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=28cb0778029066c9bb37adc030064879&amp;amp;filekey=30350201010421301f020201060402535a041028cb0778029066c9bb37adc03006487902030341e6040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=269240078000a4da4ad93103b0000010600004f50535a1c0a41c156d88483d&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 14:29:03
-二手内存条是能用的，没问题，固态硬盘就不行了&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 14:30:47&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-15 14:03:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-已经在使劲卖了，问题接盘的太少了
-没人接盘可还行&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ZH(wxid_z2lu942qukat21) 14:33:25
-@夏普 你的头像怎么回事[旺柴]&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 14:34:29
-可能是涨工资了，飘了&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 14:34:35
-&lt;img src="http://192.168.5.28:5030/image/55e3e0103bdc39497315012eb7d5c948,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/1589a13128fa222efe2efbfa3639f197" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 14:34:48
-毕竟量化公司实习生工资都起飞了&lt;/p&gt;
-&lt;p&gt;ZH(wxid_z2lu942qukat21) 14:35:24
-过去一年赚翻了&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 14:41:09
-Openclaw，大家现在用什么模型跑的&lt;/p&gt;
-&lt;p&gt;胖胖(KuroHu) 14:42:44
-minmax&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 14:43:00
-这个mini max怎么收费啊？&lt;/p&gt;
-&lt;p&gt;胖胖(KuroHu) 14:45:46
-&lt;img src="http://192.168.5.28:5030/image/95e85a4f8e97348deebe6539d5257196,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/3d18bc2f676db02d6cc1887f2d90a096" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;胖胖(KuroHu) 14:46:56
-注册送15块&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 14:47:44
-这个价格有claude code&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 14:48:20
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=818925be33d010a9fbe1c301b3bb9678&amp;amp;filekey=30350201010421301f020201060402535a0410818925be33d010a9fbe1c301b3bb9678020301659b040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632353133313332383030303439333532336339613239326539373238353630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;胖胖(KuroHu) 14:49:18
-claude code那么便宜了现在？&lt;/p&gt;
-&lt;p&gt;胖胖(KuroHu) 14:49:44
-那我去看看[旺柴]&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 14:50:21
-claude code很容易被封号吧&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 14:51:20
-我用一个本地20B的模型，跑起来是不是功能有很多不行？&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 14:53:11
-合租的中转可以的&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 14:53:20
-独享的稍微麻烦点&lt;/p&gt;
-&lt;p&gt;力割_萌新(wxid_pqg179eu3k8e22) 14:53:24
-去中介买吧&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:00:07&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-15 14:50:21
-claude code很容易被封号吧
-用的智谱的 api，还挺好使的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;系统消息 15:00:17
-&amp;quot;木木十三&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:00:28
-智谱的 5.0 好像挺强的&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:00:29
-你公司有自己的中转平台 目前来看还是4.6最强&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:01:05&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-15 14:50:21
-claude code很容易被封号吧
-Claude可以用指纹浏览器来访问，我现在用了半年没被封过了。之前国内一用就封，连着封了两个号了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:01:50
-买个美国的固定家庭IP&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 15:02:06
-你太牛了，还买一个美国固定IP&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:02:20
-不贵，就几十一个月&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 15:02:26
-美国固定ip我有  但是不知道靠不靠谱&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:02:29
-他们那些做电商的都得买&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:03:06&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-15 15:02:26
-美国固定ip我有  但是不知道靠不靠谱
-有这种不容易被封，claude对国内太不友好了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 15:03:07
-固定IP然后还要用指纹浏览器吗&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:03:17&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-15 15:03:07
-固定IP然后还要用指纹浏览器吗
-嗯嗯 网页版要的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Kinghh(whuboyxj) 15:03:20
-智谱现在怎么收费啊？&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:03:21
-亲测&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 15:03:29
-@Point71 &lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 15:03:30
-claude code呢&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:03:44
-我之前一个号在国外用的，用了三年，回国一个月用了下直接被封了&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:03:48
-无理由的那种&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:04:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 02-15 15:03:30
-claude code呢
-cc不用，cc管的没那么严&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 15:04:10
-同样是opus 4.6的模型  我实测下来antigravity比cursor差很多&lt;/p&gt;
-&lt;p&gt;jwt(wxid_59qmq994qemf11) 15:04:30
-我看大家都说Claude code应该是最好的&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:04:42
-cc我个人感觉是最好的&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:04:54
-codex还没试&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:09:19&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Kinghh(whuboyxj) 02-15 15:03:20
-智谱现在怎么收费啊？
-分享会有个老板把他的年费 api 分享给大伙用了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:09:30
-感谢老板，我现在还在用他的额度&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 15:10:56
-感谢老板&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 15:13:31
-我也想谢谢他，链接在哪里呢&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:17:18
-之前是不是有个老板要tushare，我tushare每年要送5k积分，但我用不上，需要的可以用我的。&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:18:55
-老板大气[色]&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:19:19
-[旺柴]老板大气&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:19:21
-我 tushare 还在用本科导师的积分[破涕为笑]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 15:28:37
-今晚抽奖能不能有机会中奖(✧∀✧)&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:29:37
-策略开卷&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:31:00
-@木木十三 说好的回家过年呢&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:31:18
-我从早上玩到现在了&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:31:32
-玩的时候不说&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:31:47
-开卷广而告之&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:33:46
-何老板比我卷啊&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:35:05
-15个银葫芦 爆打 伍佰&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:35:16
-15*188=2820&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:35:21
-2820/500=5.64&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:35:48
-@木木十三 卷率 5.64&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 15:38:12
-那坤老板～得卷出天际&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:38:42
-♾️&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:39:25&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-15 15:38:12
-那坤老板～得卷出天际
-他是高卷率*高转化率&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 15:39:39
-我是高卷，但是转换率不行啊&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 15:42:41
-@ZP😎 &lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 15:44:02
-我有个数据要在tushare下&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:46:15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-15 15:39:39
-我是高卷，但是转换率不行啊
-你还年轻&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 15:46:17&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 02-15 15:44:02
-我有个数据要在tushare下
-加我就行&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Kinghh(whuboyxj) 15:50:07
-[强][强]&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:08:59
-节后准备重点在写代码上。今年的旗舰策略改一改&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:09:21
-@红牛 大佬出马 旗舰核动力&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:10:26
-节后旗舰还没发吧&lt;/p&gt;
-&lt;p&gt;系统消息 16:10:34
-&amp;quot;红牛&amp;quot; 撤回了一条消息&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:11:06
-红牛老板不会自行先实现了吧&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:11:44
-&lt;img src="http://192.168.5.28:5030/image/81734c37b96cb64a489103ea1d90eda5,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/49546027968394438ade9f646880f3e1" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:12:42
-&lt;img src="http://192.168.5.28:5030/image/881d7b5db01716fe19d51aa6e70f8502,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/5f80d12e594ac653023634248a09bd66" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:12:56
-炸裂&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:13:10
-后面这个是我写的第一个策略&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:13:19
-牛&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:13:31
-&lt;img src="http://192.168.5.28:5030/image/88662065cb79e1dbea1d48c1d3d152bb,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/42b87ea37b1e39be781403060b86c3ad" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;YE(yexiaosi1) 16:13:33
-牛&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:13:39
-在这基础上改的&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:14:35
-后面一直把量化当初选的工具没怎么写完整的策略&lt;/p&gt;
-&lt;p&gt;ShawnSu(a28432251) 16:14:51
-[恐惧][强][强]&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:15:01
-今年应该魔改策略了&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:17:35
-搞起来，搞起来&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:18:58
-期待红牛老板的帖子了&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:20:05
-财务模型还是能会感觉比较放心&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:20:13
-&lt;img src="http://192.168.5.28:5030/image/22408732d39cdd4ff914e4c956384353,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c430242b16fd69859e5c9718c4fc8725" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:20:26
-在这个帖子上加了两三个条件改成的&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:20:51
-&lt;img src="http://192.168.5.28:5030/image/37bdd70ac789734445c8f37be94993e2,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/91998d4a0cce0f474f4f2d1e9407ccff" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:20:53
-Openclaw，大家都搞起来了？&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:21:22
-&lt;img src="http://192.168.5.28:5030/image/1e2b03dadc7f5e80ee5d343dc3be712e,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/cf3476928b53d9bb59eeb9c5423ed794" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:22:03
-我刚装好，不知道能不能用&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:22:06
-晚点试一下&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:22:28
-这帖子得了银葫芦，从此走上了赚葫芦的不归路&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:23:40
-不错不错&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:24:18
-我还在为拿到第一个银葫芦而努力💪&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:24:46&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-15 16:24:18
-我还在为拿到第一个银葫芦而努力💪
-+1&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:24:51
-暂时都是搞点小工具，还没开始做过策略的研究[捂脸]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:25:38
-以后还得靠各位老板们投投葫芦籽[社会社会]&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:26:12
-我就发过一个帖子[憨笑]&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:26:33
-&lt;img src="http://192.168.5.28:5030/image/196897f3021c6034721815d75c33883c,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/c98ccb9576d33cdad52638ef157cb8fb" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 16:26:40
-大家多发好帖啊，我来跟大家投葫芦枣&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:28:18
-&lt;img src="http://192.168.5.28:5030/image/2438d1b23715b4e407464666722c2732,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/217652294614a5f71940219fdff31aa1" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:28:26
-这个建议11银是啥意思&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:28:59
-得有一个版主给你加精&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 16:29:02
-先是建议，最终根据建议和实际情况给&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:29:20
-哦哦&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 16:29:37
-彩虹自有流量机制[捂脸]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:29:41
-我也是有一个葫芦仙人的建议加精&lt;/p&gt;
-&lt;p&gt;天长地久(wxid_4130731310212) 16:30:59
-超过100葫芦籽的帖子会在第30天被葫芦仙人建议一下，但真正加精还需要至少一个版主也加精&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:31:25
-超过 100 个才会吗&lt;/p&gt;
-&lt;p&gt;天长地久(wxid_4130731310212) 16:31:37
-对&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:31:38
-不用的&lt;/p&gt;
-&lt;p&gt;ZP😎(wxid_qszigi7xngtn22) 16:31:45&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-15 16:31:25
-超过 100 个才会吗
-不用，我看我30个今天也加精了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:31:45
-我没有100个也建议了&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:31:48
-我的好像才 30 个葫芦籽来着&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:32:02
-多发点策略[旺柴]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:32:19
-鸟枪换炮之后就去搞点策略[旺柴]&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 16:32:19
-@木木十三 策略靠你们这些大佬了&lt;/p&gt;
-&lt;p&gt;天长地久(wxid_4130731310212) 16:32:22
-哦我记错了，是20个葫芦籽&lt;/p&gt;
-&lt;p&gt;天长地久(wxid_4130731310212) 16:32:30
-https://bbs.quantclass.cn/thread/36400&lt;/p&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 17:05:42&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-15 16:31:48
-我的好像才 30 个葫芦籽来着
-新人和冷门板块好像有加成&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Shawn_Gsy(wxid_fxrjj3ujmj4x11) 17:06:28&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Joe(zhoubin12001) 02-15 16:20:53
-Openclaw，大家都搞起来了？
-已经部署了一个
-还没想到太多场景&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:10:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;--坤(wxid_6tatj8s1dirs21) 02-15 17:05:42&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-新人和冷门板块好像有加成
-但我好像没有新人新贴这个加成&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:10:03
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=6e7af618d0ad2eec62a5b09de215bae2&amp;amp;filekey=3043020101042f302d02016e040253480420366537616636313864306164326565633632613562303964653231356261653202021420040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032313131333031343231323930303065353431393532323463653861396330393964303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 17:14:30
-你要犀利点&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 17:15:27
-我总结我每一次发帖配以下表情容易加精&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:16:16
-我来学习一下&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:16:25
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=60ebb7816e0780a67bfbfc62d190cee7&amp;amp;filekey=3043020101042f302d02016e04025348042036306562623738313665303738306136376266626663363264313930636565370202161a040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=264ddf03e00046d97cd6ecaf40000006e01004fb1534816580bc1e65c4df81&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 17:16:32
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=37b55191c79bafd66e7c97fda9e85991&amp;amp;filekey=3043020101042f302d02016e0402535a0420333762353531393163373962616664363665376339376664613965383539393102022fdc040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2634341a10000e09e390a56340000006e01004fb1535a169c4b50b7b95aee9&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:16:35&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-15 17:15:27
-我总结我每一次发帖配以下表情容易加精
-我告诉你有&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 17:16:38
-[旺柴][旺柴]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:17:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;木木十三(linmanjia) 02-15 17:16:32
-&lt;img src="http*#*//vweixinf.tc.qq.com/110/20401/stodownload?m=37b55191c79bafd66e7c97fda9e85991&amp;amp;filekey=3043020101042f302d02016e0402535a0420333762353531393163373962616664363665376339376664613965383539393102022fdc040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2634341a10000e09e390a56340000006e01004fb1535a169c4b50b7b95aee9&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;
-啊？[发呆]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:17:07
-不管了，我先收藏&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:17:08
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=74783"&gt;链接|❤️【私房照】爱看的话，我再连载，版主大人，慷慨给精华嘛❤️ | 公共讨论区&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:17:14
-万一有用呢哈哈哈哈&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:17:46&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-15 17:17:07
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=74783"&gt;链接|❤️【私房照】爱看的话，我再连载，版主大人，慷慨给精华嘛❤️ | 公共讨论区&lt;/a&gt;
-@木木十三 @Point71 &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:18:04
-这肯定得加精&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 17:18:33
-席梦思即将到达战场&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:19:27
-&lt;img src="http://192.168.5.28:5030/image/195fcc07e99d8626599ae858d46006eb,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/275742a1adf47c93fe685cb20912a587" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 17:19:29&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 02-15 17:17:08
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=74783"&gt;链接|❤️【私房照】爱看的话，我再连载，版主大人，慷慨给精华嘛❤️ | 公共讨论区&lt;/a&gt;
-点进来发现不对劲&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:19:51
-很多 人，被我置顶帖 给拐进来&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:19:54
-哈哈哈&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 17:20:09
-&lt;img src="http://192.168.5.28:5030/image/3f5f8e301c41d8aaac8c3512543a3051,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/74023c5769425bcc002f78f82ad5d6af" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:20:11
-果然是同性交友平台&lt;/p&gt;
-&lt;p&gt;Joe(zhoubin12001) 17:20:14
-@無慈悲な定量化機械 还来恶心人一下，你好坏，我好喜欢&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:20:58
-&lt;img src="http://192.168.5.28:5030/image/8c72ac5b03b14edb7b3ed5f179a2a8c8,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/6a0066abca234f24944c38036f45a255" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 17:23:27
-这是钓鱼执法吗？&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 17:24:22
-留言骂娘的人 坦蛋蛋，真英雄&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:58:48
-我差点以为是剑南老板&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 19:58:48
-&lt;img src="http://192.168.5.28:5030/image/6b1a07dffa05f72b2c149055f7700125,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/2477bf50a137689e89d710774a5e8825" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 19:59:05
-难道不是吗&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 19:59:07
-[旺柴]&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 20:00:01
-地区不一样[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 20:24:07
-哈哈哈&lt;/p&gt;
-&lt;p&gt;杰(lMr_liw) 20:40:35
-每次放假，外围都涨[难过]&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 20:41:14
-春节行情&lt;/p&gt;
-&lt;p&gt;elikong(elikong) 20:48:13
-不要怕，放完假，他们就跌回来了&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 20:50:55
-想邢大的第二天&lt;/p&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 20:53:48&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;elikong(elikong) 02-15 20:48:13
-不要怕，放完假，他们就跌回来了
-必须套利&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;黑黑夜夜(wxid_gzzjs5tnu3fg22) 20:54:18
-一买一卖，利差落袋&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 23:14:40
-要等节后才能见面了嘛[衰]&lt;/p&gt;
-&lt;p&gt;星星很亮(wxid_v3hpznmd81qp22) 23:14:40
-&lt;img src="http://192.168.5.28:5030/image/85d12403209415574ed1d0ffba578464,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/609f4816dc5518f2429bd9ad88a92069" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 23:35:43
-20260215trae国际版，国外大模型接近无了，蜜月期结束&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 23:35:43
-&lt;img src="http://192.168.5.28:5030/image/b1139ff671bf1b4cc32939a8d5252097,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/f77d56f5702161d8768403c0c4770e7a" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 23:35:43
-&lt;img src="http://192.168.5.28:5030/image/d86d08af3184688ed51a96c5fb562859,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/a255aac78d1605ea4e5dcc3e13697ced" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 23:36:46
-刚买的会员。。&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 23:37:06
-这个不是最新的还在&lt;/p&gt;
-&lt;p&gt;Kinghh(whuboyxj) 23:37:18
-我感觉用国内版不挺好的，还不要钱&lt;/p&gt;
-&lt;p&gt;猜你妹是谁？如实观照!(wxid_oola2135jnu321) 23:39:04
-上国外服务器，多个远程中继，半解决用国外大模型的问题，只能先这样了&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 23:44:37
-&lt;img src="http://192.168.5.28:5030/image/09e967b9b1cc410094434df7514c0181,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/67fb13c5a4ca688b63bc4bf67171f1d2" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;约翰林(darkhair) 23:44:48
-我现在还在用，估计明天早上就不行了&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-15&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 15 Feb 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
