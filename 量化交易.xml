@@ -7,7 +7,50 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Mar 2026 22:42:55 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 08:42:49 +0000</lastBuildDate>
+    <item>
+      <title>量化交易隐形陷阱：为什么风险因子会“吞噬”你的Alpha？</title>
+      <link>https://www.bilibili.com/video/BV1u5NwzJEzb</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1u5NwzJEzb"&gt;风险因子会吞噬Alpha吗？——组合优化中风险模型与Alpha模型错配的陷阱与对策&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么名字完全相同、仅时间窗口微差的因子，会导致优化器做出完全背离预期的决策？&lt;/li&gt;
+&lt;li&gt;💡 为什么在因子定义不一致时，一个“更完美”的风险模型反而会显著降低投资组合的表现？&lt;/li&gt;
+&lt;li&gt;🚀 如何通过“暴露替换”或“统一模型”来修正因子错配，从而找回丢失的超额收益？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 因子错配：优化器如何被“虚假信号”误导&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义偏差产生的“风险盲区”&lt;/strong&gt;: 即使同为“动量因子”，Alpha模型若采用滞后数据，而风险模型采用即时数据，会导致优化器认为某些收益是不带因子风险的“免费午餐”。它会疯狂加载这些在风险模型看来是“噪声”但在Alpha模型看来是“收益”的暴露。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正交Alpha的陷阱&lt;/strong&gt;: 优化器天生偏好“正交Alpha”（即风险因子无法解释的部分）。当风险模型极其精确时，它会无情地惩罚所有与风险因子相关的收益。如果因子定义不一致，优化器会迫使组合去追逐那些被模型漏掉的、实则是纯粹噪声的“残差收益”，最终损害绩效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 因子对齐实操：从定义修正到模型统一&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;定义一致性审计&lt;/strong&gt;: 强制对齐Alpha与风险模型重叠因子的计算逻辑，特别是时间窗口、滞后处理与标准化规则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;暴露替换 (Exposure Replacement)&lt;/strong&gt;: 实践中高性价比的方案。直接将风险模型中的因子暴露矩阵替换为Alpha模型的对应矩阵，以消除“正交空间”的逻辑空隙。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型模拟或重建&lt;/strong&gt;: 对于高波动因子（如动量），建议利用现有风险模型近似模拟一个包含Alpha因子的新协方差矩阵，实现底层逻辑闭环。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;做多限制并非万能&lt;/strong&gt;: 尽管组合的做多限制能缓解部分错配压力，但无法根除因子定义冲突带来的收益流失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;警惕“删除因子”法&lt;/strong&gt;: 简单删除风险因子虽能对齐，但会造成风险预测严重低估，掩盖真实的系统性波动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “优化器天生就更喜欢‘正交Alpha’，而不是‘平行Alpha’。”&lt;/li&gt;
+&lt;li&gt;💬 “在因子定义不一致的情况下，一个过于精确的风险模型，反而可能因为过度惩罚了Alpha中与因子相关的部分，而损害了整体表现。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1u5NwzJEzb</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/bc654b35990746e472af6e9b2823d316cae28984.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 08 Mar 2026 11:31:00 +0800</pubDate>
+    </item>
     <item>
       <title>深度解析“阴阳鱼”量化策略：基于硬逻辑的动态敞口管理与实盘避坑指南</title>
       <link>https://bbs.quantclass.cn/thread/76783</link>
@@ -2407,6 +2450,46 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV15qfsB3E1k</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/ab211bbc9abbf3a8cf97b278bb8a9d584aa463b5.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 27 Feb 2026 18:29:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>拒绝Agent幻觉：基于三阶段流水线的低成本区块链信息量化分析机器人方案</title>
+      <link>https://bbs.quantclass.cn/thread/76629</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76629"&gt;【小玩具】节约注意力：Crypto新闻省流速读机器人&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程 / 市场规律与洞察&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：LLM结构化输出、因果机器学习思维、Crypto信息清洗、Kimi API自动化、长短期记忆&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过三阶段硬编码逻辑取代随机Agent，实现极低成本、高稳定的加密货币市场信息结构化分析。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：华语加密货币信息环境信噪比极低，单纯依赖大模型Agent进行长序列新闻处理时，极易陷入逻辑幻觉或产生虚假事实。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：通用Agent框架的决策随机性导致任务路径不可控（如陷入死循环搜索），导致API调用成本激增且输出格式不稳。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决Agent成本不可控、逻辑黑盒、及无法在工程层面强制校验信息源真实性的弊端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Ubuntu服务器 + Python + Kimi API + 企业微信Webhook。架构采用 Filter（信息清洗）-&amp;gt; Thinker（策略分析）-&amp;gt; Publisher（格式化校验）的三级流水线设计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因果填空逻辑&lt;/strong&gt;：将LLM角色化并限制为结构化填空，杜绝发散性生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SourceVerifier 模块&lt;/strong&gt;：在输出前强制比对白名单URL，从工程层面拦截编造的链接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多周期记忆机制&lt;/strong&gt;：结合24H/7D/30D历史数据进行深度回溯，确保分析具备时间序列的一致性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过将LLM调用次数锁死为3次，单次任务处理约36.5k token（约半本名著信息量），月均运行成本降至30-40元人民币。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑解耦&lt;/strong&gt;：放弃通用Agent，针对特定量化投研任务采用“硬编码逻辑链条+LLM填空”的确定性架构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真实性闭环&lt;/strong&gt;：在Publisher环节必须增加原始数据索引（Source Index）校验，作为对抗LLM幻觉的最后防线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态输入&lt;/strong&gt;：将结构化新闻事实与价格K线、恐慌指数等定量指标同步喂给LLM，利用其推理能力进行定性转定量的趋势评分。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76629</guid>
+      <pubDate>Fri, 27 Feb 2026 17:40:26 +0800</pubDate>
     </item>
     <item>
       <title>解决五档数据为空：XTQUANT行情订阅机制与实操全指南</title>
@@ -5212,332 +5295,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 &lt;li&gt;“可以当个服务器来一直炼丹。” —— 曾经潇湘难为水（评价小主机用途）&lt;/li&gt;
 &lt;li&gt;“没有人能预测油价……” —— TheNotoriousPhD（对原油宝事件的幽默反思）&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化框架性能优化：核心数、内存与回测策略的核心考量</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;amp;talker=57784510736@chatroom"&gt;2026-02-17_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🤖 春晚机器人：当科技成为娱乐焦点&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;2024年春晚的一大亮点是机器人元素的“高浓度”出现。从技术解析到导演回应，都显示出中国机器人产业的立体化发展，以及其在公众视野中的日益普及。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术洞察：&lt;/strong&gt; 有人分享了对“武BOT”机器人六大经典动作与核心难点的逐帧解析，揭示了其背后复杂的技术挑战。这表明机器人不仅是表演工具，更是精密工程的体现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;娱乐新趋势：&lt;/strong&gt; 除了春晚，科技也以其他有趣的形式融入娱乐，例如利用AR眼镜开发麻将外挂，展现了技术如何为传统娱乐增添新奇体验。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⚡️ 量化框架性能优化：核心数、内存与存储的协同作用
-量化交易框架对硬件性能要求极高，尤其在处理大量数据和复杂回测时。群友们就如何优化框架性能展开了深入讨论，总结出以下关键点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;CPU核心数是“王道”：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;量化框架“非常吃”CPU核心数和线程数。由于Python本身的执行速度限制，多核心是提升计算效率的关键。&lt;/li&gt;
-&lt;li&gt;建议：选择更多核心数的处理器能显著提升框架运行效率，即便在高负载下，散热压力也相对较小（如9950x3d风扇不怎么转的案例）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内存与存储不可忽视：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;即便CPU核心数足够，内存也必须跟上，以避免成为性能瓶颈。&lt;/li&gt;
-&lt;li&gt;快速SSD（固态硬盘）对数据读取至关重要，尤其是在处理CSV等格式的大量数据时，能有效避免“坑点”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测策略的效率考量：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;对于数据结构稳定的回测，每日只需更新数据并生成一次pkl文件即可，关键在于对日内策略进行参数调整回测，这才是真正的计算密集型任务。&lt;/li&gt;
-&lt;li&gt;不同策略有不同需求：并非所有框架都采用稳定的数据结构进行循环求参，具体优化需根据框架的数据定义和回测逻辑调整。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡 金句分享&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;python快不了 核心多才是王道&amp;quot; —— 木木十三&lt;/li&gt;
-&lt;li&gt;&amp;quot;核心数多了也要内存跟得上才行&amp;quot; —— cG&lt;/li&gt;
-&lt;li&gt;&amp;quot;回测step1一天实际上只需要数据更新完 执行一次 pkl生成就好了&amp;quot; —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔗 相关链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76485"&gt;【无用天书卷】【逐帧解析】武BOT 机器人6大经典动作与核心难点（权威技术拆解） | 公共讨论区&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76487"&gt;【无用天书卷】&amp;quot;身骑白马走三关&amp;quot;与股票择时、持盈三浪理论的隐喻关联 | 公共讨论区&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;Cyan.(wxid_vgrij6uwnlg521) 08:46:24
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=d1023faea87e5cff054010062043bfb4&amp;amp;filekey=30440201010430302e02016e040253480420643130323366616561383765356366663035343031303036323034336266623402030e0153040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26993ba4e00079a014897e9690000006e01004fb15348120c217156be27ece&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 08:59:05
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=c6280a253a35005da3460420784ef2e1&amp;amp;filekey=30440201010430302e02016e0402535a04206336323830613235336133353030356461333436303432303738346566326531020300b01e040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=26987ffcb0004fd455a3df5350000006e01004fb1535a15534151569f21e69&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:06:58
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76485"&gt;链接|【无用天书卷】【逐帧解析】武BOT 机器人6大经典动作与核心难点（权威技术拆解） | 公共讨论区&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 10:39:35
-&lt;a href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQCI1bROXRQ21ybqBbl83Xt1TibwjIujIrjsvmCrA9UeexxDynowhQ7dod6MtHmbv1DgPRWLJvdAzzP4ibKVLUyteo&amp;amp;bizid=1023&amp;amp;dotrans=0&amp;amp;hy=SH&amp;amp;idx=1&amp;amp;m=&amp;amp;uzid=7a210&amp;amp;token=cztXnd9GyrH932nzeZiaa0uNx6KYEia1zv6azET8XAwMNPCgSnyLGpVayfqI4iaAtZO21pGiaLlOibc7xx8veicV4Y8njXq2ibIyJ97bPqul5icWbwCR7Mg08CY2KQdQTs1hLkTJiatw5bDGFkDzgBjUjQ67vAESZ8Rn8MAVqJLLwu4eeH30&amp;amp;basedata=CAESBnhXVDE1MRoGeFdUMTExGgZ4V1QxMTIaBnhXVDExMxoGeFdUMTU2GgZ4V1QxNTcaBnhXVDE1MRoGeFdUMTU4IhgKCgoGeFdUMTEyEAEKCgoGeFdUMTU3EAEqBwi9HhAAGAI&amp;amp;sign=ZnsE3megA-9sIjdjSIjRRytjXSn6gWCQfIeiDD5ESbEFo98n4BImarEGxj9FXcyFgGS9Z2NmqWUP6rSgF8FeUw&amp;amp;ctsc=20&amp;amp;extg=108c500&amp;amp;svrbypass=AAuL%2FQsFAAABAAAAAACTgpcrBQVsKQwnMtGTaRAAAADnaHZTnGbFfAj9RgZXfw6VL3yqFPB7KKScrsE3veYD0ztsKHGrGAMUBnuwvu69YaaE8JIsAzsAFMw%3D&amp;amp;svrnonce=1771295026"&gt;视频号|春晚被机器人占领了？从2076年的春晚现场发回的报道。#春晚 #春晚机器人 #蔡明 #武BOT&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 10:39:35
-碳基春晚&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 10:39:35
-&lt;a href="https://bbs.quantclass.cn/topic/index?id=76487"&gt;链接|【无用天书卷】&amp;quot;身骑白马走三关&amp;quot;与股票择时、持盈三浪理论的隐喻关联 | 公共讨论区&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 12:25:30
-&lt;a href="https://mp.weixin.qq.com/s?__biz=MjM5ODAzMjQxMg==&amp;amp;mid=2650914052&amp;amp;idx=1&amp;amp;sn=2c656ebbbb259d95debe16978bbb057d&amp;amp;chksm=bca1ad65e7cf92392823c9c1748f0fd4dd27f3beaa9aec081039571ecf1f3b03270065eb78d9&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0217SIFRMyBuQo3Tjd04BfGW&amp;amp;sharer_shareinfo=eb39fc52ff40ea3c7f1089984b0afec5&amp;amp;sharer_shareinfo_first=eb39fc52ff40ea3c7f1089984b0afec5#rd"&gt;链接|春晚总导演于蕾回应“机器人浓度高”：希望让观众看到中国机器人产业立体化的发展状态&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 14:50:31
-&lt;a href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQAXTKtSK17NPKlibn98753f7uQbBCVUzneJwytQovlufe2D9Yib2xtrsrxIOBYEeNIxp3RxweYxUI9sI5JicMwKVCia&amp;amp;bizid=1023&amp;amp;dotrans=0&amp;amp;hy=SH&amp;amp;idx=1&amp;amp;m=&amp;amp;uzid=7a1ac&amp;amp;token=6xykWLEnztIwsypERw9eUK7oQfcGOPGTc6WibiaSzorKIYaiapV84tTs8w2VlHScPT6OOpZP8JTMttnibQicXk8ve5vQib6n0O7gySmFCiciarmvR6fVto1vwsgO7kTZFE0SknwgXuoib7KWNG8dnMfBFnGcWic8TdqHcDjKy5dsc1uzB9z1k&amp;amp;basedata=CAESBnhXVDE1NxoGeFdUMTExGgZ4V1QxMTIaBnhXVDE1NhoGeFdUMTU3GgZ4V1QxMTMaBnhXVDE1OCIYCgoKBnhXVDExMhABCgoKBnhXVDE1NxABKgcIvR4QABgC&amp;amp;sign=2OZ4Z6nLVYz36lerskFlswcIqLK_w4xkkXwMnG1cQSiMv-Rbq6FCHG_uDVIH0j4aLSTHsMe5pOvDQ8NIZ1tgYw&amp;amp;ctsc=20&amp;amp;extg=88c500&amp;amp;svrbypass=AAuL%2FQsFAAABAAAAAABAXV1Xnb0qrWeauw6UaRAAAADnaHZTnGbFfAj9RgZXfw6VRXjzHaBvnl5m46T0YhKgNo44%2BX8UAcB%2FSWecpBicgZq9UoMqsGwqLn8%3D&amp;amp;svrnonce=1771310779"&gt;视频号|我做了个麻将外挂，决战春节！#麻将 #春节 #AR眼镜 #雷鸟 #雷鸟X3Pro&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 15:01:08
-&lt;a href="http://wxapp.tc.qq.com/251/20302/stodownload?encfilekey=Cvvj5Ix3eewK0tHtibORqcsqchXNh0Gf3sJcaYqC2rQCwDc0v0q0s9AwEibolSgiav0R08NyZMLU9DuKxrOZVT3n33ic08xapQwyEuiahuN4IaCiamtwicoJrRCP3o6Fmvic8RF9&amp;amp;bizid=1023&amp;amp;dotrans=0&amp;amp;hy=SH&amp;amp;idx=1&amp;amp;m=&amp;amp;uzid=7a1ac&amp;amp;token=6xykWLEnztIwsypERw9eUPbcDYQ6G501cVEib5YXa1Cg17Brb8e0WciclN6dhKBLekpalEx6GmQBWp749EXcpJJOo5ZlFuYkiaIGvJLMppwc2A9l1EWGyQG2geXzlMWXbwS6Fibh4chibZU846Ydck9r1rCiahOxJRYPXV2A2UEQG2mts&amp;amp;basedata=CAESBnhXVDEwMhoGeFdUMTExGgZ4V1QxMDIaBnhXVDExMhoGeFdUMTEzGgZ4V1QxMjYaBnhXVDEyNxoGeFdUMTI4IgwKCgoGeFdUMTEyEAEqBwjoHBAAGAI&amp;amp;sign=ADMYuq1Sl56J6Zz6_nYqOkH9nBv7HMfjUPjnKUzNf6pdJqZx8hQ9Ktg99Xfc3YPmiGcT4wQ5wK1WeWK8HbsmQA&amp;amp;ctsc=25&amp;amp;extg=10ac500&amp;amp;ftype=656&amp;amp;svrbypass=AAuL%2FQsFAAABAAAAAACafsZYUaRhBDoWCxCUaRAAAADnaHZTnGbFfAj9RgZXfw6VKHh1xUfuNGAm%2BKbLVaHPUXH7PItuFWExmPfO7cbcLT%2BgRWdv80SgUQA%3D&amp;amp;svrnonce=1771311115"&gt;视频号|听完菲姐听原唱！🎆 祝大家新年快乐！ 2025 5.18 sun. @ Blue Note Shanghai ――――― #bluenote #上海演出 #王菲 #zazasu #你我经历的一刻 #春晚&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:36:25
-各位老板们 我们的框架吃核心数和线程数吗&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:36:39
-吃&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:36:43
-很吃&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:41:27
-明白了，那我选点核心数线程数多的&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:41:32
-谢谢木木老板&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:42:48
-python快不了 核心多才是王道 我的9950x3d风扇不怎么转&lt;/p&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 16:43:57
-我之前只能用 eco 模式跑代码[憨笑]&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:44:30
-够用 ssd要快点 csv读取那个有点坑&lt;/p&gt;
-&lt;p&gt;cG(wxid_zar4c4vnq0xy11) 16:46:16
-核心数多了也要内存跟得上才行&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:47:08&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Point71(wxid_oc48eo7vo6ud22) 02-17 16:36:25
-各位老板们 我们的框架吃核心数和线程数吗
-回测step1一天实际上只需要数据更新完 执行一次 pkl生成就好了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:47:36
-本质上日内是对 234进行改参回测&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:47:45
-不一定啊 有数据定义[旺柴]&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:48:38
-我是数据结构稳定的 循环求参之类&lt;/p&gt;
-&lt;p&gt;木木十三(linmanjia) 16:48:53
-那就是咯[旺柴] 有几个和你一样&lt;/p&gt;
-&lt;p&gt;無慈悲な定量化機械(avvcd12) 16:50:06
-哈哈哈&lt;/p&gt;
-&lt;p&gt;红牛(wxid_yzhgqvnbkw0w21) 23:18:49
-&lt;img src="http://192.168.5.28:5030/image/a41b0fcec10d3396ce90963da63bdc14,msg/attach/780d749e07de924fbf12ba36dacb4c15/2026-02/Img/ddcbfde93d249cea1a40e7c0f7ae8c8e" alt="图片" /&gt;&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 17 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>红包暖场破宵禁，B群热议量化交易硬件与能源市场走向</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;amp;talker=58453205219@chatroom"&gt;2026-02-17_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🧧 红包打破沉寂：激活社群互动&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;群友BoBo注意到B群在春节期间似乎陷入“宵禁”状态，与活跃的A群形成鲜明对比。&lt;/li&gt;
-&lt;li&gt;他主动向群友@gcouple.J喊话，希望对方能带头派发红包，并承诺自己将接力。&lt;/li&gt;
-&lt;li&gt;BoBo随后兑现承诺，代表A群向B群发送了红包，成功“打破宵禁”，被群友Jereo形容为“b圈的春天要来了”。&lt;/li&gt;
-&lt;li&gt;另一位群友曾经潇湘难为水也分享了“A谷抽奖中了，B圈发红包”的喜悦，并以“劫富济贫”的幽默方式，进一步活跃了群内气氛。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💻 量化交易硬件抉择：回测与实盘性能考量&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;群友桐桐询问“四饼狗”策略是否还在回撤，得到了“昨天暴跌后拉回来了点”的反馈。&lt;/li&gt;
-&lt;li&gt;有群友对一张图片展示的小主机（可能是作为彩虹集团奖品）能否用于跑回测提出疑问。&lt;/li&gt;
-&lt;li&gt;对此，群友心想事陈提出了专业的建议与分析：&lt;ul&gt;
-&lt;li&gt;小主机可以运行回测，但其性能可能“很一般”。&lt;/li&gt;
-&lt;li&gt;他推测这类设备可能配备16GB内存。&lt;/li&gt;
-&lt;li&gt;建议购买内存容量更大的设备进行回测，并指出小主机“升级好像也是受限”的瓶颈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Chris补充道，这类小主机甚至“可以跑实盘”，显示其具备一定的实际交易能力。&lt;/li&gt;
-&lt;li&gt;曾经潇湘难为水则从另一个角度提出，小主机“可以当个服务器来一直炼丹”（指运行机器学习模型进行训练），强调其在模型开发方面的潜在用途。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⛽ 能源市场动向：地缘政治与油价预测的挑战&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;群友WN_暖春拂晓分享了一则关于“伊朗：霍尔木兹海峡部分区域将关闭数小时”的新闻链接。&lt;/li&gt;
-&lt;li&gt;他随后抛出疑问：“接下来是轮到石油涨了？”暗示了地缘政治事件对能源价格的潜在影响。&lt;/li&gt;
-&lt;li&gt;TheNotoriousPhD引用了“原油宝”事件中的著名论调回应：“没有人能预测油价……”这句带有历史背景和讽刺意味的话，恰当地表达了预测油价的固有困难与风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;✨ 金句速览&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Jereo: &amp;quot;感谢老板打破宵禁，b 圈的 春天要来了&amp;quot;&lt;/li&gt;
-&lt;li&gt;曾经潇湘难为水: &amp;quot;A谷抽奖中了，B圈发红包，劫富济贫&amp;quot;&lt;/li&gt;
-&lt;li&gt;TheNotoriousPhD (引用自“原油宝”): &amp;quot;没有人能预测油价……&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;原文&lt;/h2&gt;
-&lt;p&gt;BoBo(bobo8692) 00:36:33
-B群过年都没人发红包的？&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:36:44
-宵禁那么彻底的吗&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:36:56
-我们A群早都发了&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:37:19
-&lt;img src="http://192.168.5.28:5030/image/21040955fdd5596a50a2086ff19dabfb,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/f3dc5a7e23f457d080ff287b4d51aa0e" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:37:49
-@gcouple.J 带个头呗，我接力&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:42:56
-我代表A群的同学过来给宵禁的B群同学们发个红包&lt;/p&gt;
-&lt;p&gt;BoBo(bobo8692) 00:43:32
-[分享]&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 00:43:48
-感谢老板&lt;/p&gt;
-&lt;p&gt;J.h(wxid_yd09r5lf7iyu21) 00:44:03
-谢谢老板&lt;/p&gt;
-&lt;p&gt;Jereo(wxid_9vy0dfis2x0322) 00:44:05
-感谢老板打破宵禁&lt;/p&gt;
-&lt;p&gt;Jereo(wxid_9vy0dfis2x0322) 00:44:17
-b 圈的 春天要来了&lt;/p&gt;
-&lt;p&gt;先信资本(wxid_yz2gpdo4868i52) 00:44:24
-谢谢老板！！！&lt;/p&gt;
-&lt;p&gt;先信资本(wxid_yz2gpdo4868i52) 00:44:37
-&lt;img src="http://192.168.5.28:5030/video/031854d7c7b5c81fb920801d5d79eee3,decc95e481710507f6d00dd96e65b4f6,msg/video/2026-02/195b597bca3ef40b95e25035698cd00f" alt="视频" /&gt;&lt;/p&gt;
-&lt;p&gt;Sirius(wxid_lbjc46id3z3722) 00:44:38
-谢谢老板！！！&lt;/p&gt;
-&lt;p&gt;定投ETH(Q1594949691) 00:44:44
-谢谢老板&lt;/p&gt;
-&lt;p&gt;先信资本(wxid_yz2gpdo4868i52) 00:44:54
-祝愿群友和各位大佬老板们未来的生活都如这烟花一直璀璨灿烂&lt;/p&gt;
-&lt;p&gt;毛磬(wxid_umwsam3zjfm222) 00:44:54
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=2cf18e0b56be37c4f7ebbafc7305f64f&amp;amp;filekey=30350201010421301f020201060402534804102cf18e0b56be37c4f7ebbafc7305f64f020302f33d040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=32303232303831333135333332373030303637633235303030303030303061383564393930623030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;alert(wxid_6zt2znu1lh8122) 00:45:07
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=024c13a3941516a5d4dd2ca08e036b0f&amp;amp;filekey=30350201010421301f02020113040253480410024c13a3941516a5d4dd2ca08e036b0f020300d263040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26960a932000cb6d5b44ae63d0000011300004f5053482f7511b156bf11851&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;TheNotoriousPhD(wxid_b1waiwner5x412) 00:45:20
-&lt;img src="http://snsvideo.c2c.wechat.com/110/20401/stodownload?m=4a838a65c3758132f02da3eb6319aced&amp;amp;filekey=30440201010430302e02016e0402484b0420346138333861363563333735383133326630326461336562363331396163656402030345c3040d00000004627466730000000132&amp;amp;hy=HK&amp;amp;storeid=265448a6200058ff29de4adfc0000006e01004fb1484b20a1d321e7a8e8adf&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;L.W.(tere9619) 00:45:36
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=4a838a65c3758132f02da3eb6319aced&amp;amp;filekey=30440201010430302e02016e0402535a0420346138333861363563333735383133326630326461336562363331396163656402030345c3040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=263ecb1e400078789001303490000006e01004fb1535a17a89970b687f21dd&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;茶泡饭(wxid_3d1wbq8dkkzw22) 00:46:29
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=4a838a65c3758132f02da3eb6319aced&amp;amp;filekey=30440201010430302e02016e0402535a0420346138333861363563333735383133326630326461336562363331396163656402030345c3040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=263ecb1e400078789001303490000006e01004fb1535a17a89970b687f21dd&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 00:46:52
-谢谢bo总&lt;/p&gt;
-&lt;p&gt;Shengdong(wxid_2brh4m70kb0n21) 00:47:55
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=1c44763618fd0687294c741193011ff5&amp;amp;filekey=30350201010421301f020201060402535a04101c44763618fd0687294c741193011ff502030122f4040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=269808356000794a50e4f47b90000010600004f50535a0440976156c238f2c&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Julien(messilu2011) 00:48:24
-老板新年必发财[發][烟花][庆祝]&lt;/p&gt;
-&lt;p&gt;超级牛(cattle01) 00:48:50
-bo 总新年泡妞成功&lt;/p&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 00:49:09
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=d03a9d8517bd1d4de36cb4b92f3c48cb&amp;amp;filekey=30350201010421301f020201060402535a0410d03a9d8517bd1d4de36cb4b92f3c48cb020300b03a040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632353132313732303030303963656333336333633230323565643536353830393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;我擦咧什么鬼(luckily950815) 00:50:25
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=024c13a3941516a5d4dd2ca08e036b0f&amp;amp;filekey=30350201010421301f02020113040253480410024c13a3941516a5d4dd2ca08e036b0f020300d263040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26960a932000cb6d5b44ae63d0000011300004f5053482f7511b156bf11851&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;.王诗伟(wxid_6496374965012) 00:50:44
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=36c55da6c3d50da89569e7adb5e50ec8&amp;amp;filekey=30350201010421301f0202011304025348041036c55da6c3d50da89569e7adb5e50ec80203074772040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26985b6930007b3b8b40b7c260000011300004f505348285a61b156e1169e8&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;无限(wxid_29vj36l03rgw22) 00:51:32
-谢谢老板红包&lt;/p&gt;
-&lt;p&gt;无限(wxid_29vj36l03rgw22) 00:51:35
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=1445aa0d3bd3d62569e1935b4f9e0764&amp;amp;filekey=30440201010430302e02016e0402534804203134343561613064336264336436323536396531393335623466396530373634020300da97040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=268ea7e3c000329951c4d1b7a0000006e01004fb15348048bc17156f864352&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;ZH(wxid_z2lu942qukat21) 00:52:09
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=377b2c64b7142899a1df2c285f32bd40&amp;amp;filekey=30440201010430302e02016e04025348042033373762326336346237313432383939613164663263323835663332626434300203009369040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032313032303131303530333130303065336139356337636238383266646661303531303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;轩辕有熊(wxid_g2a01e3epfq222) 00:52:34
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=377b2c64b7142899a1df2c285f32bd40&amp;amp;filekey=30440201010430302e02016e04025348042033373762326336346237313432383939613164663263323835663332626434300203009369040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032313032303131303530333130303065336139356337636238383266646661303531303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;阿姆(bbgs01) 00:53:29
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=8ad6c326dcea2ab8a4f9fdfaec770a31&amp;amp;filekey=30340201010420301e020201060402535a04108ad6c326dcea2ab8a4f9fdfaec770a3102024611040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632353230323932313030306331353037343064616138353066613465356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;kj(hujie335675) 00:54:31
-[GIF表情]&lt;/p&gt;
-&lt;p&gt;韭菜网友(ll-0326) 00:54:33
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=5a264e44dbfd8aad14dd0843c44f9c21&amp;amp;filekey=30350201010421301f020201060402535a04105a264e44dbfd8aad14dd0843c44f9c21020301831f040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632343233303630353030303833356531336263613163343864396461356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;继续奔跑(wxid_fmi08mt1pi9a22) 00:57:51
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=ae9a74a3baf53b89ec13f45bb22f8e49&amp;amp;filekey=30350201010421301f02020113040253480410ae9a74a3baf53b89ec13f45bb22f8e4902030160fb040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2659d0e14000e85ceb428aba60000011300004f50534803983bc1e66c48bee&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;长空当歌(wxid_ob3ct16h8z8o22) 01:06:04
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=a3ca82056d32afae7c5df8d81350b035&amp;amp;filekey=30440201010430302e02016e0402534804206133636138323035366433326166616537633564663864383133353062303335020300b764040d00000004627466730000000131&amp;amp;hy=SH&amp;amp;storeid=323032323031303230313032323430303063666464353238623863333338333234313865306230303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;恒星月(wxid_c2f71fh10mzz21) 01:41:22
-&lt;img src="http://mmbiz.qpic.cn/mmemoticon/ajNVdqHZLLAqn9uGg0riawXC8hdxwVL5gLbibp7ybvWKLziaehR4kyWaunians15v9X5/0" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;陈小白(JK_Phoeny) 01:59:48
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=4a838a65c3758132f02da3eb6319aced&amp;amp;filekey=30440201010430302e02016e0402535a0420346138333861363563333735383133326630326461336562363331396163656402030345c3040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=263ecb1e400078789001303490000006e01004fb1535a17a89970b687f21dd&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 02:28:43
-[分享]&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 02:28:59
-感谢老板&lt;/p&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 02:29:01
-&lt;img src="http://192.168.5.28:5030/image/291f1546a9bd7600110c8e896a1db26d,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/46c9463666e3d3bde0e23b850a5af960" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 02:29:17
-A谷抽奖中了，B圈发红包&lt;/p&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 02:29:24
-劫富济贫[强]&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 02:29:38
-666&lt;/p&gt;
-&lt;p&gt;我擦咧什么鬼(luckily950815) 02:30:32
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=024c13a3941516a5d4dd2ca08e036b0f&amp;amp;filekey=30350201010421301f02020113040253480410024c13a3941516a5d4dd2ca08e036b0f020300d263040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26960a932000cb6d5b44ae63d0000011300004f5053482f7511b156bf11851&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Shengdong(wxid_2brh4m70kb0n21) 02:35:04
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=59575f01ef48a2cd3f3f0a89a9d03bc0&amp;amp;filekey=30350201010421301f0202011304025348041059575f01ef48a2cd3f3f0a89a9d03bc0020301e6ee040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=2697f546b000a9162b46fd69f0000011300004f5053481f7cb17156c6f437c&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;L.W.(tere9619) 05:31:38
-&lt;img src="http://wxapp.tc.qq.com/275/20304/stodownload?m=024c13a3941516a5d4dd2ca08e036b0f&amp;amp;filekey=30350201010421301f02020113040253480410024c13a3941516a5d4dd2ca08e036b0f020300d263040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26960a932000cb6d5b44ae63d0000011300004f5053482f7511b156bf11851&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 06:56:17
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=f0bf1c2b605ce4a31ee95f610f9a4142&amp;amp;filekey=30440201010430302e02016e0402535a042066306266316332623630356365346133316565393566363130663961343134320203009f3f040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=323032313132333131373539313930303036393037666364313437666331633836303838303930303030303036653031303034666231&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;Dino(wxid_574n0wlusahp22) 06:58:51
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=128838dddb1eb72461df1a5542a4aa27&amp;amp;filekey=30340201010420301e020201060402535a0410128838dddb1eb72461df1a5542a4aa2702023fd3040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=2649fae140003320271bda5340000010600004f50535a1820c950b0950732d&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 08:33:49
-策马扬鞭，马到功成！[加油]&lt;/p&gt;
-&lt;p&gt;桐桐(congjunwei) 09:00:00
-四饼狗还在一直回撤吗？&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 09:01:05&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;桐桐(congjunwei) 02-17 09:00:00
-四饼狗还在一直回撤吗？
-昨天暴跌后拉回来了点&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;桐桐(congjunwei) 09:01:23
-&lt;img src="http://192.168.5.28:5030/image/3d0b1c845355bdc6e26de476e024321c,msg/attach/311941d8ff223c9fb9a54b91ffcf075b/2026-02/Img/1862ccdd07c33d09598bc4dc361f7992" alt="图片" /&gt;&lt;/p&gt;
-&lt;p&gt;桐桐(congjunwei) 09:01:36
-我这对吗&lt;/p&gt;
-&lt;p&gt;Rio(wxid_ska2ov07789722) 09:02:11
-没毛病&lt;/p&gt;
-&lt;p&gt;陈聪汉(wxid_m3u2m3dc68tn22) 09:08:51
-没毛病&lt;/p&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 09:19:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 02-17 02:29:01
-&lt;img src="http://192.168.5.28:5030/image/291f1546a9bd7600110c8e896a1db26d" alt="图片" /&gt;
-请问这个可以跑回测吗&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;袁振宇(yu8833313) 09:21:16
-辞旧迎新，金马贺岁！新的一年，恭祝各位大佬：
-身体康健，如骏马奔腾般活力满满；
-投资顺遂，似良驹识途般精准稳健；
-阖家安康，福暖四季；万事胜意，步步高升！
-给各位拜年了！🧧🐴&lt;/p&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 09:27:12
-老板们新年新高[机智]&lt;/p&gt;
-&lt;p&gt;AK(wxid_4g9w1dlgc9w521) 09:28:25
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=1f1f002b1d75519383fb3a5555b2b8ea&amp;amp;filekey=30340201010420301e020201060402535a04101f1f002b1d75519383fb3a5555b2b8ea02027c13040d00000004627466730000000132&amp;amp;hy=SZ&amp;amp;storeid=26993c43900046d954be1af520000010600004f50535a2580db6156b5b9006&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;郑(wxid_suctz480enbf21) 09:44:04
-&lt;img src="http://vweixinf.tc.qq.com/110/20401/stodownload?m=d1023faea87e5cff054010062043bfb4&amp;amp;filekey=30440201010430302e02016e040253480420643130323366616561383765356366663035343031303036323034336266623402030e0153040d00000004627466730000000132&amp;amp;hy=SH&amp;amp;storeid=26993ba4e00079a014897e9690000006e01004fb15348120c217156be27ece&amp;amp;ef=1&amp;amp;bizid=1022" alt="动画表情" /&gt;&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 10:17:15&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 02-17 09:19:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-请问这个可以跑回测吗
-可以啊，但是估计性能就很一般了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 10:17:30
-估计里面是16g的内存条&lt;/p&gt;
-&lt;p&gt;心想事陈(wxid_2kn17d61wgx422) 10:18:36
-建议买个内存大的回测&lt;/p&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 10:20:31
-嗯嗯，升级好像也是受限&lt;/p&gt;
-&lt;p&gt;Chris(wxid_fxliehmexawi21) 11:08:58
-可以跑实盘&lt;/p&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 11:49:03&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 02-17 09:19:20&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[引用]
-请问这个可以跑回测吗
-还没用过小主机[捂脸]&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;曾经潇湘难为水(wxid_duoqgl8fa8dl22) 11:49:32
-可以当个服务器来一直炼丹&lt;/p&gt;
-&lt;p&gt;考试第一名(wxid_3628246282411) 11:55:41
-彩虹集团的奖品应该不会不能量化吧[呲牙]&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 20:55:37
-&lt;a href="https://mp.weixin.qq.com/s?__biz=Mzg5MzEyNzEwNQ==&amp;amp;mid=2247793818&amp;amp;idx=1&amp;amp;sn=d5c4f3a22f658f92192fc59e98b21cfe&amp;amp;chksm=c159952633a8eb5db422a33b8ade074bbee4ebc24c4906f5d5f604788af8a22bab0d373592ff&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=02178Yh9nRvx23JHWViZml6f&amp;amp;sharer_shareinfo=6837dac51ba2ad63e0ad6ed6ede4107e&amp;amp;sharer_shareinfo_first=6837dac51ba2ad63e0ad6ed6ede4107e#rd"&gt;链接|伊朗：霍尔木兹海峡部分区域将关闭数小时&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 20:55:55
-接下来是轮到石油涨了？&lt;/p&gt;
-&lt;p&gt;TheNotoriousPhD(wxid_b1waiwner5x412) 20:57:41&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;WN_暖春拂晓(Evysundy) 02-17 20:55:55
-接下来是轮到石油涨了？
-原油宝：”没有人能预测油价……”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;will(wxid_96ywoohfdbil12) 22:52:07
-&lt;img src="http://wxapp.tc.qq.com/262/20304/stodownload?m=775b675032ffe93b60a16ce4afeefc0a&amp;amp;filekey=30350201010421301f020201060402535a0410775b675032ffe93b60a16ce4afeefc0a02031129c3040d00000004627466730000000131&amp;amp;hy=SZ&amp;amp;storeid=32303231303632363130303634373030303762363061366466623066353332623339356630393030303030313036&amp;amp;bizid=1023" alt="动画表情" /&gt;&lt;/p&gt;
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-17&amp;talker=58453205219@chatroom</guid>
       <pubDate>Tue, 17 Feb 2026 00:00:00 +0800</pubDate>
