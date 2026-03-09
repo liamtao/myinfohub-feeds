@@ -7,7 +7,50 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 09 Mar 2026 08:50:10 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 22:48:42 +0000</lastBuildDate>
+    <item>
+      <title>大语言模型交易误区：从AI交易员到AI量化工程师的范式转变</title>
+      <link>https://bbs.quantclass.cn/thread/76822</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76822"&gt;OpenClaw 很火，但它不是量化交易的正确打开方式&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察, 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：AI交易误区, 量化策略工程, LLM局限, 遗传算法优化, 风险调整收益&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：告诫AI直接交易风险，强调其作为量化策略工程师的工程与优化价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：语言模型被误用为“主观交易者”时，其在StockBench基准测试中风险调整收益（Sortino Ratio约0.04）远低于专业量化标准，即使表现最优的LLM回报率也仅为2.5%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：LLM本质擅长语言预测，而非在动态市场博弈中进行参数优化或自我迭代。将其直接用于资本配置是错配其核心能力，社交媒体上的“AI自动赚钱”故事不改变交易市场的统计本质。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：将未经风险管理（无回测、无统计显著性、无风险模型）的AI代理系统接入真实交易账户，存在巨大风险，偏离了成熟交易者对稳健性检验与回撤控制的原则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：AI的真正价值在于提升策略研究效率，通过自动化生成假设、执行回测、分析结果与优化参数，探索更广阔的策略空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：示例策略利用AI构建多步骤投资组合筛选与配置：1. 精选S&amp;amp;P 500成分股；2. 通过AI评估系统（如NexusTrade AI Report）剔除评分低于3分的股票；3. 基于过去30天动量因子排名，配置表现最强的15支股票。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：30天动量因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：策略在沙盒环境中运行。某示例策略在01/31/2025至01/31/2026期间实现36.94%收益率，同期SPY为15.97%，回撤更低，风险调整收益（Sortino Ratio &amp;gt; 2）显著优于StockBench中最佳LLM的0.04。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决传统策略研究中，从构思到落地耗时漫长、迭代效率低下的瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：提及AI代理（如基于Claude驱动的Aurora）作为策略工程工具，可生成假设、设计规则、读取回测结果并进行迭代优化。利用AI评估系统（如NexusTrade AI评估系统）进行股票评分。可启动遗传算法进行参数优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：AI强项在于提出假设、编写规则、执行回测及识别策略优缺点，而非临场判断买卖。整个过程从构思到落地可压缩至15分钟。通过AI实现策略研究闭环的自动化（创建策略、读取回测报告、分析风险指标、触发优化）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：AI作为策略工程师构建的组合，其风险调整收益（Sortino Ratio &amp;gt; 2）显著高于LLM自主交易的Sortino Ratio（约0.04），证明AI在策略构建与优化中能产生远超直接交易的价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发或集成AI辅助的策略生成与优化平台，将LLM定位为“策略工程师”而非“交易执行者”。&lt;/li&gt;
+&lt;li&gt;在策略研究流程中引入AI进行假设生成、规则编写、回测报告解读及参数优化（如遗传算法），实现研究闭环自动化。&lt;/li&gt;
+&lt;li&gt;构建基于AI评估和多因子筛选（如动量）的投资组合策略，并通过严格的回测验证其风险调整收益，避免未经检验的AI直接交易。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76822</guid>
+      <pubDate>Mon, 09 Mar 2026 19:46:34 +0800</pubDate>
+    </item>
     <item>
       <title>A股量化实战利器：EZXT全流程开发与风控手册</title>
       <link>https://www.bilibili.com/video/BV1FuPSzNE49</link>
@@ -82,6 +125,155 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1JYPDzqEgW</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/f94f436e09625b58171238eafb489f5f3da0e5b9.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 09 Mar 2026 12:17:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>凌烟阁策略重磅登场：量化高手解读市场波动与交易心法</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;amp;talker=57784510736@chatroom"&gt;2026-03-09_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;市场剧震下的量化策略表现与挑战&lt;/h3&gt;
+&lt;p&gt;🌍 &lt;strong&gt;全球市场波动，A股V型反转显韧性&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;近期国际局势（暗示中东冲突）引发市场恐慌，日本、韩国等对石油进口依赖严重的市场首当其冲，开盘暴跌。&lt;/li&gt;
+&lt;li&gt;中国A股也受到波及，但市场随后展现出惊人的V型反转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;📉 &lt;strong&gt;“定风波”策略的离场困境&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在早盘急跌中，部分“定风波”策略触及离场信号，导致投资者“卖在最低点”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略配置的深度反思&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;邢不行指出，激进的“定3”策略离场胜率相对较低，常常出现“打脸”情况，这让实盘操作难以坚持。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;建议&lt;/strong&gt;: 投资者应配置定1、定2等不同风险偏好的策略组合，以分散风险，就像“开车需要买保险”，减少极端行情下的煎熬。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🚀 &lt;strong&gt;股票旗舰策略“凌烟阁”重磅发布&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;🆕 &lt;strong&gt;新框架与策略实盘计划&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;邢不行团队本周将发布更新版旗舰策略回测框架，支持&lt;strong&gt;择时信号增量更新&lt;/strong&gt;，提升用户体验。&lt;/li&gt;
+&lt;li&gt;每日监测数据将首次包含旗舰策略的&lt;strong&gt;具体选股和择时信号&lt;/strong&gt;，方便用户进行“云实盘”观察。&lt;/li&gt;
+&lt;li&gt;旗舰策略的实盘内测预计下周启动，稳定版本将在3月下旬与大家见面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;🎁 &lt;strong&gt;额外惊喜：高阶候补策略即将亮相&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;为弥补旗舰策略上线延期的“愧疚”，邢不行宣布下周将额外讲解一个“级别较高、较复杂”的候补策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;🏛️ &lt;strong&gt;“凌烟阁”命名寓意深远&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;选股哲学&lt;/strong&gt;：策略灵感来源于唐太宗李世民在凌烟阁供奉24位功臣，象征着策略将&lt;strong&gt;通过因子排名，精选出最卓越的24支股票&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个股择时&lt;/strong&gt;：每位功臣各有高光时刻，预示着“凌烟阁”将为&lt;strong&gt;每支个股设计独立的择时机制&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合构建&lt;/strong&gt;：这一思想旨在构建一个完美互补的策略组合，如“房谋杜断、有将有帅”，使各策略“各尽其职”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简称&lt;/strong&gt;：未来可简称为凌烟、凌1、凌2、凌3。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🔥 &lt;strong&gt;揭秘红牛老板的“炸裂”收益策略&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;📈 &lt;strong&gt;惊人业绩与策略潜力&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;红牛老板分享了一份旧策略（作业）的实盘截图，展示了&lt;strong&gt;一个月内高达29%的惊人收益率&lt;/strong&gt;，总资产从1攀升至2.8万+（可能指百万级别）。&lt;/li&gt;
+&lt;li&gt;该策略即使在邢不行团队修改其“大于250天”的参数后，依然表现出&lt;strong&gt;“粉碎裂”的超强适应性&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;🔬 &lt;strong&gt;未来展望&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;红牛老板计划将香农、小粟子以及自己的策略进行重新整合，以期达到更卓越的效果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚙️ &lt;strong&gt;常见策略配置与技术答疑&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据更新&lt;/strong&gt;：&lt;code&gt;stock-1h-trading-data-pro&lt;/code&gt; 数据已于3月8日停更，需更换为新格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略导入问题&lt;/strong&gt;：若现金流策略导入失败，通常是将策略中的“3*250”参数修改为“750”即可解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“人生真是大起大落落落落落落落” — 邢不行&lt;/li&gt;
+&lt;li&gt;“卖在最低点” — Joe&lt;/li&gt;
+&lt;li&gt;“男儿何不带吴钩，收取关山五十州。请君暂上凌烟阁，若个书生万户侯。” — 邢不行&lt;/li&gt;
+&lt;li&gt;“凌烟阁开发过程，也收到红牛老板前年的帖子的启发” — 邢不行&lt;/li&gt;
+&lt;li&gt;“红牛老板太牛了” — 木木十三&lt;/li&gt;
+&lt;li&gt;“太炸裂了吧” — 庞明&lt;/li&gt;
+&lt;li&gt;“强到这种程度” — 黑黑夜夜&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化策略回撤优化与AI工具应用解析</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;amp;talker=58453205219@chatroom"&gt;2026-03-09_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;量化交易的世界里，优化策略和应对技术挑战是永恒的主题。从回测框架的调试到动量策略的实战表现，再到AI工具的辅助应用，本文提炼了社群成员在实践中的增量知识与洞察。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ 量化交易框架与策略回测疑难杂症&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码调整细节至关重要&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;中文字符（如破折号）在编程环境中可能需要替换为英文对应字符。&lt;/li&gt;
+&lt;li&gt;代码中多余的“点”可能导致意外的报错，去除后可恢复正常运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测数据与新框架挑战&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据范围限制&lt;/strong&gt;：回测数据通常仅提供最近一年的数据，若回测起始时间超出此范围，可能会遭遇“not in index”错误。解决之道是调整回测的开始时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新框架兼容性&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;新框架如1.4.2版本在运行旧策略时可能出现报错，需深入检查日志以定位具体原因。&lt;/li&gt;
+&lt;li&gt;公测版的选币框架2.0.0（基于Polars）可能存在隐藏细节，导致特定策略（如“落九天”）选不出币，需要进一步调试和排查。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📈 动量策略与回撤优化实战经验&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“26旗舰”策略的回撤优化潜力&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;有用户反馈，在不改变基础策略逻辑的前提下，通过引入“26旗舰”的配置并结合“沧浪亭”参数，成功将动量中性策略的最大回撤从80%大幅降低至40%。&lt;/li&gt;
+&lt;li&gt;然而，这种显著的改善也引发了社群讨论，质疑是否因“运气好”避开了近期某些“妖币”的暴跌，建议用户对比策略的实际选币结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长动量策略的优异表现与风险并存&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;今年以来，长动量策略表现抢眼，收益可观。&lt;/li&gt;
+&lt;li&gt;但历史回测数据表明，长动量策略也存在回撤深、持续时间长的特点，提醒用户在实际应用中需谨慎。&lt;/li&gt;
+&lt;li&gt;为应对潜在的暴跌风险，建议通过“多选点币”来分散风险，或“加点过滤”机制来规避高风险资产。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长短动量选择的考量&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;根据过往分享，从长期视角看，长动量策略通常表现更优。&lt;/li&gt;
+&lt;li&gt;但在特定年份，短动量策略也可能展现出卓越的性能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🤖 AI工具应用与成本管理&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;企业微信与腾讯云的AI集成&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;企业微信已内置类似“龙虾”的AI功能。&lt;/li&gt;
+&lt;li&gt;腾讯云服务器也提供了预配置的AI服务。&lt;/li&gt;
+&lt;li&gt;用户普遍关注这类服务的计费模式，尤其是token消耗可能导致的高昂费用（“很容易几百几千块没了”）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源/免费AI模型的利用&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;部分用户选择优先“用透”如Trae提供的免费AI模型，认为其已足以满足日常需求。&lt;/li&gt;
+&lt;li&gt;有成员积极尝试利用J神的提示词来创建自定义的AI技能（skill），探索AI在工作流中的深度应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“白嫖”ChatGPT的乐趣&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;社群中有成员分享了通过非官方途径“白嫖”ChatGPT的体验，并展示了模拟收益截图，引发了大家的兴趣和讨论。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“调整下回测的开始时间，我们的数据只提供近1年的” — 彩虹研究员3号&lt;/li&gt;
+&lt;li&gt;“据说token很容易几百几千块没了[捂脸]我还是老老实实把Trae的免费模型用透先也够我用了” — WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“比如某个归零币(近期的power)，改改参数，正好错过，回撤就可能降了一半，未来实盘还是会遇到。。。” — gcouple.J&lt;/li&gt;
+&lt;li&gt;“历史上最大回撤才40%近期为啥突然有个80%+就很奇怪。。。” — gcouple.J&lt;/li&gt;
+&lt;li&gt;“长期来看还是长动量好，特定年份短动量好” — 心想事陈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;相关链接&lt;/strong&gt;
+无&lt;/p&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-09&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>从单兵到军团：基于Open Cloud构建自动化AI量化投研体系</title>
@@ -5203,190 +5395,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1pPZhBPENv</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/1e1d147bd17b9426cca4ff1d27bd5306e2c3039d.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 19 Feb 2026 09:26:19 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于“定风波”恐慌信号的500ETF期权择时实战：多维合约筛选与次日开盘出场优化</title>
-      <link>https://bbs.quantclass.cn/thread/76511</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76511"&gt;【大圣归来】四两拨千斤！触发定风波离场信号的500ETF期权择时策略研究&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[定风波信号, 期权买方策略, 500ETF期权, 波动率博弈, 情绪反转]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：验证全市场恐慌指标在期权端的非线性增强效果，并确定了“强信号+下月合约+次日平仓”的最优路径。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用A股市场在开盘阶段因隔夜及早盘非理性下跌诱发的“情绪冰点”进行博弈，通过期权的高杠杆特征捕捉短期超跌后的均值回归。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：恐慌强度 $S = R_{morning} + R_{overnight}$，通过全市场股票跌破开盘价及前收盘价的比例合成。研究发现130%阈值的极端信号赔率显著优于120%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用2024年9月起（牛市环境）的中证500ETF期权分钟数据，对比NM（下月）与NQ（下季）合约在不同Delta分位（ITM2至OTM2）的表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：共32组穷举测试。核心发现：次日开盘出场（Next Open）逻辑因捕捉到隔夜修复行情，其绩效全面覆盖当日收盘出场；最优组合年化收益超100%，但最大回撤均在30%-60%区间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略呈现典型“高盈亏比、低胜率”特征，且受波动率（Vega）和时间价值（Theta）衰减影响巨大，需警惕虚值合约在信号失效时的归零风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;1. 合约筛选矩阵&lt;/strong&gt;：实盘优先选择下月（NM）近实值（ITM1）或近虚值（OTM1）合约，以平衡杠杆比例与流动性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2. 优化持有窗口&lt;/strong&gt;：将平仓时点从当日收盘延后至次日开盘（09:31），利用恐慌惯性后的首个修复窗口增厚收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;3. 风控体系升级&lt;/strong&gt;：必须从固定手数转向“固定风险预算”模式（如单笔权利金投入上限），并加入成交量过滤器以规避虚值合约的流动性冲击风险。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76511</guid>
-      <pubDate>Thu, 19 Feb 2026 00:06:39 +0800</pubDate>
-    </item>
-    <item>
-      <title>从“满天星”策略美学到 Claude 编程实战：量化人的 AI 提效指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;amp;talker=57784510736@chatroom"&gt;2026-02-19_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🌌 “满天星”：赋予量化策略以诗意&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;命名背后的哲学&lt;/strong&gt;：新策略拟名“满天星”。个股择时让每一只股票在不同时点闪闪发光（忽明忽暗），聚合成整体策略时，便如星光汇成银河，燃烧更旺。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：强调“聚是一团火，散是满天星”的聚合效应，将单标的的闪光点转化为系统的稳健收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI 编程大乱斗：量化场景下谁更好用？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型选型&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Claude 3.5/Opus&lt;/strong&gt;：被公认为编程理解力最强，尤其是自动编程场景，Trae 等工具仍需人工介入，而 Claude 逻辑更顺滑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;国产模型&lt;/strong&gt;：Kimi 和 MiniMax 被提及作为替代；GLM 反应速度较慢，被吐槽“卡的一”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DeepSeek&lt;/strong&gt;：优势在于 API 极其便宜，适合大规模跑策略优化等重复性任务，成本低至每天几块钱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 效率起飞：Claude Code 的进阶玩法&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;工具推荐&lt;/strong&gt;：纯编程场景建议直接使用 Claude Code CLI，而非功能过于臃肿的 OpenClaw。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;插件与规范&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;推荐使用特定插件来规范代码输出格式（如输出彩虹因子样式）。&lt;/li&gt;
-&lt;li&gt;在根目录放置 &lt;code&gt;claude.md&lt;/code&gt; 可以在 Prompt 中附带规范要求，但需配合插件才能达到最佳约束效果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避坑指南&lt;/strong&gt;：编程类任务消耗 API 极快（可能瞬间烧掉100美金），重度用户建议考虑中转或 200 刀的 Max 20x 订阅，但要注意近期官方对这类接入方式的封号风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 金句提取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“聚是一团火，散是满天星。个股择时让每个股票闪闪发光，聚合成整体策略，燃烧更旺！” —— ZH&lt;/li&gt;
-&lt;li&gt;“买入卖出就像星星忽明忽暗，无数星光汇成策略的银河。” —— ZH&lt;/li&gt;
-&lt;li&gt;“这种东西（OpenClaw）就属于大而全，每一种能力都不精。” —— 木木十三&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关资源链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76442"&gt;彩虹与D1框架深度对比-框架设计篇&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76096"&gt;2026-1期旗舰船队群答疑活动&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76524"&gt;光子芯片-国内研发进度及未来展望&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Thu, 19 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化策略实践深度探讨：落九天选币困境、动量回撤与子账户管理</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;amp;talker=58453205219@chatroom"&gt;2026-02-19_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;📉 量化策略“落九天”选币困境：老币入选与新币因子缺失&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;问题现象&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;用户在使用“落九天2”策略进行回测时，发现策略在后期会选择如BOME等“老币”，且选币数量（如100多个）异常增多。&lt;/li&gt;
-&lt;li&gt;有用户怀疑是数据有误，并尝试回溯到早期数据进行研究。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心原因&lt;/strong&gt;: 缺少针对新币的筛选因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案/操作指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;配置新币因子&lt;/strong&gt;: 需在策略中配置“新币因子”（例如&lt;code&gt;新币.py&lt;/code&gt;），以过滤掉不符合条件的老币。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;定义新币&lt;/strong&gt;: 新币的定义可以根据个人需求设置参数，例如“上市500小时内的币”。用户Ray分享了相关参数截图（&lt;code&gt;min_listing_hours&lt;/code&gt;）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚀 免费使用Claude Opus 4.6教程分享&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心内容&lt;/strong&gt;: 龚博致分享了一个关于“Claude Opus 4.6 免费用，量大管饱！Kiro 实操教程”的微信公众号链接。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;用户反馈与实践&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;有用户询问能否反向应用到其他平台（如CC）。&lt;/li&gt;
-&lt;li&gt;龚博致表示，许多服务商都在用这种反向方法，但他个人一直使用Kiro。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;: 感兴趣的用户可点击链接查看详细教程。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💸 动量策略巨额回撤：何时止损？何时加仓？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤挑战&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;多位用户报告动量策略遭遇严重回撤，例如高达-75%甚至-85%的最大回撤。&lt;/li&gt;
-&lt;li&gt;用户will提到其上一个动量策略因回撤85%且“策略有问题，跟回测对不上”而停止。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;讨论焦点&lt;/strong&gt;: 在巨大回撤面前，是应坚持加仓还是果断止损？&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;观点分歧&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;坚持派&lt;/strong&gt;: 认为只要不爆仓，总有翻身机会，甚至建议在85%回撤时加仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;止损派&lt;/strong&gt;: 强调若策略本身存在问题或与回测不符，盲目加仓是无底洞。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;洞察&lt;/strong&gt;: 策略的回撤承受能力和策略本身的健全性是决定后续操作的关键。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🏦 量化交易子账户邮箱配置指南&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心问题&lt;/strong&gt;: 开设多个子账户时，如何高效管理邮箱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Outlook&lt;/strong&gt;: 支持申请别名邮箱，每周可申请两个。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gmail&lt;/strong&gt;: 支持无限数量的别名邮箱，提供更灵活的选择。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;验证码&lt;/strong&gt;: 子账户通常只需邮箱用于注册，验证码多发往主账户邮箱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第三方服务&lt;/strong&gt;: 有用户推荐使用“resend”邮箱服务，体验良好。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📈 A股与加密货币投资环境对比&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;A股现状&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;有群友表示大A（A股）市场正处于牛市中，收益创新高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘环境对比&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;加密货币 (B) 市场在实盘环境方面比A股 (A) 更具优势，例如购买服务器即可省心操作。&lt;/li&gt;
-&lt;li&gt;A股的实盘环境（如QMT容易出问题，需要小型主机）相对不便。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🎉 旗舰船队群答疑活动及马代策略查看器下载&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;答疑活动&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;分享会助教林奇发布了旗舰船队群答疑活动的进展和排名。&lt;/li&gt;
-&lt;li&gt;活动延期至春节假期后，鼓励大家继续参与。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具下载&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;用户新年在即询问马代策略查看器的下载地址。&lt;/li&gt;
-&lt;li&gt;Chris提供了下载链接。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;AK: &amp;quot;不爆仓，翻身机会总是有的，最怕回撤变爆仓。&amp;quot;&lt;/li&gt;
-&lt;li&gt;天逸: &amp;quot;85%还停干嘛，只能加仓了呀。&amp;quot;&lt;/li&gt;
-&lt;li&gt;will: &amp;quot;策略有问题呀，我把房子卖了加仓都补不回来。&amp;quot;&lt;/li&gt;
-&lt;li&gt;心想事陈: &amp;quot;没办法，大a处于牛市中。&amp;quot;&lt;/li&gt;
-&lt;li&gt;心想事陈: &amp;quot;a的实盘环境有点一般，qmt容易出问题，还需要一个小主机，不如b买个服务器省心。&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/68333&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76096&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-19&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Thu, 19 Feb 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
