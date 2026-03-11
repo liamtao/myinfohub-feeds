@@ -7,7 +7,55 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Mar 2026 08:51:16 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 22:56:31 +0000</lastBuildDate>
+    <item>
+      <title>Proof Editor：重塑人机协作逻辑的实时Markdown编辑器</title>
+      <link>https://www.youtube.com/watch?v=P9XfYZh9CwA</link>
+      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=P9XfYZh9CwA"&gt;How We Use Proof, a Collaborative Editor for Humans and AI&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Proof Editor - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：这是一款专为人类与AI智能体共同工作的原生适配器（Agent-Native Editor），旨在打破传统AI对话框的孤岛，通过实时协作的Web文档实现指令、反馈与创作的闭环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：包括人类录入、语音转文字、以及通过协作URL授权的外部AI智能体（如Claude）的流式内容注入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：具备来源追踪与实时多方协作状态的Markdown文档。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AX (Agent Experience)&lt;/strong&gt;：智能体体验。指软件界面与逻辑对AI访问和操作的友好程度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Provenance (溯源机制)&lt;/strong&gt;：利用不同颜色（如紫色代表AI，绿色代表人类）实时标记文本创作者身份的功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景：跨窗口人机协同创作&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将AI的长文本生成能力与人类的精准修正能力实时结合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：主流LLM（如Claude）账号、Proof Editor在线文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[创建文档]&lt;/strong&gt;：访问 &lt;code&gt;proofed-editor.ai&lt;/code&gt; -&amp;gt; 点击 &lt;code&gt;Start Writing&lt;/code&gt; 生成即时文档链接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[接入AI]&lt;/strong&gt;：点击界面右上角 &lt;code&gt;Add Agent&lt;/code&gt; -&amp;gt; 复制弹出的协作API/URL。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[授权交互]&lt;/strong&gt;：将链接粘贴至AI对话框 -&amp;gt; 给AI下达指令（如：根据以下笔记制定周计划并直接写入文档）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[实时校对]&lt;/strong&gt;：在编辑器中观察AI生成过程，人类可直接在行内点击评论或手动重写特定段落。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Provenance Gutter (溯源栏)&lt;/strong&gt;：文档左侧的垂直色条 -&amp;gt; 用于快速视觉区分人类原创内容与AI预案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent Sharing Link&lt;/strong&gt;：提供极低摩擦的接入方式 -&amp;gt; 绕过繁琐的API配置，实现任意Agent的即时协作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：在多个Agent同时操作同一文档时，极易发生内容循环覆盖或逻辑冲突。建议通过单一Agent汇总后再由人类定稿。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：使用“单白（Monologue）”模式，将零散想法通过语音转给AI，再由AI汇总到Proof文档中，可显著提升创作初期的思维捕捉效率。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=P9XfYZh9CwA</guid>
+      <enclosure url="https://i.ytimg.com/vi/P9XfYZh9CwA/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 11 Mar 2026 15:00:43 +0800</pubDate>
+    </item>
     <item>
       <title>Code work：国产桌面AI助手如何一站式解决你的效率难题</title>
       <link>https://www.bilibili.com/video/BV11LAhzWEv5</link>

@@ -7,7 +7,43 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Mar 2026 08:51:16 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 22:56:31 +0000</lastBuildDate>
+    <item>
+      <title>Exodia：高性能Go语言量化数据增量更新工具，告别笨重的Electron与全量重写</title>
+      <link>https://bbs.quantclass.cn/thread/76855</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76855"&gt;5倍！5倍！让A股数据更新提升5倍速的小工具&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[增量更新、Go语言并发、数据流水线优化、QuantClass API、GBK编码处理]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：介绍一款基于Go开发的轻量化量化数据同步工具，通过增量合并与并发处理解决传统客户端性能差及IO损耗大的痛点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决官方Electron客户端技术栈过于沉重（Python后端、大内存占用、风扇狂转）以及对硬盘不友好的全量重写问题；同时适配Linux/Mac等非Windows实盘环境下的数据自动化同步。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：使用Golang开发，支持交叉编译；采用多Goroutine并发模式（默认占用CPU-1）；通过JSON配置文件、环境变量及命令行参数三级优先级进行管理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;增量逻辑&lt;/strong&gt;：仅下载最新日期数据，支持&lt;code&gt;update_by_group&lt;/code&gt;（单文件多标的拆分合并）与&lt;code&gt;update_by_file&lt;/code&gt;（单文件单标的直接合并）两种模式，自动处理CSV去重与排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;鲁棒性设计&lt;/strong&gt;：支持失败任务自动记录与重试（&lt;code&gt;error&lt;/code&gt;模式），下载链接带过期时间缓存，原生支持GBK编码规避中文乱码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模式切换&lt;/strong&gt;：灵活提供&lt;code&gt;all/new/error/full&lt;/code&gt;四种更新策略，适应从初次拉取到每日维护的不同场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：相比官方客户端每天增加一行数据即重写全量文件的逻辑，该工具通过Append+Merge显著降低了磁盘IO压力，且Go语言运行效率远高于Electron+Python架构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：全量下载模式（&lt;code&gt;full&lt;/code&gt;）必须显式通过&lt;code&gt;-products&lt;/code&gt;指定，避免误操作导致的大流量下载；并发数控制需注意对服务端API的冲击限制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;系统架构迁移&lt;/strong&gt;：建议将量化实盘/回测的数据更新层从笨重的图形界面客户端迁移至轻量级的Go二进制程序，特别是在云服务器或Linux环境下。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IO策略优化&lt;/strong&gt;：借鉴其“增量下载+本地内存去重合并”的逻辑，优化自研回测系统中的本地CSV维护模块，减少不必要的全量读写。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并发流水线设计&lt;/strong&gt;：在处理大规模CSV合并任务时，应充分利用多核CPU进行并行计算，但需在API层实现重试机制以对抗网络不稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76855</guid>
+      <pubDate>Wed, 11 Mar 2026 21:37:34 +0800</pubDate>
+    </item>
     <item>
       <title>Windows 完美部署 OpenClaw 指南：基于 WSL2 打造高权限本地 AI 智能体</title>
       <link>https://bbs.quantclass.cn/thread/76844</link>
@@ -38,6 +74,121 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76844</guid>
       <pubDate>Wed, 11 Mar 2026 11:00:05 +0800</pubDate>
+    </item>
+    <item>
+      <title>凌烟阁策略首秀与量化实战：从玄学回撤到AI工具的高级进阶</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;amp;talker=57784510736@chatroom"&gt;2026-03-11_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;核心内容提炼&lt;/h4&gt;
+&lt;p&gt;🏰 &lt;strong&gt;凌烟阁策略：高容忍度的“硬吃”逻辑&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;凌烟阁属于小市值策略，其显著特征是面对震荡甚至下跌时保持满仓，不轻易被震出场。&lt;/li&gt;
+&lt;li&gt;邢不行指出：该策略回撤大的原因在于遇到极端下跌时会“硬吃”跌幅，这要求投资者对波动有极强的容忍度。&lt;/li&gt;
+&lt;li&gt;为了帮助成员适应策略节奏，官方将通过“云实盘”分享买卖点，供大家在正式公测前感受策略波动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🍀 &lt;strong&gt;量化实盘的“心理玄学”与应对&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;群友调侃“云赚钱，实盘亏”的玄学现象：只要不实盘，策略就会起飞；一旦投入真金白银，行情可能正好掉头。&lt;/li&gt;
+&lt;li&gt;行动建议：&lt;ul&gt;
+&lt;li&gt;采用mini仓位开始实盘，降低初期回撤的心理冲击。&lt;/li&gt;
+&lt;li&gt;尝试在“云亏损”到底部时再入场，对抗人性弱点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;💡 &lt;strong&gt;AI赋能：老策略的“翻新”与暴富机会&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;红牛老板分享了利用AI（如Claude、ChatGPT）重写2023年老策略（如“小栗子”、“香农”）的成功经验。&lt;/li&gt;
+&lt;li&gt;核心洞察：很多经典策略并没有失效，只是大家缺乏坚持。通过AI辅助代码移植到新框架，可以极大地提升研究效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🦀 &lt;strong&gt;极致工具流：打造像人一样的“龙虾”浏览器&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;木木十三分享了高阶数据采集方案：使用美区云主机部署Linux桌面环境，通过OpenClaw控制Chrome浏览器采集信息。&lt;/li&gt;
+&lt;li&gt;技术优势：这种方式能够绕过复杂的网站反爬机制，像真人一样浏览和提取研报。&lt;/li&gt;
+&lt;li&gt;性能优化：通过Golang重写数据中心，处理速度比Python提升5倍，彻底解决风扇狂转的IO瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;📊 &lt;strong&gt;引爆点动量：捕捉市场的“领头羊”&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;大Yao总结了基于关键时点（如反弹日、突破日）的动量预测模式。&lt;/li&gt;
+&lt;li&gt;数据支撑：基于三角形突破日的选股组合，次均超额收益可达2.33%，显著优于传统ICIR加权法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;金句分享&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“只要你不实盘，就会一直赚。你一旦实盘……就是这么玄学。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“我坚持哪怕要手工下单也用代码下单，让自己写代码冷静冷静。” —— 木木十三&lt;/li&gt;
+&lt;li&gt;“好东西多的是，大家没发现，没坚持。” —— 红牛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;相关资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/27000&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/26339&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/26995&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76422&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=74077&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76855&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76810&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>沧浪亭策略实战深度复盘：从内存调优到多空匹配的进阶逻辑</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;amp;talker=58453205219@chatroom"&gt;2026-03-11_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🧩 沧浪亭策略的核心进化：为什么不建议与“浪淘沙”混用？&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑冲突&lt;/strong&gt;：沧浪亭是基于收益率来计算杠杆和敞口的，它并不会考虑“浪淘沙”这类后置过滤策略导致的仓位缩减。如果强行合用，会导致杠杆和敞口计算失真。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优雅的阈值版&lt;/strong&gt;：相比固定时间间隔的再平衡（Rebalance），基于暴露度和杠杆阈值触发的再平衡更具“优雅感”，更贴合市场波动的实际需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多空匹配度&lt;/strong&gt;：沧浪亭在多空头头寸匹配、同涨同跌的场景下效果更佳。若策略本身存在50%的暴露偏差，可能会放大回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛠️ 实盘避坑指南：如何驯服爆内存的“电耗子”？&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子列限制（factor_col_limit）&lt;/strong&gt;：如果代码版实盘运行久了爆内存，尝试将全局设置中的 &lt;code&gt;factor_col_limit&lt;/code&gt; 从默认的64调低至32甚至16。数据量随时间累积，限制单次计算因子数能有效缓解内存压力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;清理Delist服务&lt;/strong&gt;：delist服务容易在长期运行中占用高额内存。若设备重启依然无效，可以尝试用PM2单独关闭该服务观察。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;虚拟内存&lt;/strong&gt;：对于代码版用户，务必配置虚拟内存作为最后的防线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;⚖️ 动量策略的幻象：那消失的三分钟与现实的鸿沟&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时间偏移的代价&lt;/strong&gt;：含动量的高波动策略，其实盘表现往往跑输回测。核心原因在于下单与回测之间可能存在约3分钟的延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;两个世界&lt;/strong&gt;：在动量币种中，几分钟的延迟往往意味着完全不同的价格曲线，这种微小的差值会随时间累积成巨大的净值鸿沟。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🚀 实盘框架升级的标准姿势&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;平滑切换方案&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;先停掉旧策略（如四龙戏狗）。&lt;/li&gt;
+&lt;li&gt;升级实盘框架至V1.4.2。&lt;/li&gt;
+&lt;li&gt;升级数据中心至V1.1.10。&lt;/li&gt;
+&lt;li&gt;导入新旗舰策略的CONFIG文件并开启。新框架会自动对齐旧仓位，无需手动全清。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 语录金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“因为沧浪亭不会管你后置过滤而出现的舱口和杠杆减小的情况。” —— &lt;strong&gt;心想事陈&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“阈值板才优雅啊，是策略进化的思路。” —— &lt;strong&gt;陈聪汉&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“动量币隔几分钟，有时就是两个世界。” —— &lt;strong&gt;WN_暖春拂晓&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76843"&gt;从代码的角度理解沧浪亭 | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/76850"&gt;复刻沧浪亭最初版本（指定时间间隔Rebalance）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-11&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>揭秘Tether准备金真相：从稳定币霸权到赛博主权博弈</title>
@@ -5061,215 +5212,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76575</guid>
       <pubDate>Mon, 23 Feb 2026 05:41:44 +0800</pubDate>
-    </item>
-    <item>
-      <title>告别低效会议，迎接A股“赌场”：技术人对效率与投资的极致追求</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;amp;talker=57784510736@chatroom"&gt;2026-02-23_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;✨ &lt;strong&gt;被会议绑架的职场效率&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;职场中，“拉会”似乎成了低效的代名词。有程序员吐槽：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个只需张嘴就能回答的问题，却要拉上11人开会一个半小时。&lt;/li&gt;
-&lt;li&gt;会议内容从产品到数据再到架构，绕了一大圈，最终自己10秒翻代码找到答案。&lt;/li&gt;
-&lt;li&gt;这种“会议文化”在大厂尤其普遍，甚至有测试人员直言是日常。&lt;/li&gt;
-&lt;li&gt;更有人认为，频繁拉会可能是程序员“甩锅”的一种表现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚀 &lt;strong&gt;追求极致效率：前后端一体与精干团队&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;面对低效，有技术人提出了一体化和精简团队的解决方案：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;前后端一体&lt;/strong&gt;：减少沟通的最好办法就是“不要沟通”，一人项目组也能将“前后端一体”玩得体面。&lt;ul&gt;
-&lt;li&gt;例如，用Elixir重写一个N多手机都在用的流量巨大服务，7个人就完成了全部工作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高阶+聚焦的精干团队&lt;/strong&gt;：3-8人的高阶团队足以应对核心业务，因为“真正核心的代码就大几千行”。&lt;ul&gt;
-&lt;li&gt;这强调了“人少+高阶+业务聚焦很多时候更奏效”的理念。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;然而，也有观点认为前后端一体更适合小项目，大项目在基础架构选得好的前提下，未来也可能朝着这个方向发展。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🤖 &lt;strong&gt;AI工具的普及与隐忧&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;随着AI技术的发展，有人提出“全裁了，用AI Agent”的激进设想，但也立刻有人警示：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这离系统出事就不远了，需要留下“足够牛逼的人”。&lt;/li&gt;
-&lt;li&gt;AI工具的成本问题也浮出水面，例如Claude使用量超限、一个回答要1英镑，被戏称为“当代老虎机”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📈 &lt;strong&gt;A股开市前夜：仓位管理与市场情绪&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;假期后的第一个交易日，A股市场迎来重要变化：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;W周期offset换仓&lt;/strong&gt;：明日（2月24日）大A会出现W周期的offset 0～3，四个offset一起换仓的情况，需注意检查数据和最新选股结果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;仓位众生相&lt;/strong&gt;：大家纷纷亮出仓位，从邢不行的6成，到Point71“小资金永远在满仓”的100%，再到“真情实感1%仓位”的谨慎，各不相同。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场预期&lt;/strong&gt;：有人乐观预测“开门必须红”，甚至中证1000预估1.8%+；也有人做好“第一天回撤的准备”，提前进行心理建设。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小资金策略&lt;/strong&gt;：对于小资金玩家，一种观点是“不看好就走，看好就梭”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略之殇&lt;/strong&gt;：有观点指出，策略失败的原因常是“敌不动我不动，敌一动我乱动”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💬 &lt;strong&gt;金句摘录&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“减少沟通的办法就是不要沟通” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“人少+高阶+业务聚焦很多时候更奏效” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“小资金永远在满仓” —— Point71&lt;/li&gt;
-&lt;li&gt;“赌场不开门的日子好无聊” —— SASIOVERLXRD&lt;/li&gt;
-&lt;li&gt;“赌场不红 天理不容” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“不见得 吃肉没赶上 挨刀赶上了” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“不看好就走 看好就梭（小资金的情况下）” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“策略大部分时候死于 敌不动我不动 敌一动我乱动” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔗 &lt;strong&gt;相关链接&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;qtcls.cn/76115&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>加密量化策略：震荡行情中的多空机遇与资金曲线深度剖析</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;amp;talker=58453205219@chatroom"&gt;2026-02-23_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;---📉 量化回测框架新功能与使用&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;25年填充功能&lt;/strong&gt;: 针对仓管回测框架的功能疑问，有用户指出“25 年有填充功能可以实现”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔄 BNApp子账户切换与资金曲线管理&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;有用户求助“bnapp切换子账户的方法”，并分享了相关图片。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资金曲线防失真操作&lt;/strong&gt;: 用户“定投ETH”提出，将母账户资金直接转到子账户全仓杠杆账户可能导致资金曲线失真。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;建议步骤&lt;/strong&gt;: 为确保曲线正常显示，推荐的路径是“先转到现货账户再转去统一账户”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;曲线自恢复现象&lt;/strong&gt;: 有趣的是，即使未按上述步骤操作，资金曲线有时也会“自己恢复正常”，这可能说明系统具备一定的自动识别和校正能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 市场行情与量化策略表现洞察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;BTC下跌与空头策略&lt;/strong&gt;: 市场经历“大阴线下跌”，但对于“浪淘沙系列”等已处于“多空状态，甚至空头暴露状态”的策略而言，这被视为“好机会”。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;空头策略优势&lt;/strong&gt;: 有用户表示其空头策略“这一波直接起飞”，甚至有观点认为“干脆梭空算了，动量随他去”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“邪修”策略与风险&lt;/strong&gt;: 一种结合空头和定投饼的策略被提及：“先把空头打满，然后用空头赚的u定投饼”，但伴随警告：“但邪修，山寨提前到来会回撤，慎入”，强调需“主管判断熊市”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;浪轮策略稳定性&lt;/strong&gt;: 在“2月行情这么艰难”的市场背景下，“浪轮走成这样已经很不错了”，并且“很久没有打脸了”，显示出其韧性。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;浪填策略问题&lt;/strong&gt;: 用户“陈聪汉”反映其“浪填有问题”，具体表现为“多头一直不变”或“一直显示100%”，需要检查配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动量策略回撤&lt;/strong&gt;: “古法动量一小时回撤25％”，显示了此类策略在剧烈波动下的风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场下跌原因&lt;/strong&gt;: 市场观察者认为下跌是“果然又是大户砸盘”所致。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 账户余额与数据处理问题解析&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;USDC小额余额来源&lt;/strong&gt;: 有用户疑惑为何账户中“偶尔会有一点usdc”。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;可能原因&lt;/strong&gt;: 经讨论，这可能源于“下架币自动兑换的”或“delist没卖完剩下的渣渣”，也可能是“持有bnb的利息”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DataAPI URL超时&lt;/strong&gt;: 偶尔出现“DataAPI URL超时未就绪”的系统提示。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;正常情况&lt;/strong&gt;: 用户指出“应该没有问题，双擎，一个成功就可以”，这意味着可能是一个数据接口失败后，系统会切换到备用接口获取数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;选币框架回测曲线异常&lt;/strong&gt;: “选币框架，回测曲线里btc、eth变成直线了”。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;: 此问题通常提示“数据有误，重新全量下载吧”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 实盘与回测曲线差异探究&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;曲线不重合原因&lt;/strong&gt;: 有用户疑问为何“只有一个子策略，但是资金曲线居然和S1走势没有重合”。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“WN_暖春拂晓”解释&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;下单时间差异&lt;/strong&gt;: “实盘回测曲线和实盘曲线的差别，一方面是在下单时间会晚个两三分钟”，导致实际成交价格与回测模拟存在偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略类型影响&lt;/strong&gt;: 对于动量策略，“差得远很正常”，而“旗舰策略一般是贴合在一起”，显示不同类型策略对延迟的敏感度不同。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;随机事件&lt;/strong&gt;: 这种差异“更好和更坏是随机事件，都有可能发生的”，因为实际下单价格可能高于或低于回测价格。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘优于回测&lt;/strong&gt;: 有用户发现自己的“实盘居然比回测好”，而另一些用户则是“实盘比回测差”，进一步印证了上述随机性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💰 比特币与山寨币的哲学思考&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;比特币的马太效应&lt;/strong&gt;: “比特币的逻辑看上去去中心，实际上马太效应，越来越集中，顶部玩家越来越牛，跟古代土地兼并一个道理。” (Panda)&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;周期律&lt;/strong&gt;: “周期律 血崩几次洗洗码。” (.王诗伟) 指出市场可能需要周期性“清洗”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;山寨币的宿命&lt;/strong&gt;: “山寨币终将归零的逻辑才更硬。” (WN_暖春拂晓) 表达了对山寨币长期价值的悲观判断。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 短期市场机会与长期展望&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;USD1价差套利&lt;/strong&gt;: 针对“usd1怎么了”的问题，有用户发现“这价差岂不是能套利了”，并成功“撸了碗猪脚饭”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;期待大饼暴跌&lt;/strong&gt;: 有用户期待“大饼带崩到 6w 算了”，以期“空头再起飞”，并表示将“拿他个一两年”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“比特币的逻辑看上去去中心，实际上马太效应，越来越集中，顶部玩家越来越牛，跟古代土地兼并一个道理。” —— Panda&lt;/li&gt;
-&lt;li&gt;“山寨币终将归零的逻辑才更硬。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“周期律 血崩几次洗洗码。” —— .王诗伟&lt;/li&gt;
-&lt;li&gt;“更好和更坏是随机事件，都有可能发生的。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;em&gt;(无 'quantclass.cn' 域名链接)&lt;/em&gt;&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-23&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Mon, 23 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>字节跳动TRAE：面向AI量化交易的SKILL配置与智能体工作流指南</title>
-      <link>https://bbs.quantclass.cn/thread/76566</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76566"&gt;【大杀器】AI千人千用之A股量化策略SKILL在TRAE平台的实践：J神+吴老板+空白老板大封装&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程, 策略与因子&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：TRAE, AI量化开发, SKILL配置, 智能体工作流, 量化工程规范&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：详述字节跳动TRAE在AI量化开发中的配置、改进及智能体工作流实践，显著提升效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：TRAE的SKILL配置整合“选股框架代码规则”，确保AI按规范生成策略或因子代码，且不修改核心框架脚本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：通过补充底层数据结构文档，指导AI正确调用数据字段（如区分“trade_date”与“交易日期”），提升代码一次生成可用性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决AI量化开发中平台稳定性、API管理繁琐、订阅成本高及AI生成代码可用性差等问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：TRAE平台（基于VSCode），支持多大模型（GPT5.2, Gemini 3 Pro, Kimi, DeepSeek），通过项目级&lt;code&gt;.trae&lt;/code&gt;配置目录（rules, commands, skills）实现SKILLs的整体打包与项目隔离。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;强制除法安全规则&lt;/strong&gt;：所有可能分母为0的除法统一为 &lt;code&gt;A / (B + 1e-8)&lt;/code&gt;，并作为项目强制约束。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;选股框架规则完善&lt;/strong&gt;：确保AI生成的代码严格遵循框架，且禁止修改核心框架脚本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个性化运行模式&lt;/strong&gt;：在&lt;code&gt;config&lt;/code&gt;中新增&lt;code&gt;running_mode&lt;/code&gt;参数，支持回测时程序步骤调整。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI智能体工作流&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;SOLO Builder (&lt;code&gt;/plan&lt;/code&gt;)&lt;/strong&gt;：适合从0构建新功能或大型重构，可先生成计划书。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SOLO Coder (&lt;code&gt;/spec&lt;/code&gt;)&lt;/strong&gt;：擅长修改现有代码或调试，通过逐步生成需求、计划与执行步骤来控制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Chat&lt;/strong&gt;：适用于模糊构思、获取建议或处理小型修改。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;MacOS下&lt;code&gt;.trae&lt;/code&gt;文件夹默认隐藏，需特定快捷键显示。&lt;/li&gt;
-&lt;li&gt;建议明确指示AI先读取&lt;code&gt;.trae&lt;/code&gt;规则文件，确保其行为符合项目规范。&lt;/li&gt;
-&lt;li&gt;推荐在副本上与AI交互，以防AI误操作污染原始代码框架。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;建立项目级AI配置规范&lt;/strong&gt;：参考TRAE的&lt;code&gt;.trae&lt;/code&gt;目录结构，为AI开发集成定制的&lt;code&gt;rules&lt;/code&gt;和&lt;code&gt;skills&lt;/code&gt;，确保AI产出与项目架构高度兼容。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强制代码规范融入AI流程&lt;/strong&gt;：将“除法安全规则”等关键工程规范写入AI的规则集，实现自动化代码质量控制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化AI工作流策略&lt;/strong&gt;：根据任务类型（新功能开发、代码修改、探索性交流）灵活选择不同的AI智能体与指令（如&lt;code&gt;/plan&lt;/code&gt;, &lt;code&gt;/spec&lt;/code&gt;, Chat），提升AI辅助开发的效率与准确性。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76566</guid>
-      <pubDate>Sun, 22 Feb 2026 01:15:47 +0800</pubDate>
     </item>
   </channel>
 </rss>
