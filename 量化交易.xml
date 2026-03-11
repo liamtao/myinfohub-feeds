@@ -7,7 +7,68 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Mar 2026 22:53:02 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 08:51:16 +0000</lastBuildDate>
+    <item>
+      <title>Windows 完美部署 OpenClaw 指南：基于 WSL2 打造高权限本地 AI 智能体</title>
+      <link>https://bbs.quantclass.cn/thread/76844</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76844"&gt;windows上部署openclaw的经验和心得&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[WSL2, OpenClaw, AI Agent, 自动化工程, 容器化环境]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于 WSL2 环境构建本地 OpenClaw 架构，实现具备高权限、低延迟特征的 AI Agent 自动化作业流程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：旨在解决云端部署权限受限、模型选择单一以及 Windows 原生环境在 systemd 支持和兼容性方面的技术瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Windows 10 (22H2+) + WSL2 (Ubuntu 24.04) + systemd 内核支持 + Node.js 22+ 环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：通过修改 &lt;code&gt;/etc/wsl.conf&lt;/code&gt; 启用 &lt;code&gt;systemd=true&lt;/code&gt; 以驱动 gateway 服务；利用 &lt;code&gt;openclaw pairing&lt;/code&gt; 实现飞书长连接 (WebSocket) 事件订阅；应用 &lt;code&gt;loginctl enable-linger&lt;/code&gt; 确保 Linux 用户会话在后台持久运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过 WSL2 虚拟磁盘 (ext4.vhdx) 实现环境隔离，在保证安全性的前提下，赋予 AI 直接操作本地文件系统（如回测工作区）的高级权限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：明确指出 Win10 21H2 版本无法兼容 systemd；提示在配置飞书插件时需选择“使用现有机器人”并手动执行 pairing approve 命令完成鉴权。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;环境标准化&lt;/strong&gt;：推荐量化研究员弃用 Windows 原生安装，全面转向 WSL2 容器化部署，以获得更稳定的系统调用和进程管理能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主动化进阶&lt;/strong&gt;：通过深度配置 HEARTBEAT.md 任务清单，将 AI 的功能从“响应式问答”扩展为“主动式策略监控”与“定时回测任务”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;身份资产管理&lt;/strong&gt;：建议通过版本化管理 SOUL.md 和 AGENTS.md 核心文件，实现不同量化研究场景（如因子挖掘、研报总结）下智能体人格的快速切换。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76844</guid>
+      <pubDate>Wed, 11 Mar 2026 11:00:05 +0800</pubDate>
+    </item>
+    <item>
+      <title>揭秘Tether准备金真相：从稳定币霸权到赛博主权博弈</title>
+      <link>https://bbs.quantclass.cn/thread/75826</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/75826"&gt;Tether真的大到不能倒了吗？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Tether准备金结构、系统性风险、超主权企业、赛博本位货币]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：穿透Tether准备金不透明性，研判赛博时代超主权信用体系的更迭。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：Tether准备金已由100%现金转向混合资产包：美债敞口约1410亿美元（全球第18大持有者），实物黄金持仓148吨（超部分主权国家），抵押贷款比例反弹至8.8%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：资产结构复杂化源于Tether寻求“防冻结”能力（黄金的匿名性）及利润最大化（挪用客户资产进行风险投资与高收益贷款）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示了“证明(Attestation)”与“审计(Audit)”的本质差异：证明仅能体现特定时点的“橱窗装饰(Window Dressing)”结果，无法穿透全年流水、洗钱风险及未披露债务，存在极高的财务操纵空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：未来金融主权可能由“主权信用”转向“生产力载体（算力/电力）”，超主权巨头（如马斯克生态）或将通过自建基础设施发行非美元锚定的链上货币。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[风险隔离]&lt;/strong&gt;：在量化实战中需对USDT承兑风险设定阈值，重点监控托管行（如Cantor Fitzgerald）相关的司法监管信号，防范大额异常赎回引发的流动性挤兑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[底层逻辑研判]&lt;/strong&gt;：关注Tether利润向AI、能源及P2P通信领域的扩张，这预示了稳定币底层支撑正在由“被动信用”向“主动实物/算力资源”转移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[极端风险建模]&lt;/strong&gt;：在设计跨链或DEX套利算法时，应将稳定币的“司法冻结风险”作为非对称极端变量计入压力测试模型。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/75826</guid>
+      <pubDate>Tue, 10 Mar 2026 23:17:36 +0800</pubDate>
+    </item>
     <item>
       <title>炼金术的透明化：深度解析101个真实量化Alpha的逻辑与实战</title>
       <link>https://www.bilibili.com/video/BV1nmcQzKEZJ</link>
@@ -3843,6 +3904,42 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <pubDate>Thu, 26 Feb 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>分钟偏移覆盖实盘评测：通过时序分散规避择时过拟合与风险兜底</title>
+      <link>https://bbs.quantclass.cn/thread/76604</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76604"&gt;差 10 分钟，亏光本金？我用 6 个实盘账号，用亏损测透了分钟偏移的坑-------分钟偏移覆盖适度理解：实盘对照实验全记录&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[分钟偏移覆盖、时序分散、过拟合、Calmar比率、实盘对比]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过12个时间分桶的全偏移覆盖，有效平滑波动并规避单点择时过拟合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：分钟偏移覆盖本质是时域上的“分桶集成”（Ensemble Learning in Time Domain）。通过在0-55分钟内均匀分布入场点，将单一择时风险转化为时间序列上的均值回归，逻辑上等同于TWAP（时间加权平均价格）算法的策略化应用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：将账户逻辑拆分为12个虚拟分桶，每个分桶对应5分钟间隔的偏移量（0m, 5m...55m）。全覆盖组通过合并各分桶仓位，实现信号的平滑处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：实盘对比显示，单一偏移组表现极不稳定，如35m组在一周内从排名第一跌至垫底，暴露了严重的参数过拟合。全覆盖组在多轮测试中最大回撤仅4.84%，显著低于单偏移组（最高达25%），且简易卡玛比率（3.98）断层领先，实现了稳定的“下限兜底”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：实验证明单一分钟点的超额收益具有高度随机性。若策略对入场分钟极度敏感，说明底层逻辑收益来源依赖于择时精度而非标的价值，具备高过拟合风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决单一账户运行多套偏移策略导致的频繁换仓成本与手动调仓复杂度，实现“一个账户跑满12个桶”的自动化覆盖逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：通过高频次的分钟级Rebalance机制（如每5分钟一次信号扫描）实现仓位动态对齐。文章猜想更频繁的Rebalance本身可能起到了平滑价格冲击并提升收益的作用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：针对分桶逻辑，需注意“桶数据丢失”导致的异常清仓风险，建议在框架层增加持久化状态记录和异常自愈机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【策略重构】&lt;/strong&gt;：对所有择时敏感型策略强制引入“分钟偏移覆盖”模块，放弃寻找“最优偏移点”，通过时间维度的分散化提升实盘夏普比率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风控加固】&lt;/strong&gt;：在Python实盘框架中增加分桶状态校验逻辑，防止因本地缓存失效导致的误清仓操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【执行优化】&lt;/strong&gt;：将单次大额成交指令拆解到不同分桶中，利用TWAP逻辑减小滑点与市场冲击。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76604</guid>
+      <pubDate>Wed, 25 Feb 2026 23:50:00 +0800</pubDate>
+    </item>
+    <item>
       <title>穿透市场波动：大宗商品量化投研的多因子与多周期重构指南</title>
       <link>https://www.bilibili.com/video/BV1yofsB4EXd</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1yofsB4EXd"&gt;多周期 × 多因子 × AI：商品期货投研的新范式&lt;/a&gt;&lt;/p&gt;
@@ -4144,6 +4241,53 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1bAfsBeEZX</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/5346678fbde3796a318584997e600913826ac5a6.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 25 Feb 2026 11:45:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>缠论比特币懒人投资闭环：高空止盈与底部建仓双策略</title>
+      <link>https://bbs.quantclass.cn/thread/76448</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76448"&gt;【猫妈】缠论看比特币（下）底部操作思路 —— 懒人建仓，拿住大牛市&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[缠论策略, 比特币交易, 底部建仓, 网格定投, 懒人投资]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[基于缠论的比特币牛熊市懒人投资闭环策略。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：缠论的周线/日线一买区域在熊市底部（如2022年比特币）止盈，与最终最低点偏差仅约4.5%，显示了极高精度。底部震荡周期长且具规律性（如20周中枢震荡，8周底部区域震荡）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：缠论结构识别（尤其是“一买”概念）能有效定位市场关键反转点或底部区间，避免主观臆测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：缠论结合定投能实现比传统均线定投更精准的入场时机（避免过早），更高的资金效率（聚焦底部震荡期），且不依赖历史回测参数，直接通过结构信号指导操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：以缠论的“周线一买”和“日线一买”作为高空止盈和底部建仓的唯一信号触发点，结合长期持仓与短期网格交易，构建“建完仓，一两年不用看”的懒人投资闭环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高空止盈&lt;/strong&gt;: 出现“日线一买”或“周线底分型”时止盈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;底部建仓&lt;/strong&gt;: 在“日线一买”和“周线一买”区域启动分批定投，周期约3个月。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金利用效率提升&lt;/strong&gt;: 引入“半网格”策略，将定投期间的闲置资金用于底部震荡区间（如第二个周线中枢、C段底部企稳区）的高频高抛低吸。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网格分段&lt;/strong&gt;: 第二个周线中枢震荡期运行第一组网格；跌破中枢C段企稳后，启动第二组新网格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需比特币周线、日线K线数据，用于识别缠论结构特征（如背驰、底分型、一买）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;历史案例&lt;/strong&gt;: 2022年比特币熊市，周线一买约15500-16000美元，日线一买约15478-15800美元。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;止盈收益&lt;/strong&gt;: 从67000美元开空，在15000美元止盈，收益率约77.61%；止盈价格与终极最低点12000美元的偏差仅4.5%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：缠论结构判断需经验和理解，市场异常波动或结构模糊时可能影响判断精度；网格策略的盈利能力受限于震荡区间的持续性和波动幅度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;开发或集成缠论结构（周线/日线一买、底分型）识别模块，实现自动化交易信号生成，用于空单止盈及底仓建仓触发。&lt;/li&gt;
+&lt;li&gt;构建复合型交易系统，将基于缠论信号的长期定投策略（主策略）与震荡区间的网格交易策略（辅助策略）无缝集成，优化资金利用率。&lt;/li&gt;
+&lt;li&gt;回测不同加密资产在历史牛熊周期中缠论“一买”信号的有效性及不同网格参数（如网格密度、利润空间）在震荡行情中的表现。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76448</guid>
+      <pubDate>Wed, 25 Feb 2026 11:40:08 +0800</pubDate>
     </item>
     <item>
       <title>量化交易实盘：策略周期间隔、数据更新与市场热点洞察</title>
@@ -5126,210 +5270,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76566</guid>
       <pubDate>Sun, 22 Feb 2026 01:15:47 +0800</pubDate>
-    </item>
-    <item>
-      <title>从私募策略辩证到半导体AI逻辑：量化投资的冷思考与“炼丹”实录</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;amp;talker=57784510736@chatroom"&gt;2026-02-22_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🔍 私募产品的辩证法：交情归交情，生意归生意&lt;/h3&gt;
-&lt;p&gt;在评估私募产品时，核心在于将“交情”与“策略”剥离。利用 AI 工具（如 Gemini）对营销方案进行深度分析，能够快速识别其底层逻辑与潜在水分。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🏗️ 半导体与 AI 的“循环繁荣”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;周期判断&lt;/strong&gt;：基于供应链调研，存储芯片的供需平衡预计还需 1.5 年实现，光子芯片的研发将进一步拉动高端存储需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;算力估值&lt;/strong&gt;：当前的行业繁荣高度依赖于 AI 的预期循环。一旦算力上升到“国家储备”级别，其市场价值将呈现“涨上追涨”的态势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情绪博弈&lt;/strong&gt;：市场往往经历“先信赚钱，后信接盘”的过程。需警惕去年曾出现的“算力过剩”情绪对全场流动性的冲击。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 市场风格与策略哲学&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;风格偏好&lt;/strong&gt;：讨论中指出当前“小市值 100”指数表现极为强势，是量化策略中的优选标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;命名美学&lt;/strong&gt;：量化策略命名从集体主义（如风火轮）向个人主义（如“英雄”）转型。但需注意名称背后的意涵，如“英雄”可能隐含“被万箭齐发”的归宿。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚗️ 量化“炼丹”的诱惑与陷阱&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;警惕完美曲线&lt;/strong&gt;：当回测结果的单调性“强得离谱”时，首先应质疑是否过拟合或存在代码逻辑 Bug。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实操避雷&lt;/strong&gt;：生成单策略时，若直接拷贝 &lt;code&gt;config.py&lt;/code&gt; 而未清理旧的 &lt;code&gt;strategy_list&lt;/code&gt;，会导致生成结果虚假繁荣，误导风险评估。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 金句拾遗&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“先信赚钱，后信接盘。” —— 黑黑夜夜&lt;/li&gt;
-&lt;li&gt;“算力如果上升到国家储备的级别，那价值是有得涨上追涨。” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“《英雄》李连杰最后被万箭齐发了。” —— 無慈悲な定量化機械&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76561&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化策略回撤应对指南：在AI时代，想法才是真正的护城河</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;amp;talker=58453205219@chatroom"&gt;2026-02-22_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;📉 面对策略回撤：是“落狗天”还是进场良机？&lt;/h4&gt;
-&lt;p&gt;近期市场波动导致多款量化策略出现回撤，群友戏称“落九天”变成了“落狗天”。针对这一情况，专业视角给出了定心丸：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;四龙狗回撤定性&lt;/strong&gt;：最近20天回撤约12%，属于正常范围，无需过度惊慌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;补仓操作指南&lt;/strong&gt;：建议参考“软知识2”的方法，将资金分成4份。目前的点位至少可以加进去2份，通过分批加仓来平摊成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中性策略分化&lt;/strong&gt;：并非所有中性策略都适合现在加仓，动量类策略除外，需区别对待。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🤖 AI 时代的生存法则：想法决定上限，工具只是摆设&lt;/h4&gt;
-&lt;p&gt;当AI能在一小时内为你定制专属应用时，应用商店的时代正在落幕。未来的核心竞争力不再是“码力”，而是“想法”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;人机协作新模式&lt;/strong&gt;：AI不仅是工具，更是“陪练”和“创意引擎”。你可以让AI为你定制专属的区块链小说或量化游戏，实现寓教于乐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点转移&lt;/strong&gt;：工具会越来越好用，门槛会越来越低。如果没有想法、没有需求，再强大的AI工具也只是华丽的摆设。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;持续交互的必要性&lt;/strong&gt;：AI无法一次性给到完美答案，需要使用者具备极高的热情和持续交互优化的能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📖 跨界输出：用 AI 讲好硬核技术故事&lt;/h4&gt;
-&lt;p&gt;gcouple.J 展示了如何利用 AI 将枯燥的技术知识转化为引人入胜的小说，为量化和区块链学习提供了新思路：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;《证明者》&lt;/strong&gt;：聚焦智能合约审计与攻防，通过故事情节拆解区块链第一课。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;《纳秒战争》&lt;/strong&gt;：将高频交易、做市商策略比作“迷宫”与“光速的代价”，让量化知识不再高不可攀。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛠️ 交易实操微型指南：细节决定体验&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;子账户查看技巧&lt;/strong&gt;：在币安App中，点击个人账号后使用右上角的切换按钮，即可快速查看子账户资金总额。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架魔改反馈&lt;/strong&gt;：关于“仓管框架”能否像基础框架那样在后置过滤后重新打满仓位，目前的官方反馈是暂不支持该功能的自动实现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 聊天金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“关键是想法，工具只会越来越好用。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“没想法，没需求，再好的工具，也只是摆设。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“想象力限制了我的码力。” —— 郑&lt;/li&gt;
-&lt;li&gt;“与AI为伍，是个人最强大的工具。” —— Panda&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;《证明者》第一卷 · 第一章：https://bbs.quantclass.cn/thread/76492&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第二章：https://bbs.quantclass.cn/thread/76493&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第三章：https://bbs.quantclass.cn/thread/76494&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第四章：https://bbs.quantclass.cn/thread/76496&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第五章：https://bbs.quantclass.cn/thread/76498&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第六章：https://bbs.quantclass.cn/thread/76501&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第七章：https://bbs.quantclass.cn/thread/76515&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第八章：https://bbs.quantclass.cn/thread/76516&lt;/li&gt;
-&lt;li&gt;《证明者》第一卷 · 第九章：https://bbs.quantclass.cn/thread/76517&lt;/li&gt;
-&lt;li&gt;《纳秒战争》序章：https://bbs.quantclass.cn/thread/76531&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第一章：https://bbs.quantclass.cn/thread/76532&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二章：https://bbs.quantclass.cn/thread/76533&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第三章：https://bbs.quantclass.cn/thread/76534&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第四章：https://bbs.quantclass.cn/thread/76535&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第六章：https://bbs.quantclass.cn/thread/76540&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第七章：https://bbs.quantclass.cn/thread/76554&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第八章：https://bbs.quantclass.cn/thread/76555&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第九章：https://bbs.quantclass.cn/thread/76556&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第十章：https://bbs.quantclass.cn/thread/76557&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第十一章：https://bbs.quantclass.cn/thread/76558&lt;/li&gt;
-&lt;li&gt;《纳秒战争》第二卷-第十二章：https://bbs.quantclass.cn/thread/76559&lt;/li&gt;
-&lt;li&gt;【大杀器】AI千人千用量化策略：https://bbs.quantclass.cn/topic/index?id=76566&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-22&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从Alpha到Filter：深度解析研发因子在小市值策略中的增量价值</title>
-      <link>https://bbs.quantclass.cn/thread/76563</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76563"&gt;研发费用因子对各基础策略的增强作用初探&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[研发费用因子, TTM滚动计算, 小市值策略增强, 因子过滤, A股基本面]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过构建三类研发投入因子并实测，证实研发费用TTM/市值因子作为小市值策略的前置过滤器具有显著的收益增强效果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：研发投入强度反映企业的创新成长潜力。该因子具有显著的市值偏好，在小盘股（中证1000）中预测能力最强（Rank IC 0.05），而在大盘股（沪深300）中几乎失效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：1. &lt;strong&gt;rd_mv&lt;/strong&gt;：研发费用TTM/总市值（最稳健，夏普1.27）；2. &lt;strong&gt;rd_rev&lt;/strong&gt;：研发费用TTM/营收TTM（成长风格，高收益高波动）；3. &lt;strong&gt;rd_yoy&lt;/strong&gt;：研发费用TTM同比增速（有效性极弱）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于&lt;code&gt;R_rad_cost_sum&lt;/code&gt;字段取费用化部分。核心处理包括TTM滚动累计与同比计算，需在分母有效且大于0时进行运算，缺失值不填充。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：纯因子选股表现一般，但作为过滤条件时表现优异。在小市值策略中过滤掉研发强度后80%的公司，可显著提升净值曲线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：rd_rev因子在中证1000中虽有高收益，但最大回撤达23.3%，建议仅作为辅助因子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：财务报表数据与日频行情数据的对齐，以及财务科目在TTM口径下的动态滑动计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于Python量化框架，利用&lt;code&gt;FinanceDataFrame&lt;/code&gt;的&lt;code&gt;.ttm()&lt;/code&gt;和&lt;code&gt;.yoy()&lt;/code&gt;接口实现向量化计算，确保时间序列逻辑严密。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：通过&lt;code&gt;_safe_to_float_series&lt;/code&gt;进行类型强制转换与异常数值过滤，确保因子在进入去极值/中性化模块前的数据质量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[因子应用]&lt;/strong&gt;：不建议单独使用研发因子选股，应将其作为“策略过滤器”。小市值池子建议取研发强度前20%，大市值池子可放宽至前50%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[策略增强]&lt;/strong&gt;：将&lt;code&gt;rd_mv&lt;/code&gt;因子叠加至现有的“资金流成长”或“小市值基本面优化”策略中，作为前置Filter可以明显降低回撤并提升胜率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[实战注意]&lt;/strong&gt;：研发费用仅取费用化部分，对于研发支出资本化比例较高的特定行业，需注意口径偏差。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76563</guid>
-      <pubDate>Sat, 21 Feb 2026 21:02:47 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI驱动的量化策略迭代：基于Claude Code与GLM5的小市值策略优化全流程</title>
-      <link>https://bbs.quantclass.cn/thread/76553</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76553"&gt;【开箱即用、一键直出】从零开始用AI做A股策略优化&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Claude Code, GLM-5, 策略自动化优化, 提示词工程, 环境部署]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过Claude Code集成GLM5模型，实现量化回测框架与AI指令集的闭环，自动化提升策略表现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于“小市值+基本面优化”逻辑，利用AI进行多轮因子的增删与参数微调。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;基线：年化收益率32.32%，最大回撤49.07%&lt;/li&gt;
-&lt;li&gt;AI优化后：年化收益率38.64%，最大回撤48.15%&lt;/li&gt;
-&lt;li&gt;迭代过程：通过6-9轮优化，每轮10-20个尝试。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决量化研究中人工调参效率低、经验难以量化沉淀的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心环境&lt;/strong&gt;：Node.js, Git, Python (PyCharm), Conda虚拟环境。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI工具链&lt;/strong&gt;：Claude Code作为执行引擎，GLM5 (通过智谱API) 作为推理内核。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逻辑中转&lt;/strong&gt;：修改&lt;code&gt;.claude/settings.json&lt;/code&gt;将Claude默认模型重定向至&lt;code&gt;glm-5&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自动化指令集&lt;/strong&gt;：定义&lt;code&gt;/strategy-optimize&lt;/code&gt;自定义命令，包含回测启动、指标提取、配置生成的标准化流转。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;环境变量注入&lt;/strong&gt;：通过&lt;code&gt;npx @z_ai/coding-helper&lt;/code&gt;配置国产模型API，绕过原生Claude限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;权限阻塞&lt;/strong&gt;：使用&lt;code&gt;claude dangerously skip permissions&lt;/code&gt;避免频繁的人工确认。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文限制&lt;/strong&gt;：长序列优化任务易触发&lt;code&gt;1210&lt;/code&gt;报错（输入Token超限）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;配置失效&lt;/strong&gt;：部分策略脚本硬编码导致&lt;code&gt;filter_list&lt;/code&gt;在config文件中失效，需AI深入理解脚本逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;环境闭环&lt;/strong&gt;：通过&lt;code&gt;.claude&lt;/code&gt;文件夹中的规则文件（&lt;code&gt;.md&lt;/code&gt;格式）定义策略优化的约束条件和评估标准，实现工程化的Prompt Engineering。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;经验持久化&lt;/strong&gt;：在每轮优化后强制AI将习得的经验同步至文档库，构建“策略研究”的本地知识库以实现模型能力的自我进化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性能调优&lt;/strong&gt;：在大规模回测任务中，建议使用&lt;code&gt;npx&lt;/code&gt;加速API调用，并配合专用的指标提取工具（如&lt;code&gt;extract_strategy_metrics.py&lt;/code&gt;）辅助AI决策。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76553</guid>
-      <pubDate>Sat, 21 Feb 2026 19:26:49 +0800</pubDate>
     </item>
   </channel>
 </rss>
