@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 11 Mar 2026 22:56:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 12 Mar 2026 08:40:34 +0000</lastBuildDate>
     <item>
       <title>Exodia：高性能Go语言量化数据增量更新工具，告别笨重的Electron与全量重写</title>
       <link>https://bbs.quantclass.cn/thread/76855</link>
@@ -3938,6 +3938,54 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <pubDate>Thu, 26 Feb 2026 13:21:50 +0800</pubDate>
     </item>
     <item>
+      <title>落单狗策略深度优化：从因子逻辑演进到最低启动资金的工程量化</title>
+      <link>https://bbs.quantclass.cn/thread/76606</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76606"&gt;落单狗策略优化（附赠两个神秘小彩蛋）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[R2BTC因子, 截面回退机制, 动态启动资金计算, 后置过滤器优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过引入决断系数及截面回退机制优化落单狗策略，并实现实盘资金门槛量化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：对原“落单狗”策略（做空与大盘弱相关且量比低的币种）进行因子增强，引入决断系数（$R^2$）刻画市场解释度而非单纯线性相关性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R2BTC截面因子&lt;/strong&gt;：采用优先级逻辑，首选 &lt;code&gt;val &amp;lt; threshold&lt;/code&gt; 的标的，若无满足条件的标的则按 &lt;code&gt;pct&lt;/code&gt; 排序选取最小的一撮，解决强过滤下的空仓问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;归一化涨跌量比&lt;/strong&gt;：$(UpVol - DownVol) / (TotalVol + ̕)$，用于更稳定的跨周期定值过滤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;R2BTC前置过滤&lt;/strong&gt;：显著提升年化（约54%），但资金利用率不均且存在空仓期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CCI后置过滤&lt;/strong&gt;：在维持年化的前提下，将最大回撤从-56%优化至-21%，显著提升夏普比率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：强过滤条件导致选币数量骤减，单币持仓上限风险（Position Concentration）随之增加。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决标准回测框架无法直观显示实盘最低资金门槛的问题，避免因资金量不足导致的小仓位标的“买不进”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：通过修改 &lt;code&gt;equity.py&lt;/code&gt; 和 &lt;code&gt;figure.py&lt;/code&gt; 逻辑，在权益曲线下方增加“最低启动资金”子图。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;启动资金计算公式&lt;/strong&gt;：$MinCapital = \max(\frac{M}{P_{20%}}, \frac{M}{P_{20%} \times (1 - MDD)})$，其中 $M$ 为交易所最小下单额（如10U），$P_{20%}$ 为持仓占比的20%分位数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态回撤折算&lt;/strong&gt;：利用当前时点回撤（&lt;code&gt;dd2here&lt;/code&gt;）动态折算历史最高点所需的备付金，更贴合实盘风控需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子转换&lt;/strong&gt;：在处理大盘相关性过滤时，优先尝试 &lt;code&gt;Corr^2&lt;/code&gt; (决断系数) 的 &lt;code&gt;val&lt;/code&gt; 过滤（建议区间 0-0.1），比单纯的 &lt;code&gt;pct&lt;/code&gt; 排名更具物理意义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程增强&lt;/strong&gt;：在回测系统中集成“最低启动资金”监控模块，根据策略的 &lt;code&gt;20%分位仓位占比&lt;/code&gt; 倒推本金门槛，防止实盘由于资金规模导致的策略变形。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后置过滤组合&lt;/strong&gt;：推荐使用 &lt;code&gt;Cci &amp;lt; pct:0.5&lt;/code&gt; 或 &lt;code&gt;QuoteVolumeMean &amp;gt; pct:0.5&lt;/code&gt; 作为落单类策略的后置过滤器，可大幅压制尾部风险。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76606</guid>
+      <pubDate>Thu, 26 Feb 2026 01:06:22 +0800</pubDate>
+    </item>
+    <item>
       <title>量化策略、市场波动与基金索赔：实盘得失与工具创新洞察</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-26&amp;talker=57784510736@chatroom</link>
       <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-26&amp;amp;talker=57784510736@chatroom"&gt;2026-02-26_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
@@ -5171,47 +5219,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76574</guid>
       <pubDate>Mon, 23 Feb 2026 11:33:18 +0800</pubDate>
-    </item>
-    <item>
-      <title>突破官方限制：2025选股框架多Offset与日内换仓因子深度分析工具</title>
-      <link>https://bbs.quantclass.cn/thread/76575</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76575"&gt;支持早盘换仓与全offset的因子分析工具（0226新增单因子批量分析功能）-2025年定风波回测框架研究三&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[全Offset分析, 早盘换仓, 因子衰减, 隔夜效应]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过实现全Offset及09:55日内换仓功能，深度量化因子在A股微观结构下的收益特性与分辨力差异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：09:55换仓模式下的IC绝对值显著高于隔日换仓（close-open），但实际分组净值收益反而出现下滑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：A股早盘由于T+1制度存在的“隔夜卖压”，避开开盘前25分钟能增强因子对股票优劣的分辨能力（IC提升），但代价是失去了全市场开盘阶段的系统性估值修复收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示了快衰减因子（如Ret5）在开盘极短时间内存在Alpha极速流失现象，修正了仅依赖收/开盘价回测的统计偏差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：支持全Offset模式（如[&amp;quot;5_0&amp;quot;至&amp;quot;5_4&amp;quot;]），通过平均化处理消除“星期效应”，确保持仓走势与净值曲线的稳健性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：提供0930-1455每5分钟颗粒度的调仓测试能力，可量化分析Alpha在日内不同时段的生存周期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：通过Ret5与成交额Std_5因子的对比实验，验证了日内换仓对高频/敏感因子收益率的影响深度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决官方2025框架仅支持单Offset及固定换仓时间的局限，以及批量因子分析生成的HTML报告体积巨大（达36GB）的存储瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于select-stock-pro_v1.7.3，重写tfunctions.py与pfunctions.py，解耦换仓逻辑与Offset配置。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：采用“数据结果(.pkl)与可视化(.html)分离”方案，将存储体积从36GB优化至80MB，并提供自动化报告渲染脚本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[因子评估优化]：在因子测试阶段必须引入全Offset平滑，以剔除特定调仓日的随机噪声，获取更真实的因子表现。&lt;/li&gt;
-&lt;li&gt;[换仓策略调整]：针对换手率较高的因子，需严格对比close-open与日内不同时点的ICIR差异，平衡分辨能力与冲击成本。&lt;/li&gt;
-&lt;li&gt;[工程存储建议]：量化平台应采用序列化中间数据存储策略，通过动态渲染技术降低大规模因子库分析的硬件资源消耗。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76575</guid>
-      <pubDate>Mon, 23 Feb 2026 05:41:44 +0800</pubDate>
     </item>
   </channel>
 </rss>
