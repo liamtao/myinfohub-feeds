@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 12 Mar 2026 22:52:55 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 08:50:55 +0000</lastBuildDate>
     <item>
       <title>Trade FM：从百亿级订单流中破译市场微观结构的通用“语法”</title>
       <link>https://www.bilibili.com/video/BV1r1cBzFE73</link>
@@ -203,6 +203,39 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-12&amp;talker=58453205219@chatroom</guid>
       <pubDate>Thu, 12 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>凌烟阁策略进阶：基于D1框架的no-offset模式与小时级回测实战</title>
+      <link>https://bbs.quantclass.cn/thread/76864</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76864"&gt;【D1框架】凌烟阁no-offset版&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[no-offset模式, 个股择时, 小时级回测, D1量化框架]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过no-offset模式解放个股择时限制，并实现基于D1框架的小时级回测落地。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：由传统的固定周期（offset）卖出转变为严格信号驱动（no-offset）。若无卖出信号则持续持有，打破持仓周期的物理限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【仓位管理】&lt;/strong&gt;：采用动态分配机制，单笔买入仓位定为1/选股数。当持仓未达预设选股数上限时，策略持续扫描并按信号择机买入直至满仓。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程实现】&lt;/strong&gt;：适配D1框架的小时级回测。需在官网下载1小时行情数据，解压至数据中心并进行标准化文件夹命名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【配置优化】&lt;/strong&gt;：通过修改&lt;code&gt;config.py&lt;/code&gt;中的股票分钟级回测配置，并在&lt;code&gt;workflow/策略回测.py&lt;/code&gt;中注释掉日线回测代码，解除分钟回测代码注释，实现回测精度的提升。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机制迁移&lt;/strong&gt;：在现有策略开发中，可参考文中no-offset模板将“固定持仓时间”逻辑重构为“条件触发逻辑”，以增强择时灵活性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程配置&lt;/strong&gt;：执行小时级回测前，务必校验数据路径与&lt;code&gt;config.py&lt;/code&gt;中配置的一致性，防止因路径解析错误导致的加载失败。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76864</guid>
+      <pubDate>Wed, 11 Mar 2026 23:57:36 +0800</pubDate>
     </item>
     <item>
       <title>Exodia：高性能Go语言量化数据增量更新工具，告别笨重的Electron与全量重写</title>
@@ -5094,62 +5127,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/68932</guid>
       <pubDate>Tue, 24 Feb 2026 01:47:50 +0800</pubDate>
-    </item>
-    <item>
-      <title>开年红包与量化实操：从实盘避坑到超额收益策略洞察</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-24&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-24&amp;amp;talker=57784510736@chatroom"&gt;2026-02-24_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;核心内容提要&lt;/h4&gt;
-&lt;h3&gt;💻 实盘异常的“急救”方案&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;计划重运行技巧&lt;/strong&gt;：当实盘因资金不足等原因下单失败，补足资金后需删除 &lt;code&gt;real_trading/rocket/data/账户信息&lt;/code&gt; 文件夹下的买入计划，才能重新触发下单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;选股模块重启&lt;/strong&gt;：若需重新运行选股逻辑，可前往 &lt;code&gt;realtrading/data&lt;/code&gt; 目录删除 &lt;code&gt;timestamp&lt;/code&gt; 和 &lt;code&gt;locker&lt;/code&gt; 文件夹，再重新点击实盘按钮。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作禁忌&lt;/strong&gt;：删除数据是最后的手段。如果部分交易已成交，最好等收盘后再调整，否则极易引发新的底层 Bug。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 节后“仓位打满”的底层逻辑&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Offset 效应&lt;/strong&gt;：周频策略（W）在长假后的第一个交易日，往往会因为多个 Offset（如 W0-W4）的信号同时触发而导致仓位瞬间打满。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略选择建议&lt;/strong&gt;：D 策略（日频偏移）比 W 策略在逻辑上更易理解。对于追求平稳的老板，可以考虑 3D 或 5D 策略以规避假期带来的仓位突变。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 面对“踩雷”股的断舍离方法&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;处理流程&lt;/strong&gt;：若持仓股突然暴雷（如变 ST 或连续跌停），系统可能因价格挂单问题无法成交。建议：&lt;ul&gt;
-&lt;li&gt;先在客户端将该股拉黑。&lt;/li&gt;
-&lt;li&gt;手动挂隔夜跌停单抢跑，或在开盘打开跌停的一瞬手动撤单并以跌停价出逃。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反思逻辑&lt;/strong&gt;：部分反转策略（如选中小市值、黄金珠宝股）可能误入此类形态，需严格执行过滤 ST 的自定义函数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 寻找量化策略的“圣杯”与拥挤度&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;中户动量因子&lt;/strong&gt;：讨论中提到的高收益策略疑似基于“中户流入”数据做因子，这类策略在 1000 万以内的资金容量下表现优异，但面临资金拥挤后失效的风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测陷阱&lt;/strong&gt;：面对极其华丽的净值曲线，首先要排除“未来函数”，其次要看该策略在实际交易中的滑点与冲击成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💬 交流金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“先确认问题，删除是最后的手段。” —— --坤&lt;/li&gt;
-&lt;li&gt;“大a账户新高咯（说完这句话，就要回撤喽）。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“数据不要随便删，极大可能会出现新的bug。” —— --坤&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关资源链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76460&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76392&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/75656&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-24&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
