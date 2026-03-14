@@ -7,7 +7,46 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Mar 2026 08:37:53 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 22:43:53 +0000</lastBuildDate>
+    <item>
+      <title>低成本构建量化“养虾”生产力环境：VirtualBox 虚拟化 macOS Monterey 硬核指南</title>
+      <link>https://bbs.quantclass.cn/thread/76928</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76928"&gt;【大卫】MacOS虚拟机（黑苹果）装OpenClaw，4000大洋省了&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[VirtualBox 虚拟化, macOS Monterey, 环境部署, 硬件仿真, 量化生产力]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过 VirtualBox 在 Windows 宿主机低成本搭建 macOS 虚拟化环境以满足特定软件运行需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决特定量化工具对 macOS 原生环境的依赖，规避购买 Mac 硬件的高成本，并实现多套养殖环境的隔离。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：VirtualBox 7.2.6 + macOS Monterey 12.6.1；核心在于通过宿主机 CLI 对虚拟机进行 DMI 信息篡改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;硬件欺骗&lt;/strong&gt;：使用 &lt;code&gt;VBoxManage modifyvm&lt;/code&gt; 指令注入特定的 CPUID、SMC 设备密钥（DeviceKey）和 DMI 产品信息（iMac19,1），从而绕过 Apple 系统的硬件检测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EFI 引导优化&lt;/strong&gt;：在标准引导失效时，通过 &lt;code&gt;Boot Manager&lt;/code&gt; 手动定位 EFI 启动文件路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过“桥接网卡”配置，使虚拟机获得独立内网 IP，实现物理机对虚拟机 Web 服务的高效直接访问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;磁盘格式&lt;/strong&gt;：安装前必须在磁盘工具中将 VDI 硬盘格式化为 APFS/GUID 模式，否则无法被安装器识别。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;校验陷阱&lt;/strong&gt;：安装进度剩余 1 分钟时为文件校验期，切勿重启；二次重启后若回到实用工具，需手动在设置中移除 ISO 镜像。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;环境仿真脚本化&lt;/strong&gt;：将 &lt;code&gt;VBoxManage&lt;/code&gt; 命令封装为脚本，确保在创建不同虚拟机实例时 DMI 信息注入的准确性与一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络架构选型&lt;/strong&gt;：在需要物理机直接访问虚拟机内部量化主页的场景下，优先选择桥接模式而非 NAT。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 辅助诊断&lt;/strong&gt;：针对虚拟机黑屏或引导循环等复杂 Log，导出 &lt;code&gt;.vbox&lt;/code&gt; 配置文件及日志交由 AI 识别配置冲突点，显著缩短环境搭建耗时。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76928</guid>
+      <pubDate>Sun, 15 Mar 2026 00:23:25 +0800</pubDate>
+    </item>
     <item>
       <title>全球视野 vs 本地精耕：破解股票回报预测的数据规模迷思</title>
       <link>https://www.bilibili.com/video/BV1YMNwzWEHt</link>
@@ -53,6 +92,98 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1YMNwzWEHt</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/d782f9fecb73b0e45a5517e7879095b986a0ae50.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 14 Mar 2026 10:52:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化极客的自我修养：从凯师傅策略监测到Claude Code性能飞跃</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;amp;talker=57784510736@chatroom"&gt;2026-03-14_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📈 凯师傅策略监测：业绩回测与实盘偏差之谜&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略版本迭代&lt;/strong&gt;：官方监测的“凯师傅”策略已从V1版本切换至V2，这解释了部分用户回测曲线与官方对不上的疑问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;偶然性偏差&lt;/strong&gt;：样本覆盖度不同（如选5还是选1）会导致收益曲线在短期内出现显著差异，择时与选股的权重配比依然是核心难点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚡ 性能进化论：从 Python 到 Golang 的降维打击&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;降噪与增效&lt;/strong&gt;：通过 Golang 重构数据中心，实现了 4 倍性能提升并大幅降低内存占用。最直观的感受是“数据更新时风扇不再狂转”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构陷阱&lt;/strong&gt;：Python 的多进程通讯在处理海量量化数据时性能损耗巨大。建议在 Linux 或 Mac 环境下，通过 AI 优化掉针对 Windows 的兼容代码，可显著提升回测帧率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件性价比&lt;/strong&gt;：虽然 Mac M5 Pro 等新品引人注目，但在暴力硬算层面，AMD 9950X 等多核桌面 CPU 在当前框架下仍具更高性价比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 AI 工具链：Claude Code 是真的“生产力核弹”吗？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型阶梯&lt;/strong&gt;：资深用户一致认为 Claude Opus（尤其是新版本）的能力远超国内模型，一旦体验过 1M 上下文的自动代码重构，就再也“回不去了”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IDE 新范式&lt;/strong&gt;：Claude Code 被定位为类似于 IDE 的存在，配合 GitHub Copilot 套餐使用，能够自动化处理大量繁琐的代码重构与反编译后的逻辑重组。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;支付与准入&lt;/strong&gt;：国内用户使用 Claude 仍面临支付风控（封国内卡 Bin）和网络环境（建议美西全局代理）的双重挑战，目前多采用虚拟卡、海外银行卡或 Apple 礼品卡曲线救国。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🕯️ 软知识与人生观：身体才是最大的“回撤”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;健康预警&lt;/strong&gt;：身体出问题往往是突发且沉痛的。有用户感叹：“意识到身体不健康的时候，就像刚上实盘就打进了最大回撤。”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;职业选择&lt;/strong&gt;：面对行业内卷，部分高学历人才选择“出口转内销”回乡养老，利用 AI 辅助处理论文和软知识提升，追求更平衡的人生路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💬 金句提炼&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“Python 主要是多进程通讯太吃性能了，换成 Golang 风扇都不怎么转。” —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“在第一次意识到自身身体没那么健康的时候，就像是刚上实盘就打进了最大回撤。” —— &lt;strong&gt;黑黑夜夜&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“择时太难了，大差不差就好了，交给彩虹。” —— &lt;strong&gt;MJ&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76869&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76855&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/71754&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化实盘监测下的策略迭代：从黄果树超涨到沧浪亭“魔法”</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;amp;talker=58453205219@chatroom"&gt;2026-03-14_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🏗️ 策略监测：让实盘感受具象化&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据逻辑&lt;/strong&gt;：最新的监测数据显示，阶段1中“大学生”策略超涨，阶段2中“黄果树”策略超涨，这与近期实盘波动感高度吻合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监测体系扩容&lt;/strong&gt;：中性策略监测文件中新增了“25分享会空头组合（黄落马）”以及多头组成的“浪淘沙”系列策略。通过对比可以清晰观察到其与纯“黄果树”作为空头的收益差异。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🌊 26旗舰“沧浪亭”系列蓄势待发&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定位差异&lt;/strong&gt;：明确“沧浪亭”并非普通策略，群友戏称其更像是一种“魔法”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发布计划&lt;/strong&gt;：该系列策略的监测将独立放于新文件，预计近期（最快当日）发布。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;直播预告&lt;/strong&gt;：原定的“四龙狗”直播因内容量过大，为保证质量将延期举行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📉 对待回撤的“逆向思维”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回撤的价值&lt;/strong&gt;：邢不行指出，NBL（全市场策略）最好能多回撤一些。这种看似反常识的观点背后是“洗盘”逻辑：大幅回撤能让不坚定的投资者离场，从而降低策略跟进的拥挤度，让“车子”更轻，有利于后续行情。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置优化&lt;/strong&gt;：针对“纯多”策略持续突破最大回撤的困境，建议套用“浪莎”进行对冲，可以显著改善曲线表现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛠️ 实盘操作与Bug修复指南&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;换仓周期确认&lt;/strong&gt;：讨论确认“死狗”策略的换仓周期已从早期的1H调整为24H，以降低交易频率和磨损。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金曲线修复&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;现象&lt;/strong&gt;：在统一账户划转资金（如从全仓账户转至主账户）时，资金曲线可能会出现跳变或混乱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：利用&lt;code&gt;transfer.csv&lt;/code&gt;文件进行手动修正。只需在App中查询具体的划转记录和时间，直接照抄写入文件，系统通常在一两小时内自动修复曲线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码报错提示&lt;/strong&gt;：若遇到&lt;code&gt;direction_list&lt;/code&gt;长度不一致的错误，需检查字典（dict）数量与设定的数字比例是否一一对应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 金句精选&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“nbl最好多回撤点，还可以让很多人停策略，车子轻一点。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“沧浪亭不算策略吧？算魔法。” —— AK&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>量化因子的“生存游戏”：识别虚假显著性与因果幻象的深度指南</title>
@@ -4889,161 +5020,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1pBfxBbEoe</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/eaa62cf1972e878f90ed5f2ca51c585c061be732.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 25 Feb 2026 16:48:57 +0800</pubDate>
-    </item>
-    <item>
-      <title>预测的“魔数”：为什么5-10位专家的投票最值得量化参考</title>
-      <link>https://www.bilibili.com/video/BV1LEZYBaEzz</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1LEZYBaEzz"&gt;【量化论文速读】经济学家看多了也没用，几个最合适？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在宏观预测中，专家人数并不是“多多益善”？&lt;/li&gt;
-&lt;li&gt;💡 预测准确度与预测者数量之间，是否存在一个可量化的“黄金拐点”？&lt;/li&gt;
-&lt;li&gt;🚀 如何利用分析师预测的分布特征（偏度与峰度）来优化期权交易策略？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 预测精度的边际递减效应&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;5-10人是准确度的平衡点&lt;/strong&gt;: 研究通过MSE（均方误差）分析发现，当预测人数从1增加到5时，误差显著下降；而当人数超过10后，误差下降的趋势趋于平缓。这意味着增加更多专家带来的精度提升极小，边际收益迅速递减。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼类比：调音师效应&lt;/strong&gt;: 就像为一台钢琴调音，前几个专业的调音师能解决大部分音准问题，但当有30个调音师围着同一台琴转时，不仅协作成本极高，最终音准的边际提升也微乎其微。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化交易中的“分析师覆盖”法则&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;筛选交易池 (Universe Filtering)&lt;/strong&gt;: 在构建量化交易的股票池时，应强制剔除分析师覆盖人数少于10人的公司，以确保预测数据具备统计学上的“群体共识”基础。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度挖掘分布特征&lt;/strong&gt;: 对于覆盖人数众多的标的（如20-30人），应进一步提取预测分布的偏度（Skewness）和峰度（Kurtosis），用于预测标的资产的期权波动方向。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝对避免在分析师少于5人的“冷门标的”中仅凭预测均值做决策，此时的预测误差极大，难以支撑高胜率的量化因子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “当人数超过10的时候，预测误差下降的趋势就非常平缓，再增加更多的经济学家参与也不会有太多的收益。”&lt;/li&gt;
-&lt;li&gt;💬 “确定交易Universe的方法之一，就是一定要让参与预测的分析师人数大于10。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1LEZYBaEzz</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/8088a8cf64cfa5e3feb63fdc37f39c59d7f47f3d.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 25 Feb 2026 15:21:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>QMT智能止盈止损策略系统：从核心算法逻辑到自动化实操的全维指南</title>
-      <link>https://www.bilibili.com/video/BV1bAfsBeEZX</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1bAfsBeEZX"&gt;告别套牢！QMT智能止盈止损策略全新升级，支持GUI可视化配置！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ QMT 智能止盈止损策略系统 - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 QMT 条件单框架，通过毫秒级行情监控与预设逻辑阈值，实现自动化交易委托与风险对冲。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：实时行情数据、用户持仓成本、策略参数（回撤比例、触发阈值）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：通过 EZXT 交易 API 连接券商服务，发送市价或限价委托指令。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;浮盈回落&lt;/strong&gt;：在盈利触及目标后，监控从最高点回撤的比例以锁定利润。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GUI 可视化&lt;/strong&gt;：图形用户界面，通过交互式表单而非纯代码配置策略参数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略组合&lt;/strong&gt;：由四种独立逻辑构成的多层风险防护体系。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：零代码 GUI 快速配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过图形界面为特定持仓快速部署自动化风控方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：运行 &lt;code&gt;gui_app_main_window.py&lt;/code&gt; 脚本，启动 QMT 客户端。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：在界面导航至 &lt;code&gt;条件单&lt;/code&gt; 标签页 -&amp;gt; 选择 &lt;code&gt;高级止盈止损策略&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[方案预设]&lt;/strong&gt;：点击 &lt;code&gt;快捷预设&lt;/code&gt; 按钮，根据风险偏好选择 &lt;code&gt;中长线稳健&lt;/code&gt; 或 &lt;code&gt;短线激进&lt;/code&gt; 等方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：在触发动作区域输入 &lt;code&gt;股票代码&lt;/code&gt; 与 &lt;code&gt;成本价&lt;/code&gt;，手动微调各策略的回撤阈值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[逻辑激活]&lt;/strong&gt;：勾选需启用的策略编号（建议至少开启策略一与策略四），点击 &lt;code&gt;创建条件单&lt;/code&gt; 启动监控。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：Python 代码自动化集成&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：面向专业交易者，实现策略的批量化部署与系统级集成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：导入 &lt;code&gt;StopLossConditionOrderManager&lt;/code&gt; 管理类并创建实例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[指令封装]&lt;/strong&gt;：调用 &lt;code&gt;create_advanced_stop_loss_order&lt;/code&gt; 方法，传入包含代码、成本、数量及策略配置的参数字典。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[状态启动]&lt;/strong&gt;：执行 &lt;code&gt;start_monitoring(interval=5)&lt;/code&gt;，系统将按 5 秒间隔自动化轮询行情并匹配触发逻辑。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;浮盈回落止损 (策略一)&lt;/strong&gt;：设定 &lt;code&gt;最小浮盈阈值&lt;/code&gt; 与 &lt;code&gt;最大回落比例&lt;/code&gt; -&amp;gt; 保护已实现的账面利润，防止冲高回落导致盈利回吐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最高价回落止损 (策略二)&lt;/strong&gt;：监控 &lt;code&gt;上涨后的最高价&lt;/code&gt; -&amp;gt; 股价自高点跌落特定比例即止损，侧重捕捉趋势行情收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高开回落止损 (策略三)&lt;/strong&gt;：检测 &lt;code&gt;开盘涨幅&lt;/code&gt; 与 &lt;code&gt;盘中冲高回落幅度&lt;/code&gt; -&amp;gt; 针对性规避高开低走的陷阱，捕捉日内热点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;总体亏损止损 (策略四)&lt;/strong&gt;：设置 &lt;code&gt;硬性止损线&lt;/code&gt;（如 -5%） -&amp;gt; 触碰底线即无条件清仓，作为保护本金的最后防御。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;真实交易风险&lt;/strong&gt;：系统直接对接券商真实下单，严禁未经模拟盘充分测试直接投入实战。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;网络稳定性&lt;/strong&gt;：监控依赖 QMT 客户端在线状态，网络中断或软件崩溃将导致策略失效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略四强制性&lt;/strong&gt;：总体亏损止损是交易纪律的底线，切勿在股价下跌过程中因心理偏误而关闭此功能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;分场景预设&lt;/strong&gt;：针对不同市值和波幅的个股，分别应用保守或激进的参数模板，而非“一刀切”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可视化复核&lt;/strong&gt;：定期查看全新 GUI 界面中的触发动作区，确保成本价与当前持仓逻辑保持同步。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1bAfsBeEZX</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/5346678fbde3796a318584997e600913826ac5a6.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 25 Feb 2026 11:45:03 +0800</pubDate>
-    </item>
-    <item>
-      <title>缠论比特币懒人投资闭环：高空止盈与底部建仓双策略</title>
-      <link>https://bbs.quantclass.cn/thread/76448</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76448"&gt;【猫妈】缠论看比特币（下）底部操作思路 —— 懒人建仓，拿住大牛市&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[缠论策略, 比特币交易, 底部建仓, 网格定投, 懒人投资]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[基于缠论的比特币牛熊市懒人投资闭环策略。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：缠论的周线/日线一买区域在熊市底部（如2022年比特币）止盈，与最终最低点偏差仅约4.5%，显示了极高精度。底部震荡周期长且具规律性（如20周中枢震荡，8周底部区域震荡）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：缠论结构识别（尤其是“一买”概念）能有效定位市场关键反转点或底部区间，避免主观臆测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：缠论结合定投能实现比传统均线定投更精准的入场时机（避免过早），更高的资金效率（聚焦底部震荡期），且不依赖历史回测参数，直接通过结构信号指导操作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：以缠论的“周线一买”和“日线一买”作为高空止盈和底部建仓的唯一信号触发点，结合长期持仓与短期网格交易，构建“建完仓，一两年不用看”的懒人投资闭环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高空止盈&lt;/strong&gt;: 出现“日线一买”或“周线底分型”时止盈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;底部建仓&lt;/strong&gt;: 在“日线一买”和“周线一买”区域启动分批定投，周期约3个月。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资金利用效率提升&lt;/strong&gt;: 引入“半网格”策略，将定投期间的闲置资金用于底部震荡区间（如第二个周线中枢、C段底部企稳区）的高频高抛低吸。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;网格分段&lt;/strong&gt;: 第二个周线中枢震荡期运行第一组网格；跌破中枢C段企稳后，启动第二组新网格。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需比特币周线、日线K线数据，用于识别缠论结构特征（如背驰、底分型、一买）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;历史案例&lt;/strong&gt;: 2022年比特币熊市，周线一买约15500-16000美元，日线一买约15478-15800美元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;止盈收益&lt;/strong&gt;: 从67000美元开空，在15000美元止盈，收益率约77.61%；止盈价格与终极最低点12000美元的偏差仅4.5%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：缠论结构判断需经验和理解，市场异常波动或结构模糊时可能影响判断精度；网格策略的盈利能力受限于震荡区间的持续性和波动幅度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;开发或集成缠论结构（周线/日线一买、底分型）识别模块，实现自动化交易信号生成，用于空单止盈及底仓建仓触发。&lt;/li&gt;
-&lt;li&gt;构建复合型交易系统，将基于缠论信号的长期定投策略（主策略）与震荡区间的网格交易策略（辅助策略）无缝集成，优化资金利用率。&lt;/li&gt;
-&lt;li&gt;回测不同加密资产在历史牛熊周期中缠论“一买”信号的有效性及不同网格参数（如网格密度、利润空间）在震荡行情中的表现。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76448</guid>
-      <pubDate>Wed, 25 Feb 2026 11:40:08 +0800</pubDate>
     </item>
   </channel>
 </rss>
