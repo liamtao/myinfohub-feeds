@@ -7,7 +7,155 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Mar 2026 08:36:54 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2026 22:54:24 +0000</lastBuildDate>
+    <item>
+      <title>Notebook LM深度指南：新版功能、高效工作流与实战技巧全解析</title>
+      <link>https://www.youtube.com/watch?v=_uXnyhrqmsU</link>
+      <description>&lt;p&gt;&lt;a href="UCwAnu01qlnVg1Ai2AbtTMaA"&gt;Jeff Su&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=_uXnyhrqmsU"&gt;NotebookLM Changed Completely: Here's What Matters (in 2026)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Notebook LM - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：Notebook LM 是一款由 AI 驱动的“文件问答与内容生成”工具，旨在帮助用户快速从多格式源文件中提取信息、生成报告及演示文稿，并确保答案的“接地性”与无幻觉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：PDF、Google Docs/Slides/Sheets（可实时同步）、音频录音、电子表格、网页内容（通过Web+Fast/Deep Research获取）、复制文本。支持多种语言。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：基于来源内容生成的报告、幻灯片、信息图、思维导图、数据表、视频概述、测验、闪卡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Grounded Answer&lt;/strong&gt;：指 AI 回答严格基于提供的源文件，避免“幻觉”现象，确保信息准确性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Living Documents&lt;/strong&gt;：特指Google Docs/Slides/Sheets，当其作为来源时，Notebook LM可定期同步最新修改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Deep Research&lt;/strong&gt;：一种信息发现功能，不仅查找来源，还能将这些来源综合成一份研究报告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：高效管理与发现信息源&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：整合并筛选多格式、多媒介的文档与数据，为AI分析奠定基础。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：需准备待处理的本地文件或明确的线上信息查找需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;添加本地来源&lt;/strong&gt;：点击左侧 &lt;strong&gt;来源面板 (Sources panel)&lt;/strong&gt; -&amp;gt; 选择上传 &lt;strong&gt;PDF&lt;/strong&gt;、&lt;strong&gt;幻灯片&lt;/strong&gt;、&lt;strong&gt;音频录音&lt;/strong&gt;、&lt;strong&gt;电子表格&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发现线上来源 (Web/Drive Research)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Web+Fast Research&lt;/strong&gt;：在 &lt;strong&gt;发现来源 (Discover Sources)&lt;/strong&gt; 字段输入搜索查询（如：&lt;code&gt;top five AI models by usage in the Japan market&lt;/code&gt;）-&amp;gt; 系统返回 &lt;strong&gt;来源列表&lt;/strong&gt; -&amp;gt; 手动审阅并 &lt;strong&gt;选择最多 3 个&lt;/strong&gt; 来源进行添加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Drive+Fast Research&lt;/strong&gt;：在 &lt;strong&gt;发现来源&lt;/strong&gt; 字段输入 Google Drive 搜索查询（如：&lt;code&gt;find that report with the AI model statistics on the Japan market&lt;/code&gt;）-&amp;gt; 直接从 Drive 中定位并添加文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web+Deep Research (不推荐)&lt;/strong&gt;：输入搜索查询 -&amp;gt; 系统自动查找来源并 &lt;strong&gt;合成研究报告&lt;/strong&gt; 作为来源（因质量控制和外部工具表现更优，不推荐直接使用）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;处理非直接支持的网站&lt;/strong&gt;：访问目标网站 -&amp;gt; 右键选择 &lt;strong&gt;阅读模式 (Reading Mode)&lt;/strong&gt; -&amp;gt; 复制所有文本 -&amp;gt; 粘贴到 Notebook LM 的 &lt;strong&gt;复制文本 (Copied Text)&lt;/strong&gt; 选项中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;同步 Google 文档/表格/幻灯片&lt;/strong&gt;：针对已添加的此类“活文档”，点击 &lt;strong&gt;同步 (Sync)&lt;/strong&gt; 按钮以获取最新版本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：基于来源的智能交互与洞察提取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在设定好的语境下，与来源内容进行问答、摘要或细节提取，并捕获重要见解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已有至少一个信息源被加载到 Notebook 中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;配置聊天指令&lt;/strong&gt;：进入中间的 &lt;strong&gt;聊天面板 (Chat panel)&lt;/strong&gt; -&amp;gt; 点击 &lt;strong&gt;配置聊天窗口 (Configure chat window)&lt;/strong&gt; -&amp;gt; 添加 &lt;strong&gt;自定义指令 (Custom instruction)&lt;/strong&gt;，明确对话目标（如：&lt;code&gt;develop a business proposal for increasing Gemini's monthly active users&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发起对话&lt;/strong&gt;：在聊天框内输入问题、摘要请求或细节提取指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;管理聊天历史&lt;/strong&gt;：在开始新一轮对话前，点击 &lt;strong&gt;删除聊天历史 (Delete chat history)&lt;/strong&gt; 以防止历史对话对新交互产生影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保存洞察&lt;/strong&gt;：将有用的数据点或重要见解 &lt;strong&gt;保存为笔记 (Save as a note)&lt;/strong&gt; 或进一步 &lt;strong&gt;转化为来源 (Turn into a source)&lt;/strong&gt; 以供后续生成工具使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用来源指南&lt;/strong&gt;：点击任意 &lt;strong&gt;来源 (Source)&lt;/strong&gt; -&amp;gt; 查看顶部的 &lt;strong&gt;来源指南 (Source guide)&lt;/strong&gt;，快速理解核心内容并触发深入问题。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：生成多样化内容交付物&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：利用 Studio 面板的各种工具，将提炼出的洞察转化为报告、演示文稿、图表等实际可用的产出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已加载所需来源，并在聊天面板中进行过初步探索，明确了产出方向。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;生成报告 (Reports)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;进入右侧 &lt;strong&gt;Studio 面板&lt;/strong&gt; -&amp;gt; 选择 &lt;strong&gt;报告 (Reports)&lt;/strong&gt; 工具。&lt;/li&gt;
+&lt;li&gt;优先选择 &lt;strong&gt;建议格式 (Suggested formats)&lt;/strong&gt;（基于来源动态生成）或点击 &lt;strong&gt;创建自定义 (Create your own)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;为自定义报告提供 &lt;strong&gt;目的&lt;/strong&gt; 和 &lt;strong&gt;受众&lt;/strong&gt;，生成定制指令。&lt;/li&gt;
+&lt;li&gt;点击 &lt;strong&gt;生成 (Generate)&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成幻灯片 (Slide Decks)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;幻灯片 (Slide decks)&lt;/strong&gt; 工具 -&amp;gt; 选择 &lt;strong&gt;演示者幻灯片 (Presenter slides)&lt;/strong&gt; 或 &lt;strong&gt;详细演示文稿 (Detailed deck)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;通过 &lt;strong&gt;自定义指令&lt;/strong&gt; 引导内容和格式（如：&lt;code&gt;Create a deck designed to pitch my course to enterprise clients. Use actionoriented head headlines and three talking points maximum for each slide.&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编辑与修订&lt;/strong&gt;：点击 &lt;strong&gt;修订 (Revise)&lt;/strong&gt; 按钮，在单个幻灯片上添加编辑指令（如：&lt;code&gt;remove all the text and simplify the visual&lt;/code&gt;；&lt;code&gt;use Google brand colors&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下载&lt;/strong&gt;：完成编辑后，点击三点菜单 -&amp;gt; 下载为 &lt;strong&gt;PDF&lt;/strong&gt; 或 &lt;strong&gt;PowerPoint&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pro Tip&lt;/strong&gt;: 生成社交媒体垂直轮播图：在自定义提示中添加 &lt;code&gt;vertical slide deck in 9-6 portrait format that's optimized for mobile screens&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成信息图 (Infographic)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;信息图 (Infographic)&lt;/strong&gt; 工具 -&amp;gt; 选择 &lt;strong&gt;方向 (Orientation)&lt;/strong&gt; (如 &lt;code&gt;1x1 square dimension&lt;/code&gt;) 和 &lt;strong&gt;视觉风格 (Visual style)&lt;/strong&gt; (如 &lt;code&gt;instructional visual style&lt;/code&gt;) -&amp;gt; 选择 &lt;strong&gt;细节级别 (Level of detail)&lt;/strong&gt; (推荐 &lt;code&gt;concise&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;输入提示词（如：&lt;code&gt;top five takeaways for Gemini Enterprise. use Google brand colors&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;点击 &lt;strong&gt;生成&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pro Tip&lt;/strong&gt;: 上传品牌指南作为来源，并在提示词中引用（&lt;code&gt;follow the attach brand guideline for colors, font, and design style&lt;/code&gt;），使所有产出符合品牌标准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成思维导图 (Mindmap)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;思维导图 (Mindmap)&lt;/strong&gt; 工具 -&amp;gt; 自动生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互探索&lt;/strong&gt;：点击任何 &lt;strong&gt;节点 (nodes)&lt;/strong&gt; 或 &lt;strong&gt;箭头 (arrows)&lt;/strong&gt; 展开子主题 -&amp;gt; 点击节点可开启基于该主题的聊天。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成数据表 (Data tables)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;数据表 (Data tables)&lt;/strong&gt; 工具 -&amp;gt; 提供所需列的描述（如：&lt;code&gt;competitor comparison table with these columns, pricing, key features&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;点击三点菜单可 &lt;strong&gt;导出到 Google 表格 (Export to Google Sheets)&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成视频概述 (Video overview)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;视频概述 (Video overview)&lt;/strong&gt; 工具 -&amp;gt; 选择 &lt;strong&gt;详细解释器 (Detailed explainer format)&lt;/strong&gt; -&amp;gt; 选择 &lt;strong&gt;白板 (Whiteboard visual style)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;输入提示词（如：&lt;code&gt;breakdown of the top five arguments from the interview&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;等待生成（耗时较长）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cinematic Mode (限 Ultra 订阅)&lt;/strong&gt;：生成包含动画序列的短解释视频。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成测验 (Quiz)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;测验 (Quiz)&lt;/strong&gt; 工具 -&amp;gt; 自动生成基于来源的多项选择题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成闪卡 (Flashcards)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;闪卡 (Flashcards)&lt;/strong&gt; 工具 -&amp;gt; 设置 &lt;strong&gt;难度级别 (Level difficulty)&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成音频概述 (Audio overviews) (有限场景)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选择 &lt;strong&gt;音频概述 (Audio overviews)&lt;/strong&gt; 工具。主要用于通勤或清理时收听长篇通讯稿。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;来源面板 (Sources Panel)&lt;/strong&gt;：管理所有输入文件，支持多种格式上传，并提供 &lt;strong&gt;发现来源 (Discover Sources)&lt;/strong&gt; 功能整合 Web 和 Drive 搜索。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;聊天面板 (Chat Panel)&lt;/strong&gt;：核心交互区域，可配置 &lt;strong&gt;自定义指令 (Custom instructions)&lt;/strong&gt; 引导 AI 响应，并支持保存笔记和将笔记转化为来源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Studio 面板 (Studio Panel)&lt;/strong&gt;：包含各种内容生成工具，从结构化报告到可视化图表，是 Notebook LM 从问答工具转向生产工具的核心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Deep Research 误区&lt;/strong&gt;：不推荐直接使用 Web+Deep Research，因个人领域专业知识在筛选来源方面通常优于 AI，且 Gemini/ChatGPT/Claude 在深度研究方面表现更佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;幻灯片不可编辑&lt;/strong&gt;：幻灯片工具生成的 PowerPoint 文件中的幻灯片为图片格式，不可直接编辑，主要用于提案叙事结构参考。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信息图细节级别&lt;/strong&gt;：避免使用 &lt;code&gt;detailed&lt;/code&gt; 级别的细节，因其文本量大且易出现排版问题，推荐 &lt;code&gt;concise&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;音频概述局限&lt;/strong&gt;：对于需要深度批判性分析或创意性推荐的场景，音频概述效果不佳，应优先使用 Gemini 等更具推理能力的工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notebook LM 的创造力限制&lt;/strong&gt;：其最大优势是高准确性，但创造力低。对于头脑风暴、创意文案或代码编写等任务，应选用 Gemini、ChatGPT、Claude 或 Groq。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;限制来源数量&lt;/strong&gt;：在 Web+Fast Research 中，最多选择 &lt;strong&gt;3 个来源&lt;/strong&gt;，以强制人工审查，作为内置的质量过滤器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨语言处理&lt;/strong&gt;：即使来源文件是用户不熟悉的语言（如日语），Notebook LM 也能提取相关信息并以英语回答问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利用 Gemini 生成自定义指令&lt;/strong&gt;：针对聊天或报告工具的自定义指令，可先在 Gemini 中使用模板生成，再粘贴到 Notebook LM。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重要见解转化为来源&lt;/strong&gt;：将聊天中发现的重要洞察保存为笔记，并进一步转化为来源，以确保其被纳入未来的 Studio 输出考虑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;善用来源指南&lt;/strong&gt;：在处理密集来源时，利用来源指南快速了解核心内容，从而激发更精准的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;品牌指南整合&lt;/strong&gt;：将品牌指南作为来源上传，并在自定义指令中引用，确保报告、幻灯片和信息图的颜色、字体和设计风格与品牌保持一致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社交媒体垂直轮播图&lt;/strong&gt;：利用幻灯片工具生成 &lt;code&gt;9:6 肖像格式&lt;/code&gt; 的垂直幻灯片，下载为 PDF 后可直接用于 LinkedIn 或 Instagram。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;测验工具用于互动活动&lt;/strong&gt;：将演示文稿上传后生成测验，结合 SlideU 或 Menty 增加活动互动性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据表导出&lt;/strong&gt;：将生成的数据表直接导出到 Google Sheets 进行进一步分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;健康报告分析&lt;/strong&gt;：上传年度健康报告，让 Notebook LM 标记显著变化和趋势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;会议纪要知识库&lt;/strong&gt;：将 Gemini 自动生成的会议纪要转录稿存入 Notebook，方便会议前查询。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;税务与会计&lt;/strong&gt;：上传财务报表和税法，查询符合条件的扣除项。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=_uXnyhrqmsU</guid>
+      <enclosure url="https://i.ytimg.com/vi/_uXnyhrqmsU/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 17 Mar 2026 13:01:14 +0800</pubDate>
+    </item>
     <item>
       <title>飞书官方插件与Open Cloud深度联动：开启AI Agent全能办公新范式</title>
       <link>https://www.bilibili.com/video/BV1a1wsz1EEH</link>
