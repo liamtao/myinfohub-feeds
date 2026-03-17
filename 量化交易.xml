@@ -7,7 +7,78 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Mar 2026 01:32:57 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2026 08:36:53 +0000</lastBuildDate>
+    <item>
+      <title>Tushare Skills 实操指南：AI 赋能金融数据调用，效率提升十倍的量化开发方案</title>
+      <link>https://www.bilibili.com/video/BV1czw9zVE2x</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1czw9zVE2x"&gt;AI量化效率革命：Tushare Skills实战测评与开发指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ Tushare Skills - 标准实操手册 (SOP)&lt;/h3&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 Tushare 官方知识库的大语言模型增强包，通过将 235 个 API 接口协议与参数说明注入 AI 编程工具，实现自然语言驱动的金融数据调用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户自然语言需求（如“获取茅台财务数据”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：符合 Tushare 接口协议、参数格式准确的 Python 代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tushare Skills&lt;/strong&gt;：官方出品的 AI 增强插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token&lt;/strong&gt;：访问 Tushare 数据的唯一身份密钥。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NPX Skills Command&lt;/strong&gt;：用于在 AI 环境中安装官方知识库的命令行工具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：环境初始化与配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：使 AI 编程工具具备 Tushare 专家知识背景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 AI 编程工具（Cursor、Cloud Code 或 Open Cloud）并注册 Tushare Pro 账号获取 Token。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[权限激活]&lt;/strong&gt;：登录官网获取个人 &lt;strong&gt;Token&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[知识库挂载]&lt;/strong&gt;：在 AI 工具终端运行指令：&lt;code&gt;npx skills add https://load/skills.gateskill.tushare.pro/global&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[配置确认]&lt;/strong&gt;：等待安装完成，此时 AI 工具已加载完整的 API 知识库。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：精准数据调用与代码生成&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：跳过查阅文档，直接生成可运行的数据获取代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[语义描述]&lt;/strong&gt;：直接向 AI 描述需求，例如“获取所有上市股票基本信息”或“获取茅台近 30 天日线”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自动对齐]&lt;/strong&gt;：AI 自动匹配 &lt;code&gt;stock_basic&lt;/code&gt; 或 &lt;code&gt;daily&lt;/code&gt; 接口，并填充正确的 &lt;code&gt;ts_code&lt;/code&gt; 及日期格式 &lt;code&gt;YYYYMMDD&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[代码运行]&lt;/strong&gt;：复制生成的代码块即可直接获取金融数据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;接口覆盖量&lt;/strong&gt;：包含 &lt;strong&gt;235+&lt;/strong&gt; 个 API 接口，涵盖股票、基金、期货、财务、宏观经济等 15 大类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心接口集群&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基础行情&lt;/strong&gt;：&lt;code&gt;daily&lt;/code&gt;（日线）、&lt;code&gt;daily_basic&lt;/code&gt;（每日指标）、&lt;code&gt;stock_basic&lt;/code&gt;（股票列表）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;深度财务&lt;/strong&gt;：资产负债表、利润表、现金流量表等 38 个专项接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;特色数据&lt;/strong&gt;：北向资金、大单流向、融资融券、股东人数等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;必须拥有 &lt;strong&gt;Pro 账号&lt;/strong&gt; 及其对应的 Token，否则代码生成后无法实际通过接口验证。&lt;/li&gt;
+&lt;li&gt;确保在支持 &lt;strong&gt;Global Skills&lt;/strong&gt; 扩展的 AI 环境中运行，否则 AI 可能仍会基于旧训练数据产生幻觉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;复合指令&lt;/strong&gt;：尝试输入“获取茅台数据并计算 5 日均线”，AI 可一键完成从数据抓取到逻辑处理的全流程代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略快速回测&lt;/strong&gt;：利用 Skills 直接描述“双均线策略”，AI 可基于最新接口调用快速搭建回测框架。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1czw9zVE2x</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/0da8d274881f219272222cb4b8db413cd5ce2705.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 17 Mar 2026 16:19:16 +0800</pubDate>
+    </item>
     <item>
       <title>量化进阶：用Optimizer与风险模型拆解Alpha的盈利真相</title>
       <link>https://www.bilibili.com/video/BV15ywSzWErP</link>
@@ -3195,6 +3266,52 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <pubDate>Tue, 03 Mar 2026 23:30:30 +0800</pubDate>
     </item>
     <item>
+      <title>小市值+盈利惊喜+低关注度：基于SUE因子的量化策略深度复盘与迭代</title>
+      <link>https://bbs.quantclass.cn/thread/76717</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76717"&gt;【龙虾助我】小市值策略放送：25年+92.15%，今年有+15.02%&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[SUE因子, PEAD效应, 小市值溢价, 成交量安静度, AI策略迭代]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[利用SUE因子捕捉小市值盈利惊喜，结合低关注度指标实现高年化Alpha。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于盈余公告后漂移（PEAD）效应。核心假设为：当小市值公司出现显著高于历史均值的盈利惊喜（高SUE），且市场关注度极低（低成交量波动）时，存在未被充分定价的超额收益空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI.SUE&lt;/strong&gt;：标准化预期外盈利。$SUE = \text{单季归母净利润同比增长率} / \text{RollingStd}(\text{该增长率}, 250日)$。通过标准化处理消除不同标的间的波动差异。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成交额Std&lt;/strong&gt;：20日成交额标准差，作为“低关注度”的代理变量，升序排列（越低越好）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;官方.市值&lt;/strong&gt;：升序排列，锚定小市值溢价领域。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：使用单季度归母净利润同比数据；SUE计算需最少60个交易日样本；过滤条件包括排除ST/退市、近5日成交额后5%、归母净利润必须为正、单季ROE处于全市场前50%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：2014-2026年长周期回测，年化收益48.72%，最大回撤-51.68%，收益回撤比0.94。在2022、2024等极端行情下仍保持正收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：小市值策略固有风险（如2017年蓝筹行情逆风）；实盘流动性冲击；财报发布窗口期的信息滞后性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：验证了“正向动量”在A股小市值领域的失效性（年化仅4%左右），需通过AI工具（Claude Code）辅助进行多轮策略演化测试，寻找逻辑更简练的因子组合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;提供Python实现的SUE因子逻辑：利用&lt;code&gt;pandas&lt;/code&gt;的&lt;code&gt;rolling().std()&lt;/code&gt;实现滑动窗口标准化。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;np.where(std &amp;gt; 0, yoy / std, np.nan)&lt;/code&gt; 处理分母为零的极端情况，确保因子值的稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【策略迭代路径】&lt;/strong&gt;：从“反转+成长”优化至“成交额Std+SUE”的精简3因子模型，发现成交额稳定性（Quietness）比收益率反转更能显著提升小市值策略的夏普比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子替换建议&lt;/strong&gt;：在小市值选股框架中，用标准化后的SUE因子替代单纯的净利润增速因子，以提高信号的可比性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关注度过滤&lt;/strong&gt;：增加成交额波动率（Std）作为负向筛选指标，识别尚未被短线资金博弈、处于“静默期”的优质成长股。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反思动量&lt;/strong&gt;：在A股微盘/小盘域，应坚决回避20-60日的中长期正向动量因子，优先考虑反转或量价稳定性因子。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76717</guid>
+      <pubDate>Tue, 03 Mar 2026 19:19:26 +0800</pubDate>
+    </item>
+    <item>
       <title>量化交易生存之道：驾驭非平稳市场与资本管理的哲学</title>
       <link>https://www.bilibili.com/video/BV1ZyAZzEE7G</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ZyAZzEE7G"&gt;交易不是模型，是生存系统：状态变量模型与资本增长理论&lt;/a&gt;&lt;/p&gt;
@@ -4812,120 +4929,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1TKASzVEUj</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/f6d62320bfca07b474f12a7549e5b3f2c173f803.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 27 Feb 2026 16:19:44 +0800</pubDate>
-    </item>
-    <item>
-      <title>震荡行情下的量化生存指南：策略表现分化与QMT技术排坑</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;amp;talker=57784510736@chatroom"&gt;2026-02-27_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;📉 策略大考：谁在逆势创新高？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤中的分化&lt;/strong&gt;：今日市场被戏称为“平凡普通的回撤日”，纯小市值策略表现疲软。然而，部分策略如“三星”、“中等生”及“现金流”策略表现优异，甚至在尾盘拉升下创出新高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略状态观察&lt;/strong&gt;：群友反馈定一、定三等策略出现离场或定住（空仓/持仓不动）的情况，显示在当前震荡行情下，不同风控因子的灵敏度差异巨大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 A9大佬的“小道消息”：A500的奇效增强&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑模型&lt;/strong&gt;：有传闻称，在zza500（中证A500）成分股中剔除沪深300成分股，随后按照“股息率”进行排序。据称这种做法在今年以来具有极强的超额收益表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;杀人诛心的洞察&lt;/strong&gt;：群友提到某些大户在情绪高点卖出并嘲讽韭菜的行为，侧面反映了量化交易中“逆向思维”与“纪律性”的重要性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ QMT实战避坑：重启是万能药吗？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据延迟Bug&lt;/strong&gt;：QMT有时会出现获取股票最新价并非真实价格的情况（如价格跳变导致废单）。券商给出的标准方案是：&lt;strong&gt;每天早上6点重启&lt;/strong&gt;。重启能解决99%的奇怪问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;API选择技巧&lt;/strong&gt;：为了避免涨停价计算错误导致废单，建议直接使用&lt;code&gt;get_security_detail&lt;/code&gt;获取券商提供的标准涨停价，而不是自己根据昨日收盘价计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本与服务的博弈&lt;/strong&gt;：面对低费率券商的软件问题，群友金句：“因为费率够低，所以软件的所有问题都是我们自己的问题。”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🐍 量化环境搭建：版本与库的选择&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Python版本指南&lt;/strong&gt;：目前回测框架推荐使用Python 3.11或3.12环境，明确警告&lt;strong&gt;不要使用3.13&lt;/strong&gt;，以免出现兼容性崩溃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;依赖安装&lt;/strong&gt;：推荐直接使用 &lt;code&gt;pip install xbx-py11&lt;/code&gt; 来快速同步邢不行量化环境的依赖库。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧪 截面因子研究：进阶必经之路&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;研究方向&lt;/strong&gt;：资深群友推荐关注截面类因子（Cross-sectional Factors），这是机构常用的研究方法。通过对因子进行截面标准化处理，可以更好地捕捉个股间的相对强度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 金句提炼&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“小市值：一群菜鸡，带不动一点。” —— 杰&lt;/li&gt;
-&lt;li&gt;“自己的钱自己还是多上上心，经常要看看有没有问题。” —— Joe&lt;/li&gt;
-&lt;li&gt;“（QMT）费率那么低，所有的问题就都是我们自己的问题了。” —— Joe&lt;/li&gt;
-&lt;li&gt;“不赚就是亏。” —— 小白资本&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/69773&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76377&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>比特币熊市探底预期，旗舰策略引热议，API设置难题巧解决</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;amp;talker=58453205219@chatroom"&gt;2026-02-27_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;📉 &lt;strong&gt;比特币熊市深度分析与探底预测&lt;/strong&gt;
-在最近的讨论中，社区成员对当前比特币市场表达了深切担忧，认为“大饼已经大熊了”，并预测“这波探底，有的好探了”，甚至有成员“期待看到3开头的大饼”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;历史回顾&lt;/strong&gt;：过去比特币熊市通常跌幅在60-70%左右，暗示当前跌势可能还未结束。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;触底预测&lt;/strong&gt;：有观点认为市场将在“4月见底”，也有人戏称可能要等到“明年四月”，这距离下一次“减半”事件时间点更近。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚀 &lt;strong&gt;神秘旗舰量化策略即将揭秘：邢不行的挑战与创新&lt;/strong&gt;
-邢不行预告本周将直播一个新的旗舰策略，并透露该策略“逻辑很硬，超过去年浪淘沙”，并且具有“简单、有效”的特点。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;独家洞察&lt;/strong&gt;：他强调这个方向可能“我们不讲，大家可能一辈子也不会研究”，并且将其描述为“讲好挺有挑战的，可能是挑战最大的一次”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架优势&lt;/strong&gt;：尽管策略创新，邢不行表示其强大的“仓位管理框架”能轻松应对，无需大改，满足各种“奇思妙想”。他强调关键在于能否灵活运用框架，以及“灵魂在于写轮动因子”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🛠️ &lt;strong&gt;交易平台API设置与“吱吱”计算指南&lt;/strong&gt;
-社群成员就交易平台API设置和“吱吱”费用的计算方法进行了深入交流，旨在解决实际操作中的疑问。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“吱吱”计算&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;查询方法&lt;/strong&gt;：可通过App中的VIP等级页面查看“合约交易量”来参考“吱吱”的计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费率疑问&lt;/strong&gt;：关于“0.075”的倍数问题，得到的明确回复是“一次”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费用占比&lt;/strong&gt;：有人猜测“吱吱”大约占交易手续费的30%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;API Key错误排查&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;子账户建议&lt;/strong&gt;：为了安全和管理便利，尤其是当运行多个策略时，推荐使用子账户的API Key进行操作，避免直接使用母账户。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;常见错误原因&lt;/strong&gt;：API Key报错通常有三个主要原因：&lt;ol&gt;
-&lt;li&gt;IP地址白名单未正确添加。&lt;/li&gt;
-&lt;li&gt;加密流程配置有误。&lt;/li&gt;
-&lt;li&gt;账户类型设置不当（例如实盘账户被设置为普通账户）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡 &lt;strong&gt;AI辅助编程工具TRAE成本优化小贴士&lt;/strong&gt;
-对于使用AI辅助编程工具TRAE的开发者，高昂的成本是一个普遍问题，社区分享了有效的节约方案。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高成本原因&lt;/strong&gt;：通常是由于选择了如Google模型等高级选项导致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本节约方案&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;选择IDE模式&lt;/strong&gt;：相对于Solo Coder模式，IDE模式费用更低，通常单次操作成本在20-30美分左右。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用免费模式&lt;/strong&gt;：IDE模式通常提供免费选项，对于日常使用已足够。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型自动选择&lt;/strong&gt;：将模型选择设置为“自动”，而非固定选择昂贵的模型，可以有效控制成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🗣️ &lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“仓位管理框架实在是太强大了，满足你的各种奇思妙想，就看你会不会用。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“灵魂在于写轮动因子。” —— 轩辕有熊&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-27&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
