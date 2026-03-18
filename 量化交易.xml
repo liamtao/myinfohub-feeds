@@ -7,7 +7,87 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 17 Mar 2026 22:54:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 08:41:48 +0000</lastBuildDate>
+    <item>
+      <title>基于新规的财务退市风险预警：从金工研报逻辑到Python因子实现</title>
+      <link>https://bbs.quantclass.cn/thread/76993</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76993"&gt;【财务退市风险】【美芝股份】退市预警启示--研报复现《财务篇：退市新规下，如何系统性识别上市公司风险》&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[退市风险过滤、财务因子构建、小市值策略优化、金工逻辑落地]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过多维财务硬约束预判退市风险，显著优化小市值策略的尾部风险与收益表现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于2024年退市新规，利用“净资产为负”等红线进行前瞻性过滤。Alpha来源于规避因基本面触及退市阈值导致的非系统性暴跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：构建三类财务预警维度：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;生存风险&lt;/strong&gt;：连续3年亏损、净资产大幅缩减且流动比率低于1.5。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;规模与增长风险&lt;/strong&gt;：预测年营收 &amp;lt; 1.2亿且营收增速 ≤ 10%，预测净利为负。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资产脆弱性&lt;/strong&gt;：净资产同比缩水超50%且资产总额/盈利覆盖不足。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在2024年后小市值域表现优异，ICIR和胜率提升显著；但在绩优类策略（分红、现金流）中几乎无影响，验证了因子的精准打击性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：财务公告具有滞后性，通过Q3财报数据逻辑外推，提前锁定潜在退市标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;财务外推逻辑&lt;/strong&gt;：利用 &lt;code&gt;(Q1-Q3数据) + (去年Q4) * (1 + 累计同比)&lt;/code&gt; 估算全年业绩，将静态报表转化为动态预测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时间窗对齐&lt;/strong&gt;：通过 &lt;code&gt;isin([11,12,1,2,3,4])&lt;/code&gt; 限制因子仅在Q3披露后至年报披露前的窗口期生效，严控look-ahead bias。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：因子依赖高质量底层财务数据；阈值（如1.2亿营收）具政策敏感性，需随监管政策动态调整。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[策略集成]&lt;/strong&gt;：将该因子作为“准入黑名单”模块，固定集成至所有小市值或低价股选股策略中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[逻辑外推]&lt;/strong&gt;：复用代码中的 &lt;code&gt;predicted_rev&lt;/code&gt; 估算逻辑，可用于构建其他前瞻性财务因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[动态风控]&lt;/strong&gt;：建议将绝对值阈值（如1.2亿）升级为基于行业分位数的相对值，以增强因子在不同宏观环境下的泛化能力。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76993</guid>
+      <pubDate>Wed, 18 Mar 2026 14:27:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>高性能 GPU 渲染终端 Ghostty：量化交易员与 AI 开发者的极效工具指南</title>
+      <link>https://bbs.quantclass.cn/thread/76987</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76987"&gt;跟着菊老板抄作业：从 iTerm2 换到 Ghostty&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Ghostty, GPU 渲染, 终端优化, 量化工作流, Claude Code]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于 GPU 渲染的高性能终端 Ghostty 及其在量化实盘与 AI 编程中的配置实践。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：回测输出大量日志时传统终端（如 iTerm2）的渲染卡顿、多任务并行时的窗口切换摩擦、以及实盘监控中对终端性能的稳定性要求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Ghostty（基于 Zig 语言开发，支持 GPU 渲染）、tmux（远端分屏管理）、Claude Code（集成 AI 编程流）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能调优&lt;/strong&gt;：禁用背景透明（&lt;code&gt;background-opacity = 1.0&lt;/code&gt;）和光标闪烁，降低 CPU/GPU 冗余开销，提升阅读专注度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互逻辑&lt;/strong&gt;：配置 Quick Terminal（全局热键 &lt;code&gt;Ctrl+&lt;/code&gt;）实现秒级呼出，满足临时脚本运行及 Git 操作需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成方案&lt;/strong&gt;：采用标签页管理 SSH 连接，远端复杂分屏交由 tmux 维护，实现本地渲染性能与远端会话持久化的解耦。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：相比传统终端，Ghostty 在处理海量日志滚动时利用 GPU 加速，消除了高频交易日志刷新带来的界面延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：macOS 环境下存在配置覆盖 Bug，需手动注释掉 &lt;code&gt;~/Library/Application Support/com.mitchellh.ghostty/config&lt;/code&gt; 中的默认主题设置以生效自定义配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工程实践&lt;/strong&gt;：在涉及大规模向量化回测或高频日志输出时，应切换至 GPU 加速终端，以规避 UI 线程阻塞导致的监控延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构优化&lt;/strong&gt;：建议量化实盘环境采用 “Ghostty (Local Tab) + SSH + tmux (Remote Pane)” 的分层架构，既保证了本地 UI 的丝滑，又确保了远端进程的稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效率策略&lt;/strong&gt;：启用 Quick Terminal 机制处理 Git 提交、编译检查等短周期任务，减少工作流上下文切换损耗。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76987</guid>
+      <pubDate>Wed, 18 Mar 2026 09:20:54 +0800</pubDate>
+    </item>
     <item>
       <title>Tushare Skills 实操指南：AI 赋能金融数据调用，效率提升十倍的量化开发方案</title>
       <link>https://www.bilibili.com/video/BV1czw9zVE2x</link>
@@ -494,6 +574,47 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Xzw3zGErd</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/d74d4c8f9a5f25dce4737512fb112e7c32a9bcb5.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 15 Mar 2026 22:34:13 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化交易D1算子库：基于Polars语法的极简因子构建与选股框架</title>
+      <link>https://bbs.quantclass.cn/thread/76940</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76940"&gt;【D1框架】算子使用文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polars向量化、延迟执行、截面/时序算子、因子合成]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于Polars封装的标准化算子库，旨在解决复杂因子开发中的代码冗余与计算性能瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：提供三层因子构造逻辑：1. 基础数学算子（如ln, sqrt）；2. 时序算子（ts_rolling_mean, ts_pct_change）；3. 截面算子（cs_rank, cs_zscore）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【多因子合成】&lt;/strong&gt;：展示了通过 &lt;code&gt;row_mean&lt;/code&gt; 进行等权合成，并配合 &lt;code&gt;cs_zscore&lt;/code&gt; 进行截面标准化的落地流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【选股应用】&lt;/strong&gt;：利用 &lt;code&gt;cs_rank&lt;/code&gt; 的 &lt;code&gt;method='min'&lt;/code&gt; 参数实现截面选股过滤，支持多维度指标排序筛选。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决原生 Polars 语法学习门槛高、代码难以标准化、大规模数据集计算逻辑混乱等开发瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：核心依赖 Polars 的 &lt;code&gt;Expr&lt;/code&gt; (表达式) 和 &lt;code&gt;LazyFrame&lt;/code&gt; (延迟执行) 机制，利用其查询优化器提升多算子串联性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;表达式链式调用&lt;/strong&gt;：推崇 Chaining 模式减少中间变量存储，优化内存分配。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原子算子封装&lt;/strong&gt;：通过 &lt;code&gt;select_column&lt;/code&gt; 与 &lt;code&gt;create_columns&lt;/code&gt; 统一输入输出接口，屏蔽底层列名映射的复杂性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;向量化性能&lt;/strong&gt;：避免使用 &lt;code&gt;map_batches&lt;/code&gt; 等非向量化操作，确保计算在 Polars C++ 内核中并行执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;算子化重构&lt;/strong&gt;：将现有的因子库重构为基于 &lt;code&gt;pl.Expr&lt;/code&gt; 的独立算子，以兼容 Polars 的计算图优化机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时空维度隔离&lt;/strong&gt;：在工程实现中严格区分 &lt;code&gt;ts_&lt;/code&gt; (分组时序) 与 &lt;code&gt;cs_&lt;/code&gt; (截面) 算子，防止在并行计算中发生数据污染。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;延迟执行流水线&lt;/strong&gt;：在因子工厂流程中保持 &lt;code&gt;LazyFrame&lt;/code&gt; 状态直到最终 &lt;code&gt;collect()&lt;/code&gt;，以获得最优 CPU 缓存利用率和计算路径。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76940</guid>
+      <pubDate>Sun, 15 Mar 2026 19:19:03 +0800</pubDate>
     </item>
     <item>
       <title>AlphaProp：基于图演化与贝叶斯检索的量化因子挖掘新范式</title>
@@ -4743,154 +4864,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1J4AbzuELY</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/670fc7ad5344248dceb8a24bb27280a884a6e75e.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 28 Feb 2026 10:23:46 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实战派：从回测Bug排查到地缘风险应对策略</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-28&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-28&amp;amp;talker=57784510736@chatroom"&gt;2026-02-28_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛠️ 为什么我的回测跑了两遍？&lt;/h3&gt;
-&lt;p&gt;在3.55客户端回测时，处理数据可能会出现运行两次的情况。这通常与&lt;strong&gt;仓管设置&lt;/strong&gt;或使用了&lt;strong&gt;综合策略库&lt;/strong&gt;有关。需要注意的是，实盘在数据更新后会自动重新运行，这是系统保证数据同步的正常逻辑。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💰 一万块也能玩量化？小资金的生存之道&lt;/h3&gt;
-&lt;p&gt;投资并不总是需要巨额资金，量化的入门门槛其实可以很低：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资金门槛&lt;/strong&gt;：即便只有一万块，也可以通过“精心随机”策略起步。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：建议减少offset（偏移量），利用收盘价进行过滤，并尝试选择周w0等特定周期执行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进阶焦虑&lt;/strong&gt;：正如群友感叹，“进了分享会，好的策略太多，钱反而不够用了”，这反映了从寻找策略到资金分配的阶段性跃迁。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌍 地缘冲突来袭，大A又要交“军费”？&lt;/h3&gt;
-&lt;p&gt;针对周末传出的地缘政治消息，投资者们总结出了一套心理建设方案：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;消息博弈&lt;/strong&gt;：周末出消息优于盘中出消息，因为给了市场心理准备和缓冲的时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对心态&lt;/strong&gt;：虽然常调侃大A需要出“军费”，但盲目在周一开盘清仓往往容易“完美割在最低点”。若感到焦虑，延迟到十点后再打开客户端或许是种心理策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔍 拒绝垃圾数据：如何给策略做“体检”？&lt;/h3&gt;
-&lt;p&gt;策略表现异常不一定是逻辑问题，很可能是数据本身出现了“断流”：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;诊断工具&lt;/strong&gt;：推荐使用“彩虹数据校验器”进行排查。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;识别方法&lt;/strong&gt;：通过可视化工具检查个股数据是否连贯。即使没有第三方数据对比，明显的断层也能通过校验器被快速揪出。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⏳ 周一买周五卖，这到底是几天？&lt;/h3&gt;
-&lt;p&gt;关于交易周期的模拟，群友们给出了清晰的界定：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑换算&lt;/strong&gt;：若是周一开盘换仓买入，周五卖出，在系统逻辑中应定义为&lt;strong&gt;4D&lt;/strong&gt;（持有4个交易日）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模拟细节&lt;/strong&gt;：使用D（天数）来模拟固定星期换仓时，由于节假日干扰，需要不定期进行逻辑微调。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 碎金语录&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“进了分享会，好的策略，钱不够了。” —— &lt;strong&gt;辛振&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“开盘清仓，完美割在最低点。” —— &lt;strong&gt;Kylin&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76644"&gt;【数据找BUG工具】🌈 彩虹数据校验器 - 两个简单有用的功能 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-02-28&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sat, 28 Feb 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>龙回头2.0：从单一池子博弈到多时空共振，实现年化40%的量化进化</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/69a04278de29766da9a6ea83?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/jgqnv6dwllut"&gt;满仓以后&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/69a04278de29766da9a6ea83?utm_source=rss"&gt;Vol.96 年化40% 10年无败绩的龙回头 2.0策略！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在策略逻辑不变的情况下，仅仅通过“扩容”就能让年化收益从20%跃升至40%？&lt;/li&gt;
-&lt;li&gt;💡 为什么在中小盘股中，单信号成交往往是“无效陷阱”，而多信号共振才是真正的“情绪错杀”？&lt;/li&gt;
-&lt;li&gt;🚀 面对回撤，如何利用“集合概率”取代“时间概率”，缩短在水下的窒息感？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 空间换时间：从“孤军奋战”到“影分身”的概率收敛&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;集合概率 vs 时间概率&lt;/strong&gt;: 1.0版本是在一条河里等猎物，依赖时间流逝来收敛胜率；2.0版本则是同一套逻辑同时蹲守沪深300、中证500和1000三条河流。这种“影分身”做法让资金占用率大幅提升，通过增加独立博弈的次数，强制让大数定律在更短的时间尺度内生效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比转译（麦当劳扩张）&lt;/strong&gt;: 麦当劳不在大雪封路的中西部死磕，而是去加州开店。这并非改变了快餐品质，而是通过地理位置的对冲，消除了单一区域的“季节性风险”（情绪周期不同步）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 非信息性冲击：识别真“龙”回头的方法论&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;信号分级过滤&lt;/strong&gt;: 在中证500和1000池子中，强制过滤掉单日仅一个触发信号的个股，只对多信号并发的“群体性宣泄”出手。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;仓位动态调配&lt;/strong&gt;: 沪深300单信号分配12%仓位（高稳定性），中证500/1000分配5%仓位（高波动性）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;锁死持仓时限&lt;/strong&gt;: 坚持日线级别的“闪电战”，持仓1-5天，利用高频重复博弈对冲单笔不确定性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕周线级别的风险累积。时间序列一旦拉长，黑天鹅概率会随之指数级上升，绝不能将中盘股的均值回归逻辑生搬硬套至长线持有。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚖️ 波动率管理：拥抱波动而非躲避风险&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;底层逻辑&lt;/strong&gt;: 波动率是策略的燃料而非敌手。跌得透才有弹性。通过扩大样本量，2.0版本虽然最大回撤深度未减，但“爬坑速度”显著加快，修复高点的时间从百天缩短至数十天。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;杠杆红线&lt;/strong&gt;: 严控杠杆上限，建议30万资金对应最高60万仓位（200%资金占用上限），防止系统性风险导致的三河同时干枯。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “只有非信息性脉压驱动的下跌，才会产生可靠的反转收益。”&lt;/li&gt;
-&lt;li&gt;💬 “波动率不是风险，不能承受的波动率才是风险。”&lt;/li&gt;
-&lt;li&gt;💬 “龙回头2.0不是在压路机前捡硬币，它是反过来的：它通过高频承受小额亏损，换取不被系统一拳打死的免疫力。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/69a04278de29766da9a6ea83?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/Fkh0Au0L2wkDo6y8jWym35QvTZFW.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 27 Feb 2026 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>热点行业共振：一种超越传统量化策略的中市值选股新范式</title>
-      <link>https://bbs.quantclass.cn/thread/76380</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76380"&gt;【牛马三期】——热点只能与小市值结合吗？——新的中市值策略(胜过三星）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[行业热点, 20日相关性, 量化策略, 中市值, 因子构建]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[提出并实证一种基于短期行业热点与20日相关性因子的中市值量化策略，超越传统动量方法。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：传统行业动量因子可能不显著甚至没有效果，但在热点行业背景下，与热点共振的短期相关性因子能跑出不错的效果。短期（20日）相关性因子捕获的是与组合共振中，同等波动下弹性更大的股票，而非严格意义上的相关性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：市场资金在热点行业中倾向于追逐短期内与该行业波动高度一致且弹性大的股票，尤其是在高波动股票中选择方差较小的品种，可能意味着资金对短期分歧小的高波动股票的偏好。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“周黎明策略”中行业动量可能不显著的观点，并提出“热点行业共振”因子能有效替代传统行业动量因子，超越了作者验证的“中等生策略”和“三星策略”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：策略在实盘中能有效抓住半导体等热点行业的红利，暗示该因子在特定高景气度、高关注度行业中具备更强的解释力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：策略核心是识别当前市场热点行业（通常有资金炒作），并在此基础上选择与该热点行业或“辣子鸡指数”在短期（20日）内具有高相关性的中市值股票进行投资。该“20日相关性”并非传统意义上的关联度，而是捕捉在相同波动幅度下，股票相对组合展现出的更高弹性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;主要因子&lt;/strong&gt;：20日相关性因子（例如：&lt;code&gt;(&amp;quot;指数相关性&amp;quot;, False, (&amp;quot;sh000300&amp;quot;, 20), 1)&lt;/code&gt; 或 &lt;code&gt;(&amp;quot;指数相关性&amp;quot;, False, (&amp;quot;sh932000&amp;quot;, 20), 1)&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对比参考&lt;/strong&gt;：Barra Beta因子采用252个交易日收益数据，指数加权移动平均（半衰期63天），通过股票超额收益与市值加权指数超额收益的回归系数计算。本文20日相关性因子专注于短期市场行为。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略参数（新策略周gg）&lt;/strong&gt;：持仓周期W（周），每日偏移列表[0,1,2,3,4]，选择股票数5，市值加权，调仓时间09:50。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子列表（新策略周gg）&lt;/strong&gt;：&lt;code&gt;(&amp;quot;Ret&amp;quot;, False, 5, 100)&lt;/code&gt;、&lt;code&gt;(&amp;quot;描述分位数&amp;quot;, False, 80, 100)&lt;/code&gt;、&lt;code&gt;(&amp;quot;一级行业&amp;quot;, False, &amp;quot;&amp;quot;, 2)&lt;/code&gt;、&lt;code&gt;(&amp;quot;每日涨跌幅&amp;quot;, True, &amp;quot;&amp;quot;, 0.7)&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;过滤条件&lt;/strong&gt;：5日成交额均值&amp;gt;=2800万，250日一级风险标签&amp;lt;1，排除北交所。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：策略依赖股票日收益数据及指数收益数据，通过计算20日滑动窗口相关性。文中未详述数据清洗和中性化细节。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;新策略（周gg）&lt;/strong&gt;：具体净值曲线表现优于“中等生策略”和“三星策略”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中等生策略&lt;/strong&gt;：基于指数动量强弱，选择与当日“辣子鸡指数”20日相关性最高的5-7支股票。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;三星策略&lt;/strong&gt;：判断行业，选择与行业相关性高的股票，因子包括“归母净利润同比”和“每日涨跌幅”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数敏感性&lt;/strong&gt;：策略表现对核心参数具有一定的“参数平原”，表明其稳健性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略在实证中发现，&lt;strong&gt;不删除&lt;/strong&gt;热点股票（即&lt;code&gt;df = df[df[&amp;quot;排名靠前&amp;quot;] == 0]&lt;/code&gt;的反操作）的表现优于删除热点股票的版本，表明在热点行业中，追逐高关注度股票可能仍是收益来源，但也可能带来追高风险。高换手率和短期波动性可能增加交易成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;基于文章提出的“热点行业共振”思想，可以构建一个动态行业选择模块，实时监测市场资金流向和行业表现，识别潜在的“热点行业”。&lt;/li&gt;
-&lt;li&gt;实现20日相关性因子，计算个股与所选“热点行业指数”或主要市场指数（如沪深300、中证1000）的短期（20日）相关性，并结合作者提出的“弹性大而非纯相关性”的理解，进行因子排序和选股。&lt;/li&gt;
-&lt;li&gt;结合文中提供的JSON策略配置，在现有回测框架中复现“周gg净值曲线”策略，并重点验证“不删除热点股票”这一反直觉但高收益的策略变种。同时，尝试文中提到的“持股天数”和“数量”魔改以探索进一步优化空间。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76380</guid>
-      <pubDate>Fri, 27 Feb 2026 22:29:51 +0800</pubDate>
     </item>
   </channel>
 </rss>
