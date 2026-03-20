@@ -7,7 +7,17 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Mar 2026 08:41:28 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 00:38:24 +0000</lastBuildDate>
+    <item>
+      <title>高胜率期权比例价差策略：基于波动率均值回归的套利逻辑与实操复盘</title>
+      <link>https://bbs.quantclass.cn/thread/77021</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77021"&gt;超高胜率的期权比率套利策略&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)- &lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]- &lt;strong&gt;核心标签&lt;/strong&gt;：[期权比例价差、波动率均值回归、Theta收割、IV百分位、Delta对冲]- &lt;strong&gt;一句话总结&lt;/strong&gt;：通过卖出更多虚值期权构建比例价差，利用高隐波回落与时间价值衰减获利。---## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)- &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于波动率的均值回归特性（IV回归中枢）及虚值期权更快的时间价值衰减。策略本质是做空波动率（Short Vega）并获取时间价值（Positive Theta），辅以温和看涨的Delta暴露。- &lt;strong&gt;【因子构建】&lt;/strong&gt;：构建1:2或1:3看涨期权比例价差（买入1份较低行权价Call，卖出2-3份较高行权价Call）。关键在于确保权利金净收入为正，并使初始组合Delta尽量趋向于0以降低价格波动初期影响。- &lt;strong&gt;【数据与处理】&lt;/strong&gt;：通过四维度判断隐波高低：1. 波动率溢价（IV-HV &amp;gt; 0）；2. 隐波百分位（接近100）；3. 期限结构（近高远低倒挂）；4. 关联品种横向对比（如黑色系或油脂类内部对冲参考）。- &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：实盘大赛第五名策略，胜率可达80%-90%以上，具有最大收益区间（行权价处）及上方盈亏平衡点限制。- &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：核心风险在于IV极端升波或标的价格大幅上破盈亏平衡点（价格涨幅过大），需严格执行止损或Delta动态管理。---## 🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)- &lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：行情分析依赖OpenVlab（隐波分析工具），组合构建与下单使用“极智量化”（Polestar）客户端。- &lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：在构建组合时，算法需根据实时Delta自动计算卖出腿的数量比例，以实现初始Delta中性。---## 💡 落地与行动指南 (Actionable Takeaways)- &lt;strong&gt;自动化筛选&lt;/strong&gt;：编写脚本监控商品期权全市场的IV Percentile，自动导出百分位 &amp;gt; 80且期限结构倒挂的品种作为备选池。- &lt;strong&gt;动态对冲逻辑&lt;/strong&gt;：在代码实现中引入Delta监控，当标的价格接近卖出腿行权价时，触发减仓或反向对冲逻辑以覆盖无限损风险。- &lt;strong&gt;止盈量化策略&lt;/strong&gt;：设定IV降波阈值与Theta收益比例作为自动止盈触发条件，而非持有至到期，以优化资金周转率。&lt;/h2&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77021</guid>
+      <pubDate>Thu, 19 Mar 2026 16:16:07 +0800</pubDate>
+    </item>
     <item>
       <title>揭秘“四龙系狗”策略：从老登币逻辑到多空匹配的量化实战指南</title>
       <link>/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/26分享会策略直播5-邢不行：四龙戏狗策略适度理解直播1.mp4</link>
@@ -203,6 +213,88 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77022</guid>
       <pubDate>Thu, 19 Mar 2026 11:19:38 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化博弈下的生存抉择：定风波策略撤退与小市值韧性解构</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;amp;talker=57784510736@chatroom"&gt;2026-03-19_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;📉 策略动态：定风波3开启全面防御&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主动离场：&lt;/strong&gt; 邢不行明确指出“定风波3”策略今日已全线离场，反映出在多空激烈博弈的阶段，量化策略选择优先锁定安全空间，而非盲目抗跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;仓位分布：&lt;/strong&gt; 社区成员目前多维持在2-4成的低仓位，部分“裸跑”策略（如迪迦、风火轮）虽有波动，但整体回撤在可控范围内。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛠️ 小市值策略的“逆行”支撑&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;个股贡献：&lt;/strong&gt; “小市值20”策略近期表现稳健，主要归功于成分股中如奥福科技等标的的强势表现。这种由个股支撑起的韧性，在震荡市中显得尤为关键。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选股逻辑：&lt;/strong&gt; 尽管市场情绪低迷，但基于自由现金流等核心因子的量化选股仍能在百只标的中筛选出优质个股。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📊 盘面透视：读懂分时图的“黄白线”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;等权与加权：&lt;/strong&gt; 黄线代表等权指数，不计市值大小，真实反映中小盘股的冷暖；白线则是市值加权指数，主要体现大盘股的走势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风格博弈：&lt;/strong&gt; 当黄线运行在白线上方，意味着中小盘表现优于大盘；反之则说明市场资金在向权重股靠拢。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💡 投资金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“风吹抄底见牛羊。” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“今天应该还好吧，跌的不多，应该不需要我安慰吧。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“现在感觉我的大盘蓝筹在低位，量化小市值在高位，割了去追高有点蠢。” —— 熊熊熊熊熊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77026&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化策略的冰与火之歌：市场巨变下的挑战、优化与框架升级</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;amp;talker=58453205219@chatroom"&gt;2026-03-19_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📊 市场动荡下的量化策略表现&lt;/h3&gt;
+&lt;p&gt;近期市场波动剧烈，加密货币领域的量化交易策略面临严峻考验，多款策略遭遇显著回撤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“浪轮”策略&lt;/strong&gt;：因大量币种下架与市场整体下跌，表现“回到解放前”，凸显了在极端行情下策略执行的无奈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“沧浪亭的四龙狗”策略&lt;/strong&gt;：同样出现回撤，主要原因在于空头上涨而多头横盘，且因整体仓位较高，回撤幅度大于常规中性回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“浪填”策略&lt;/strong&gt;：被多位群友提及回撤严重，形容“跌得最多”、“太惨了”、“依旧打脸”，表明其近期表现不佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;韧性策略&lt;/strong&gt;：相比之下，“大龙狗”策略表现“稳如老狗”，而“落九天”策略也“还在飞”，显示部分策略在当前市场中仍能保持良好运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 AI辅助的策略优化与遗传算法（GA）&lt;/h3&gt;
+&lt;p&gt;面对策略挑战，优化工具和方法成为焦点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI辅助优化&lt;/strong&gt;：通过AI（如Optuna）进行参数优化的方法被详细分享，建议采用独立于现有代码、明确参数定义、并持续迭代测试的模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;遗传算法（GA）的潜力&lt;/strong&gt;：尽管单独回测表现平平（5年翻两三倍），但将GA优化的结果均分到“超混多头”策略中，能够小幅提升收益并使回撤减半，显示其在策略微调和风险控制方面的有效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多头策略的困境&lt;/strong&gt;：有群友指出，除了动量策略，近两年其他多头策略的表现不尽如人意，暗示市场环境对传统多头策略的挑战。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚙️ 新技术框架与计算资源&lt;/h3&gt;
+&lt;p&gt;技术框架的升级和计算资源的配置是保障策略运行效率的关键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Polars框架的采纳&lt;/strong&gt;：新的量化框架已开始升级至Polars，龚博致表示其基于Polars改写的因子计算结果与回测高度吻合，显示Polars在提升计算效率和准确性方面的优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略的资源需求&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;“落九天”策略被强调“不耗资源”，通常2GB或4GB内存的云服务器即可运行。&lt;/li&gt;
+&lt;li&gt;“马嵬坡”策略的实战经验表明，2核8GB的云服务器能流畅运行，2核2GB也能跑但耗时较长。&lt;/li&gt;
+&lt;li&gt;这为策略部署的资源选择提供了实践参考。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 金句精选&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“昨天一堆下架币，然后又遇到市场下跌。浪轮又回到解放前。主要你还拿他没办法，策略就得这么走。” — 邢不行&lt;/li&gt;
+&lt;li&gt;“没有那个多头是可以的。。这两年 除了动量” — 超级牛&lt;/li&gt;
+&lt;li&gt;“相信、坚定、持有、加仓 ✊” — 渣渣、.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-19&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>换手率集中度：挖掘回购域中的高Alpha因子与实战策略构建</title>
@@ -4667,196 +4759,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-02&amp;talker=57784510736@chatroom</guid>
       <pubDate>Mon, 02 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>金融本体的释放与周期终局：透视美股长牛的政经逻辑</title>
-      <link>https://bbs.quantclass.cn/thread/68935</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/68935"&gt;牛市还能撑多久（六）------新罗马的国祚（中）被释放的本体&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[金融抑制与释放、政党议程演化、分配逻辑、流动性驱动]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：从美政党演化史解析金融资本释放对宏观周期与长牛的绑架机制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：美股自1980s后波动率与周期性增强，2010年后进入由“流动性扩张+AI叙事”驱动的非典型长牛。这种长牛建立在实体产业空心化与分配极其两极分化的基础之上。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：核心逻辑在于“外部威胁（苏东集团）消失导致对金融资本禁锢的解除”。为对抗红色意识形态，美曾推行大政府监管（分业经营）与分配让利；冷战结束后，转向新自由主义议程，金融业通过混业经营提高榨取效率，成为超越实体的资本本体。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“基本面决定论”。在金融本体被释放的背景下，指数上涨不再完全反映生产力进步，而是反映了顶层对底层剩余价值的变现效率及对全球利益的榨取能力。市场已形成“大到不能倒”的锁定效应，导致美联储必须通过持续放水（看跌期权）来延缓信用崩塌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【政党议程演化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;第五党系（1932-1972）：大政府与社会福利，严格金融监管。&lt;/li&gt;
-&lt;li&gt;第六党系（1972-2008）：新自由主义，金融分业经营壁垒拆除，全球化开启。&lt;/li&gt;
-&lt;li&gt;第七党系（2008-至今）：金融资本（建制派）与产业资本（MAGA）的存量博弈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建建议】&lt;/strong&gt;：在宏观策略模型中，应将“政治党系议程（Party System Agenda）”作为顶层权重。当处于第七党系极化博弈期，需增加民粹主义情绪指标与地缘政治风险溢价因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险监控点】&lt;/strong&gt;：监控美M2增速与美债信用透支的边际变化。文章揭示了当前牛市是“饮鸩止渴”的变现过程，当货币信用透支空间归零，传统宏观对冲策略需准备应对系统性“冰冷周期律”的清算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【资产配置思路】&lt;/strong&gt;：理解“金融本体”的扩张性，短期内顺应流动性驱动的泡沫化（Keep dancing while the music plays），但必须建立基于信用违约概率的实时退出阈值。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/68935</guid>
-      <pubDate>Sun, 01 Mar 2026 22:55:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>从Pandas到Polars的高性能进化：D1量化框架策略开发与因子实现指南</title>
-      <link>https://bbs.quantclass.cn/thread/76664</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76664"&gt;彩虹与D1框架深度对比-框架使用篇&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polars向量化, 算子化编程, 策略模块化, 因子缓存机制, 跨框架迁移]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：详述从彩虹框架到D1框架的迁移路径，重点解析基于Polars的算子化因子构建与灵活卖出逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：展示了从简单的因子等权加权到复杂的行业相对强度选股逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：利用Polars实现时序（ts_）与截面（cs_）算子，如使用 &lt;code&gt;cs_rank&lt;/code&gt; 进行全市场排序，以及 &lt;code&gt;ts_rolling_mean&lt;/code&gt; 计算均值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：支持引入外部数据（公告标题、风险标签）及全息数据，强调因子计算的批量化处理，如一次性计算多个周期的成交额统计量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：通过 &lt;code&gt;sell_mode&lt;/code&gt; 区分持满周期、涨停不卖、条件卖出等模式，支持止盈止损及移动止盈的风险控制逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决彩虹框架配置集中化导致扩展性不足、Pandas因子计算效率低以及卖出逻辑僵化的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：核心依赖 Polars 库；架构采用模块化解耦（&lt;code&gt;config.py&lt;/code&gt; 处理全局，&lt;code&gt;stg_config.py&lt;/code&gt; 处理参数，&lt;code&gt;select_hub&lt;/code&gt; 处理逻辑，&lt;code&gt;strategy.py&lt;/code&gt; 执行交易）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;向量化重构&lt;/strong&gt;：使用 &lt;code&gt;pl.col().rank().over('trade_date')&lt;/code&gt; 替代 Pandas 的 groupby rank。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;算子库设计&lt;/strong&gt;：内置基础算子（Base Ops）、财务算子（Fin Ops）和指标算子（Indicator Ops）提升代码复用率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缓存机制&lt;/strong&gt;：通过将相关因子归入同一计算文件，利用 D1 的因子缓存减少重复 IO。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过 Polars 的延迟执行（LazyFrame）和并发特性，在处理全市场因子计算时显著优于原生 Pandas 实现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;迁移路径&lt;/strong&gt;：将原 Pandas 策略逻辑映射为 D1 的 &lt;code&gt;stock_select&lt;/code&gt; 五步法（前置过滤、因子过滤、复合因子计算、后置过滤、选股数控制）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性能优化&lt;/strong&gt;：在编写截面因子时，优先使用 D1 内置的 &lt;code&gt;cs_&lt;/code&gt; 前缀算子，避免手动编写复杂的 window 函数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实战扩展&lt;/strong&gt;：利用 D1 的 &lt;code&gt;sell_mode=3&lt;/code&gt; 接口自定义事件卖出函数，实现比固定周期持仓更灵活的动态仓位管理。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76664</guid>
-      <pubDate>Sun, 01 Mar 2026 22:55:21 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI量化实战：Windows部署OpenCloud，联通QMT与飞书实现真实验盘交易</title>
-      <link>https://www.bilibili.com/video/BV1xTPgzAEak</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xTPgzAEak"&gt;AI全栈量化【6】——  OPENCLAW+QMT部署 | A股实盘部署 | 账户查询委托 | 智能体交易&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ OpenCloud &amp;amp; QMT - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：OpenCloud作为AI量化平台，通过API接口与QMT实盘交易系统集成，实现自动化的策略执行与账户操作，并可经由飞书机器人作为前端交互。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：实时/历史行情数据、交易信号、用户自然语言指令（通过飞书）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：QMT账户查询结果、股票买卖委托指令、交易状态反馈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;OpenCloud&lt;/code&gt;: 一个AI量化平台，支持Windows/Linux部署，负责策略执行与AI交互。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;QMT (券商资管系统)&lt;/code&gt;: 证券公司的量化交易接口，用于实盘账户查询与交易指令下达。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;飞书机器人&lt;/code&gt;: OpenCloud的交互前端，接收用户指令并显示操作结果。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Node.js&lt;/code&gt;: OpenCloud运行所需的JavaScript运行时环境，版本要求≥22。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Skills&lt;/code&gt;: OpenCloud中预封装的功能模块，用于实现特定任务（如QMT交易操作）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：Windows本地部署OpenCloud&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在Windows操作系统上搭建OpenCloud本地开发与运行环境。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Windows操作系统（推荐以管理员权限操作）、Node.js环境 (版本≥22)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：以 &lt;code&gt;管理员身份&lt;/code&gt; 启动 &lt;code&gt;PowerShell&lt;/code&gt; 命令行工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[安装指令]&lt;/strong&gt;：复制并执行OpenCloud官网提供的 &lt;code&gt;Windows安装脚本&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[环境检测]&lt;/strong&gt;：系统将自动检测 &lt;code&gt;Windows操作系统类型&lt;/code&gt; 及 &lt;code&gt;Node.js版本&lt;/code&gt;，并验证符合性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[引导界面]&lt;/strong&gt;：OpenCloud引导界面出现后，&lt;code&gt;同意操作风险&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[安装模式]&lt;/strong&gt;：选择 &lt;code&gt;Quick Start&lt;/code&gt; 模式，采用默认配置进行快速部署。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[大模型配置]&lt;/strong&gt;：根据提示输入已购买的 &lt;code&gt;大模型订阅Token&lt;/code&gt; (例如KIMI或智谱)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[微观操作]&lt;/strong&gt;：暂时 &lt;code&gt;跳过&lt;/code&gt; 插件渠道设置步骤，以规避潜在网络问题导致的安装中断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[启动完成]&lt;/strong&gt;：复制命令行中显示的 &lt;code&gt;HTTP连接Token&lt;/code&gt;，并在浏览器中打开此地址以访问OpenCloud前端。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：配置飞书机器人作为交互前端&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将飞书机器人与OpenCloud集成，实现通过飞书进行指令交互和结果接收。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：OpenCloud已成功部署并运行、拥有飞书开放平台账号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：登录 &lt;code&gt;飞书开放平台&lt;/code&gt; -&amp;gt; &lt;code&gt;创建企业自建应用&lt;/code&gt; -&amp;gt; 为应用添加 &lt;code&gt;机器人能力&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[权限配置]&lt;/strong&gt;：进入机器人 &lt;code&gt;基本信息&lt;/code&gt; -&amp;gt; &lt;code&gt;权限管理&lt;/code&gt;，通过 &lt;code&gt;批量导入JSON配置&lt;/code&gt; 开通所有必要权限。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[事件与回调设置]&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[注意]&lt;/strong&gt; 首次配置飞书 &lt;code&gt;长链接&lt;/code&gt; 可能因 &lt;code&gt;应用未建立强链接&lt;/code&gt; 而报错。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[解决]&lt;/strong&gt; 需先行完成本地飞书插件安装并打通连接，再返回此步骤保存长链接。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[本地安装飞书插件]&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：在 &lt;code&gt;OpenCloud命令行&lt;/code&gt; 执行 &lt;code&gt;Git Clone [飞书插件仓库地址]&lt;/code&gt; 获取插件代码。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：执行 &lt;code&gt;OpenCloud plugin install [飞书插件路径]&lt;/code&gt; 安装飞书插件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[注意]&lt;/strong&gt; 若提示 &lt;code&gt;node SDK&lt;/code&gt; 未安装，需在 &lt;code&gt;OpenCloud根目录&lt;/code&gt; 下执行安装 &lt;code&gt;node SDK&lt;/code&gt; 的命令。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[配置飞书插件]&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：执行 &lt;code&gt;opo cloud config set channel.feishu.appId [Your_Feishu_App_ID]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：执行 &lt;code&gt;opo cloud config set channel.feishu.appSecret [Your_Feishu_App_Secret]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：执行 &lt;code&gt;opo cloud config set channel.feishu.enabled true&lt;/code&gt; 启用飞书渠道。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[重启网关]&lt;/strong&gt;：根据命令行提示 &lt;code&gt;重启OpenCloud网关&lt;/code&gt; 以使配置生效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[回调与事件配置 (续)]&lt;/strong&gt;：返回飞书开放平台，添加 &lt;code&gt;基础事件&lt;/code&gt;（如消息接收），并启用 &lt;code&gt;回调卡片功能&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[版本发布]&lt;/strong&gt;：在飞书开放平台 &lt;code&gt;版本发布与管理&lt;/code&gt; 页面，为机器人 &lt;code&gt;创建新版本&lt;/code&gt; 并 &lt;code&gt;发布&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[打开应用]&lt;/strong&gt;：待飞书机器人审批通过后，在应用管理页面 &lt;code&gt;打开应用&lt;/code&gt; 激活机器人。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 3：集成QMT交易功能 (Skills)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：赋予OpenCloud通过自然语言指令执行QMT账户查询和股票买卖操作的能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：QMT交易客户端已安装并运行在与OpenCloud相同的Windows环境、已下载 &lt;code&gt;order-CLIMT&lt;/code&gt; 交易技能包。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[获取Skills]&lt;/strong&gt;：从提供的 &lt;code&gt;云网盘链接&lt;/code&gt; 下载 &lt;code&gt;order-CLIMT&lt;/code&gt; 压缩包。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[部署Skills]&lt;/strong&gt;：将解压后的 &lt;code&gt;order-CLIMT&lt;/code&gt; 文件夹拖拽到 &lt;code&gt;~/.open-cloud/skills&lt;/code&gt; 目录下。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[功能验证]&lt;/strong&gt;：通过 &lt;code&gt;飞书机器人&lt;/code&gt; 输入指令，例如“查询账户信息”、“买入股票”、“清仓卖出ETF”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数提供]&lt;/strong&gt;：根据机器人提示提供 &lt;code&gt;QMT安装路径&lt;/code&gt;、&lt;code&gt;资金账号&lt;/code&gt;、&lt;code&gt;股票类型&lt;/code&gt; 等必要信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[执行操作]&lt;/strong&gt;：机器人将理解用户意图（如“清仓”），并转换为QMT API指令，真实执行账户查询、股票买入或卖出操作。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Node.js 环境配置&lt;/strong&gt;：OpenCloud的正常运行依赖于 &lt;code&gt;Node.js&lt;/code&gt; 运行时环境，版本必须 &lt;code&gt;大于等于22&lt;/code&gt;。不满足版本要求将导致安装或运行失败。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;管理员权限&lt;/strong&gt;：在Windows上安装OpenCloud及配置部分系统级功能时，必须以 &lt;code&gt;管理员身份&lt;/code&gt; 运行 &lt;code&gt;PowerShell&lt;/code&gt;。否则，可能因权限不足导致文件写入或系统设置失败。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大模型订阅Token&lt;/strong&gt;：此Token是激活OpenCloud核心AI能力的凭证。有效配置后，OpenCloud才能连接并调用指定的大模型服务（如KIMI、智谱）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;飞书 App ID/Secret&lt;/strong&gt;：这对凭证是飞书机器人与OpenCloud进行身份验证和安全通信的关键。配置不正确将导致飞书机器人无法与OpenCloud正常交互。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Windows安装OpenCloud&lt;/code&gt; 时，若 &lt;code&gt;PowerShell&lt;/code&gt; 未以 &lt;code&gt;管理员身份&lt;/code&gt; 运行，将导致安装权限不足而失败。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;飞书长链接&lt;/code&gt; 首次配置时，可能提示 &lt;code&gt;应用未建立强链接&lt;/code&gt;，需在本地安装飞书插件并打通连接后重试。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;飞书插件&lt;/code&gt; 安装过程中，如遇 &lt;code&gt;node SDK&lt;/code&gt; 缺失提示，务必在 &lt;code&gt;OpenCloud根目录&lt;/code&gt; 下安装 &lt;code&gt;node SDK&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;OpenCloud插件渠道设置&lt;/code&gt; 阶段，建议暂时 &lt;code&gt;跳过&lt;/code&gt;，以避免因网络问题导致安装中断。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;确保 &lt;code&gt;OpenCloud&lt;/code&gt; 与 &lt;code&gt;QMT&lt;/code&gt; 运行在 &lt;code&gt;同一Windows环境&lt;/code&gt; 是实现两者顺畅交互的最简便方式。&lt;/li&gt;
-&lt;li&gt;利用 &lt;code&gt;OpenCloud Skills&lt;/code&gt; 可快速实现账户查询、买卖等 &lt;code&gt;基础交易操作&lt;/code&gt;，为后续复杂策略开发奠定基础。&lt;/li&gt;
-&lt;li&gt;借助AI的 &lt;code&gt;自然语言理解&lt;/code&gt; 能力（如将“清仓”理解为一次性卖出），可实现更直观、灵活的交易指令。&lt;/li&gt;
-&lt;li&gt;结合 &lt;code&gt;定时任务&lt;/code&gt; 与 &lt;code&gt;高级策略逻辑&lt;/code&gt;，能够构建真正实现机器人自动交易的智能化系统。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xTPgzAEak</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/7af0b622d7ec49eb68ea1e36a01543f351a885cb.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 01 Mar 2026 21:36:28 +0800</pubDate>
     </item>
   </channel>
 </rss>
