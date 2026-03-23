@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Mar 2026 23:14:26 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Mar 2026 08:50:14 +0000</lastBuildDate>
     <item>
       <title>EZXT实操指南：5分钟打造个人专属的高性能开源量化交易系统</title>
       <link>https://www.bilibili.com/video/BV1biA3zuETZ</link>
@@ -3209,6 +3209,42 @@
       <pubDate>Mon, 09 Mar 2026 19:46:34 +0800</pubDate>
     </item>
     <item>
+      <title>动态波动调仓：超越均仓逻辑的加密货币动量策略优化方案</title>
+      <link>https://bbs.quantclass.cn/thread/76814</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76814"&gt;基于波动的标的仓位管理策略研究&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[波动率加权、动态调仓、动量策略、资金费率优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：引入波动因子实现截面头寸动态分配，通过非等权配置放大动量爆发期收益并实现震荡止盈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：动量策略收益主要源于趋势延续性、负资金费率博弈及高位震荡中的再平衡（低买高卖）。波动较大的标的通常伴随更高的资金费率和震荡空间，通过波动率加权可实现：上涨期自动增仓放大收益，震荡收敛期自然减仓锁定利润。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：定义仓位因子 $F$，基于因子的绝对值或倒数进行截面归一化：$W_i = \frac{f(F_i)}{\sum_{j=1}^{n} f(F_j)}$。例如使用 &lt;code&gt;ZfMean&lt;/code&gt;（涨跌幅均值）作为权重分配依据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：测试区间 2021-2025 年，1H 持仓周期，Top 5 选币。实验证明动态调仓方案在不同市场周期下均能稳定产生优于均仓策略的超额收益（Alpha）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：在市场极端集中时可能导致单币种仓位过重（如突破 60%），需考虑引入最大仓位限制以对冲单一标的暴雷风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：现有回测框架多默认为等权配置（Equal Weight），缺乏根据因子值动态调整截面头寸的灵活性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：利用 Pandas 的向量化操作替代循环。核心逻辑：使用 &lt;code&gt;groupby('candle_begin_time')['position_factor'].transform('sum')&lt;/code&gt; 进行全截面权重的快速归一化处理。同时支持负值因子的绝对值化（&lt;code&gt;.abs()&lt;/code&gt;）及反向映射（&lt;code&gt;1 / factor&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于标准因子计算框架，通过在策略配置字典中新增 &lt;code&gt;symbol_position_factor&lt;/code&gt; 元组实现逻辑的可插拔性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[代码改造]&lt;/strong&gt;：在回测框架的头寸计算模块中，增加对 &lt;code&gt;target_alloc_ratio&lt;/code&gt; 的判断逻辑，支持从外部因子库读取权重参数而非固定的 &lt;code&gt;1/N&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[因子选型]&lt;/strong&gt;：针对动量策略，建议优先尝试使用“振幅”、“成交量变化率”或“历史收益率方差”作为调仓因子的基础。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[风险风控]&lt;/strong&gt;：在生产环境实现中，务必在归一化后加入 &lt;code&gt;long_df['target_alloc_ratio'].clip(upper=0.4)&lt;/code&gt; 等阈值约束，防止因市场广度不足导致的头寸过度集中。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76814</guid>
+      <pubDate>Mon, 09 Mar 2026 19:11:12 +0800</pubDate>
+    </item>
+    <item>
       <title>A股量化实战利器：EZXT全流程开发与风控手册</title>
       <link>https://www.bilibili.com/video/BV1FuPSzNE49</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FuPSzNE49"&gt;EasyXT 实战进阶：从策略编写到实盘交易全流程指南&lt;/a&gt;&lt;/p&gt;
@@ -3271,6 +3307,16 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1FuPSzNE49</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/a07b7c9d74d67048ac64e82159b352d4265a5bb7.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 09 Mar 2026 15:05:16 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化框架实战手册：数据输入、回测配置与因子系统详尽指南</title>
+      <link>https://bbs.quantclass.cn/thread/76819</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76819"&gt;26-B框架代码版快速上手（选币回测框架）——带你轻松看懂并学会使用（万字拆解，新人请进）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info) - &lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子] - &lt;strong&gt;核心标签&lt;/strong&gt;：[量化回测框架, 因子系统, 参数遍历, 数据管理, 时序因子, 截面因子, 择时信号, Polars加速] - &lt;strong&gt;一句话总结&lt;/strong&gt;：[详细剖析量化回测框架的核心配置、数据流、多维度因子构建及参数优化实践] --- ## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha) - &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：框架提供“算因子 → 选币 → 回测”的结构化流程，适用于新策略研发、调参、因子测试及实盘前验证。通过&lt;code&gt;factor_list&lt;/code&gt;定义选币排序因子，&lt;code&gt;filter_list&lt;/code&gt;进行前置/后置过滤，以及&lt;code&gt;use_custom_func&lt;/code&gt;实现自定义选币逻辑。 - &lt;strong&gt;【因子构建】&lt;/strong&gt;：    - &lt;strong&gt;时序因子 (&lt;code&gt;factors/&lt;/code&gt;)&lt;/strong&gt;：基于单币种K线数据，通过&lt;code&gt;signal()&lt;/code&gt;函数计算指标（例如&lt;code&gt;LowPrice&lt;/code&gt;计算&lt;code&gt;close&lt;/code&gt;的滚动均值）。支持传入多参数（以元组形式），并能通过&lt;code&gt;extra_data_dict&lt;/code&gt;声明并整合外部数据源（如市值数据），框架自动处理数据合并。    - &lt;strong&gt;截面因子 (&lt;code&gt;sections/&lt;/code&gt;)&lt;/strong&gt;：基于全币种合并K线大表，通过&lt;code&gt;signal()&lt;/code&gt;函数进行横截面排名或比较（如&lt;code&gt;PctChange&lt;/code&gt;的排名）。需通过&lt;code&gt;get_factor_list()&lt;/code&gt;声明其依赖的时序因子，框架会确保这些依赖因子在截面计算前被预先计算。    - &lt;strong&gt;择时信号 (&lt;code&gt;signals/&lt;/code&gt;)&lt;/strong&gt;：在回测生成资金曲线后，通过&lt;code&gt;dynamic_leverage()&lt;/code&gt;函数决定动态杠杆（0或1，即是否持仓），实现“再择时”功能，不直接参与选币，而是作为资金曲线的二次处理。 - &lt;strong&gt;【数据与处理】&lt;/strong&gt;：    - &lt;strong&gt;输入&lt;/strong&gt;: 预处理的&lt;code&gt;spot_dict.pkl&lt;/code&gt;和&lt;code&gt;swap_dict.pkl&lt;/code&gt;作为行情数据源。支持通过&lt;code&gt;data_source_dict&lt;/code&gt;配置外部数据源的加载函数及路径，以供因子计算使用。    - &lt;strong&gt;K线结构&lt;/strong&gt;: 框架按小时构造完整时间索引（&lt;code&gt;freq='H'&lt;/code&gt;）。    - &lt;strong&gt;数据对齐&lt;/strong&gt;: &lt;code&gt;end_date&lt;/code&gt;为左闭右开区间，推荐&lt;code&gt;YYYY-MM-DD HH:MM:SS&lt;/code&gt;格式确保时间对齐。 - &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：    - &lt;code&gt;strategy_list&lt;/code&gt;可配置多个策略并按&lt;code&gt;cap_weight&lt;/code&gt;分配资金。    - &lt;code&gt;offset_list&lt;/code&gt;定义持仓周期内的选币频率（如&lt;code&gt;hold_period=&amp;quot;6H&amp;quot;&lt;/code&gt;，&lt;code&gt;offset_list=[0,1,2,3,4,5]&lt;/code&gt;实现每小时选币）。    - &lt;code&gt;market&lt;/code&gt;字段(&lt;code&gt;spot_swap&lt;/code&gt;, &lt;code&gt;mix_swap&lt;/code&gt;等)精细控制选币范围和优先下单市场。    - &lt;code&gt;long_select_coin_num&lt;/code&gt;支持固定数量、比例、&lt;code&gt;'long_nums'&lt;/code&gt;或区间动态选币。    - &lt;code&gt;long_cap_weight&lt;/code&gt;/&lt;code&gt;short_cap_weight&lt;/code&gt;控制多空资金比例。 ## 🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering) - &lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决新策略研发、调参、因子测试的效率问题，以及大数据量处理（Pandas性能）和磁盘占用问题。 - &lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：    - &lt;strong&gt;数据加速&lt;/strong&gt;: v2.0.0版本引入&lt;code&gt;Polars&lt;/code&gt;加速选币和截面因子计算性能。    - &lt;strong&gt;存储优化&lt;/strong&gt;: 中间结果从&lt;code&gt;pkl&lt;/code&gt;转换为&lt;code&gt;parquet&lt;/code&gt;格式，减少磁盘体积。    - &lt;strong&gt;并行计算&lt;/strong&gt;: &lt;code&gt;config.py&lt;/code&gt;中的&lt;code&gt;MAX_CPU_CORE_NUM&lt;/code&gt;允许配置CPU核心数以支持参数遍历等任务的并行处理。    - &lt;strong&gt;模块化&lt;/strong&gt;: &lt;code&gt;core/&lt;/code&gt;目录存放底层功能实现代码，&lt;code&gt;factors/&lt;/code&gt;, &lt;code&gt;sections/&lt;/code&gt;, &lt;code&gt;signals/&lt;/code&gt;分别封装时序、截面因子及择时信号逻辑。 - &lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：    - &lt;strong&gt;参数遍历脚本&lt;/strong&gt;: &lt;code&gt;param_search.py&lt;/code&gt;及&lt;code&gt;param_search_with_timing.py&lt;/code&gt;提供基于Python字典和列表的灵活参数网格遍历机制，自动生成所有参数组合并执行回测。    - &lt;strong&gt;辅助工具&lt;/strong&gt;: &lt;code&gt;update_min_qty.py&lt;/code&gt;用于更新最小下单量数据，确保交易模拟的真实性；&lt;code&gt;check_extra_data_source.py&lt;/code&gt;用于验证外部数据源配置的可用性。    - &lt;strong&gt;统一配置&lt;/strong&gt;: &lt;code&gt;config.py&lt;/code&gt;作为核心全局配置入口，集中管理数据路径、回测时间、策略参数、交易费用等。 - &lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：    - &lt;strong&gt;数据更新&lt;/strong&gt;: 首次全量更新数据可能较慢，且需确保&lt;code&gt;config.py&lt;/code&gt;中的API凭证和本地路径配置正确。    - &lt;strong&gt;内存控制&lt;/strong&gt;: &lt;code&gt;MAX_CPU_CORE_NUM&lt;/code&gt;需要根据计算机性能调整，避免爆内存。    - &lt;strong&gt;时间戳&lt;/strong&gt;: &lt;code&gt;end_date&lt;/code&gt;为左闭右开，推荐精确到小时的写法，避免23:00被排除。 ## 💡 落地与行动指南 (Actionable Takeaways) - 利用&lt;code&gt;config.py&lt;/code&gt;集中配置策略参数，尤其是&lt;code&gt;factor_list&lt;/code&gt;和&lt;code&gt;filter_list&lt;/code&gt;，快速测试不同的因子组合和过滤规则。对于多参数因子，采用元组&lt;code&gt;('FactorName', True, (param1, param2), weight)&lt;/code&gt;形式传入，提升因子可配置性。 - 在因子开发时，优先利用框架的&lt;code&gt;extra_data_dict&lt;/code&gt;和&lt;code&gt;data_source_dict&lt;/code&gt;机制引入外部数据，避免手动合并数据帧，并确保在&lt;code&gt;core/data_bridge.py&lt;/code&gt;中实现对应的&lt;code&gt;load_xxx&lt;/code&gt;函数，保持数据流清晰。 - 对于需要进行参数优化的策略，使用&lt;code&gt;param_search.py&lt;/code&gt;（或带择时的&lt;code&gt;param_search_with_timing.py&lt;/code&gt;）构造参数网格进行批量回测，并通过配置&lt;code&gt;MAX_CPU_CORE_NUM&lt;/code&gt;启用并行计算，加速遍历过程。同时，善用&lt;code&gt;backtest_multi_equity.py&lt;/code&gt;进行多空分离分析，快速评估中性策略的多空结构表现。&lt;/h2&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76819</guid>
+      <pubDate>Mon, 09 Mar 2026 13:26:27 +0800</pubDate>
     </item>
     <item>
       <title>量化金融事件驱动策略：定义、检验、提纯与冲击收益识别</title>
@@ -4532,133 +4578,6 @@ AI助手（被戏称为“龙虾”）在量化交易研究中的应用日益广
 </description>
       <guid isPermaLink="true">/Users/ben/Downloads/转录内容/普通音视频/xbx分享会/26分享会-股票框架船队-学废菌：A股旗舰策略与新框架使用指南.mp4</guid>
       <pubDate>Thu, 05 Mar 2026 22:27:43 +0800</pubDate>
-    </item>
-    <item>
-      <title>Easy XT回测框架：Python量化交易的轻量级解决方案与实战解析</title>
-      <link>https://www.bilibili.com/video/BV1k8PrzmEzN</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1k8PrzmEzN"&gt;EasyXT：面向Python量化交易者的轻量级回测引擎&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Easy XT 回测框架 - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：Easy XT回测框架旨在为Python量化交易者提供一个轻量级、易扩展的解决方案，通过智能数据处理、完整交易模拟及全面性能分析，解决传统回测框架痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：DuckDB本地数据库、XunTou QMT历史数据、Tushare在线API（用于补充数据）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：详细交易记录、持仓变化、资金流水、总收益率、年化收益率、最大回撤、波动率、夏普比率、卡尔玛比率等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;划点&lt;/strong&gt;: 订单执行价格与预期价格差异导致的交易成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;夏普比率&lt;/strong&gt;: 衡量每单位风险带来的超额回报的风险调整后收益指标。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;卡尔玛比率&lt;/strong&gt;: 年化收益率除以最大回撤绝对值，评估策略的风险承受能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：策略开发与回测执行&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将量化策略快速编码并运行回测，获取初步性能评估。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 &lt;code&gt;Easy XT&lt;/code&gt; 框架，具备Python基础及量化策略思路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[策略定义]&lt;/strong&gt;：继承框架提供的 &lt;code&gt;StrategyBase&lt;/code&gt; 类（或 &lt;code&gt;FactorsStrategyBase&lt;/code&gt; 用于因子策略）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[选股逻辑实现]&lt;/strong&gt;：在继承类中实现 &lt;code&gt;select_stocks&lt;/code&gt; 方法，定义标的筛选规则。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[权重分配实现]&lt;/strong&gt;：实现 &lt;code&gt;get_target_weights&lt;/code&gt; 方法，设定选中股票的目标持仓权重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[调仓频率设定]&lt;/strong&gt;：实现 &lt;code&gt;get_rebalance_states&lt;/code&gt; 方法，确定策略执行调仓的交易日。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：多数据源智能管理与容错&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：确保回测数据的完整性、可靠性，并自动处理数据缺失或源不可用情况。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：配置 &lt;strong&gt;DuckDB&lt;/strong&gt; 本地数据库路径、 &lt;strong&gt;XunTou QMT&lt;/strong&gt; 数据路径，或获取 &lt;strong&gt;Tushare&lt;/strong&gt; API访问权限。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[数据源优先级]&lt;/strong&gt;：框架按优先级顺序 &lt;code&gt;DuckDB&lt;/code&gt; -&amp;gt; &lt;code&gt;XunTou QMT&lt;/code&gt; -&amp;gt; &lt;code&gt;Tushare&lt;/code&gt; 获取数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[数据缺失补全]&lt;/strong&gt;：若调仓日某股票数据缺失，自动查找最近一个交易日价格进行补足。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[数据源切换]&lt;/strong&gt;：当一个数据源（如 &lt;strong&gt;DuckDB&lt;/strong&gt;）暂时不可用时，框架自动切换至下一个可用数据源（如 &lt;strong&gt;QMT&lt;/strong&gt; 或 &lt;strong&gt;Tushare&lt;/strong&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[日期格式处理]&lt;/strong&gt;：自动处理多种日期输入格式以避免错误。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 3：真实交易环境模拟配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：精确模拟实盘交易中的现实成本及市场异常，提升回测结果的准确性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：明确策略的初始资金、佣金比率、滑点大小等交易参数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[资金设定]&lt;/strong&gt;：指定回测的 &lt;code&gt;初始资金&lt;/code&gt; 量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[佣金设置]&lt;/strong&gt;：设定 &lt;code&gt;佣金比例&lt;/code&gt;（例：万分之三）以模拟交易费用扣除。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[滑点配置]&lt;/strong&gt;：设定 &lt;code&gt;划点大小&lt;/code&gt;（例：1‰）以模拟订单执行价差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[异常情况处理]&lt;/strong&gt;：框架自动模拟并妥善处理股票 &lt;code&gt;涨跌停板&lt;/code&gt;、&lt;code&gt;临时停牌&lt;/code&gt; 等市场异常情景。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[交易记录]&lt;/strong&gt;：框架详细记录所有 &lt;code&gt;交易记录&lt;/code&gt;、&lt;code&gt;持仓变化&lt;/code&gt; 及 &lt;code&gt;资金流水&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;初始资金&lt;/strong&gt;：策略回测的起始资本 -&amp;gt; 直接影响资金管理和收益计算的基准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;佣金比例&lt;/strong&gt;：交易过程中扣除的手续费率 -&amp;gt; 直接影响每次交易的净成本和策略盈利能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;划点大小&lt;/strong&gt;：模拟订单执行价格与预期价格的差异幅度 -&amp;gt; 影响实际成交价位及策略最终收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据源优先级设置&lt;/strong&gt;：决定框架获取历史数据时 &lt;strong&gt;DuckDB&lt;/strong&gt;、&lt;strong&gt;XunTou QMT&lt;/strong&gt;、&lt;strong&gt;Tushare&lt;/strong&gt; 的查询顺序 -&amp;gt; 确保数据获取效率与完整性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;忽略真实交易成本&lt;/strong&gt;: 不考虑佣金、滑点会导致回测结果与实盘表现显著偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据质量不佳&lt;/strong&gt;: 使用未经清洗、对齐或复权信息缺失的数据源，将严重影响回测结果的有效性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缺乏市场异常处理&lt;/strong&gt;: 未能有效模拟涨跌停、停牌等情况，策略在真实市场中可能面临不可预见的风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;利用DuckDB本地化加速&lt;/strong&gt;: 将历史行情数据存储于 &lt;strong&gt;DuckDB&lt;/strong&gt; 本地数据库，显著缩短回测时间（2023年A股全年数据约1-2分钟）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;启用增量更新&lt;/strong&gt;: 在策略微调或少量数据更新时，利用增量更新功能，避免全量重算，大幅提升迭代效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;简化策略开发流程&lt;/strong&gt;: 继承 &lt;code&gt;StrategyBase&lt;/code&gt; 仅需关注 &lt;code&gt;select_stocks&lt;/code&gt;、&lt;code&gt;get_target_weights&lt;/code&gt;、&lt;code&gt;get_rebalance_states&lt;/code&gt; 核心逻辑，快速将想法代码化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1k8PrzmEzN</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/7931f785aee120aafa6301a1578d9ace334db39c.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 05 Mar 2026 15:26:49 +0800</pubDate>
-    </item>
-    <item>
-      <title>从二分法到全天候：基于路径动量与因子对齐的A股宏观资产轮动策略升级</title>
-      <link>https://bbs.quantclass.cn/thread/76747</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76747"&gt;卖铲铲选股策略（二）：HALO资产的股债商金轮动——A股版全天候策略&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[宏观资产轮动, 路径动量, 因子对齐, A股全天候]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过将A股行业映射为四大宏观资产并匹配专属选股因子，构建高稳定性的“A股版全天候”策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：传统的“进攻-防御”二分法在商品大年（2021）或多主线并行的牛市（2025）中存在严重结构性缺陷，导致策略收益严重跑输大盘。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：市场真实结构接近桥水全天候模型（成长、利率、通胀、避险），将商品强行归入进攻篮子并使用小市值因子选股，背离了资产的定价本质。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了单一因子在所有市场环境下的普适性，强调资产分类的粗糙度直接决定了策略稳定性的上限。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：将HALO资产拆分为股票、债券、商品、黄金四类。利用“路径动量”进行循环赛打分，锁定当前最强宏观资产类别。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：核心增量在于&lt;strong&gt;“因子对齐”&lt;/strong&gt;——不同资产匹配不同因子：股票类用市值（Size），债券类用红利（Dividend），商品类用动量（Momentum），黄金类用市值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用申万二级行业作为底层资产，使用路径动量算法（Path Momentum）评估趋势的平滑度与强度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：通过四资产轮动，显著提升了2021年和2025年等复杂行情下的策略稳定性和净值曲线表现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：在Python实现中，通过 &lt;code&gt;get_rank_direction&lt;/code&gt; 函数动态定义不同资产的排序逻辑（ascending/descending），并利用 Pandas 的 &lt;code&gt;groupby().apply()&lt;/code&gt; 实现了异构因子的统一排名计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈】&lt;/strong&gt;：基于申万二级行业分类、因子库（市值、股息率、Ret）的向量化处理框架。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[因子对齐]：在多资产策略中，必须根据资产属性（如通胀驱动 vs 利率驱动）切换底层选股因子，而非全局通用。&lt;/li&gt;
-&lt;li&gt;[逻辑升级]：开发基于“路径动量”的轮动模块，通过循环赛打分机制（Tournament Scoring）提升资产切换的信号质量。&lt;/li&gt;
-&lt;li&gt;[架构调整]：将行业轮动策略由简单的二元分类升级为模拟宏观四象限的资产配置框架。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76747</guid>
-      <pubDate>Thu, 05 Mar 2026 03:54:36 +0800</pubDate>
     </item>
   </channel>
 </rss>
