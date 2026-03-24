@@ -7,7 +7,140 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Mar 2026 09:07:47 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 22:52:16 +0000</lastBuildDate>
+    <item>
+      <title>探秘深度学习金融预测：多模型夏普比率与稳健性实证</title>
+      <link>https://www.bilibili.com/video/BV1ATQzBkE3s</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ATQzBkE3s"&gt;别被大模型忽悠了！牛津大学15年跨资产回测：打败Transformer的竟然是它？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 金融市场的“古怪脾气”如何挑战传统预测模型，深度学习能否驯服？&lt;/li&gt;
+&lt;li&gt;💡 评估金融模型，为何不能只看收益，风险调整后的表现（如夏普比率）才是核心？&lt;/li&gt;
+&lt;li&gt;🚀 在多变且高噪声的金融环境中，何种深度学习架构能实现持续稳健的超额收益？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 金融数据复杂性：噪音与非线性挑战&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;金融数据特性&lt;/strong&gt;: 金融时间序列数据本质上是“脾气古怪的家伙”，表现为高噪声、弱信号，且市场环境非平稳（脾气老变）。这意味着模型不仅要从混乱中识别经济信号，还需适应市场变化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统模型局限&lt;/strong&gt;: 传统的线性模型在这种复杂且非线性的金融环境下往往力不从心。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 深度学习模型选型与实证：稳健性超越单一高收益&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;评估体系核心&lt;/strong&gt;: 研究超越单一收益指标，以&lt;strong&gt;夏普比率&lt;/strong&gt;（风险调整后收益）为核心，辅以平均回报、统计显著性、下行风险、交易成本和模型稳定性等多维度评价体系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据环境&lt;/strong&gt;: 采用15年（2010-2025）多资产类别（债券、商品、能源、外汇、股指）期货和货币数据集，收益分布“肥尾”、波动率聚集，非正态分布，对模型鲁棒性提出高要求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型表现趋势&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非线性模型优势&lt;/strong&gt;: 各类RNN、Transformer变体普遍强于简单线性模型，尤其长期表现更稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;门控与结构化表示&lt;/strong&gt;: VLSTM、L-Patch TST、TFT等结合了门控机制和结构化表示的模型，不仅高收益，且表现更稳定，不易受市场风格切换影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态空间模型&lt;/strong&gt;: Mamba系列表现“随缘”，波动较大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformer分块&lt;/strong&gt;: Patch TST单独用效果一般，但与LSTM结合后（L-Patch TST）性能显著提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XLSTM及其变体&lt;/strong&gt;: XLSTM、VXLSTM、PSLSTM在性能和稳定性之间取得良好平衡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全样本期（2010-2025）最佳&lt;/strong&gt;: &lt;strong&gt;VLSTM&lt;/strong&gt;模型综合表现最佳，年化回报近24%，夏普比率高达2.39，统计显著。其次是L-Patch TST和TFT。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;优先考虑具有门控机制或结构化表示的深度学习模型&lt;/strong&gt;（如VLSTM, L-Patch TST, TFT），而非仅追求短期高收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注重模型在多时间段及极端市场条件下的“下行风险控制”能力&lt;/strong&gt;，而非仅关注平均回报。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结合多指标（夏普比率、最大回撤、卡玛比率）评估模型&lt;/strong&gt;，以确保收益的稳健性和可持续性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;避免只看线性模型&lt;/strong&gt;: 线性模型在金融复杂环境下通常力不从心，难以持续领先。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;警惕单一指标&lt;/strong&gt;: 单看收益高低不足以评估模型优劣，必须结合风险调整后的表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并非所有高级模型都有效&lt;/strong&gt;: Mamba等模型表现波动大，单纯Transformer分块模型效果不佳，需谨慎选择和组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “金融数据就像个脾气古怪的家伙，噪声特别大，信号又弱得可怜，而且这脾气还老变。”&lt;/li&gt;
+&lt;li&gt;💬 “我们不能只看谁赚得多，还得看赚得稳不稳，风险控制得好不好。”&lt;/li&gt;
+&lt;li&gt;💬 “高夏普比率的背后，是实实在在的、持续的超额收益能力。”&lt;/li&gt;
+&lt;li&gt;💬 “在金融这种复杂多变的领域，模型的稳定性非常重要。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ATQzBkE3s</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/f01041fe80ba001b71f4a8147a240f77073d22e8.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 24 Mar 2026 19:01:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>QMT量化交易实操手册：从Python框架搭建到自动化策略上线</title>
+      <link>https://www.bilibili.com/video/BV1epQzBaEgr</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1epQzBaEgr"&gt;量化交易小白必看：QMT Python API零基础入门指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ QMT (Quantitative Master Trader) - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 C++ 封装的 Python API 实现的高性能事件驱动架构，支持获取数据与执行下单的毫秒级响应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：实时行情数据（Tick/K线）、历史行情数据、股票池（Universe）及资金账户状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化交易委托指令（Order）、策略运行日志及回测绩效分析报告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Init函数&lt;/strong&gt;：策略生命周期内仅执行一次的初始化配置环节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HandleBar函数&lt;/strong&gt;：策略的核心循环体，按 K 线周期或 Tick 数据驱动重复调用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ContextInfo&lt;/strong&gt;：贯穿策略生命周期的全局对象，充当数据存储容器与 API 调用接口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：策略初始化配置 (Init Phase)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：确立策略运行的基础环境与静态参数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已开通 QMT 权限并配置好 Python 编辑环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[定义函数]&lt;/strong&gt;：创建 &lt;code&gt;def init(ContextInfo):&lt;/code&gt; 函数体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[设置股票池]&lt;/strong&gt;：通过 &lt;code&gt;ContextInfo.set_universe(['代码.市场'])&lt;/code&gt; 指定交易对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[全局变量初始化]&lt;/strong&gt;：在 &lt;code&gt;ContextInfo&lt;/code&gt; 对象上挂载自定义属性（如 &lt;code&gt;ContextInfo.count = 0&lt;/code&gt;）以实现跨函数数据共享。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：交易逻辑实现与信号驱动 (HandleBar Phase)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实时/回测处理行情并根据逻辑触发买卖指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[逻辑入口]&lt;/strong&gt;：创建 &lt;code&gt;def handlebar(ContextInfo):&lt;/code&gt; 函数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据调取]&lt;/strong&gt;：使用 &lt;code&gt;ContextInfo.get_market_data()&lt;/code&gt; 获取当前或历史价格、成交量等指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[条件判断]&lt;/strong&gt;：编写技术指标触发逻辑（如均线金叉、MACD 信号）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指令发送]&lt;/strong&gt;：调用 &lt;code&gt;order_lots&lt;/code&gt; 或 &lt;code&gt;passorder&lt;/code&gt; 函数执行具体下单动作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：历史回测与绩效评估&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在模拟环境中验证策略的历史有效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[参数设定]&lt;/strong&gt;：在模型研究界面设置回测时间段、初始资金、滑点及手续费率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[启动回测]&lt;/strong&gt;：运行模型，系统将模拟逐 K 线驱动 &lt;code&gt;handlebar&lt;/code&gt; 运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[报告分析]&lt;/strong&gt;：审阅生成的夏普比率、最大回撤及胜率等绩效指标。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[QuickTrade 模式]&lt;/strong&gt;：底层下单触发机制 -&amp;gt; 设置为 &lt;code&gt;1&lt;/code&gt; 或 &lt;code&gt;2&lt;/code&gt; 可绕过“K线结束才发单”的保守机制，实现信号即时下单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[ContextInfo 状态回滚]&lt;/strong&gt;：底层数据管理机制 -&amp;gt; 需注意非全局变量在切换 K 线时会自动恢复至上一根状态，保存跨期数据需使用全局变量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;编码强制要求&lt;/strong&gt;：Python 代码开头必须声明 &lt;code&gt;# coding:gbk&lt;/code&gt;，否则中文注释或字符串会导致脚本运行异常或乱码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号有效性判断&lt;/strong&gt;：默认模式下，只有在 &lt;code&gt;is_last_bar&lt;/code&gt; 为真且该 K 线确定结束后产生的信号才被视为有效。避免在历史 K 线处理中触发误下单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能优化&lt;/strong&gt;：利用 QMT 自带的 &lt;code&gt;TA-lib&lt;/code&gt; 或 &lt;code&gt;Numpy&lt;/code&gt; 进行向量化计算，显著提升大规模数据回测速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1epQzBaEgr</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/ce39f7772bfe142b8ff2b204c0e59ec697442884.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 24 Mar 2026 18:03:03 +0800</pubDate>
+    </item>
     <item>
       <title>ZERO DataCenter：基于DDD架构与Polars的高性能量化数据中枢实现</title>
       <link>https://bbs.quantclass.cn/thread/77108</link>
@@ -4484,86 +4617,6 @@ def data_process(df):
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1EjP6zBEdd</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/cde7412cde86f82b85d44fe55b055d922ec91dc5.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 07 Mar 2026 11:34:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>绕过社区限制：基于Cloudflare与Gmail API的自动化邮件接收与Codex访问方案</title>
-      <link>https://bbs.quantclass.cn/thread/76780</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76780"&gt;openclaw 白嫖不能少了我：基于 Cloudflare + Gmail 的免费方案&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Gmail API, Cloudflare Email Routing, OAuth 2.0, 自动化集成]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Cloudflare邮件转发与Gmail API授权实现验证邮件的自动抓取，绕过特定社区注册限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决由于缺乏特定论坛账号（如Linux Do）导致的第三方服务接入限制，并通过自动化手段取代繁琐的手动邮件验证流程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Cloudflare Email Routing (邮件网关) -&amp;gt; Gmail (存储与API网桥) -&amp;gt; Google Cloud Console (OAuth 认证管理)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;授权持久化&lt;/strong&gt;：采用 OAuth 2.0 桌面端凭据流程，初次授权后将权限映射至本地 &lt;code&gt;token.json&lt;/code&gt;，实现后续调用的静默鉴权。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;API 自动化流&lt;/strong&gt;：利用 Gmail API 检索特定前缀或域名的转发邮件，实现从“域名捕获”到“程序读取”的闭环。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;域名选型&lt;/strong&gt;：明确建议避开 .cn 域名，以防止 DNS 解析或国际邮件路由受阻。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;环境依赖&lt;/strong&gt;：强调了对 Google API 访问的稳定性需求，需在具备特定网络条件下维持 OAuth 令牌的有效性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;注册安全&lt;/strong&gt;：提示合理控制并发访问频率，以规避 Google 侧的 API 调用配额限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自动化账号矩阵构建&lt;/strong&gt;：结合 Cloudflare 的 Catch-all 功能与 Gmail API，可快速低成本地实现支持海量账号自动激活的工程化方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凭据管理实践&lt;/strong&gt;：在 Python 工程中集成 &lt;code&gt;google-auth-oauthlib&lt;/code&gt; 库，参照文中 credentials/token 机制优化长时间运行任务的身份验证流程。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76780</guid>
-      <pubDate>Sat, 07 Mar 2026 10:00:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘进阶指南：硬件选型、云端部署与AI时代的策略重构</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-07&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-07&amp;amp;talker=57784510736@chatroom"&gt;2026-03-07_A旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;☁️ 云端还是本地？实盘服务器的权衡艺术&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;稳定性与成本的博弈&lt;/strong&gt;：云服务器（如阿里云无影）虽稳定且方便远程出差，但对于A股海量数据计算和选股框架来说，8核以上的配置成本昂贵，长期运行性价比不如家用小主机。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;券商限制的“潜规则”&lt;/strong&gt;：许多券商会封锁云服务器IP或绑定MAC地址。资深玩家的解决方案是修改虚拟机MAC地址和Hostname，或通过虚拟机技术绕过环境检测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化重启的重要性&lt;/strong&gt;：为了避免长久开机导致的连接问题，建议设置QMT每日定时自动重启，能有效提升实盘稳定性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💻 硬件武库：量化玩家的专业级配置建议&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回测机配置&lt;/strong&gt;：推荐“顶格”配置，如 AMD 9950x + 96G 内存。量化交易对多核性能和内存容量极其敏感，多进程运行能显著缩短等待时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘机选型&lt;/strong&gt;：Mac mini M4 或 M1 系列因其安静和能效比，常被作为实盘执行终端；但应避开无风扇的 MacBook Air，在高负荷运算下容易过热降频。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多账户隔离&lt;/strong&gt;：单台电脑运行多个QMT实例易发生端口和数据冲突。建议使用虚拟机（Windows Server）实现多账号独立运行，或通过魔改API接口实现分布式管理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI时代的策略论：逻辑重于操作&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI是代码放大器&lt;/strong&gt;：AI正在拉大“思路型选手”与平庸者之间的距离。复杂的代码实现（如魔改经典策略）现在可以交给AI分钟级完成，量化者的核心竞争力已转移到&lt;strong&gt;策略逻辑的推导&lt;/strong&gt;与&lt;strong&gt;市场洞察&lt;/strong&gt;上。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对抗过拟合&lt;/strong&gt;：判断一个高收益策略（如年化400%的香农策略）是否失效，不能简单归结为过拟合。关键看代码逻辑是否具有普适性。分散投资于多只股票（如10只以上）是过滤噪声、验证逻辑逻辑有效性的关键指标。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 深度金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“思路比操作更重要了。操作交给AI了。” —— &lt;strong&gt;红牛&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“AI只会拉大我和聪明人的差距，也会把我和真笨蛋的差距拉平。” —— &lt;strong&gt;黑黑夜夜&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“我感觉每天手搓观察实盘，理解策略的逻辑、选股买卖点，这样更能理解它。” —— &lt;strong&gt;Joe&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 资源链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76687"&gt;【无用天书卷】给爸爸们的威士基 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/69056"&gt;木木十三的量化实盘总结贴&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/10782"&gt;香农策略经典贴&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-07&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sat, 07 Mar 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
