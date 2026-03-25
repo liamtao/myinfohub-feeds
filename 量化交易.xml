@@ -7,7 +7,39 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Mar 2026 22:52:16 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2026 08:46:33 +0000</lastBuildDate>
+    <item>
+      <title>量化交易策略进阶：通过非均衡仓位分配实现收益提升与回撤降低</title>
+      <link>https://bbs.quantclass.cn/thread/77136</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77136"&gt;一键优雅地提升收益的同时还降低回撤&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[仓位梯度优化、定风波择时、非均衡资金分配、资金利用率]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过重构&lt;code&gt;scalein_targets&lt;/code&gt;参数实现资金前置分配，剔除低效offset以提升策略弹性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于择时策略中不同offset（偏置）对超额收益贡献不均的观察，将资金由开仓机会少、效率低的后端offset向高贡献的前端offset倾斜。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【仓位构建逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提效路径&lt;/strong&gt;：缩减满仓所需的offset数量。例如将5个offset的资金压缩至前3个完成（&lt;code&gt;[x, y, 1.0, 1.0, 1.0]&lt;/code&gt;），释放冗余资金。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;防回撤优化&lt;/strong&gt;：采用梯度分配模式（如 &lt;code&gt;[0.4, 0.75, 1.0, 1.0, 1.0]&lt;/code&gt;），实质为按40%、35%、25%比例分批建仓。这种非均衡分配在保持进攻性的同时，通过后续头寸平摊成本，降低全仓挂顶风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测与表现】&lt;/strong&gt;：通过对2014年至今的“小市值_周黎明”策略进行对比回测，优化后的非均衡分配方案在年化收益与回撤控制上均显著优于官方提供的平衡、激进及疯狂版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;配置重构&lt;/strong&gt;：在策略代码的择时逻辑部分，将&lt;code&gt;scalein_targets&lt;/code&gt;参数由等权或线性分配改为梯度递减分配，建议尝试 &lt;code&gt;[0.4, 0.75, 1.0, 1.0, 1.0]&lt;/code&gt; 方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;冗余剔除&lt;/strong&gt;：根据历史开仓频率统计，若后端offset利用率低于阈值，应果断通过参数设置将其资金权重归零，集中火力于高胜率区间。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77136</guid>
+      <pubDate>Tue, 24 Mar 2026 22:06:16 +0800</pubDate>
+    </item>
     <item>
       <title>探秘深度学习金融预测：多模型夏普比率与稳健性实证</title>
       <link>https://www.bilibili.com/video/BV1ATQzBkE3s</link>
@@ -3157,6 +3189,58 @@
       <pubDate>Wed, 11 Mar 2026 21:37:34 +0800</pubDate>
     </item>
     <item>
+      <title>ETF三因子动量轮动策略复现与魔改：效率因子表现及回撤优化实践</title>
+      <link>https://bbs.quantclass.cn/thread/76849</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76849"&gt;ETF系列：7年17倍！基于选股框架实现ETF三因子动量轮动策略复现与魔改&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[ETF轮动策略, 三因子动量, 效率动量因子, 回撤优化, R2趋势过滤]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[复现ETF三因子动量策略并魔改，发现效率动量因子单独使用效果最佳，引入R2趋势过滤进一步优化。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于现有ETF框架复现并优化了包含乖离、斜率、效率三动量因子的轮动策略，旨在通过因子筛选和市场状态过滤提升收益并降低回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;乖离动量因子 (Bias Momentum)&lt;/li&gt;
+&lt;li&gt;斜率动量因子 (Slope Momentum)&lt;/li&gt;
+&lt;li&gt;效率动量因子 (Efficiency Momentum)&lt;/li&gt;
+&lt;li&gt;因子实现逻辑根据指定框架重写。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：文章未详述具体数据预处理细节，但隐含ETF日线数据用于计算动量因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原始三因子等权策略&lt;/strong&gt;：表现稳健，但每年最大回撤常超15%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单一因子有效性对比 (基准三因子策略)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;效率动量因子(Efficiency Momentum)作为排序因子时，年化收益率达44.13%，最大回撤-21.61%，显著优于乖离动量(14.54%)和斜率动量(29.57%)，且回撤水平与三因子组合(-21.56%)相当。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;魔改策略 (新增'R2_趋势_zscore' [(20, 250)]过滤因子)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;累积净值 17.57&lt;/li&gt;
+&lt;li&gt;年化收益 48.99%&lt;/li&gt;
+&lt;li&gt;最大回撤 -18.50%&lt;/li&gt;
+&lt;li&gt;年化收益/回撤比 2.65&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;：过滤因子的引入在大幅提升年化收益的同时，有效降低了最大回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：原始策略回撤较高，引入风险管理（如银华日利ETF）未见成效。魔改策略虽降低回撤，但需通过参数遍历验证其稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;基于Python复现文中提及的乖离、斜率、效率动量因子，并单独回测效率动量因子作为主排序因子的ETF轮动策略，对比其与多因子组合的性能差异。&lt;/li&gt;
+&lt;li&gt;在现有ETF轮动框架中，引入'R2_趋势_zscore'作为市场状态过滤因子，并针对参数&lt;code&gt;(20, 250)&lt;/code&gt;进行网格搜索或遗传算法优化，评估其在不同市场周期下的稳定性和鲁棒性。&lt;/li&gt;
+&lt;li&gt;分析效率动量因子在数学或统计上的独特优势，深挖其在不同ETF类别或市场环境下的适用性边界。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76849</guid>
+      <pubDate>Wed, 11 Mar 2026 13:16:43 +0800</pubDate>
+    </item>
+    <item>
       <title>Windows 完美部署 OpenClaw 指南：基于 WSL2 打造高权限本地 AI 智能体</title>
       <link>https://bbs.quantclass.cn/thread/76844</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76844"&gt;windows上部署openclaw的经验和心得&lt;/a&gt;&lt;/p&gt;
@@ -4533,90 +4617,6 @@ def data_process(df):
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76785</guid>
       <pubDate>Sat, 07 Mar 2026 16:08:48 +0800</pubDate>
-    </item>
-    <item>
-      <title>深度解析“阴阳鱼”量化策略：基于硬逻辑的动态敞口管理与实盘避坑指南</title>
-      <link>https://bbs.quantclass.cn/thread/76783</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76783"&gt;新旗舰策略适度理解（一）收益提升与回撤增大的基本原理&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[阴阳鱼策略, 动态敞口管理, 非对称再平衡, 实盘初始化优化]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过非对称Rebalance优化多空敞口实现收益跃迁，并解决实盘数据对齐痛点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha源于“物理意义的硬逻辑”而非单纯统计规律。核心在于&lt;strong&gt;非对称Rebalance机制&lt;/strong&gt;：在认定策略有效（多空净值共振上涨）的前提下，通过减少再平衡频率来维持优势敞口。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：采用&lt;strong&gt;二次敞口约束&lt;/strong&gt;设计，低杠杆时收紧敞口以降低风险，高杠杆时允许敞口随盈利自然扩张（符合-0.1至0.3的敞口边界）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：模拟盘半年3倍收益，选币20个以分散风险。表现特征为收益曲线斜率大幅提升，但最大回撤由于特定情景下的敞口暴露而同步略微增大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：主要风险点在于市场分歧且多空双亏的极端情况（空头暴涨亏损且多头下跌亏损），此时非平衡态会导致亏损放大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：实盘初始化建仓时，因各币种K线数据起始点不一致或数据中心返回长度限制导致的索引报错。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：引入 &lt;code&gt;init_time&lt;/code&gt; 参数显式定义实盘资金分配时间点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：实盘 &lt;code&gt;init_time&lt;/code&gt; 必须晚于数据中心获取的最早数据时间。若报错，需根据提示时间顺延1小时（+1h）或1天，以确保回测逻辑与实盘建仓数据对齐。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;对冲回撤&lt;/strong&gt;：针对多空双亏情景设计针对性优化，如引入大小市值因子收益差作为后置过滤，在大市值绝对强势时强制空仓，以降低最大回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态敞口设计&lt;/strong&gt;：摒弃绝对的多空平衡（Delta Neutral），根据各子策略的物理逻辑设计非对称的再平衡逻辑，博取beta之外的超额收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;环境一致性检查&lt;/strong&gt;：实盘部署前务必对比 &lt;code&gt;仓位比例-原始.csv&lt;/code&gt;，确保实盘初始化参数与子策略历史回测数据的衔接点一致。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76783</guid>
-      <pubDate>Sat, 07 Mar 2026 12:43:55 +0800</pubDate>
-    </item>
-    <item>
-      <title>拒绝正态分布幻觉：量化交易的尾部风险建模与系统生存指南</title>
-      <link>https://www.bilibili.com/video/BV1EjP6zBEdd</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1EjP6zBEdd"&gt;如何在厚尾世界中构建一个可生存的交易系统&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么百万分之一的极端风险，在金融市场里却像“家常便饭”一样频繁？&lt;/li&gt;
-&lt;li&gt;💡 经典的凯利公式在面对“后尾分布”时，为何会变成让账户归零的加速器？&lt;/li&gt;
-&lt;li&gt;🚀 在不确定的市场中，量化系统的终极目标是追求收益最大化，还是确保“不被灭绝”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 碎裂的正态分布：识破市场的“后尾”真相&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;正态分布的致命幻觉&lt;/strong&gt;: 传统模型假设5倍标准差事件概率仅为百万分之六，但现实中闪崩与巨震频率远超预期，金融市场的“尾巴”比想象中厚得多。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;T分布的概率跨度&lt;/strong&gt;: 在自由度为4的T分布下，极端亏损概率从正态分布的 10^-7 飙升至 10^-3，差距达1万倍。黑天鹅在统计上并非意外，而是必然。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;幂律衰减的顽固性&lt;/strong&gt;: 尾部风险不按指数速度消失，而是按幂律缓慢衰减，这意味着大额亏损的发生概率随幅度增加而下降速度极慢，风险极其顽固。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 极端风险防御：从硬止损到尾部对冲&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;设定硬止损 (Hard Stop)&lt;/strong&gt;: 基于可承受底线 L 和极端跌幅预期 WorstCase 反推最大仓位 F，实行刚性约束。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尾部压力测试&lt;/strong&gt;: 模拟波动率放大、相关性归一、流动性枯竭等极端场景，穿透回测数据的虚假安全感。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实施尾部对冲&lt;/strong&gt;: 通过长波动率策略（如买入跨式期权）或持有深度虚值期权，为账户购买“灾难保险”。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕避险资产失效。在极端时刻，资产间的负相关性可能消失，相关性趋近于1会导致分散投资策略彻底失效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🏗️ 进化式生存：量化交易的七层闭环体系&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;动态闭环而非静态因子&lt;/strong&gt;: 真正的量化系统需涵盖信号生成、贝叶斯更新、状态识别、收益分布构造、仓位优化、执行模型及资本更新七大层级。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;生存第一原则&lt;/strong&gt;: 必须引入生存概率约束，而非单纯追求对数财富最大化。在存在“跳跃风险”的市场中，必须显著降低仓位以应对非连续性冲击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实时监控与漂移检测&lt;/strong&gt;: 系统必须能检测模型残差与状态漂移，确保在市场逻辑发生根本改变时及时强制停机，保住本金以等待复利机会。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “你交易的是分布，而不是预测值。”&lt;/li&gt;
-&lt;li&gt;💬 “生存是第一位的。单纯追求期望最大化，可能会让你在不知不觉中走向破产。”&lt;/li&gt;
-&lt;li&gt;💬 “量化交易本质上是一套在充满不确定性的环境中，通过不断递归更新进行决策的生存系统。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1EjP6zBEdd</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/cde7412cde86f82b85d44fe55b055d922ec91dc5.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 07 Mar 2026 11:34:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
