@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 27 Mar 2026 00:04:58 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 08:41:43 +0000</lastBuildDate>
     <item>
       <title>DE Shaw实战启示：穿透组合优化器的直觉偏差与约束陷阱</title>
       <link>https://www.bilibili.com/video/BV1iGXnBJENa</link>
@@ -3461,6 +3461,43 @@
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>深度拆解FCFFEV价值因子：Top-N直选胜过行业配额，择时比因子叠加更有用</title>
+      <link>https://bbs.quantclass.cn/thread/76906</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76906"&gt;【A策略】2026Q1凯师傅（CashFlow）适度理解&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[FCFFEV、行业中性化证伪、因子稀释、择时风险管理、反转因子属性]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：FCFFEV是隐含反转特性的强单因子，任何行业中性化或量价叠加均会稀释Alpha，择时是唯一正向干预手段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在FCFFEV因子测试中，Top-N直接选股（Original）在12组对照实验中全部击败行业配额（Neutralization）模式，年化超额领先约6%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：FCFFEV是一个“个股级Alpha”而非“行业级Alpha”。行业配额引入了大量为了凑数而入选的劣质股票。此外，FCFFEV公式分母包含股价，天然具有反转特性，这解释了为何其与价格反转因子高度正相关（0.94-0.99）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“行业中性化必然能提升基本面策略稳健性”的惯性思维。在强Alpha因子面前，粗糙的行业筛选规则会产生系统性负向干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：筛选“单位企业价值创造现金流最多”的公司，逻辑支点在于市场对高质量现金流公司的定价修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：FCFFEV (TTM) 排序；多因子合成采用截面排名加权（Ranking Based），但实验证明单因子效果最优。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：剔除银行/非银金融/房地产行业；过滤连续3年自由现金流为负的标的；换仓频率3D/5D（由于因子更新慢，两者无显著差异）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测表现】&lt;/strong&gt;：裸跑年化约24-28%，最大回撤36-43%。叠加“定风波”择时后，年化维持在21-25%，但最大回撤压缩至14-20%，收益回撤比大幅提升至1.2-1.7。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：在风格极度错位的年份（如2017白马行情、2019结构性牛市）存在阶段性失效，尤其是高集中度（选5只）时回撤压力剧增。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【策略架构优化】&lt;/strong&gt;：对于FCFFEV类强单因子，应放弃行业配额/中性化处理，坚持Top-N全局选股以保留核心Alpha。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风控路径转向】&lt;/strong&gt;：不要试图通过叠加量价因子（动量或反转）来平滑收益曲线，这只会稀释信号；应将研发重点转向“择时层（空仓逻辑）”，以应对风格切换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子补充方向】&lt;/strong&gt;：若需增强，应寻找与“价格”无关的辅助维度（如现金流质量稳定性或财报质量），而非基于涨跌幅的量价因子。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76906</guid>
+      <pubDate>Fri, 13 Mar 2026 21:12:54 +0800</pubDate>
+    </item>
+    <item>
       <title>A股午盘异动深度解析：从午盘糖因子构建到日内动量过滤策略实操</title>
       <link>https://bbs.quantclass.cn/thread/76904</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76904"&gt;午盘糖？A股午间这个「神秘时段」可以捡钱！&lt;/a&gt;&lt;/p&gt;
@@ -4595,43 +4632,6 @@ def data_process(df):
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76825</guid>
       <pubDate>Mon, 09 Mar 2026 21:32:02 +0800</pubDate>
-    </item>
-    <item>
-      <title>2026量化选股全体系：V5财务引擎、千因子库与工业化策略挖掘指南</title>
-      <link>https://bbs.quantclass.cn/thread/76823</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76823"&gt;【千因子】牛马三期全部帖子目录 —— 不知道看哪篇？看这里&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[财务引擎V5、PIT数据语义、截面因子前置过滤、分域选股、批量因子分析]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：深度集成V5财务引擎与千因子库，构建从底层PIT数据对齐到工业化因子评估的量化闭环。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：提出分域选股逻辑（利用市场状态/概念指数划分强势区间）与指数轮动策略（年化38%，回撤比接近2）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：整合1019个因子，包含260个基于V5引擎的财务因子（如杜邦分析链式调用）及153个标准化截面因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：强调PIT（Point-In-Time）语义准确性，通过对比中国海油案例证明错误财报日期对回测的误导；针对不同行业（如银行vs制造业）采用非对称NaN处理策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：探讨框架默认过滤“下日涨停”对截面选股结论的隐性影响，主张将过滤逻辑从框架层剥离至策略层显式执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决旧框架因子兼容性差、财务因子逻辑复杂（动辄13行代码）及大规模因子分析耗时长的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：V5财务引擎采用4视图×6方法的链式API减少18%代码量；引入HOF高阶函数将逻辑压减至3行；通过缓冲层（Buffer Layer）实现旧因子无痛迁移。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：开发批量因子分析工具1.7.2，支持多线程并行计算IC/ICIR/分组收益，并具备断点续算与Excel自动汇总功能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：V5引擎相比22-24版框架具备更高的计算密度与更简洁的表达语法，且通过缓冲层实现了零成本切换。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子挖掘工程化&lt;/strong&gt;：利用MI+IC热力图工具寻找因子的“最佳区间”（如市值因子的非线性特征），而非单纯依赖线性相关性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据底座升级&lt;/strong&gt;：在回测中强制核查财报发布日期语义，使用V5引擎的QuarterDataFrame解决流量（TTM）与存量（Raw）数据的对齐逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码重构&lt;/strong&gt;：利用HOF高阶函数重写冗长的财务计算逻辑，将业务逻辑与数据索引分离，提升因子库的可维护性。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76823</guid>
-      <pubDate>Mon, 09 Mar 2026 19:52:48 +0800</pubDate>
     </item>
   </channel>
 </rss>
