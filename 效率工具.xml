@@ -7,7 +7,91 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 30 Mar 2026 09:31:05 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 23:12:33 +0000</lastBuildDate>
+    <item>
+      <title>Pretest：革新文本布局与渲染效率的TypeScript利器</title>
+      <link>https://www.bilibili.com/video/BV1JUXaBsEuN</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1JUXaBsEuN"&gt;Pretext 刚开源就冲上 16k Stars，前端文本排版还能这样做｜ 附开源应用&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Pretest - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：Pretest通过全TypeScript实现，在不触碰DOM的情况下，精确计算多行文本高度和换行位置，解决传统DOM测量导致的布局回流问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：文本内容、字体信息、容器宽度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：文本的准确行数、每行内容及总高度，支持多种语言和排版方向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DOM Reflow&lt;/strong&gt;：浏览器重新计算整个页面布局，开销巨大，影响性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Canvas.measureText&lt;/strong&gt;：利用Canvas API一次性测量每个词的宽度并缓存，避免DOM操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prepare&lt;/strong&gt;：Pretest的第一阶段，规范化空白字符、分词、合并标点、测量宽度并缓存到内存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Layout&lt;/strong&gt;：Pretest的第二阶段，每次resize时调用，纯算数运算，利用缓存宽度进行布局判断。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：虚拟化列表与瀑布流布局&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在虚拟列表、Canvas渲染或瀑布流布局中，提前高效获取卡片高度，避免DOM反复读写。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：需明确文本内容及容器宽度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[API调用]&lt;/strong&gt;：调用 &lt;code&gt;prepare&lt;/code&gt; 阶段进行文本预处理及宽度缓存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[API调用]&lt;/strong&gt;：在布局（如滚动、缩放）变化时，调用 &lt;code&gt;layout&lt;/code&gt; 阶段，利用缓存数据进行高度计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[判断显示]&lt;/strong&gt;：根据计算出的高度和位置，判断哪些卡片应显示在视口中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：响应式多栏布局与聊天气泡自适应&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实现文字实时重排的响应式多栏布局、聊天气泡紧密包裹文字，解决CSS布局溢出或留白问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：提供文字内容和可变容器（栏/气泡）宽度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[API调用]&lt;/strong&gt;：将文本内容输入Pretest，获取其在给定宽度下的行数与高度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[CSS集成]&lt;/strong&gt;：依据Pretest计算结果动态调整容器尺寸或进行分栏排版。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[动态适配]&lt;/strong&gt;：当屏幕大小、内容变化或输入文字时，实时调用Pretest重新计算并更新布局。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：简历生成器与多用途文档排版&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：开发支持实时排版、多主题、多语言、可调整边距/行高的文档生成器，例如简历、会议程、周报等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：前端框架（如React/Vue）、Pretest库、Markdown解析库（可选）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[内容输入]&lt;/strong&gt;：用户在编辑区输入文本内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Pretest计算]&lt;/strong&gt;：实时调用Pretest计算文本在预览区当前宽度下的布局。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[UI更新]&lt;/strong&gt;：根据Pretest结果更新预览页面，实现内容自适应填满布局。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[用户调整]&lt;/strong&gt;：支持用户调整页边距、行高、断间距，Pretest实时反馈排版效果。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;prepare&lt;/code&gt; 函数&lt;/strong&gt;：底层控制文本规范化、分词、标点合并及宽度测量与缓存 -&amp;gt; 影响后续布局计算的速度与精度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;layout&lt;/code&gt; 函数&lt;/strong&gt;：底层基于纯算数运算，利用&lt;code&gt;prepare&lt;/code&gt;阶段的缓存宽度，进行任意宽度下的行数和高度计算 -&amp;gt; 决定动态排版变化的响应速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;prepareTestFont&lt;/code&gt;&lt;/strong&gt;：当仅需要文本高度时调用 -&amp;gt; 优化性能，只获取必要信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;prepareWithSigmas&lt;/code&gt;&lt;/strong&gt;：当需要每一行具体内容时调用 -&amp;gt; 提供更详细的布局信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言支持&lt;/strong&gt;：支持从右向左书写的阿拉伯语、韩语等多种语言混排 -&amp;gt; 影响全球化应用场景的兼容性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DOM Reflow测量&lt;/strong&gt;：避免每次操作都触发强制布局，导致速度慢、开销大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Offscreen Canvas + Worker方案&lt;/strong&gt;：可能存在字体加载受限、兼容性不佳等问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一次性测量与缓存&lt;/strong&gt;：利用Pretest的Canvas.measureText机制，一次性测量并缓存词宽度，后续布局纯算数运算，极大提升效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精细化测试&lt;/strong&gt;：Pretest仓库包含7680个测试用例进行精度验证，可参考其测试方法保障自身应用精度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码简洁性&lt;/strong&gt;：学习Pretest的核心代码架构，实现高效且简洁的文本布局解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1JUXaBsEuN</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/960ef2396867cb786f2013cc40f0c12376abc26a.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 30 Mar 2026 21:02:57 +0800</pubDate>
+    </item>
     <item>
       <title>Notebook LM深度指南：新版功能、高效工作流与实战技巧全解析</title>
       <link>https://www.youtube.com/watch?v=_uXnyhrqmsU</link>
