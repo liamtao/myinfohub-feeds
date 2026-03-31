@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 30 Mar 2026 23:12:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 08:43:49 +0000</lastBuildDate>
     <item>
       <title>深度集成LLM的A股千因子量化平台：从因子库管理到AI自动化评估的全栈工程实践</title>
       <link>https://bbs.quantclass.cn/thread/77361</link>
@@ -3635,6 +3635,108 @@
       <pubDate>Tue, 17 Mar 2026 22:50:04 +0800</pubDate>
     </item>
     <item>
+      <title>浪淘沙填充策略回撤应对：多空混动与轮动优化，探寻量化投资圣杯</title>
+      <link>https://bbs.quantclass.cn/thread/76925</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76925"&gt;【我该如何进化之三】如何优雅地应对浪填最大回撤，魔改ZfMeanQ？反向浪填空填多？浪填多填空和空填多混动or轮动？浪填的圣杯？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子, 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[浪淘沙填充, 最大回撤, 策略优化, 多空混动, 轮动策略, ZfMeanQBias]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：针对浪淘沙策略最大回撤，通过多空混动与轮动实现全天候策略优化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;浪淘沙填充策略（多头为主）在25年8月创下新高后，随BTC市场暴跌，跌出历史最大回撤（-44.40%）。&lt;/li&gt;
+&lt;li&gt;原策略在下N形熊市（下跌反弹后跌更多）中，因“波动后置过滤”问题，连续多次抄底后继续暴跌，导致多头曲线大幅下降。&lt;/li&gt;
+&lt;li&gt;多填空策略在多头行情表现好，空填多策略在空头行情表现好，且两者在23年至今相关性低（0.1161），适合混动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;原浪淘沙策略存在两大波动后置过滤问题：1) 暴跌后波动性提升会抄底，反弹或继续暴跌未知，盈亏同源；2) 上涨后波动性下降降低仓位，收益严重下滑。&lt;/li&gt;
+&lt;li&gt;25年深熊市场（BTC从12.8w跌至7w左右）导致浪淘沙多头曲线连续三次遭遇下N形行情，策略的波动后置过滤问题一被连续触发，造成最大回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示单一策略在特定极端市场（如深熊）下的脆弱性，并促使对基于波动后置过滤的因子在不同市况下适应性的重新评估。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：通过混动（等权）或轮动（动态选择）不同市场偏好（多头或空头）的策略，能有效降低单一策略的最大回撤，提升全天候适应性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;浪淘沙多填空策略&lt;/strong&gt;：以波动后置过滤因子（ZfMeanQ或ZfMeanQBias）作为主体，填充纯空头策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浪淘沙空填多策略&lt;/strong&gt;：以空头策略（黄果树带后置过滤，可组合多个黄空）作为主体，填充纯多头策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;混动策略&lt;/strong&gt;：将多填空和空填多按一定比例（如0.5:0.5）进行等权组合，以实现收益平滑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轮动策略&lt;/strong&gt;：根据市场状况动态选择多填空、空填多或混动策略进行投资，旨在实现更优的风险调整收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ZfMeanQ因子&lt;/strong&gt;：计算振幅（(最高价-最低价)/开盘价）的N周期均值，并取其分位数排名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ZfMeanQBias因子（改造版）&lt;/strong&gt;：在ZfMeanQ基础上引入价格偏离度(bias = 收盘价/N周期均价)进行三段式调整：&lt;ul&gt;
+&lt;li&gt;Bias &amp;gt; &lt;code&gt;BIAS_UPPER_THRESHOLD&lt;/code&gt; (如1.0)：rank取最大值（如1.0）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;BIAS_LOWER_THRESHOLD&lt;/code&gt; (如0.8) &amp;lt; Bias &amp;lt;= &lt;code&gt;BIAS_UPPER_THRESHOLD&lt;/code&gt;：rank保持原值。&lt;/li&gt;
+&lt;li&gt;Bias &amp;lt;= &lt;code&gt;BIAS_LOWER_THRESHOLD&lt;/code&gt;：rank减半（&lt;code&gt;RANK_DISCOUNT_FACTOR&lt;/code&gt;，如0.5）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;文章实验发现，魔改ZfMeanQBias因子用于“多填空”有超额（尤其Bias&amp;gt;1时因子值为1的“暴力”设置），而“空填多”使用原ZfMeanQ效果更好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;回测使用2000u浪填精心随机数据，回测周期涵盖21年至今、23年至今、25年至今等不同阶段。&lt;/li&gt;
+&lt;li&gt;信号计算基于OHLC价格数据，并进行N周期均值计算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;原浪淘沙（多填空，ZfMeanQBias）25年至今&lt;/strong&gt;：净值1.32，最大回撤-44.40%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浪淘沙空填多（标准版，ZfMeanQ，带combine）25年至今&lt;/strong&gt;：净值2.22，最大回撤38%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;浪填混动（多填空ZfMeanQBias + 空填多ZfMeanQ标准版，0.5:0.5）25年至今&lt;/strong&gt;：净值1.9，最大回撤25%。21年至今最大回撤亦为25%，表现更稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手动模拟的轮动策略（25年至今）&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;多填空 vs 空填多：总收益313.98%，年化229.46%，最大回撤-32.17%。&lt;/li&gt;
+&lt;li&gt;空填多 vs 混动：总收益183.83%，年化140.01%，最大回撤-29.23%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;单一策略在特定极端市场（如深熊）下风险敞口大。&lt;/li&gt;
+&lt;li&gt;魔改ZfMeanQBias因子引入多参数可能导致过拟合。&lt;/li&gt;
+&lt;li&gt;手动模拟轮动策略未完全考虑交易费用和手续费，存在过拟合风险，实际效果可能难以复现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;现有量化框架（&lt;code&gt;MultiRotationStrategyOverride&lt;/code&gt;）不支持&lt;code&gt;group&lt;/code&gt;（策略组）间的轮动，仅支持&lt;code&gt;strategy&lt;/code&gt;（单一策略）间的轮动，限制了更灵活的策略组合配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;基于&lt;code&gt;MultiRotationStrategyOverride&lt;/code&gt;策略框架进行配置和扩展。&lt;/li&gt;
+&lt;li&gt;核心因子计算利用&lt;code&gt;numpy&lt;/code&gt;和&lt;code&gt;pandas&lt;/code&gt;进行向量化处理和数据分析。&lt;/li&gt;
+&lt;li&gt;通过自定义&lt;code&gt;signal&lt;/code&gt;函数封装因子计算逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ZfMeanQBias因子实现&lt;/strong&gt;：使用&lt;code&gt;np.where&lt;/code&gt;实现嵌套条件逻辑，根据Bias阈值动态调整&lt;code&gt;rank&lt;/code&gt;值（例如，&lt;code&gt;df['rank'] = np.where(df['bias'] &amp;gt; BIAS_UPPER_THRESHOLD, RANK_MAX_VALUE, np.where(df['bias'] &amp;lt;= BIAS_LOWER_THRESHOLD, df['rank'] * RANK_DISCOUNT_FACTOR, df['rank']))&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略配置结构&lt;/strong&gt;：通过&lt;code&gt;strategy_config&lt;/code&gt;字典精细化控制&lt;code&gt;factor_list&lt;/code&gt;、&lt;code&gt;rotation_period&lt;/code&gt;、&lt;code&gt;offset_list&lt;/code&gt;以及包含&lt;code&gt;cap_ratio&lt;/code&gt;和&lt;code&gt;override&lt;/code&gt;字段的&lt;code&gt;rotation_group&lt;/code&gt;来定义多策略组合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略评估工具&lt;/strong&gt;：开发&lt;code&gt;策略优劣性V2.py&lt;/code&gt;脚本，通过计算资金曲线的超额收益和相关性来量化评估策略组合效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轮动模拟工具&lt;/strong&gt;：开发&lt;code&gt;rotation_analysis_multi.py&lt;/code&gt;脚本，用于基于历史资金曲线模拟不同策略间的轮动表现，但需注意其局限性和过拟合风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;针对核心策略的深层回撤，系统性地开发并回测市场偏好相反的子策略（如多头偏好的“多填空”与空头偏好的“空填多”），并通过等权混动（如本文的“浪填混动”）来构建全天候组合，以降低单一策略的风险暴露。&lt;/li&gt;
+&lt;li&gt;在因子改造时（如ZfMeanQBias），应深入分析市场逻辑，并通过小范围参数遍历或非参数化方法验证其稳健性，避免仅为提升回测表现而过度拟合，尤其是引入额外参数时。&lt;/li&gt;
+&lt;li&gt;探索并实现回测框架的“策略组”级别轮动功能，允许根据自定义轮动因子动态分配资金到不同的策略组中（而非仅仅是策略内部轮动），从而更有效地管理和优化复合型资产配置策略。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76925</guid>
+      <pubDate>Tue, 17 Mar 2026 21:09:39 +0800</pubDate>
+    </item>
+    <item>
       <title>Tushare Skills 实操指南：AI 赋能金融数据调用，效率提升十倍的量化开发方案</title>
       <link>https://www.bilibili.com/video/BV1czw9zVE2x</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1czw9zVE2x"&gt;AI量化效率革命：Tushare Skills实战测评与开发指南&lt;/a&gt;&lt;/p&gt;
@@ -3704,6 +3806,51 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1czw9zVE2x</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/0da8d274881f219272222cb4b8db413cd5ce2705.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 17 Mar 2026 16:19:16 +0800</pubDate>
+    </item>
+    <item>
+      <title>定制化币安XAGUSDT网格机器人：不撤单、接暴跌、自动卖的懒人策略与实现</title>
+      <link>https://bbs.quantclass.cn/thread/76966</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76966"&gt;手搓“网格”+金字塔仓位管理，实现超高胜率自动捡钱 &amp;amp; 网格实现原理拆解&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[网格交易, 自动化交易, XAGUSDT, 条件单, 不撤单增量]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[针对Binance特定品种，构建不撤单、接暴跌的“懒人”网格交易机器人核心逻辑与Python实现。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：实现机械的低买高卖网格策略。核心是“提前挖坑”的买单逻辑（在当前价下方预挂多个限价买单，确保接住快速下跌），以及“挂单即止损止盈”的卖单逻辑（每成功挂出一笔买单，立即为其配置一个“条件卖单”进行止盈，触发价=买入价-0.01U，委托价=买入价+1U）。策略最关键的优化是“永不撤单，只做增量”，避免在价格反复摩擦时频繁撤单挂单，仅在价格下跌时新增更下方的买单，保留现有订单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：文章未提供严谨回测，仅展示实盘初步盈利截图及极端情况（10倍杠杆，单边下跌无反弹）下的爆仓点（从86跌至64左右）。强调策略胜率高但大单边下跌存在爆仓风险。建议采用1-3倍低杠杆或全仓模式，设置宽广的交易区间，并从小资金启动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：主要风险为大单边行情下的爆仓（杠杆越高、区间越窄风险越大）。频繁触网可能增加手续费磨损，但通过“不撤单”机制有所缓解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决币安官方网格机器人不支持XAGUSDT品种；官方机器人不支持在不同价位挂不同仓位的定制化需求；避免传统网格策略中频繁撤单挂单造成的API请求浪费和交易磨损。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python语言，使用&lt;code&gt;ccxt&lt;/code&gt;库与币安API交互。系统采用简单的定时轮询机制（每秒一次）获取最新价格和现有订单状态，而非Websocket，以确保逻辑简洁和系统稳健性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getTickerPrice(exchange, symbol)&lt;/code&gt;: 获取最新价格。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_swap_open_orders(exchange, symbol)&lt;/code&gt;: 查询当前所有未成交的买入限价单价格列表。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_price_list(price)&lt;/code&gt;: 根据当前市场价格动态生成下方3个待挂买单的价格列表，实现“提前挖坑”。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_quantity(price)&lt;/code&gt;: 定义不同价格点位的下单数量，易于扩展为金字塔式加仓。&lt;/li&gt;
+&lt;li&gt;主循环逻辑：每秒轮询，获取当前价，根据&lt;code&gt;get_price_list&lt;/code&gt;计算出“应有”买单列表，与现有订单对比，找出“待挂单”（&lt;code&gt;todo_order_prices&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;订单执行：对每个待挂单，首先通过&lt;code&gt;exchange.fapiPrivatePostOrder&lt;/code&gt;挂出限价买单。成功后，立即通过&lt;code&gt;exchange.fapiPrivatePostAlgoOrder&lt;/code&gt;挂出一个类型为&lt;code&gt;STOP&lt;/code&gt;的&lt;strong&gt;条件卖单&lt;/strong&gt;，实现自动止盈（&lt;code&gt;triggerPrice&lt;/code&gt;为买入价-0.01，&lt;code&gt;price&lt;/code&gt;为买入价+1）。&lt;/li&gt;
+&lt;li&gt;核心实现：&lt;strong&gt;“永不撤单”&lt;/strong&gt;，即&lt;code&gt;open_orders_price&lt;/code&gt;中的订单不会被撤销，&lt;code&gt;todo_order_prices&lt;/code&gt;只包含需要新增的订单，从而减少API调用并降低磨损。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：在挂出限价买单后，通过检查&lt;code&gt;res&lt;/code&gt;中是否包含&lt;code&gt;orderId&lt;/code&gt;来确保订单提交成功，才继续创建对应的条件卖单。条件卖单的触发价设置为买入价的下一个ticker（-0.01U），以最大程度平衡买单成交与卖单挂出的及时性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;修改&lt;code&gt;get_quantity&lt;/code&gt;函数实现自定义金字塔加仓逻辑（例如价格越低仓位越重），快速将现有框架转换为马丁格尔结合的金字塔网格策略。&lt;/li&gt;
+&lt;li&gt;通过调整&lt;code&gt;symbol&lt;/code&gt;变量和&lt;code&gt;get_price_list&lt;/code&gt;函数中的价格区间定义，将当前网格交易框架快速移植到BTC、ETH等其他高波动性合约品种进行部署和测试。&lt;/li&gt;
+&lt;li&gt;在现有V1.0框架基础上，优先实现异常处理、单边行情（穿网）的智能应对机制、动态止盈止损策略以及基础的资金曲线管理模块，提升策略的健壮性和实战能力。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76966</guid>
+      <pubDate>Tue, 17 Mar 2026 11:39:52 +0800</pubDate>
     </item>
     <item>
       <title>量化进阶：用Optimizer与风险模型拆解Alpha的盈利真相</title>
@@ -4919,62 +5066,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76904</guid>
       <pubDate>Fri, 13 Mar 2026 20:32:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化因子的“生存游戏”：识别虚假显著性与因果幻象的深度指南</title>
-      <link>https://www.bilibili.com/video/BV1b8PfzrEbT</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1b8PfzrEbT"&gt;Factor Mirage：你的因子是规律，还是幻象？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么回测中 R² 越高、T 值越显著的因子，往往在实盘中失效得最快？&lt;/li&gt;
-&lt;li&gt;💡 你的超额收益（Alpha）究竟源于真实的因果规律，还是仅仅来自变量间的“偏误相互抵消”？&lt;/li&gt;
-&lt;li&gt;🚀 在变量多达上百个的多因子模型中，我们该如何识别那些由选股规则人为制造的统计幻象？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 统计幻象的底层机制：混淆与碰撞&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;混淆变量 (Confounding Variable)&lt;/strong&gt;: 这是最常见的伪相关。如同“夏天图书馆借书多且游泳人多”，季节才是背后推手。在量化中，宏观环境或风格暴露常被误认为因子收益的直接原因。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;碰撞变量与伯克森悖论 (Colliding &amp;amp; Berkson's Paradox)&lt;/strong&gt;: 这是更隐蔽的陷阱。当你通过选股规则（如：综合打分选股）人为筛选样本时，规则本身成了碰撞变量。原本不相关甚至正相关的因子（如波动与动量），在被筛选出的“高分池”里可能呈现负相关。这种稀缺性是选股逻辑人为制造的，实盘中不可持续。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;相互矫正的错觉&lt;/strong&gt;: 某些模型的有效性源于因子 A 和 B 的偏误方向正好相反，在统计上形成了“完美的抵消”。这种平衡极其脆弱，一旦市场风格微调，平衡打破，模型会迅速崩塌。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化因子的“因果脱水”操作指南&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 双机器学习 (Double ML) SOP&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;因子残差化&lt;/strong&gt;: 用其他所有变量预测目标因子，获得剔除混杂因素后的“因子残差”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;收益残差化&lt;/strong&gt;: 同步用其他变量预测未来收益，获得“收益残差”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;净效应估计&lt;/strong&gt;: 仅当两个残差之间存在显著关系时，该因子才具有接近因果的独立贡献。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 个人投资者三维筛选法&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;可干预性&lt;/strong&gt;: 评估因子是否源于可主动调整的商业逻辑（如库存、定价），而非纯宏观指标或季节因素。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;独立性&lt;/strong&gt;: 执行偏相关分析，验证在控制住主流风格暴露后，该因子是否仍有剩余预测力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稳定性&lt;/strong&gt;: 在牛熊、波动率及流动性分层下进行压力测试，核心要求是：&lt;strong&gt;效能可强弱差异，但严禁符号反转&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕过度依赖 R² 指标。统计上的更好拟合，往往是因果错配的产物，代表着更高的系统性投资风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “你的模型不是在描述真实世界的规律，而是在描述一组精心设计的统计幻象。”&lt;/li&gt;
-&lt;li&gt;💬 “量化交易不需要哲学上的正确，我们需要的是那些在策略生命周期内，足够稳定到可以被当作原因来使用的统计关联。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1b8PfzrEbT</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/38b0827b026fa7e79a1c7401fa32300897ca3c84.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 13 Mar 2026 19:30:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Jim Chanos MSTR/BTC溢价对冲策略详解：纯套利逻辑与回测揭秘</title>
-      <link>https://bbs.quantclass.cn/thread/76900</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76900"&gt;【LeoTsai】机构在玩什么 - Jim Chanos的BTC/MSTR对冲交易&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)- &lt;strong&gt;文章定性&lt;/strong&gt;：策略与因子- &lt;strong&gt;核心标签&lt;/strong&gt;：MSTR对冲, 比特币, 溢价套利, 跨市场, 量化回测- &lt;strong&gt;一句话总结&lt;/strong&gt;：深入分析Jim Chanos MSTR/BTC溢价对冲策略的原理、实现与回测结果---## 🔭 模块 A：市场规律与深度思考 (Market Insights)- &lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：MicroStrategy (MSTR) 市值相对其比特币持仓价值长期存在显著溢价（最高+110.5%，平均+41.4%），反映散户投机情绪，且波动剧烈。- &lt;strong&gt;【归因分析】&lt;/strong&gt;：市场非理性情绪导致MSTR市值偏离其内含BTC价值，形成套利机会，策略核心在于捕获溢价收窄。- &lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示在特定资产类别（如加密货币关联公司）中，存在基于定价非效率的纯套利机会，不依赖方向性判断。## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)- &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过1:1市值对冲，同时做空MSTR和做多等值BTC，消除BTC价格方向风险，专注于赚取MSTR溢价率收窄的收益。- &lt;strong&gt;【因子构建】&lt;/strong&gt;：溢价率 = (MSTR市值 / BTC持仓价值) - 1。MSTR市值 = 总股数 × 股价；BTC持仓价值 = BTC持仓数量 × BTC价格。- &lt;strong&gt;【数据与处理】&lt;/strong&gt;：所需数据包括BTC日收盘价、MSTR日收盘价、MSTR季度市值、MSTR每日BTC持仓数量。处理季度市值数据时，通过季度总股数线性插值获得每日总股数，再计算每日市值。回测时间范围：2024-01-02至2026-03-11。- &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：开仓条件：溢价率 &amp;gt; 100% 且无持仓。平仓条件：溢价率 &amp;lt; 0% 且有持仓。仓位比例：总权益80%。对冲比例：1:1市值。回测期间（2025-01-06至2025-11-13）表现：总收益率+34.13%，最大回撤-20.58%，单次交易胜率100%。收益来源：MSTR空头盈利远超BTC多头亏损，净盈利+$341,258。- &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：交易机会稀少（回测期仅1笔），需要充足保证金，且涉及跨股票和加密货币市场的复杂执行。## 🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)- &lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：处理季度市值数据以获得日频数据的技巧：利用总股数变化比市值更稳定的特点，对季度总股数进行线性插值，再乘以每日股价计算每日市值。- &lt;strong&gt;【项目文件】&lt;/strong&gt;：&lt;code&gt;calc_premium.py&lt;/code&gt;（溢价率计算）、&lt;code&gt;chanos_strategy.py&lt;/code&gt;（策略回测）。---## 💡 落地与行动指南 (Actionable Takeaways)- 构建一套实时监控系统，自动计算MSTR/BTC溢价率，并在满足开平仓条件时，触发跨市场（股票做空与加密货币现货多头）交易指令。- 借鉴文中的季度数据插值方法，优化其他以季度报告形式发布的基础面数据，使其能用于日频或更高频的量化策略中，平滑数据波动。- 拓展研究范围，识别并分析其他“底层资产+上市公司”模式中存在的溢价/折价套利机会，并开发通用套利框架。&lt;/h2&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76900</guid>
-      <pubDate>Fri, 13 Mar 2026 17:41:02 +0800</pubDate>
     </item>
   </channel>
 </rss>
