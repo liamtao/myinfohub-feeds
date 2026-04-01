@@ -7,7 +7,163 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 31 Mar 2026 22:53:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 09:01:59 +0000</lastBuildDate>
+    <item>
+      <title>XTQuant XT Data行情模块：量化交易数据核心引擎详解</title>
+      <link>https://www.bilibili.com/video/BV1QnXrBeEGj</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1QnXrBeEGj"&gt;xtdata行情模块入门：基础接口与本地数据获取全解析&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ XTQuant XT Data行情模块 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：XT Data作为轻量级Python库，通过与miniQMT建立连接，将数据请求转发由miniQMT处理，并返回结果至Python层，实现精简高效的量化交易数据服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：股票代码、周期、时间范围、字段列表、市场代码列表、回调函数、订阅号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：K线数据、分比数据、Level 2数据、行情快照、逐笔委托成交数据、财务数据、合约基础信息、除权因子、板块行业分类信息。通常以Pandas DataFrame、Numpy Array或字典形式返回。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;miniQMT&lt;/strong&gt;：XT Data的底层驱动引擎，负责实际的数据获取与连接行情服务器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全推数据 (Whole Quote)&lt;/strong&gt;：订阅市场全部合约的最新分比数据，适用于大规模行情监控。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逐笔委托 (Order)&lt;/strong&gt;：记录交易所每一笔委托申报的数据流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;除权数据 (Dividend Factors)&lt;/strong&gt;：用于计算K线复权的股票分红、送股等调整因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回调函数 (Callback Function)&lt;/strong&gt;：订阅数据到达时自动触发执行的函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：实时行情订阅与处理 (Real-time Market Data Subscription &amp;amp; Processing)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：获取并持续接收单只或多只股票的实时行情数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：miniQMT已启动并连接至行情服务器；需确保miniQMT中有所需数据或已通过补充接口补全。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[单股订阅]&lt;/strong&gt;：调用 &lt;code&gt;Subscribe Quote&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Stock Code&lt;/code&gt; (例如 &lt;code&gt;000001.SZ&lt;/code&gt;)、&lt;code&gt;Period&lt;/code&gt; (例如 &lt;code&gt;TICK&lt;/code&gt;, &lt;code&gt;1M&lt;/code&gt;, &lt;code&gt;1D&lt;/code&gt;)、&lt;code&gt;Start Time&lt;/code&gt; (通常设为 &lt;code&gt;0&lt;/code&gt; 表示不限制历史起始)、&lt;code&gt;End Time&lt;/code&gt;、&lt;code&gt;Count&lt;/code&gt; (通常设为 &lt;code&gt;0&lt;/code&gt; 以保证连续性数据进入缓存) 和 &lt;code&gt;Callback Function&lt;/code&gt; (定义数据到达时的处理逻辑)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：成功后返回 &lt;code&gt;Subscription ID&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[全推订阅]&lt;/strong&gt;：调用 &lt;code&gt;Subscribe Whole Quote&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Market Code List&lt;/code&gt; (例如 &lt;code&gt;['SH', 'SZ']&lt;/code&gt; 订阅沪深两市) 或 &lt;code&gt;Contract Code List&lt;/code&gt; (订阅指定合约列表) 和 &lt;code&gt;Callback Function&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：成功后返回 &lt;code&gt;Subscription ID&lt;/code&gt; 并立即推送当前最新全推数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[取消订阅]&lt;/strong&gt;：调用 &lt;code&gt;Unsubscribe Quote&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入之前 &lt;code&gt;Subscribe&lt;/code&gt; 返回的 &lt;code&gt;Subscription ID&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[程序持续运行]&lt;/strong&gt;：订阅数据后，调用 &lt;code&gt;RunCQ&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[执行动作]&lt;/strong&gt;：此函数会阻塞当前线程，确保程序持续运行并处理回调数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：主动获取历史与实时行情数据 (Proactive Fetching of Historical &amp;amp; Real-time Data)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：根据需求主动查询获取特定时间段、特定类型的行情数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：miniQMT已启动并连接行情服务器；本地已下载历史数据（若使用 &lt;code&gt;Get Local Data&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[获取市场数据]&lt;/strong&gt;：调用 &lt;code&gt;Get Market Data&lt;/code&gt; 接口 (主要用于Level1数据)。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Field List&lt;/code&gt; (所需字段)、&lt;code&gt;Stock List&lt;/code&gt; (股票列表)、&lt;code&gt;Period&lt;/code&gt;、&lt;code&gt;Start Time&lt;/code&gt;、&lt;code&gt;End Time&lt;/code&gt;、&lt;code&gt;Count&lt;/code&gt;、&lt;code&gt;Dividend Type&lt;/code&gt; (如 &lt;code&gt;Forward&lt;/code&gt; 前复权, &lt;code&gt;Backward&lt;/code&gt; 后复权) 和 &lt;code&gt;Fill Data&lt;/code&gt; (是否填充空缺数据)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：返回一个字典，包含各字段对应的Pandas DataFrame或Numpy Array数据集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取本地数据]&lt;/strong&gt;：调用 &lt;code&gt;Get Local Data&lt;/code&gt; 接口 (用于从本地文件读取Level1数据)。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：参数与 &lt;code&gt;Get Market Data&lt;/code&gt; 类似，额外传入 &lt;code&gt;Data.dr&lt;/code&gt; 指定本地数据存储路径（若不指定则自动查找）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取最新全推数据]&lt;/strong&gt;：调用 &lt;code&gt;Get4Tick&lt;/code&gt; 接口 (无历史存储概念)。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Code List&lt;/code&gt; (市场代码列表或合约代码列表)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：返回一个字典，包含每个合约的最新全推数据 (Numpy Array格式)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：获取基础信息与财务数据 (Retrieving Fundamental &amp;amp; Financial Data)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：获取股票的除权因子、财务报表指标、合约基础信息及行业分类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：miniQMT已启动并连接行情服务器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[获取除权因子]&lt;/strong&gt;：调用 &lt;code&gt;GetDivideFactors&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Stock Code&lt;/code&gt; 和可选的 &lt;code&gt;Start Time&lt;/code&gt;、&lt;code&gt;End Time&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：返回一个Pandas DataFrame，包含指定时间段内的除权因子信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取财务数据]&lt;/strong&gt;：通过 &lt;code&gt;Download Financial Data 2&lt;/code&gt; 或其他财务数据接口获取（原文提及，但未详细展开具体接口调用）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取合约基础信息]&lt;/strong&gt;：通过相关接口获取股票代码、名称、所属市场、总股本、流通股本等（原文提及，但未详细展开具体接口调用）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取板块分类信息]&lt;/strong&gt;：通过相关接口获取股票所属行业、板块信息（原文提及，但未详细展开具体接口调用）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：获取Level2行情数据 (Retrieving Level2 Market Data)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：查询并获取Level2行情快照和逐笔委托数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：必须已通过订阅接口（如 &lt;code&gt;Subscribe Whole Quote&lt;/code&gt;）接收过Level2数据，数据已存在于缓存中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[获取Level2快照]&lt;/strong&gt;：调用 &lt;code&gt;GetLRQuote&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Field List&lt;/code&gt;、&lt;code&gt;Stock Code&lt;/code&gt;、&lt;code&gt;Time Range&lt;/code&gt;、&lt;code&gt;Count&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：返回一个Numpy Array，数据按时间戳排序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取Level2逐笔委托]&lt;/strong&gt;：调用 &lt;code&gt;GetLROrder&lt;/code&gt; 接口。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：传入 &lt;code&gt;Field List&lt;/code&gt;、&lt;code&gt;Stock Code&lt;/code&gt;、&lt;code&gt;Time Range&lt;/code&gt;、&lt;code&gt;Count&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[返回结果]&lt;/strong&gt;：返回一个Numpy Array，数据按时间戳排序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Stock Code&lt;/strong&gt;：&lt;code&gt;code.market&lt;/code&gt; 格式，例如 &lt;code&gt;000001.SZ&lt;/code&gt; 或 &lt;code&gt;600000.SH&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Period&lt;/strong&gt;：定义数据周期和类型。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TICK&lt;/code&gt;：分笔数据。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1M&lt;/code&gt; / &lt;code&gt;5M&lt;/code&gt;：1分钟/5分钟K线。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;1D&lt;/code&gt;：日线K线。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;L2Quote&lt;/code&gt;：Level2行情快照。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;L2Order&lt;/code&gt;：Level2逐笔委托。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Time Range (StartTime / EndTime)&lt;/strong&gt;：定义数据获取的起止时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Count&lt;/strong&gt;：限制返回数据条数。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0&lt;/code&gt;：只获取最新数据。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-1&lt;/code&gt;：返回所有符合条件的数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dividend Type&lt;/strong&gt;：K线复权方式。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Forward&lt;/code&gt;：前复权。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Backward&lt;/code&gt;：后复权。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据结构&lt;/strong&gt;：内部使用 &lt;code&gt;numpy&lt;/code&gt; 和 &lt;code&gt;pandas&lt;/code&gt; 库处理数据，返回结构主要为DataFrame或Numpy Array。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;单股订阅数量限制&lt;/strong&gt;：&lt;code&gt;Subscribe Quote&lt;/code&gt; 官方建议订阅数量&lt;strong&gt;不要超过50只&lt;/strong&gt;，否则可能遇到性能瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Level2数据获取前置&lt;/strong&gt;：&lt;code&gt;GetLRQuote&lt;/code&gt; 和 &lt;code&gt;GetLROrder&lt;/code&gt; 只能获取&lt;strong&gt;缓存中已存在的数据&lt;/strong&gt;，需先通过订阅接收过此类数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全推订阅优先&lt;/strong&gt;：在高订阅数场景下，建议使用 &lt;code&gt;Subscribe Whole Quote&lt;/code&gt; 获取全市场合约的千档行情，其流量和处理效率优于单股订阅。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;静态信息更新频率&lt;/strong&gt;：板块分类等静态信息更新频率很低，建议&lt;strong&gt;按周或按天定期更新&lt;/strong&gt;，避免不必要的资源消耗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;miniQMT数据统一&lt;/strong&gt;：XT Data的数据源与直接操作miniQMT一致，若数据异常或需切换连接，直接操作miniQMT即可。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据缓存利用&lt;/strong&gt;：订阅接口获取的数据通常会被缓存，同一种数据一般无需再次单独补充。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “在这个信息爆炸的时代，不是数据越多越好，而是需要的数据越准越快越好。”&lt;/li&gt;
+&lt;li&gt;💬 “XT Data就像一把锋利的手术刀，专为量化交易这个特定场景设计，剔除了冗余、保留了精华。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1QnXrBeEGj</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/bb39a4a5d99b79c325ebc3779fb7b11e9db8bb8c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 31 Mar 2026 18:30:07 +0800</pubDate>
+    </item>
     <item>
       <title>3月收官惨遭‘特没普’背刺：量化投资者的复盘与策略进化论</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-31&amp;talker=57784510736@chatroom</link>
@@ -3493,6 +3649,46 @@
       <pubDate>Wed, 18 Mar 2026 17:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>基于深成指MACD顶底背离结构的广谱量化择时系统优化与实证</title>
+      <link>https://bbs.quantclass.cn/thread/77007</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77007"&gt;大盘指数形态择时_打破大盘股不能择时的魔咒 (二)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[MACD背离结构、深成指择时、风险控制、MyTT库、日线映射]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用深成指1H级MACD背离形态捕捉拐点，通过日线级映射实现广谱策略控回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于市场情绪极值的修复。基于深成指（399001）60分钟级别的MACD顶底背离、钝化、金叉/死叉及结构消失等形态进行多空判定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;买入点&lt;/strong&gt;：1. 底部结构向上拐头；2. 大阳线直接金叉形成的底部结构；3. 价格向上击穿前一MACD红柱区域的最高收盘价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卖出点&lt;/strong&gt;：1. 顶部结构向下拐头；2. 大阴线直接死叉形成的顶部结构；3. 价格向下击穿前一MACD绿柱区域的最低收盘价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在多个官方策略（小市值、中等生、现金流等）上加载该择时。结果显示具有广谱普适性，年化收益最高提升约6.8%，最大回撤普遍降低15%-38%，收益回撤比显著优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：对于超大市值策略（如低波大市值）改善有限；回测使用次日开仓逻辑，若改为盘中即时信号，收益与回撤有进一步优化的空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决1小时级别择时信号与日线回测框架的兼容问题，避免“黑箱”底层改动导致的信号漂移及回撤计算存疑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python + MyTT（技术指标库）。采用“60min信号映射至日线”的逻辑：以每日最后1小时收盘信号作为当日最终信号（signal=1或0），决定T+1日是否开仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：评论区反馈CSV指数数据存在时间戳偏移（向前偏移3小时）及日期与指数对齐错误（1天差距），需在数据预处理阶段进行对齐校验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【因子测试】&lt;/strong&gt;：引入MyTT.py库，在现有策略中增加基于指数MACD背离结构的全局过滤器（Global Risk Filter）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【架构优化】&lt;/strong&gt;：实现60分钟K线数据自动下载与对齐脚本，解决sz399001.csv的偏移问题，将择时信号生成自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能进阶】&lt;/strong&gt;：尝试将T+1开仓改为T日14:30后的盘中信号执行，以降低择时延迟造成的滑点损失。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77007</guid>
+      <pubDate>Wed, 18 Mar 2026 16:46:10 +0800</pubDate>
+    </item>
+    <item>
       <title>量化视角透视人与AI：经验压缩、目标函数与价值观的统一</title>
       <link>https://bbs.quantclass.cn/thread/77003</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77003"&gt;【没什么用系列】【百帖纪念】量化让我越来越觉得：我和 AI，其实都在被同一种机制训练&lt;/a&gt;&lt;/p&gt;
@@ -3580,6 +3776,93 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76993</guid>
       <pubDate>Wed, 18 Mar 2026 14:27:50 +0800</pubDate>
+    </item>
+    <item>
+      <title>Polymarket 99%胜率策略解析：从V1到V2迭代，深挖API瓶颈与工程优化</title>
+      <link>https://bbs.quantclass.cn/thread/76995</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76995"&gt;polymarket掘金-基于btc up and down 策略研究，胜率99%&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polymarket, 预测市场, 量化策略, 高胜率交易, 订单簿分析, API优化, Python量化工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[揭示Polymarket 99%胜率策略核心逻辑、V1到V2迭代经验，并强调API瓶颈与工程优化路径。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;BTC 5分钟周期末尾，当涨跌概率达到0.95时入场，回测可实现99%胜率。&lt;/li&gt;
+&lt;li&gt;实际盘中，当市场方向非常确定（如出现大拉涨/暴跌柱子）时，往往因缺乏对手单而无法入场（“没货可买”），导致高胜率机会被动错过。&lt;/li&gt;
+&lt;li&gt;V1策略手动实盘效果良好，但自动化后频繁爆仓，盈亏全部回吐，说明微观结构或执行细节对自动化策略影响巨大。&lt;/li&gt;
+&lt;li&gt;尾盘5秒交易，若遇最后1秒突发极端行情，可能因来不及卖出而产生亏损（小概率事件）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;高胜率是利用了市场在周期末尾“胜负已分”的惯性或资金推动力，此时市场流动性可能快速枯竭。&lt;/li&gt;
+&lt;li&gt;Polymarket下单接口的频繁失败与延迟是导致实盘效率低下（一小时仅开仓1次）的核心原因，使得理论上的高胜率难以转化为实际盈利。&lt;/li&gt;
+&lt;li&gt;手动交易可能受益于人工对市场非线性行为和流动性窗口的灵活捕捉，而严格的自动化规则在API限制下则暴露了脆弱性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：对于依赖高频、确定性机会的策略，自动化交易必须高度重视交易执行层的稳定性、API效率和订单簿的微观流动性，否则即便回测胜率极高，实盘也可能失效或盈利能力大打折扣。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;针对BTC 5分钟涨跌预测市场，专注周期“最后5秒”的交易。&lt;/li&gt;
+&lt;li&gt;入场条件：当某方涨跌概率达到0.95时立即入场，核心思想是“胜负已分，顺势跟进”。&lt;/li&gt;
+&lt;li&gt;V2版策略是在V1版自动化实盘失败后，通过对Polymarket订单簿数据进行深度复盘和逐笔分析迭代优化而来，旨在解决V1版策略回测仅盈亏平衡甚至亏损的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;使用数据：Polymarket的BTC订单簿记录 (&lt;code&gt;btc_orderbook_records_ws_cleaned.jsonl&lt;/code&gt;, &lt;code&gt;btc_orderbook_records_ws_processed.jsonl&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;数据处理流程：通过&lt;code&gt;clean_data.py&lt;/code&gt;进行原始数据清理和标准化，再通过&lt;code&gt;process_data.py&lt;/code&gt;进行进一步处理，为策略分析准备。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;回测周期：406个5分钟周期（合计33小时）。&lt;/li&gt;
+&lt;li&gt;开仓次数：182次。&lt;/li&gt;
+&lt;li&gt;盈利/亏损：盈利181次，亏损1次。&lt;/li&gt;
+&lt;li&gt;胜率：99%。&lt;/li&gt;
+&lt;li&gt;平均每5分钟盈利：2个点。&lt;/li&gt;
+&lt;li&gt;资金增长：33小时内接近翻3倍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;流动性限制：若BTC在前4分钟已大幅上涨，市场缺乏对手方订单，策略无法入场。&lt;/li&gt;
+&lt;li&gt;极端行情：最后1秒突发极端拉涨/暴跌，可能因无法及时平仓而产生亏损，此为小概率风险，当前无完美规避方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心瓶颈&lt;/strong&gt;：Polymarket下单接口频繁出现失败和延迟，导致大量交易机会无法捕捉或入场失效，严重制约实盘运行效率（约每小时仅开仓1次）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;Polymarket下单接口的频繁失败和高延迟是实盘效率低下的首要瓶颈，直接导致高胜率策略无法有效执行。&lt;/li&gt;
+&lt;li&gt;策略实盘运行效率极低，平均一小时仅能开仓1次，与回测表现形成巨大反差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;服务器部署优化：为降低与Polymarket服务器（伦敦）的通信延迟，推荐优先选择AWS爱尔兰/瑞典节点部署，次选南美或亚洲日韩节点。&lt;/li&gt;
+&lt;li&gt;项目文件结构：包含数据清理 (&lt;code&gt;clean_data.py&lt;/code&gt;)、数据处理 (&lt;code&gt;process_data.py&lt;/code&gt;)、止损分析 (&lt;code&gt;analyze_stop_loss.py&lt;/code&gt;)、最后5秒开仓分析 (&lt;code&gt;analyze_last_5sec.py&lt;/code&gt;) 以及完整策略回测 (&lt;code&gt;full_strategy_backtest.py&lt;/code&gt;) 脚本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;V1版策略在手动实盘表现良好，但与自动化程序结合后频繁爆仓，揭示了自动化交易在API限制和市场微观结构下对执行效率的极高要求。&lt;/li&gt;
+&lt;li&gt;评论区反馈进一步证实：尾盘高确定性方向交易（大柱子）常因“没货可买”而无法入场，而能买入的K线往往方向不确定，这突出了流动性枯竭是核心制约因素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;针对Polymarket这类预测市场，应优先投入资源优化交易执行层：研究使用异步I/O、多节点部署、或通过低延迟VPN/代理优化与Polymarket API的连接路径，以降低下单失败率和延迟。&lt;/li&gt;
+&lt;li&gt;在策略入场逻辑中引入实时流动性评估，结合订单簿深度数据，不仅关注概率阈值（如0.95），还需判断当前价位是否有足够的可成交量，避免“有信号无流动性”的无效开仓。&lt;/li&gt;
+&lt;li&gt;优化回测框架，将API延迟、滑点、和特定微观结构下的实际可成交量等真实交易成本和限制条件纳入回测模型，使其更接近实盘表现，有效弥合回测与实盘之间的差距。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76995</guid>
+      <pubDate>Wed, 18 Mar 2026 13:02:18 +0800</pubDate>
     </item>
     <item>
       <title>高性能 GPU 渲染终端 Ghostty：量化交易员与 AI 开发者的极效工具指南</title>
@@ -5009,141 +5292,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76891</guid>
       <pubDate>Sat, 14 Mar 2026 12:57:08 +0800</pubDate>
-    </item>
-    <item>
-      <title>全球视野 vs 本地精耕：破解股票回报预测的数据规模迷思</title>
-      <link>https://www.bilibili.com/video/BV1YMNwzWEHt</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1YMNwzWEHt"&gt;更多数据，未必更强：45个市场的机器学习实证结论&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 在预测股票回报时，将全球海量数据倾巢投入模型，真的优于深耕本地数据吗？&lt;/li&gt;
-&lt;li&gt;💡 为什么在高度一体化的全球市场中，本地化训练的优势反而呈现扩大趋势？&lt;/li&gt;
-&lt;li&gt;🚀 全局模型如何成为小众、高风险市场的“救命稻草”，而非全市场的“通用解”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 规模幻觉：本地精准度 vs. 全域噪声&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据边际收益递减&lt;/strong&gt;: 在发达或大型市场中，本地数据已涵盖核心驱动力。盲目引入全球数据会引入非必要的市场差异噪声，可能导致模型因为捕捉了不相关的跨国噪声而变得不稳定。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“地道食材”类比&lt;/strong&gt;: 预测股票如同烹饪，本地食材（数据）往往比全球采购的原材料更能还原本地市场的真实风味（底层逻辑）。实证显示，本地模型与全球模型在多数情况下预测能力打平，但前者成本更低且更稳健。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 全局数据的“雪中送炭”效应&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信息缺失的补偿机制&lt;/strong&gt;: 全局训练的优势主要体现在小型市场或特异性风险极高的股票上。这类标的数据稀疏、噪声多，通过引入全球类似市场的信号，可以为模型提供更稳定的参数估计。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子普适性与一体化&lt;/strong&gt;: 动量、价值等经典因子在不同国家间表现高度相似，且随全球一体化程度加深，这种相似性正在增强，这为全局训练提供了理论上的可行性基础。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化策略模型选择与优化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;评估市场成熟度&lt;/strong&gt;: 针对流动性好、数据丰富的发达市场，优先采用本地化（Local）数据训练，以获取更高的绝对回报潜质。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;识别特异性资产&lt;/strong&gt;: 针对数据稀疏的小众市场或高波动标的，引入全局（Global）或区域（Regional）数据集进行辅助增强，以优化风险调整后收益（SR）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态监测溢价趋势&lt;/strong&gt;: 持续追踪全球训练相对于本地训练的阿尔法溢价（Alpha Premium），观察其随时间的衰减情况，适时收缩至本地化策略。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“大数据万能论”，尤其在2010年之后，全球训练的相对优势已显著下滑，切勿为了追求数据量而牺牲模型的鲁棒性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “更多的数据并不代表更好的效果，强行加入全球数据可能因为引入不必要的噪声，让模型变得更复杂、更不稳定。”&lt;/li&gt;
-&lt;li&gt;💬 “全球模型虽然在绝对回报上可能略逊一筹，但在风险调整后的超额收益（如阿根廷等市场）方面，具有其独特价值。”&lt;/li&gt;
-&lt;li&gt;💬 “在全球市场日益一体化的今天，脚踏实地深耕本地数据，反而比盲目追求全球视野更能抓住市场关键。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1YMNwzWEHt</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/d782f9fecb73b0e45a5517e7879095b986a0ae50.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 14 Mar 2026 10:52:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Claude Code量化实战指南：从本地化配置到自动化因子挖掘</title>
-      <link>https://bbs.quantclass.cn/thread/76901</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76901"&gt;【渣渣】claude code 草履虫级教程 — 安装、工具、实战&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Claude Code CLI, MiniMax API集成, MCP协议, 因子自动化开发, 终端量化助手]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：详述Claude Code量化场景下的国产API平替部署、多维工具集成及因子生成实战。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用Claude Code的深度上下文理解能力，通过通读本地回测框架代码，实现从市场调研到因子代码生成的闭环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：利用 &lt;code&gt;/init&lt;/code&gt; 指令建立项目索引，结合自然语言提示词（Prompt）引导AI调研成熟市场因子，并按照框架预设格式自动手搓因子逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决Claude官方模型地域限制与高昂成本问题，突破AI无法直接操控本地文件系统与浏览器的局限性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于 Node.js 运行环境，通过 &lt;code&gt;claude-code&lt;/code&gt; CLI工具集成 MiniMax (Coding Plan) 国产API；利用 Git 进行版本回溯；采用 MCP (Model Context Protocol) 协议扩展浏览器操作能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;环境劫持&lt;/strong&gt;：通过配置 &lt;code&gt;claude.env&lt;/code&gt; 修改 &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt; 适配国产API网关。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;长期记忆注入&lt;/strong&gt;：利用项目根目录下的 &lt;code&gt;CLAUDE.md&lt;/code&gt; 存储结构化开发规范与Prompt约束，实现跨会话的一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;权限绕过&lt;/strong&gt;：使用 &lt;code&gt;--dangerously-skip-permissions&lt;/code&gt; 参数实现AI对文件系统的无干预读写（自动化执行）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具扩展&lt;/strong&gt;：通过 &lt;code&gt;npx chrome-devtools-mcp&lt;/code&gt; 实现浏览器自动化，用于实时新闻抓取与因子调研。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：安装需处理 Node.js 环境变量 PATH 冲突；首次运行必须手动在 &lt;code&gt;.claude.json&lt;/code&gt; 中配置 &lt;code&gt;hasCompletedOnboarding: true&lt;/code&gt; 以绕过官方引导程序。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提示词工程&lt;/strong&gt;：在复杂任务前切换至 &lt;code&gt;Plan Mode&lt;/code&gt; (Shift+Tab)，并使用“先不要执行计划，直到我没有任何问题以后再继续”的强制引导，防止AI盲目修改核心逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架对齐&lt;/strong&gt;：通过 &lt;code&gt;/init&lt;/code&gt; 自动生成项目概览文档，减少因代码库过大导致的上下文丢失带来的代码误写。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险控制&lt;/strong&gt;：因子库开发必须配合 Git 管理，利用 AI 进行代码生成的版本追踪，确保可回滚性。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76901</guid>
-      <pubDate>Sat, 14 Mar 2026 08:55:32 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化极客的自我修养：从凯师傅策略监测到Claude Code性能飞跃</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;amp;talker=57784510736@chatroom"&gt;2026-03-14_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;📈 凯师傅策略监测：业绩回测与实盘偏差之谜&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略版本迭代&lt;/strong&gt;：官方监测的“凯师傅”策略已从V1版本切换至V2，这解释了部分用户回测曲线与官方对不上的疑问。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;偶然性偏差&lt;/strong&gt;：样本覆盖度不同（如选5还是选1）会导致收益曲线在短期内出现显著差异，择时与选股的权重配比依然是核心难点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚡ 性能进化论：从 Python 到 Golang 的降维打击&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;降噪与增效&lt;/strong&gt;：通过 Golang 重构数据中心，实现了 4 倍性能提升并大幅降低内存占用。最直观的感受是“数据更新时风扇不再狂转”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;架构陷阱&lt;/strong&gt;：Python 的多进程通讯在处理海量量化数据时性能损耗巨大。建议在 Linux 或 Mac 环境下，通过 AI 优化掉针对 Windows 的兼容代码，可显著提升回测帧率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;硬件性价比&lt;/strong&gt;：虽然 Mac M5 Pro 等新品引人注目，但在暴力硬算层面，AMD 9950X 等多核桌面 CPU 在当前框架下仍具更高性价比。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI 工具链：Claude Code 是真的“生产力核弹”吗？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;模型阶梯&lt;/strong&gt;：资深用户一致认为 Claude Opus（尤其是新版本）的能力远超国内模型，一旦体验过 1M 上下文的自动代码重构，就再也“回不去了”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IDE 新范式&lt;/strong&gt;：Claude Code 被定位为类似于 IDE 的存在，配合 GitHub Copilot 套餐使用，能够自动化处理大量繁琐的代码重构与反编译后的逻辑重组。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;支付与准入&lt;/strong&gt;：国内用户使用 Claude 仍面临支付风控（封国内卡 Bin）和网络环境（建议美西全局代理）的双重挑战，目前多采用虚拟卡、海外银行卡或 Apple 礼品卡曲线救国。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🕯️ 软知识与人生观：身体才是最大的“回撤”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;健康预警&lt;/strong&gt;：身体出问题往往是突发且沉痛的。有用户感叹：“意识到身体不健康的时候，就像刚上实盘就打进了最大回撤。”&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;职业选择&lt;/strong&gt;：面对行业内卷，部分高学历人才选择“出口转内销”回乡养老，利用 AI 辅助处理论文和软知识提升，追求更平衡的人生路径。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💬 金句提炼&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“Python 主要是多进程通讯太吃性能了，换成 Golang 风扇都不怎么转。” —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“在第一次意识到自身身体没那么健康的时候，就像是刚上实盘就打进了最大回撤。” —— &lt;strong&gt;黑黑夜夜&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“择时太难了，大差不差就好了，交给彩虹。” —— &lt;strong&gt;MJ&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76869&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76855&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/71754&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-14&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sat, 14 Mar 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
