@@ -7,7 +7,63 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 02 Apr 2026 08:36:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 22:37:35 +0000</lastBuildDate>
+    <item>
+      <title>Kimi Attention Residious：大模型残差连接的挑战与注意力机制的创新解法</title>
+      <link>https://www.bilibili.com/video/BV1MRX2B2ECg</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1MRX2B2ECg"&gt;注意力残差是什么？ [白话读论文]&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions) * 🤔 传统残差连接解决了梯度消失，却引入了哪些新的隐性代价？ * 💡 如何将“字与字”之间的注意力机制，创造性地复用于“层与层”之间的信息流管理？ * 🚀 Kimi Attention Residious 在解决数值膨胀与信息稀释的同时，如何平衡其高昂的计算开销？ --- ### 🧩 AI模型进化的核心瓶颈：从FFN到残差连接 * &lt;strong&gt;前馈神经网络 (FFN) 的局限与注意力机制的崛起&lt;/strong&gt;: FFN擅长无状态任务，但无法处理上下文。注意力机制（Attention）通过计算词语间的关联度生成“上下文嵌入”，赋予模型处理上下文的能力。 * &lt;strong&gt;层数叠加的困境：梯度消失&lt;/strong&gt;: 大语言模型通过堆叠Attention+FFN层数以理解复杂逻辑，但在训练时，参数调整幅度随层数深入而减小，导致靠近输入的关键层难以训练，即“梯度消失”。 * &lt;strong&gt;残差连接 (Residual Connections) 的解决方案&lt;/strong&gt;: 通过引入从输入直通输出的“残差连接”，使各层输出直接叠加到原始输入上，确保训练梯度能直接传递到每一层，有效解决了梯度消失问题，成为现代大模型的基本范式。 --- ### 🧩 残差连接的隐性代价：数值膨胀与信息稀释 * &lt;strong&gt;数值膨胀&lt;/strong&gt;: 后续层的输入是前面所有层输出的总和，导致输入数值持续增大。为产生效果，该层需输出同量级数字，进一步推高下一层输入，造成链条末端数值剧烈波动，训练不稳定。 * &lt;strong&gt;信息稀释&lt;/strong&gt;: 每层接收的是前面所有层输出的“大杂烩”，难以细致区分并针对性加工特定信息。这与增加层数以实现分层功能（如人物识别、关系理解）的初衷相悖，导致层功能混沌。 --- ### 🧩 Kimi Attention Residious：以注意力机制重构残差 * &lt;strong&gt;核心思想&lt;/strong&gt;: 将“字与字”间的注意力机制原理，应用于“层与层”之间的信息聚合，实现加权求和而非简单相加。 * &lt;strong&gt;工作原理&lt;/strong&gt;: * &lt;strong&gt;伪查询向量（Pseudo Query）&lt;/strong&gt;: 为每个层配备一个可训练的伪查询向量。 * &lt;strong&gt;关联度计算&lt;/strong&gt;: 当前层使用自身的伪查询向量与前面每一层的伪查询向量进行点积，计算对前层输出的关注程度。 * &lt;strong&gt;百分比转化与加权求和&lt;/strong&gt;: 通过Softmax算法将关注度转化为百分比，然后按此百分比加权求和前面各层的输出，作为当前层的输入。 * &lt;strong&gt;解决问题&lt;/strong&gt;: * &lt;strong&gt;对抗数值膨胀&lt;/strong&gt;: 百分比加权求和确保输入总和始终保持在同一数量级，极大提升训练稳定性。 * &lt;strong&gt;优化信息稀释&lt;/strong&gt;: 加权求和使层输入对前层输出有所侧重，鼓励层专注于特定领域信息处理，实现功能专精化（例如，第十层可更关注第一层的“人物识别”输出）。 --- ### 🛠️ 效率与精准的权衡：局部残差与全局注意力 * &lt;strong&gt;挑战&lt;/strong&gt;: Attention Residious因需计算并存储前面每一层的输出及关联度，导致巨大的计算开销（显存和带宽）。 * &lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;: * &lt;strong&gt;分块处理&lt;/strong&gt;: 将模型划分为多个“块”，块内部沿用普通的残差连接。 * &lt;strong&gt;块间注意力残差&lt;/strong&gt;: 仅在块与块之间应用Attention Residious技术。 * &lt;strong&gt;🎯 目标&lt;/strong&gt;: 通过这种“局部大杂烩，全局精细提取”的方式，在模型的精准度和计算开销之间找到最佳平衡点。 * &lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 直接将Attention Residious应用于所有层会带来无法承受的计算与存储成本，需谨慎评估分块策略。 --- ### 🌟 金句萃取 * 💬 “一切震撼人心的技术突破本质上都是前人智慧的延伸，我们拓展前人的思想来解决现在的问题，人们喜欢管它叫做创新，但这才是真正的传承。” * 💬 “大语言模型的发展其实就是一部环环相扣的进化史。”&lt;/h3&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1MRX2B2ECg</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/bb3bd9fbd66a130a4344ff4e58eac8cf9cfab113.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 02 Apr 2026 17:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>颠覆ServiceNow：Serville如何通过AI原生架构与代码生成构建新一代企业服务平台</title>
+      <link>https://www.youtube.com/watch?v=Q0bxRANHjFY</link>
+      <description>&lt;p&gt;&lt;a href="UCUl-s_Vp-Kkk_XVyDylNwLA"&gt;Unsupervised Learning: Redpoint's AI Podcast&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=Q0bxRANHjFY"&gt;Owning the System of Record, AI-Native Org Charts, &amp;amp; Why ITSM is The Most Vulnerable Legacy Category&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 面对ServiceNow等成熟巨头，初创公司是该做“插件层”还是重造底层的“记录系统”？&lt;/li&gt;
+&lt;li&gt;💡 为什么“代码生成（Codegen）”而非“可视化组件”才是构建高可靠AI自动化的终极解法？&lt;/li&gt;
+&lt;li&gt;🚀 在AI能力极度泛化的未来，为什么“人才密度”成了对抗大厂复制的唯一护城河？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 战略重构：从“插件层”到“镜像记录系统”的范式转移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主权控制优于挂件集成&lt;/strong&gt;: Serville拒绝只做表层UI，而是构建一个与旧系统实时同步的“镜像记录系统”。这既解决了销售端进入已有预算的问题，又避免了产品端受限于旧平台的API瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼类比&lt;/strong&gt;: 就像与其在漏水的旧水管上套一个漂亮的外壳（插件），不如并行铺设一套数字化的新供水系统（镜像），先接管出水，最终实现无感替换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 技术实现：以代码为确定性中枢的自动化革命&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;押注代码生成 (Codegen) 的红利&lt;/strong&gt;: 自然语言指令直接转化为代码执行，彻底解决了传统拖拽式工作流编辑器效率低下且难以描述复杂业务逻辑的痛点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;架构权限沙箱化&lt;/strong&gt;: 确保AI模型仅能调用预定义的、受控的工具代码，而非直接操作底层数据库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑翻译与核对&lt;/strong&gt;: 利用AI将生成的代码逻辑反向翻译为可视化流程图，供IT人员进行最终校验。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“AI黑盒运行”，必须建立完整的失败案例Eval测试集，确保每次模型更新后关键流程的通过率为100%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 竞争壁垒：速度、人才与“前线部署”模式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;梯度下降式产品进化&lt;/strong&gt;: 部署“前线工程师”深入大客户现场，捕捉那5%的关键业务缝隙并即时填补，以此快速覆盖巨头耗费20年积累的功能面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组织机制创新&lt;/strong&gt;: 建立“梦之队选秀”制度挖掘顶级工程师，并推行AI工具“先试用再报销”的零门槛政策，保持团队的AI原生生产力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “人才密度是唯一的持久护城河，因为任何绝妙的产品策略在六个月内都会被对手复制。”&lt;/li&gt;
+&lt;li&gt;💬 “初创公司唯一的优势就是速度——我们必须在巨头还没开完会讨论出对策前，就已经完成新功能的发布。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Q0bxRANHjFY</guid>
+      <enclosure url="https://i.ytimg.com/vi/Q0bxRANHjFY/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 02 Apr 2026 14:39:21 +0800</pubDate>
+    </item>
     <item>
       <title>2026全方位AI追赶指南：从认知重构到实战进化的极简手册</title>
       <link>https://www.youtube.com/watch?v=Jov9Mn2Q2s8</link>
@@ -5232,108 +5288,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=Uif_qAcgnLk</guid>
       <enclosure url="https://i.ytimg.com/vi/Uif_qAcgnLk/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 18 Mar 2026 16:19:54 +0800</pubDate>
-    </item>
-    <item>
-      <title>从闭环到引流：解析ChatGPT代理模式转型与搜推巨头的电商红利博弈</title>
-      <link>https://www.bilibili.com/video/BV1nvw7zgEZU</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546699079354794"&gt;研报看世界&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1nvw7zgEZU"&gt;2026年03月 摩根士丹利 ChatGPT Agentic转型 视频时长20分钟&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 既然AI能直接下单，为何ChatGPT却选择“退一步”做电商引流？&lt;/li&gt;
-&lt;li&gt;💡 在20%~40%的高昂获客成本面前，3%~9%的AI代理佣金能否颠覆电商流量格局？&lt;/li&gt;
-&lt;li&gt;🚀 面对通用AI的冲击，垂直零售巨头（如亚马逊、沃尔玛）的自研Agent为何反倒转化率更高？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 代理模式的战略大转弯：从闭环交易到流量导向&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;认知与基建的现实妥协&lt;/strong&gt;: ChatGPT从“直接结算”转向“外部链接”模式（如导流至Walmart、Target）。这并非战略倒退，而是对物流、评价体系及实时库存等复杂履约环节的现实适配，旨在尊重用户既有的购物习惯。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信任鸿沟的物理隔离&lt;/strong&gt;: 调研显示36%的用户不信任AI推荐，34%习惯直访官网。通过将用户导向零售商原生APP，ChatGPT利用品牌背书抵消了AI幻觉带来的信任赤字。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 护城河博弈：Google的防御壁垒与垂直Agent的突围&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;搜索巨头的顶端粘性&lt;/strong&gt;: 尽管AI势头强劲，Google仍牢牢占据电商漏斗顶端。其推出的“平台内支付协议”将交易行为前置，试图在搜索结果内完成商业闭环，以此对冲AI代理的流量分流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;垂直Agent的精准降维打击&lt;/strong&gt;: 亚马逊的Rufus与沃尔玛的Sparky展现了更高的交易转化率。其核心竞争力在于深度集成的私域SKU数据与行业洞察，这种“专业化助手”比通用大模型更贴合真实的消费决策场景。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 成本结构的红利释放：5到10倍的利润优化空间&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;佣金制度的颠覆性利差&lt;/strong&gt;: 传统搜索广告的获客成本通常占GMV的20%-40%，而ChatGPT目前的代理佣金仅为3%-9%。对于零售商和OTA平台而言，这种巨大的成本降幅将直接重塑企业的盈利曲线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 零售商与OTA平台的生存策略&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;重构渠道预算&lt;/strong&gt;: 评估AI代理渠道的低成本优势，将部分高成本搜索广告预算逐步向AI代理生态转移。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强化垂直数据接口&lt;/strong&gt;: 主动对接AI平台协议，提供实时动态库存与多维度用户评价，以在代理搜索中获得更高的权重。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“流量脱媒”风险，在利用AI引流的同时，必须确保持续增强自有APP的存留能力，避免沦为单纯的后端履约工具。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 资本视角的估值锚点：Alphabet与Amazon的增长路径&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Alphabet (Google)&lt;/strong&gt;: 估值逻辑依赖于AI驱动下的搜索与云业务利润率提升，需关注宏观经济对SMB广告支出的潜在波动风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Amazon&lt;/strong&gt;: 盈利能力受高利润业务（广告与AWS）持续驱动，目前1.2倍的PEG展现出比同行更高的估值性价比。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “让大家改变原有的购物习惯，真的是一件挺难的事情。”&lt;/li&gt;
-&lt;li&gt;💬 “ChatGPT目前的代理佣金模式，正以5到10倍的成本优势对传统搜索广告进行降维打击。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1nvw7zgEZU</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/77672d1602156af9b0256e90fd524c3670766f7a.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 18 Mar 2026 15:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>阿里千问负责人离职风波：大厂“仙人”与组织规则的深度博弈</title>
-      <link>https://hosting.wavpub.cn/dao-sub/2026/03/18/%e9%98%bf%e9%87%8c%e5%8d%83%e9%97%ae%e7%a6%bb%e8%81%8c%e4%bd%99%e9%9c%87%ef%bc%8c%e5%9c%a8%e5%87%a0%e4%b8%87%e4%ba%ba%e7%9a%84%e9%93%81%e7%90%83%e9%87%8c%e5%a6%82%e4%bd%95%e4%bd%93%e9%9d%a2%e7%94%9f/</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.daopub.com/ld.xml"&gt;科技乱炖&lt;/a&gt; | &lt;a href="https://hosting.wavpub.cn/dao-sub/2026/03/18/%e9%98%bf%e9%87%8c%e5%8d%83%e9%97%ae%e7%a6%bb%e8%81%8c%e4%bd%99%e9%9c%87%ef%bc%8c%e5%9c%a8%e5%87%a0%e4%b8%87%e4%ba%ba%e7%9a%84%e9%93%81%e7%90%83%e9%87%8c%e5%a6%82%e4%bd%95%e4%bd%93%e9%9d%a2%e7%94%9f/"&gt;阿里千问离职余震，在几万人的铁球里如何体面生存&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当顶尖技术人才（仙人）的理想主义撞上大厂的商业逻辑与HR规则，为何结局往往是“一拍两散”？&lt;/li&gt;
-&lt;li&gt;💡 为何中国大厂的开源项目常被视为“刷简历”或“公关秀”，难以形成持续的生命力？&lt;/li&gt;
-&lt;li&gt;🚀 在一个几万人的庞大组织中，个人能力的边界在哪里？你是无可替代的大动脉，还是随时可换的毛细血管？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 大厂开源的尴尬境地：名望、商业与生存的死结&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开源驱动力的异化&lt;/strong&gt;: 大厂开源通常并非纯粹的技术普惠，而是在弱势地位下的“搅局”策略（如追赶OpenAI）或高层意志下的市场行为。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ROI的紧箍咒&lt;/strong&gt;: 开源模型投入巨大（算力资源），但短期内难以直接创收。当公司进入商业化收割期，开源团队往往面临资源缩减或被强行干预的处境。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人才与声誉的流失&lt;/strong&gt;: 像林俊阳这样灵魂人物的离职，动摇的不仅是模型迭代速度，更是开源社区对该底层架构长线发展的信心。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 仙人入世：顶尖天才与工业级秩序的冲突&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“仙人”与“凡人”的需求错配&lt;/strong&gt;: 大厂招募顶级专家往往只看重其特定侧面的影响力（如人脉、背书），而非全盘接受其技术抱负。大厂需要的是解决特定问题的专家，而非试图重塑规则的挑战者。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大铁球定律&lt;/strong&gt;: 大公司如同一颗具有巨大惯性的铁球，运行靠的是秩序与流程，而非某一个原子的推动。当个人意志试图改变球体轨迹时，反作用力通常会先将个人弹开。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 职场生存与成长的非线性进化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;管理离职预期&lt;/strong&gt;: 避免在情绪巅峰时公开表态，君子绝交不出恶声，为未来的资源回流与口碑留出缓冲空间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;识别组织势能&lt;/strong&gt;: 认清自己是依赖大厂资源放大的“大能”，还是能独立行走。在训不动模型的小公司与受限制的大厂之间寻找动态平衡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;熬过“冷板凳”期&lt;/strong&gt;: 许多技术领袖的成功在于熬过了组织调整的真空期，等待个人价值与公司新战略再次契合的瞬间。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要误以为公司离不开自己。大厂不缺P10，缺的是能完美嵌入机器运作且不制造额外管理阻力的优质“螺丝钉”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “大公司滚的时候不在乎你，它滚不动的时候，也没有人能推得动。”&lt;/li&gt;
-&lt;li&gt;💬 “大公司做开源的目的通常非常可疑，要么是刷简历，要么是市场行为，很难有纯粹的技术回报。”&lt;/li&gt;
-&lt;li&gt;💬 “你以为你是大动脉，结果在组织眼里，谁都是毛细血管。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://hosting.wavpub.cn/dao-sub/2026/03/18/%e9%98%bf%e9%87%8c%e5%8d%83%e9%97%ae%e7%a6%bb%e8%81%8c%e4%bd%99%e9%9c%87%ef%bc%8c%e5%9c%a8%e5%87%a0%e4%b8%87%e4%ba%ba%e7%9a%84%e9%93%81%e7%90%83%e9%87%8c%e5%a6%82%e4%bd%95%e4%bd%93%e9%9d%a2%e7%94%9f/</guid>
-      <enclosure url="https://media.wavpub.com/f8/d4/07/20260318230217-ndRnPNMsLVnQtNkj.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 18 Mar 2026 15:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
