@@ -7,7 +7,92 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 01 Apr 2026 22:43:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 08:36:48 +0000</lastBuildDate>
+    <item>
+      <title>量化交易核心数据接口详解：从高频行情到基本面分析的实操全指南</title>
+      <link>https://www.bilibili.com/video/BV1s1XfB3EN7</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1s1XfB3EN7"&gt;xtdata高级行情接口全解析：从指数权重到板块数据实战&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ 量化交易核心数据接口系统 - 标准实操手册 (SOP)&lt;/h3&gt;
+&lt;h4&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于模块化API调用的数据交互框架，通过同步下载与异步回调机制实现高频行情、财务报表及市场元数据的获取与离线化存储。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：合约代码（如 600000.SH）、市场代码、时间区间、报告类型等参数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：嵌套字典、时间戳列表、布尔值及结构化的财务报表数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Level 2 主笔成交&lt;/strong&gt;：包含高频细节的精细交易数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回调函数 (Callback)&lt;/strong&gt;：批量下载任务中用于实时反馈进度的监控机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;同步执行&lt;/strong&gt;：程序需等待数据下载完成方可进入下一环节的运行模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h4&gt;
+&lt;h4&gt;场景 1：多维度行情数据获取&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：获取连续的高频细节数据及历史行情。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[高频获取]&lt;/strong&gt;：调用 &lt;code&gt;GET12 Transaction&lt;/code&gt; 提取主笔成交数据（需预先开启缓存以确保数据连续）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[单合约下载]&lt;/strong&gt;：使用 &lt;code&gt;Download HistoryData&lt;/code&gt; 针对特定合约下载历史序列。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[批量提效]&lt;/strong&gt;：调用 &lt;code&gt;Download HistoryDataR&lt;/code&gt; 并配置 &lt;code&gt;Callback&lt;/code&gt; 函数，实现集团军式批量下载并实时监控进度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;场景 2：交易日历与时间管理&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：排除非交易日，精确控制回测或策略执行时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[节假日列表]&lt;/strong&gt;：调用 &lt;code&gt;Get Holidays&lt;/code&gt; 获取当年节假日。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交易日精准化]&lt;/strong&gt;：使用 &lt;code&gt;Get Trading Calendar&lt;/code&gt; 锁定特定市场的交易日期，并将 &lt;code&gt;Trad Times&lt;/code&gt; 设为 &lt;code&gt;True&lt;/code&gt; 以获取具体时段。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[标的验证]&lt;/strong&gt;：调用 &lt;code&gt;Get Trade Times&lt;/code&gt; 输入合约代码，确认其官方交易时段（含夜盘）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;场景 3：基本面财务分析深度提取&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：跨公司、跨周期的财务对比分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[多表提取]&lt;/strong&gt;：使用 &lt;code&gt;Set Financial Data&lt;/code&gt; 指定 &lt;code&gt;start time&lt;/code&gt;、&lt;code&gt;end time&lt;/code&gt; 及 &lt;code&gt;report type&lt;/code&gt;（报告截止日或披露日）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据下沉]&lt;/strong&gt;：通过 &lt;code&gt;Download Financial Data 2&lt;/code&gt; 配合回调函数，将资产负债表、利润表等批量存储至本地数据库。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;场景 4：板块轮动与成分分析&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：构建板块研究框架并分析指数权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[板块同步]&lt;/strong&gt;：执行 &lt;code&gt;Download Sector Data&lt;/code&gt; 更新本地分类信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[列表检索]&lt;/strong&gt;：通过 &lt;code&gt;Get Sector List&lt;/code&gt; 与 &lt;code&gt;Get Stock List In Sector&lt;/code&gt; 提取成分股。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[权重分析]&lt;/strong&gt;：调用 &lt;code&gt;Get Index Weight&lt;/code&gt; 获取指数内各成分股的具体权重占比。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[report type]&lt;/strong&gt;：财务数据筛选核心变量 -&amp;gt; 决定基于财报自然结账期或官方公告披露期进行数据检索。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Trad Times]&lt;/strong&gt;：时间精度控制开关 -&amp;gt; 开启后可输出具体到分钟的交易时间窗口，用于回测对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Instrument Detail]&lt;/strong&gt;：标的属性过滤器 -&amp;gt; 返回交易所代码、总股本、涨跌幅限制等 10+ 项关键基础属性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;调用前提&lt;/strong&gt;：获取 Level 2 数据前必须确认已完成对应数据的缓存，否则调用将无法保证连续性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据有效性&lt;/strong&gt;：在分析前务必调用 &lt;code&gt;Get Instrument Detail&lt;/code&gt;，若返回 &lt;code&gt;NONE&lt;/code&gt; 则说明合约代码无效，需中止后续逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;灵活定制&lt;/strong&gt;：利用 &lt;code&gt;AddSector&lt;/code&gt; 和 &lt;code&gt;RemoveSector&lt;/code&gt; 构建基于个人研究逻辑的自定义板块，而非局限于官方分类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;索引生成&lt;/strong&gt;：使用 &lt;code&gt;Get Trading Dates&lt;/code&gt; 直接生成时间戳列表，是构建日线数据索引的最便捷方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1s1XfB3EN7</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/e62521b45f039a6c721eb68ee68ed192776f313f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 02 Apr 2026 14:12:41 +0800</pubDate>
+    </item>
     <item>
       <title>愚人节的量化实战：纪律、风险与行业轮动的深度洞察</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-01&amp;talker=57784510736@chatroom</link>
@@ -5228,43 +5313,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-15&amp;talker=58453205219@chatroom</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>穿越周期的锚点：全市场币种1011底部价格破位率及其强弱分类研究</title>
-      <link>https://bbs.quantclass.cn/thread/76918</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76918"&gt;1011之后的遗珠&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[价格锚点分析, Python自动化, 币种强弱分类, 定投选币]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Python筛查全市场相对于1011低点的破位情况，识别出10%的强势穿越周期品种。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：统计显示全市场约90%的品种（552个合约中占比89.5%，现货占比91.1%）已跌破2025年10月11日的历史低点。即便BTC、ETH、SOL、DOGE等核心资产，相较该锚点价格也出现了35%-50%的跌幅。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：半年时间跨度足以覆盖多次牛熊转换，1011底部的普适性击穿反映了当前市场存量博弈下的极低流动性与深度回撤现状。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“主流币即避风港”的绝对观点，在极端周期中，价格锚点的失效具有普遍性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：在那仅存的10%未破位品种中，隐藏着真正的强势标的，其分类包括“老币回升”、“妖币”、“实力妖币”及“有点实力”类，是下一轮反弹的核心关注对象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：人工翻阅K线寻找破位币种效率极低且易产生主观偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python (Pandas/Glob) + LLM (DeepSeek) 辅助编程。利用AI生成数据处理逻辑，实现从直觉到结果的分钟级验证。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：通过 &lt;code&gt;pd.to_datetime&lt;/code&gt; 转换时间列，利用日期掩码 &lt;code&gt;(df[date_column] &amp;gt;= start_date) &amp;amp; (df[date_column] &amp;lt;= end_date)&lt;/code&gt; 锁定历史低点区间，并与 &lt;code&gt;df.iloc[-1]&lt;/code&gt; 的最新收盘价进行向量化比较。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：处理CSV时需显式指定 &lt;code&gt;encoding='GBK'&lt;/code&gt; 及 &lt;code&gt;skiprows=1&lt;/code&gt;；在筛选结果后需手动或通过规则过滤稳定币、法币及指数类干扰数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码实现】&lt;/strong&gt;：复刻文中的“历史关键锚点对比脚本”，定期扫描全市场品种，动态识别“相对强度（Relative Strength）”最高的品种。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【策略思路】&lt;/strong&gt;：将“未跌破关键历史锚点”作为定投选币的前置过滤条件，优先在文中提到的“九宫格”强势品种中寻找长线布局机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【研究方向】&lt;/strong&gt;：结合定投模型，研究在极低市场热度下（如文中提到的小龙虾季节），如何通过数据化手段保持“研究手感”并识别价值洼地。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76918</guid>
-      <pubDate>Sat, 14 Mar 2026 17:41:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
