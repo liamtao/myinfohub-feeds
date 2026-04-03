@@ -7,7 +7,175 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 03 Apr 2026 08:49:32 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 22:46:44 +0000</lastBuildDate>
+    <item>
+      <title>量化透视：CTA趋势跟踪如何驱动能源期货市场及新型预测与分解模型</title>
+      <link>https://www.bilibili.com/video/BV1e59VBfEPC</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1e59VBfEPC"&gt;能源期货持仓深度研究：动量交易如何驱动 Managed Money 变化&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)🤔 CTA的机械化趋势跟踪策略如何系统性地放大能源期货市场的波动？💡 现有量化模型为何难以精确捕捉CTA的跨市场资金分配与绝对仓位水平？🚀 一个统一的神经网络框架如何实现CTA仓位的提前预测、精准分解，并揭示市场深层规律？---### 🧩 CTA：驱动市场动量的幕后推手* &lt;strong&gt;同步性惊人&lt;/strong&gt;: 能源期货市场中，专业管理资金的仓位变动与价格趋势高度同步，核心驱动力来自商品交易顾问（CTA）的趋势跟踪策略。* &lt;strong&gt;趋势跟踪本质&lt;/strong&gt;: CTA奉行“追涨杀跌”原则，根据趋势强弱动态调整仓位，趋势越强仓位越大，操作机械且跨越数十个市场。* &lt;strong&gt;市场双重影响&lt;/strong&gt;: CTA行为不仅跟随价格，其系统性买入/卖出本身亦可消耗市场流动性，放大波动，成为价格趋势的“助推器”。* &lt;strong&gt;动量区分&lt;/strong&gt;: 主要操作“时间序列动量”（单市场内部价格趋势），而非“截面动量”（市场间相对强弱）。---### 🛠️ 新型神经网络模型：量化CTA行为的突破* &lt;strong&gt;旧有模型缺陷&lt;/strong&gt;:    * &lt;strong&gt;CTA指数拟合&lt;/strong&gt;: 无法得知CTA在各市场的具体仓位分配，需假设且绝对仓位常失真。    * &lt;strong&gt;独立市场建模&lt;/strong&gt;: 仅关注仓位变化，无法提供与价格趋势同步的仓位水平；且将信号生成与资金分配环节混淆。* &lt;strong&gt;模型目标&lt;/strong&gt;: 解决现有模型的局限，直接预测管理资金的仓位水平，并能清晰区分趋势信号生成与跨市场资金分配。* &lt;strong&gt;👉 模型架构 (SOP)&lt;/strong&gt;:  1. &lt;strong&gt;信号生成层 (所有市场共享)&lt;/strong&gt;: 从标准化动量指标（剔除季节性和波动率影响的累计盈亏）中提取通用趋势信号，通过非线性“反应函数”生成得分。     * &lt;strong&gt;非线性反应&lt;/strong&gt;: 趋势信号U过强或过弱时，反应RRU趋近于零，可能反映市场拥挤或CTA的冷静策略。  2. &lt;strong&gt;资金分配层 (市场独有)&lt;/strong&gt;: 根据每个市场具体情况，对第一层的反应得分进行加权，并加入一个捕捉非趋势决策的偏差项，最终预测仓位水平。* &lt;strong&gt;⚙️ 关键参数&lt;/strong&gt;:    * &lt;strong&gt;第一层权重W&lt;/strong&gt;: 所有市场共享，代表CTA的三种核心趋势跟踪策略，L1惩罚确保简洁。    * &lt;strong&gt;第二层权重WMK&lt;/strong&gt;: 各市场独有，决定趋势信号的权重配比。    * &lt;strong&gt;偏差项BIAS-MT&lt;/strong&gt;: 捕捉非趋势驱动的仓位决策（如自主决策、套利），L2惩罚限制其过度干预趋势识别。---### 📈 模型验证与前瞻性应用* &lt;strong&gt;卓越预测力&lt;/strong&gt;:    * &lt;strong&gt;样本外R平方&lt;/strong&gt;: 大多数情况下，新模型对管理资金仓位变化的解释力（30%-50%）远超简单基准模型。    * &lt;strong&gt;方向准确性&lt;/strong&gt;: 仓位变化方向预测能力显著优于基准模型，价格趋势是预测仓位方向的可靠信号。* &lt;strong&gt;🌟 核心应用&lt;/strong&gt;:    * &lt;strong&gt;仓位提前预测&lt;/strong&gt;: 仅需周二结算价即可预测当周仓位变化，比官方报告提前数日获取市场关键信息。    * &lt;strong&gt;仓位精准分解&lt;/strong&gt;: 将管理资金仓位分解为“CTA仓位”（趋势驱动）和“自主决策仓位”（非趋势驱动），揭示各自规模与动态。    * &lt;strong&gt;洞察市场微观结构&lt;/strong&gt;: 发现自主决策仓位具有强季节性，例如：油品复合体自主仓位上半年偏多，下半年转空；暗示北美原油与成品油间存在大量跨品种套利活动。---### 🌟 金句萃取* 💬 “CTA系统性的在涨的时候买，在跌的时候卖，这不就是在不断加注燃料吗？”* 💬 “他们一方面是价格趋势的追随者，另一方面他们的集体行动又可能成为价格趋势的助推器。”* 💬 “这种非线性的反应机制很重要，它保证了即使输入信号在不同市场看起来不一样，也能通过这个函数得到相对合理的反应值。”&lt;/h3&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1e59VBfEPC</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/dcf674833930051f6961e3f0246eb7ec7e26bea4.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 03 Apr 2026 18:55:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>牛马三期千因子体系：量化选股因子、引擎、策略与工具全解析</title>
+      <link>https://bbs.quantclass.cn/thread/77593</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77593"&gt;【千因子】牛马三期千因子全家桶 —— 1000个因子 + V5财务引擎 + 4套策略，量化选股一步到位&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[量化选股因子体系、V5财务引擎、分域选股策略、批量因子分析、截面因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：推出牛马三期千因子体系，包含V5引擎、1019个因子、4套策略及分析工具，实现量化投资全链路升级。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过整合1019个财务与截面因子，搭载优化后的V5财务引擎，实现多市场状态（分域选股）、相对强度（指数轮动）和概念驱动（概念分域）的多元化Alpha捕获。利用MI+IC排序的因子收益热力图，数据驱动地优化因子使用方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子数量与类型&lt;/strong&gt;：包含260个财务因子、153个截面因子以及牛马二期的606个因子，总计1019个因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;V5财务引擎&lt;/strong&gt;：提供财务因子构建框架，强调PIT（Point-in-Time）时点精度，并具备缓冲层以兼容旧框架因子（22/23/24版本）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;截面因子&lt;/strong&gt;：提供153个截面因子，并配套前置过滤工具，解决框架中如“下日涨停”等特殊情况下的过滤问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PIT精度&lt;/strong&gt;：V5财务引擎在数据处理上强调时点精度，确保财务数据与市场数据的准确对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子过滤&lt;/strong&gt;：提供截面因子前置过滤工具以进行特定条件下的数据清洗和筛选。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子分析&lt;/strong&gt;：利用MI+IC排序的因子收益热力图，指导因子在不同市场环境下的最佳组合和使用方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;财务因子计算效率与精度&lt;/strong&gt;：旨在通过V5财务引擎解决传统财务因子计算速度慢、精度不足（特别是PIT时点）的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子评估工业化&lt;/strong&gt;：批量因子分析工具（1.7.2版本）解决对大量因子进行系统性、自动化评估的需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;旧框架兼容性&lt;/strong&gt;：V5缓冲层解决旧版本（22/23/24）框架因子在新引擎下无缝切换和性能提升的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子信息管理&lt;/strong&gt;：通过为全部因子补齐FA_INFO，解决因子信息查阅障碍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;截面因子过滤逻辑&lt;/strong&gt;：提供工具和方案解决截面因子在特定过滤条件（如“下日涨停”）下的实现复杂性与正确性问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;V5财务引擎&lt;/strong&gt;：基于2025新框架开发，强调“更快更强”的计算性能，并详细阐述其设计思路、四次迭代优化、PIT时点精度实现及高阶函数应用（如“3行代码写完的因子为什么要写13行？”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;V5缓冲层&lt;/strong&gt;：专门设计用于旧框架因子（22/23/24版本）的兼容方案，实现“无痛切换，一行代码享受极速”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;V5财务引擎优化&lt;/strong&gt;：通过底层设计优化，提升财务因子计算速度与准确性，具体包括PIT精度和高阶函数封装。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;兼容性实现&lt;/strong&gt;：V5缓冲层通过抽象层或适配器模式，使得旧因子无需修改即可适配新引擎并获得性能提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过滤算法&lt;/strong&gt;：截面因子前置过滤工具提供了解决特定过滤问题（如“下日涨停”）的具体配置和实现逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;批量分析&lt;/strong&gt;：批量因子分析工具1.7.2适配最新框架，实现了因子评估的自动化和工业化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：V5引擎宣称“更快更强”，旧因子通过缓冲层可“享受极速”，显著提升了因子计算效率与开发体验。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;NaN处理&lt;/strong&gt;：探讨了“计算因子阶段不默认去NaN的必要性”，暗示了在因子计算过程中NaN值处理的深层逻辑和潜在陷阱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过滤问题&lt;/strong&gt;：具体解决了截面因子在框架中过滤“下日涨停”等特定边界条件下的挑战。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深入理解V5引擎技术细节与高阶函数应用&lt;/strong&gt;：研读V5财务引擎的11篇技术文档，特别是关于PIT精度和高阶函数的部分，尝试在其思想指导下构建更高效、更精确的自定义财务因子，并将其集成到个人量化回测框架中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实践因子前置过滤与工业化评估流程&lt;/strong&gt;：利用提供的截面因子前置过滤工具配置方法，学习处理特定市场过滤逻辑（如“下日涨停”），并结合批量因子分析工具1.7.2，建立一套自动化的因子筛选、分析与评估工作流，提升因子挖掘效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索分域选股策略与因子热力图结合应用&lt;/strong&gt;：以分域选股框架为基础，结合MI+IC排序的因子收益热力图，尝试根据不同市场状态（如指数均线划分）动态调整因子组合或策略权重，以优化策略表现和鲁棒性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77593</guid>
+      <pubDate>Fri, 03 Apr 2026 16:33:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>四月清明劫：小市值策略回撤下的“道心”重塑与择时反思</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;amp;talker=57784510736@chatroom"&gt;2026-04-03_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;⚠️ 恐怖的“人间四月天”：为什么小市值难逃此劫？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;四月的“魔咒”&lt;/strong&gt;：群友普遍认为“4月是必然，3月是意外”。由于业绩披露等因素，小市值微盘股在4月往往面临剧烈波动，甚至被称为“人间炼狱”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回撤现状&lt;/strong&gt;：多位投资者反馈当日账户下跌超2%，今年以来最大回撤触及7.5%至23%不等。尤其是微盘股，经历了“从高位回测15%”的极端行情。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;底层逻辑&lt;/strong&gt;：小市值的赚钱原理在于博取高赔率，但由于策略趋同（已是公开的秘密），当情绪转负时，容易出现“踩踏式”下跌。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 择时与仓位：在暴击中学会“按兵不动”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略执行的矛盾&lt;/strong&gt;：面对大跌，有人选择“割肉”离场，有人则坚持“定风波”等量化策略。事实证明，严守纪律虽然短期痛苦，但能避免在反弹前夕下车。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;择时的价值&lt;/strong&gt;：邢不行预告了“凌烟阁 1.1”版本，重点在于引入新的“择时策略”，旨在解决小市值在特定周期（如4月）的防守问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空仓的艺术&lt;/strong&gt;：有资深玩家分享了“人肉择时”经验，通过对市场情绪的极端感知识别离场信号，成功将去年最大回撤控制在3.5%以内。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 交易心理：回测与实盘的“买家秀”对比&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;体感差异&lt;/strong&gt;：回测时看到10%的跌幅觉得“没啥”，但实盘中2%的单日跌幅就能让人“道心破碎”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降维打击&lt;/strong&gt;：对比币圈单周50%的回撤，群友自嘲大A其实“很温柔”，这种类比有助于平复交易时的极端情绪。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;家暴理论&lt;/strong&gt;：群友总结了“炒A股像家暴”的五个阶段，生动刻画了投资者从“期待反弹”到“彻底麻木”的心理转折。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌍 宏观迷雾：中东局势与“特朗普式”波动&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;外部扰动&lt;/strong&gt;：油价飙升、中东局势不明朗导致大资金避险情绪浓厚，大A成了宏观博弈的“泄压阀”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;情绪负溢价&lt;/strong&gt;：当市场充满了对伊朗、北约等消息的真假猜测时，情绪波动被放大。投资者调侃应严查是否有“特朗普小号”混入分享会干扰行情。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 核心金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“4月是必然，3月是意外。” —— ShawnSu&lt;/li&gt;
+&lt;li&gt;“你的爱情或者友情无回放，但我这有回放。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“相对B圈一星期回撤接近50%来说，大A很温柔。” —— 鹏&lt;/li&gt;
+&lt;li&gt;“割得了初一，割不过十五。” —— Cyan.&lt;/li&gt;
+&lt;li&gt;“微盘股就是野火烧不尽，春风吹又生。被烧着了，就是疼。” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关资源链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=77550"&gt;【观沧海】8.风险平价配置及其赌狗简单运用案例 | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>真假动量曲线之辨：量化交易中的手动干预与风险过滤</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;amp;talker=58453205219@chatroom"&gt;2026-04-03_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📈 真假动量：曲线背后的“人工干预”&lt;/h3&gt;
+&lt;p&gt;市场上许多亮眼的收益曲线并非全自动产生，而是经过了人工干预。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;真实的动量&lt;/strong&gt;：未经过滤的真实动量曲线往往波动剧烈，伴随显著回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行情联动性&lt;/strong&gt;：近期动量持续时间缩短（甚至不足1天），主因是大饼（BTC）走势较弱，拖累整个市场，导致动量币冲高后迅速回落。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---### 🛡️ 风险过滤：如何应对“妖币”暴涨暴跌？
+面对极端行情，社区给出了几种实战方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;后置过滤因子&lt;/strong&gt;：建议使用 &lt;code&gt;pctchange&lt;/code&gt; 或 &lt;code&gt;zfmeanq&lt;/code&gt; 等因子进行波动率过滤，能有效避开部分暴涨暴跌币。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手动拉黑技巧&lt;/strong&gt;：若想实现“拉黑一半”或“减仓一半”，可将策略复制两份，仅在其中一份添加手动拉黑的前置过滤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADL（自动减仓）逻辑&lt;/strong&gt;：ADL不仅仅看仓位大小，更与账户的盈亏比和杠杆倍数深度挂钩。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---### 💰 隐形成本：被忽视的资金费率&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测陷阱&lt;/strong&gt;：动量多头策略极易吃掉高额资金费。如果回测时未勾选资金费率数据，实盘表现往往会远逊于回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实操建议&lt;/strong&gt;：务必确认回测框架中数据中心已开启资金费率选项。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---### 🔧 实战指南：币安API报错排查清单
+当程序出现 &lt;code&gt;Invalid API-key&lt;/code&gt; 报错时，请按此顺序自检：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;IP白名单&lt;/strong&gt;：确认服务器IP是否已添加到币安子账户的白名单中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;账户模式失效&lt;/strong&gt;：在“普通账户”与“统一账户”之间切换会导致之前的API失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权限核对&lt;/strong&gt;：检查子账户是否开启了合约交易权限或填错了其他子账户的API。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;---### ✨ 社区金句&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“我把握不住的就叫规律，我把握住的就叫拥挤。” —— AK&lt;/li&gt;
+&lt;li&gt;“赚钱是指数的，不是线性的。” —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;“最傻逼的是别拉黑了，暴涨了又进去了。” —— 邢不行&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-03&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>量化交易核心数据接口详解：从高频行情到基本面分析的实操全指南</title>
       <link>https://www.bilibili.com/video/BV1s1XfB3EN7</link>
@@ -5185,159 +5353,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Xzw3zGErd</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/d74d4c8f9a5f25dce4737512fb112e7c32a9bcb5.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 15 Mar 2026 22:34:13 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易D1算子库：基于Polars语法的极简因子构建与选股框架</title>
-      <link>https://bbs.quantclass.cn/thread/76940</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76940"&gt;【D1框架】算子使用文档&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polars向量化、延迟执行、截面/时序算子、因子合成]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于Polars封装的标准化算子库，旨在解决复杂因子开发中的代码冗余与计算性能瓶颈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：提供三层因子构造逻辑：1. 基础数学算子（如ln, sqrt）；2. 时序算子（ts_rolling_mean, ts_pct_change）；3. 截面算子（cs_rank, cs_zscore）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【多因子合成】&lt;/strong&gt;：展示了通过 &lt;code&gt;row_mean&lt;/code&gt; 进行等权合成，并配合 &lt;code&gt;cs_zscore&lt;/code&gt; 进行截面标准化的落地流程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【选股应用】&lt;/strong&gt;：利用 &lt;code&gt;cs_rank&lt;/code&gt; 的 &lt;code&gt;method='min'&lt;/code&gt; 参数实现截面选股过滤，支持多维度指标排序筛选。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决原生 Polars 语法学习门槛高、代码难以标准化、大规模数据集计算逻辑混乱等开发瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：核心依赖 Polars 的 &lt;code&gt;Expr&lt;/code&gt; (表达式) 和 &lt;code&gt;LazyFrame&lt;/code&gt; (延迟执行) 机制，利用其查询优化器提升多算子串联性能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;表达式链式调用&lt;/strong&gt;：推崇 Chaining 模式减少中间变量存储，优化内存分配。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;原子算子封装&lt;/strong&gt;：通过 &lt;code&gt;select_column&lt;/code&gt; 与 &lt;code&gt;create_columns&lt;/code&gt; 统一输入输出接口，屏蔽底层列名映射的复杂性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;向量化性能&lt;/strong&gt;：避免使用 &lt;code&gt;map_batches&lt;/code&gt; 等非向量化操作，确保计算在 Polars C++ 内核中并行执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;算子化重构&lt;/strong&gt;：将现有的因子库重构为基于 &lt;code&gt;pl.Expr&lt;/code&gt; 的独立算子，以兼容 Polars 的计算图优化机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时空维度隔离&lt;/strong&gt;：在工程实现中严格区分 &lt;code&gt;ts_&lt;/code&gt; (分组时序) 与 &lt;code&gt;cs_&lt;/code&gt; (截面) 算子，防止在并行计算中发生数据污染。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;延迟执行流水线&lt;/strong&gt;：在因子工厂流程中保持 &lt;code&gt;LazyFrame&lt;/code&gt; 状态直到最终 &lt;code&gt;collect()&lt;/code&gt;，以获得最优 CPU 缓存利用率和计算路径。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76940</guid>
-      <pubDate>Sun, 15 Mar 2026 19:19:03 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘本金估算指南：基于回测数据动态分析资金占用与入场门槛</title>
-      <link>https://bbs.quantclass.cn/thread/76937</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76937"&gt;【圣约翰】【工具分享】策略比较复杂，平均持股多少个？至少需要多少钱才能跑起来？一个脚本帮你算清楚&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资金占用分析, 实盘门槛估算, A股一手交易限制, 策略容量审计]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于回测持仓与资产数据缩放，量化评估实盘本金对策略执行的约束。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：等比缩放回测资产比例至预设本金，通过计算单股分配资金与A股一手（100股）成本的匹配度，量化评估执行偏差风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：揭示了多持仓策略在小本金下，因股价变动导致无法足额买入（不足一手）而产生的实盘与回测收益脱节问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决回测“无限可分性”假设与实盘“交易最小单位”限制之间的决策空白。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：离线解析 &lt;code&gt;选股结果.csv&lt;/code&gt; 和 &lt;code&gt;资金曲线.csv&lt;/code&gt;，通过提取每日持仓股票数及净值，无需行情数据即可重构资金占用模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：引入 5%/25%/50%/95% 多分位数评价体系，直观展示不同本金档位下的单股承受股价上限，实现 [不足/基本够用/充裕] 的自动化评级矩阵。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;工程优化&lt;/strong&gt;：建议在回测流程末端集成 &lt;code&gt;capital_sufficiency_check&lt;/code&gt; 逻辑，作为策略实盘可执行性的强制准入指标。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略风控&lt;/strong&gt;：针对分散持仓策略，建议单股分配资金中位数应维持在2000元以上，以降低因“不足一手”导致的仓位偏离和交易磨损。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76937</guid>
-      <pubDate>Sun, 15 Mar 2026 17:43:57 +0800</pubDate>
-    </item>
-    <item>
-      <title>AlphaProp：基于图演化与贝叶斯检索的量化因子挖掘新范式</title>
-      <link>https://www.bilibili.com/video/BV1CjNTzpEjS</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1CjNTzpEjS"&gt;Alpha 不再是随机进化：AlphaPROBE 的结构化挖掘革命&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么传统的自动化因子挖掘（DFG/IFE）容易陷入“局部最优”和“重复劳动”的泥潭？&lt;/li&gt;
-&lt;li&gt;💡 如何将零散的因子库转化为一个动态关联的“生态系统”，并通过图导航提升挖掘效率？&lt;/li&gt;
-&lt;li&gt;🚀 AlphaProp 如何利用贝叶斯思维和进化路径信息，在海量搜索空间中实现“精准制导”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 核心逻辑：从“盲目搜索”到“图上导航”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子图谱化 (DAG Navigation)&lt;/strong&gt;: 核心在于将因子挖掘视为在有向无环图（DAG）上的战略导航。每一个因子是节点，演化关系是边。通过这种视角转变，将杂乱的因子库转变为动态互联的生态系统，利用结构化推理替代盲目碰撞。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;贝叶斯因子检索器&lt;/strong&gt;: 通过最大化新因子的期望质量来筛选“种子选手”。评估体系包含两个维度：一是先验潜力（权衡因子质量、深度惩罚与检索频率，防止过度拟合）；二是自然函数（评估新因子对现有库的边际贡献，关注价值、语义和语法的多样性）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文驱动的精准生成&lt;/strong&gt;: 生成器不再孤立看待父因子，而是追溯其完整的“祖先路径”。通过分析师、执行者、验证者三位一体的工作流，利用历史优化逻辑指导新因子设计，彻底避免“重复发明轮子”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 实战方法论：AlphaProp 执行框架&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建演化图谱&lt;/strong&gt;: 建立因子的拓扑结构，记录每个因子的数学表达式及其完整的进化链路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能筛选父因子&lt;/strong&gt;: 应用贝叶斯检索评分，优先选择质量高、层级浅且未被频繁挖掘的因子作为优化对象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略性进化生成&lt;/strong&gt;: 提取祖先路径信息，制定针对性的修改策略，通过 LLM 生成具备逻辑差异化的候选公式。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;闭环验证与入库&lt;/strong&gt;: 经过语法校验、维度匹配及新颖性检查，将达标因子挂载回 DAG，完成一轮进化循环。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;深度陷阱&lt;/strong&gt;: 警惕在图中层级过深的因子，它们往往经历过多次微调，极易导致过拟合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;路径依赖&lt;/strong&gt;: 避免频繁检索同一个父因子，需定期通过检索惩罚强迫模型探索未触达的逻辑空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “因子挖掘不再是森林里的瞎转悠，而是基于地图的战略导航。”&lt;/li&gt;
-&lt;li&gt;💬 “有效的信号往往隐藏在因子的结构化关联中，而非孤立的数学公式里。”&lt;/li&gt;
-&lt;li&gt;💬 “AlphaProp 的核心在于利用‘进化历史’来指导‘未来探索’，通过闭环反馈实现挖掘效率的质变。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1CjNTzpEjS</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/3c17d7b54bc8aac040892151428ddb7e255bb72d.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 15 Mar 2026 10:37:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>利用 Claude Skills 解决量化因子开发中的私有数据字段映射痛点</title>
-      <link>https://bbs.quantclass.cn/thread/76929</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76929"&gt;【Agent Skills】将彩虹官方数据封装成Skill，让AI写因子更准确&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Claude Skills, 因子自动化开发, 字段映射说明, 提示词工程, skill-creator]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过构建结构化的 Skill 知识库，解决 AI 在量化因子开发中由于缺乏私有数据字段定义导致的生成错误。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：AI (如 Claude Code) 在编写量化因子时，因缺乏对私有数据库（如彩虹/邢不行数据）字段命名的认知，常出现幻觉（如将 &lt;code&gt;R_revenue@xbx&lt;/code&gt; 错误识别为 &lt;code&gt;R_rev@xbx&lt;/code&gt;），导致代码无法直接运行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：依托 Claude Code/OpenClaw 环境，利用 &lt;code&gt;skill-creator&lt;/code&gt; 自动化构建工具，将 txt 格式的数据说明文档转化为 AI 可调用的系统技能（Skill）。架构上参考 Tushare Skill 的分层模式，采用主索引与明细文档分离的路由机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;自动化转换&lt;/strong&gt;：使用 &lt;code&gt;skill-creator&lt;/code&gt; 将原始财务报表字段说明转化为结构化的 Markdown 知识库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;架构优化&lt;/strong&gt;：放弃单一庞大文件，改为“Skill.md + 模块化数据说明（如财务报表.md）”的结构，利用 AI 的动态判断能力在对话中按需加载特定字段文档，避免 Context 溢出并提升准确度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引用逻辑&lt;/strong&gt;：通过在 Skill 中定义明确的数据读取逻辑，使 AI 能够根据用户需求（如“计算营业收入增速”）自动检索对应的数据库字段名并参考模板生成代码。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：优化前 AI 无法生成正确字段名；优化后 AI 可精准识别所有财务字段，并能模仿现有因子逻辑快速迁移开发新因子，极大提升了开发效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;构建私有数据映射库&lt;/strong&gt;：将本地量化环境的数据库表结构、字段含义导出为结构化文本，作为 AI Agent 的底层“技能包”，实现因子开发的语义化对齐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实施分层知识检索&lt;/strong&gt;：针对字段过多的财务数据（如资产负债表百余个字段），应采取分模块 md 存储，并在主 Skill 中定义导航逻辑，确保 AI 检索的高效与精准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子开发自动化流水线&lt;/strong&gt;：建立“私有 Skill 引导 + 因子模板参考 + AI 自动化编写”的代码生成流，降低小白用户在复杂数据结构下的开发门槛。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76929</guid>
-      <pubDate>Sun, 15 Mar 2026 03:03:53 +0800</pubDate>
     </item>
   </channel>
 </rss>
