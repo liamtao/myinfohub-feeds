@@ -7,7 +7,136 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 03 Apr 2026 22:46:44 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 08:40:11 +0000</lastBuildDate>
+    <item>
+      <title>深度定制 Claude Code：从泄露源码到私有化桌面编程助手的全流程实操</title>
+      <link>https://www.youtube.com/watch?v=67Cbb3DyIxA</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=67Cbb3DyIxA"&gt;Claude Code Was Leaked… So I Had to Test it&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Riley Code (Customized Claude Code) - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 Anthropic Claude Code 泄露源码二次开发的 CLI 编程智能体，集成了远程控制、MCP 助手及多代理协作机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、Anthropic API Key、本地项目文件上下文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：代码生成、系统命令执行 (Bash)、文件系统修改及自定义 UI 交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vibe Coding&lt;/strong&gt;：指通过直觉和 AI 辅助快速构建或调整代码的开发方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Model Context Protocol)&lt;/strong&gt;：用于扩展 AI Agent 能力的标准化上下文协议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Riley Code&lt;/strong&gt;：作者对二次开发版 Claude Code 的命名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：环境部署与本地运行&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将泄露的混淆代码转化为可运行的本地 Agent 服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Node.js 环境、Anthropic API Key、OpenAI Codeex (用于代码分析与修改)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[代码获取]&lt;/strong&gt;：从 npm registry 泄露的 map 文件中提取并下载源码至本地目录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[项目分析]&lt;/strong&gt;：将源码导入 Codeex，执行指令 &lt;code&gt;summarize this project&lt;/code&gt; 识别 CLI 入口及核心逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[别名配置]&lt;/strong&gt;：通过 Codeex 生成运行脚本，将 Agent 重命名为 &lt;code&gt;Riley Code&lt;/code&gt; 并挂载至全局终端指令。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：交互 UI 与人格属性 (Persona) 定制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：修改 Agent 的反馈状态词与回复风格，实现个性化交互。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[动词替换]&lt;/strong&gt;：在源码中定位状态反馈逻辑，将 &lt;code&gt;working&lt;/code&gt;、&lt;code&gt;spelunking&lt;/code&gt; 等原版词汇替换为 &lt;code&gt;status maxing&lt;/code&gt;、&lt;code&gt;aura farming&lt;/code&gt; 等文化流行语。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[人格注入]&lt;/strong&gt;：新建 &lt;code&gt;personality.txt&lt;/code&gt; 提示词文件，设定其口吻为“全小写、简洁、天才实习生风格”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[系统挂载]&lt;/strong&gt;：修改 Launcher 启动逻辑，将自定义 Persona 作为 System Prompt 强制注入运行时环境。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：封装 Electron 桌面应用与 Artifacts 功能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将终端 CLI 转化为具备图形界面与实时预览能力的桌面软件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[应用封装]&lt;/strong&gt;：构建 Electron 外壳，对接 &lt;code&gt;Riley Code&lt;/code&gt; 进程，实现 UI 与终端逻辑解耦。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[界面调优]&lt;/strong&gt;：移除冗余分割线，配置半透明背景，并将复杂的工具调用过程简化为动态 &lt;code&gt;...&lt;/code&gt; 气泡状态栏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[浏览器联动]&lt;/strong&gt;：集成内置 web 视图，实现当 Agent 生成 localhost 链接或 HTML 文件时，自动开启右侧预览窗口。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Dangerously Skip Permissions]&lt;/strong&gt;：底层控制机制 -&amp;gt; 开启后 Agent 在执行 Bash 指令或文件读写时将跳过用户手动确认，实现全自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Project-based Context]&lt;/strong&gt;：底层控制机制 -&amp;gt; 参考 Codeex 的项目管理模式，为不同目录分配独立的文件上下文与历史记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：[⚠️需核实：原文未提及本地代码修改后的构建/打包细节]，直接修改打包后的 bundle 文件可能导致混淆后的变量引用失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：建立 &lt;code&gt;soul.md&lt;/code&gt; 全局配置文件，要求 Agent 实时自动维护该文件以实现“长期记忆”功能。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=67Cbb3DyIxA</guid>
+      <enclosure url="https://i.ytimg.com/vi/67Cbb3DyIxA/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 04 Apr 2026 00:34:59 +0800</pubDate>
+    </item>
+    <item>
+      <title>通义千问 3.6-plus 全能进阶：从编程霸榜到 Agent 级视频转录实操手册</title>
+      <link>https://www.bilibili.com/video/BV1PC9MBeEs6</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1PC9MBeEs6"&gt;实测 Qwen3.6-Plus ：编程、多模态、长任务更强了&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 通义千问 3.6-plus - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于一兆（1M）超长上下文与强化编程能力的多模态大模型，通过集成 Skill 机制实现复杂 Agent 任务闭环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：支持文本提示词、静态图片截图、长视频文件及第三方 Skill 插件库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：输出包括可执行前端代码（HTML/CSS）、交互式 3D 场景、结构化 PDF 笔记及多模态识别分析报告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Skill&lt;/strong&gt;：模型调用的外部工具能力，如视频渲染 PDF 插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Terminal Bench 2.0 / SW Bench Pro&lt;/strong&gt;：衡量模型编程与实际软件工程解决能力的权威榜单指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plan 模式&lt;/strong&gt;：模型在执行复杂生成任务时先规划逻辑步骤再执行的模式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：零代码 UI 复刻与前端开发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过截图或描述快速生成高保真、可交互的网页前端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[素材输入]&lt;/strong&gt;：上传后台系统截图或 3D 场景参考图。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指令下达]&lt;/strong&gt;：发送提示词要求“一次性复刻页面”或“生成 3D 旋转动画”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交互调整]&lt;/strong&gt;：在生成的 Playground 中通过滑块调整参数，实时观察 UI 变化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[逻辑补全]&lt;/strong&gt;：开启 &lt;code&gt;Plan 模式&lt;/code&gt;，让模型自主选择动画方案或优化布局。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：视频转结构化 PDF 课程笔记 (Agent 实操)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将口语化视频自动转化为图文并茂、逻辑严密的专业文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 &lt;code&gt;bilibili render PDF&lt;/code&gt; 相关 Skill 及本地 Whisper 语音转录环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[任务启动]&lt;/strong&gt;：发送视频文件并指令调用 &lt;code&gt;Skill&lt;/code&gt; 生成 PDF。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自动化处理]&lt;/strong&gt;：模型自主执行“提取字幕 -&amp;gt; 截取关键帧 -&amp;gt; 生成 LaTeX/Text -&amp;gt; 编译 PDF”的七步流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[多模态质检]&lt;/strong&gt;：利用 3.6-plus 的图片识别能力，让模型自动检查生成的图片与文字说明是否一一对应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[循环修正]&lt;/strong&gt;：针对识别出的错误（如配图错误），指令模型重新检索关键帧并反思优化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;价格阶梯控制&lt;/strong&gt;：3.6-plus 采用双阶梯定价策略，输入输出成本虽高于 DeepSeek V3，但胜在具备强大的多模态处理能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent 推理深度&lt;/strong&gt;：支持超长时（如 40-70 分钟）的持续思考与任务推进，具备自主安装软件、修改字体编码及处理复杂排版逻辑的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全护栏 (Safety Guardrails)&lt;/strong&gt;：内置合规性审查机制，能拒绝伪造行业报告等不安全请求，并以“撰写逻辑分析”进行策略性替代。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：在执行视频转 PDF 任务时，模型可能在图片与文字对齐上出现幻觉，必须利用其视觉反馈能力进行“二次反思（Reflect）”校验，不可直接信任初版输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：结合 &lt;code&gt;OpenRouter&lt;/code&gt; 或 &lt;code&gt;Qwen-coder&lt;/code&gt; 平台可实现每日高频免费调用；对于排版乱码问题，可强制要求模型调用黑体、宋体等标准系统字体进行渲染。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1PC9MBeEs6</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/f0a875df1443f982dc9d456ada9eda08de9ee77c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 03 Apr 2026 20:00:14 +0800</pubDate>
+    </item>
     <item>
       <title>社交媒体的算法审判与 DeepMind 的超级智能博弈</title>
       <link>https://www.youtube.com/watch?v=rQ5cAzc0LKI</link>
@@ -5286,64 +5415,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1r2wvzREBQ</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/3252638297b5954534e70d1e158578bb0cc5ddf4.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 18 Mar 2026 22:25:40 +0800</pubDate>
-    </item>
-    <item>
-      <title>腾讯2025巨额营收背后：AI双线战略筑牢护城河，豪赌未来</title>
-      <link>https://www.bilibili.com/video/BV1iZwvz7E4L</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1iZwvz7E4L"&gt;腾讯控股2025年第四季度业绩财报解读 260318&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 面对AI浪潮，传统核心业务如何抵御冲击并实现韧性增长？&lt;/li&gt;
-&lt;li&gt;💡 科技巨头应如何分配资源，在守住旧有江山的同时开辟新蓝海？&lt;/li&gt;
-&lt;li&gt;🚀 高昂的AI投入是运营成本还是资本性支出，其长期投资回报逻辑何在？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 腾讯“双线作战”的AI战略核心&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;战略支点&lt;/strong&gt;: 腾讯通过两大“网盘”构筑AI时代护城河：庞大的用户网络与海量的独家内部数据，确保AI能力不可轻易复制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;双管齐下&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🛡️ 防守（加固现有业务）&lt;/strong&gt;: 将AI作为坚固盾牌，赋能三大核心王国（游戏、广告营销、金融科技），实现业务的智能化升级与效率提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚔️ 进攻（构建未来生态）&lt;/strong&gt;: 大力投入AI工具研发，从底层大语言模型（如混元）到面向用户的新产品（如元宝），并探索微信智能体服务等全新应用场景。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🎮 AI赋能下的业务增长引擎&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;游戏&lt;/strong&gt;: 🚀 22%营收增长，远超行业平均7%。通过生成式AI提升开发效率，智能NPC增强用户粘性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;广告营销&lt;/strong&gt;: 📈 19%营收增长，跑赢行业平均14%。升级AI广告技术模型，实现更精准投放与更优用户体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;金融科技&lt;/strong&gt;: 🔒 AI作为幕后英雄，通过轻量级AI模型强化风控、识别欺诈、评估信用，直接降低贷款坏账风险，提升系统安全与智能化水平。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💰 长期主义的“豪赌”式投入&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;巨额资本支出&lt;/strong&gt;: 2025年投入180亿人民币用于新AI项目，并计划2026年翻倍，将其定义为对未来的资本性而非运营性投资。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;历史回溯&lt;/strong&gt;: 类比腾讯云早期持续亏损但最终扭亏为盈（年利润50亿）的成功模式，印证其“先布局再收割”的长期主义战略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;双向平衡&lt;/strong&gt;: 战略核心在于一边用AI加固现有城墙，一边派出探险队开辟新大陆，寻求下一个增长帝国。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “腾讯的答案很简单，就是把护城河挖得更深更宽。”&lt;/li&gt;
-&lt;li&gt;💬 “他们不认为这是普通的运营成本，而是一种资本性支出，是像建厂房买设备一样，对未来的一种长期投资。”&lt;/li&gt;
-&lt;li&gt;💬 “一边守住旧的江山，一边开辟新的疆土，这毫无疑问是一场巨大且昂贵的豪赌。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1iZwvz7E4L</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/615fb34f0c74b6812f1759c44a04159c133cf365.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 18 Mar 2026 22:10:08 +0800</pubDate>
-    </item>
-    <item>
-      <title>腾讯2025年报深度透视：AI重塑常青业务与构建去中心化智能新生态</title>
-      <link>https://www.bilibili.com/video/BV1ZRwvzJEQd</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ZRwvzJEQd"&gt;【英文原声】腾讯控股2025年第四季度业绩电话会 260318&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions) * 🤔 在AI浪潮下，社交与游戏这类传统强势业务的护城河是否依然稳固？ * 💡 腾讯如何平衡大模型的高昂投入与业务增长的盈利预期？ * 🚀 为什么“去中心化”的智能体（Claw/Agent）才是腾讯AI战略的真正杀手锏？ --- ### 🧩 业务韧性与AI赋能 (Resilience &amp;amp; Empowerment) * &lt;strong&gt;护城河防御逻辑&lt;/strong&gt;: 通讯服务依赖人际网络效应和封闭数据，具有天然的AI免疫性；多人竞技游戏因社交互动和IP稀缺性无法被单纯的AI生成内容取代。 * &lt;strong&gt;存量提效范式&lt;/strong&gt;: AI并非简单的插件，而是通过混元模型重构底层。游戏端实现AI陪玩与内容生成自动化；营销端通过AIM+实现广告全自动投放，带动收入超额增长。 --- ### 🧩 AI产品矩阵的“去中心化”演进 (Decentralized AI Ecosystem) * &lt;strong&gt;从Chatbot到智能体&lt;/strong&gt;: 腾讯认为AI聊天机器人仅是搜索的竞争者，未来的真正增量在智能体（Agent）。通过QClaw和WorkBuddy，将AI从“思考”推向“执行”。 * &lt;strong&gt;生态联动&lt;/strong&gt;: 微信小程序将通过AI智能体实现生产力爆发，将AI能力下放到去中心化的开发者手中，利用腾讯的云、支付和安全基础架构构建闭环。 --- ### 🛠️ 投资逻辑与增长曲线 (Investment &amp;amp; Growth) * &lt;strong&gt;战略性投入&lt;/strong&gt;: 2025年AI投入约180亿，2026年将翻倍。公司明确将此视为基础建设，旨在用核心业务的利润盈余置换未来的AI技术红利。 * &lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;: 1. 紧跟微信生态内AI智能体的接入机会，利用官方工具链降低开发门槛。 2. 针对营销领域，全面拥抱AI驱动的自动化投放模型以提升ROI。 * &lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免盲目追求大模型参数规模，应优先寻找AI与现有高频业务场景（如通讯、游戏社交）的深度耦合点。 --- ### 🌟 金句萃取 * 💬 “正如人们更愿意观看人类竞技而非AI体育，游戏玩家始终珍视人际互动的独特性。” * 💬 “AI智能体正推动AI从‘思考’升级为‘行动’，通过自动化工作流实现任务的连续执行。”&lt;/h3&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ZRwvzJEQd</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/4eb8c62f93cf2a8098eb13fb21f9ae9f8e8583b0.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 18 Mar 2026 22:05:09 +0800</pubDate>
     </item>
   </channel>
 </rss>

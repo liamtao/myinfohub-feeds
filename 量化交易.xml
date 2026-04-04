@@ -7,7 +7,111 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 03 Apr 2026 22:46:44 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 08:40:11 +0000</lastBuildDate>
+    <item>
+      <title>高频金融数据时间间隔预测新范式：自激发弹性残差点过程的量化突破</title>
+      <link>https://www.bilibili.com/video/BV1VK9uBUEfR</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1VK9uBUEfR"&gt;破解高频交易“时间密码”：一种更灵活的持续时间预测模型&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 高频金融事件间隔为何如此难以预测，其分布有何“怪异”之处？&lt;/li&gt;
+&lt;li&gt;💡 如何构建一个既能捕捉高频数据的重尾特性，又能保持动态稳定性的预测模型？&lt;/li&gt;
+&lt;li&gt;🚀 在实际金融市场预测中，引入灵活的弹性残差分布能带来哪些显著的性能提升？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 高频事件间隔的挑战：重尾分布与过度离散&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;异常分布&lt;/strong&gt;: 高频金融数据（例如中间价变动间隔）的时间间隔分布并非标准正态或指数分布，而是典型的&lt;strong&gt;重尾分布 (Heavy-Tailed Distribution)&lt;/strong&gt;。这意味着大部分间隔极短，但偶尔会出现异常长的极端间隔。这导致数据波动性（标准差）远超均值（过度离散），且分布严重右偏（高偏度），长间隔事件的概率显著高于预期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;传统模型局限&lt;/strong&gt;: 经典的自回归条件持续时间（ACD）模型或对数ACD模型，以及使用单一指数残差分布的自激发（Hawkes）过程，难以有效捕捉这种极端值和复杂尾部特征，导致预测准确性受限。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 自激发弹性残差点过程：驾驭市场“妖魔”的新利器&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思想&lt;/strong&gt;: 提出&lt;strong&gt;自激发弹性残差点过程 (Self-Exciting Elastic Residual Point Process)&lt;/strong&gt;，旨在结合自激发机制（事件发生会激发后续事件，影响强度随时间衰减）与弹性残差分布（灵活适应复杂的数据分布形态）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型构成&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态过程 (λ_n)&lt;/strong&gt;: 模型核心，其更新规则整合了基线水平（μ）、自激发效应（α乘以e的负β套N次方）和衰减因子（β），使得每次事件发生都对潜在强度产生瞬时跳跃并逐步衰减。此过程可视为一个广义状态空间马尔可夫链。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;弹性残差&lt;/strong&gt;: 引入Gamma、广义Gamma或Burr Type XII等多种灵活的残差分布，取代单一的指数分布假设，以更精确地拟合高频数据中观察到的重尾、尖峰和过度离散特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型框架选择&lt;/strong&gt;: 采用自激发弹性残差点过程（SE）作为基本预测框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;残差分布优化&lt;/strong&gt;: 根据实际数据特点，优选如&lt;strong&gt;Burr Type XII&lt;/strong&gt;等能够灵活模拟重尾特征的弹性残差分布。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数高效估计&lt;/strong&gt;: 通过最大化对数似然函数（Log-Likelihood Function）来精确估计模型中的所有参数（θ）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型稳定性验证&lt;/strong&gt;: 在理论上，通过证明模型状态过程在特定稳定性条件（α - Δ - M - ε &amp;lt; 0）下是正Harris遍历的，从而确保模型具有平稳分布，且样本均值收敛于理论均值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日内动态适应&lt;/strong&gt;: 采用滚动窗口估计方法，周期性地重新估计模型参数，以适应市场在开盘、收盘活跃和午后平静等不同时段的交易强度变化。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;单一残差分布假设&lt;/strong&gt;: 仅使用指数分布（如SE-Exp模型）会严重低估数据复杂性，导致模型参数估计值异常巨大，预测性能不佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;忽略日内交易模式&lt;/strong&gt;: 静态参数模型无法有效捕捉市场交易强度的日内周期性变化，导致预测准确性下降。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 经验验证与性能优势：SE-BURR模型的卓越表现&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据实证&lt;/strong&gt;: 使用苹果公司（AAPL）股票2022年12月的限价订单簿数据，分析中间价移动一个Tick所需的时间间隔。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据特征&lt;/strong&gt;: 经验数据显示出明显的重尾（偏度5.75，峰度61.46）和过度离散（标准差约1秒远超均值0.48秒）特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键发现&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SE-BURR模型脱颖而出&lt;/strong&gt;: 在多种预测性能指标（相对均方根误差RRMSE、决定系数R平方、Kolmogorov-Smirnov统计量KS和Wasserstein距离W）上，&lt;strong&gt;SE-BURR模型&lt;/strong&gt;表现最为亮眼，显著优于传统的ACD、LogACD模型及其指数残差版本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;残差拟合的决定性作用&lt;/strong&gt;: 通过PP图和残差直方图分析，SE-BURR模型能够最佳地将转换后的指数残差拟合为标准指数分布，证明了弹性残差在捕捉数据本质方面的强大能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日内模式捕捉&lt;/strong&gt;: 尽管模型结构不同，但所有模型均能捕捉到相似的日内模式（开盘/收盘时段预期间隔最短，午后最长），反映了市场基本规律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “这些间隔时间，它的分布特别怪，不是那种乖巧的正态分布或者指数分布，而是重尾分布。”&lt;/li&gt;
+&lt;li&gt;💬 “自激发模型强调的是事件之间的相互激发，而ACD模型更侧重于事件自身历史的影响。”&lt;/li&gt;
+&lt;li&gt;💬 “对于这种高频金融数据，模型的分布灵活性可能比长记忆性更重要。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1VK9uBUEfR</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/a4fbdad3e06fd17363607f7fc3d1326adacb78f0.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 04 Apr 2026 10:58:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>技术指标圣数之谜：TD Sequential九连蜡烛的效用拷问</title>
+      <link>https://www.bilibili.com/video/BV1ZT9VBYEji</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ZT9VBYEji"&gt;TD Sequential真的有效吗？一篇研究拆解“9”这个神奇数字的真相&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 技术分析中被奉为圭臬的特定数字（如TD Sequential的“九”），究竟是精准的趋势信号，还是市场噪音与历史数据拟合的产物？&lt;/li&gt;
+&lt;li&gt;💡 交易者普遍遵循的RSI 14、MA 200等指标参数，其设定是否经过严谨统计验证，还是仅仅是习惯性的经验值？&lt;/li&gt;
+&lt;li&gt;🚀 如何突破对传统指标“圣数”的盲从，科学评估其真实效用，以避免被“幻象”误导？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 剖析技术指标“圣数”的真实性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“九”的魔力与幻象&lt;/strong&gt;: TD Sequential的“九连蜡烛”Setup被视为趋势衰竭的关键点，但其作为“市场黄金分割点”的说法，可能只是历史数据拟合而非普适规律。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数设定的根源质疑&lt;/strong&gt;: 交易者对RSI 14、MA 200等参数习以为常，但这些“刻在DNA里”的数字，其生成逻辑与统计验证的严谨性，远低于市场普遍认知。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 重构对指标效用的审视视角&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;质疑经验法则&lt;/strong&gt;: 对于任何被广泛接受的指标参数或规则，主动探究其背后的统计学依据和严谨性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进行替换测试&lt;/strong&gt;: 尝试调整指标中的核心数字（例如，将“九”改为“八”），观察其在不同市场条件下的效果差异，验证其非唯一性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免过度拟合&lt;/strong&gt;: 警惕指标参数可能只是对历史数据过度拟合的产物，而非真实的市场规律。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 盲目遵循未经严谨统计验证的“圣数”或经验法则，可能导致交易决策基于无效信号，增加交易风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;这个九到底是不是真的有魔力，还是说它只是市场噪音的一部分？&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;这些数字是怎么来的，有多少是经过严谨统计验证的呢？恐怕不多。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;这酒真的是市场的黄金分割点，能精准捕捉趋势衰竭吗？还是说这只是历史数据拟合出来的幻象？&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ZT9VBYEji</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/2a5211dd63a1de89b6a3245c8fb96b12db1c618f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 04 Apr 2026 10:01:00 +0800</pubDate>
+    </item>
     <item>
       <title>量化透视：CTA趋势跟踪如何驱动能源期货市场及新型预测与分解模型</title>
       <link>https://www.bilibili.com/video/BV1e59VBfEPC</link>
@@ -3545,6 +3649,91 @@
       <pubDate>Sat, 21 Mar 2026 10:20:00 +0800</pubDate>
     </item>
     <item>
+      <title>B圈牛马2期量化研究成果综述：30项硬核课题与实战策略解析</title>
+      <link>https://bbs.quantclass.cn/thread/77054</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77054"&gt;2025-B圈牛马2期总结&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[加密量化, 策略开发, 因子工程, AI量化, 自动化套利]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[汇总B圈牛马二期30项量化研究成果，涵盖策略、因子、AI及工程实践。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;套利策略&lt;/strong&gt;: 基于Polymarket概率解算、Cex/PerpDex价差、BN与HYPE合约价差、全市场差价进行自动化套利监控与执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;趋势/反转/CTA&lt;/strong&gt;: 探索链上数据、逐笔成交数据构建CTA信号，并对反转策略进行后置过滤优化；结合事件驱动与网格构建高杠杆策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定投与仓位管理&lt;/strong&gt;: 设计基于官方框架的定投定卖策略，并回测各类定投方案；实现现货持币的自定义比例止盈止损框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波动中性&lt;/strong&gt;: 浅谈波动中性选币策略以降低市场方向性风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;K线形态因子&lt;/strong&gt;: 系统性量化研究K线形态的构建与应用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件合约因子&lt;/strong&gt;: 总结批量化挖掘技术，并创新性引入GAN生成对抗网络辅助因子挖掘。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;伪历史数据&lt;/strong&gt;: 通过四种方法生成平行历史数据，用于策略的拟合校验，对抗过拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;链上数据&lt;/strong&gt;: 用于CTA策略初探，结合Deribit期权数据分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逐笔成交数据&lt;/strong&gt;: 从市场心跳层面探索CTA信号构建方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合约持仓量数据&lt;/strong&gt;: 应用于数据中心与实盘。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市值中性化&lt;/strong&gt;: 在彩虹框架中实现因子去市值暴露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;抗过拟合&lt;/strong&gt;: 伪历史数据生成方法为策略过拟合检测提供新思路和工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风控&lt;/strong&gt;: 实盘风控外挂设计，提供实用风险管理方案与体感分享。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略回测到实盘过渡&lt;/strong&gt;: 解决策略从研究到部署的实时监控与仿真问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高频数据处理&lt;/strong&gt;: 探索基于逐笔成交数据的信号构建和高频框架应用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI与量化集成&lt;/strong&gt;: 构建AI驱动的量化研究与实盘框架，将LLM与量化结合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;链上数据应用&lt;/strong&gt;: 缺乏实盘与回测一体化的链上量化框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用机器学习基建&lt;/strong&gt;: 为量化策略的机器学习应用提供统一基础设施。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略仿真盘&lt;/strong&gt;: 实现支持策略实时回测与监控的系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Polymarket监控系统&lt;/strong&gt;: 包含本地调试工具与服务器端7x24h监控系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NautilusTrader框架&lt;/strong&gt;: 用于LLM驱动的量化交易实盘和高频CTA策略回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dexowl 2.0&lt;/strong&gt;: 升级的链上量化框架，同时支持实盘与回测功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QuantResearch研究框架&lt;/strong&gt;: 全新的AI驱动量化研究范式，探索AI量化新开端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全市场差价套利监控软件&lt;/strong&gt;: 实现自动化发现套利机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风控外挂&lt;/strong&gt;: 独立于策略的实盘风险管理模块设计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子可视化工具&lt;/strong&gt;: 实现实盘环境下的因子可视化，帮助直观理解因子表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据中心&lt;/strong&gt;: 整合并应用合约持仓量数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GAN生成对抗网络&lt;/strong&gt;: 用于创新性挖掘事件合约因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM驱动&lt;/strong&gt;: 将大语言模型与NautilusTrader量化框架结合，实现量化交易实盘系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子批量化挖掘技术&lt;/strong&gt;: 针对事件合约进行因子挖掘。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;新闻交易&lt;/strong&gt;: 提及“劝退”，暗示该领域可能面临数据源、信号稳定性或执行难度等挑战，实践中成功率不高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建多维度抗过拟合机制&lt;/strong&gt;: 将“伪历史数据生成”方法集成至策略开发与回测流程，通过生成平行历史数据进行拟合校验，显著提升策略的鲁棒性与泛化能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;探索链上AI驱动量化策略&lt;/strong&gt;: 利用Dexowl 2.0或NautilusTrader等框架，结合链上数据（如逐笔成交、Deribit期权、合约持仓量）和前沿AI技术（如GAN挖掘因子、LLM驱动），构建和实盘测试B圈新型alpha策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化量化工程基础设施&lt;/strong&gt;: 借鉴“策略仿真盘”、“全市场差价套利监控”、“风控外挂”等设计思路，逐步搭建一套模块化、可扩展的量化交易工程框架，实现从回测到实盘的无缝过渡、实时监控和精细化风险管理。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77054</guid>
+      <pubDate>Sat, 21 Mar 2026 09:58:04 +0800</pubDate>
+    </item>
+    <item>
       <title>凯师傅的“八门遁甲”：通过一行代码实现现金流策略的跨越式进阶</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-21&amp;talker=57784510736@chatroom</link>
       <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-21&amp;amp;talker=57784510736@chatroom"&gt;2026-03-21_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
@@ -5215,144 +5404,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-16&amp;talker=57784510736@chatroom</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易群热议：策略选币、实盘排错与超值网络加速器大揭秘！</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-16&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-16&amp;amp;talker=58453205219@chatroom"&gt;2026-03-16_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🤖 策略选币数量，与你的资金量息息相关！大家在讨论“四狗空头选币能选到多少个”时，群友阿基透露“30多”，并指出这与“选币范围”和“因子配置参数”有关。 核心洞察：加仓后资金变多，策略能选到的空头币也会变多。桑协武表示：“加仓后资金变多 空头就会变多 正常是40+空头”。这意味着资金体量越大，策略分散风险的能力越强，也能覆盖更广的投资范围。 陈聪汉也补充说：“空头选得多好啊，分散风险”。---📈 市场反弹下，量化策略表现如何？近期币圈波动不小，有币“直接跌90%”。不过，据邢不行老师观察，“这几天策略都在反弹。四龙狗涨了一截，但估计延续不了。浪轮、浪填都已经处于进攻状态，这几天上涨有所反弹。” 💡 创新玩法：有群友arrow尝试“对策略本身做网格”，实现“高卖低买”的骚操作，值得借鉴。 💥 策略争议：对于浪轮和浪填的表现，群内意见不一，有人认为“浪轮涨了，浪填在装死”，也有人称“浪填赢了”，可见市场解读各有角度。 逆向思考：WN_暖春拂晓提出了一个反常识的观点：“nbl现在才是最好的定投时期。策略表现越不好，定投成本越低。”---🛠️ 实盘交易报错？两大元凶和解决方案！实盘交易无法下单，日志显示“现货USDT:0”，并伴有“api key 有问题”的提示，这是新手常遇到的难题。 常见问题1：API Key配置不当。这可能是API Key本身填写错误，或是权限设置有问题。 常见问题2：资金不足或Margin设置。WN_暖春拂晓提醒：“是不是设置了margin”，若设置了通常需要注释掉。船长-邓普顿则一针见血：“账户里面没钱，转10u进去就好了”。 行动建议： 检查API Key是否正确无误，并确保具备交易所需的所有权限。 确认交易账户的USDT余额是否充足。 仔细核对策略配置中是否存在&lt;code&gt;margin&lt;/code&gt;相关的设置，并根据策略要求进行调整。---📊 网页数据更新卡壳？一个小技巧就能搞定！有用户遇到“数据存储地址不对”导致“运行后网页不对”的问题。 Rio大佬的建议非常实用：“网页刷新一下就行”，“代码里设置好了就行，不影响运行”，并进一步建议“先全量更新”。 结论：很多时候，网页显示问题可能只是前端缓存或同步延迟。只要后端代码运行正常，刷新页面或进行全量更新通常就能解决显示异常。---🚀 便宜好用的“梯子”哪里找？在量化交易的世界里，稳定的网络环境至关重要，“梯子”（VPN）成了刚需。 推荐1: 一元机场。WN_暖春拂晓力荐，特点是“便宜，一个月一块钱”。 使用小贴士：由于其网址本身需要“梯子”才能打开，建议“先找免费试用的梯子来打开”，然后完成注册和支付。 推荐2: 平行线路.com。Dino也推荐了这款，并提到“昨天下午有点问题但是有备用节点到晚上的时候就恢复了”，说明其服务有一定稳定性。---金句集锦“加仓后资金变多 空头就会变多 正常是40+空头”——桑协武“空头选得多好啊，分散风险”——陈聪汉“nbl现在才是最好的定投时期。策略表现越不好，定投成本越低。”——WN_暖春拂晓“等邢大加仓的时候 才是开始定投的时候”——arrow“账户里面没钱，转10u进去就好了”——船长-邓普顿&lt;/p&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-16&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Mon, 16 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>凯文·沃什入主美联储：降息缩表矛盾政策下的金融续命术与市场剧变</title>
-      <link>https://bbs.quantclass.cn/thread/76278</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76278"&gt;沃什の野望------缩表与降息可以同时实现吗？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：美联储政策、凯文·沃什、降息缩表、流动性重塑、美债利差、资产定价、存量博弈&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：深度剖析沃什矛盾货币政策（降息+缩表）对市场流动性、美债结构与各类资产定价的颠覆性影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;美国联邦债务利息支出首次超越军费，财政压力触及临界点。&lt;/li&gt;
-&lt;li&gt;美联储主席提名人凯文·沃什主张同时进行“果断降息”与“量化紧缩（缩表）”，以应对财政压力并刺激经济，此举打破了传统上降息（松货币）与缩表（紧货币）工具互斥的认知。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;沃什政策核心目标&lt;/strong&gt;: “保住财政支出的脆弱平衡”，而非传统“稳定物价与充分就业”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;理论支撑&lt;/strong&gt;: 借鉴1990年代格林斯潘观点，认为AI将带来结构性生产力提升，经济可在低通胀下承受更高增长与更低利率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;降息与缩表并存机制&lt;/strong&gt;: 降息（调整短端利率）降低银行间借贷成本；缩表（减少美债持有）影响长端利率，通过撤回最大买家导致美债供过于求，价格下跌，收益率推高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“抽水”与“放水”&lt;/strong&gt;: 利用降息创造的低借贷成本与缩表推高的美债收益率形成利差，诱导私人资本接盘美联储不再续买的美债，实现“市场化债权置换”，将财政负担转移。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流动性重塑&lt;/strong&gt;: 美联储从“唯一流动性提供者”退回“裁判员”，将美债定价权归还市场，重塑美元稀缺性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;宏观博弈&lt;/strong&gt;: 政府与市场争夺存量资金，所有资产进入流动性“存量博弈”阶段。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;传统货币政策范式终结&lt;/strong&gt;: 2008年以来“流动性解决一切”的观念失效，美联储不再无限兜底印钞。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资产定价逻辑颠覆&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;传统降息利好风险资产（估值抬升）的逻辑被打破。&lt;/li&gt;
-&lt;li&gt;高市盈率科技巨头（纳指100）因流动性边际收紧面临估值回归压力。&lt;/li&gt;
-&lt;li&gt;中小企业（罗素2000）可能受益于融资成本降低。&lt;/li&gt;
-&lt;li&gt;黄金、比特币等美元对手盘，若市场认定缩表非源于经济强劲，而是财政无力，其基于贬值预期的投机头寸可能踩踏。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;美债信仰风险&lt;/strong&gt;: 若市场察觉缩表源于财政无力，利差将变为风险溢价，美债全球金融抵押品信誉动摇，可能引发抛售潮，流动性枯竭。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;该政策高度依赖市场信心和AI生产力提升的及时兑现。若市场不买账或AI未能迅速带来实质性增长，实验风险极高。&lt;/li&gt;
-&lt;li&gt;一旦沃什计划在执行中出现差池，黄金和比特币回调后可能提供抄底机会。&lt;/li&gt;
-&lt;li&gt;该模式下市场化调节可能异化为变相财政赤字货币化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;密切关注美联储货币政策声明，特别是对短端（联邦基金利率）和长端（缩表节奏与规模）工具的措辞，识别政策信号的潜在矛盾。&lt;/li&gt;
-&lt;li&gt;在宏观流动性进入存量博弈的市场环境下，调整投资组合策略，降低对“廉价资金驱动估值膨胀”的资产（如高市盈率科技股）的依赖。&lt;/li&gt;
-&lt;li&gt;深入研究美债市场供需动态，利用降息与缩表产生的利差机会，结合信用风险评估，审慎布局固定收益资产。&lt;/li&gt;
-&lt;li&gt;关注AI技术落地的真实进展，及其对企业盈利能力和宏观经济增长的实际贡献，作为判断沃什政策“软着陆”可能性的关键指标。&lt;/li&gt;
-&lt;li&gt;对冲或谨慎持有黄金、比特币等传统对冲美元贬值的资产，在政策不确定性高企时警惕潜在回调，但同时留意其在政策失败后的反弹机会。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76278</guid>
-      <pubDate>Sun, 15 Mar 2026 23:36:49 +0800</pubDate>
-    </item>
-    <item>
-      <title>突破系统壁垒：Mac与Linux原生运行QMT量化策略的全栈实操指南</title>
-      <link>https://www.bilibili.com/video/BV1Xzw3zGErd</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Xzw3zGErd"&gt;QMT支持Mac和Linux了！告别虚拟机，你的MacBook也能跑量化策略！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ EasyXT (xq-share) - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于“逻辑与执行分离”的分布式架构，通过 xq-share 桥接工具实现 Mac/Linux 客户端向 Windows 服务器端的远程指令透传与数据回流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Mac/Linux 端编写的 Python 策略脚本及 QMT 函数调用指令。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：由 Windows 端 QMT 处理后的实时行情数据、历史K线及订单执行反馈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;xq-share&lt;/strong&gt;：核心开源中间件，负责跨系统的指令翻译与网络通信。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;XTQUREMOTE&lt;/strong&gt;：客户端远程连接库，封装了标准的 QMT API 接口。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Server Mode&lt;/strong&gt;：将 Windows 端的 QMT 实例转化为可被远程调用的服务状态。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：Windows 服务端初始化配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将本地 Windows 环境映射为可供远程调用的量化服务器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已安装 Python 环境及 QMT 客户端的 Windows 电脑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[环境安装]&lt;/strong&gt;：打开命令行终端 -&amp;gt; 输入 &lt;code&gt;pip install xq-share&lt;/code&gt; 进行工具安装。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[服务启动]&lt;/strong&gt;：在终端执行 &lt;code&gt;python -m xq_share.server&lt;/code&gt; -&amp;gt; 激活服务端监听状态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[状态确认]&lt;/strong&gt;：记录当前 Windows 电脑的局域网 IP 地址（如 &lt;code&gt;192.168.x.x&lt;/code&gt;）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：Mac/Linux 客户端远程连接与开发&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在非 Windows 系统环境下直接调用 QMT 功能进行策略编写与调试。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：确保客户端与服务端网络互通（建议同局域网）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[库导入]&lt;/strong&gt;：在 Python 脚本开头添加 &lt;code&gt;from xq_share import XTQUREMOTE&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[建立连接]&lt;/strong&gt;：调用连接函数并指定 &lt;strong&gt;[Windows端IP地址]&lt;/strong&gt; 及 &lt;strong&gt;[认证密码]&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[功能调用]&lt;/strong&gt;：使用 &lt;code&gt;get_stock_list&lt;/code&gt; 或 &lt;code&gt;get_market_data&lt;/code&gt; 等标准 API 执行数据获取或下单指令。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;加密传输模式&lt;/strong&gt;：[底层控制机制] -&amp;gt; 通过开启加密开关，将所有数据包进行银行级加密，防止公网传输被截获。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;密码认证系统&lt;/strong&gt;：[身份核验机制] -&amp;gt; 强制连接时校验鉴权令牌，阻断未经授权的客户端访问服务端 QMT 实例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;命令行工具 (xdata)&lt;/strong&gt;：[快捷查询终端] -&amp;gt; 无需编写脚本，直接通过终端输入 &lt;code&gt;xdata get_market_data&lt;/code&gt; 快速抓取实时数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;网络隔离风险&lt;/strong&gt;：严禁在未开启加密模式的情况下将服务端端口暴露于公网。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稳定性保障&lt;/strong&gt;：Windows 服务端必须保持常驻运行，避免因系统休眠导致远程调用中断。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;内网优先原则&lt;/strong&gt;：强烈建议在同一 WIFI/局域网内使用，可实现 &lt;strong&gt;10ms-30ms&lt;/strong&gt; 级的极低延迟感官体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;统一模式切换&lt;/strong&gt;：未来 EasyXT 将原生支持 &lt;code&gt;mode='remote'&lt;/code&gt; 参数，可实现本地与远程模式的零成本代码无感切换。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Xzw3zGErd</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/d74d4c8f9a5f25dce4737512fb112e7c32a9bcb5.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 15 Mar 2026 22:34:13 +0800</pubDate>
     </item>
   </channel>
 </rss>
