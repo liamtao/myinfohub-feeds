@@ -7,7 +7,46 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 04 Apr 2026 22:46:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 08:44:07 +0000</lastBuildDate>
+    <item>
+      <title>单账户覆盖全时段：1小时量化策略的分钟级调度框架改造实践</title>
+      <link>https://bbs.quantclass.cn/thread/77622</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77622"&gt;一个账户跑满 1 小时内所有 5 分钟执行点：仓位管理框架的分钟 offset 改造&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[多偏置调度、仓位管理、时间轴对齐、Pandas工程优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过改造调度层实现单账户覆盖1H策略全分钟执行点，大幅降低运维成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：原框架&lt;code&gt;hour_offset&lt;/code&gt;仅支持单值，导致1H策略若要全时段覆盖需部署12个账户，运维成本极高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于Python/Pandas的实盘框架，通过补丁修改&lt;code&gt;AccountConfig&lt;/code&gt;与&lt;code&gt;StrategyConfig&lt;/code&gt;底层调度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;配置解耦&lt;/strong&gt;：&lt;code&gt;hour_offset&lt;/code&gt;支持List结构，&lt;code&gt;hold_period&lt;/code&gt;支持&amp;quot;60M&amp;quot;等分钟级定义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;触发机制&lt;/strong&gt;：判断逻辑从&lt;code&gt;==&lt;/code&gt;改为&lt;code&gt;in&lt;/code&gt;集合匹配，实现单账户多点唤醒。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对齐聚合&lt;/strong&gt;：利用Rolling聚合分钟偏置结果后，通过&lt;code&gt;floor('H')&lt;/code&gt;过滤整点，确保与1H K线轴对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义转换&lt;/strong&gt;：内部强制将&amp;quot;M&amp;quot;转为&amp;quot;min&amp;quot;以规避Pandas月份歧义。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;逻辑漂移&lt;/strong&gt;：移除了分钟级下错误的&lt;code&gt;+1&lt;/code&gt;偏移逻辑，防止选币结果为空。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;类型安全&lt;/strong&gt;：强制转换&lt;code&gt;start_date&lt;/code&gt;为&lt;code&gt;pd.Timestamp&lt;/code&gt;后再进行时间截断操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构优化&lt;/strong&gt;：采用“分钟调度+小时对齐”模式，可在不重构因子逻辑的前提下实现执行层加密。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码实践&lt;/strong&gt;：实盘调度器应优先支持列表化配置，避免硬编码单时间点。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77622</guid>
+      <pubDate>Sat, 04 Apr 2026 14:13:08 +0800</pubDate>
+    </item>
     <item>
       <title>高频金融数据时间间隔预测新范式：自激发弹性残差点过程的量化突破</title>
       <link>https://www.bilibili.com/video/BV1VK9uBUEfR</link>
@@ -3126,6 +3165,36 @@
       <pubDate>Mon, 23 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>硬通货之战：从金本位溃败到信用对冲的资产回归逻辑</title>
+      <link>https://bbs.quantclass.cn/thread/75873</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/75873"&gt;硬通货之战（二）------国王归来&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[信用对冲, 债务货币化, 流动性枯竭, 资产锚定, 黄金红利]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：解析黄金从历史货币基石转向当前主权信用危机对冲工具的底层必然性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：工业革命后社会财富指数级增长，而黄金产量的低增速导致严重的通缩预期，最终引发持币惜售与流动性枯竭，迫使人类转向信用货币体系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：当前全球主权债务规模的螺旋式上升已触及人性与信用的边界。黄金的强势并非由于通胀或单纯避险，而是作为“无限法币”的对手盘，对主权信用进行重新定价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：美元的信用依赖于对黄金价格的压制，当前黄金的异常强势意味着美元定价权的弱化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：若AI技术无法及时转化为实际经济利润，可能导致巨大的流动性危机，届时会触发所有资产（包括黄金）的短期抛售。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;投资标的筛选&lt;/strong&gt;：严格执行“实物底层对冲”标准，仅关注具备份额直兑实物黄金机制的金融产品（如GLD），排除信息不对称程度高的黄金矿业股及无法兑现的理财产品。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略布局逻辑&lt;/strong&gt;：黄金已进入长牛阶段，核心逻辑在于主权信用对冲。操作上应将大幅度回调视为锁定长期筹码的“牛回头”机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险控制指标&lt;/strong&gt;：监控全球利率水平与通胀率的差值，一旦真实利率能显著覆盖通胀且主权债务收紧，黄金的吸引力将出现逻辑性拐点。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/75873</guid>
+      <pubDate>Sun, 22 Mar 2026 23:33:20 +0800</pubDate>
+    </item>
+    <item>
       <title>EZXT实操指南：5分钟打造个人专属的高性能开源量化交易系统</title>
       <link>https://www.bilibili.com/video/BV1biA3zuETZ</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1biA3zuETZ"&gt;EasyXT 安装教程：5分钟搞定量化交易回测框架&lt;/a&gt;&lt;/p&gt;
@@ -5197,118 +5266,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-17&amp;talker=58453205219@chatroom</guid>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>DOS到AI：CLI在量化参数调优中的蜕变与未来编程范式</title>
-      <link>https://bbs.quantclass.cn/thread/76962</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76962"&gt;【历史重构】CLI接口的力量，编程世界的未来已来&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[CLI复兴, 量化策略调优, argparse应用, AI接口, 命令行编程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[探讨CLI在AI时代量化策略参数调优中的复兴与工程实践。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;传统量化策略参数回测过程中，手动修改代码繁琐且易错，不利于大规模参数组合的探索。&lt;/li&gt;
-&lt;li&gt;缺乏统一、高效的接口供AI Agent或自动化系统直接调用和管理量化策略的参数调优过程。&lt;/li&gt;
-&lt;li&gt;系统维护成本较高，难以快速调整和部署策略配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;基于Python的&lt;code&gt;argparse&lt;/code&gt;库构建命令行界面（CLI）。&lt;/li&gt;
-&lt;li&gt;策略配置采用分层设计：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;第一部分 (Batch)&lt;/strong&gt;：通过CLI &lt;code&gt;--batch&lt;/code&gt;参数定义需要交叉比对的变量及其值集合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第二部分 (Strategy Body)&lt;/strong&gt;：通过CLI参数定义策略本体，支持使用&lt;code&gt;{变量名}&lt;/code&gt;占位符动态接收Batch部分传入的值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;后端逻辑通过迭代Batch生成的参数组合，将具体值注入策略模板以生成最终配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;argparse&lt;/code&gt;的应用：&lt;ul&gt;
-&lt;li&gt;使用&lt;code&gt;add_argument_group&lt;/code&gt;将CLI参数逻辑分组，提高可读性。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--batch&lt;/code&gt;参数设计为&lt;code&gt;action=&amp;quot;append&amp;quot;, nargs='+'&lt;/code&gt;，允许灵活定义多个键值对集合。&lt;/li&gt;
-&lt;li&gt;策略本体参数支持 &lt;code&gt;{变量名}&lt;/code&gt; 占位符，实现配置的动态化和解耦。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;核心处理逻辑：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;build_parser()&lt;/code&gt;：构建并返回CLI参数解析器。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dict_itertools(batch)&lt;/code&gt;：迭代生成Batch中所有参数组合（字典）。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;substitute_template(template_string, params_dict)&lt;/code&gt;：将模板字符串中的占位符替换为当前参数组合的具体值。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;parse_factor_str()&lt;/code&gt; / &lt;code&gt;parse_filter_str()&lt;/code&gt;：将字符串格式的因子/过滤器解析为结构化对象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;容错与默认值：在策略未定义某些必要参数时，提供默认值或错误提示（如&lt;code&gt;KeyError&lt;/code&gt;处理）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;提升了量化策略参数调优的自动化程度和效率，避免手动修改代码引入的错误。&lt;/li&gt;
-&lt;li&gt;为AI Agent和自动化系统提供了标准化、易于调用的接口，简化了集成难度。&lt;/li&gt;
-&lt;li&gt;增强了策略配置的灵活性和可维护性，便于管理复杂的参数组合和回测任务。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;未定义变量错误&lt;/strong&gt;：当策略本体参数使用占位符&lt;code&gt;{变量名}&lt;/code&gt;，但&lt;code&gt;--batch&lt;/code&gt;中未定义该变量时，系统会捕获&lt;code&gt;KeyError&lt;/code&gt;并给出明确的错误提示，指导用户修正。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;默认值处理&lt;/strong&gt;：对于某些特定因子（如“开盘至今涨幅择时”），如果用户未通过CLI提供，系统会注入默认值以确保程序正常运行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;改造现有量化策略回测框架，引入&lt;code&gt;argparse&lt;/code&gt;构建CLI接口，实现参数的动态配置与批量调优，提高回测自动化水平与迭代效率。&lt;/li&gt;
-&lt;li&gt;在开发新的量化交易系统或组件时，优先考虑提供CLI接口，使其不仅能通过GUI供人操作，更能被AI Agent或自动化脚本高效调用，适配未来的AI驱动型编程范式。&lt;/li&gt;
-&lt;li&gt;深入学习Python &lt;code&gt;argparse&lt;/code&gt;库的高级用法（如&lt;code&gt;action=&amp;quot;append&amp;quot;&lt;/code&gt;、自定义类型和占位符解析），并结合模板替换机制，构建高度可配置、易于脚本化的工程工具。1&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76962</guid>
-      <pubDate>Mon, 16 Mar 2026 21:41:21 +0800</pubDate>
-    </item>
-    <item>
-      <title>解码华尔街最神秘的时间周期：从江恩理论到时空平衡的交易底层逻辑</title>
-      <link>https://www.youtube.com/watch?v=-X_aamhHe_k</link>
-      <description>&lt;p&gt;&lt;a href="UCZiMm8G7JNFdMZHmX-ZrNUw"&gt;Finding Your Edge  交易之刃&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=-X_aamhHe_k"&gt;市场真的存在时间节奏吗？市场时间周期之江恩理论&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 市场的波动真的是随机的“醉汉漫步”，还是时间在背后拨动着隐形的几何转盘？&lt;/li&gt;
-&lt;li&gt;💡 为什么顶尖职业交易员在精通基本面之余，仍将“时间窗口”视为不可或缺的决策权重？&lt;/li&gt;
-&lt;li&gt;🚀 价格与时间如何达成某种几何层面的“平衡”？当这种平衡打破时，意味着什么？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 时空平衡：价格是时间的函数&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;时空平衡观&lt;/strong&gt;: 江恩理论的核心在于市场并非随机，而是遵循数学与几何规律。1*1角（45度线）代表价格上涨速度与时间推进的完美平衡；当价格偏离或跌破此线，预示着趋势节奏的根本性改变。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;九宫图的数学逻辑&lt;/strong&gt;: 这种螺旋矩阵本质上是在寻找价格背后的数学共振。通过对关键价格开平方并加减固定角度，可以预判市场可能撞上的“无形之墙”。它不预测时间，但定义了价格的阻力边界。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自然韵律的共振&lt;/strong&gt;: 将一年365天映射为360度圆周，24节气即是精准的15度切分。关键节气（如春分、夏至）往往对应市场能量循环的起点或转换点，是天然的时间转折窗口。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 多维周期实操体系&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锚点设定&lt;/strong&gt;：选取市场重要的历史高低点作为江恩扇形或九宫图的计算起点（锚点）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;节奏观察&lt;/strong&gt;：利用江恩角度线监控当前价格运行速度，寻找趋势斜率发生变异的临界点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;共振验证&lt;/strong&gt;：当时间窗口（如24节气）与九宫图计算的关键位重合，且量化指标（如完美风暴）触发信号时，确认高胜率拐点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态修正&lt;/strong&gt;：一旦市场突破原有周期结构形成新趋势，必须立即重新选择锚点进行下一轮测算。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 严禁孤立使用周期理论进行左侧盲目下单；九宫图不具备长期预测效力，必须随趋势演变实时更新锚点参数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “市场什么时候发生变化，往往比价格会跌到哪里更重要。”&lt;/li&gt;
-&lt;li&gt;💬 “市场的呼吸就跟自然界一样，有春夏秋冬，资金也有其春生、夏长、秋收与冬藏。”&lt;/li&gt;
-&lt;li&gt;💬 “周期理论并非预测未来，而是提前给出一个时间窗口，让交易员在混乱的市场中找到节奏感。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=-X_aamhHe_k</guid>
-      <enclosure url="https://i.ytimg.com/vi/-X_aamhHe_k/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 16 Mar 2026 21:30:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
