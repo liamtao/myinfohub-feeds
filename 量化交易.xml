@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 Apr 2026 00:17:20 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 08:45:23 +0000</lastBuildDate>
     <item>
       <title>收益起飞：当25年压轴因子遇上AI，量化策略的极致进化</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-05&amp;talker=57784510736@chatroom</link>
@@ -3010,6 +3010,48 @@
       <pubDate>Tue, 24 Mar 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>揭秘Polymarket套利：从边际多面体到Frank-Wolfe算法的硬核量化实战</title>
+      <link>https://bbs.quantclass.cn/thread/77106</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77106"&gt;如何从Polymarket 套利4000万美元？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[边际多面体套利、Bregman投影、Frank-Wolfe算法、整数规划、LMSR微观结构]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[揭示预测市场中基于凸优化与整数规划的大规模逻辑套利全流程系统架构。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：[预测市场存在严重的逻辑不一致性：41%的单条件市场和42%的多条件市场存在套利机会，中位数错误定价高达40%（每美元$0.60）。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：[做市商（Polymarket）面临“不可能三角”：快速价格更新、无套利定价、最大损失界限。为了维持&amp;lt;100ms的更新频率，系统选择放弃跨市场逻辑一致性，导致定价在逻辑依赖（如胜场数与冠军归属）上出现滞后。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：[证伪了预测市场是高效市场的假设。证明了套利并非简单的“低买高卖”，而是对高维凸空间边界条件的实时监测与利用。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：[无套利价格必须位于“边际多面体”（有效结果向量的凸包）内部。Alpha来源于检测价格向量何时偏离该多面体，并通过Bregman投影计算最优套利路径。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：[利用对数市场评分规则（LMSR）的凸共轭函数（负熵）构建Bregman散度，通过最小化KL散度来计算信息论意义上的最优交易规模。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：[执行风险（非原子性执行）：CLOB订单簿下单存在顺序性，导致“断腿”风险。研究显示利润空间低于$0.05的机会通常会被摩擦成本和执行风险覆盖。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：[指数级的结果空间（如NCAA锦标赛2⁶³种可能）导致暴力搜索失效。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：[DeepSeek-R1（依赖检测层）+ Gurobi 5.5（IP求解器预言机）+ 异步WebSocket（实时订单流数据）。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：[1. &lt;strong&gt;Barrier Frank-Wolfe&lt;/strong&gt;：针对LMSR梯度在边界处爆炸（ln(μ)）的问题，引入自适应收缩参数ε，将优化限制在(1-ε)M + εu的收缩多面体中。2. &lt;strong&gt;InitFW&lt;/strong&gt;：通过可行性IP检查初始化内点u和活动集Z₀。3. &lt;strong&gt;VWAP区块分析&lt;/strong&gt;：按Polygon区块时间单位模拟原子成交，评估真实执行成本。]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：[在NCAA锦标赛后期，FWMM投影速度提升，相比传统模型在证券价格准确性上提升了38%。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;strong&gt;算法落地&lt;/strong&gt;：集成Gurobi等高性能整数规划求解器，将市场间的逻辑依赖转化为线性约束，利用Frank-Wolfe算法进行亚秒级套利检测。]&lt;/li&gt;
+&lt;li&gt;[&lt;strong&gt;执行策略&lt;/strong&gt;：弃用简单的市价单，改用基于VWAP和区块原子性模拟的下单逻辑，设置至少$0.05的利润缓冲区以抵御非原子执行风险。]&lt;/li&gt;
+&lt;li&gt;[&lt;strong&gt;工程基建&lt;/strong&gt;：利用大语言模型（如DeepSeek）批量预处理复杂市场间的隐含逻辑（Entailment/Conflict），生成约束JSON文件输入优化引擎。]&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77106</guid>
+      <pubDate>Mon, 23 Mar 2026 23:45:23 +0800</pubDate>
+    </item>
+    <item>
       <title>深度解析“手厅4号”：基于股东户数与资产重组周期的量化策略实战</title>
       <link>https://bbs.quantclass.cn/thread/77104</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77104"&gt;练手39  想和大哥玩游戏&lt;/a&gt;&lt;/p&gt;
@@ -5187,52 +5229,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76966</guid>
       <pubDate>Tue, 17 Mar 2026 11:39:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化进阶：用Optimizer与风险模型拆解Alpha的盈利真相</title>
-      <link>https://www.bilibili.com/video/BV15ywSzWErP</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV15ywSzWErP"&gt;【量化教程】optimizer，必备的回测实盘工具；极少有人讲&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么即便实现了“美元中性”，你的策略仍会在突发市场变动中面临巨亏？&lt;/li&gt;
-&lt;li&gt;💡 顶级量化机构与“家庭作坊”在风控底层逻辑上的分水岭究竟在哪里？&lt;/li&gt;
-&lt;li&gt;🚀 如何利用优化器剥离收益中的“运气成分”，精准识别真正的Alpha？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 风险模型：透视隐性因子的“红外滤镜”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Beta风险的伪装性&lt;/strong&gt;: 简单的对冲（如Long-Short）无法屏蔽价值、动量或宏观地缘政治等隐性因子的暴露。Optimizer通过调整权重，使组合在不同市场环境下对这些隐藏因子保持极低的相关性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;收益与风险的平衡艺术&lt;/strong&gt;: 优化并非消除风险，而是在满足单票限仓、暴露阈值等限制条件下，寻找收益最大化与风险最小化的最优平衡点。在风险Exposure与Alpha之间做取舍是专业选手的核心能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 专业量化策略的标准化工作流&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Alpha输入&lt;/strong&gt;: 设定各标的的预期收益率预测及初始持仓权重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险锚定&lt;/strong&gt;: 引入Risk Model（如Barra模型）识别组合在风格、行业及宏观维度的风险暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;权重求解&lt;/strong&gt;: 利用Optimizer在约束条件下计算出抵消非预期风险后的最佳持仓比例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;业绩归因&lt;/strong&gt;: 交易后剥离市场因子贡献，量化评估策略的真实Alpha贡献。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕过度对冲导致Alpha被完全吞噬；不可忽视地缘政治等宏观变量对特定行业（如能源股）的剧烈冲击。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 PM 的进阶实操：科学的业绩归因&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;剥离运气成分&lt;/strong&gt;: PM可利用Optimizer识别出收益中究竟有多少是由于特定因子（如小市值、价值）的意外暴露所得，而非策略本身的选股能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化奖金分配&lt;/strong&gt;: 科学归因确保激励机制基于真实的Alpha表现，而非为市场因子的随机波动买单，这能有效提升团队的长期获利能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “Optimizer是区别你是在大厂干过，还是在野路子作坊干过的重要标准之一。”&lt;/li&gt;
-&lt;li&gt;💬 “你不能把风险暴露设得太小，否则你的Alpha也就没有了。学会在约束中跳舞，是量化PM的必经之路。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV15ywSzWErP</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/081a70291bade9504b77152a2825b3c26c8ff658.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 17 Mar 2026 07:49:59 +0800</pubDate>
     </item>
   </channel>
 </rss>
