@@ -7,7 +7,51 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 Apr 2026 22:50:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 08:30:55 +0000</lastBuildDate>
+    <item>
+      <title>揭秘缩量杀手：基于分域成交额MDD的量化择时与策略增效</title>
+      <link>https://bbs.quantclass.cn/thread/77772</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77772"&gt;【大卫】古法手工贴：分域成交额MDD择时&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[成交额择时、分域流动性、MDD缩量量化、A股资金驱动]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[利用成交额最大回撤量化缩量程度，通过分域择时优化策略风控与收益表现。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：A股具有明显的资金推动属性，赚钱效应与市场总成交额呈强正相关。当成交额从峰值萎缩（如从3.94万亿降至1.65万亿）时，市场亏钱效应迅速弥漫。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：市场风格切换（如微盘与大盘、连板与趋势）导致资金流向不均。大盘缩量与分域缩量在幅度和时间点上存在差异，策略表现受所属分域流动性的影响比大盘更直接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：将价格分析中的“最大回撤（MDD）”概念迁移至成交额分析，用以量化资金萎缩的程度。MDD越深，代表资金进攻欲望越低，风险越高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;计算周期内成交额最大值：&lt;code&gt;r_max = Turnover.rolling(n).max()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;计算实时回撤：&lt;code&gt;draw_down = Turnover / r_max - 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;计算周期内最大回撤：&lt;code&gt;Turnover_MDD = draw_down.rolling(n).min()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：通过对比实验发现，使用“分域成交额MDD”进行择时的效果显著优于“全市场成交额MDD”，能更精准地匹配特定风格策略的资金热度，提升夏普比率并降低回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：基于 Pandas 的向量化实现，利用 &lt;code&gt;rolling&lt;/code&gt; 函数快速计算多周期（3, 5, 10, 20日）的成交额 MDD。建议针对不同敏感度需求选择窗口长度，短周期对情绪变化更敏感。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【优化方向】&lt;/strong&gt;：提出将该逻辑下沉至二级行业成交额或集合竞价撮合成交额，以捕捉更细粒度的资金态度和开盘情绪。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【因子库扩容】&lt;/strong&gt;：立即在现有回测框架中引入 &lt;code&gt;Turnover_MDD&lt;/code&gt; 因子，作为策略进入/退出（择时）的硬性过滤条件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【分域对齐】&lt;/strong&gt;：针对微盘股或特定行业策略，必须使用该细分领域的成交额数据而非大盘数据计算回撤，以避免被大盘虚假放量误导。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【前导指标尝试】&lt;/strong&gt;：尝试对集合竞价成交额进行 MDD 量化，构建极短周期的日内情绪监控指标。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77772</guid>
+      <pubDate>Mon, 06 Apr 2026 23:18:51 +0800</pubDate>
+    </item>
     <item>
       <title>XTQuant实战指南：基于miniQMT的Python量化交易框架全解析</title>
       <link>https://www.bilibili.com/video/BV1pBSRBSE74</link>
@@ -5120,69 +5164,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76414</guid>
       <pubDate>Tue, 17 Mar 2026 23:35:30 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenClaw多Agent协作聊天前端：量化研究团队的AI工作台部署与实践</title>
-      <link>https://bbs.quantclass.cn/thread/76979</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76979"&gt;给 OpenClaw 做了个聊天前端，手机电脑都能用，还能让 AI 们开会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：OpenClaw, AI Agent, 多智能体协作, 聊天界面, 私有部署, 量化研究工具&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：为OpenClaw AI Agent提供浏览器聊天界面，支持多智能体协作与私有部署。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;现有OpenClaw命令行界面（CLI）不易分享给非技术人员，且不适用于移动端临时访问。&lt;/li&gt;
-&lt;li&gt;缺乏在同一聊天上下文中实现多AI Agent协作的机制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;前端:&lt;/strong&gt; React + Vite (预构建，无需本地构建)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;后端:&lt;/strong&gt; Python FastAPI，负责认证（Cookie + JWT HttpOnly）、消息持久化（JSON文件存储）、WebSocket转发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进程管理:&lt;/strong&gt; PM2。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;系统架构:&lt;/strong&gt; 浏览器（手机/电脑）←→ FastAPI后端 ←→ OpenClaw Gateway ←→ AI Agent。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;消息机制:&lt;/strong&gt; 消息通过WebSocket实时推送到前端；Agent的回复通过OpenClaw Gateway的hooks接口路由，并由Service API推回前端。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;认证系统采用Cookie + JWT (HttpOnly)，密码使用bcrypt哈希存储，提升安全性。&lt;/li&gt;
-&lt;li&gt;数据采用轻量级JSON文件存储，简化部署，无需传统数据库。&lt;/li&gt;
-&lt;li&gt;实现群聊功能，通过 &lt;code&gt;@&lt;/code&gt; 提及特定Agent触发回复，各Agent拥有独立工作空间与记忆，确保上下文隔离与连贯性。&lt;/li&gt;
-&lt;li&gt;支持图片发送功能，Agent可处理图片上下文。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;内存要求:&lt;/strong&gt; 服务器最低4GB内存（OpenClaw Gateway自身需1GB+），2GB机器加Swap不稳定。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型ID匹配:&lt;/strong&gt; 模型ID大小写及符号（如短横线与点号）必须完全一致，否则API报错400。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;users.json&lt;/code&gt; 格式:&lt;/strong&gt; 必须为对象 &lt;code&gt;{&amp;quot;users&amp;quot;: [...], &amp;quot;groups&amp;quot;: [...]}&lt;/code&gt;，而非数组，否则导致500错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;群聊会话隔离:&lt;/strong&gt; 需开启 &lt;code&gt;hooks.allowRequestSessionKey&lt;/code&gt; 配置（deploy.sh脚本已自动处理），以确保Agent会话独立，避免群聊回复混乱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gemini兼容性:&lt;/strong&gt; 建议Gemini模型通过 &lt;code&gt;google-generative-ai&lt;/code&gt; 模式集成，避免在OpenClaw的 &lt;code&gt;openai-completions&lt;/code&gt; 模式下返回400错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;网络安全组:&lt;/strong&gt; 云服务器需配置安全组放行服务端口，否则无法外部访问。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agent ID命名规范:&lt;/strong&gt; Agent ID不能包含特定字符（如短横线 &lt;code&gt;-&lt;/code&gt;），需遵循规范以避免注册失败。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【部署与管理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;一键部署脚本 (&lt;code&gt;deploy.sh&lt;/code&gt;):&lt;/strong&gt; 自动化处理Python虚拟环境、pip依赖安装、数据目录创建、bcrypt密码哈希以及PM2启动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agent管理脚本 (&lt;code&gt;add-agent.sh&lt;/code&gt;):&lt;/strong&gt; 自动化创建Agent工作空间、注册至Gateway，并添加到聊天系统用户列表。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;其他管理脚本:&lt;/strong&gt; 提供用户添加/删除、密码修改、群组创建、系统状态诊断 (&lt;code&gt;chat-cli.sh status&lt;/code&gt;)、修复hooks注册 (&lt;code&gt;chat-cli.sh fix-hooks&lt;/code&gt;) 等CLI工具。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;搭建内部多Agent协作平台:&lt;/strong&gt; 借鉴文中的前端-后端-Gateway架构，为量化研究团队快速搭建私有化的AI Agent协作平台，特别利用群聊机制，将研究、开发、风控等职能Agent整合，实现策略研发流程的自动化与上下文无缝流转。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;细致规划Agent会话管理与隔离:&lt;/strong&gt; 在设计多Agent系统时，重点关注Agent独立工作空间与会话（Session）的管理机制，确保每个Agent的记忆和上下文互不干扰，可通过配置如 &lt;code&gt;hooks.allowRequestSessionKey&lt;/code&gt; 等参数实现有效隔离。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;严格遵循部署前环境与API检查:&lt;/strong&gt; 在部署任何依赖底层AI框架的服务时，务必在事前充分评估硬件资源需求（尤其是内存），并仔细核对模型API参数（如Model ID）和配置文件格式，以规避常见的部署与运行时错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Agent ID设计考量:&lt;/strong&gt; 在为AI Agent设计唯一标识符（ID）时，应提前查阅平台或框架的命名规范，避免使用禁用字符，确保Agent能顺利注册和被系统正确识别调用。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76979</guid>
-      <pubDate>Tue, 17 Mar 2026 22:50:04 +0800</pubDate>
     </item>
   </channel>
 </rss>
