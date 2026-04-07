@@ -7,7 +7,104 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Apr 2026 14:45:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 23:04:30 +0000</lastBuildDate>
+    <item>
+      <title>量化择时进阶：15分钟复权方案、魔改小市值与定风波策略实战</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;amp;talker=57784510736@chatroom"&gt;2026-04-07_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;📊 15分钟均线复权的两种“避坑”姿势&lt;/h4&gt;
+&lt;p&gt;在处理15分钟级别的高频择时数据时，除权复权处理非常棘手。群内探讨了两种可行的妥协方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方案一：跳空缺口记忆清零&lt;/strong&gt;。当检测到开盘价与前日收盘价出现剧烈跳空（如跌幅&amp;gt;10%，判定为除权）时，直接清空均线历史记忆，从今日起重新计算。优点是代码极简，缺点是除权初期的预热阶段会丢失信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方案二：择时信号“升维”处理&lt;/strong&gt;。将15分钟数据的计算结果转化为日线级别的因子存入数据库。这样可完美兼容现有回测引擎，速度快且逻辑清晰，但牺牲了日内择时的即时性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛡️ 定风波策略：是意大利式防守，更是进攻利器&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;打破“防守”固有印象&lt;/strong&gt;：通过灵活设置权重（如[0.8, 0.8, 0.9, 0.9, 1.0]），定风波可以在开盘即保持高仓位进攻，并根据盘中行情随时决定是否离场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略共识&lt;/strong&gt;：定风波具备极佳的“防守反击”特性，其非对称的仓位管理逻辑能够有效规避阴跌，同时在反弹中迅速捕捉利润。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🚀 魔改凌烟阁：小市值择时的极致表现&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“强力苏打水”魔改版&lt;/strong&gt;：该方案将官方基本面小市值策略与凌烟阁择时逻辑相结合（5D5支+满OFFSET），回测夏普比率达到惊人的2.62。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：基础策略必须具备长期向上的内驱力。择时的核心任务是“止损控大跌”，而非过度干预利润增长，不设止盈才能让利润奔跑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实操注意&lt;/strong&gt;：在凌烟阁框架下进行回测时，应优先使用5D数据，避免使用W（周频）数据以排除潜在的未来函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🧠 极简主义与AI工具：让量化回归逻辑本质&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子少即是多&lt;/strong&gt;：策略应当追求简单、可解释。尽量减少因子和过滤条件，能用因子排序解决的就不要上策略库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI赋能实操&lt;/strong&gt;：利用Claude Code等AI工具，可以快速实现因子转换与逻辑验证。量化交易者的核心价值在于“思路”，而具体的编码落地已可大量托管给AI。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💡 关键金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“硬的是拳头，不是五指。” —— 無慈悲な定量化機械 (强调逻辑应聚焦核心而非分散)&lt;/li&gt;
+&lt;li&gt;“思路才重要，我已经好久好久没有写任何代码了。” —— 木木十三&lt;/li&gt;
+&lt;li&gt;“当你觉得小市值策略永久失效的时候，我这个择时就的确是没有意义了。” —— 强力苏打水&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77736&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/77711&lt;/li&gt;
+&lt;li&gt;https://www.quantclass.cn/quiz/quiz_853c0374aa5feea763ead98c05fcac4c&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77763&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/75656&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/76837&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77808&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>策略回撤下的实战博弈：从动量因子到AI量化军火库的全面演进</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;amp;talker=58453205219@chatroom"&gt;2026-04-07_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📉 策略回撤期：是阵痛更是切换因子的契机&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回撤现状&lt;/strong&gt;：近期“四龙狗”及动量策略出现显著回撤，部分实盘回撤达到7%-9%，甚至接近历史最大回撤11%。相比之下，小b纯多策略近期表现出反弹迹象，而25浪淘沙等策略则处于横盘状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略动态调整&lt;/strong&gt;：面对回撤，投资者不应盲目恐慌。有经验的群友建议，主力资金应坚守在旗舰策略上，动量等策略可作为微仓体验。亏钱往往是学习新因子的动力，当前可关注23、24年分享会中的动量因子及中性船队的研究成果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🦞 AI量化工具之争：为什么 Claude Code 值得关注？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Claude Code vs. 量化龙虾&lt;/strong&gt;：群友“gcouple.J”指出，虽然“量化龙虾”功能广、门槛低，但在工程处理上较为业余，其 Token 消耗可能是专业工具的10倍。而 &lt;strong&gt;Claude Code (CC)&lt;/strong&gt; 被视为更专业的“神兵利器”，具有更高的自由度和更优的 Token 利用效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心优势&lt;/strong&gt;：CC 能够深入到工程开发的边缘条件，适合深度量化开发。通过搭配 &lt;code&gt;ccswitch&lt;/code&gt; 等工具，还可以灵活切换国产模型，降低使用门槛。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 安全运行指南：如何低风险调用顶级 AI？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;规避封号与网络风险&lt;/strong&gt;：针对公司查“梯子”或 Claude 官方频繁封号的问题，专家建议在北美 AWS 搭建大模型代理服务（如 &lt;code&gt;claude-relay-service&lt;/code&gt;）。这种方式让本地机器直接访问代理服务器，无需开启翻墙工具即可安全调用 API。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境部署&lt;/strong&gt;：CC 的安装相对简单，可直接部署在云服务器（如币安服务器）上用于监控市场和自动下单。建议“少登官网、不用App”，主要通过 API 进行交互以规避环境检测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化避坑：环境配置与数据清理的逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;配置报错处理&lt;/strong&gt;：运行报错通常与 &lt;code&gt;config&lt;/code&gt; 设置的开始时间（init time）有关。建议参考专业教程进行设置，且必须使用回测框架导出的 &lt;code&gt;config&lt;/code&gt; 文件，而非在线下载的随机配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据一致性&lt;/strong&gt;：若程序退出且日志不明，往往是底层数据损坏。最简单的解决方法是删除旧数据并重新下载，确保数据链的完整性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 群友金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“7个点？波动都嫌小。” —— &lt;strong&gt;陈聪汉&lt;/strong&gt; (谈回撤心态)&lt;/li&gt;
+&lt;li&gt;“跳下去，不用再担心财富的事，也算自由。” —— &lt;strong&gt;曾经潇湘难为水&lt;/strong&gt; (关于财富自由的调侃)&lt;/li&gt;
+&lt;li&gt;“亏钱才有动力学，我得赶紧把多头换动量了。” —— &lt;strong&gt;茫&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“AI发展太快了，一个还没学完，新的要学的就出来了。” —— &lt;strong&gt;WN_暖春拂晓&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://www.quantclass.cn/quiz/quiz_853c0374aa5feea763ead98c05fcac4c&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>揭秘缩量杀手：基于分域成交额MDD的量化择时与策略增效</title>
       <link>https://bbs.quantclass.cn/thread/77772</link>
@@ -5252,95 +5349,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77007</guid>
       <pubDate>Wed, 18 Mar 2026 16:46:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化视角透视人与AI：经验压缩、目标函数与价值观的统一</title>
-      <link>https://bbs.quantclass.cn/thread/77003</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77003"&gt;【没什么用系列】【百帖纪念】量化让我越来越觉得：我和 AI，其实都在被同一种机制训练&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[目标函数, 经验压缩, 过拟合, 价值观, 优化器, AI, 量化系统]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：统一视角解析人、AI与交易系统，强调目标函数与优化器对系统演化的决定性作用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：人、AI和交易系统本质上均遵循“输入信息—内部映射—输出决策—接受反馈—更新自身”的共同结构，核心能力在于将过去经验压缩成未来可执行的决策规则。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：系统最终演化方向并非由学习能力决定，而是由其“目标函数”（如机器学习的损失函数、量化策略的评价指标、人类的价值观）所驱动，系统会忠实地收敛于被奖励的方向。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;挑战了对“成长”的浪漫化理解，将其定义为复杂环境下的系统在线更新过程。&lt;/li&gt;
-&lt;li&gt;警示“优化可优化之物”（如代码性能、工程优雅）和“沉迷样本内漂亮结果”（过拟合）的陷阱，指出这些并非真正的进步，而可能是在错误方向上的精装修或幻觉。&lt;/li&gt;
-&lt;li&gt;重新定义“价值观”为个体解释反馈、判断得失、决定更新方向的底层机制，而非空泛概念，强调“损失函数决定模型学成什么样，价值观决定人活成什么样”。&lt;/li&gt;
-&lt;li&gt;强调系统不会自动趋向“更好”，只会趋向“被奖励的方向”演化，故强大的优化能力若无正确目标函数将加速灾难。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：碳基与硅基智能的根本区别可能在于，人类至少有机会反思并修改自己的目标函数，而AI的目标多为外部设定。这种“质疑并修改目标函数”的能力是人类最珍贵的分水岭。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：过度沉迷于代码性能优化（如CPU、内存、延迟、架构优雅），虽然有即时反馈，但若策略本身无优势、研究问题错误或市场理解不深，则只是将一台错误的机器造得更精密，属“工程师的幻觉”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;样本内过拟合是“研究员的幻觉”，其危险性在于制造“离真理越来越近”的错觉，但实则只是离样本内越来越近。尤其在高频、微结构交易中，纸面回测缺乏真实竞争、排队损耗、信号泄漏、执行摩擦等细节，易导致“样本内最危险的，不是假，而是太像真”。&lt;/li&gt;
-&lt;li&gt;“过拟合不是模型学得太少，而是模型把不该记住的东西记得太牢”，这同样适用于人生层面的执念和偏见。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;目标函数审视&lt;/strong&gt;: 在系统设计与优化前，务必深入审视并明确核心“目标函数”，警惕将容易量化（如代码性能）或样本内好看的指标误设为真正重要的目标。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反过拟合策略&lt;/strong&gt;: 针对交易策略开发，设计更严格的出样本验证、实盘摩擦模拟和鲁棒性测试，避免沉迷“样本内之美”，警惕“太会优化”反而带来假象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI应用与反思&lt;/strong&gt;: 意识到AI是目标函数的放大器，其高效优化错误目标的能力将加速灾难。在与AI协作时，保持对自身核心目标的持续质疑和反思，防止被技术能力本身所迷惑。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77003</guid>
-      <pubDate>Wed, 18 Mar 2026 15:29:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于新规的财务退市风险预警：从金工研报逻辑到Python因子实现</title>
-      <link>https://bbs.quantclass.cn/thread/76993</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76993"&gt;【财务退市风险】【美芝股份】退市预警启示--研报复现《财务篇：退市新规下，如何系统性识别上市公司风险》&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[退市风险过滤、财务因子构建、小市值策略优化、金工逻辑落地]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过多维财务硬约束预判退市风险，显著优化小市值策略的尾部风险与收益表现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于2024年退市新规，利用“净资产为负”等红线进行前瞻性过滤。Alpha来源于规避因基本面触及退市阈值导致的非系统性暴跌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：构建三类财务预警维度：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;生存风险&lt;/strong&gt;：连续3年亏损、净资产大幅缩减且流动比率低于1.5。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;规模与增长风险&lt;/strong&gt;：预测年营收 &amp;lt; 1.2亿且营收增速 ≤ 10%，预测净利为负。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资产脆弱性&lt;/strong&gt;：净资产同比缩水超50%且资产总额/盈利覆盖不足。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在2024年后小市值域表现优异，ICIR和胜率提升显著；但在绩优类策略（分红、现金流）中几乎无影响，验证了因子的精准打击性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：财务公告具有滞后性，通过Q3财报数据逻辑外推，提前锁定潜在退市标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;财务外推逻辑&lt;/strong&gt;：利用 &lt;code&gt;(Q1-Q3数据) + (去年Q4) * (1 + 累计同比)&lt;/code&gt; 估算全年业绩，将静态报表转化为动态预测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时间窗对齐&lt;/strong&gt;：通过 &lt;code&gt;isin([11,12,1,2,3,4])&lt;/code&gt; 限制因子仅在Q3披露后至年报披露前的窗口期生效，严控look-ahead bias。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：因子依赖高质量底层财务数据；阈值（如1.2亿营收）具政策敏感性，需随监管政策动态调整。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[策略集成]&lt;/strong&gt;：将该因子作为“准入黑名单”模块，固定集成至所有小市值或低价股选股策略中。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[逻辑外推]&lt;/strong&gt;：复用代码中的 &lt;code&gt;predicted_rev&lt;/code&gt; 估算逻辑，可用于构建其他前瞻性财务因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[动态风控]&lt;/strong&gt;：建议将绝对值阈值（如1.2亿）升级为基于行业分位数的相对值，以增强因子在不同宏观环境下的泛化能力。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76993</guid>
-      <pubDate>Wed, 18 Mar 2026 14:27:50 +0800</pubDate>
     </item>
   </channel>
 </rss>
