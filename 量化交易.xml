@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Apr 2026 08:30:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2026 12:50:51 +0000</lastBuildDate>
     <item>
       <title>揭秘缩量杀手：基于分域成交额MDD的量化择时与策略增效</title>
       <link>https://bbs.quantclass.cn/thread/77772</link>
@@ -51,6 +51,134 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77772</guid>
       <pubDate>Mon, 06 Apr 2026 23:18:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI量化策略新范式：因子评分卡框架助力Open Cloud构建高效选股模型</title>
+      <link>https://www.bilibili.com/video/BV1FMSfBdERd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FMSfBdERd"&gt;AI全栈量化【10】——  OpenClaw专用 +因子评分卡策略 ——— OpenClaw | 数据获取 | 因子加工 | 评分卡模型 | 回测检验&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ AI量化 - 因子评分卡策略框架实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于AI智能体驱动的因子评分卡模型，通过标准化脚本与配置文件实现数据获取、因子加工、模型构建及策略回测的全流程自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：金融市场数据（OHLCV）、预设Alpha 101因子、自定义配置文件（&lt;code&gt;config.json&lt;/code&gt;）、Python环境及依赖库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：历史数据文件（&lt;code&gt;.csv&lt;/code&gt;）、因子数据文件（&lt;code&gt;.csv&lt;/code&gt;）、评分卡模型文件（&lt;code&gt;.pkl&lt;/code&gt;）、策略回测净值曲线及性能指标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子评分卡&lt;/strong&gt;：依据多维度量化因子表现对股票进行打分与排序的决策模型，常用于选股。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指数增强策略&lt;/strong&gt;：在特定指数成分股中优选表现更佳的子集，以期超越基准指数收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Open Cloud (AI代理)&lt;/strong&gt;：指代可执行量化研究任务并基于命令行/配置文件进行迭代优化的AI智能体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测&lt;/strong&gt;：使用历史市场数据模拟交易策略表现，评估其有效性与风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：构建并回测基于AI的ETF因子评分卡策略&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过AI驱动的标准化流程，快速验证并迭代量化选股策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;本地已安装 &lt;strong&gt;Python 环境&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;已安装所有 &lt;strong&gt;项目依赖库&lt;/strong&gt;（见项目文档）。&lt;/li&gt;
+&lt;li&gt;具有 &lt;strong&gt;CAMT数据接口&lt;/strong&gt; 访问权限及有效 &lt;code&gt;token&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;已下载并解压 &lt;strong&gt;项目文件&lt;/strong&gt; 至本地。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;项目准备&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;下载代码&lt;/strong&gt;：从Git仓库 &lt;code&gt;https://gitee.com/trading_combat/ai_quant_scorecard&lt;/code&gt; 克隆或下载项目文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境配置&lt;/strong&gt;：进入项目根目录，使用 &lt;code&gt;pip install -r requirements.txt&lt;/code&gt; 安装所有Python依赖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据接口配置&lt;/strong&gt;：编辑 &lt;code&gt;config.json&lt;/code&gt; 文件，在 &lt;code&gt;qumt_data_config&lt;/code&gt; 部分填入有效的 &lt;code&gt;token&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略参数配置&lt;/strong&gt;：在 &lt;code&gt;config.json&lt;/code&gt; 文件中调整 &lt;code&gt;data_config&lt;/code&gt; (数据周期, 例如 &lt;code&gt;1D&lt;/code&gt; )、&lt;code&gt;stock_pool_config&lt;/code&gt; (股票池类型与名称, 例如 &lt;code&gt;ETF&lt;/code&gt; 和 &lt;code&gt;沪深300&lt;/code&gt; 或 &lt;code&gt;证券龙头&lt;/code&gt; )、&lt;code&gt;scorecard_config&lt;/code&gt; (基础分、WOE等参数)、&lt;code&gt;backtest_config&lt;/code&gt; (上涨比例阈值、最小持仓天数 &lt;code&gt;min_holding_days&lt;/code&gt; 等)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;数据获取&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行脚本&lt;/strong&gt;：运行命令行 &lt;code&gt;python 1_get_etf_history_data.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出确认&lt;/strong&gt;：检查 &lt;code&gt;data&lt;/code&gt; 目录下是否生成了对应的历史数据文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;因子加工&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行脚本&lt;/strong&gt;：运行命令行 &lt;code&gt;python 2_get_factor_data.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出确认&lt;/strong&gt;：检查 &lt;code&gt;output&lt;/code&gt; 目录下是否生成了带有因子数据的 &lt;code&gt;.csv&lt;/code&gt; 文件（例如 &lt;code&gt;etf_factor_data_[日期].csv&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="4"&gt;
+&lt;li&gt;&lt;strong&gt;评分卡模型构建&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行脚本&lt;/strong&gt;：运行命令行 &lt;code&gt;python 3_get_scorecard_model.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出确认&lt;/strong&gt;：检查 &lt;code&gt;output&lt;/code&gt; 目录下是否生成了评分卡模型文件（&lt;code&gt;.pkl&lt;/code&gt;，例如 &lt;code&gt;scorecard_model_[日期].pkl&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="5"&gt;
+&lt;li&gt;&lt;strong&gt;策略回测&lt;/strong&gt;：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行脚本&lt;/strong&gt;：运行命令行 &lt;code&gt;python 4_backtest_strategy.py output/etf_factor_data_[最新日期].csv&lt;/code&gt; (确保替换为实际生成的因子数据文件名)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果分析&lt;/strong&gt;：系统将展示策略净值曲线、最大回撤、总收益等性能指标，并与基准标的进行对比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;stock_pool_config&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;type&lt;/code&gt;&lt;/strong&gt;：定义股票池来源，可选 &lt;code&gt;sector&lt;/code&gt; (板块成分股)、&lt;code&gt;custom&lt;/code&gt; (自定义股票池) 或 &lt;code&gt;ETF&lt;/code&gt; (ETF列表)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;value&lt;/code&gt;&lt;/strong&gt;：对应 &lt;code&gt;type&lt;/code&gt; 的具体名称，例如 &lt;code&gt;沪深300&lt;/code&gt; 或自定义股票池的文件路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：直接决定策略的标的宇宙。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;factor_process_config.batch_size&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层控制&lt;/strong&gt;：因子计算时每次处理的数据量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：根据内存和CPU性能调整，平衡计算速度与资源消耗。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;scorecard_config&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;base_score&lt;/code&gt;&lt;/strong&gt;：评分卡的基础分值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：影响最终总分值范围，用于调整评分卡模型的灵敏度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;backtest_config.up_ratio&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层控制&lt;/strong&gt;：判断大盘多空情绪的上涨股票比例阈值 (例：50%)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：当市场上涨股票比例高于此阈值时，可能全仓 (100%)；低于阈值则可能半仓 (50%)，影响仓位管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;backtest_config.min_holding_days&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层控制&lt;/strong&gt;：策略持仓的最小天数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：&lt;code&gt;1&lt;/code&gt; 表示每天调仓；&lt;code&gt;2&lt;/code&gt; 表示至少持仓两天。影响交易频率与冲击成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;config.json&lt;/code&gt; - &lt;code&gt;backtest_config.top_ratio&lt;/code&gt;&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层控制&lt;/strong&gt;：在评分最高的股票中选择的比例 (例：0.1 表示选择前10%)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;影响变量&lt;/strong&gt;：决定每次调仓选股的数量，直接影响策略的选股能力和分散度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据一致性&lt;/strong&gt;：确保下载数据格式与系统对接要求严格一致，避免因数据格式不匹配导致程序中断。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CAMT &lt;code&gt;token&lt;/code&gt; 限制&lt;/strong&gt;：每个IP节点通常仅支持一个 &lt;code&gt;token&lt;/code&gt; 同时使用，注意并发限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过拟合风险&lt;/strong&gt;：机器学习模型（如评分卡）存在过拟合风险，回测结果虽高但可能在实盘中失效。需结合实际市场情况和业务逻辑进行判断，而非盲目相信高指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交易成本考量&lt;/strong&gt;：实盘交易中手续费、滑点等交易成本对净值影响显著，需在回测中充分考虑并合理设置（例如设置为万分之一）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子自定义&lt;/strong&gt;：利用框架的灵活性，探索并集成更有效的自研因子，替代或补充Alpha 101因子集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI自动化迭代&lt;/strong&gt;：引导AI智能体（如OpenCloud）通过修改 &lt;code&gt;config.json&lt;/code&gt; 配置和因子加工逻辑，自动进行策略优化与迭代。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多核/多线程优化&lt;/strong&gt;：针对因子计算或模型训练步骤，可引入多核或多线程处理，以加速大规模数据运算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日志分析&lt;/strong&gt;：在开发阶段，利用系统打印的日志信息快速定位问题，并将其反馈给AI进行问题修正。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FMSfBdERd</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/df3ba6bd125188608645e81ba8d7bd354daa0fc2.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 06 Apr 2026 21:58:40 +0800</pubDate>
     </item>
     <item>
       <title>XTQuant实战指南：基于miniQMT的Python量化交易框架全解析</title>
@@ -1148,6 +1276,89 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1QnXrBeEGj</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/bb39a4a5d99b79c325ebc3779fb7b11e9db8bb8c.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 31 Mar 2026 18:30:07 +0800</pubDate>
+    </item>
+    <item>
+      <title>小市值触涨停策略：寻找涨停后整理洗盘的股票</title>
+      <link>https://bbs.quantclass.cn/thread/77396</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77396"&gt;30天有涨停域策略&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子, 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[量化策略, 涨停反转, 多因子, 小市值, 资金流, 回测]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[构建并回测基于小市值、触涨停及资金流反转的多因子选股策略。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;市场存在“只看30天有涨停的股票”的说法，暗示短期触及涨停后进行整理洗盘，随后可能再次上涨的模式。&lt;/li&gt;
+&lt;li&gt;提出“多因子比单因子或复杂策略更稳定”，挑战了“因子多即过拟合”的常见误区。&lt;/li&gt;
+&lt;li&gt;过拟合的关键在于过滤过于精确或选股数量过少（例如只选2-3只），导致容错率低。多选股（如20只）若有超额，则策略更稳定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;多因子的稳定性可能源于其对市场多种异象的捕捉能力和风险分散效应。&lt;/li&gt;
+&lt;li&gt;触涨停后整理洗盘的反转逻辑，可能基于市场对短期热点的过度反应和随后的价值回归/筹码交换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;对传统单因子或过于精细过滤策略的“过拟合”认知提出反思，强调多因子复合策略的稳健性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反转+资金流驱动&lt;/strong&gt;：寻找经历过短期“触涨停”后，正在进行“整理洗盘”的股票，结合资金流信号，捕捉短期过热后的回调或震荡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小市值偏好&lt;/strong&gt;：利用小市值股票在A股市场中固有的高弹性、易于炒作和潜在的超额收益特性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;触涨停（Signal）&lt;/strong&gt;：&lt;code&gt;涨停.触涨停&lt;/code&gt;, &lt;code&gt;SUM_30&lt;/code&gt;, &lt;code&gt;val:==1&lt;/code&gt;。核心过滤器，选择过去30天内至少有过一次触及涨停板的股票。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小市值（Filter）&lt;/strong&gt;：&lt;code&gt;市值&lt;/code&gt;, &lt;code&gt;''&lt;/code&gt;, &lt;code&gt;pct:&amp;lt;0.10&lt;/code&gt;。筛选市值排名后10%的股票。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;收盘价（Filter）&lt;/strong&gt;：&lt;code&gt;收盘价&lt;/code&gt;, &lt;code&gt;''&lt;/code&gt;, &lt;code&gt;val:&amp;gt;5&lt;/code&gt;。过滤掉低价股。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一级风险标签（Filter）&lt;/strong&gt;：&lt;code&gt;一级风险标签&lt;/code&gt;, &lt;code&gt;20&lt;/code&gt;, &lt;code&gt;val:&amp;lt;1&lt;/code&gt;。过滤掉高风险股票。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;排序因子 (Factor List)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;市值&lt;/code&gt; (True, '', 1): 偏好市值较小的股票。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;资金流.买入占比&lt;/code&gt; (False, ('中户', 'MA_5'), 1): 偏好中户买入占比高的股票（过去5日均线）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;量.成交额&lt;/code&gt; (True, 'STD_20', 1): 偏好过去20日成交额标准差较大的股票。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;价.最大回撤&lt;/code&gt; (True, 20, 1): 偏好过去20日最大回撤较大的股票，捕捉超跌反弹机会。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ret&lt;/code&gt; (True, 5, 1): 偏好过去5日收益率较低的股票，强化反转逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选股数量&lt;/strong&gt;：&lt;code&gt;select_num&lt;/code&gt;: 10 或 5。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持仓周期&lt;/strong&gt;：&lt;code&gt;hold_period&lt;/code&gt;: '3D'。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;再平衡时间&lt;/strong&gt;：&lt;code&gt;rebalance_time&lt;/code&gt;: 'open-open'。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测区间&lt;/strong&gt;：图中数据始于2017年初，聚焦于2017年后的市场表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心指标（选10）&lt;/strong&gt;：年化收益率约71-77%，最大回撤约28-31%，夏普比率约1.2-1.3，胜率约50-55%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心指标（选5）&lt;/strong&gt;：年化收益率约81-90%，最大回撤约32-34%，夏普比率约1.3-1.4，胜率约50-54%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;观察&lt;/strong&gt;：选股数量减少（从10到5）显示出更高的年化收益，但最大回撤也略有增加。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;文章直接提供策略配置字典，包含明确的因子名称、方向、计算周期（如&lt;code&gt;SUM_30&lt;/code&gt;, &lt;code&gt;MA_5&lt;/code&gt;, &lt;code&gt;STD_20&lt;/code&gt;）、数值过滤 (&lt;code&gt;val:==1&lt;/code&gt;, &lt;code&gt;val:&amp;gt;5&lt;/code&gt;)、百分比过滤 (&lt;code&gt;pct:&amp;lt;0.10&lt;/code&gt;)，为在量化平台实现提供了清晰的结构化数据。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;offset_list: [0, 1, 2]&lt;/code&gt; 参数暗示因子可能在不同交易日进行计算或偏移，需注意数据对齐。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cap_weight: 1&lt;/code&gt; 表示等权重分配，简化资金管理逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子库实现&lt;/strong&gt;：优先实现 &lt;code&gt;涨停.触涨停&lt;/code&gt; (过去N天是否触及涨停) 和 &lt;code&gt;资金流.买入占比&lt;/code&gt; (中户买入占比的N日均线) 这两个核心筛选和排序因子。&lt;code&gt;触涨停&lt;/code&gt;可定义为日K线最高价达到或超过涨停价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多因子筛选框架集成&lt;/strong&gt;：构建灵活的因子筛选与排序框架，能够解析类似于文中的策略配置字典（&lt;code&gt;factor_list&lt;/code&gt;, &lt;code&gt;filter_list&lt;/code&gt;），实现动态的因子数据获取、计算、标准化、排名和组合。重点关注&lt;code&gt;SUM_N&lt;/code&gt;, &lt;code&gt;MA_N&lt;/code&gt;, &lt;code&gt;STD_N&lt;/code&gt;等聚合函数的通用实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小市值策略拓展&lt;/strong&gt;：在现有小市值策略基础上，尝试引入类似&lt;code&gt;触涨停&lt;/code&gt;、&lt;code&gt;资金流&lt;/code&gt;的反转信号，作为多因子策略的一部分，并对比其与纯小市值策略的表现差异，同时验证“多因子比单因子稳定”的论点。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77396</guid>
+      <pubDate>Tue, 31 Mar 2026 09:39:02 +0800</pubDate>
     </item>
     <item>
       <title>3月收官惨遭‘特没普’背刺：量化投资者的复盘与策略进化论</title>
@@ -3018,6 +3229,97 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1epQzBaEgr</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/ce39f7772bfe142b8ff2b204c0e59ec697442884.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 24 Mar 2026 18:03:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>A股ETF轮动策略的止损迷思：6组实验揭示「不动是金」</title>
+      <link>https://bbs.quantclass.cn/thread/77111</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77111"&gt;我做了6组独立实验，终于把「止损」这件事搞清楚了&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[A股ETF, 量化轮动, 止损策略, 市场异同, 交易成本]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[A股ETF轮动策略中，多数主动止损反而破坏收益，坚持基线不动是关键。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在A股行业ETF量化轮动策略中，6种常见的&amp;quot;提前离场&amp;quot;或&amp;quot;止损&amp;quot;机制（ATR尾随止损、渐进式调仓、拥挤度卖出、排名飞升惩罚、排名急跌卖出、波动率仓位缩放）均未能改善夏普比和回撤，甚至大幅恶化策略表现。&lt;/li&gt;
+&lt;li&gt;大多数止损触发点伴随着极高的&amp;quot;错杀率&amp;quot;（78-86%），即卖出后标的在20个交易日内恢复。&lt;/li&gt;
+&lt;li&gt;A股市场中，成交量异常放大（拥挤度卖出信号）往往是主升浪的开始，而非顶部信号。&lt;/li&gt;
+&lt;li&gt;&amp;quot;被动排名飞升&amp;quot;（如银行ETF在跌市中相对抗跌）是有效的相对强弱信号，不应被惩罚。&lt;/li&gt;
+&lt;li&gt;部分减仓（波动率仓位缩放）反而可能导致更大的回撤，破坏等权结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;A股市场驱动机制差异&lt;/strong&gt;：与美股商品趋势驱动不同，A股行业ETF主要由政策预期和机构/游资情绪共振驱动，短期波动多为脉冲式，不代表趋势终结。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;止损时机系统性错误&lt;/strong&gt;：当价格跌至触发止损时，市场可能已在消化利空，后续更可能是反弹，导致系统性地在反弹前离场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;摩擦成本与信号噪声&lt;/strong&gt;：过于频繁的调仓（如渐进式调仓换手率翻4.6倍）大幅增加摩擦成本，且在基础信号之上叠加&amp;quot;提前响应&amp;quot;层，放大了市场噪声。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;半仓策略的结构性缺陷&lt;/strong&gt;：部分减仓破坏了原有的等权持仓结构，引入了新的风险来源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;证伪了传统意义上适用于其他市场（如期货、美股）的多种止损/提前离场策略在A股行业ETF轮动场景中的有效性。&lt;/li&gt;
+&lt;li&gt;挑战了“精细化操作”在噪声市场中能带来超额收益的直觉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;A股行业ETF的短期异常（价格跌、排名跌、成交量异常、波动率飙升）具备较强的均值回归特性，是可恢复的。&lt;/li&gt;
+&lt;li&gt;简单的趋势跟踪（如跌破MA200清仓）可能更适合A股行业ETF的趋势性质。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;基线策略&lt;/strong&gt;：基于30只A股赛道ETF，按20日动量排名，等权买入Top 5，最少持有15天。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基线风控&lt;/strong&gt;：沪深300跌破MA200则全清仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实验目标&lt;/strong&gt;：验证在基线策略基础上，6种“提前离场”机制（ATR尾随止损、渐进式调仓、拥挤度卖出、排名飞升惩罚、排名急跌卖出、波动率仓位缩放）对夏普比和最大回撤的影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ATR尾随止损&lt;/strong&gt;：参数：ATR倍数 (1.5-4.0), 回望窗口 (14-30天)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渐进式调仓&lt;/strong&gt;：参数：卖出比例 (25-75%), 触发阈值 (跌出Top5-Top8)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥挤度卖出&lt;/strong&gt;：量比 (SMA10/SMA40), 触发阈值 (1.5-3.0倍均量)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;排名飞升惩罚&lt;/strong&gt;：针对排名上升但短期动量为负的标的，折扣排名奖励。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;排名急跌卖出&lt;/strong&gt;：当排名一日下跌 ≥ N 位 (8-25位) 时卖出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;波动率仓位缩放&lt;/strong&gt;：滚动波动率进入历史极端高位时，仓位从100%降至50%/33%/67%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据类型&lt;/strong&gt;：A股行业ETF的历史价格、成交量、排名数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据频次&lt;/strong&gt;：日线数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量计算&lt;/strong&gt;：20日动量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;均线计算&lt;/strong&gt;：200日移动平均线 (MA200)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测区间&lt;/strong&gt;：七年回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基线策略表现&lt;/strong&gt;：夏普比率约1.1。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;所有实验方案&lt;/strong&gt;：绝大多数跑输基线策略，未能同时改善夏普比和最大回撤，部分方案夏普比腰斩，最大回撤增加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;错杀率&lt;/strong&gt;：ATR止损和拥挤度卖出平均错杀率高达78-80%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;换手率&lt;/strong&gt;：渐进式调仓方案换手率比基线翻4.6倍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;摩擦成本&lt;/strong&gt;：高换手率显著增加交易成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场环境不匹配&lt;/strong&gt;：源自非A股市场的止损理念，在A股的政策/情绪驱动行情中失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统性卖飞&lt;/strong&gt;：主动止损机制系统性地在反弹前离场，导致错过主升浪。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略简化与专注&lt;/strong&gt;：在A股ETF轮动策略开发中，应优先简化止损逻辑，避免引入过多基于短期波动和排名变化的复杂“提前离场”规则，可能仅保留沪深300大盘均线作为主要风控。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;验证市场特异性&lt;/strong&gt;：在引入任何源自其他市场的策略或因子时，务必在A股数据上进行严格的、参数多样化的回测验证，警惕因市场驱动机制差异导致的“水土不服”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免过度优化与噪声&lt;/strong&gt;：警惕高换手率带来的交易成本侵蚀收益，同时要区分市场真实信号与噪声，复杂的“提前响应”机制可能仅仅是放大了噪声，而非捕捉真实Alpha。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77111</guid>
+      <pubDate>Tue, 24 Mar 2026 10:07:31 +0800</pubDate>
     </item>
     <item>
       <title>Polymarket二元预测市场套利：基于BTC分钟线共识收敛与宽止损的统计套利实证</title>
@@ -5041,129 +5343,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76987</guid>
       <pubDate>Wed, 18 Mar 2026 09:20:54 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘生存指南：从数据校验避坑到极端行情的心态博弈</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;amp;talker=57784510736@chatroom"&gt;2026-03-18_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;💡 实盘避坑：数据校验是第一生命线&lt;/h4&gt;
-&lt;p&gt;在使用量化框架进行实盘时，数据质量问题往往是导致交易失败的罪魁祸首。针对聊天中提到的“Missing column”或数据合并错误，有以下操作建议：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;使用校验工具&lt;/strong&gt;：群友推荐了“彩虹数据校验器”，建议在每天选股前跑一遍脚本，验证数据准确性。即使是老爷机，也可以抽样校验核心字段。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;处理表头异常&lt;/strong&gt;：遇到数据格式变动时，可以尝试使用 &lt;code&gt;skiprows=1&lt;/code&gt; 跳过非标准行，确保 DataFrame 解析正确。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔋 极端情况预案：停电断网了怎么办？&lt;/h4&gt;
-&lt;p&gt;聊天中提到因小区停电导致未能及时平仓，引发了关于“硬件容灾”的讨论：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;三位一体方案&lt;/strong&gt;：笔记本电脑（自带电池）+ UPS 不间断电源 + 4G/5G 随身 WiFi（如华为随身 WiFi 插卡）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避开公共网络&lt;/strong&gt;：不要寄希望于小区运营商机房，一旦小区停电，机房往往也会断网，独立无线信号是最后的防线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;心态建设&lt;/strong&gt;：深白色提到“有时候 bug 是致富的”，虽然是调侃，但也反映了实盘中随机性的一部分，不必因小概率事件过度焦虑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📉 4月回撤季：小市值的“爆雷”与守望&lt;/h4&gt;
-&lt;p&gt;当前市场进入年报季预告期，小市值策略波动剧烈：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略表现分化&lt;/strong&gt;：定风波策略在极端行情下表现出较好的防御性，而部分轮动策略（如风火轮）可能面临较大回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;退市风险过滤&lt;/strong&gt;：像“湘邮科技”、“美芝股份”等个股的爆雷提醒量化交易者，4月份需要更关注策略中的过滤逻辑，让策略自动执行减仓或拉黑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;科普小知识&lt;/strong&gt;：关于石油链的“石脑油”，它是原油蒸馏塔中上层的产物，是塑料、橡胶的重要化工原材料。近期原油价格波动对相关板块影响显著。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 聊天室金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“有时候 bug 是致富的。” —— &lt;strong&gt;深白色&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“20岁做保安领先同龄人40年。” —— &lt;strong&gt;jwt&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“吃肉的时候没赶上，挨打可真是一顿不耽误。” —— &lt;strong&gt;Winnie💎α&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“每一次鸽（直播延期）都是爱。” —— &lt;strong&gt;船长-夏普&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76644"&gt;【数据找BUG工具】🌈 彩虹数据校验器&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76923"&gt;【观沧海】6【妈妈基的深入观察】&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>沧浪亭V4补丁发布与量化实盘纠偏指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;amp;talker=58453205219@chatroom"&gt;2026-03-18_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚨 策略升级：沧浪亭V4紧急发布&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;近期由于沧浪亭（精心随机）策略存在逻辑漏洞，导致部分用户出现多头暴露过多的情况。官方已发布V4补丁版本进行修复。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心行动建议&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;重新下载精心随机包，并按照“学废”直播教程重跑回测。&lt;/li&gt;
-&lt;li&gt;获取最新仓位比例后，同步更新实盘的 &lt;code&gt;position&lt;/code&gt; 文件与策略 &lt;code&gt;config&lt;/code&gt; 配置。&lt;/li&gt;
-&lt;li&gt;检查杠杆率：当杠杆率低于1时，需注意系统是否已正确重置净暴露。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 加密市场“全样本”构建法&lt;/h3&gt;
-&lt;p&gt;针对用户如何构建代表全市场的加密指数，资深玩家给出了极简方案。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：在选币框架中，不设置过滤因子，选币因子可任选其一，并将选币数量设置为 &lt;strong&gt;999&lt;/strong&gt;。这种方式选出的组合即可视为全市场的代理指数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧐 实盘与回测“对齐”方法论&lt;/h3&gt;
-&lt;p&gt;针对用户反馈实盘走势与官方监测或回测结果不一致的问题，邢不行提出了自查逻辑。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;排查路径&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;分钟偏移（Minute Offset）&lt;/strong&gt;：确认不同子策略是否设置了正确的偏移时间，避免下单时点重叠导致的误差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略一致性&lt;/strong&gt;：检查实盘 &lt;code&gt;config&lt;/code&gt; 是否与官方精心随机版本对齐。即使是细微的选币范围差异，在震荡市中也可能被放大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据完整性&lt;/strong&gt;：定期自查因子值，实盘中若出现API报错或数据缺失，可能导致持仓与回测产生偏离。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 避坑指南：下架币的“背刺”&lt;/h3&gt;
-&lt;p&gt;币安近期下架部分币种（如NBL、DREP等），对多头策略造成了一定冲击。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;操作逻辑&lt;/strong&gt;：由于下架币在公告后通常伴随剧烈下跌，跑NBL或类似策略的用户建议提前手动拉黑相关币种。这类币种极易造成策略“超买”后的净值暴击。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 行业金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“神经病策略就是这样的，阶段性抽风不影响长期下跌趋势。” —— &lt;strong&gt;邢不行&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“策略跑着跑着会偷懒的，要经常盯着，随时调教。” —— &lt;strong&gt;AK&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“盈亏同源，空头暴露就是左侧赌它暴跌。” —— &lt;strong&gt;心想事陈&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-18&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>稳定币法案博弈：资本逐利本能与传统银行霸权的终极较量</title>
-      <link>https://bbs.quantclass.cn/thread/76414</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76414"&gt;适度理解三部加密货币法案（四）------规则到底由谁制定&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[稳定币监管、货币时间价值、久期风险、监管套利]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：剖析稳定币立法的利益博弈及资本逐利本能对监管边界的重塑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：稳定币正从单纯的支付工具演变为生息资产，4%-5%的收益率正在抢夺传统银行的低成本存款（即“影子银行”风险）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：法案争议核心在于“反利息条款”，其本质是传统银行业利用立法工具设置护城河，试图维持资本收益的垄断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：若强行禁止利息，将迫使资本通过DeFi嵌套、生息包装代币（Wrappers）等方式进行监管套利，导致更难以监控的风险外溢。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：最终博弈的平衡点在于美联储是否开放“紧急贴现窗口”，将合规稳定币发行商正式收编为具备国家信用支撑的数字商业银行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[流动性建模]：在量化策略中需建立稳定币脱锚风险模型，重点监控底层资产（美债）价格波动与CEX赎回压力的相关性。&lt;/li&gt;
-&lt;li&gt;[套利机会跟踪]：开发针对生息稳定币（stUSDC等）与基础稳定币之间基差的套利算法，捕获监管不确定性带来的溢价。&lt;/li&gt;
-&lt;li&gt;[架构灵活性]：在Python交易系统中抽象化“收益”逻辑，预留对“积分、治理权、质押奖励”等多种替代利息形式的兼容接口，以应对可能的法律规避演化。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76414</guid>
-      <pubDate>Tue, 17 Mar 2026 23:35:30 +0800</pubDate>
     </item>
   </channel>
 </rss>
