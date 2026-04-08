@@ -7,7 +7,76 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 Apr 2026 08:33:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 15:15:06 +0000</lastBuildDate>
+    <item>
+      <title>谷歌 Gemini 4 深度实测：从架构解构到移动端本地部署实操手册</title>
+      <link>https://www.bilibili.com/video/BV1FCD7ByEnr</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FCD7ByEnr"&gt;Gemma 4 实测 + 保姆级教程：从 0 搭建本地 AI 解说 App（音频+视觉）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Google Gemini 4 (JA4) - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：采用 PLE (Parameter-efficient Language Models) 架构，通过每层解码器的独立小型词嵌入表实现快速查找，在端侧部署中以较小的有效参数量（如 E2B 仅 2.3B 有效参数）实现高参数效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：支持文本、长达 30 秒的音频流、图像（OCR/物体识别）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：支持本地文本生成、实时解说、多模态 Agent 技能调用及 TTS 语音输出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LiteRT (原 LiteLM)&lt;/strong&gt;：谷歌专为边缘设备设计的轻量化推理框架，支持 NPU 加速。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PLE 技术&lt;/strong&gt;：通过区分总参数与有效参数，优化端侧内存占用与计算响应速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ML Kit JAI API&lt;/strong&gt;：用于集成总结、重写、图片说明及语音识别的官方预览版 API。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：移动端模型本地化部署&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在安卓或 iOS 设备上脱离云端运行 Gemini 4 小模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：适配的手机硬件（谷歌 Pixel 系列或较新安卓机型）、模型量化文件（GGUF/MLX/LiteRT 格式）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[工具选择]&lt;/strong&gt;：iOS 选用 &lt;code&gt;MLX&lt;/code&gt; 格式；安卓优先使用 &lt;code&gt;LiteRT&lt;/code&gt; 框架以获得 NPU 加速支持。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[集成路径]&lt;/strong&gt;：下载 &lt;code&gt;Google AI Edge Gallery&lt;/code&gt; App 进行预览，或使用 &lt;code&gt;Unsloth Studio&lt;/code&gt; 进行模型微调与导出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[推理端设置]&lt;/strong&gt;：在 &lt;code&gt;LiteRT&lt;/code&gt; 引擎中根据设备性能手动切换 &lt;code&gt;CPU&lt;/code&gt;、&lt;code&gt;GPU&lt;/code&gt; 或 &lt;code&gt;NPU&lt;/code&gt; 运算模式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：构建 AI 实时视觉解说应用 (英语学习场景)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：利用 E2B/E4B 的低延迟特性，将摄像头捕获的内容实时转译为英文描述并朗读。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已集成 &lt;code&gt;LiteRT&lt;/code&gt; 后端的安卓项目、系统 TTS 引擎。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[模型挂载]&lt;/strong&gt;：配置 &lt;code&gt;E2B&lt;/code&gt; 8-bit 量化模型，设置 &lt;code&gt;System Prompt&lt;/code&gt; 为英文解说风格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[UI 交互]&lt;/strong&gt;：通过 &lt;code&gt;ADB&lt;/code&gt; 调试实现悬浮窗 UI，添加“自动识别”与“手动拍摄”切换逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[反馈闭环]&lt;/strong&gt;：捕捉图像流 -&amp;gt; 触发 Gemini 4 推理 -&amp;gt; 结果存入文本框 -&amp;gt; 触发系统 &lt;code&gt;TTS&lt;/code&gt; 朗读语音。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[有效参数比例控制]&lt;/strong&gt;：E2B (5.1B 总/2.3B 有效) 与 E4B 的选择直接影响端侧内存吞吐与推理速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Agent Skills 面板]&lt;/strong&gt;：内置约 10 种核心技能（如钢琴演奏、代码编写），通过 &lt;code&gt;Google AI Age Gallery&lt;/code&gt; 进行模块化调用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[反推提示词模板]&lt;/strong&gt;：在多模态任务中，通过输入图片引导模型生成绘图提示词，其知识库时效性与还原度表现优异。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OCR 精度缺陷&lt;/strong&gt;：31B 模型在复杂文字识别（如对联、书法）上表现远逊于 Qwen 3.5 系列，存在严重的误读倾向。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全护栏短板&lt;/strong&gt;：模型在处理伪造引用、虚假报告等请求时，安全拒绝逻辑不够严密。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多模态计数误差&lt;/strong&gt;：在对图片中特定目标（如火烈鸟）计数时，推理时间长且准确率较低。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开发流优化&lt;/strong&gt;：利用 &lt;code&gt;Claude 3.5&lt;/code&gt; 或 &lt;code&gt;Codeium&lt;/code&gt; 辅助解析 &lt;code&gt;LiteRT&lt;/code&gt; 复杂文档，可快速修复因 AI CORE 版本不兼容导致的编译报错。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云端白嫖路径&lt;/strong&gt;：在正式部署到手机前，优先在 &lt;code&gt;Google AI Studio&lt;/code&gt; 免费运行 26B 或 31B 模型进行逻辑验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FCD7ByEnr</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b026c47d1333e134e81ccc94ab55e39dfa1517eb.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 08 Apr 2026 20:58:14 +0800</pubDate>
+    </item>
     <item>
       <title>AGI风暴前夜：OpenAI估值迷局与AI补贴时代的终结</title>
       <link>https://www.youtube.com/watch?v=PxnEItHxtWQ</link>
@@ -5255,106 +5324,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1sFAnzREir</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/bc0d1b6b6148cf45f9137561566fd09e65870c1b.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 20 Mar 2026 19:23:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>谷歌Stitch与Build重磅升级：AI设计开发一体化，效率飞跃新体验</title>
-      <link>https://www.bilibili.com/video/BV1B3AnzjE4M</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1B3AnzjE4M"&gt;Google Stitch 大升级 + AI Studio Build 实测：设计到应用一条龙，太强了&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Stitch &amp;amp; Build - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：Stitch基于AI生成设计系统（Design Markdown）和交互式原型；Build集成数据库、身份验证并支持Next.js构建。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言提示词、图片、网址（Stitch）；源代码、API、数据库配置（Build）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：交互式原型、Design Markdown、Figma文件、JS/JSS代码、HTML/ZIP包（Stitch）；可部署应用（如Android App、Web App）、GitHub集成、Cloudflare部署（Build）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Stitch&lt;/strong&gt;：谷歌AI设计工具，专注于快速设计、原型制作和设计系统生成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Design Markdown&lt;/strong&gt;：Stitch中用于定义设计规范（颜色、字体、间距、组件等）的结构化文件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;：谷歌AS Studio中的应用构建工具，支持实时协作、数据库集成与多平台部署。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Firebase Studio&lt;/strong&gt;：谷歌即将弃用的后端服务平台，功能将转移至AS Studio。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Composer2&lt;/strong&gt;：Cursor中用于代码分析与改进的模型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：使用Stitch进行AI辅助设计与原型构建&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：快速生成多页面设计稿、交互式原型，并调整设计系统。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：明确设计需求（如应用类型、功能、风格参考）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[提示词输入]&lt;/strong&gt;：在Stitch对话框输入设计需求，如 &lt;code&gt;适合折叠屏的AI阅读安卓应用&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[设计预览]&lt;/strong&gt;：观察左侧思考过程、中间颜色字体图标预览，右侧生成的多页面设计。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[交互原型生成]&lt;/strong&gt;：点击右上角 &lt;code&gt;播放按钮&lt;/code&gt; -&amp;gt; 选择不同页面，生成交互式原型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[页面管理]&lt;/strong&gt;：点击左边 &lt;code&gt;添加屏幕按钮&lt;/code&gt; 导入新页面；点击第二个按钮切换 &lt;code&gt;平板样式&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[风格复制]&lt;/strong&gt;：上传图片截图 -&amp;gt; 提示Stitch &lt;code&gt;复制其风格&lt;/code&gt; 以生成新的设计主题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[设计系统修改]&lt;/strong&gt;：点击页面上方 &lt;code&gt;Modify&lt;/code&gt; -&amp;gt; &lt;code&gt;Design Systems&lt;/code&gt; -&amp;gt; 详情页修改 &lt;code&gt;颜色&lt;/code&gt;、&lt;code&gt;字体&lt;/code&gt; 等主题元素。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[导出设计]&lt;/strong&gt;：选择 &lt;code&gt;AS Studio&lt;/code&gt;、&lt;code&gt;Figma&lt;/code&gt;、&lt;code&gt;JS/JSS&lt;/code&gt; 或 &lt;code&gt;ZIP&lt;/code&gt; (包含截图与HTML) 进行导出。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：通过AS Studio Build构建与部署应用&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在AS Studio中快速构建具备后端功能（登录、数据存储）的应用，并进行部署。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：谷歌账号、GitHub账号、Cloudflare账号（可选）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[应用创建]&lt;/strong&gt;：在AS Studio Build中输入应用需求提示词，如 &lt;code&gt;时光邮局应用&lt;/code&gt; 及具体功能要求（如数据持久化）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[GitHub连接]&lt;/strong&gt;：在设置中将项目连接至 &lt;code&gt;GitHub&lt;/code&gt;，实现代码同步。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[增加登录与数据存储]&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;提示Build &lt;code&gt;增加谷歌登录功能&lt;/code&gt; (限定单用户)。&lt;/li&gt;
-&lt;li&gt;要求 &lt;code&gt;数据存储在Firebase&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;Build将弹出 &lt;code&gt;Firebase设置窗口&lt;/code&gt; -&amp;gt; 自动集成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start="4"&gt;
-&lt;li&gt;&lt;strong&gt;[部署准备]&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;让Build解决 &lt;code&gt;环境变量问题&lt;/code&gt;，更新环境变量模板及说明文档。&lt;/li&gt;
-&lt;li&gt;确认 &lt;code&gt;.gitignore&lt;/code&gt; 文件无遗漏及其他安全问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start="5"&gt;
-&lt;li&gt;&lt;strong&gt;[本地下载与外部部署]&lt;/strong&gt;：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;将Build生成的应用 &lt;code&gt;下载&lt;/code&gt; 到本地。&lt;/li&gt;
-&lt;li&gt;使用 &lt;code&gt;Cursor&lt;/code&gt; 等AI工具或手动通过 &lt;code&gt;Cloudflare&lt;/code&gt; 进行部署。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Design Systems (Stitch)&lt;/strong&gt;：允许用户定义和修改应用的视觉规范（颜色、字体、间距、组件、背景、阴影等），确保设计一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Modify (Stitch)&lt;/strong&gt;：针对选定页面，可以进入设计系统进行主题级别修改。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;添加屏幕 (Stitch)&lt;/strong&gt;：快速导入或生成新页面，扩展应用视图。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Build设置 (AS Studio)&lt;/strong&gt;：包含GitHub连接、Firebase集成等，是项目配置的核心区域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Publish (Build)&lt;/strong&gt;：用于将应用发布出去进行演示或有限用户测试。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;Stitch生成页面时，有时内容会移至画布其他位置，需 &lt;code&gt;缩小画面&lt;/code&gt; 查找。&lt;/li&gt;
-&lt;li&gt;Stitch批量换主题可能不成功，建议 &lt;code&gt;单张页面尝试&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;Build直接部署到GitHub并通过Cloudflare可能不被支持，需 &lt;code&gt;本地下载后手动部署&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;Firebase使用量升级（Spark到Blazer）需 &lt;code&gt;留意免费额度&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;利用Stitch的AI生成多页面设计， &lt;code&gt;优化产品功能&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;下载Stitch生成的 &lt;code&gt;Design System&lt;/code&gt; 文件，供其他AI编程工具（如Codex）使用，统一应用界面风格。&lt;/li&gt;
-&lt;li&gt;对于Stitch生成的不满意页面， &lt;code&gt;直接删除并重新生成&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;利用Build的 &lt;code&gt;一键集成Firebase&lt;/code&gt; 功能，快速实现后端存储和认证。&lt;/li&gt;
-&lt;li&gt;通过 &lt;code&gt;Cursor&lt;/code&gt; 等工具分析Build生成的代码，获取技术栈和改进方向。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1B3AnzjE4M</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/8f57d2440438031a9561bc5bc0f90d4416301801.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 20 Mar 2026 17:46:46 +0800</pubDate>
     </item>
   </channel>
 </rss>
