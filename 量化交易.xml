@@ -7,7 +7,53 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 11 Apr 2026 08:40:33 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 22:34:00 +0000</lastBuildDate>
+    <item>
+      <title>10行代码完成8大模型接入：拆解Claude Code、Superpowers与gstack协同的高效AI开发流</title>
+      <link>https://bbs.quantclass.cn/thread/77990</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77990"&gt;一人公司实战 superpowers + gstack&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI Agent 工作流, Claude Code, TDD 驱动开发, Subagent 并行, 工程自动化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用 Claude Code 结合结构化方法论与多角色审计，实现从构思到 147 个测试覆盖的高效 AI 编码闭环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决 AI 辅助编程中“代码虽多但难跑通”、“需求模糊导致重构”以及“多模型集成工作量巨大”的效率瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层 CLI&lt;/strong&gt;：Anthropic Claude Code (核心执行层)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方法论框架 (Superpowers)&lt;/strong&gt;：强制 TDD 流程（Brainstorm → Spec → Plan → TDD → Subagent → Review）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;角色包 (gstack)&lt;/strong&gt;：提供 23 个斜杠命令角色（CEO, QA, CSO, Senior Eng）进行多维度代码与业务审查。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;细粒度 Plan&lt;/strong&gt;：将任务拆解为 2-5 分钟内可完成的原子操作，便于 AI 独立执行并验证。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TDD 闭环&lt;/strong&gt;：采用“红-绿-重构”循环，AI 必须先写失败的测试案例，再编写代码使之通过，确保代码非“幻觉”产物。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Subagent 并行机制&lt;/strong&gt;：主 Agent 派发 N 个独立上下文的子 Agent 处理不重叠的文件模块（如不同模型的适配器），大幅缩减集成耗时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLAUDE.md 持久化&lt;/strong&gt;：将项目特定的工程规范、Bug 教训写入配置文件，构建项目的“长期记忆”以规范 AI 后续行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文件冲突&lt;/strong&gt;：并行开发时必须确保子任务文件操作不重叠，否则会造成合并冲突。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;审计延迟&lt;/strong&gt;：CSO (安全官) 审计应随模块同步进行，而非项目末尾统一审计，避免累积大量安全债。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spec 优先级&lt;/strong&gt;：跳过规格文档直接写代码会导致逻辑耦合，增加 80% 的后期返工成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前置 Spec 设计&lt;/strong&gt;：在 &lt;code&gt;docs/&lt;/code&gt; 目录下预置 PRD、Architecture 和 API-SPEC，利用 &lt;code&gt;/office-hours&lt;/code&gt; 在编码前强制理清业务边界。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建 TDD 安全网&lt;/strong&gt;：配置自动化测试运行器，要求 AI 每次提交必须伴随测试用例，将代码覆盖率作为 AI 交付的硬性指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;沉淀项目知识库&lt;/strong&gt;：建立 &lt;code&gt;CLAUDE.md&lt;/code&gt;，手动录入 review 过程中发现的 Edge Case（如 null 检查、资源泄漏），实现工程质量的负反馈循环优化。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77990</guid>
+      <pubDate>Sat, 11 Apr 2026 12:41:14 +0800</pubDate>
+    </item>
     <item>
       <title>QuantClass Smart：打造本地化 AI 智能研读助手，重塑量化与学术阅读流</title>
       <link>https://bbs.quantclass.cn/thread/77973</link>
@@ -47,6 +93,85 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77973</guid>
       <pubDate>Sat, 11 Apr 2026 02:36:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>凌烟阁量化实战：深度解析个股择时、硬核止损与策略魔改思路</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;amp;talker=57784510736@chatroom"&gt;2026-04-11_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;💡 策略魔改：从思路引导到实战实践&lt;/h3&gt;
+&lt;p&gt;讨论中提到，优秀的策略往往不是一份拿来即用的说明书。以“龙虾”策略为例，它更侧重于思路引导，用户需要投入大量精力去魔改和实践，单纯阅读介绍无法直接产生结果。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 凌烟阁框架：捕捉右侧上行的择时逻辑&lt;/h3&gt;
+&lt;p&gt;关于凌烟阁框架的实战洞察如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心定位&lt;/strong&gt;：凌烟阁不应被简单视为“做T”工具，本质上是个股择时买入机制，重点在于捕捉右侧上行趋势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术进化&lt;/strong&gt;：新版框架引入了日内分钟级别的动作机制，虽然逻辑看似简单，但底层的择时机制执行起来非常硬核且复杂。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 强力苏打水止损法：4%法则与回场机制&lt;/h3&gt;
+&lt;p&gt;对话中分享了一套极具操作性的风控方案，用于应对市场波动：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;刚性止损&lt;/strong&gt;：设定最大回撤 4% 为强制止损线，触碰即离场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回场机制&lt;/strong&gt;：若最大回撤从底部回升至 -2%，判定趋势修复，重新入场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;盈亏比思考&lt;/strong&gt;：通过这种机制避免深蹲。亏损 20% 需要 25% 才能回本，在伤筋动骨前离场是生存的关键。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 实战表现：单因子的爆发力&lt;/h3&gt;
+&lt;p&gt;红牛老板展示了令人瞩目的实战回测数据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高效回撤比&lt;/strong&gt;：凌烟阁策略回撤比可达 3.26，通过“再择时”优化后，回撤比甚至能冲向 10.79。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;源码价值&lt;/strong&gt;：该策略多以单因子为主，相关源码曾在论坛中公开，是少数被验证能有效转化为实战生产力的逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✨ 聊天金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“不是操作说明，更像是魔改的思路导引，你得花时间自己捣鼓。” —— 庞明&lt;/li&gt;
+&lt;li&gt;“亏 20% 要赚 25% 才能回本，再多真的要死了。” —— 黑黑夜夜&lt;/li&gt;
+&lt;li&gt;“牛屁要拍，籽要投。” —— 冬眠不觉晓&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>动量策略的狂欢与真实：从“策略单车”到化工厂里的量化人生</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;amp;talker=58453205219@chatroom"&gt;2026-04-11_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🚲 当“动量策略”骑进现实：生活中的量化幽默&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;300元的“硬核”代步&lt;/strong&gt;：邢不行分享了一辆贴着“动量策略”标签的二手自行车，调侃其仅用于800米的通勤。这一幽默互动引发了群友关于“放弃库里南选择低碳出行”的调侃。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚙️ 实战避坑：策略逻辑与代码改动风险&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码Bug的代价&lt;/strong&gt;：用户“WN_暖春拂晓”因私自添加统计功能导致策略停摆6天，且买入的币种在停摆期间无影响纯属运气。这提醒开发者：生产环境中的任何“小功能”都可能产生连锁反应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据理解偏差&lt;/strong&gt;：群友讨论了资金费率解释前后矛盾的问题，强调量化交易中对原生数据（非汉化/非翻译）底层逻辑准确理解的重要性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 动量群像：在疯涨与暴跌中互道珍重&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RAVE行情的分歧&lt;/strong&gt;：针对波动币种RAVE，不同参数的策略表现迥异。有人已卖出，有人刚冲入并面临23%的瞬间浮亏，上演了量化版的“高位接盘”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略同质化讨论&lt;/strong&gt;：群友感叹“只有聊动量才有热度”，甚至提议群名改为“动量群”，这反映出当前市场环境下动量策略的关注度极高，同时也隐含了策略过度拥挤的风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💪 量化背后的韧性：化工厂里的Alpha之路&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;硬核实盘分享&lt;/strong&gt;：用户&lt;code&gt;yocknow&lt;/code&gt;分享了回撤超30%但收益比依然亮眼的样本外实盘数据，展示了极强的心理素质。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;职业跨度与心态&lt;/strong&gt;：该用户透露自己日常在化工厂干体力活，对他而言，量化交易的精神压力相比搬砖的体力消耗反倒更易承受。这一故事深刻揭示了交易者的韧性来源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句摘录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“大家都看崩的时候，很有可能会反向暴涨。” —— WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“互道sb的时刻来了。” —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;“量化交易体感如何？比我每天在厂里干体力活容易一点点。” —— yocknow&lt;/li&gt;
+&lt;li&gt;“涨跌随意，心无增减。” —— 行讫&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Sat, 11 Apr 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>大变局下的中国投资战略：安全资产与产业升级的时代机遇</title>
@@ -5481,178 +5606,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77090</guid>
       <pubDate>Mon, 23 Mar 2026 18:17:23 +0800</pubDate>
-    </item>
-    <item>
-      <title>市场巨震下量化策略众生相：定风波成救命稻草，风火轮逆势加仓？揭秘策略表现与新手生存指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-23&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-23&amp;amp;talker=57784510736@chatroom"&gt;2026-03-23_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;在市场经历剧烈震荡，韩股熔断、日经重挫、A股千股下跌的“绿色海洋”中，量化交易社区的成员们展开了对策略表现、市场情绪及应对方案的激烈讨论。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;📉 市场暴跌与恐慌情绪&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;全球市场联动下跌&lt;/strong&gt;：韩股大跌5%触发熔断，日经225重挫2000点，黄金失守美元关口，A股开盘即“完”，大量股票“绿麻了”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;广泛亏损&lt;/strong&gt;：开盘五千家下跌，市场呈现“全市场共振”，微盘股和上证50均大幅下挫，万得微盘指数一度跌超6%。许多参与者账户“年线归零”，甚至跌穿，普遍感受到“痛了”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情绪低迷&lt;/strong&gt;：市场“死叉的没有办法死叉了”，持续的下跌让股民“瑟瑟发抖”，甚至有人认为“比24年惨多了”，“这个月几乎天天4000下跌”，犹如“断头铡”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📊 量化策略的应对与表现&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;定风波的“救命稻草”&lt;/strong&gt;：该策略表现出色，有人表示“收益和回撤都挺好的啊”，并直言“感谢定风波救我狗命”，其在3月17日明确发出空仓或减仓信号，成功规避了部分跌幅，带来了“舒适感”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风火轮的“头铁”与切换&lt;/strong&gt;：部分参与者在市场下跌时“逆势加仓”，或将策略“全部开大切换到分红策略”。然而，也有人感叹“裸跑策略被G”，面临亏损。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小市值策略的挑战&lt;/strong&gt;：微盘股大幅下挫，小市值策略受到冲击，“小市值20跌了5.89%”，有用户表示“小狮子得缴费了”。不过，也有讨论提及“小市值100牛逼啊”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凯师傅落榜生&lt;/strong&gt;：在市场普遍低迷时，有人准备启动“凯师傅落榜生”策略，认为其在特定市场环境下“很无敌”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;抄底尝试与考量&lt;/strong&gt;：有用户“择时策略今天抄底妈妈基了”，但指出“妈妈基的票池 是自由现金流属性的”，提醒在极端下跌中是否还敢进别的票。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;邢不行的策略&lt;/strong&gt;：邢不行表示“我自己策略目前整体高点回撤还没到5%，没有加仓计划”，并强调“指数的收益是虚的，但是策略的收益是实的”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凌烟阁即将实盘&lt;/strong&gt;：邢不行透露“席梦思说本周能开始凌烟阁实盘了”，引发社区期待。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;熊市抄底专用策略&lt;/strong&gt;：红牛分享了其开发的“熊市抄底专用”策略（类似定三原理，给小市值加了满仓空仓信号），希望能应对当前局面。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💔 个人仓位与盈亏体验&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;普遍亏损&lt;/strong&gt;：聊天记录中充满了亏损的哀叹，月度亏损从“-0.84%”到“-20%”不等，许多人早上尚红盘，收盘即“-5.08%”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略执行偏差&lt;/strong&gt;：有人因“客户端没执行”离场信号而错过止损时机，深感懊恼。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;少数幸存者&lt;/strong&gt;：也有少数幸运儿，如通过“反向离场”操作实现盈利，或“老婆6个股票都红的”让人羡慕。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;心理冲击&lt;/strong&gt;：面对持续下跌，许多人“不想点开我的账户了”，甚至有人戏谑“量化就是图一乐，真赚钱还得看老婆”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🧐 历史教训与市场展望&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;与历史熊市对比&lt;/strong&gt;：资深投资者将此次下跌与“24年（熊市）”相比较，提到“两周腰斩”、“雪球，连环爆仓”以及九坤幻方等私募的亏损。更有人提及“15年连续三日千股跌停”的经历。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对底部的判断&lt;/strong&gt;：市场情绪普遍悲观，有人认为“等你抄不动准备割到时候，就是底了”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对新手的“洗礼”&lt;/strong&gt;：有经验者指出“必须完整经历腰斩的熊市 才是完整的人生”，对新手而言，这是“给新手的暴击”，但也是成长的一部分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;未来期待&lt;/strong&gt;：尽管当前市场惨烈，但仍有人对“下半年的行情”抱有期待，并讨论“是不是四月不用空仓了”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡 金句&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“收益和回撤都挺好的啊，我写的中等凯师傅才叫乐子” — 大苗条&lt;/li&gt;
-&lt;li&gt;“人生经历的第一个牛熊周期，都是能不亏就不错了。” — 邢不行&lt;/li&gt;
-&lt;li&gt;“量化就是图一乐，真赚钱还得看老婆” — momo&lt;/li&gt;
-&lt;li&gt;“信号出，反向买” — 满仓🦐&lt;/li&gt;
-&lt;li&gt;“要允许一部分人先红起来” — 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“等你抄不动准备割到时候，就是底了” — Cyan.&lt;/li&gt;
-&lt;li&gt;“指数的收益是虚的，但是策略的收益是实的” — 邢不行&lt;/li&gt;
-&lt;li&gt;“幸福就是 这个时候0%仓位” — 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“必须完整经历腰斩的熊市 才是完整的人生” — 無慈悲な定量化機械&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔗 量化社区相关链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/77081"&gt;https://bbs.quantclass.cn/thread/77081&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=43028"&gt;https://bbs.quantclass.cn/topic/index?id=43028&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/46059"&gt;https://bbs.quantclass.cn/thread/46059&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=68383"&gt;https://bbs.quantclass.cn/topic/index?id=68383&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-23&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 23 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>硬通货之战：从金本位溃败到信用对冲的资产回归逻辑</title>
-      <link>https://bbs.quantclass.cn/thread/75873</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/75873"&gt;硬通货之战（二）------国王归来&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[信用对冲, 债务货币化, 流动性枯竭, 资产锚定, 黄金红利]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：解析黄金从历史货币基石转向当前主权信用危机对冲工具的底层必然性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：工业革命后社会财富指数级增长，而黄金产量的低增速导致严重的通缩预期，最终引发持币惜售与流动性枯竭，迫使人类转向信用货币体系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：当前全球主权债务规模的螺旋式上升已触及人性与信用的边界。黄金的强势并非由于通胀或单纯避险，而是作为“无限法币”的对手盘，对主权信用进行重新定价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：美元的信用依赖于对黄金价格的压制，当前黄金的异常强势意味着美元定价权的弱化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：若AI技术无法及时转化为实际经济利润，可能导致巨大的流动性危机，届时会触发所有资产（包括黄金）的短期抛售。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;投资标的筛选&lt;/strong&gt;：严格执行“实物底层对冲”标准，仅关注具备份额直兑实物黄金机制的金融产品（如GLD），排除信息不对称程度高的黄金矿业股及无法兑现的理财产品。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略布局逻辑&lt;/strong&gt;：黄金已进入长牛阶段，核心逻辑在于主权信用对冲。操作上应将大幅度回调视为锁定长期筹码的“牛回头”机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险控制指标&lt;/strong&gt;：监控全球利率水平与通胀率的差值，一旦真实利率能显著覆盖通胀且主权债务收紧，黄金的吸引力将出现逻辑性拐点。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/75873</guid>
-      <pubDate>Sun, 22 Mar 2026 23:33:20 +0800</pubDate>
-    </item>
-    <item>
-      <title>EZXT实操指南：5分钟打造个人专属的高性能开源量化交易系统</title>
-      <link>https://www.bilibili.com/video/BV1biA3zuETZ</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1biA3zuETZ"&gt;EasyXT 安装教程：5分钟搞定量化交易回测框架&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ EZXT - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 DuckDB 高速存储引擎的轻量级本地化量化交易框架，采用 MIT 开源协议实现零门槛策略研发与回测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：支持通过 API 获取股票代码、起止日期及周期等指令，调取行情数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：输出标准格式的历史行情数据、回测摘要信息及可视化净值曲线图。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DuckDB&lt;/strong&gt;：高性能嵌入式分析型数据库，负责本地行情数据的秒级查询。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;QMT 集成&lt;/strong&gt;：支持对接券商交易接口，实现从回测到实盘的闭环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MIT 协议&lt;/strong&gt;：极度宽松的开源协议，允许自由修改代码且无商业限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：系统初始化与环境搭建&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：快速部署 EZXT 核心库及回测引擎依赖。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[源码克隆]&lt;/strong&gt;：使用 Git 将项目仓库下载至本地。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[核心安装]&lt;/strong&gt;：进入目录执行 &lt;code&gt;pip install -e .&lt;/code&gt;（以可编辑模式安装）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[依赖补完]&lt;/strong&gt;：切换至 &lt;code&gt;easy_xt_backtest&lt;/code&gt; 目录，运行 &lt;code&gt;install.bat&lt;/code&gt; 脚本自动化处理回测框架依赖。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：行情获取与数据管理&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：自动化抓取指定股票的历史行情并存入本地数据库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[接口调用]&lt;/strong&gt;：初始化 API 并调用 &lt;code&gt;get_price&lt;/code&gt; 方法。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：指定股票代码（如 &lt;code&gt;000001.SZ&lt;/code&gt;）、周期（如 &lt;code&gt;daily&lt;/code&gt;）及起止日期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[可视化管理]&lt;/strong&gt;：运行 &lt;code&gt;app&lt;/code&gt; 目录下的 &lt;code&gt;main.py&lt;/code&gt; 启动 GUI 界面，进行数据的批量下载与导出（CSV/Excel）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 3：策略回测与验证&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在历史数据上运行选股或交易逻辑，评估策略表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[引擎初始化]&lt;/strong&gt;：创建回测引擎并设置初始资金（如 &lt;code&gt;1,000,000&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[策略装载]&lt;/strong&gt;：实例化策略对象（如 &lt;code&gt;SmallCapStrategy&lt;/code&gt;）并加载数据管理器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[运行评估]&lt;/strong&gt;：执行 &lt;code&gt;run_backtest&lt;/code&gt; 方法并调用绘图函数查看净值曲线。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[BaseStrategy 基类]&lt;/strong&gt;：底层逻辑控制中心 -&amp;gt; 通过重写 &lt;code&gt;select_stocks&lt;/code&gt; 等方法，实现自定义算法逻辑的封装。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[E 参数安装]&lt;/strong&gt;：开发模式标记 -&amp;gt; 允许用户在不重复安装的情况下实时修改并生效源码逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;环境变量延迟&lt;/strong&gt;：配置 &lt;code&gt;PYTHONPATH&lt;/code&gt; 后必须重启终端或 IDE，否则系统无法识别路径。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码冲突&lt;/strong&gt;：本地修改与远程更新冲突时，务必先执行 &lt;code&gt;git stash push&lt;/code&gt; 暂存更改，拉取后再执行 &lt;code&gt;git stash pop&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;依赖缺失&lt;/strong&gt;：若报错 &lt;code&gt;No module named backtrader&lt;/code&gt;，需手动补齐 &lt;code&gt;pip install backtrader&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;虚拟环境隔离&lt;/strong&gt;：强烈建议使用 &lt;code&gt;python -m venv&lt;/code&gt; 创建独立沙盒环境，避免不同项目间的库版本污染。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;VS Code 配置&lt;/strong&gt;：通过 &lt;code&gt;Ctrl+Shift+P&lt;/code&gt; 显式指定虚拟环境中的 Python 解释器，以获得完整的调试支持。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1biA3zuETZ</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/7762e1fe95596a5531bf73b201c0cd4078719ba3.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 22 Mar 2026 20:59:49 +0800</pubDate>
     </item>
   </channel>
 </rss>
