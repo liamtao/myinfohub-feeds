@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 13 Apr 2026 22:42:36 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2026 08:35:46 +0000</lastBuildDate>
     <item>
       <title>全流程AI量化实战：xbx-position-mgmt技能封装与微信远程回测指南</title>
       <link>https://bbs.quantclass.cn/thread/78093</link>
@@ -3118,6 +3118,40 @@
       <pubDate>Wed, 01 Apr 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>D1量化框架重构：基于Polars的高性能板块轮动与因子分析实战</title>
+      <link>https://bbs.quantclass.cn/thread/77456</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77456"&gt;【D1框架】板块轮动分析重构，新增概念轮动&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polars加速, 板块轮动, 向量化回测, D1框架]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：D1框架通过Polars重构实现了板块轮动与因子分析的性能大幅跨越。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于行业与概念板块的强弱势轮动，结合新上线的“彩虹概念数据”实现更细粒度的配置策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：支持分域因子分析，将分域定义与选股模块深度挂钩，实现在特定股票池（分域）内的因子暴露与有效性测试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决老版框架在大规模板块数据处理和回测时的计算性能瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：计算层全面由 Pandas 转向 Polars 向量化实现；UI 层集成工具平台，支持可视化查看板块指数和因子分析报告。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：采用纯 Polars 写法重构计算引擎，并优化了板块股票池的导入算法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：行业轮动分析缩短至数秒内完成，计算速度较旧版提升数倍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[技术迁移] 建议将回测逻辑中的密集型计算模块从 Pandas 迁移至 Polars，以利用其高效的并行处理能力加速策略迭代。&lt;/li&gt;
+&lt;li&gt;[策略优化] 利用框架新增的概念轮动功能，尝试在传统行业维度之外引入主题投资（Concept）维度的 Alpha 信号。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77456</guid>
+      <pubDate>Tue, 31 Mar 2026 23:59:58 +0800</pubDate>
+    </item>
+    <item>
       <title>XTQuant XT Data行情模块：量化交易数据核心引擎详解</title>
       <link>https://www.bilibili.com/video/BV1QnXrBeEGj</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1QnXrBeEGj"&gt;xtdata行情模块入门：基础接口与本地数据获取全解析&lt;/a&gt;&lt;/p&gt;
@@ -3272,6 +3306,50 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1QnXrBeEGj</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/bb39a4a5d99b79c325ebc3779fb7b11e9db8bb8c.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 31 Mar 2026 18:30:07 +0800</pubDate>
+    </item>
+    <item>
+      <title>Polymarket CTF 自动化赎回工具实现：基于 Relayer SDK 的工程化结算方案</title>
+      <link>https://bbs.quantclass.cn/thread/77419</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77419"&gt;【首发】Polymarket Redeem Tool 使用指南&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Polymarket, CTF 赎回, Relayer SDK, 智能合约交互, Neg-Risk 适配]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过 Relayer SDK 实现 Polymarket 持仓的自动化识别、分类及批量赎回。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决 Polymarket 平台已结算市场（Resolved）手工赎回效率低、普通市场与 Neg-Risk 市场合约接口不统一且参数构造复杂的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;py-builder-relayer-client&lt;/code&gt;: 负责通过 Relayer 提交跨链/Safe 交易，屏蔽底层 Gas 波动。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;py-clob-client&lt;/code&gt;: 负责查询市场元数据及 Neg-Risk 属性。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Gamma API&lt;/code&gt;: 用于获取 Condition ID、Slug 及 UMA 结算状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑分流架构&lt;/strong&gt;：根据 &lt;code&gt;get_neg_risk()&lt;/code&gt; 返回值，自动路由至 &lt;code&gt;CTF 合约&lt;/code&gt; (0x4D97...) 或 &lt;code&gt;NegRiskAdapter&lt;/code&gt; (0xd91E...)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数自动化转换&lt;/strong&gt;：普通市场固定传 &lt;code&gt;indexSets=[1,2]&lt;/code&gt;；Neg-Risk 市场则需从持仓 &lt;code&gt;size&lt;/code&gt; 动态映射为符合 6 位精度的 &lt;code&gt;amounts&lt;/code&gt; 整数数组。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;聚合提交&lt;/strong&gt;：按 &lt;code&gt;conditionId&lt;/code&gt; 对所有可赎回持仓进行聚合，实现 YES/NO 头寸的一键合并赎回，降低交互频次。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;资产隔离&lt;/strong&gt;：明确区分并仅支持 USDC.e (Bridged)，需规避 Native USDC 导致的交互失败。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态前置检查&lt;/strong&gt;：引入 &lt;code&gt;umaResolutionStatus&lt;/code&gt; 校验，防止在市场未完全结算时触发无效交易。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动化集成&lt;/strong&gt;：建议在量化执行端集成基于 Gamma API 的 &lt;code&gt;resolved&lt;/code&gt; 状态轮询逻辑，配合该工具实现平仓后的资金自动回笼。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;合约交互封装&lt;/strong&gt;：在 Python 层面封装统一的 &lt;code&gt;RedeemClient&lt;/code&gt; 类，屏蔽 &lt;code&gt;collateralToken&lt;/code&gt; 地址硬编码及不同适配器的参数差异。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风控机制&lt;/strong&gt;：在批量执行 &lt;code&gt;--all&lt;/code&gt; 模式前，建议先运行 &lt;code&gt;--dry-run&lt;/code&gt; 打印 ABI Data 以验证 Condition ID 的有效性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77419</guid>
+      <pubDate>Tue, 31 Mar 2026 17:10:17 +0800</pubDate>
     </item>
     <item>
       <title>小市值触涨停策略：寻找涨停后整理洗盘的股票</title>
@@ -5438,80 +5516,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-25&amp;talker=58453205219@chatroom</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>工业锚定与投机博弈：深度解析白银的硬通货降级与波动率套利逻辑</title>
-      <link>https://bbs.quantclass.cn/thread/75874</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/75874"&gt;硬通货之战（三）------跟风与投机&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[伴生矿供应逻辑、AI/光伏工业刚需、保证金调控、波动率反身性、金银比]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：白银已从货币降级为顺周期工业耗材，其核心交易价值在于高波动率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：白银供应存在严重的“价格钝化”现象。全球约70%~80%的白银产出为铜、铅、锌、金矿的伴生副产品，导致供应端无法根据银价涨跌自主调节。此外，白银在工业时代因价值密度低（物流成本高）在货币竞争中被黄金彻底击败。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：当代白银定价逻辑已转向“顺周期工业需求”。AI（芯片/PCB/光模块）与光伏（银浆）是其核心基本面支撑。这种转型使白银从避险资产变为挂钩科技景气度的工业耗材，价格受制于“去银化”技术迭代风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：白银的“硬通货”共识正在被工业属性摊薄。与黄金的抗通胀逻辑不同，白银价格极度依赖流动性溢价和特定行业的资本开支周期，呈现出类似以太坊（ETH）相对于比特币（BTC）的高Beta波动特性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：当真正的全球性流动性危机降临时，白银因其高工业杠杆属性可能面临比黄金更剧烈的清算压力，而非同步避险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：白银套利的核心在于捕捉“供需错配预期”与“保证金调控”之间的波动差。Alpha来源并非长期持有，而是利用金银比（GSR）在极端行情下的溢价波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;strong&gt;交易所干预风险&lt;/strong&gt;。文章明确指出交易所（如COMEX）会通过调高保证金比例实施“盘外招”，强制去杠杆以防止空头交割违约。这种行政干预是导致多头踩踏和价格瞬间崩盘的非线性因子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;波动率建模&lt;/strong&gt;：在量化模型中，应将白银视为黄金的“杠杆衍生品”，利用GSR（金银比）作为均值回归或动量突破的参考基准，而非单纯跟踪通胀预期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;另类数据监测&lt;/strong&gt;：将AI行业CapEx、光伏装机量数据及交易所可交割库存（LBMA/COMEX）纳入多因子模型，用于预判基本面驱动的逼仓行情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;干预预警系统&lt;/strong&gt;：监控持仓量（Open Interest）与库存比例。当持仓量远超可交割库存时，需高度警惕交易所调高保证金比例的系统性风险，及时实施减仓操作。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/75874</guid>
-      <pubDate>Tue, 24 Mar 2026 23:44:46 +0800</pubDate>
-    </item>
-    <item>
-      <title>海量因子管理与提纯：基于聚类与残差回归的自动化筛选体系</title>
-      <link>https://bbs.quantclass.cn/thread/77113</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77113"&gt;因子风格分类与筛选工具：核心机制与使用指南&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[因子聚类、残差回归、分组超额相关性、增量筛选、自动化因子池]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过亲和度聚类与残差回归实现海量因子的降维、分类与增量提纯。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：解决海量因子带来的冗余、共线性及有效性衰减问题。通过“风格簇”归类实现降维，并在簇内进行“优中选优”的增量筛选。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子相似度度量】&lt;/strong&gt;：摒弃简单的横截面相关性，采用&lt;strong&gt;分组超额收益相关性 (Affinity Matrix)&lt;/strong&gt;。将因子按截面分10组，对比两端（多头与空头）超额收益序列的相关性，并应用两端加权权重 &lt;code&gt;[5,4,3,2,1,1,2,3,4,5]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风格内增量筛选】&lt;/strong&gt;：采用&lt;strong&gt;回归剥离法&lt;/strong&gt;。将候选因子与已选集合进行截面回归提取残差（Residual），仅当残差本身具备显著RankIC且加入后能提升整体组合RankICIR时才入选。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【自动命名机制】&lt;/strong&gt;：引入8大种子风格（估值、动量等），计算簇合成序列与种子序列的相关性，按等级（SSR/UR/LR等）和核心因子名自动标注。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：因子数量“大爆炸”导致回测速度极慢且容易过拟合；人工挑选主观性强且效率低。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据预处理】&lt;/strong&gt;：&lt;strong&gt;4W调仓面板对齐&lt;/strong&gt;。强制将日频数据转为4周调仓截面，计算 &lt;code&gt;next_ret&lt;/code&gt;，确保评价口径与实盘调仓频率一致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【聚类算法】&lt;/strong&gt;：采用平均距离链接（Average Linkage）算法，以 &lt;code&gt;1 - affinity&lt;/code&gt; 为距离，以黄金分割比例（0.618）作为停止合并的距离阈值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【方向自动统一】&lt;/strong&gt;：基于全样本RankIC均值自动判定因子方向，若 &lt;code&gt;rank_ic_mean &amp;lt; 0&lt;/code&gt; 则自动取相反数，确保后续合成逻辑的一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【动态集成回测】&lt;/strong&gt;：通过 &lt;code&gt;auto_factor_builder.py&lt;/code&gt; 动态解析 Tool5 输出的 JSON 结果，实现回测引擎只加载筛选后的精华因子，大幅降低计算开销。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;算法落地&lt;/strong&gt;：在构建多因子模型前，先通过残差回归（Residual Regression）检验新因子是否提供了已有因子库之外的“纯新增信息”，而非仅是现有风格的暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;相似度优化&lt;/strong&gt;：在评估因子相似度时，应给多空两端分配更高权重，因为量化策略的超额收益主要来源于头尾部组别的区分度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化流转&lt;/strong&gt;：建立“计算-缓存-筛选-回测”的自动化闭环，通过物理外挂式合并缓存文件，实现新老因子“大乱斗”式的一站式优选。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77113</guid>
-      <pubDate>Tue, 24 Mar 2026 22:28:22 +0800</pubDate>
     </item>
   </channel>
 </rss>
