@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 14 Apr 2026 22:39:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Apr 2026 08:44:17 +0000</lastBuildDate>
     <item>
       <title>全流程AI量化实战：xbx-position-mgmt技能封装与微信远程回测指南</title>
       <link>https://bbs.quantclass.cn/thread/78093</link>
@@ -3102,6 +3102,55 @@
       <pubDate>Thu, 02 Apr 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>利好出尽即利空：基于多所二次上币效应的空头Alpha与Telegram监控实盘</title>
+      <link>https://bbs.quantclass.cn/thread/75107</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/75107"&gt;【B圈牛马】向东流——一种邪修空头策略&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[二次上币效应、利好出尽、Telegram消息监听、异步数据采集、空头Alpha]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：挖掘非币安主流所二次上币后的普跌规律，并打通TG异步监听实盘闭环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在Binance已上线的情况下，代币随后在Upbit、Coinbase或Bithumb二次上线，通常会触发短期剧烈冲高后的趋势性下跌，跌幅显著超过市场均值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：流动性溢价回归与“利好出尽”效应。尤其是韩国交易所（Upbit/Bithumb）上币消息能极速消耗看涨情绪，后续缺乏持续买盘导致估值修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：不同交易所的消息传导效率与代币流动性分布存在博弈空间，可进一步研究跨平台资金费率异常与上币脉冲的关联。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：筛选在币安已有合约但近期在Upbit/Coinbase等所新上架的币种，在消息确认后执行做空，捕获超涨后的回调利润。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：构建“其他市场新币”时间因子，计算当前时间戳与目标所上币消息发出时间的时间差（Total Hours），作为选币与过滤的核心依据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：通过解析Telegram频道历史/实时消息获取上币事件（Symbol, Market, Date）；需对币安未上市合约的币种进行硬性剔除，并处理多所重复上币的时间对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：回测区间2024-2025年，设定持有期窗口约为300-430小时，配合0.5x低杠杆及特定因子过滤后，年化收益可达196.85%，最大回撤约31%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：单币暴拉风险高，策略依赖于高分散持仓（不建议单独重仓）；需警惕上币利好转变为市场长期反转信号的极端Case。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：主流非币安交易所（Upbit/Coinbase）API限制严格且不支持国人KYC，无法直接获取高质量实时上币数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python + Telethon (Telegram Client API) + 企业微信Webhook通知。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非阻塞监听&lt;/strong&gt;：利用Telethon异步监听特定频道（如NewListingsFeed）实现秒级响应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增量处理&lt;/strong&gt;：监听原始消息并增量写入CSV，解决实时信号与离线回测数据的一致性问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子对齐&lt;/strong&gt;：在&lt;code&gt;data_bridge&lt;/code&gt;中通过&lt;code&gt;candle_begin_time &amp;gt;= news_date&lt;/code&gt;逻辑动态打标，严格规避未来函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：Telegram API ID申请存在较高失败率，需通过第三方渠道绕过；需处理.session会话文件的复用及断线指数退避重连机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据拓荒&lt;/strong&gt;：利用Telethon开发一套通用的Telegram Alpha信息采集器，覆盖DEX新币、聪明钱监控等非标准化数据源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略整合&lt;/strong&gt;：将此事件驱动因子集成到现有的空头选币框架中，作为负向过滤或权重增强项。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统监控&lt;/strong&gt;：实盘必须部署心跳机制（如文中提到的企微心跳），确保高频消息监听脚本在长期低消息频次环境下不挂起。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/75107</guid>
+      <pubDate>Wed, 01 Apr 2026 23:07:29 +0800</pubDate>
+    </item>
+    <item>
       <title>WSS与REST双剑合璧：构建高速可靠的K线数据流</title>
       <link>https://bbs.quantclass.cn/thread/77481</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77481"&gt;【Zero_v0p3】增加了wss增量更新，增加了主动检查数据完整性的功能&lt;/a&gt;&lt;/p&gt;
@@ -4137,6 +4186,41 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77320</guid>
       <pubDate>Sun, 29 Mar 2026 20:39:18 +0800</pubDate>
+    </item>
+    <item>
+      <title>基于Fama-MacBeth回归的多因子策略优化：从随机抽卡到动态权重的演进</title>
+      <link>https://bbs.quantclass.cn/thread/77291</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77291"&gt;【26副旗舰FamaMacBeth改造】搞学术有没有前途&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Fama-MacBeth回归, 动态ICIR加权, 截面OLS, 多因子合成, 因子平滑]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过Fama-MacBeth回归实现风格因子动态调权，显著提升多因子策略的确定性与收益表现。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用Fama-MacBeth截面回归捕捉风格因子的时变边际贡献（Beta），将传统的“等权/固定权重”静态逻辑升级为动态适应市场环境的打分体系，充分挖掘单调因子的全分箱信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：采用三层流水线架构：1. 组内ICIR筛选（中位数门槛）及加权合成6大风格因子；2. 每日对未来收益进行无截距OLS回归获取日频Beta系数；3. 对系数进行滚动50日平滑处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：对标签因子（未来收益）进行1%-99%缩尾（Winsorize）并进行截面Z-score标准化以压制极端离群值；对特征因子采用百分位排名（pct_rank）映射至(0, 1]区间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在14年至今的回测中，优化后的策略在5D换仓周期下的收益回撤比显著优于原始随机抽卡策略，在小市值域内表现尤为突出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决原始策略依赖随机性导致的净值不稳定性，以及线性回归对肥尾分布数据敏感的瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：使用 &lt;code&gt;numpy.linalg.lstsq&lt;/code&gt; 进行高性能截面回归求解；通过 &lt;code&gt;shift(5)&lt;/code&gt; 严格对齐ICIR计算与换仓周期，确保无前视偏差；自变量Rank化处理有效免疫了因子极端值对回归系数的干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[动态权重体系]&lt;/strong&gt;：弃用简单的因子等权求和，引入截面回归得到的Beta滚动均值作为合成权重，可更精准捕捉当前市场的风格偏好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[鲁棒性回归建模]&lt;/strong&gt;：在多因子回归时，对自变量实施Rank化处理，对因变量实施缩尾+标准化，这是提升实战模型稳健性的标准工业操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[前视偏差严控]&lt;/strong&gt;：所有涉及未来收益统计特征（如ICIR、Fama-MacBeth系数）的因子，在回测和实盘中必须进行严格的滞后处理（如Shift N），确保预测逻辑的合法性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77291</guid>
+      <pubDate>Sun, 29 Mar 2026 12:31:51 +0800</pubDate>
     </item>
     <item>
       <title>AI赋能量化交易：OpenCloud智能体与传统引擎深度融合实战</title>
@@ -5427,52 +5511,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1wPQUBiEq4</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/6d308283f289a7bf19f6e84e5248f8cdff28b791.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 25 Mar 2026 17:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Polymarket BTC预测市场回测：低胜率高赔率反转策略的“炸裂”收益</title>
-      <link>https://bbs.quantclass.cn/thread/77154</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77154"&gt;polymarket掘金3-反转策略，与扫尾盘策略互补&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)- &lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]- &lt;strong&gt;核心标签&lt;/strong&gt;：[Polymarket, 预测市场, BTC, 反转策略, 低胜率高赔率, 订单簿微观结构, 追高回撤, 行为金融学]- &lt;strong&gt;一句话总结&lt;/strong&gt;：回测揭示Polymarket BTC预测市场中，追高回撤反手做多策略如何通过低胜率高赔率实现高额收益。---## 🔭 模块 A：市场规律与深度思考 (Market Insights)- &lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在BTC 5分钟预测市场中，当某一方向的竞买价（bid）飙升至0.9以上显示出市场极端乐观情绪时，其价格往往随后会出现显著回撤，并倾向于反转。- &lt;strong&gt;【归因分析】&lt;/strong&gt;：该现象可归因于市场对高概率事件的过度定价导致泡沫、早期获利者在高位了结带来的回撤，以及极端价格偏离后市场向理性均值回归。- &lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示了在短期预测市场中，极端趋势后可能存在的强烈反转机会，挑战了单纯追涨杀跌的策略有效性。## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)- &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：策略基于“当市场对某一方向过度乐观（bid冲高至0.9以上）后出现显著回撤（超过0.1）时，反手做多另一方向”的原理。其Alpha源于捕捉市场过热情绪（泡沫定价）、获利了结行为及均值回归趋势。- &lt;strong&gt;【因子构建】&lt;/strong&gt;：1. &lt;strong&gt;监控指标&lt;/strong&gt;：某一方向的bid价格。2. &lt;strong&gt;入场条件&lt;/strong&gt;：bid价格先达到0.9以上，随后从最高点回撤超过0.1。3. &lt;strong&gt;交易方向&lt;/strong&gt;：在另一方向做多。4. &lt;strong&gt;持仓与结算&lt;/strong&gt;：持有到市场结束（约5分钟），盈利按（结果价 - 入场价）/ 入场价计算，亏损则为投入金额的全损。- &lt;strong&gt;【数据与处理】&lt;/strong&gt;：1. &lt;strong&gt;数据来源&lt;/strong&gt;：Polymarket BTC 5分钟预测市场订单簿记录。2. &lt;strong&gt;数据范围&lt;/strong&gt;：2026-03-24 16:00 ~ 2026-03-25 01:25。3. &lt;strong&gt;数据量&lt;/strong&gt;：114个市场，29,011条订单簿记录。- &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：1. &lt;strong&gt;单笔投入&lt;/strong&gt;：10U。2. &lt;strong&gt;交易次数&lt;/strong&gt;：40笔（总投入400U）。3. &lt;strong&gt;总收益&lt;/strong&gt;：+377.23U。4. &lt;strong&gt;投资回报率&lt;/strong&gt;：94.3%。5. &lt;strong&gt;胜率&lt;/strong&gt;：30%（盈利12笔，亏损28笔）。6. &lt;strong&gt;平均每笔收益&lt;/strong&gt;：+9.43U。7. &lt;strong&gt;平均盈利&lt;/strong&gt;：+54.77U；平均亏损：-10.00U。8. &lt;strong&gt;盈亏比&lt;/strong&gt;：5.5:1。- &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：1. &lt;strong&gt;低胜率&lt;/strong&gt;：30%的胜率带来显著的心理压力和连续亏损风险。2. &lt;strong&gt;资金需求&lt;/strong&gt;：需具备充足资金（根据回测至少280U用于承受连续28笔亏损）以应对资金链压力。3. &lt;strong&gt;样本量限制&lt;/strong&gt;：40笔交易和114个市场样本量较小，可能存在过拟合或未来表现偏差。4. &lt;strong&gt;流动性/滑点&lt;/strong&gt;：文章未详述，但在实际部署中预测市场订单簿深度和滑点是重要考量因素。---## 💡 落地与行动指南 (Actionable Takeaways)- 构建订单簿数据实时监控模块，实现对竞买价（bid）动态变化的实时捕捉与回撤幅度计算，可基于Python的WebSocket或API轮询实现。- 设计鲁棒的风险管理框架，特别是包含最大亏损止损机制和基于策略风险特征的资金分散管理策略（例如，配置资金足以覆盖期望的最长连续亏损序列）。- 通过Polymarket的API接口尝试自动化交易部署，并在实际大资金介入前，先以1U/笔等小额资金进行实盘验证，以收集更多真实市场行为数据和验证策略稳定性。&lt;/h2&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77154</guid>
-      <pubDate>Wed, 25 Mar 2026 14:29:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>从执行力到知识积累：深度拆解五大功能型Agent配置逻辑与Skill实战</title>
-      <link>https://bbs.quantclass.cn/thread/77129</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77129"&gt;【龙虾系列二】功能型Agent配置——代码、研究、审查、数据与美工&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI Agent架构、量化工程、Prompt工程、自动化工作流、Skill开发]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：详解代码、量化、数据等五类Agent的配置范式与Skill自动化实现路径。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决LLM在执行任务时易“教而不做”、环境依赖感知模糊、重复犯错以及输出非标化数据等核心痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于OpenClaw工具链，采用 &lt;code&gt;IDENTITY.md&lt;/code&gt;（身份）、&lt;code&gt;TOOLS.md&lt;/code&gt;（环境）、&lt;code&gt;MEMORY.md&lt;/code&gt;（教训）与 &lt;code&gt;SKILL&lt;/code&gt;（技能脚本）四位一体的配置体系；区分管理型（判断分配）与程序型（强执行）两类架构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;指令约束优化&lt;/strong&gt;：在IDENTITY中强制要求使用read/write/edit工具直写代码，严禁输出半成品。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;配置自动化&lt;/strong&gt;：通过 &lt;code&gt;strategy_dsl.py&lt;/code&gt; 将自然语言或DSL转化为标准化回测JSON，实现配置与逻辑解耦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;增量逻辑实现&lt;/strong&gt;：数据Skill采用末尾续拉、自动去重、多线程并发（MAX_WORKERS）及限速机制（Rate Limiting）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;视觉渲染方案&lt;/strong&gt;：美工Agent通过特定提示词模板结合 &lt;code&gt;nano-banana-pro-cl&lt;/code&gt; 模型解决中文渲染乱码问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：大小写不敏感导致文件误删、爬虫频率过高封号、服务器环境混淆、API Key硬编码风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;建立“血的教训”强制记忆区&lt;/strong&gt;：在MEMORY.md最前端记录破坏性操作及技术坑点（如rm命令限制），迫使Agent每次醒来先自省，降低生产事故概率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实施脚本化Skill交付&lt;/strong&gt;：将高频任务（如K线下载、策略生成）封装为无CLI参数的Python脚本，通过Agent调用脚本而非手写代码，确保执行一致性与高效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;配置精细化分层&lt;/strong&gt;：程序类Agent需详细配置TOOLS.md（含Python路径、端口、监控命令），而分析类Agent应侧重知识库与数据源路径，实现按需分配Token。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77129</guid>
-      <pubDate>Wed, 25 Mar 2026 10:22:56 +0800</pubDate>
     </item>
   </channel>
 </rss>
