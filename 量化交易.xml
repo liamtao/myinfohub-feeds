@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Apr 2026 08:38:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2026 23:30:24 +0000</lastBuildDate>
     <item>
       <title>EasyXT 量化交易数据源升级：三层容灾机制与全透明数据流深度解析</title>
       <link>https://www.bilibili.com/video/BV1TRdhBGEQe</link>
@@ -113,6 +113,134 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1xgd4BdENY</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/f3ea15b2aeae98e5b63fd1342c72addc38a2427b.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 16 Apr 2026 09:01:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>凌烟阁策略深度解析：择时机制、ETF网格妙用与行业过滤新思维</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;amp;talker=57784510736@chatroom"&gt;2026-04-16_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;本次讨论深入探讨了量化交易策略“凌烟阁”和“定风波”的实盘应用细节，揭示了ETF网格交易的惊人潜力，并分享了独特的行业过滤与择时优化思路。群友们对新版实盘框架的强大功能，特别是日内交易和精细化择时的支持表示高度赞赏。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚔️ 凌烟阁策略：混用禁忌与灵活持仓奥秘&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;策略不宜混用&lt;/strong&gt;: 用户提问“定风波和凌烟阁可以混合使用吗？”得到的明确答复是：&lt;strong&gt;不支持&lt;/strong&gt;混合使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持仓原理揭秘&lt;/strong&gt;: 凌烟阁的个股实际仓位并非固定分配，而是&lt;strong&gt;总资金 / 选股数量 * 择时信号系数&lt;/strong&gt;。例如，总资金2万，选择4只股票，若某只股票在特定时间点的择时信号为0.33，则实际投入该股票的资金为 20000 / 4 * 0.33。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单一择时信号的风险&lt;/strong&gt;: 如果仅使用一个择时信号，其结果通常是“开”或“关”，这可能导致个股在短时间内满仓或空仓。群友们建议，为提高策略稳定性，应搭配使用多个择时策略及不同的参数设置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💰 200%+收益的ETF网格交易&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;奇招互补&lt;/strong&gt;: 用户“杰”分享了其通过ETF网格交易获得200%+利润的经验。他利用股票策略空仓或低仓位的资金，进行ETF的网格交易，实现了资金效率的最大化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简单有效&lt;/strong&gt;: 策略核心是“上升1.5%回落0.2%卖出，反之买入”。这一看似简单的逻辑，在ETF这类具备特定波动特征的标的上展现出惊人效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具优势&lt;/strong&gt;: “杰”指出，他使用的是同花顺自带的网格交易功能，且ETF交易无印花税，进一步降低了交易成本，提升了收益空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🗑️ 行业过滤的逆向思维：剔除“垃圾”比寻找“宝藏”更简单&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;颠覆传统&lt;/strong&gt;: 用户“木木十三”提出一个反直觉的行业选择方法：与其费力寻找少数“好”行业，不如直接过滤掉大量“垃圾”行业。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据支撑&lt;/strong&gt;: 寻找3个“好”行业，正确率可能是3/31；但过滤掉15个“垃圾”行业，你的正确率即可达到15/31。这种方法更简单，效率更高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;评估指标&lt;/strong&gt;: 可以利用CCI等技术指标来评估行业表现，CCI数值不佳的行业被视为潜在的“垃圾”行业，应予以规避。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 凌烟阁策略：止损优势与日内交易的黎明&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心收益来源&lt;/strong&gt;: 凌烟阁的收益不仅来自“金叉买入”的顺势而为，更关键的是其“死叉提前了解”（即&lt;strong&gt;少亏就是赚&lt;/strong&gt;）的止损机制，这被群友誉为“救命”的功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新框架赋能&lt;/strong&gt;: 彩虹2.3.0框架的更新让日内交易成为可能，择时粒度可细化至1H、30MIN乃至15MIN，极大地提升了策略的灵活性和应对市场波动的能力。正如用户“無慈悲な定量化機械”所言：“&lt;strong&gt;择时是可以很细分的，千言万语汇成一句话，彩虹2.3.0框架牛逼&lt;/strong&gt;”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘案例&lt;/strong&gt;: “無慈悲な定量化機械”分享了通过微盘股ETF的1H单均线择时（1,20）的案例，证明凌烟阁能够有效地躲避大跌，实现盈利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🐂 红牛老板的MACD择时思想：知易行难的深度洞察&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精髓所在&lt;/strong&gt;: 红牛老板分享了其基于MACD的标准点择时思想，通过MACD金叉等信号来捕捉买卖机会。他强调，这并非简单的指标应用，而是需要深入理解其背后逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习门槛&lt;/strong&gt;: 群友指出，理解红牛老板的思想需要阅读相关的MACD帖子和代码，并结合手工交易的经验进行对照和领悟，仅仅看汇总或口头描述是远远不够的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“一个策略当中定风波和凌烟阁可以混合使用吗？现在的回测框架和实盘框架都支持吗？支持吗？有哪位大佬告诉一下？” —— 大王&lt;/li&gt;
+&lt;li&gt;“不支持” —— 土土&lt;/li&gt;
+&lt;li&gt;“无法抗住10%的回撤就没法享受0.5%的狂飙” —— ljsllll_&lt;/li&gt;
+&lt;li&gt;“找错比找好简单不少” —— 木木十三&lt;/li&gt;
+&lt;li&gt;“越简单越猛，更经得起实盘考验” —— --坤&lt;/li&gt;
+&lt;li&gt;“少亏就是赚” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“择时是可以很细分的，千言万语汇成一句话，彩虹2.3.0框架牛逼” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“优惠政策永远只会覆盖到政策敏感人群。。。” —— 到过我兜里的那就是我的本金&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78337&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/77711&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78124&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78277&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78307&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78310&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78295&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78332&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78335&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78381&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76971&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76973&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/a/s/59b9f8fc&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76970&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/62245&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76115&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>8000倍神话背后的冷思考：动量交易的收割逻辑与风控真相</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;amp;talker=58453205219@chatroom"&gt;2026-04-16_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;💡 核心洞察与策略提纯&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 空头因子的“收割”逻辑：如何捕捉落单的弱势币？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“组合拳”策略模型&lt;/strong&gt;：通过“强势主流币做多 + 弱势落单币做空”进行对冲。核心在于利用 &lt;code&gt;Corr&lt;/code&gt;（相关性）筛选出与大饼走势脱钩的币种，再通过 &lt;code&gt;BiasQ&lt;/code&gt; 因子（乖离率分位数）确认其处于历史极弱区间（如排名后15%）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相关性隔离&lt;/strong&gt;：这种双重过滤逻辑旨在剔除受大盘带动的普涨/普跌，精准锁定那些自身基本面或资金面已经崩盘的“孤儿”币种。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 8000倍曲线的诱惑：是印钞机还是断头台？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动量策略的极端表现&lt;/strong&gt;：群友分享了极其陡峭的实盘收益曲线，甚至出现了从 10U 翻滚至 8000 倍的神话。但这种“心电图”式的暴利往往伴随着极高的脆弱性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥挤度与回撤警告&lt;/strong&gt;：当一个策略展现出数千倍收益时，意味着该领域可能已极度拥挤。邢不行指出，去年动量策略的 6000 倍利润最终也有归零的先例。动量行情爆发后，往往紧接着就是深不见底的回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🕵️ 庄家的温床：揭秘Alpha币的价格操纵套路&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;现货价格的“杠杆操纵”&lt;/strong&gt;：许多在币安（BN）只有合约没有现货的 Alpha 币，其对标指数是其他小交易所的现货价格。这些小所深度浅，庄家极易控盘，从而在币安合约市场上收割散户。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;断头台与阴跌&lt;/strong&gt;：这类垃圾币的终局往往是断头台式的暴跌，或者是无止境的阴跌，因为其本身缺乏对手盘和价值支撑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 稳健交易的操作指南：如何拿住利润？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓位配置的“10%原则”&lt;/strong&gt;：动量类策略波动巨大，建议仅配置总仓位的 10%。这样即使面临 90% 的回撤，也能在心理上拿得住，不至于影响全局。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘避坑指南&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据初始化&lt;/strong&gt;：实盘时需注意 &lt;code&gt;init_time&lt;/code&gt; 参数，若设得太早而本地实盘数据不足，会导致计算报错。需根据实际数据积累量动态调整开始时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;延时影响&lt;/strong&gt;：当选币数量极多（如多空各 100+）时，计算和下单可能耗时 4-5 分钟。对于高频或敏感策略，这种延时会显著损耗收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✍️ 关键金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“仓位重的，哪怕策略最终赚钱，但最终你自己大概率是赚不到钱的。” —— &lt;strong&gt;邢不行&lt;/strong&gt;（深刻揭示了交易心理与仓位管理的关系）&lt;/li&gt;
+&lt;li&gt;“动量赚了钱，最好的去处是NBL（大饼），没有之一。” —— &lt;strong&gt;邢不行&lt;/strong&gt;（强调利润落袋为安的重要性）&lt;/li&gt;
+&lt;li&gt;“看你们赚钱真难受。” —— &lt;strong&gt;不可为&lt;/strong&gt;（真实反映了交易者在市场极端分化时的心态）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78340"&gt;【空头因子】【第二期】落单狗域——空头收割犬 | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78262"&gt;新增s4牛马需求：bn暴涨动量币的深度洞察 | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/78383"&gt;相关讨论帖&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-16&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>AI赋能，构建量化研发“大脑”：评审决策系统防高效犯错</title>
@@ -347,6 +475,62 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-15&amp;talker=58453205219@chatroom</guid>
       <pubDate>Wed, 15 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化副旗舰：多周期动态因子选股实现自适应轮动与参数覆盖</title>
+      <link>https://bbs.quantclass.cn/thread/78198</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78198"&gt;练手41  副旗舰发散2&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[多周期因子, 动态权重, ICIR评估, 因子轮动, Python量化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过动态评估多周期因子表现，实现自适应选股与组合轮动，规避单一周期因子失效风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：本文提出的“副旗舰”策略旨在突破传统固定策略或单一周期因子轮动的局限。其核心思想是，每日动态评估多个选股因子在&lt;strong&gt;不同时间周期（短、中、长）&lt;/strong&gt;下的ICIR表现，并根据其历史表现得分自适应地选择当前最优的周期ICIR作为该因子的有效性度量。最终，综合排名前列的因子将被赋予权重，形成一个能根据市场环境实现“自适应轮动”的组合因子，达到参数覆盖的效果，从而降低单一周期轮动失效的风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;三周期ICIR计算&lt;/strong&gt;：对每个选股因子，在每个交易日计算其与未来收益因子在短、中、长三个不同&lt;code&gt;recall_window&lt;/code&gt;（例如5D, 10D, 15D）内的RankICIR。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;周期表现得分&lt;/strong&gt;：进一步计算每个周期ICIR在过去&lt;code&gt;eval_window&lt;/code&gt;天（代码设定为21天）内的均值，作为该周期的“表现得分”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态ICIR选择&lt;/strong&gt;：每日对每个因子，比较其短、中、长三个周期的表现得分，选择得分最高的周期所对应的RankICIR作为该因子的“动态ICIR”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合权重分配&lt;/strong&gt;：将所有选股因子的“动态ICIR”进行横向排名。代码中实际选取排名前1的因子（&lt;code&gt;icir_ranks &amp;lt;= 1&lt;/code&gt;）作为权重，非前1名的因子权重设为0。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复合因子生成&lt;/strong&gt;：最终的“组合因子”通过将各因子的百分位排名矩阵乘以其对应的动态ICIR权重矩阵，然后横向求和得到。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;需要股票的日线级别数据，包含各种选股因子值和至少一个“未来收益”因子。&lt;/li&gt;
+&lt;li&gt;因子值在计算RankIC时，通过&lt;code&gt;groupby('交易日期')&lt;/code&gt;进行分组，并使用&lt;code&gt;rank(ascending=..., pct=True)&lt;/code&gt;进行百分位排名。&lt;/li&gt;
+&lt;li&gt;ICIR的计算涉及&lt;code&gt;rolling&lt;/code&gt;窗口操作，通过&lt;code&gt;mean()&lt;/code&gt;和&lt;code&gt;std()&lt;/code&gt;得到ICIR，并设置&lt;code&gt;min_periods&lt;/code&gt;为&lt;code&gt;int(1/2 * recall_window)&lt;/code&gt;来处理早期数据不足的情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：文章提供了策略的配置示例，包括持仓周期（3D）、选股数量（3）、市值权重（1）、调仓时间（开盘），以及过滤条件（异常涨跌停状态、负面标签）。图片展示了选股结果示例，表明策略不再局限于小市值股票，也能选出大市值股票，体现了动态适应性，但未提供具体的量化回测指标（如Sharpe Ratio、最大回撤）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决单一因子或固定周期因子轮动策略在市场环境变化时可能出现的失效问题，通过工程化手段实现多周期因子的自适应评价与组合权重分配。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：核心实现基于Python &lt;code&gt;pandas&lt;/code&gt;进行大规模时间序列和截面数据处理。策略配置通过自定义的&lt;code&gt;StrategyConfig&lt;/code&gt;对象进行管理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;calc_select_factor&lt;/code&gt;函数&lt;/strong&gt;：负责从策略配置中提取因子信息，调用ICIR计算函数，并完成最终的组合因子生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;cal_triple_rank_ic_ir&lt;/code&gt;函数&lt;/strong&gt;：专门设计用于高效计算每个因子在短、中、长三个周期内的RankICIR及其历史表现得分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Numpy高级索引与向量化&lt;/strong&gt;：利用&lt;code&gt;df.values.argmax(axis=1)&lt;/code&gt;快速确定每个因子在不同周期中的最佳表现得分索引，并结合&lt;code&gt;icirs[row_indices, best_period_idx]&lt;/code&gt;利用Numpy高级索引高效提取对应的动态ICIR值，避免显式循环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;条件赋值与向量化权重&lt;/strong&gt;：使用&lt;code&gt;icir_weights = df[icir_cols].where(top2_mask, 0)&lt;/code&gt;通过布尔掩码（&lt;code&gt;top2_mask&lt;/code&gt;）进行条件赋值，实现对非最佳因子的权重清零。最终组合因子计算&lt;code&gt;(df[rank_cols] * icir_weights).sum(axis=1)&lt;/code&gt;是典型的Pandas向量化操作，极大提升效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据过滤&lt;/strong&gt;：在组合因子生成后，通过&lt;code&gt;df = df[~df['股票代码'].str.contains('sh68')]&lt;/code&gt;过滤科创板股票。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：在&lt;code&gt;rolling&lt;/code&gt;窗口计算均值和标准差时，&lt;code&gt;min_periods&lt;/code&gt;参数被设置为窗口长度的一半（&lt;code&gt;int(1 / 2 * recall_window)&lt;/code&gt;），以确保在数据序列初期也能进行有效的统计计算，避免过多NaN值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;重构因子评价模块&lt;/strong&gt;：将现有因子评价逻辑升级，实现&lt;code&gt;cal_triple_rank_ic_ir&lt;/code&gt;函数，为每个因子计算其在短、中、长不同周期下的ICIR及对应的历史表现得分，作为后续动态权重分配的基础数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实现动态因子组合器&lt;/strong&gt;：基于ICIR和表现得分，开发&lt;code&gt;calc_select_factor&lt;/code&gt;核心逻辑，利用Numpy/Pandas向量化操作，每日动态选择表现最佳周期的因子ICIR，并将其作为权重融入到多因子组合逻辑中，实现自适应的因子选择与轮动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数空间探索&lt;/strong&gt;：对短、中、长三个&lt;code&gt;recall_window&lt;/code&gt;参数以及&lt;code&gt;eval_window&lt;/code&gt;（评估周期表现得分的时间窗口）进行系统性回测和优化，结合实际市场数据找到最优参数组合，以最大化策略的适应性和收益稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78198</guid>
+      <pubDate>Tue, 14 Apr 2026 13:11:04 +0800</pubDate>
     </item>
     <item>
       <title>穿越4月年报季：低估值选股逻辑与技术指标实战指南</title>
@@ -5378,190 +5562,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77220</guid>
       <pubDate>Fri, 27 Mar 2026 15:42:07 +0800</pubDate>
-    </item>
-    <item>
-      <title>云端AI Agent反爬终结者：基于Relay机制与Chrome调试协议的远程浏览器操控方案</title>
-      <link>https://bbs.quantclass.cn/thread/77209</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77209"&gt;【小龙虾系列】怎么让你的龙虾绕过反爬愉快的看任何内容？！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Chrome DevTools Protocol, WebSocket Relay, TOTP安全认证, 远程浏览器操控]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过Chrome插件中继本地浏览器环境至云端AI Agent，利用CDP协议绕过复杂反爬与登录限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：云服务器（尤其海外IP）运行AI Agent（如OpenClaw）时，极易被目标网站识别为爬虫，面临高频验证码、登录限制及JavaScript渲染障碍，且常规Headless模式无法复用真实用户的Cookie环境。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;端侧&lt;/strong&gt;：Chrome Extension利用&lt;code&gt;chrome.debugger&lt;/code&gt; API接管本地浏览器实例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;传输层&lt;/strong&gt;：OpenResty作为反向代理，通过WSS协议透传指令，并支持WireGuard加密隧道或IP白名单过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;服务端&lt;/strong&gt;：Node.js开发的Relay Server，将外部WebSocket指令桥接至本地127.0.0.1的HTTP API供AI Agent调用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;安全增强&lt;/strong&gt;：集成Google Authenticator TOTP算法，实现6位动态验证码校验及会话有效期管理（1h-24h）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;底层协议&lt;/strong&gt;：采用Chrome DevTools Protocol (CDP) 指令转发，实现比Selenium更接近底层的页面操控。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：WebSocket连接需配置Nginx的&lt;code&gt;Upgrade&lt;/code&gt;与&lt;code&gt;Connection&lt;/code&gt; Header；在跨公网部署时，务必限制Relay HTTP端口仅监听127.0.0.1以防RCE风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;系统集成&lt;/strong&gt;：将&lt;code&gt;SKILL.md&lt;/code&gt;定义的API结构导入AI Agent（如OpenClaw/AutoGPT），使其具备操作真实浏览器环境的能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;安全加固&lt;/strong&gt;：生产环境推荐采用方案C（WireGuard隧道），实现云端与本地环境的“零公网暴露”连接。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化扩展&lt;/strong&gt;：基于&lt;code&gt;chrome.debugger&lt;/code&gt;封装常用的登录保持与验证码识别Skill，作为量化数据抓取的底层支撑。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77209</guid>
-      <pubDate>Fri, 27 Mar 2026 06:55:38 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化策略在市场波动中的韧性与技术挑战：从地缘政治到实盘优化</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;amp;talker=57784510736@chatroom"&gt;2026-03-27_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;市场风云变幻，量化策略显韧性&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;地缘政治影响&lt;/strong&gt;：早间市场因伊朗局势、美国停火提议等消息影响，出现恐慌情绪。3倍做空产品的讨论反映了市场的高度紧张。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略表现差异&lt;/strong&gt;：在市场剧烈波动中，“定风波”策略多数选择持仓不动，规避了风险。同时，“龙头小市值策略”表现出良好抗跌性，而其他策略普遍亏损。此外，“小狮子”策略也有所斩获，而“落榜生”策略通过高杠杆操作取得了显著收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场趋势判断&lt;/strong&gt;：邢不行对市场持谨慎态度，认为短期内仍有下跌空间，当前的企稳可能只是假象。他也指出，新人投资者通常缺乏经历完整牛熊周期的经验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行业轮动观察&lt;/strong&gt;：在市场整体承压时，医药板块显示出逆势走强的趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;盘中行为模式&lt;/strong&gt;：有观察者注意到，近期A股常出现“上午冲高，下午回落”的走势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔧 量化系统：实盘运行与回测优化之道&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据更新与登录问题&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;用户普遍遇到数据无法更新的问题。解决办法通常是重新登录交易账号或重启程序。这可能与账号缓存丢失或VPN（“梯子”）不稳定有关。&lt;/li&gt;
-&lt;li&gt;建议检查订阅下的隐藏文件夹和&lt;code&gt;time.txt&lt;/code&gt;文件，或使用“彩虹数据校验器”辅助排查。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略回测与硬件配置&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;针对“凌烟阁”等复杂策略进行参数遍历（backtesting parameter sweep）时，对电脑性能要求极高，可能导致内存溢出甚至程序崩溃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性能提升建议&lt;/strong&gt;：推荐使用配备AMD8745h处理器、32GB内存、1TB固态硬盘的Mini主机，可在短时间内完成大量策略的回测计算。&lt;/li&gt;
-&lt;li&gt;遇到内存溢出时，可以尝试增加虚拟内存或升级硬件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略理解与风险管理&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;部分用户对“主板战士”这类不熟悉的策略感到困惑，因其亏损而计划停用。&lt;/li&gt;
-&lt;li&gt;建议投资者只运行自己充分理解的策略，避免盲目跟从。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🌍 地缘政治与供应链：成本冲击与对冲思考&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;地缘政治风险加剧&lt;/strong&gt;：伊朗局势升级，其可能关闭霍尔木兹海峡的声明，进一步加剧了市场对全球石油及衍生品价格波动的担忧。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产业链成本传导&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;生产企业面临原材料（如树脂、石脑油）价格飙升的困境，供应商“趁火打劫”，导致成本难以转嫁给下游客户。&lt;/li&gt;
-&lt;li&gt;这种成本压力对企业的盈利能力造成严重冲击。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对冲策略探讨&lt;/strong&gt;：为应对原材料价格剧烈波动，有讨论提出通过期货（如原油多单）甚至币圈合约进行对冲的可能性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 金句精选&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“你要明白你现在还是赚 钱的 这不正常 必须让你亏 新人经历的第一个牛熊周期 必须亏钱～” - 邢不行&lt;/li&gt;
-&lt;li&gt;“站远一点看，不值得担心 每天盯得太紧，追涨杀跌会累” - 满仓🦐&lt;/li&gt;
-&lt;li&gt;“每天开机检查一下程序有没有问题就行 该干啥干啥” - Michael&lt;/li&gt;
-&lt;li&gt;“伊朗的导弹已经精准到只炸美股，不炸大A了。” - 知止&lt;/li&gt;
-&lt;li&gt;“这两个问题你都 理解错了：爱不爱他（她）是筛选因子，包包好看不好看是权重条件。你一分手就是 割肉，你仓位最后越来越重。” - 無慈悲な定量化機械&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 量化社区链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76644"&gt;【数据找BUG工具】🌈 彩虹数据校验器 - 两个简单有用的功能 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/76971"&gt;船队任务&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/76973"&gt;学习路径&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/a/s/59b9f8fc"&gt;船队指南：查询完成进度&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/76970"&gt;优秀帖合集&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/62245"&gt;常见问题&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/76115"&gt;大A船队群晒单公约&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Fri, 27 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>币安统一账户资金“消失”之谜：保证金、现货与合约真相揭秘，附实盘交易策略与故障排除</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;amp;talker=58453205219@chatroom"&gt;2026-03-27_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🕵️‍♂️ 币安统一账户，你的钱去哪了？&lt;/h3&gt;
-&lt;p&gt;用户雪夜发现，开启币安统一账户后，尽管实盘监控显示“满仓”，但账户中仍有大量可用USDT，导致其对【净资产】、【合约可用金额】、【保证金】之间的关系感到困惑。这引发了对资金流向和账户余额计算的疑问。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚡️空头合约保证金：你的USDT并没有消失！&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关键洞察&lt;/strong&gt;：WN_暖春拂晓解释，可用USDT是空头合约的保证金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;机制解析&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;空头合约开仓本身&lt;strong&gt;不直接消耗USDT&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;USDT仅作为&lt;strong&gt;保证金&lt;/strong&gt;使用，用于覆盖潜在亏损。&lt;/li&gt;
-&lt;li&gt;只有在&lt;strong&gt;平仓时&lt;/strong&gt;，USDT才会根据盈亏进行增减。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;这意味着&lt;/strong&gt;：即便监控显示“满仓”，账户仍可能显示可用USDT，这正是保证金机制的正常体现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀新手如何配置币安账户？一步到位选“统一”！&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;专家建议&lt;/strong&gt;：对于新手，WN_暖春拂晓建议直接“一步到位，全部开成统一账户来跑”。这能简化管理，方便策略执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊快速查看币安资产：现货与合约在哪看？&lt;/h3&gt;
-&lt;p&gt;WN_暖春拂晓提供了查看币安账户资产的清晰路径：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;现货资产&lt;/strong&gt;：在App中导航至【资产】-&amp;gt;【资金账户】查看。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;合约资产&lt;/strong&gt;：在App中导航至【合约】-&amp;gt;【U本位合约】-&amp;gt;【资产】查看。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉市场震荡与策略回撤：交易者的心声&lt;/h3&gt;
-&lt;p&gt;近期市场暴跌引发群内热议，多位成员分享了当前的市场感受和策略表现：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场情绪&lt;/strong&gt;：普遍感到市场疲软，如“暴跌了”、“大饼实在太弱了”、“老登好颓废，比all跌的多”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略表现&lt;/strong&gt;：讨论了“山寨季”中“四龙狗”策略表现不佳，以及“多头”策略的回撤情况。&lt;ul&gt;
-&lt;li&gt;“疯狂版”策略（一倍杠杆纯多头）可能面临80%的回撤，而“青春版”则使用1.5倍杠杆。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加仓时机&lt;/strong&gt;：有成员探讨“失效论出现的时候是不是合适的加仓点哈哈哈”，展现了逆向思维。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;未来展望&lt;/strong&gt;：对2021年的牛市能否再现持悲观态度，“时代的浪潮已经过去”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️回测与实盘故障排除小贴士&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资金曲线异常&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;问题&lt;/strong&gt;：ETH和BTC资金曲线回测时显示为“1”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;原因&lt;/strong&gt;：通常是数据不全或数据更新问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：重新全量下载或更新数据可解决此问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“too many requests”错误&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;问题&lt;/strong&gt;：实盘启动时报错“too many requests”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;原因&lt;/strong&gt;：向交易所发送的请求次数过多，被限制访问。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;：稍等片刻再尝试。同时，检查是否是资金转入账户不正确导致的连锁反应。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“因为1145USDT是用来做空头保证金的，空头合约开仓本身不会消耗u，u只作为保证金，只有在平仓的时候才会根据盈亏来增加或减少u” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“一步到位，全部开成统一账户来跑” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“可能是因为我开始实盘了” —— 雪夜&lt;/li&gt;
-&lt;li&gt;“下次扛不住的时候群里吼一声” —— Rio&lt;/li&gt;
-&lt;li&gt;“你不知道暖春老板就是客服吗？” —— Rio&lt;/li&gt;
-&lt;li&gt;“失效论出现的时候 是不是合适的加仓点哈哈哈” —— 黄颖坤&lt;/li&gt;
-&lt;li&gt;“也没见过炒A股期待15年牛市再现的” —— 茶泡饭&lt;/li&gt;
-&lt;li&gt;“时代的浪潮已经过去” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“我怎么觉得对于很多人来说比的是软知识” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“只需要一波myx，即可走向人生巅峰” —— WN_暖春拂晓&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-27&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Fri, 27 Mar 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
