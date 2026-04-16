@@ -7,7 +7,129 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 15 Apr 2026 22:35:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2026 08:38:31 +0000</lastBuildDate>
+    <item>
+      <title>Gemini 3.1 Flash TTS 实测手册：多角色自然对话与全局精细控制指南</title>
+      <link>https://www.bilibili.com/video/BV1LvdbB7ELr</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1LvdbB7ELr"&gt;Gemini 3.1 Flash TTS 太能打了，价格、Demo、提示词一次讲清&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Gemini 3.1 Flash TTS - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于原生多说话人支持的生成式语音引擎，通过自然语言指令及标签（AudioTax）实现非线性的情感表达与角色切换控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：带有特定标记符（中括号标签）的纯文本、场景描述（System Instruction）及音色预设。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：支持多角色对白、具备高度自然语气起伏的高保真音频流。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AudioTax&lt;/strong&gt;：嵌入在文本中的中括号标签（如 &lt;code&gt;[laugh]&lt;/code&gt;），用于触发特定的非言语动作或语气修正。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;System Instruction&lt;/strong&gt;：全局场景设定，用于定义音频的整体氛围、人设背景及对话风格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI Studio&lt;/strong&gt;：谷歌提供的开发者调试环境，支持免费额度的 API 调用与代码导出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：在 Gemini AI Studio 进行基础音频生成&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：快速调试音色效果并导出成品音频或集成代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[模型选择]&lt;/strong&gt;：进入 AI Studio -&amp;gt; 在模型列表选择 &lt;code&gt;Gemini 3.1 Flash TTS Preview&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[场景设定]&lt;/strong&gt;：在 &lt;code&gt;System Instruction&lt;/code&gt; 区域输入详细的背景描述（建议包含人设、情感基调及语速控制指令）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[输入处理]&lt;/strong&gt;：在对话框输入待转化的文本内容，建议使用 &lt;code&gt;[Action]&lt;/code&gt; 标签增加生动性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[预览与导出]&lt;/strong&gt;：点击运行生成音频，确认无误后点击 &lt;code&gt;Get Code&lt;/code&gt; 导出 API 调用代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：原生多说话人对白实现&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：无需后期剪辑，直接生成两个角色间的自然互动对话。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：明确定义两个角色的性格差异及对话逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[提示词构建]&lt;/strong&gt;：发送完整指令至 TTS 引擎，明确指出“使用自然的 [语言] 对话表演以下内容”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[角色标记]&lt;/strong&gt;：在文本中使用角色名开头，并配合 &lt;code&gt;[Tag]&lt;/code&gt; 区分不同角色的情绪（如角色 A 温柔，角色 B 慌张）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[分段生成]&lt;/strong&gt;：如遇长对话，建议分段生成前半部分与后半部分，确保模型对长文本的理解稳定性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[AudioTax 标签控制]&lt;/strong&gt;：底层控制机制 -&amp;gt; 通过中括号内的英文指令（如 &lt;code&gt;[sigh]&lt;/code&gt;, &lt;code&gt;[clears throat]&lt;/code&gt;）强制模型插入非文字的听觉反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自然语言控制指令]&lt;/strong&gt;：语义级控制 -&amp;gt; 在提示词中直接要求“温柔失忆的语气”或“恐怖片主角的惊恐感”，模型会根据语义自动调整韵律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言冲突&lt;/strong&gt;：在生成中文音频时，标签务必使用 &lt;strong&gt;英文&lt;/strong&gt;。若使用中文标签（如 &lt;code&gt;[笑声]&lt;/code&gt;），模型极有可能直接读出标签文字而非表现效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调用限制&lt;/strong&gt;：免费用户每日 API 调用上限为 &lt;strong&gt;10 次&lt;/strong&gt;，调试长文本前建议先用短句确认音色。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Agent 辅助&lt;/strong&gt;：可将谷歌官方博文发给 AI Agent (如 Hermers)，让其自动生成复杂的 System Instruction 或 Python 脚本进行自动化批量生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成本优化&lt;/strong&gt;：对于非实时性需求的音频，采用 &lt;strong&gt;批量生成 (Batch Generation)&lt;/strong&gt; 模式可显著降低 API 消耗费用（约为标准价格的一半）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1LvdbB7ELr</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/cae58856b6c6384fc6097b604cdc004880b6f5b0.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 16 Apr 2026 12:49:10 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代的生存进化论：从流量博弈到系统级智能驾驭的实操内参</title>
+      <link>https://www.zengzhang.ai/p/aiep52-ai-llm-wiki-30geoharness</link>
+      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;增长黑客AI周报&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep52-ai-llm-wiki-30geoharness"&gt;【增长黑客AI周报】EP#52 AI写万字小说、 LLM WIki 3.0、GEO大会、小红书黑客松、Harness降维解释等&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当AI已能达到网文写作及格线，为何依然无法穿透真实商业市场的审核壁垒？&lt;/li&gt;
+&lt;li&gt;💡 流量逻辑从Ranking转向Visibility，企业如何重新定义AI搜索时代的品牌资产？&lt;/li&gt;
+&lt;li&gt;🚀 从Prompt到Harness，人类对AI的控制力正在经历怎样的维度跃迁？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知跃迁：从搜索优化到生成式可见度 (GEO)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;流量逻辑转向&lt;/strong&gt;: 流量中心正从传统SEO关键词排名转向GEO (Generative Engine Optimization)。AI引用的核心不再是位置，而是内容的结构化程度与事实准确度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;品牌即信标&lt;/strong&gt;: 在AI时代，官网仍是核心资产（占比约50%）。GEO的本质是做品牌，通过结构化的高质量数据在AI的向量空间中建立“语义锚点”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 系统驾驭：Harness Engineering的兴起&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;控制颗粒度的进化&lt;/strong&gt;: AI交互经历了三次跳跃：从微观的Prompt（单点指令）到中观的Context（上下文管理），再到宏观的Harness（系统规则约束）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;规则重于指令&lt;/strong&gt;: Harness Engineering旨在构建一套自动化的规则体系来驾驭高自主性的Agent，类似于从“手动操作”转为“系统指挥”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 知识资产化：LLM Wiki 3.0 编译系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;从检索到编译&lt;/strong&gt;: 让AI摆脱临时搜索工具属性，通过“新内容自动编译 -&amp;gt; Wiki持续更新 -&amp;gt; 复用资产沉淀”三步走，建立持续进化的知识大脑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;自动化采集&lt;/strong&gt;: 整合多源信息并进行初步降噪与摘要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结构化编译&lt;/strong&gt;: 将碎片化信息归入既有的知识拓扑树，而非简单堆砌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;版本化迭代&lt;/strong&gt;: 像维护代码库一样维护知识资产，确保信息的时效性与准确性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 企业AI部署战略：打破“旧件思维”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;快速实验范式&lt;/strong&gt;: 抛弃传统的“小规模测试-验证-推广”的长周期模式，转为全员范围内的工具探索与周度心得分享。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;去中心化探索&lt;/strong&gt;: 鼓励员工在各自岗位寻找AI切入点，而非等待统一指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;建立反馈循环&lt;/strong&gt;: 固定每周进行AI实战案例分享，实现团队内部的技能复刻。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “找到和 AI 正交的因素去 compounding。”&lt;/li&gt;
+&lt;li&gt;💬 “AI 搜索转化率更高源于用户意图表达更完整，移动端是关键战场。”&lt;/li&gt;
+&lt;li&gt;💬 “Harness Engineering 的核心在于构建一套系统性的规则与约束来驾驭高度自主的 AI 智能体。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep52-ai-llm-wiki-30geoharness</guid>
+      <pubDate>Thu, 16 Apr 2026 05:36:49 +0800</pubDate>
+    </item>
     <item>
       <title>英伟达的护城河：从电子到代币的工业进化与AI全球生态布局</title>
       <link>https://www.youtube.com/watch?v=Hrbq66XqtCo</link>
@@ -87,6 +209,56 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=Q-i8ZSUCtIc</guid>
       <enclosure url="https://i.ytimg.com/vi/Q-i8ZSUCtIc/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 15 Apr 2026 15:00:53 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代的生产力革命：2026年劳动力重构与全球投资风向标</title>
+      <link>https://www.bilibili.com/video/BV1s6QjBDErU</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1s6QjBDErU"&gt;大摩研报解读：全球经济——AI将如何影响劳动力市场？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 既然全球岗位净减少仅4%，为何年轻人和职场新人的“就业难”体感如此强烈？&lt;/li&gt;
+&lt;li&gt;💡 “50%的岗位重组”意味着什么？你是被淘汰的11%，还是在重组中进化的那一半？&lt;/li&gt;
+&lt;li&gt;🚀 当经济增长与就业正式脱钩，传统的菲利普斯曲线与宏观调控逻辑是否已经彻底失效？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 劳动力市场的底层重构：从“岗位消失”到“任务置换”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;岗位流失的伪命题&lt;/strong&gt;: 报告显示裁员并非普适现象，核心变化是岗位的重新分配。500-1000人的中型企业岗位流失最重（-15%），而50人以下的小微企业通过AI拓展业务，岗位反而逆势增长4%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;职场梯队的“去中间化”&lt;/strong&gt;: 初级白领（编程、客服）因74%的任务可由AI承接而面临入场券消失，导致职场晋升梯队断裂；体力驱动与共情驱动的低技能岗位需求反而因AI无法触达而持续走高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 宏观经济的范式转移：效率与就业的“终极脱钩”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无就业增长模型&lt;/strong&gt;: 企业通过AI提升10.5%的生产力却无需扩招，打破了“经济好转=就业增加”的传统定律。这意味着企业利润增长将不再依赖雇佣规模的扩张。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;货币政策的盲区&lt;/strong&gt;: 劳动供给弹性因AI介入而增强，使得工资分层加剧，传统通过利率调控通胀与就业的传导机制在效率爆炸面前正面临失灵风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💰 投资布局的结构化锚点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;硬核基建确定性&lt;/strong&gt;: 锁定芯片、算力、光模块等核心供应链。预计2026年半导体市场将迎来50%的增长，是确定性最高的“卖水者”赛道。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高渗透效率行业&lt;/strong&gt;: 重点关注信息服务、金融、专业咨询等能通过AI实现显著降本增效的头部公司，以及AI难以穿透的医疗养老等民生服务领域。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 变革下的生存与捕猎指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;企业战略重塑&lt;/strong&gt;: 停止单纯的“裁员替代”，转向构建“人机协作”的业务流，重点布局AI治理与数据安全岗位。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个人认知跨界&lt;/strong&gt;: 瞄准AI训练师、交叉创新及伦理治理三大缺口，培养将AI融入核心业务的“跨界整合”能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕地缘政策对AI估值的瞬间冲击，避开由于技术路径迭代过快可能导致的早期高溢价热门赛道的回调风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “AI带来的不是岗位的终结，而是岗位边界的彻底粉碎。未来的赢家不是单纯的技术专家，而是能与AI协同重组业务的终身进化者。”&lt;/li&gt;
+&lt;li&gt;💬 “当生产力不再受限于人力规模，财富的分配逻辑将从劳动力报酬转向技术红利占有。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1s6QjBDErU</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/1e970ce247e25979e7d769b9418aad3b56b7e9e8.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 15 Apr 2026 14:15:07 +0800</pubDate>
     </item>
     <item>
       <title>从Prompt到Harness：AI Agent时代的系统架构演进与落地范式</title>
@@ -5005,133 +5177,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1B7XLBzEks</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/7682ad8be4875afe3d7fa0938022462fc5ac657f.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 29 Mar 2026 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 竞速赛进入深水区：Mythos 潜行、实时语音爆发与电商生产力的平民化</title>
-      <link>https://www.youtube.com/watch?v=EBXZ4zZwS7c</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=EBXZ4zZwS7c"&gt;Anthropic's New Mythos Model a &amp;quot;Step Change&amp;quot; in Capabilities&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么 Anthropic 在 Mythos 的发布上选择极度审慎的“慢动作”，而非追求市场先机？&lt;/li&gt;
-&lt;li&gt;💡 Google Gemini 3.1 Flash Live 的出现，是否标志着传统“对话式 AI”向“实时智能体”的质变？&lt;/li&gt;
-&lt;li&gt;🚀 OpenAI 密集砍掉争议项目背后，是公司陷入困境还是极度理性的资源收缩？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 性能之巅与安全平衡：Claude Mythos 的深度博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;跨代性能飞跃&lt;/strong&gt;: 被确认存在的新模型 Claude Mythos（代号 Capybara）在代码、学术推理及网络安全领域展现出超越 Opus 的“阶梯式”进步，是 Anthropic 史上最强模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;审慎的发布策略&lt;/strong&gt;: 由于模型极其耗能且存在潜在的网络安全风险，Anthropic 放弃了全量推送，转而通过小规模早期访问进行风险摸排，体现了极度的安全防御意识。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 生产力平权：Shopify Tinker 的电商革命&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;降低“颜料”的成本&lt;/strong&gt;: Shopify 通过 Tinker App 整合了 100 多种 AI 工具，旨在消除小微创业者在品牌设计、广告制作等环节的技能壁垒。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;按成果选工具&lt;/strong&gt;：无需研究提示词，根据“Logo生成”或“广告视频”等预期成果直接进入对应模块。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自然语言输入&lt;/strong&gt;：使用日常语言描述业务愿景，系统将自动在后端转化为高保真提示词。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;视觉参考驱动&lt;/strong&gt;：通过上传参考图引导 AI 生成符合品牌风格的视觉资产。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 战略聚焦：OpenAI 的资源“脱水”与 IPO 竞速&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;无限期搁置成人模式&lt;/strong&gt;: 针对“成人内容”计划的叫停，本质上是出于对年龄检测失败率（12%）、用户情感依赖风险及资源向 Coding/企业级业务倾斜的综合权衡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对抗沉没成本谬误&lt;/strong&gt;: OpenAI 频繁砍掉如 Sora、成人机器人等高关注度项目，反映了其管理层在高度不确定市场中敢于修正错误、避免无效资源浪费的决策狠辣度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IPO 时间表的博弈&lt;/strong&gt;: 随着 Anthropic 最早可能在 10 月 IPO，OpenAI 承受着巨大的上市压力，两大巨头的竞争已从模型层延伸至资本市场顶级博弈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 交互进化：Gemini 3.1 Flash Live 终结“僵硬对话”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实时对话重构&lt;/strong&gt;: Flash Live 通过毫秒级音频处理实现了真正的双向实时交流，解决了语音助手长期以来的“轮次感”与“尴尬中断”痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;端侧智能体的前奏&lt;/strong&gt;: 该模型在复杂指令调用和噪声环境下的优异表现，暗示了 Siri 等手机端语音助手即将迎来从“智障”到“全能管家”的临界点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果你想要更多的艺术家，就降低颜料的成本。成本不仅是钱，还包括学习曲线和保持同步的时间。”&lt;/li&gt;
-&lt;li&gt;💬 “没有任何事情比‘沉没成本谬误’更能摧毁一家企业，OpenAI 敢于废弃已投入巨大的项目恰恰是其生命力的体现。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=EBXZ4zZwS7c</guid>
-      <enclosure url="https://i.ytimg.com/vi/EBXZ4zZwS7c/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 29 Mar 2026 01:28:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>国产AA智能体三剑客实测：接月龙虾生态布局与性能深度解析</title>
-      <link>https://www.bilibili.com/video/BV19xXVB4EAZ</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV19xXVB4EAZ"&gt;国产龙虾三剑客实测：为什么更看好阶跃星辰StepClaw？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ 接月龙虾 (Jieyue Lobster) AA智能体 - 标准实操手册 (SOP)## 1. 🎯 系统底层运行逻辑 (System Core Logic)* &lt;strong&gt;架构原理&lt;/strong&gt;：基于接月自研Agent基座模型Step 3.5 Flash，构建云端/本地部署、多端覆盖、集成技能市场与统一订阅的AI智能体生态。* &lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;:  * &lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户文本指令、IM平台消息、外部应用（如飞书多维表格）数据、水产市场技能地址。  * &lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化任务执行结果（如发送消息、创建表格、查询天气）、技能安装与启动、AI助手回复、状态监控。* &lt;strong&gt;核心术语词典&lt;/strong&gt;：  * &lt;strong&gt;接月龙虾 (Jieyue Lobster)&lt;/strong&gt;：接月星辰推出的AI智能体服务生态体系。  * &lt;strong&gt;Step Cloud&lt;/strong&gt;：接月龙虾提供的云端和本地AI智能体服务平台。  * &lt;strong&gt;Step Plan&lt;/strong&gt;：接月龙虾的模型调用会员订阅方案，采用固定月费制。  * &lt;strong&gt;Step 3.5 Flash&lt;/strong&gt;：接月自研的Agent基座模型，以高性能和速度著称。  * &lt;strong&gt;水产市场 (Aquaculture Market)&lt;/strong&gt;：Agent技能市场，用户可分享、安装和管理AI智能体技能。## 2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)### 场景 1：零门槛部署与多端接入* &lt;strong&gt;执行意图&lt;/strong&gt;：快速启动云端或本地AI智能体，并将其无缝集成至常用IM及办公应用。* &lt;strong&gt;前置依赖&lt;/strong&gt;：接月AA APP（移动端）、Step Claw桌面端应用（Windows/Mac）。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;云端部署 (Step Cloud)&lt;/strong&gt;：打开接月AA APP -&amp;gt; 导航至 &lt;code&gt;Step Claw入口&lt;/code&gt; -&amp;gt; 点击 &lt;code&gt;一键部署&lt;/code&gt;。等待约 &lt;code&gt;1分钟&lt;/code&gt; 完成服务器、环境及模型自动配置。  2. &lt;strong&gt;本地部署 (Step Claw 桌面版)&lt;/strong&gt;：访问官网下载并安装 &lt;code&gt;Windows/Mac&lt;/code&gt; 版本桌面应用。安装后，通过 &lt;code&gt;悬浮窗&lt;/code&gt; 随时唤起对话界面。  3. &lt;strong&gt;接入飞书 (Feishu)&lt;/strong&gt;：在Step Claw对话中输入 &lt;code&gt;配置飞书&lt;/code&gt; -&amp;gt; 系统自动生成 &lt;code&gt;二维码&lt;/code&gt;。使用 &lt;code&gt;飞书手机APP&lt;/code&gt; 扫描二维码 -&amp;gt; 填写 &lt;code&gt;机器人名称&lt;/code&gt; -&amp;gt; 完成配置。  4. &lt;strong&gt;接入微信 (WeChat)&lt;/strong&gt;：在Step Claw对话中输入 &lt;code&gt;接入微信&lt;/code&gt; -&amp;gt; 系统自动生成 &lt;code&gt;二维码&lt;/code&gt;。使用 &lt;code&gt;手机&lt;/code&gt; 扫描二维码 -&amp;gt; 完成配置（需Step Claw为首批接入微信 Cloud Bot插件的智能助手）。### 场景 2：智能体技能管理与个性化定制* &lt;strong&gt;执行意图&lt;/strong&gt;：通过技能市场扩展智能体功能，并进行个性化行为监控。* &lt;strong&gt;前置依赖&lt;/strong&gt;：已部署并运行的Step Claw智能体。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;访问技能市场 (水产市场)&lt;/strong&gt;：右键点击 &lt;code&gt;Step Claw悬浮窗&lt;/code&gt; -&amp;gt; 选择 &lt;code&gt;设置&lt;/code&gt; -&amp;gt; 导航至 &lt;code&gt;技能&lt;/code&gt;。点击 &lt;code&gt;更多按钮&lt;/code&gt; -&amp;gt; 访问 &lt;code&gt;水产市场&lt;/code&gt; 网站。  2. &lt;strong&gt;安装第三方技能&lt;/strong&gt;：在水产市场找到目标技能 -&amp;gt; 复制其 &lt;code&gt;skill地址&lt;/code&gt;。在Step Claw对话中输入 &lt;code&gt;安装这个 [skill地址]&lt;/code&gt; -&amp;gt; 等待自动安装。  3. &lt;strong&gt;启动已安装技能&lt;/strong&gt;：在Step Claw对话中输入 &lt;code&gt;帮我启动一下&lt;/code&gt; -&amp;gt; 系统执行技能启动。(示例：针对StarOffice UI技能，启动后访问特定地址查看像素办公室界面)。  4. &lt;strong&gt;集成行为监控&lt;/strong&gt;：修改目标技能的 &lt;code&gt;soul.md文件&lt;/code&gt; -&amp;gt; 添加 &lt;code&gt;提示词&lt;/code&gt;。将提示词设置为：在执行任何操作前，先在办公室里更改 &lt;code&gt;状态&lt;/code&gt;。通过 &lt;code&gt;监控台&lt;/code&gt; 实时观察Step Claw的工作状态切换。### 场景 3：复杂办公任务自动化* &lt;strong&gt;执行意图&lt;/strong&gt;：利用智能体处理联系人搜索、消息发送及多维表格创建等办公流程。* &lt;strong&gt;前置依赖&lt;/strong&gt;：Step Cloud已接入飞书，并拥有相应操作权限。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;联系人搜索与消息发送&lt;/strong&gt;：向Step Cloud发送指令：&lt;code&gt;给我老板发个消息说我明天不去上班了，你搜一下我公司有个人就叫老板&lt;/code&gt;。Step Cloud将 &lt;code&gt;申请搜索联系人授权&lt;/code&gt; -&amp;gt; 成功搜索并用用户账号发送消息。  2. &lt;strong&gt;多维表格创建与数据写入&lt;/strong&gt;：向Step Cloud发送指令：&lt;code&gt;创建一个多维表格把以下的账单数据写入多维表格 [账单数据]&lt;/code&gt;。Step Cloud通过 &lt;code&gt;互动卡片形式申请创建多维表格权限&lt;/code&gt; -&amp;gt; 成功创建表格并交付 &lt;code&gt;表格链接&lt;/code&gt;。可进一步指令Step Cloud基于表格数据生成 &lt;code&gt;统计图&lt;/code&gt;。## 3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)* &lt;strong&gt;Step Plan 订阅档位&lt;/strong&gt;：提供 &lt;code&gt;四个档位&lt;/code&gt; 选择，通过固定月费代替按量计费，确保成本透明。限时优惠期提供 &lt;code&gt;同档价位两倍用量&lt;/code&gt;。* &lt;strong&gt;模型切换 (Step Cloud)&lt;/strong&gt;：搭载 &lt;code&gt;Step 3.5 Flash&lt;/code&gt; 模型，以其全球领先的推理性能和生成速度优化Agent场景。* &lt;strong&gt;安全审查机制 (水产市场)&lt;/strong&gt;：用户安装技能时，Step Claw会先 &lt;code&gt;读取技能原码&lt;/code&gt; -&amp;gt; 调用 &lt;code&gt;安全审查机制&lt;/code&gt; 分析 -&amp;gt; 拒绝安装并给出 &lt;code&gt;安全风险理由&lt;/code&gt;（如：身份认证、数据隔离、Prompt Injection防护）。## 4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)* &lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：  * &lt;strong&gt;配置复杂性&lt;/strong&gt;: 某些竞品（如KIMI Cloud）在接入飞书时配置流程 &lt;code&gt;繁琐&lt;/code&gt;，需手动创建机器人、配置权限及重启。  * &lt;strong&gt;功能受限&lt;/strong&gt;: 竞品（如MaxCloud, Kimi Cloud）在联系人搜索、多维表格创建等工具调用场景中可能遇到 &lt;code&gt;权限问题&lt;/code&gt; 或无法成功执行。  * &lt;strong&gt;恶意技能风险&lt;/strong&gt;: 第三方技能市场（如Cloud Hub）存在 &lt;code&gt;暗藏病毒Skills&lt;/code&gt; 风险；在安装任何技能前，务必依赖Step Claw的 &lt;code&gt;内置安全审查&lt;/code&gt;。* &lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：  * &lt;strong&gt;零门槛上手&lt;/strong&gt;: 对于新手用户，优先体验 &lt;code&gt;接月AA APP&lt;/code&gt; 端和 &lt;code&gt;桌面端Step Cloud&lt;/code&gt;，实现轻松部署与使用。  * &lt;strong&gt;高频用户优化&lt;/strong&gt;: Coding Agent和AA Agent高频用户推荐搭配 &lt;code&gt;Step Plan模型订阅&lt;/code&gt; 使用，可享更快的模型速度、更强的性能和透明的成本。  * &lt;strong&gt;生态联动&lt;/strong&gt;: 充分利用Step Claw的 &lt;code&gt;云端与桌面端联动&lt;/code&gt; 特性，以及其直接接入 &lt;code&gt;水产市场&lt;/code&gt; 的丰富技能生态，扩展智能体应用场景。  * &lt;strong&gt;自动化配置&lt;/strong&gt;: 利用Step Claw的 &lt;code&gt;一键飞书配置&lt;/code&gt; 和 &lt;code&gt;全自动微信接入&lt;/code&gt; 功能，大幅简化IM应用集成流程。  * &lt;strong&gt;实时监控&lt;/strong&gt;: 通过为技能添加状态提示词，结合 &lt;code&gt;监控台&lt;/code&gt;，实现智能体工作进度的可视化管理。&lt;/h1&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV19xXVB4EAZ</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/321b84652eeff3b9d6360b35118e175aa5681363.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 28 Mar 2026 11:26:44 +0800</pubDate>
-    </item>
-    <item>
-      <title>超越AGI：物理世界模型、开放AI与人类智能的未来</title>
-      <link>https://www.bilibili.com/video/BV1fuXuBQExJ</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fuXuBQExJ"&gt;0328-大语言模型革命已结束，物理AI革命正加速到来&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 AGI是误导性概念，那真正的“通用智能”之路在何方？&lt;/li&gt;
-&lt;li&gt;💡 世界模型与非生成式架构，为何是迈向真正智能的关键范式转变？&lt;/li&gt;
-&lt;li&gt;🚀 AI研究走向封闭化，这会如何扼杀进步，并带来何种潜在危机？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 挑战AGI与范式转变：为何当前LLM不足以通往真智能？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AGI的误解与范式瓶颈&lt;/strong&gt;: AGI概念错误，人类智能并非通用。当前LLM依赖“下一个词预测”，本质上缺乏“世界模型”，无法预测行动后果，因此无法实现智能规划、高效学习及零样本任务解决。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;世界模型的缺失&lt;/strong&gt;: LLM不具备预测世界演变及自身行动后果的能力，这导致其无法实现真正智能行为。例如，自动驾驶需要海量数据训练仍未达L5，而人类数小时学习即可驾驶，这反映基础架构的根本性差异。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;物理AI革命&lt;/strong&gt;: 现实世界远比语言复杂且混乱（高维、连续、噪声）。LLM的生成式架构不适用于处理这类数据。未来的革命性AI将是“物理AI”，能理解视频、传感器等高维数据，构建预测模型，并在此基础上进行规划与推理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 开放协作 vs. 封闭垄断：AI发展的关键抉择&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开放研究的巨大优势&lt;/strong&gt;: 过去AI领域快速发展得益于开放研究、论文发表、代码开源，促进了全球协作与创新加速。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;封闭化的灾难性后果&lt;/strong&gt;: 行业研究实验室日益封闭（如Anthropic、Google、Meta内部），这将减缓西方AI进步。中国在开源模型上表现出色，值得警惕。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建全球开源联盟&lt;/strong&gt;: 联合世界各地力量，共同训练多语言、多文化、价值观多元的全球开源LLM，作为全人类的知识宝库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;推动开放基础设施&lt;/strong&gt;: 提供高质量、高性能的开源AI系统替代方案，避免少数公司垄断信息中介。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: AI成为少数专有公司或政府控制的平台，将对文化、语言多样性及价值体系构成巨大威胁，导致全球民众无法接受。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI风险的真相：被高估的末日论与被忽视的垄断&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;末日论是无稽之谈&lt;/strong&gt;: “AI统治世界、毁灭人类”的叙事纯属荒谬，分散了对真正问题的关注。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;真正的最大风险&lt;/strong&gt;: AI的垄断和集中控制是最大危险，因其将中介我们所有的数字信息摄入，可能扼杀文化多样性、语言多样性和价值体系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人类滥用与经济替代&lt;/strong&gt;: 人类滥用AI确实是问题，但有制衡机制，并非存亡危机。经济替代效应（生产力每年提升约6%）虽未显现，但需关注技术扩散速度受限于人类学习能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI对齐的错误框架&lt;/strong&gt;: 将AI对齐视为仅针对LLM的“行为得体”问题是错误的。未来AI架构将是目标驱动的，其护栏在推理时得到满足，与训练LLM使其行为得当的方式截然不同，后者无法保证安全性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 迈向2035：AMI、世界模型与人类智能的增强&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ABI（高级机器智能）的愿景&lt;/strong&gt;: ABI（发音：朋友）旨在构建能从感知数据（视频）中学习世界模型的AI系统。通过预测行动后果，实现规划任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心技术GEEPA&lt;/strong&gt;: 采用非生成式架构GEEPA（联合嵌入预测架构），可在未标记视频上自监督训练，理解视频并预测缺失部分，获得常识感（能识别不可能事件）。GEEPA在表示空间中进行预测，是一种关键的非生成式方法，区别于主流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;掌握基础知识与学习能力&lt;/strong&gt;: 在技术加速变革的时代，专注于学习长久生命力的基础知识，而非短期技能。培养“学会学习”的能力，为未来频繁转岗做准备。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用AI作为智能助手&lt;/strong&gt;: 展望未来，AI系统（如通过智能眼镜）将作为个人助手，增强人类智能，帮助做出更理性的决策。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI发展路径&lt;/strong&gt;: AI发展将是一系列概念性突破，而非单一事件。这些突破可能最初晦涩无人关注，但五年后会展现强大威力（如深度学习、Transformer、LLM）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “我众所周知不喜欢AGI这个说法，这并不是因为我不认为我们会造出比人类更聪明的机器，而是因为我不认为人类智能是通用的，所以把达到人类水平的AI称为AGI是用词不当。”&lt;/li&gt;
-&lt;li&gt;💬 “我们无法通过扩大规模或仅仅改进线有范式来达到人类水平智能或超级智能，我们需要范式的转变。”&lt;/li&gt;
-&lt;li&gt;💬 “真正的智能来自于对现实世界的理解。不幸的是，现实世界是混乱的，感官数据是高维连续有噪声的，而生成式架构无法有效处理这类数据。”&lt;/li&gt;
-&lt;li&gt;💬 “AI真正的重大风险在于，在不远的未来，当我们的全部数字信息摄入都由AI系统中介时，如果这些系统仅来自美国西海岸或中国的少数专有公司，文化多样性、语言多样性和价值体系造成巨大威胁。”&lt;/li&gt;
-&lt;li&gt;💬 “我们与超级智能系统的关系将如同企业、学术或政治领袖与其团队的关系。政客身边当然围绕着比他们更聪明的幕僚对吧？教授们其实也一样，我们的目标正是让学生比我们更聪明。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fuXuBQExJ</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/e8e238a1893378288b17d9d684d0a9cee5cd0405.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 28 Mar 2026 11:21:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
