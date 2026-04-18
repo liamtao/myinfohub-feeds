@@ -7,7 +7,139 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Apr 2026 08:44:24 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 23:51:11 +0000</lastBuildDate>
+    <item>
+      <title>量化交易进阶指南：从L2微观博弈到ETF自动化回测框架</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;amp;talker=57784510736@chatroom"&gt;2026-04-18_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📊 数据地基：财务与指数数据的全量重更&lt;/h3&gt;
+&lt;p&gt;量化交易，数据先行。由于部分代码 Bug 和兼容性问题，官方对日线、全息、筹码及财务数据进行了切换与修复。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心行动建议&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;涉及“邢不行财务数据”与“主要指数数据”的用户，务必在周末进行&lt;strong&gt;全量更新&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;更新后，请务必在本地或客户端进行回测，确认最新的选股结果是否一致。&lt;/li&gt;
+&lt;li&gt;跨电脑同步数据的小技巧：在一台电脑更新完成后，打包压缩传输至另一台解压，效率远高于两台电脑重复下载。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⏱️ 黄金十分钟：L2 数据的微观博弈艺术&lt;/h3&gt;
+&lt;p&gt;红牛老板分享了关于 L2 逐笔数据与交易时机的深度见解，强调“时机”在量化中的绝对权重。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;关键洞察&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;早盘定乾坤&lt;/strong&gt;：每天 9:20-9:25 以及 9:30-9:35 这十分钟，其数据价值占全天的 80%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手工与量化的结合&lt;/strong&gt;：对于普通散户，纯量化跑 L2 数据对硬件和资金要求极高。更务实的方法是：用策略选出股票池，再通过手工观察 L2 逐笔资金流和挂单比例（如撤单比）来捕捉精确买点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时机大于策略&lt;/strong&gt;：即使一个策略年化收益 300%，如果没有捕捉到正确的买入时机（如滑点过大或错失买点），也是纸上富贵。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ ETF 回测新纪元：凌烟阁与小时线择时&lt;/h3&gt;
+&lt;p&gt;“無慈悲な定量化機械”发布了基于 2.3.0 版本的 ETF 回测框架，填补了 ETF 自动化择时的空白。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;方法论提炼&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;择时逻辑&lt;/strong&gt;：将 ETF 视作个股，引入“苏打水”择时（本质是止损风控）或均线回归逻辑。测试显示，515000 等单个 ETF 在加入择时后，全历史净值有显著超额收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据获取&lt;/strong&gt;：针对 2026 年缺乏分钟数据的问题，可通过第三方渠道（如淘宝）购买 1H 小时线数据并转换为 Parquet 格式进行回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选妃模式&lt;/strong&gt;：在 ETF 策略池中进行轮动，下坡时撤出，上坡时持仓，利用资金曲线聚合实现稳健收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 AI 驱动开发：代码、文档与超级框架&lt;/h3&gt;
+&lt;p&gt;量化大佬们正在集体转向 AI（如 Claude 3.5 Opus、Trae）来重构回测框架。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文档嵌入化&lt;/strong&gt;：不要单独写文档，而应使用 Python 的 &lt;code&gt;docstring&lt;/code&gt; 将文档嵌入代码中。这样 AI 助手能直接通过 &lt;code&gt;help()&lt;/code&gt; 读取逻辑，编写代码更精准。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;封装中间层&lt;/strong&gt;：为了应对底层框架频繁升级，建议封装应用层。无论底层如何变，上层逻辑保持清真。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件建议&lt;/strong&gt;：实盘主机建议使用 Mac Mini 等物理机，避免使用虚拟机导致性能损耗，影响下单速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 仓位管理：从固定比例到动态聚合&lt;/h3&gt;
+&lt;p&gt;西蒙斯老板对 3.6.2 版本的仓管框架进行了重大逻辑更新。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑变更&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;性能优化&lt;/strong&gt;：取消了在仓管中重复回测固定比例子策略的逻辑，改为直接读取选股结果进行聚合。这能极大提升实盘过程中多策略运行的服务器响应速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态权重&lt;/strong&gt;：多策略轮动时应谨慎处理权重。目前的仓管框架更倾向于服务有切实迭代需求的高阶用户，新手建议先从简单的选股框架入手。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💬 提神金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“成功的关键是把简单的作到极致！” —— 红牛&lt;/li&gt;
+&lt;li&gt;“每天看盘这十分钟时间的作用至少相当于全天的 80%。” —— 红牛&lt;/li&gt;
+&lt;li&gt;“时机，时机。这世界永远是时机最重要。你没了买入的时机，这300%的策略都对你没用。” —— 红牛&lt;/li&gt;
+&lt;li&gt;“花炮是否精致，点火的可能都只是个打火机。” —— 红牛&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/72557&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78449&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78381&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78492&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78492&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78506&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>混合策略是量化的“版本答案”：从动量肥尾到跳船因子的实战洞察</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;amp;talker=58453205219@chatroom"&gt;2026-04-18_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;💡 混合策略：穿越回撤的“版本答案”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;超混策略的优势&lt;/strong&gt;：在量化交易中，单一策略往往难以应对所有行情。多位资深交易者认为，“混合策略是版本答案”。通过将不同逻辑（如动量、选币、中性）进行混合，可以平滑资金曲线，甚至在回撤期通过互补实现新高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;纯多头的定力&lt;/strong&gt;：纯多头策略在行情启动时爆发力极强，但回撤也极其考验人性。目前市场正经历从极致恐惧到狂欢的转化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📈 动量策略的本质：捕捉“肥尾”与覆盖参数&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;收益分布特征&lt;/strong&gt;：动量策略的收益分布呈现典型的“肥尾”特征，甚至可能遵循幂律分布。这意味着大部分时间在震荡，极少数时间的爆发贡献了绝大部分收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数覆盖的重要性&lt;/strong&gt;：动量不应只跑单一参数。建议覆盖各种动量类型（长动量、短动量）和各种参数区间，通过参数的广度来提高对市场趋势捕捉的确定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🚢 反向风向标：玄学又准的“跳船因子”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;韭菜行为学&lt;/strong&gt;：市场存在一种奇特的“跳船因子”——当群里大量投资者因受不了回撤而减仓、跳船或拉黑账户时，往往就是行情触底反弹、净值即将创新高的前兆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;群内择时法&lt;/strong&gt;：群友欢呼之时往往是减仓之机，而群友哀鸿遍野、纷纷退场之时，则是坚持者的收割季。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🧘 仓位管理的真相：舒服才能拿得住&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;心理承受力边界&lt;/strong&gt;：仓位管理的核心不在于杠杆倍数，而在于“心理舒适度”。一旦仓位超过了你的心理承受能力，无论行情涨跌，你最终一定会因为拿不住而输掉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;舒服的姿势&lt;/strong&gt;：找到让自己在回撤时也能睡得着的仓位，是长期留在市场里的唯一方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔒 生产环境安全：别在服务器上乱玩虾&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;服务器隔离&lt;/strong&gt;：实盘交易服务器必须保持极度干净。不要在上面挂VPN、登非法网站或存放乱七八糟的Token。一旦服务器被黑，除了Token丢失，IP暴露也会带来潜在风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专用原则&lt;/strong&gt;：实盘服务器应仅用于运行交易框架，避免因“玩虾”等无关操作导致环境污染或信息泄露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 核心金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“混合策略是版本答案。” —— 陈聪汉&lt;/li&gt;
+&lt;li&gt;“仓位超过承受能力之后，不论涨跌，结果一定是输。” —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;“感谢跳船的兄弟，好人一生平安。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“低胜率换高赔率，动量绝对是肥尾。” —— 心想事陈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78464&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78513&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-18&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>穿越量化交易的‘旷野’：龙回头策略Q1实盘复盘与心理免疫</title>
       <link>https://www.xiaoyuzhoufm.com/episode/69e24bc41e94ae6921832d09?utm_source=rss</link>
@@ -5441,59 +5573,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-03-30&amp;talker=58453205219@chatroom</guid>
       <pubDate>Mon, 30 Mar 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭示货币幻象与真实财富：生产资料才是持久价值的锚点</title>
-      <link>https://bbs.quantclass.cn/thread/76942</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/76942"&gt;硬通货之战（五）------真正的财富&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info) - &lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子] - &lt;strong&gt;核心标签&lt;/strong&gt;：[货币幻觉, 生产资料, 真实财富, Alpha投资, S&amp;amp;P500, 纳指100] - &lt;strong&gt;一句话总结&lt;/strong&gt;：货币非财富本身，唯有占据生产资料方能持续获取他人劳动成果，实现财富真正增长。 --- ## 🔭 模块 A：市场规律与深度思考 (Market Insights) - &lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：信用货币的本质是GOV发行的债券或消费券，其内在价值不断被稀释，导致“货币幻觉”——账面数字增长掩盖了实际购买力下降。历史上无数次验证了以GOV信用衡量的财富无法长久可靠。文章论证了&amp;quot;r &amp;gt; g&amp;quot;理论的当代存在基础。 - &lt;strong&gt;【归因分析】&lt;/strong&gt;：货币的最终解释权不在持有者手中，央行可通过调节发行量（如降息、QE）隐秘地稀释购买力，本质是对存量财富的合法再分配。人类习惯于感知账面数值增长，忽视了核心资产涨幅带来的相对购买力下降。 - &lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：简单持有货币是做空长期增长，分散投资在货币记账层面仍无法逃脱顶层掌控。贵金属或比特币虽是强Beta（防御性）资产，可对抗法币贬值，但作为非生息资产，难以产生优异的Alpha（超额升值），无法与生产资料的内生增长相比。 - &lt;strong&gt;【衍生假设】&lt;/strong&gt;：财富的核心在于“换取别人劳动成果的能力”，这种能力源于对生产资料的持续持有和获取。在生产力指数级爆发的时代，只持有不生息的静态资产将面临降维打击和边缘化。 ## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha) - &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：财富的本质是对社会资源的支配权和调动无差别劳动价值的能力。在现代社会，这种能力来源于对生产资料的占有。真正的财富增长（Alpha）不是依靠货币分母贬值，而是依靠生产资料本身的产出与内在价值的爆发式增长。 - &lt;strong&gt;【因子构建】&lt;/strong&gt;：将标普500与纳指100中的顶级科技公司股权定义为当下最有价值且最易获得的“生产资料”。持有这些股权，即是占有全人类最聪明、最勤奋、最有创造力人群的劳动价值，享受其技术进步和生产力提升带来的红利。 - &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：硬通货（如黄金、比特币）是典型的Beta模式，主要作用是防守，在法币注水时作为对手盘显得“贵”，但其不生息、不迭代的内在属性决定了其无法主动产生增量价值（Alpha），难以在长期财富竞赛中超越拥有内生增长动力的生产资料。 ## 💡 落地与行动指南 (Actionable Takeaways) - 审视并调整投资理念，将核心资产配置从侧重“货币保值”的Beta策略转向侧重“生产资料增值”的Alpha策略。 - 优先配置代表全球顶尖生产力和未来趋势的指数基金（如标普500或纳指100的ETF），将其视为间接持有现代社会的核心生产资料。 - 定期评估和研究市场中新兴的“生产资料”（例如AI算力、生物技术等），而非仅仅关注非生息的、静态的价值储存工具，以确保资产能够持续分享人类文明进步的红利。&lt;/h2&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/76942</guid>
-      <pubDate>Sun, 29 Mar 2026 23:46:18 +0800</pubDate>
-    </item>
-    <item>
-      <title>多维度因子的动态进化：基于ICIR排名与头部超额的复合选股策略优化</title>
-      <link>https://bbs.quantclass.cn/thread/77330</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77330"&gt;练手40  副旗舰魔改发散1&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[ICIR动态加权、多周期评估、头部超额收益、因子合成]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过动态ICIR排名筛选与多周期/头部指标加权，优化复合因子稳定性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用因子的历史预测能力（ICIR）作为权重，通过动态筛选最强因子组合来弥补单一因子的风格暴露风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方案1：动态Top-N筛选&lt;/strong&gt;：对因子ICIR进行截面排名，仅保留排名前2的因子，并以其ICIR绝对值作为权重进行合成，其余置0。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方案2：双周期平滑&lt;/strong&gt;：引入长短双评估周期（如20D/60D），取ICIR均值作为合成权重，以降低单一周期评价的“参数漂移”现象。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方案3：聚焦头部Alpha&lt;/strong&gt;：舍弃全样本IC评估，改用因子选出的Top-N股票相对于截面平均收益的超额收益（TopExcess）作为评价指标，强化对策略核心选股范围的刻画。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于周/月频数据，对因子进行百分位排名（Rank）处理，并使用&lt;code&gt;.shift()&lt;/code&gt;处理评价指标，严格对齐交易信号，规避未来函数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;向量化合成&lt;/strong&gt;：利用 &lt;code&gt;df.rank(axis=1)&lt;/code&gt; 在截面上进行因子评价指标的排名，通过 &lt;code&gt;df.where(mask, 0)&lt;/code&gt; 实现非头部因子的快速权重剔除。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;滚动计算&lt;/strong&gt;：在 &lt;code&gt;cal_rank_ic_ir&lt;/code&gt; 中使用 &lt;code&gt;rolling&lt;/code&gt; 窗口计算均值与标准差以获得动态ICIR，并支持 &lt;code&gt;min_periods&lt;/code&gt; 处理样本初期数据不足的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性能Trick&lt;/strong&gt;：将权重矩阵与排名矩阵直接相乘并 &lt;code&gt;sum(axis=1)&lt;/code&gt;，避免了低效的 &lt;code&gt;apply&lt;/code&gt; 或 &lt;code&gt;for&lt;/code&gt; 循环迭代。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子择优逻辑&lt;/strong&gt;：在复合因子合成时，尝试引入“掩码（Mask）”机制，仅赋予阶段性强势因子权重，而非全样本暴露，以提高策略胜率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;评价维度切换&lt;/strong&gt;：测试以“头部超额收益均值”替代“全样本ICIR”作为因子权重，使评估目标与最终选股逻辑（选Top N）更加一致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自适应窗口&lt;/strong&gt;：在因子评价函数中加入长短周期加权逻辑，增强策略对市场风格快速轮动（如电风扇行情）的鲁棒性。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77330</guid>
-      <pubDate>Sun, 29 Mar 2026 23:21:16 +0800</pubDate>
     </item>
   </channel>
 </rss>
