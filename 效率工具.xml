@@ -7,7 +7,59 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 19 Apr 2026 08:36:37 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 00:19:59 +0000</lastBuildDate>
+    <item>
+      <title>从精准转录到全自动压制：基于 ElevenLabs 与 Gemini 的 AI 字幕工作室全流程实操指南</title>
+      <link>https://www.bilibili.com/video/BV112doBCEDt</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/37648256"&gt;吕立青_JimmyLv&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV112doBCEDt"&gt;ElevenLabs + Gemini 双模型：我做了个 99.7% 准确率的字幕工作室&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ BibiGPT 字幕工作室 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：整合业界最高精度的 ElevenLabs Scribe V2 ASR 模型与 Google Gemini 大模型，实现“高精转录-多维校对-语境翻译-自动压制”的闭环自动化流水线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：音视频文件、用户自备的 API Key（ElevenLabs/Gemini）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：带双语字幕的烧录视频、字级别对齐的字幕脚本文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Scribe V2&lt;/strong&gt;：具有 95.7% 转录准确度的 ASR 模型，支持 90 多种语言及字级时间戳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Terms&lt;/strong&gt;：转录前注入的热词表，用于预先识别专有名词或行业术语。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diff 校验&lt;/strong&gt;：类似于 Git 的版本管理系统，可视化呈现 AI 自动修正与原稿的细节差异。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景：高精度视频字幕生产全流程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将口语化且包含术语的杂乱视频转化为专业、对齐的双语字幕视频。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已获取 ElevenLabs 与 Gemini 的 API Key，并在 ElevenLabs 侧开启 &lt;code&gt;Speech to Text&lt;/code&gt; 权限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[导入与预处理]&lt;/strong&gt;：上传视频文件 -&amp;gt; 系统自动提取音频以提升 ElevenLabs 处理效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[高精转录]&lt;/strong&gt;：调用 &lt;code&gt;Scribe V2&lt;/code&gt; 模型 -&amp;gt; 注入 &lt;code&gt;Custom Terms&lt;/code&gt;（如频道名、品牌名）以确保首遍识别准确。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[智能二次校对]&lt;/strong&gt;：启用 &lt;code&gt;Gemini 2次校对&lt;/code&gt; -&amp;gt; 同时投喂音频原件与 ASR 脚本 -&amp;gt; 修正语境偏差与格式规范（如空格、标点）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[人工复核与 Diff]&lt;/strong&gt;：在 &lt;code&gt;Diff&lt;/code&gt; 模式下查阅 AI 修改详情 -&amp;gt; 手动干预特定样式（如增加双横线或特殊符号）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[翻译与打轴]&lt;/strong&gt;：选择目标语言（简体中文） -&amp;gt; Gemini 基于全局上下文执行整体翻译 -&amp;gt; 若句子结构未变动则自动沿用原时间轴，避免重新打轴。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[样式烧入]&lt;/strong&gt;：选择压制模式（中英双语/仅英文） -&amp;gt; 系统自动处理长句换行并完成视频烧录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Prompting 设置]&lt;/strong&gt;：自定义校对与翻译的指令集 -&amp;gt; 控制数字（阿拉伯数字）、快捷键格式（Command+E）及口语剔除逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Endpoint 权限]&lt;/strong&gt;：在 API 后台手动开启 &lt;code&gt;Speech to Text&lt;/code&gt; 与 &lt;code&gt;Align&lt;/code&gt; 模块 -&amp;gt; 激活字级对齐能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[本地安全存储]&lt;/strong&gt;：API Key 仅存储于浏览器客户端 -&amp;gt; 保护用户隐私但需注意跨设备重设。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：Gemini 1.5 Pro 模型近期可能出现响应延迟，建议预留处理时间；ElevenLabs 费用较高，开启转录前术语注入需额外支付 20% 费率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：利用 ElevenLabs 的“强制对齐”功能，可将现有的高精度文稿与录制语音完美匹配，生成专业电子书或课程时间轴。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV112doBCEDt</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/e785f37db6d7f7a18a39a22a02cb876d10a5417f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 19 Apr 2026 19:06:04 +0800</pubDate>
+    </item>
     <item>
       <title>CutFa.st：音视频AI搜索、可视化与一键智能剪辑新范式</title>
       <link>https://www.bilibili.com/video/BV1vyDpBEEo1</link>
