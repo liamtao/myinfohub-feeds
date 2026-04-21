@@ -7,7 +7,104 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Apr 2026 08:39:53 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 22:39:27 +0000</lastBuildDate>
+    <item>
+      <title>量化实战避坑指南：QMT市值Bug处理、双重择时逻辑与AI提效方案</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;amp;talker=57784510736@chatroom"&gt;2026-04-21_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🛠️ 实盘避坑：QMT 软件异常与券商版本选择&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;软件登录与持仓同步异常&lt;/strong&gt;：多位用户反馈国泰、海通、中金等 QMT 无法登录。若出现持仓同步错误（如持仓变为非策略选股），可通过手动清仓或修改当前持仓的 CSV 文件解决。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;东北证券 Mini QMT 市值计算 Bug&lt;/strong&gt;：有用户遇到市值显示为“持股数量 * 10000”的严重错误，导致无法下单或计算错误。解决方案：建议卸载当前版本，安装更稳定的历史版本（如 2.0.13.0）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每日重启是良药&lt;/strong&gt;：QMT 建议每天早上手动重启。最新版本虽然坑位较多，但保持重启能规避大部分数据刷新不及时的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📈 策略进阶：凌烟阁与定风波的“爱恨情仇”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;双重择时是否可行？&lt;/strong&gt;：群友讨论将个股择时（凌烟阁）与市场择时（定风波）叠加的效果。由于两者节奏可能存在错配，简单叠加往往不如单一择时稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;择时逻辑的匹配性&lt;/strong&gt;：适合“特立独行”个股的策略宜用个股择时；而紧随市场波动的策略则更适合定风波类的择时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测频率的“陷阱”&lt;/strong&gt;：在回测凌烟阁等策略时，频率设置对曲线真实度影响巨大。建议将 5d 频率换成 w（周），以展示更接近真实的净值曲线，避免过度拟合带来的虚假繁荣。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🤖 AI 提效：从写代码到全自动 Review&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI 框架的进化&lt;/strong&gt;：木木老板分享了通过 AI 自动化框架进行数据分析和代码生成的经验。目前 AI 已能自主创造工具满足特定需求，甚至可以实现代码免 Review 运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token 经济学&lt;/strong&gt;：好用的 Token（如 GPT-4, Claude 3.5, Qwen 2.5 等）虽然价格上涨，但在逻辑理解和代码生成上的增量收益远超成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;：新手可以通过 AI 快速实现策略。只需提供因子表达式和描述，让 AI 按照成熟框架（如 Rocket/Fusion）编写因子和择时信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💡 核心洞察与操作指南&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;错过换仓怎么办？&lt;/strong&gt;：如果当天忘记开启客户端导致未能换仓，客户端通常会在第二天重启后的换仓时间（如 09:55）自动补单卖出，不会一直卡在持仓中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小市值策略近况&lt;/strong&gt;：4 月市场波动剧烈，微盘股与指数之间存在拉锯。有用户通过“定风波 + 小市值基本面”在极端行情下通过空仓躲过了下跌。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 金句摘录&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“一阴一阳之谓道也。” —— 红牛&lt;/li&gt;
+&lt;li&gt;“帮义父等于帮自己。” —— 土土&lt;/li&gt;
+&lt;li&gt;“覆巢之下无完卵，-80 之下，一分钱不去冒风险。” —— 無慈悲な定量化機械&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78784"&gt;魔改落榜生凌烟阁策略回测&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/75656"&gt;VR指标择时策略优化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78679"&gt;三板斧系列策略：SuperTrend 择时&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78685"&gt;高频择时：JS 因子动量策略&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78690"&gt;小时线底分型与移动止损策略&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/60349"&gt;更多策略细节参考&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化投资的人性博弈：如何熬过策略“冬眠期”与管理波动利润</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;amp;talker=58453205219@chatroom"&gt;2026-04-21_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;💡 应对策略“冬眠期”：熬过沉寂才是真功夫&lt;/h4&gt;
+&lt;p&gt;量化交易中，策略的沉寂期（即回撤或横盘期）是考验投资者心态的关键时刻。群友们分享了关于如何度过“冬眠期”的深刻见解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;心理预期管理&lt;/strong&gt;：邢不行指出，动量策略可能面临长达半年的沉寂。许多人在投到第5个月时受不了而停掉，结果行情往往在第8个月悄然而至。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反直觉布局&lt;/strong&gt;：市场通常是反人性的。当一个策略（如GA多头策略）被所有人嫌弃时，往往是它表现最亮眼的时候；而当行情看似冷淡时，反而可能是机会酝酿之时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在市场低位布局，可以考虑对动量策略进行为期半年的定投。&lt;/li&gt;
+&lt;li&gt;如果心理压力太大，建议减少投入资金量，通过“死扛”来规避因频繁开关策略导致的踏空。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💰 利润管理：学会“落袋为安”的艺术&lt;/h4&gt;
+&lt;p&gt;如何处理赚到的钱？邢不行给出了一套简单直接的方法论：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;利润提取法&lt;/strong&gt;：在赚取一波利润后，建议提取其中 70% 的资金，将其作为避风港。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;阶梯式回补&lt;/strong&gt;：剩余资金或提取后的资金可分 3 个月定投回策略，以平滑入场成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;装死策略&lt;/strong&gt;：如果定投超过 3 个月行情依然没有起色，最好的做法是“装死”，避免过度操作干扰策略逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;⚙️ 实盘避坑指南：资费、服务器与下架风险&lt;/h4&gt;
+&lt;p&gt;针对量化实盘中可能遇到的琐碎细节，群友们提供了务实的建议：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕资金费率（资费）&lt;/strong&gt;：空头策略虽然能赚行情钱，但资费可能吞噬大部分利润。建议针对极端资费设置过滤机制，或者接受“不亏就是赚”的龙头策略逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;服务器选择&lt;/strong&gt;：UCloud 若连接不稳定，群友建议转向更稳定的腾讯云（日本节点）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异常处理&lt;/strong&gt;：实盘若报错，优先排查路径文件是否丢失或存储空间是否已满。对于可能下架的币种（如 DENTUSDT），必须开启 delist（下架处理）逻辑，防止系统因无法交易而崩溃。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 金句洞察&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“当时有多嫌弃，现在就有多后悔。” —— (众群友)&lt;/li&gt;
+&lt;li&gt;“龙头不亏就是赚。” —— 陈聪汉&lt;/li&gt;
+&lt;li&gt;“由于风险分散化原理，不宜和老婆聊投资。” —— AK&lt;/li&gt;
+&lt;li&gt;“多一个同学老婆，延迟一个月退休。” —— 龚博致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>告别经验主义：LLM自动化构建金融Alpha，提升股票预测精度</title>
       <link>https://www.bilibili.com/video/BV12Rd6BAE4K</link>
@@ -5310,125 +5407,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1s1XfB3EN7</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/e62521b45f039a6c721eb68ee68ed192776f313f.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 02 Apr 2026 14:12:41 +0800</pubDate>
-    </item>
-    <item>
-      <title>市场动荡与策略抉择：地缘政治、猪肉风波与量化新规下的A股众生相</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;amp;talker=57784510736@chatroom"&gt;2026-04-02_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🌍 地缘政治风云再起，市场跌宕起伏&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;中东局势持续紧张，伊朗对以色列发动大规模打击，发射超过100枚导弹和无人机，以及200枚火箭弹。这场冲突不仅影响中东，更在全球资本市场掀起波澜。特别是特朗普的言论，在A股开盘前频频引发市场“跳水”，日韩指数也随之“坠机”，让投资者感到“准没好事”。群友们纷纷表示账户“绿了”、“亏麻了”，甚至有人感叹“去年的利润都快没了”，市场情绪普遍低迷，对4月的走势充满担忧。&lt;/p&gt;
-&lt;h3&gt;🐷 猪肉价格波动，牵动宏观调控神经&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;近期猪肉价格持续走低，远低于成本线，导致“存栏和能繁母猪数据太高”，市场供过于求。面对这一局面，中央启动“储备猪肉”以进行宏观调控，旨在防止农户因亏损而减少养殖，进而引发未来猪肉价格“爆涨”。这显示出国家在稳定物价和保障民生方面的考量。&lt;/p&gt;
-&lt;h3&gt;🛢️ 原油市场迷雾重重，懂王“画K线”&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;原油市场也未能幸免于这场动荡。WTI和布伦特原油价格频繁异动，有群友戏称这是特朗普“自己在原油上面边画K线边高抛低吸”，质疑其在市场中的“精神胜利法”操作。油价的剧烈波动进一步加剧了市场风险，投资者普遍担忧“明天又凉凉”，对这种“百试不厌”的“玩死”市场手段感到无奈。&lt;/p&gt;
-&lt;h3&gt;📈 量化策略应对：妈妈基与凌烟阁的启示&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;面对严峻的市场环境，多种量化交易策略的表现和讨论成为焦点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“妈妈基”策略&lt;/strong&gt;：被认为是“安全边际高”、“流动性强”，尤其“适合四月”的市场环境，主要关注980092指数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“风火轮”、“定风波”、“顶3”&lt;/strong&gt;：这些策略在当前市场下，高开低走，被部分群友评价为“被薄纱”。也有群友提到“风火轮仓位都很少了”，定风波未开仓，顶3未触发离场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“凌烟阁择时”&lt;/strong&gt;：一项研究发现，一个新指标自3月13日以来一直处于空仓状态，成功规避了近期市场的下跌。这为寻求避险的投资者提供了新的思路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小市值持仓&lt;/strong&gt;：有群友提出理想的小市值持仓应覆盖3d, 4d, 5d并各自带有定1, 2, 3，但坦言所需资金不少。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;📉 新规将至：高频量化迎来挑战&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;p&gt;即将于4月7日生效的新规引发了广泛讨论，其中限制交易频率和取消融券T+0交易成为两大看点。市场普遍预测这将“高频量化一刀砍废了吧”，导致原高频交易者“来拥挤低频量化市场”。对于“分享会”的策略而言，这被认为是一个“相对利好”的信号，因为它可能减少高频交易带来的市场噪音和竞争。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 金句摘录&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“特朗普行情就是猴子行情” — 黄智杰&lt;/li&gt;
-&lt;li&gt;“当股民会让你觉得时间过得真慢” — 红牛&lt;/li&gt;
-&lt;li&gt;“钱不会凭空出现，到底是谁输的，好难猜哦” — 到过我兜里的那就是我的本金&lt;/li&gt;
-&lt;li&gt;“美国说自己赢麻了，伊朗也说自己赢麻了，就我账户输了” — 学渣菌&lt;/li&gt;
-&lt;li&gt;“川普还不如脱衣舞娘靠谱” — Jiamin&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/77521&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77550&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/77554&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>洞察加密市场：动量、新上市策略与风险管理</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;amp;talker=58453205219@chatroom"&gt;2026-04-02_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;加密货币市场总是充满着机会与陷阱，本篇提炼了社群中关于市场异动、策略构建与风险管理的深度洞察。从“妖币”的狂涨暴跌到动量策略的潮起潮落，再到新上市币种的套利玄机，社群成员们分享了真金白银的经验与反思。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;📈 加密市场异动：妖币与SOL暴跌背后的逻辑&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场波动加剧&lt;/strong&gt;：社群初期便关注到“四狗狂涨”和“妖币”的剧烈波动，引发了对市场异常行为的探讨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;外部事件影响&lt;/strong&gt;：Drift平台被攻击事件，导致SOL价格大幅下跌，凸显了链上安全问题对关联资产的直接冲击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场操纵猜测&lt;/strong&gt;：部分观点认为市场波动背后存在“做局”，可能涉及做市商的清算或赎回，从而引发资产的集中抛售。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🛡️ 策略稳定性与市场波动性：空头与动量的力量&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;纯多头策略的局限&lt;/strong&gt;：在剧烈波动市场中，仅依赖多头方向的“四龙狗”策略表现不尽如人意，遭遇了回调。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;空头策略的价值&lt;/strong&gt;：用户贾真甲展示了将“25年的空头策略”融入“四龙狗”后，取得了显著的策略稳定性，“基本没啥波动”。这表明通过对冲可以有效熨平波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动量策略的盈利能力&lt;/strong&gt;：心想事陈的观察指出“动量在赚钱”，强调了趋势追踪策略在捕获市场上涨趋势中的有效性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🎁 新上市效应：发现加密市场的“打新”机会&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;独特定价机会&lt;/strong&gt;：茶泡饭分享了一个市场洞察：当一个币种首次在现货市场上市后又上线合约交易对，或反之，往往会出现一波上涨行情。他形象地将此比喻为“A股股票在H股二次IPO的预期”，市场会因新增的流动性或关注度而重新定价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稳定的超额收益&lt;/strong&gt;：根据回测，该“新上市效应”因子能够带来“超额还是很稳定的”回报，被认为非常适合“分域”（即在特定市场或资产子集中应用）操作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据获取挑战&lt;/strong&gt;：该策略的难点在于如何提前获取币种的上市信息，目前缺乏公开、可靠的数据源来实时捕捉这些事件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚨 动量策略的“核不扩散”原则与晒单回撤魔咒&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;晒单魔咒&lt;/strong&gt;：社群中普遍流传着“晒单必回撤”的说法，认为高调展示盈利往往预示着即将到来的回调，甚至会引发“断头台”式的亏损。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;拥挤交易风险&lt;/strong&gt;：多位用户强调“动量要核不扩散了”，“人多了就要大家一起断头台了”，指出当大量资金同时涌入并执行相同的动量策略时，会导致市场流动性枯竭，策略失效，甚至引发集体踩踏。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;形象比喻&lt;/strong&gt;：这种现象被形象地比作“散户追纳指”或“2倍ETF 3倍ETF”，当“车太重动量就要崩盘了”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略的周期性&lt;/strong&gt;：will总结了动量策略的典型循环：策略赚钱 -&amp;gt; 吸引资金加入 -&amp;gt; 市场变得拥挤，策略亏钱 -&amp;gt; 亏损者退出 -&amp;gt; 市场恢复，策略再次赚钱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📉 山寨币的“罪恶一生”与长期持有策略的挑战&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;山寨币的极端风险&lt;/strong&gt;：茶泡饭利用选币框架深入分析了REFF等山寨币的生命周期，从暴涨到最终下架，直言“山寨有多恶心”和“看清山寨币罪恶的一生”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架复盘优势&lt;/strong&gt;：该框架在复盘已下架币种（在交易所难以查询K线数据）时显示出独特价值，能够提供完整的历史走势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“无限钱”策略探讨&lt;/strong&gt;：茶泡饭曾考虑一种“每个币都买它一点点，完全不re”的极端策略，旨在通过“硬等”来捕捉百倍币。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;理性反驳&lt;/strong&gt;：心想事陈指出这种策略本质上是做多全市场，但“毕竟只有少部分币是可以拉的，大部分都是垃圾，归零是宿命”，强调了山寨币的高失败率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔧 策略实施与风险控制建议&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;主动风险管理&lt;/strong&gt;：邢不行建议在市场剧烈波动时，通过“降低一下仓位”或“分配到一些其他的币”来分散风险，避免集中暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;平衡取舍&lt;/strong&gt;：虽然提前“拉黑”某些币可能错过“大肉”，但也能有效避免被“砍头”式的巨额亏损。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;定制化仓位管理&lt;/strong&gt;：茶泡饭提出，需要一个工具来允许用户手动控制特定高波动币种的仓位比例（例如，将某些币的仓位从10%降至5%），以增强风险控制的灵活性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;定时再平衡&lt;/strong&gt;：心想事陈分享了一个“定时re”（定时再平衡）策略的帖子，作为一种自动化风险管理手段，可在一定周期内对持仓进行调整，避免极端情况。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;龚博致: “晒牛就算了，晒熊我也能忍 你们现在是在拿放大镜晒蚂蚁啊……做个好人吧”&lt;/li&gt;
-&lt;li&gt;Dino: “赌一赌单车变摩托 别墅靠大海”&lt;/li&gt;
-&lt;li&gt;茶泡饭: “只有现货的币上了合约，就会涨一波 只有合约的币上了现货，也会涨一波”&lt;/li&gt;
-&lt;li&gt;渣渣: “果然应验了， 晒单必回撤”&lt;/li&gt;
-&lt;li&gt;陈聪汉: “人多了就要大家一起断头台了”&lt;/li&gt;
-&lt;li&gt;不可为（好学生版）: “bug致富，但很慌”&lt;/li&gt;
-&lt;li&gt;心想事陈: “毕竟只有少部分币是可以拉的，大部分都是垃圾，归零是宿命”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;相关链接&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=77494"&gt;DeFi详解：解锁去中心化金融的秘密 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/77533"&gt;茶泡饭的帖子&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/76850"&gt;心想事陈的定时re策略&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-02&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Thu, 02 Apr 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
