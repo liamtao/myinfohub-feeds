@@ -7,7 +7,53 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Apr 2026 22:39:27 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 08:38:03 +0000</lastBuildDate>
+    <item>
+      <title>200个中国A股ETF量化策略实战库：14大体系、10年回测与最优Alpha挖掘</title>
+      <link>https://bbs.quantclass.cn/thread/78920</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78920"&gt;【第二期】200 个 ETF 量化策略，代码全开源，10 年回测，所有实现，均有代码，一键运行，适配 xbx 和 akshare ETF 数据&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[ETF轮动、截面动量、因子拥挤度、三级数据源、风险过滤]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：开源200+个ETF策略框架，揭示短周期动量与拥挤度过滤在高夏普策略中的核心价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：研究发现短周期截面动量（6个月窗口）为A股ETF最核心Alpha来源，叠加MA200趋势过滤可显著降低最大回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：涵盖H04（截面动量）、Opt14（因子拥挤度加速度信号+趋势过滤）、C23（低波动异常）及C29（质量因子：ROE+稳定盈利）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：覆盖500+只ETF后复权数据，采用本地CSV、磁盘缓存、在线API（Akshare）的三级降级获取机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：2016-2026十年回测，Opt13_best累计收益+315.6%（夏普4.93），Opt14v2v5_best夏普高达7.14且回撤仅6.8%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：统计发现日历效应策略（n05/n06）在2018年后快速失效，全球轮动策略受市场相关性上升影响分散效果减弱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决大规模策略回测中的数据稳定性与秒级启动效率问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python 3.9+ 架构，核心依赖 Akshare、Pandas、Numpy；设计 data_cache 机制避免重复拉取。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：模块化拆分 backtest_engine、indicators 与 sector_map（30个行业映射），支持一键运行全量策略对比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;策略优化&lt;/strong&gt;：复现并部署 Opt14 系列，利用“因子拥挤度+趋势过滤”组合提升动量策略的风险调整收益。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol start="2"&gt;
+&lt;li&gt;&lt;strong&gt;因子挖掘&lt;/strong&gt;：深入测试低波动（C23）与质量因子（C29）在ETF轮动中的防御性价值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol start="3"&gt;
+&lt;li&gt;&lt;strong&gt;工程复用&lt;/strong&gt;：借用该框架的三级数据源管理逻辑，构建私有量化研究库以提升因子迭代效率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78920</guid>
+      <pubDate>Wed, 22 Apr 2026 11:26:09 +0800</pubDate>
+    </item>
     <item>
       <title>量化实战避坑指南：QMT市值Bug处理、双重择时逻辑与AI提效方案</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=57784510736@chatroom</link>
@@ -5322,91 +5368,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77533</guid>
       <pubDate>Thu, 02 Apr 2026 16:54:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易核心数据接口详解：从高频行情到基本面分析的实操全指南</title>
-      <link>https://www.bilibili.com/video/BV1s1XfB3EN7</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1s1XfB3EN7"&gt;xtdata高级行情接口全解析：从指数权重到板块数据实战&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛠️ 量化交易核心数据接口系统 - 标准实操手册 (SOP)&lt;/h3&gt;
-&lt;h4&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于模块化API调用的数据交互框架，通过同步下载与异步回调机制实现高频行情、财务报表及市场元数据的获取与离线化存储。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：合约代码（如 600000.SH）、市场代码、时间区间、报告类型等参数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：嵌套字典、时间戳列表、布尔值及结构化的财务报表数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Level 2 主笔成交&lt;/strong&gt;：包含高频细节的精细交易数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回调函数 (Callback)&lt;/strong&gt;：批量下载任务中用于实时反馈进度的监控机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;同步执行&lt;/strong&gt;：程序需等待数据下载完成方可进入下一环节的运行模式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h4&gt;
-&lt;h4&gt;场景 1：多维度行情数据获取&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：获取连续的高频细节数据及历史行情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[高频获取]&lt;/strong&gt;：调用 &lt;code&gt;GET12 Transaction&lt;/code&gt; 提取主笔成交数据（需预先开启缓存以确保数据连续）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[单合约下载]&lt;/strong&gt;：使用 &lt;code&gt;Download HistoryData&lt;/code&gt; 针对特定合约下载历史序列。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[批量提效]&lt;/strong&gt;：调用 &lt;code&gt;Download HistoryDataR&lt;/code&gt; 并配置 &lt;code&gt;Callback&lt;/code&gt; 函数，实现集团军式批量下载并实时监控进度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;场景 2：交易日历与时间管理&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：排除非交易日，精确控制回测或策略执行时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[节假日列表]&lt;/strong&gt;：调用 &lt;code&gt;Get Holidays&lt;/code&gt; 获取当年节假日。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[交易日精准化]&lt;/strong&gt;：使用 &lt;code&gt;Get Trading Calendar&lt;/code&gt; 锁定特定市场的交易日期，并将 &lt;code&gt;Trad Times&lt;/code&gt; 设为 &lt;code&gt;True&lt;/code&gt; 以获取具体时段。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[标的验证]&lt;/strong&gt;：调用 &lt;code&gt;Get Trade Times&lt;/code&gt; 输入合约代码，确认其官方交易时段（含夜盘）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;场景 3：基本面财务分析深度提取&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：跨公司、跨周期的财务对比分析。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[多表提取]&lt;/strong&gt;：使用 &lt;code&gt;Set Financial Data&lt;/code&gt; 指定 &lt;code&gt;start time&lt;/code&gt;、&lt;code&gt;end time&lt;/code&gt; 及 &lt;code&gt;report type&lt;/code&gt;（报告截止日或披露日）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[数据下沉]&lt;/strong&gt;：通过 &lt;code&gt;Download Financial Data 2&lt;/code&gt; 配合回调函数，将资产负债表、利润表等批量存储至本地数据库。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;场景 4：板块轮动与成分分析&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：构建板块研究框架并分析指数权重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[板块同步]&lt;/strong&gt;：执行 &lt;code&gt;Download Sector Data&lt;/code&gt; 更新本地分类信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[列表检索]&lt;/strong&gt;：通过 &lt;code&gt;Get Sector List&lt;/code&gt; 与 &lt;code&gt;Get Stock List In Sector&lt;/code&gt; 提取成分股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[权重分析]&lt;/strong&gt;：调用 &lt;code&gt;Get Index Weight&lt;/code&gt; 获取指数内各成分股的具体权重占比。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[report type]&lt;/strong&gt;：财务数据筛选核心变量 -&amp;gt; 决定基于财报自然结账期或官方公告披露期进行数据检索。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[Trad Times]&lt;/strong&gt;：时间精度控制开关 -&amp;gt; 开启后可输出具体到分钟的交易时间窗口，用于回测对齐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[Instrument Detail]&lt;/strong&gt;：标的属性过滤器 -&amp;gt; 返回交易所代码、总股本、涨跌幅限制等 10+ 项关键基础属性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;调用前提&lt;/strong&gt;：获取 Level 2 数据前必须确认已完成对应数据的缓存，否则调用将无法保证连续性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据有效性&lt;/strong&gt;：在分析前务必调用 &lt;code&gt;Get Instrument Detail&lt;/code&gt;，若返回 &lt;code&gt;NONE&lt;/code&gt; 则说明合约代码无效，需中止后续逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;灵活定制&lt;/strong&gt;：利用 &lt;code&gt;AddSector&lt;/code&gt; 和 &lt;code&gt;RemoveSector&lt;/code&gt; 构建基于个人研究逻辑的自定义板块，而非局限于官方分类。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;索引生成&lt;/strong&gt;：使用 &lt;code&gt;Get Trading Dates&lt;/code&gt; 直接生成时间戳列表，是构建日线数据索引的最便捷方式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1s1XfB3EN7</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/e62521b45f039a6c721eb68ee68ed192776f313f.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 02 Apr 2026 14:12:41 +0800</pubDate>
     </item>
   </channel>
 </rss>
