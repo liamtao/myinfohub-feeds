@@ -7,7 +7,85 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Apr 2026 22:44:43 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 08:34:01 +0000</lastBuildDate>
+    <item>
+      <title>量价淘金：识别趋势资金Alpha，构建核心量化因子</title>
+      <link>https://www.bilibili.com/video/BV1WQo9BiEyq</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1WQo9BiEyq"&gt;基于趋势资金日内交易行为的高阶量价选股因子研究&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么量化交易者不应迷信“机构大单”标签，而应从原始数据挖掘Alpha？&lt;/li&gt;
+&lt;li&gt;💡 如何通过“量价双剑合璧”的因子，精准捕捉市场中的反转与多空力量？&lt;/li&gt;
+&lt;li&gt;🚀 综合因子即便剔除市场风格后仍能持续跑赢，其背后的“纯净Alpha”源于何处？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 趋势资金：识别市场“大钱”的底层逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;超越表象，直击异动&lt;/strong&gt;: 不依赖滞后的机构大单标签，而是直接从分钟级成交量数据挖掘异动。异常放大的成交量是趋势资金介入的第一信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态阈值穿透&lt;/strong&gt;: 回看过去五个交易日的分钟成交量序列，取90%分位数作为动态阈值。即时成交量超过此阈值，即判定为趋势资金强势介入的活跃信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 想象市场如同一个“水池”，成交量是“入水量”。我们不是看新闻报道谁往里倒了水，而是直接监测水位（量）的异常波动。如果一分钟内涌入的水量远超过去5天的正常峰值（90%分位数），那么这股水流极可能就是“大钱”在推动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量价因子双剑合璧：构建Alpha的路径&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子一：趋势资金相对均价因子 (反转信号)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;计算&lt;/strong&gt;: (趋势资金成交均价 / 当天全市场分钟成交均价) - 1。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;若趋势资金成交均价 &lt;strong&gt;显著高于&lt;/strong&gt; 市场均价：判断为出货压力，看空信号。&lt;/li&gt;
+&lt;li&gt;若趋势资金成交均价 &lt;strong&gt;相对低于&lt;/strong&gt; 市场均价：判断为逢低吸筹，看多信号。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💡 核心洞察&lt;/strong&gt;: 该因子具备显著的负IIC均值（-0.044），反映强烈反转效应。高位活跃预示下行风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子二：支撑成交量与阻力成交量因子 (力量博弈)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;: 收盘价低于均价时，成交量为“支撑量”；收盘价高于均价时，成交量为“阻力量”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量化&lt;/strong&gt;: 净支撑量 = (总支撑量 - 总阻力量) / 流通股本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💡 核心洞察&lt;/strong&gt;: 仅关注趋势资金产生的净支撑量，预测效果更佳。净支撑量越大，多头优势越明显。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;综合因子：等权合成与实战表现&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;合成&lt;/strong&gt;: 将标准化后的“相对均价因子”与“净支撑量因子”等权合成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实证&lt;/strong&gt;: 2014-2024年回测显示，年化ICIR 3.12，信息比率 2.99，月度胜率超82%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要只关注全天数据，主力资金的博弈过程才蕴含真Alpha。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 Alpha的纯净性验证与适用边界&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度剥离：BARR中性化&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;: 剔除因子与流动性、特质波动率等风格因子可能存在的重合，验证其是否提供“纯净增量信息”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;采用BARR中性化技术，通过回归取残差，剥离行业因素和已知风格因素。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💡 核心洞察&lt;/strong&gt;: 即使剥离所有常用风格，纯净因子年化收益仍达11.98%，证实了量价逻辑的独特性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子适应性与鲁棒性&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;样本空间&lt;/strong&gt;: 在中证1000和国证2000等小盘股指数中表现最佳，因其定价效率低、资金驱动波动明显。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数鲁棒&lt;/strong&gt;: 回看天数和成交量阈值调整对因子整体效果影响小，说明策略逻辑稳健，未过度拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;针对不同宽基指数特点，进行差异化的因子配置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “真正的量化思维应该返璞归真，不依赖那些经过二次加工、可能存在滞后或干扰的标签，而是直接从最原始最真实的数据——分钟级成交量中去挖掘异动。”&lt;/li&gt;
+&lt;li&gt;💬 “量化投资的本质是去捕捉那些高概率的盈亏比，而不是预测每一次的涨跌。”&lt;/li&gt;
+&lt;li&gt;💬 “量价淘金重在跟随趋势而胜在系统化的纪律。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1WQo9BiEyq</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/8c83db21799915f049f40f685db0d99e6eaf15b3.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 25 Apr 2026 21:55:08 +0800</pubDate>
+    </item>
     <item>
       <title>A股抱团化极致赚钱效应：行为金融视角下的游资与机构微观机制及其量化策略启示</title>
       <link>https://bbs.quantclass.cn/thread/79273</link>
@@ -5562,59 +5640,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-06&amp;talker=58453205219@chatroom</guid>
       <pubDate>Mon, 06 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI代理高效协作策略：任务拆分、指令自包含与安全隔离实践</title>
-      <link>https://bbs.quantclass.cn/thread/77712</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77712"&gt;【ClaudeCode从源码看应用】03-多个AI的协作模式&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI代理协作, 任务拆分, Prompt工程, 模型分级, 上下文隔离, 成本优化]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示Anthropic多Agent协作系统设计精髓，指导用户通过任务拆分、指令自包含、模型分级和安全隔离提升AI开发效率与成本效益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：单一AI Agent处理复杂任务易因缺乏职责分工导致方向错误、效率低下及高成本返工；多Agent协作面临分工冲突、上下文污染和安全风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;三层协作模式&lt;/strong&gt;：子代理（SubAgent，处理小活如搜索，使用便宜模型如Haiku）、协调器（Coordinator，处理大活，充当项目经理，不执行具体操作）、蜂群（Swarm，处理平行活，通过信箱通信）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具限制&lt;/strong&gt;：协调器Agent的可用工具被硬性限定为&lt;code&gt;Agent&lt;/code&gt;（派发Worker）、&lt;code&gt;SendMessage&lt;/code&gt;、&lt;code&gt;TaskStop&lt;/code&gt;，禁止执行如Bash、Edit、Read等实际操作工具，防止其退化为单Agent。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型分级&lt;/strong&gt;：调研/搜索任务强制派发给使用Haiku等便宜模型的Agent；具体实施任务使用Sonnet等更昂贵但更强大的模型，实现成本优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缓存优化&lt;/strong&gt;：Fork模式要求子Agent的&lt;code&gt;systemPrompt&lt;/code&gt;、&lt;code&gt;userContext&lt;/code&gt;、&lt;code&gt;forkContextMessages&lt;/code&gt;与父级字节级相同，利用API缓存机制（cache read比input便宜90%）来降低重复上下文的成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;指令自包含&lt;/strong&gt;：强调Worker的Prompt必须是“self-contained”，避免“基于你的发现”等模糊指令，要求具体到文件路径和行号（e.g., “Fix the null pointer in src/auth/validate.ts:42…”）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;错误处理策略&lt;/strong&gt;：当Worker方法完全错误时，应“新开一个”Worker而非让其继续，以避免错误上下文锚定其思路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;沙盒与隔离&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;工具过滤&lt;/strong&gt;：通过四层独立运行的工具过滤机制（元工具、自定义限制、后台白名单、自身禁用列表）确保Agent权限受控。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文隔离&lt;/strong&gt;：子Agent通过&lt;code&gt;createSubagentContext&lt;/code&gt;创建独立上下文，核心是&lt;code&gt;setAppState: () =&amp;gt; {}&lt;/code&gt;（空操作），确保子Agent无法修改父级状态，防止并行Agent状态冲突。中断信号单向传播，防止无限递归。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;Explore Agent每周调用3400万次，通过使用Haiku模型及&lt;code&gt;omitClaudeMd: true&lt;/code&gt;（每周节省5-15 Gtok）显著降低调研成本。&lt;/li&gt;
-&lt;li&gt;API缓存命中可使cache read比input便宜90%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;用户自定义Agent（位于&lt;code&gt;.claude/agents/&lt;/code&gt;）天生比内置Agent多一层限制，可能导致某些工具无法使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;任务拆解与Prompt工程&lt;/strong&gt;：在进行复杂的AI辅助开发时，主动将大任务分解为“调研（使用便宜模型）→ 审核（人工干预）→ 实施（使用更强模型）”三阶段。确保对每个AI Agent的指令都高度“自包含”，明确指定操作目标（文件路径、行号）和具体改动细节，以减少返工。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;架构设计参考&lt;/strong&gt;：在构建自己的多Agent系统或集成AI工具流时，借鉴Claude Code的协调器模式。对不同职责的Agent强制实施工具权限限制，并实现上下文隔离（特别是禁止子Agent修改父级或兄弟Agent的状态），以提升系统的稳定性、可控性和可调试性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本与效率优化实践&lt;/strong&gt;：针对不同类型任务（如代码搜索、数据分析等），优先配置成本更低的AI模型。同时，在设计Agent之间的通信和状态传递时，考虑如何最大化利用API服务商的缓存机制（例如，通过保持请求参数的字节级一致性）来进一步降低Token消耗。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77712</guid>
-      <pubDate>Sun, 05 Apr 2026 21:46:18 +0800</pubDate>
     </item>
   </channel>
 </rss>
