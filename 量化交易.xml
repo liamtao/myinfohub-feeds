@@ -7,7 +7,65 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Apr 2026 22:33:42 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 08:39:46 +0000</lastBuildDate>
+    <item>
+      <title>强化学习量化交易全流程实操指南：从环境建模到策略回测</title>
+      <link>https://www.bilibili.com/video/BV1rt9rBXEkv</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1rt9rBXEkv"&gt;强化学习量化交易实战：环境搭建、奖励函数设计与策略训练全流程&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 强化学习量化交易系统 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：将交易抽象为马尔可夫决策过程 (MDP)，通过智能体 (Agent) 与市场环境 (Environment) 的闭环交互，利用奖励机制 (Reward) 驱动策略进化，以追求风险调整后的长期收益最大化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：历史 OHLCV 数据、技术指标 (MACD等) 及账户状态 (持仓、现金)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：离散或连续的交易动作指令 (买入、卖出、持有)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MDP (马尔可夫决策过程)&lt;/strong&gt;：强化学习建模的数学框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gym 接口&lt;/strong&gt;：标准化的强化学习环境封装协议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PPO 算法&lt;/strong&gt;：目前量化领域主流的稳健策略梯度算法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：模拟交易环境构建 (Gym Environment Setup)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：创建一个能够复现真实交易摩擦的实验室。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[初始化]&lt;/strong&gt;：加载 OHLCV 原始数据流，定义观测空间 (Observation Space) 与动作空间 (Action Space)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[核心逻辑编写]&lt;/strong&gt;：在 &lt;code&gt;step&lt;/code&gt; 函数中封装成交逻辑，必须包含 &lt;strong&gt;手续费 (Fee)&lt;/strong&gt;、&lt;strong&gt;滑点 (Slippage)&lt;/strong&gt; 及流动性限制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[状态预处理]&lt;/strong&gt;：对价格数据执行 &lt;strong&gt;归一化 (Normalization)&lt;/strong&gt;，转换为 Z-score 或百分比，以避免梯度爆炸。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：奖励函数设计与模型训练 (Reward Design &amp;amp; Training)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过“胡萝卜加大棒”引导智能体形成预期的交易风格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[奖励函数赋值]&lt;/strong&gt;：引入 &lt;strong&gt;夏普比率 (Sharpe Ratio)&lt;/strong&gt; 或风险调整后收益，而非单纯的即时盈亏，并加入 &lt;strong&gt;最大回撤惩罚 (MDD Penalty)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[训练划分]&lt;/strong&gt;：采用 &lt;strong&gt;Walk-forward (滚动窗口)&lt;/strong&gt; 分析法划分数据，确保训练集时间轴始终早于验证集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[监控收敛]&lt;/strong&gt;：实时观测奖励曲线，确保模型在震荡后趋于稳定上升。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Volatility (市场波动率)]&lt;/strong&gt;：控制模拟环境的剧烈程度，用于压力测试策略的鲁棒性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Gamma (折扣因子)]&lt;/strong&gt;：平衡智能体对当下收益与长远利益的权重比例。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Learning Rate (学习率)]&lt;/strong&gt;：决定模型更新步长，需通过实验寻找防止过拟合的平衡点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：严禁 &lt;strong&gt;未来函数 (Look-ahead bias)&lt;/strong&gt;。若模型在验证集上表现异常完美，必须核实是否偷看了训练集之后的价格数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：使用 &lt;strong&gt;蒙特卡洛模拟&lt;/strong&gt; 为历史数据注入随机噪声，若策略在扰动后仍能获利，则说明具备实战意义的鲁棒性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1rt9rBXEkv</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/6d39404ff9e4ad3b29b3560066838eecb4e99b66.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 28 Apr 2026 13:22:06 +0800</pubDate>
+    </item>
     <item>
       <title>告别手工下单：币安U本位永续合约高频震荡做市策略实践与开源</title>
       <link>https://bbs.quantclass.cn/thread/79620</link>
@@ -5629,58 +5687,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77787</guid>
       <pubDate>Tue, 07 Apr 2026 02:12:05 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化择时进阶：15分钟复权方案、魔改小市值与定风波策略实战</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;amp;talker=57784510736@chatroom"&gt;2026-04-07_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;📊 15分钟均线复权的两种“避坑”姿势&lt;/h4&gt;
-&lt;p&gt;在处理15分钟级别的高频择时数据时，除权复权处理非常棘手。群内探讨了两种可行的妥协方案：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方案一：跳空缺口记忆清零&lt;/strong&gt;。当检测到开盘价与前日收盘价出现剧烈跳空（如跌幅&amp;gt;10%，判定为除权）时，直接清空均线历史记忆，从今日起重新计算。优点是代码极简，缺点是除权初期的预热阶段会丢失信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方案二：择时信号“升维”处理&lt;/strong&gt;。将15分钟数据的计算结果转化为日线级别的因子存入数据库。这样可完美兼容现有回测引擎，速度快且逻辑清晰，但牺牲了日内择时的即时性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛡️ 定风波策略：是意大利式防守，更是进攻利器&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;打破“防守”固有印象&lt;/strong&gt;：通过灵活设置权重（如[0.8, 0.8, 0.9, 0.9, 1.0]），定风波可以在开盘即保持高仓位进攻，并根据盘中行情随时决定是否离场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略共识&lt;/strong&gt;：定风波具备极佳的“防守反击”特性，其非对称的仓位管理逻辑能够有效规避阴跌，同时在反弹中迅速捕捉利润。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🚀 魔改凌烟阁：小市值择时的极致表现&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“强力苏打水”魔改版&lt;/strong&gt;：该方案将官方基本面小市值策略与凌烟阁择时逻辑相结合（5D5支+满OFFSET），回测夏普比率达到惊人的2.62。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：基础策略必须具备长期向上的内驱力。择时的核心任务是“止损控大跌”，而非过度干预利润增长，不设止盈才能让利润奔跑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实操注意&lt;/strong&gt;：在凌烟阁框架下进行回测时，应优先使用5D数据，避免使用W（周频）数据以排除潜在的未来函数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🧠 极简主义与AI工具：让量化回归逻辑本质&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子少即是多&lt;/strong&gt;：策略应当追求简单、可解释。尽量减少因子和过滤条件，能用因子排序解决的就不要上策略库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI赋能实操&lt;/strong&gt;：利用Claude Code等AI工具，可以快速实现因子转换与逻辑验证。量化交易者的核心价值在于“思路”，而具体的编码落地已可大量托管给AI。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💡 关键金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“硬的是拳头，不是五指。” —— 無慈悲な定量化機械 (强调逻辑应聚焦核心而非分散)&lt;/li&gt;
-&lt;li&gt;“思路才重要，我已经好久好久没有写任何代码了。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“当你觉得小市值策略永久失效的时候，我这个择时就的确是没有意义了。” —— 强力苏打水&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77736&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/77711&lt;/li&gt;
-&lt;li&gt;https://www.quantclass.cn/quiz/quiz_853c0374aa5feea763ead98c05fcac4c&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77763&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/75656&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76837&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77808&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-07&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
