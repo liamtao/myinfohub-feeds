@@ -7,7 +7,72 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 29 Apr 2026 01:04:10 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 08:38:47 +0000</lastBuildDate>
+    <item>
+      <title>打造 Claude 专属工作系统：基于 Markdown 的持久化记忆与多级工作流构建实操</title>
+      <link>https://www.youtube.com/watch?v=0_dSWLOHKng</link>
+      <description>&lt;p&gt;&lt;a href="UCwAnu01qlnVg1Ai2AbtTMaA"&gt;Jeff Su&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=0_dSWLOHKng"&gt;Claude Cowork for Beginners: Build Your Own Jarvis&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Co-work OS (基于 Claude) - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：通过在本地文件系统构建“指令-记忆-资源”三层结构的 Markdown 文档树，实现 AI 的持久化上下文映射与多层级规则叠加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：本地配置文件（claude.md/memory.md）与业务素材（邮件、账单、会议记录）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：具备高度个人风格化的邮件草稿、自动化处理后的财务报表及 Notion 任务页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Root Claude MD&lt;/strong&gt;：全局“宪法”，定义系统基础行为准则与文件路由逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory MD&lt;/strong&gt;：数字大脑的长期记忆区，用于跨会话存储项目进度与用户偏好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Workstation&lt;/strong&gt;：垂直工作站，针对特定场景（如 Email HQ, Finance HQ）的规则子集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：系统初始化与地基搭建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：构建具备记忆功能的 AI 基础环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[目录构建]&lt;/strong&gt;：创建 &lt;code&gt;Co-work OS&lt;/code&gt; 父文件夹，放入 &lt;code&gt;claude.md&lt;/code&gt; 和 &lt;code&gt;memory.md&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[资源挂载]&lt;/strong&gt;：新建 &lt;code&gt;00 resources&lt;/code&gt; 文件夹，存放 &lt;code&gt;voice_principles.md&lt;/code&gt; 等底层知识库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[权限授权]&lt;/strong&gt;：在 Claude 界面挂载该父文件夹，并设置为 &lt;code&gt;Always Allow&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：垂直工作站 (Workstation) 的自动化创建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：针对特定任务场景（如个人财务管理）进行规则隔离与强化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[指令触发]&lt;/strong&gt;：运行专用 Prompt 模板，由 AI 自动生成子文件夹及对应的规则文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[规则叠层]&lt;/strong&gt;：在子文件夹的 &lt;code&gt;claude.md&lt;/code&gt; 中写入特定 SOP（如：邮件签名的固定格式、特定账目的分类标准）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[反馈修正]&lt;/strong&gt;：当 AI 分类错误时，在当前会话纠正，规则将自动同步至本地文件实现“一次修正，终身应用”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Routing Map]&lt;/strong&gt;：定义了不同任务与文件夹的映射关系，确保 AI 仅在需要时加载相关上下文，降低 Token 消耗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Session Audit]&lt;/strong&gt;：会话审计指令，触发 AI 扫描对话并提取新的用户偏好存入 &lt;code&gt;memory.md&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;根目录 &lt;code&gt;claude.md&lt;/code&gt; 必须保持在 300 行以内，否则会因默认全量加载导致 API 成本剧增。&lt;/li&gt;
+&lt;li&gt;严禁在多个层级的配置文件中定义冲突规则，遵循“根目录统领全局，工作站精细定义”原则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型策略&lt;/strong&gt;：80% 的任务使用 Sonnet 模型，仅在执行跨 3 步以上的复杂逻辑推理时切换至 Opus 以平衡性能与成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;辅助工具&lt;/strong&gt;：使用免费的 Obsidian 应用来可视化管理 Markdown 配置文件，无需学习软件用法，仅作阅读器使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=0_dSWLOHKng</guid>
+      <enclosure url="https://i.ytimg.com/vi/0_dSWLOHKng/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 28 Apr 2026 13:00:03 +0800</pubDate>
+    </item>
     <item>
       <title>从精准转录到全自动压制：基于 ElevenLabs 与 Gemini 的 AI 字幕工作室全流程实操指南</title>
       <link>https://www.bilibili.com/video/BV112doBCEDt</link>
