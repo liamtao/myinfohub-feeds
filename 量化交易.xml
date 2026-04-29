@@ -7,7 +7,64 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 28 Apr 2026 08:39:46 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 01:04:10 +0000</lastBuildDate>
+    <item>
+      <title>彩虹集团千因子管理器：统一管理、自动化计算与分析的Python UI工具</title>
+      <link>https://bbs.quantclass.cn/thread/79841</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/79841"&gt;千因子的好助手 - 因子管理器1.0版发布&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[因子管理工具, 量化因子, 统一管理, 自动化分析, Python UI]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[一个轻量级Python UI工具，实现千因子统一管理、自动化导入导出、计算与分析。]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;千因子分散于多个&lt;code&gt;.py&lt;/code&gt;文件，难以搜索与管理。&lt;/li&gt;
+&lt;li&gt;因子定义、配置、分析流程割裂，需手动修改&lt;code&gt;config.py&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;选股框架升级需重复复制粘贴因子文件，维护成本高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心目标&lt;/strong&gt;：因子代码包含元信息，实现导入、导出、搜索、浏览、查看、计算、分析一体化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构设计&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;统一入口&lt;/strong&gt;：所有因子数据化存储到数据库（包含源代码、元信息FA_INFO）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动解析&lt;/strong&gt;：因子代码遵循约定（例如FA_INTRO元信息），工具能自动提取完整元信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轻量外挂&lt;/strong&gt;：采用轻量级Python UI框架（如Gradio），不侵入现有彩虹集团框架代码，易于部署。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署环境&lt;/strong&gt;：Python 3.12, conda环境（可复用选股框架环境），依赖&lt;code&gt;requirements.txt&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互方式&lt;/strong&gt;：Web UI（&lt;code&gt;http://localhost:7860&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子元信息解析&lt;/strong&gt;：扫描&lt;code&gt;.py&lt;/code&gt;文件，自动解析&lt;code&gt;FA_INTRO&lt;/code&gt;结构，提取因子名称、分类、描述、案例、关联链接及完整源代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据持久化&lt;/strong&gt;：将解析后的因子元数据和源代码存储于数据库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;批量计算逻辑&lt;/strong&gt;：用户通过UI选择因子、配置参数后，工具自动区分时序/截面因子，写入&lt;code&gt;factor_list&lt;/code&gt;或&lt;code&gt;cross_sections&lt;/code&gt;，执行计算，结果存入&lt;code&gt;运行缓存&lt;/code&gt;目录，无需手动修改策略配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单因子分析自动化&lt;/strong&gt;：直接读取&lt;code&gt;pkl&lt;/code&gt;计算结果，一键执行单因子分析脚本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;配置路径&lt;/strong&gt;：需在&lt;code&gt;config.py&lt;/code&gt;中设置&lt;code&gt;SELECT_STOCK_PRO_PATH&lt;/code&gt;指向&lt;code&gt;select-stock-pro&lt;/code&gt;目录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;导出机制&lt;/strong&gt;：支持「覆盖同名因子」或「跳过」，避免冲突。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;框架解耦&lt;/strong&gt;：因子存储在数据库，与外部选股框架解耦，升级框架时一键导出即可复用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于现有的分散因子库，可借鉴该工具的思路，设计一套基于数据库的因子元数据管理系统，实现因子代码、描述、案例的统一存储与版本控制。&lt;/li&gt;
+&lt;li&gt;在因子代码中强制引入&lt;code&gt;FA_INTRO&lt;/code&gt;或类似元信息结构，通过自动化脚本解析并入库，提升因子可发现性和复用性。&lt;/li&gt;
+&lt;li&gt;开发或集成一个轻量级Web UI界面（如基于Gradio/Streamlit），作为因子管理、计算任务提交和结果分析的统一前端，简化研究员操作流程。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/79841</guid>
+      <pubDate>Tue, 28 Apr 2026 22:36:13 +0800</pubDate>
+    </item>
     <item>
       <title>强化学习量化交易全流程实操指南：从环境建模到策略回测</title>
       <link>https://www.bilibili.com/video/BV1rt9rBXEkv</link>
@@ -65,6 +122,139 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1rt9rBXEkv</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/6d39404ff9e4ad3b29b3560066838eecb4e99b66.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 28 Apr 2026 13:22:06 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化实战洞察：从情绪宠物到AI驱动的策略进阶</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;amp;talker=57784510736@chatroom"&gt;2026-04-28_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;核心内容提炼&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏝️ 参数孤岛是过拟合吗？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;理解“案发现场”&lt;/strong&gt;：参数孤岛不一定代表过拟合。土土认为，关键在于你如何看待它。如果能解释清楚策略为什么在特定参数下收益高，它就不是孤岛，而是“新大陆”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可解释性优先&lt;/strong&gt;：如果策略的可解释性强，即便参数看起来孤立，只要逻辑闭环，依然具备实战价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🐱 情绪也是生产力：量化客户端的“宠物”哲学&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓解交易焦虑&lt;/strong&gt;：木木十三展示了在交易客户端中接入AI驱动的“宠物”系统。宠物背景会根据行情实时变化，行情大涨时会要礼物，行情差时会安慰用户。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正面情绪引导&lt;/strong&gt;：与其盯着冷冰冰的数字，不如通过视觉和互动缓解压力。这种“温润”的UI设计能让人在面对回撤时保持心平气和。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤖 AI时代的量化降维打击&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;选型胜过努力&lt;/strong&gt;：在AI时代，选对开发框架（如Rails或彩虹封装）能减少90%的工作量。木木十三强调：“没有配置才是好AI体系”，过多的技能约束反而束缚AI的自主思考。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据分析收益最高&lt;/strong&gt;：不要把所有精力都花在“魔改”策略逻辑上，利用AI进行深度的数据分析、研究选股池的盈亏逻辑，带来的增量收益远超单纯修改参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📉 实战策略优化建议&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定风波的“域”管理&lt;/strong&gt;：定风波策略不建议全市场运行，必须做好过滤和分域。通过AI分析每日选股池，优化“池子”比魔改因子更有效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;凌烟阁的择时逻辑&lt;/strong&gt;：凌烟阁策略在1H（一小时）级别通过DMA金叉/死叉配合小市值及净利润增速，能更灵敏地捕捉动量拐点，有效避开大跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;形态选股工具化&lt;/strong&gt;：白河分享了一个形态选股因子，支持将任何“灵机一动”的K线走势转化为可回测的因子。这让“俺寻思”式的盘感能够被快速验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 交易金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“有些人把孤岛当孤岛，哥伦布把孤岛开发成了新大陆。” —— &lt;strong&gt;土土&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“回到案发现场。”（指理解策略参数背后的逻辑） —— &lt;strong&gt;土土&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“定风波研究选股池，比研究魔改有收益。” —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;“没有配置才是好AI体系。” —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/79743 (海龟与KDJ择时叠加)&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/78124 (行业过滤应用)&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/75656 (杰克策略研究)&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/68863 (形态选股进阶)&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=79807 (15分钟MA13择时)&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76971 (凌烟阁船队任务)&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76973 (学习路径)&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/76970 (优秀帖合集)&lt;/li&gt;
+&lt;li&gt;https://qtcls.cn/62245 (常见问题)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>交易所困境与量化策略升级：邢不行布局多平台交易</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;amp;talker=58453205219@chatroom"&gt;2026-04-28_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📉 币安桌面版菜单“失踪”引用户吐槽，交易所稳定性成关注焦点&lt;/h3&gt;
+&lt;p&gt;有用户反映币安桌面版客户端出现“菜单消失”的严重Bug，导致无法正常操作。客服回复确认了问题，这引发了用户对币安作为“全球顶尖交易所”却频繁出现低级错误的质疑。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;用户痛点&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;币安桌面版客户端关键菜单不见踪影，严重影响交易体验。&lt;/li&gt;
+&lt;li&gt;连API管理都出现问题，用户被迫使用手机App完成操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社区声音&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;“服了，还不如彩虹集团。” （Future江）&lt;/li&gt;
+&lt;li&gt;“真是作为全球顶尖的交易所，各种低级错误不断。” （WN_暖春拂晓）&lt;/li&gt;
+&lt;li&gt;有人猜测可能是交易所故意引导用户转向网页版。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💰 市场震荡下动量策略承压，资深交易者分享应对思路&lt;/h3&gt;
+&lt;p&gt;近期市场表现低迷，多位用户表示面临“新低👉加仓👉新低”的循环困境，疑问动量策略是否已失效。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前市场情绪&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;普遍感受到“动量低迷”，可能需要半年时间（预计到11月或年底）才能回本。&lt;/li&gt;
+&lt;li&gt;有人认为被“动量大佬们挤死了”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;邢不行回应&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;强调动量策略在经历大幅上涨后出现回调是正常现象，并非必然代表“拥挤”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 邢不行预告多交易所量化交易框架，提升策略抗风险能力&lt;/h3&gt;
+&lt;p&gt;针对单交易所的局限性和市场变化，邢不行团队透露正在积极开发多交易所实盘框架，旨在通过分散化提升策略的稳定性和收益潜力。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心优势&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多交易所接入&lt;/strong&gt;: 实盘框架将接入包括OKX、币安在内的多家主流交易所，甚至可能扩展至第三家。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全币种选择&lt;/strong&gt;: 多头策略将在所有接入交易所的全部币种中进行选择，优化投资标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金灵活流转&lt;/strong&gt;: 用户的资金将能在不同交易所间动态分配，例如30%仓位在A交易所，40%在B交易所。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险控制&lt;/strong&gt;: 建议保持低杠杆（例如一倍杠杆），以应对多平台操作可能带来的复杂性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略优化&lt;/strong&gt;: 即使出现多头集中在BN、空头集中在OK的情况，也在系统设计考虑之中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 MACD高位死叉信号解读：短期减仓或止盈考量&lt;/h3&gt;
+&lt;p&gt;有交易者提出“日MACD即将高位死叉”的观点，社区成员TheNotoriousPhD进行了详细的解读，为投资者提供了实用的技术分析指引。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MACD死叉核心概念&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MACD死叉&lt;/strong&gt;: DIF线（快线）从上方向下穿过DEA线（慢线），形成看跌信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高位死叉&lt;/strong&gt;: 发生在零轴上方较高位置，表明前期上涨动能衰竭，多头获利盘较多，杀伤力通常更大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“即将”&lt;/strong&gt;: 意味着DIF和DEA快速收敛，柱状图持续缩短，死叉迫近。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战意义&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;减仓/止盈信号&lt;/strong&gt;: 短期内可视为减仓或止盈的信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号可靠性&lt;/strong&gt;: 若配合放量、价格滞涨或顶背离，信号可靠性更高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;滞后性&lt;/strong&gt;: MACD是滞后指标，日线级别死叉确认时，价格可能已从高点回落一段，因此“即将死叉”时便需关注。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并非绝对下跌&lt;/strong&gt;: 高位死叉后不一定是大跌，也可能是高位震荡整理后再上涨，需结合价格结构、成交量和更高级别的趋势综合判断。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 金句集锦&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“真是作为全球顶尖的交易所，各种低级错误不断。” — WN_暖春拂晓&lt;/li&gt;
+&lt;li&gt;“动量最近回撤不是很正常吗，前段时间涨太多了。” — 邢不行&lt;/li&gt;
+&lt;li&gt;“做好投资就好，对自己负责。” — Julien&lt;/li&gt;
+&lt;li&gt;“大学生动量91开，就稳多了吧。对你的动量策略质量要求也不高。” — 邢不行&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-28&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>告别手工下单：币安U本位永续合约高频震荡做市策略实践与开源</title>
@@ -5581,112 +5771,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77842</guid>
       <pubDate>Wed, 08 Apr 2026 14:35:07 +0800</pubDate>
-    </item>
-    <item>
-      <title>中东停火引爆市场：油价跳水与量化策略的BUG致富实录</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;amp;talker=57784510736@chatroom"&gt;2026-04-08_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;🌍 消息面的降维打击：伊朗停火提议让油价跌入“冷宫”&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原油剧震&lt;/strong&gt;：伊朗接受巴基斯坦提出的停火提议，导致原油价格暴跌约16%。市场情绪从避险迅速转向反弹，原油多头遭遇“禁忌之力”打击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;特朗普因子&lt;/strong&gt;：特朗普关于恢复对伊朗军事行动的言论成为市场最大的不确定变量。群友戏称其为“不用掏钱就能拉盘砸盘”的高手。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📈 策略实战：定风波全军出击，“BUG致富”成新梗&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;BUG的意外惊喜&lt;/strong&gt;：由于QMT软件或仓位配置出现异常（如仓位突破100%或计算偏差），部分群友在开盘跳水时阴差阳错持有重仓，反而在反弹中获利。“放心，BUG致富”成为群内自嘲的热点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略表现分化&lt;/strong&gt;：小市值策略持续强势并接近新高；凌烟阁与定风波策略在日内换仓中表现稳健；风火轮策略在当前市场高频轮动中表现较为吃力，被形容为“被打得好酸爽”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛠️ 工具迭代：实盘客户端3.6.0版本开启公测&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;全自动时代到来&lt;/strong&gt;：邢不行宣布实盘客户端公测版上线，支持凌烟阁、风火轮、定风波等多个策略同时运行，并增加了“精心随机”等功能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实操细节探讨&lt;/strong&gt;：讨论了调仓的时间点选择，指出5分钟偏移是为了预留数据计算时间。建议关注“早盘糖”因子，通过分析隔夜跳空收益来优化个股择时。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🧠 盘面逻辑：中枢震荡中的加仓艺术&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关键位判断&lt;/strong&gt;：红牛老板分享了基于“缠论”的判断，认为中枢底部是加仓位置，突破中枢时是重要买点。4200点左右是关键博弈区。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避险策略&lt;/strong&gt;：考虑到“懂王”特朗普的不确定性，建议若出现连涨，周五应适当减仓以锁定利润。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 聊天室金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“放心，BUG致富。” —— 土土&lt;/li&gt;
-&lt;li&gt;“中枢的底是加仓位置，突破中枢时是加仓点。” —— 红牛&lt;/li&gt;
-&lt;li&gt;“策略一大把，钱钱不够用。” —— --坤&lt;/li&gt;
-&lt;li&gt;“这是一个嘴硬的时代，最强王者。” —— 黑黑夜夜&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=76426&lt;/li&gt;
-&lt;li&gt;https://www.quantclass.cn/quiz/quiz_853c0374aa5feea763ead98c05fcac4c&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77550&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77842&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/77822&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>波动中的量化生存指南：特朗普行情、停火逻辑与动量修行</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;amp;talker=58453205219@chatroom"&gt;2026-04-08_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🏗️ 市场格局：特朗普行情与策略轮动&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略表现差异&lt;/strong&gt;：邢不行指出，当前拉升幅度的排序为：四龙 &amp;gt; 空头大币 ≈ 大饼 &amp;gt; 多头小币。BTC拉升时，往往伴随之前跌幅较大的空头大币补涨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行情特性&lt;/strong&gt;：当前的“特朗普行情”表现为政策预期反复，导致价格暴涨暴跌，这种不确定性对短期交易构成挑战。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🕊️ 地缘政治与流动性逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;停火逻辑的传导&lt;/strong&gt;：市场认为停火会增强“降息预期”，从而改善流动性，这解释了为何停火传闻下金、银、饼同步上涨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资产属性变化&lt;/strong&gt;：金银资产近期避险属性减弱，表现出类似山寨币的高波动特征。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化工具与开发利器&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;新工具预告&lt;/strong&gt;：社区展示了新的对比工具原型，旨在优化实盘与回测数据的实时展示。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI编程辅助&lt;/strong&gt;：在编写量化框架时，Claude Opus 因其强大的逻辑理解和编程能力，被公认为优于其他模型的首选工具。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 实盘警示：动量的“三年门槛”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;入场门槛&lt;/strong&gt;：针对新手上马动量策略，资深成员给出严厉警告：动量策略如果缺乏至少三年的功力（实盘经验），极易导致账户归零。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作建议&lt;/strong&gt;：对于新手，建议优先选择容量大、逻辑稳的策略（如浪填），并坚持“只做右侧，离苦得乐”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💎 金句拾遗&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“这波拉升符合之前的观察，就是在BTC拉升的时候，伴随空头大币涨得多一点。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“动量没个3年功力，容易归零。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“怎么打仗也是我亏钱，不打仗也是我亏钱。” —— 贾真甲&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://www.quantclass.cn/quiz/quiz_853c0374aa5feea763ead98c05fcac4c&lt;/li&gt;
-&lt;li&gt;qtcls.cn/69020&lt;/li&gt;
-&lt;li&gt;qtcls.cn/77054&lt;/li&gt;
-&lt;li&gt;qtcls.cn/51959&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-08&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从TopN到四层防御：凯师傅FCFFEV策略的行业限额与三层质量过滤优化</title>
-      <link>https://bbs.quantclass.cn/thread/77787</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77787"&gt;【凯师傅CashFlow策略深度优化】行业限额+财务过滤，卡玛干到1.06&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info) - &lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子] - &lt;strong&gt;核心标签&lt;/strong&gt;：[FCFFEV因子, 行业限额, 现金流稳定性, 盈利质量] - &lt;strong&gt;一句话总结&lt;/strong&gt;：通过最小干预行业限额与三层财务质量过滤，显著提升中大市值现金流策略的稳定性与Calmar比率。 --- ## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha) - &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：FCFFEV本质是反转因子，个股Alpha极强但在行业下行周期易引发极端集中度风险（如2019年钢铁行业案例）。 - &lt;strong&gt;【因子构建】&lt;/strong&gt;：1. 行业限额(ind&amp;lt;=3)：采用排名优先+行业上限兜底，保留99.2%的原始信号；2. 现金流稳定性：利用8期经营现金流变异系数过滤脉冲型收益（如航运周期）；3. 利润含金量：(OCF-营业利润)/总资产，剔除利润注水；4. 净现金占比：(货币资金-有息负债)/总资产，排除高杠杆估值陷阱。 - &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：2014-2026年，选5只，5D换仓。优化后年化收益34.34%，最大回撤-32.39%，Calmar 1.06（原版0.78）。 - &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：稳定性过滤在V型反弹或极端个股行情（如亚翔集成）中可能存在负向贡献，但属于系统性尾部保护的必要成本。 --- ## 🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering) - &lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决行业配额导致的“凑数股”入选问题，以及如何精准剥离不可持续的脉冲现金流。 - &lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：采用“过滤强于因子”的架构，在Factor Config中通过max_per_ind实现柔性行业约束，并引入财务因子库进行多维布尔筛选。 --- ## 💡 落地与行动指南 (Actionable Takeaways) - 1. 策略重构：将硬性行业配额(Quota)改为“柔性上限(Limit)”，以保持强势因子信号的保真度。 - 2. 质量过滤：在FCF类策略中加入经营现金流稳定性校验，识别并剔除周期性“脉冲现金牛”。 - 3. 风险底线：组合应用利润含金量与资产净现金深度过滤，防御报表注水与杠杆幻觉。&lt;/h2&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77787</guid>
-      <pubDate>Tue, 07 Apr 2026 02:12:05 +0800</pubDate>
     </item>
   </channel>
 </rss>
