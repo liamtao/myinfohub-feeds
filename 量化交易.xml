@@ -7,7 +7,168 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Apr 2026 22:37:43 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 08:40:10 +0000</lastBuildDate>
+    <item>
+      <title>现货-永续合约价差因子的构建逻辑与Python工程实现</title>
+      <link>https://bbs.quantclass.cn/thread/80123</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/80123"&gt;【没什么用系列】五一快乐之送一个26年五一快乐因子。&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[基差因子、截面因子、Pandas向量化、现货合约对齐]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过计算现货与合约的相对偏离并进行滚动均值处理，实现一套捕捉基差回归逻辑的截面因子构建方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于现货价格与永续合约价格之间的基差（Spread）偏离。该逻辑通常基于均值回归原理，即当合约相对于现货产生异常升水或贴水时，通过截面选币捕捉价差收敛的获利空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;计算原始基差：$Spread = (Swap_Close / Spot_Close) - 1$&lt;/li&gt;
+&lt;li&gt;因子平滑：对 Spread 进行 $N$ 周期滚动平均（Rolling Mean），以消除高频噪声并捕捉趋势性偏离。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：代码展示了在缺少直接价差字段时，如何通过 &lt;code&gt;merge&lt;/code&gt; 逻辑将现货 &lt;code&gt;spot_close&lt;/code&gt; 与合约数据按 &lt;code&gt;candle_begin_time&lt;/code&gt; 和 &lt;code&gt;symbol&lt;/code&gt; 进行对齐。特别提到了从预处理的 &lt;code&gt;market_pivot_spot.pkl&lt;/code&gt; 中通过 &lt;code&gt;stack()&lt;/code&gt; 还原长表数据的高效处理手段。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决现货与合约数据在不同数据源/表结构下的对齐问题，以及如何在截面计算中高效处理多币种的滚动窗口逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;向量化合并&lt;/strong&gt;：利用 &lt;code&gt;pd.merge&lt;/code&gt; 实现左连接，确保合约数据不丢失的同时精准匹配对应的现货价格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据重构技巧&lt;/strong&gt;：使用 &lt;code&gt;stack()&lt;/code&gt; 和 &lt;code&gt;reindex&lt;/code&gt; 处理 Pivot 格式的现货价格数据，将其转化为适用于合并的 Tidy Data 格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高效变换&lt;/strong&gt;：使用 &lt;code&gt;groupby().transform()&lt;/code&gt; 配合 &lt;code&gt;rolling&lt;/code&gt; 函数，在保持原始 DataFrame 索引长度一致的同时，完成各币种独立的因子平滑计算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：针对 &lt;code&gt;spot&lt;/code&gt; 数据为空的情况，设计了从本地持久化文件读取并进行数据对齐的容错机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码实现&lt;/strong&gt;：在构建此类跨品种因子时，优先采用 &lt;code&gt;merge&lt;/code&gt; 而非循环遍历，以提升回测引擎的数据准备速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构建议&lt;/strong&gt;：因子计算逻辑应放入专门的 &lt;code&gt;sections&lt;/code&gt;（截面因子）目录，保持策略逻辑与因子计算的解耦。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;扩展实验&lt;/strong&gt;：除了滚动均值（SMA），可尝试对 Spread 进行 Z-score 标准化处理，以增强不同币种间基差波动的可比性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/80123</guid>
+      <pubDate>Fri, 01 May 2026 13:05:21 +0800</pubDate>
+    </item>
+    <item>
+      <title>从毛收益到净收益：量化交易因子研发的解耦架构逻辑</title>
+      <link>https://bbs.quantclass.cn/thread/80113</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/80113"&gt;【没什么用系列】五一快乐之51新多头的开发思路&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[信号纯度、Raw Alpha、IC/ICIR分析、因子衰减、交易摩擦解耦]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：主张通过“真空环境”先验证因子预测力，再通过成本滤网转化为实盘策略的研发范式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：市场包含极微弱的非随机成分，这些“Raw Alpha”在因子开发初期若直接计入手续费，极易因高换手率而在统计上被掩盖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：Alpha的本质是对市场“残差规律”的提取。通过解耦，可以将“因子本身的预测效力”与“交易执行的摩擦损耗”这两个独立变量分别优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：主张将手续费视作“滤网”而非“初始变量”，这种解耦思维能有效防止因执行层面的局限而误杀具有高质量预测能力的原始因子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：建立“信号发现-验证-稳定性”框架。核心在于计算 $Signal_t$ 与 $Return_{t+k}$ 的相关性，而非直接计算账户盈亏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：利用秩相关系数（Rank IC）评估方向准确性，通过 ICIR（均值/标准差）衡量信号的结构性连续性，以此排除偶然波动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衰减分析 (Decay Analysis)】&lt;/strong&gt;：通过测试因子在不同时间步长（$t+n$）下的IC表现，确定信号的“半衰期”，从而科学推导最优交易频率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【容量与天花板】&lt;/strong&gt;：将无摩擦状态下的年化收益设定为“理论天花板”，用以指导后续执行算法（Execution Strategy）的效率评估。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[流水线改造]：在因子研发Pipeline中增加“IC衰减测试”环节，在不计成本的前提下量化信号的真实存续周期。&lt;/li&gt;
+&lt;li&gt;[因子分级管理]：根据因子衰减曲线将因子分类——短衰减因子归入高频执行模块，长衰减因子归入中低频趋势模块。&lt;/li&gt;
+&lt;li&gt;[效率提升]：先通过真空IC/ICIR指标快速剔除无效因子，将算力资源集中在“理论上限”足够高的信号逻辑上。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/80113</guid>
+      <pubDate>Fri, 01 May 2026 10:53:07 +0800</pubDate>
+    </item>
+    <item>
+      <title>解锁量化投资：多因子选股模型构建、检验与实战指南</title>
+      <link>https://www.bilibili.com/video/BV184oVBhE51</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV184oVBhE51"&gt;多因子选股模型从零构建：因子筛选、有效性检验及权重配置详解&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 如何将个股收益拆解，精准捕捉超越市场的Alpha超额收益？&lt;/li&gt;
+&lt;li&gt;💡 在海量金融数据中，如何构建并提炼出真正有效且稳定的投资因子？&lt;/li&gt;
+&lt;li&gt;🚀 有效因子组合后，怎样进行科学的权重分配，以实现风险调整后的收益最大化？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 多因子模型：捕捉超额收益的基石&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;收益拆解的本质&lt;/strong&gt;: 将个股收益视为市场波动（贝塔）与超越市场（Alpha）的叠加。多因子模型旨在通过寻找有效因子来系统性捕捉Alpha。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基本数学表达&lt;/strong&gt;: 股票RI的收益率 = 因子暴露F * 因子收益率W的累加 + 残差项。F代表股票在某个因子上的特性（如市值、估值），W是该因子在当期带来的收益率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 构建因子库：为策略准备“食材”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;: 建立一个丰富且分类明确的因子集合，作为量化选股的原始信息源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;估值因子 (Value)&lt;/strong&gt;: 衡量股票“便宜程度”，如PE市盈率、PB市净率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成长因子 (Growth)&lt;/strong&gt;: 捕捉企业成长性，如营收增长率、净利润增长率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;盈利因子 (Profitability)&lt;/strong&gt;: 评估企业赚钱效率，如ROE净资产收益率、毛利率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量与技术因子 (Momentum/Technical)&lt;/strong&gt;: 判断市场趋势，如过去收益率、换手率、波动率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 因子预处理：从原始数据到“干净”信号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;: 消除原始数据中的噪声、异常值，并统一量纲，确保因子在模型中的有效性和可比性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;去极值处理 (WINTHORIZATION)&lt;/strong&gt;: 平滑掉金融数据中超出阈值的极端异常值，减少统计结果扭曲。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标准化 (Z-Score)&lt;/strong&gt;: 将不同量纲的因子统一到均值为零、标准差为一的分布，实现可比性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中性化&lt;/strong&gt;: 剔除行业、市值等干扰因素对因子表现的影响，揭示因子的真实选股能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 因子有效性检验：评估实战威力&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;: 衡量因子是否能稳定带来正收益，并评估其预测能力与稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;信息系数 (IC)&lt;/strong&gt;: 衡量因子值与股票下一期实际收益率的相关性，IC越接近1预判越准。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信息比率 (IR)&lt;/strong&gt;: IC均值除以标准差，反映因子表现的稳定性与收益风险比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分层回测&lt;/strong&gt;: 按照因子得分将股票分组，观察收益率是否呈现单调阶梯状变化，验证区分能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;剔除冗余&lt;/strong&gt;: 通过相关性分析，识别并剔除高度相关（共线性）的因子，避免信息重复与模型过载。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 光有高IC不够，还需高IR保障稳定性；因子间存在共线性时，需去冗余以避免模型过载。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 模型构建与权重分配：形成统一投资信号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型构建方法&lt;/strong&gt;: 将多个有效因子捏合成统一的投资信号。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;打分法&lt;/strong&gt;: 最基础直观，按固定权重加权叠加因子得分，适用于初级筛选。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回归法&lt;/strong&gt;: 利用历史数据通过最小二乘法等估算股票收益对因子的敏感度，权重更具数理依据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器学习&lt;/strong&gt;: 随机森林、XGBoost等，能处理因子间的非线性关系，捕捉复杂市场逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权重分配策略&lt;/strong&gt;: 在控制风险暴露的前提下，实现风险调整后的收益最大化。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;等权重法&lt;/strong&gt;: 最简单基准，不考虑因子差异，实战中表现稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IC加权法&lt;/strong&gt;: 根据因子预测能力（IC值）论功行赏，预测力越强权重越高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险评价法&lt;/strong&gt;: 目标是让每个因子对整体风险的贡献度保持一致，避免单一高风险因子主导组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “量化选股的第一步就是构建因子库，你可以把这想象成在为大厨准备食材，只有食材丰富且分类明确，后续的烹饪才能游刃有余。”&lt;/li&gt;
+&lt;li&gt;💬 “数据为基，因子为魂，回测为准，归因为相。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV184oVBhE51</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/dc495f2d0c0881ff1ab6469b6c0d6ac3f3f2d424.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 01 May 2026 10:49:00 +0800</pubDate>
+    </item>
     <item>
       <title>商品量化交易实战：从期限结构到展期收益的底层逻辑与策略构建</title>
       <link>https://www.bilibili.com/video/BV1LB98B7EZX</link>
@@ -5229,155 +5390,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77973</guid>
       <pubDate>Sat, 11 Apr 2026 02:36:33 +0800</pubDate>
-    </item>
-    <item>
-      <title>凌烟阁量化实战：深度解析个股择时、硬核止损与策略魔改思路</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;amp;talker=57784510736@chatroom"&gt;2026-04-11_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;💡 策略魔改：从思路引导到实战实践&lt;/h3&gt;
-&lt;p&gt;讨论中提到，优秀的策略往往不是一份拿来即用的说明书。以“龙虾”策略为例，它更侧重于思路引导，用户需要投入大量精力去魔改和实践，单纯阅读介绍无法直接产生结果。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 凌烟阁框架：捕捉右侧上行的择时逻辑&lt;/h3&gt;
-&lt;p&gt;关于凌烟阁框架的实战洞察如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心定位&lt;/strong&gt;：凌烟阁不应被简单视为“做T”工具，本质上是个股择时买入机制，重点在于捕捉右侧上行趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术进化&lt;/strong&gt;：新版框架引入了日内分钟级别的动作机制，虽然逻辑看似简单，但底层的择时机制执行起来非常硬核且复杂。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛡️ 强力苏打水止损法：4%法则与回场机制&lt;/h3&gt;
-&lt;p&gt;对话中分享了一套极具操作性的风控方案，用于应对市场波动：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;刚性止损&lt;/strong&gt;：设定最大回撤 4% 为强制止损线，触碰即离场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回场机制&lt;/strong&gt;：若最大回撤从底部回升至 -2%，判定趋势修复，重新入场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;盈亏比思考&lt;/strong&gt;：通过这种机制避免深蹲。亏损 20% 需要 25% 才能回本，在伤筋动骨前离场是生存的关键。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 实战表现：单因子的爆发力&lt;/h3&gt;
-&lt;p&gt;红牛老板展示了令人瞩目的实战回测数据：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高效回撤比&lt;/strong&gt;：凌烟阁策略回撤比可达 3.26，通过“再择时”优化后，回撤比甚至能冲向 10.79。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;源码价值&lt;/strong&gt;：该策略多以单因子为主，相关源码曾在论坛中公开，是少数被验证能有效转化为实战生产力的逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 聊天金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“不是操作说明，更像是魔改的思路导引，你得花时间自己捣鼓。” —— 庞明&lt;/li&gt;
-&lt;li&gt;“亏 20% 要赚 25% 才能回本，再多真的要死了。” —— 黑黑夜夜&lt;/li&gt;
-&lt;li&gt;“牛屁要拍，籽要投。” —— 冬眠不觉晓&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sat, 11 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>动量策略的狂欢与真实：从“策略单车”到化工厂里的量化人生</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;amp;talker=58453205219@chatroom"&gt;2026-04-11_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚲 当“动量策略”骑进现实：生活中的量化幽默&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;300元的“硬核”代步&lt;/strong&gt;：邢不行分享了一辆贴着“动量策略”标签的二手自行车，调侃其仅用于800米的通勤。这一幽默互动引发了群友关于“放弃库里南选择低碳出行”的调侃。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚙️ 实战避坑：策略逻辑与代码改动风险&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代码Bug的代价&lt;/strong&gt;：用户“WN_暖春拂晓”因私自添加统计功能导致策略停摆6天，且买入的币种在停摆期间无影响纯属运气。这提醒开发者：生产环境中的任何“小功能”都可能产生连锁反应。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据理解偏差&lt;/strong&gt;：群友讨论了资金费率解释前后矛盾的问题，强调量化交易中对原生数据（非汉化/非翻译）底层逻辑准确理解的重要性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 动量群像：在疯涨与暴跌中互道珍重&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;RAVE行情的分歧&lt;/strong&gt;：针对波动币种RAVE，不同参数的策略表现迥异。有人已卖出，有人刚冲入并面临23%的瞬间浮亏，上演了量化版的“高位接盘”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略同质化讨论&lt;/strong&gt;：群友感叹“只有聊动量才有热度”，甚至提议群名改为“动量群”，这反映出当前市场环境下动量策略的关注度极高，同时也隐含了策略过度拥挤的风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💪 量化背后的韧性：化工厂里的Alpha之路&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;硬核实盘分享&lt;/strong&gt;：用户&lt;code&gt;yocknow&lt;/code&gt;分享了回撤超30%但收益比依然亮眼的样本外实盘数据，展示了极强的心理素质。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;职业跨度与心态&lt;/strong&gt;：该用户透露自己日常在化工厂干体力活，对他而言，量化交易的精神压力相比搬砖的体力消耗反倒更易承受。这一故事深刻揭示了交易者的韧性来源。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句摘录&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“大家都看崩的时候，很有可能会反向暴涨。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“互道sb的时刻来了。” —— 茶泡饭&lt;/li&gt;
-&lt;li&gt;“量化交易体感如何？比我每天在厂里干体力活容易一点点。” —— yocknow&lt;/li&gt;
-&lt;li&gt;“涨跌随意，心无增减。” —— 行讫&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-11&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sat, 11 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>大变局下的中国投资战略：安全资产与产业升级的时代机遇</title>
-      <link>https://bbs.quantclass.cn/thread/77966</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/77966"&gt;偶尔叨叨&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[全球秩序重塑, 国家安全, 产业升级, 硬资产, 流动性, 中国投资]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：全球秩序重塑下，“安全”成为核心驱动力，指引中国产业升级与投资方向。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;全球旧有秩序松动，新旧力量博弈加剧，地缘政治冲突频发，贸易保护主义抬头。&lt;/li&gt;
-&lt;li&gt;美伊冲突等事件凸显“安全”成本急剧上升，成为国家发展、产业升级和财富布局的核心命题。&lt;/li&gt;
-&lt;li&gt;在动荡格局下，国家将“能源安全”、“技术安全”、“产业链安全”置于发展首位。&lt;/li&gt;
-&lt;li&gt;全球贸易重心从“效率至上”转向“安全供应优先”，导致“看货定价”和“主导权”的重要性提升。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;老牌强国固守既得利益与新兴国家谋求发展空间的博弈，引发战略资源、核心技术与国际话语权的无声较量。&lt;/li&gt;
-&lt;li&gt;全球化红利消退，国家间信任度下降，核心物资（能源、芯片、粮食）断供风险增加，驱动各国追求自主可控。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;传统“效率至上、逐利为先”的全球分工模式受到冲击，产业链安全性、自主可控性被置于更高优先级。&lt;/li&gt;
-&lt;li&gt;地缘政治风险不再是短期市场炒作，而是结构性、长期性的计价因素，影响长期资产配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;全球格局动荡，“安全”价值将持续凸显，与此相关的硬资产和自主可控技术将获得长期战略溢价。&lt;/li&gt;
-&lt;li&gt;人民币通过本币互换和国内产品成为全球定价锚点，结合外贸可能“小惊喜”，其流动性可能在外部约束减弱的情况下保持宽松。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;安全溢价逻辑&lt;/strong&gt;：在地缘政治紧张背景下，掌握在国家手中的战略资源（能源、矿产）和自主可控的关键技术，其价值不再仅由成本和产量决定，而是由其“安全性”和“主导权”赋予更高的溢价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产业升级逻辑&lt;/strong&gt;：中国从制造大国迈向制造强国的历史进程中，以人工智能为核心引擎，算力、新能源为重要支撑的产业升级核心载体将迎来结构性机会，这是国家战略与时代潮流的叠加。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流动性支撑逻辑&lt;/strong&gt;：国内货币发行机制中，外汇储备对基础货币投放的贡献，以及本币互换能力的增强，结合国内产品作为全球定价锚点，为国内市场提供宽松流动性支撑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;战略硬资产因子&lt;/strong&gt;：识别并筛选具备国家战略意义、供应稳定且规模大的能源、矿产资源相关企业。因子权重可偏向企业的资源储备量、供应稳定性、自主可控程度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自主可控技术因子&lt;/strong&gt;：聚焦于在核心技术领域实现国产替代、打破外部封锁的企业。因子构建可关注研发投入占营收比重、专利数量与质量、关键技术产品的国内市场份额与渗透率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产业升级核心载体因子&lt;/strong&gt;：针对AI基础设施、算力、核心硬件、电力储能等领域的龙头企业或高成长企业。可构建复合因子，结合研发投入增长率、行业增速、政策支持力度等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;宏观层面&lt;/strong&gt;：地缘政治指数、贸易顺逆差数据、外汇储备变动、本币互换协议规模与使用率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行业层面&lt;/strong&gt;：关键能源价格（如原油、稀土）、矿产储量、芯片国产化率、AI算力投资额、新能源渗透率与装机量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;公司层面&lt;/strong&gt;：研发支出（R&amp;amp;D）、核心技术专利申请与授权量、市场占有率、产能扩张计划、关键产品的自主生产比例。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据处理&lt;/strong&gt;：需结合政策文件、新闻舆情进行定性分析，并整合多源数据进行交叉验证和量化筛选。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;构建一个宏观驱动的投资策略框架，将地缘政治风险和国家战略优先级（如“安全”、“自主可控”）结构化纳入 alpha 模型或大类资产配置决策中。&lt;/li&gt;
-&lt;li&gt;开发并迭代针对“安全溢价”和“产业升级核心载体”主题的行业/个股筛选模型，运用非传统数据源（如专利数据、供应链自主率、政策文本分析）进行因子挖掘与评估。&lt;/li&gt;
-&lt;li&gt;持续监控与本币互换协议及外贸数据相关的国内流动性指标，结合通胀预期，作为国内市场择时或资金配置的辅助信号。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/77966</guid>
-      <pubDate>Fri, 10 Apr 2026 22:55:53 +0800</pubDate>
     </item>
   </channel>
 </rss>
