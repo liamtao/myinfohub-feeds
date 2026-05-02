@@ -7,7 +7,80 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 May 2026 08:40:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2026 22:33:57 +0000</lastBuildDate>
+    <item>
+      <title>回测年化差20%？量化交易策略一致性排查指南</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;amp;talker=57784510736@chatroom"&gt;2026-05-02_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ 别让“零结果”打击你：策略库配置是前提&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：在进行量化回测时，如果策略逻辑依赖特定的外部库文件，环境配置是第一步。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避坑建议&lt;/strong&gt;：务必检查并配置策略库文件。如果配置缺失，系统将无法正确执行逻辑，导致回测结果直接归零。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔍 消失的年化收益：四步排查回测不一致&lt;/h3&gt;
+&lt;p&gt;当网页导出的策略在本地客户端跑出的结果与预期不符（甚至年化收益相差20%）时，可以尝试以下“药方”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;关键参数微调&lt;/strong&gt;：检查并尝试将 &lt;code&gt;stay real&lt;/code&gt; 参数设置为 &lt;code&gt;false&lt;/code&gt;。这类底层开关往往会显著影响回测的撮合逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;清理数据“幽灵”&lt;/strong&gt;：旧的缓存数据可能是干扰项。建议彻底删除缓存目录后重新运行回测。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境纯净度检查&lt;/strong&gt;：下载并使用最新、干净的回测程序版本。在污染严重的旧环境中运行，容易产生不可预知的误差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金容量测试&lt;/strong&gt;：尝试把回测的初始金额调大。资金量过小时，单笔交易的随机性对结果影响较大，调大资金能让数据更具参考性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🤝 协作排查：利用“对照实验”定位问题&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;远程求助&lt;/strong&gt;：当本地无法复现结果时，将策略文件发给助教或同行运行。如果对方跑出的结果正确，则可以判定问题锁定在本地环境或数据对齐上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境对标&lt;/strong&gt;：在不同电脑、不同版本的客户端上进行横向对比，是找出隐藏Bug的高效方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✨ 金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“如果需要策略库文件，一定要配置。不然，回测会归零。” —— 彩虹研究员1号&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>云端部署与量化实战：从服务器避坑指南到策略进阶之道</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;amp;talker=58453205219@chatroom"&gt;2026-05-02_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;☁️ 服务器选购：别给云厂商白打工&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;续费陷阱与平替方案&lt;/strong&gt;: UCloud 2c4g 配置续费高达 1920 元被吐槽为“抢钱”。相比之下，腾讯云轻量服务器（2c4g）原价约 500 元，活动价甚至低至 199 元，性价比优势显著。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;薅羊毛新姿势&lt;/strong&gt;: 针对续费贵的问题，资深玩家建议薅新用户注册福利，或者通过切换到国际版购买海外轻量云主机（如 4c8g 仅需 85 美金），但需解决海外支付卡及注册手机号问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经销商渠道&lt;/strong&gt;: 通过寻找腾讯云经销商，2c8g 三年配置约 1000 元，且无需频繁更换账号，是长期部署实盘的省钱方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🐉 策略进化论：四龙戏狗 vs 沧浪亭&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;进阶而非替代&lt;/strong&gt;: “四龙戏狗”到“沧浪亭”是一脉相承的升级。沧浪亭 1.1 及其随机版本加入了极端行情下的不 re 机制，属于增强风控手段。但并非所有场景下沧浪亭都优于纯中性的四龙戏狗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有趣的奶茶类比&lt;/strong&gt;: 玩家 Y. 将四龙比作奶茶，沧浪亭比作“加糖奶茶”。加糖虽然口感更爽（收益或体验），但也伴随着变胖（特定风险）的代价。建议根据个人对风险和收益的理解选择是“单点”还是“大杂烩”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回撤的正确心态&lt;/strong&gt;: 策略回撤是必然的，小资金回撤是宝贵的试错机会。对于亏损严重的策略，可以选择加仓博反弹，或者直接升级到逻辑更“硬”的最新版策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💻 避坑指南：环境配置与 API 安全&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;加密 key 生效秘籍&lt;/strong&gt;: 修改加密 API Key 后，简单的重启可能无效，必须执行 &lt;code&gt;pm2 delete&lt;/code&gt; 彻底删除进程后再重新启动，才能确保环境变量正确加载。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PyCharm 环境定位&lt;/strong&gt;: 在配置开发环境时，若找不到 Anaconda 路径，应直接寻找 Anaconda 目录下对应环境名称内的 &lt;code&gt;python.exe&lt;/code&gt; 解释器文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;✨ 碎金语录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“策略回撤没办法的事，反正现在小资金在跑，多亏点是好事。” —— 心想事陈&lt;/li&gt;
+&lt;li&gt;“可以理解为四龙就是奶茶，沧浪亭是加了糖的奶茶，喝起来更爽，但也让你有变胖的风险。” —— Y.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关资源链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/80268&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>监管阴霾下的资产定价：深度解析SEC悲观情绪指数对市场收益的预测力</title>
       <link>https://www.bilibili.com/video/BV1NgoHBLEan</link>
@@ -5321,96 +5394,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;talker=57784510736@chatroom</guid>
       <pubDate>Sun, 12 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>实盘就是“恶人谷”：量化交易如何应对回测失效与回撤翻倍</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;amp;talker=58453205219@chatroom"&gt;2026-04-12_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🧪 实验室 vs 屠宰场：跨行业的安全忠告&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;化学实验的代价&lt;/strong&gt;：有群友提到大学生进厂实习事故，感慨化工厂充满了酸雾、噪音、粉尘和毒气。这在交易者眼中也是一种隐喻——不注意安全，哪里都是“恶人谷”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;计算是避风港&lt;/strong&gt;：相比实地操作，搞计算、做量化回测似乎安全得多，但如果缺乏对风险的敬畏，同样会遭遇另一种形式的“爆炸”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 回测不是免死金牌：实盘回撤的真相&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤翻倍定律&lt;/strong&gt;：邢不行指出，所有策略最终都会跌破历史最大回撤（MDD）。如果回测显示 MDD 是 15%，实盘时请务必做好承受 25% 甚至更多的心理准备。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;收益与风险的非对称性&lt;/strong&gt;：交易圈流传着一个扎心的公式：收益要按对折预期，回撤要按加倍防范。这不仅是风险管理，更是实战中的心态建设。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略失效排查&lt;/strong&gt;：当“沧浪亭”等策略跑坏时，建议通过排查单一方向（如固定多头只看空头）来定位问题，避免盲目加仓。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🎣 庄家的猎杀：RAVE 的控盘逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;空头陷阱&lt;/strong&gt;：做市商通常利用成熟的算法制造抛压假象，吸引大批“赌狗”进场做空。一旦空头筹码足够多，便会猛烈拉升导致空头爆仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;量化收割机&lt;/strong&gt;：算法是现成的，市场会周期性地收割那些反应滞后或过度依赖动量策略的量化参与者。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 进阶洞察：寻找市场的 Alpha 区&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;域的筛选&lt;/strong&gt;：讨论中提到了利用特定因子定义“Alpha 区”。例如：做多 Top 10% 的老牌强势币（合约&amp;amp;现货），同时做空 Top 10% 的新上市币种。这是一种通过多头域筛选来优化策略的典型思路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测的局限性&lt;/strong&gt;：目前论坛已有针对实盘的 Alpha 过滤方案，但如何在回测阶段精准模拟这一过程仍是技术难点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 碎玉金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“世界就是一个草台班子。” —— 北&lt;/li&gt;
-&lt;li&gt;“回测都是骗人的。” —— 心想事陈&lt;/li&gt;
-&lt;li&gt;“收益对折，回撤加倍。” —— 超级牛&lt;/li&gt;
-&lt;li&gt;“所有策略都会破最大回撤的，加仓要做好破最大回撤的准备。” —— 邢不行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=77533"&gt;一个非常好的多头域（我要30个银葫芦！） | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>牛马S3赛季量化实战：筹码盈利、市值中性化与现金流偏差的三大策略复盘</title>
-      <link>https://bbs.quantclass.cn/thread/78014</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78014"&gt;【主板战士】S3牛马交付：适合26新人老板的策略大放送&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[筹码盈利比例、市值中性化、自由现金流中位数偏差、因子切割]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过对筹码分布、成交额收敛及现金流非单调性的重构，挖掘主板超额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;反转效应&lt;/strong&gt;：利用当前价格与加权平均成本的偏差（筹码盈利比例）捕捉底部反转机会，该因子在小市值域外仍具选股能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中性化剥离&lt;/strong&gt;：通过市值中性化剥离成交额因子的市值偏好，利用残差锁定特定市值下成交额异常收敛的标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非单调因子单调化&lt;/strong&gt;：针对分箱呈“中间高、两端低”的自由现金流因子，通过计算截面中位数绝对偏差，将其转化为单调性强的有效因子。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;筹码盈利比例&lt;/strong&gt;：&lt;code&gt;df['盈利比例'] = (df['价格'] - df['加权平均成本']) / df['加权平均成本']&lt;/code&gt;，取N日均值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成交额收敛中性化&lt;/strong&gt;：对5/10/20/60/120日成交额均值求标准差，随后对市值因子做高斯秩（Gauss Rank）处理并提取残差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中位数偏差变换&lt;/strong&gt;：&lt;code&gt;Factor_New = abs(Factor_Original - Cross_Sectional_Median)&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;区间与范围&lt;/strong&gt;：20140101-20260401，排除双创及北交，W频率持仓5股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;表现特征&lt;/strong&gt;：筹码策略在2015年后回撤控制在30%左右；现金流策略通过中位数偏差处理后，累计净值获大幅提升。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用1.7.1回测框架，涉及后复权价格与加权平均成本数据；使用了高斯秩处理进行市值对齐。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子预处理优化&lt;/strong&gt;：在Pandas中实现&lt;code&gt;groupby('交易日期').apply(lambda x: abs(x - x.median()))&lt;/code&gt;，对传统非单调因子（如RSI、换手率等）进行重新测试。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;异质化选股域构建&lt;/strong&gt;：尝试将成交额收敛因子的残差最小10%定义为“平稳域”，在此域内叠加动量或反转因子进行二阶段选股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;筹码分布应用&lt;/strong&gt;：在策略Filter中加入筹码盈利比例分位数过滤（如&lt;code&gt;pct &amp;lt; 0.1&lt;/code&gt;），作为降低策略整体回撤的防御性手段。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78014</guid>
-      <pubDate>Sat, 11 Apr 2026 21:51:02 +0800</pubDate>
     </item>
   </channel>
 </rss>
