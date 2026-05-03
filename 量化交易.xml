@@ -7,7 +7,184 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 02 May 2026 22:33:57 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 08:32:53 +0000</lastBuildDate>
+    <item>
+      <title>零成本高效量化：基于Tushar与DuckDB的可转债本地回测引擎实战</title>
+      <link>https://www.bilibili.com/video/BV16w9fBeE44</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV16w9fBeE44"&gt;EasyXT：基于Python的可转债本地量化回测系统设计与实现&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 可转债本地量化回测系统 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：采用 Python 向量化运算逻辑，结合 Tushar 数据接口与 DuckDB 嵌入式数据库，构建低延迟、零成本的本地化回测环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Tushar 提供的可转债静态基本信息表 (&lt;code&gt;cb_basic&lt;/code&gt;) 与动态日线行情表 (&lt;code&gt;cb_daily&lt;/code&gt;)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：包括年化收益率、夏普比率、最大回撤在内的绩效指标，及基于 Plotly 的交互式净值曲线与详细交易记录。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;向量化回测&lt;/strong&gt;：放弃逐日循环，利用 Pandas 矩阵运算一次性处理历史行情，计算速度提升数十倍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;转股溢价率&lt;/strong&gt;：转债价格相对于其转股价值的溢价水平，是衡量转债股性强弱的核心因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双低策略&lt;/strong&gt;：同时选取转债价格与溢价率均处于低位的标的，追求防御性与进攻性的平衡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：本地量化数据库构建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决在线平台数据字段缺失（如溢价率）及回测成本高昂的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：获取 Tushar 积分授权，安装 DuckDB 驱动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[数据抓取]&lt;/strong&gt;：从 Tushar 下载可转债基本信息及行情数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据清洗]&lt;/strong&gt;：保留代码、正股、转股价、收盘价、转股价值及已算好的转股溢价率字段。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[持久化存储]&lt;/strong&gt;：将数据存入本地 &lt;code&gt;.db&lt;/code&gt; 文件，利用 DuckDB 的列式存储特性优化查询速度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：策略执行与回测分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在多种预置或自定义策略中快速迭代，验证选股逻辑的有效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[参数配置]&lt;/strong&gt;：通过 Streamlit 界面选择 &lt;code&gt;策略类型&lt;/code&gt;（如低价策略、低溢价策略），设置 &lt;code&gt;Top N&lt;/code&gt;（持仓数）、&lt;code&gt;回测区间&lt;/code&gt; 及 &lt;code&gt;调仓频率&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[过滤条件]&lt;/strong&gt;：设定 &lt;code&gt;价格区间&lt;/code&gt;（默认 100-150 元）及 &lt;code&gt;佣金费率&lt;/code&gt;（默认万一）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[启动回测]&lt;/strong&gt;：引擎在调仓日触发 &lt;code&gt;Strategy Function&lt;/code&gt; 选股，并自动对比新旧持仓进行买卖逻辑处理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[Vectorized Engine]&lt;/strong&gt;：基于 &lt;code&gt;Pandas.rank&lt;/code&gt; 实现的快速排序引擎 -&amp;gt; 直接处理全市场 500+ 只债的矩阵数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Rebalance Control]&lt;/strong&gt;：调仓周期变量 -&amp;gt; 决定引擎触发选股逻辑的时间节点，非调仓日仅计算持仓市值增减。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Performance Dashboard]&lt;/strong&gt;：利用 &lt;code&gt;Plotly&lt;/code&gt; 绘制交互式图表 -&amp;gt; 支持对净值曲线进行局部放大及鼠标悬停查看详情。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;交易手率限制&lt;/strong&gt;：回测计算必须遵循 10 张为一手的整数倍交易规则，否则会偏离真实市场。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;溢价率空值&lt;/strong&gt;：数据加载中若溢价率为空需强制过滤，避免排序逻辑引发的选股偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;存储优化&lt;/strong&gt;：DuckDB 相比传统 SQLite 查询速度提升 10-100 倍，且与 Pandas Dataframe 格式无缝对接，无需转换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略扩展&lt;/strong&gt;：系统支持通过统一接口注册自定义函数，只需返回代码列表即可在 UI 界面一键调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV16w9fBeE44</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/a4eb67a92bbfbc7e7229a16717d824348881a6dd.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 03 May 2026 12:13:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>EMQV框架：如何利用解析结构攻克连续时间最优执行的稳定性难题</title>
+      <link>https://www.bilibili.com/video/BV1bcRTBMEfZ</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1bcRTBMEfZ"&gt;最优执行不该交给黑箱强化学习,成本、市场冲击与风险之间找到更优平衡&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 如何在高频交易数据激增的背景下，克服强化学习“黑盒化”导致的决策不稳定与不可解释性？&lt;/li&gt;
+&lt;li&gt;💡 为什么传统的深度强化学习（如 SAC）在连续时间金融模型中容易失效，甚至出现严重的训练震荡？&lt;/li&gt;
+&lt;li&gt;🚀 既然解析解与数据驱动各有优劣，能否通过“重校准机制”将随机控制理论与强化学习完美融合？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 连续时间执行的底层挑战：从黑盒向解析结构的倒逼&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;最优执行的本质权衡&lt;/strong&gt;: 交易并非简单的买卖，而是在限定时间内对交易成本、市场冲击与持仓风险的动态博弈。连续时间建模能更自然地描述库存与价格的演化规律。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Actor-Critic 的三大困境&lt;/strong&gt;: 在金融场景下，策略评估误差会产生耦合链；随机微分方程增加了求解难度；且策略一旦更新，Critic 若不及时适配，会导致 Actor-Critic 系统性失稳。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ EMQV 框架：模型启发与数据驱动的闭环协同&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心目标&lt;/strong&gt;: 通过在目标函数中引入香农熵（Shannon Entropy）正则化，保留策略的探索性，并利用解析推导出的高斯形式作为参数化模板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;策略评估 (PE)&lt;/strong&gt;: 利用值函数的参数化结构，结合鞅性质（Martingale Property）评估当前策略价值，并严格监控评估误差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略提升 (PG)&lt;/strong&gt;: 依据解析梯度微调 Actor 参数，遵循小步长原则，避免因更新过激导致策略带偏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数重校准 (Recalibration)&lt;/strong&gt;: 在策略更新后，利用新策略隐含的模型量强制重置 Critic 初始参数，实现 Actor 与 Critic 的实时对齐。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 严禁在策略更新后直接沿用旧的 Critic 权重，这种“参数适配滞后”是导致深度强化学习在金融决策中不稳定的核心诱因。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 性能验证：跨越“模型适配”的泛化边界&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多层级压力测试&lt;/strong&gt;: 通过 Almgren-Chriss 理论模型、历史订单流数据以及随机限价订单簿（LOB）三类模拟器，验证算法在理想与复杂现实环境下的鲁棒性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳定性红利&lt;/strong&gt;: 相比于纯黑盒的 SAC 算法，EMQV 在不同资产和分布迁移场景下表现更一致。它证明了带约束的“解析参数化”比纯粹依赖经验拟合更适合高风险的金融连续控制任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “金融决策看重的绝不只是收益高不高，还要看策略是否稳定、可解释，以及在不同环境下够不够鲁棒。”&lt;/li&gt;
+&lt;li&gt;💬 “EMQV 走出了一条中间路线：它不是在规则和学习之间二选一，而是用解析结构收缩学习空间，再用强化学习保留自适应能力。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1bcRTBMEfZ</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/950857d3d7785a894812726752b4e00c3db2d6f9.png" length="0" type="image/png"/>
+      <pubDate>Sat, 02 May 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从文字到信号：NLP在量化交易中的崛起与实战路径</title>
+      <link>https://www.bilibili.com/video/BV1dHo6BUEir</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1dHo6BUEir"&gt;NLP赋能量化交易：新闻情绪+财报挖掘+舆情数据分析实战&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 面对海量非结构化文本，计算机如何将枯燥的文字转化为可交易的“真金白银”信号？&lt;/li&gt;
+&lt;li&gt;💡 金融语境下的语义偏差（如 liability）如何通过专业词典和微调模型被精准校正？&lt;/li&gt;
+&lt;li&gt;🚀 在 LLM 时代，量化交易的护城河是如何从简单的词频统计演进到深层因果逻辑推理的？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 非结构化数据的量化炼金术&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据演进逻辑&lt;/strong&gt;: 交易数据经历从“结构化（价量）” $\rightarrow$ “替代数据（卫星/物流）” $\rightarrow$ “非结构化（文本/社交媒体）”的进化。现代市场的超额收益（Alpha）正大量隐藏在人类无法实时阅读的文本汪洋之中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标准化量化工作流&lt;/strong&gt;: 文本转化为因子的过程可类比为“翻译”：&lt;code&gt;数据获取 (API)&lt;/code&gt; $\rightarrow$ &lt;code&gt;预处理 (金融词典分词)&lt;/code&gt; $\rightarrow$ &lt;code&gt;特征提取 (TF-IDF/Word2Vec/Transformer)&lt;/code&gt; $\rightarrow$ &lt;code&gt;信号生成 (情感得分 $\rightarrow$ 交易指令)&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 多源文本挖掘实战指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;新闻情绪捕捉&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心指标&lt;/strong&gt;: 关注“实时响应”与“异常回报 (Abnormal Return)”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量化逻辑&lt;/strong&gt;: 利用专业金融词典（如 LAFRANMCDONO）计算 $\frac{正向词频 - 负向词频}{总词数}$，将情绪极性量化为得分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;财报深层信号挖掘&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;叙事逻辑分析&lt;/strong&gt;: 重点剖析 MDA（管理层讨论与分析）章节，识别避重就轻的修饰词。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文本漂移识别&lt;/strong&gt;: 通过余弦相似度 (Cosine Similarity) 对比年度财报，措辞的高度雷同或剧烈变化往往暗示风险掩盖或业务调整。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社交媒体噪音过滤&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反讽识别&lt;/strong&gt;: 利用 Transformers 语义解析与表情符号映射表，识别“反向情绪”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;水军识别 (Bot Detection)&lt;/strong&gt;: 通过发帖频率、账号关联性等行为指纹过滤协同性攻击，确保信号真实性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 LLM 驱动的范式跃迁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;上下文感知 (Context Awareness)&lt;/strong&gt;: LLM 解决了传统词典法无法处理的歧义问题，能根据前后逻辑精准判断金融术语的深层含义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;端到端建模&lt;/strong&gt;: 缩短链路，直接从海量文本学习并预测 Alpha 趋势，无需手动定义繁琐的关键词权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;垂直领域增强&lt;/strong&gt;: 通过 FinBERT 等专家模型进行微调 (Fine-tuning)，提升对研报、财报的专业理解力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚠️ 量化实战的致命陷阱&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 避坑指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;警惕幸存者偏差&lt;/strong&gt;: 回测时必须包含已退市公司的历史新闻，否则收益率会被严重虚高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对抗过拟合&lt;/strong&gt;: 避免模型捕捉到与股价随机相关的“噪声词”，增强模型的泛化能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;攻克工程延迟&lt;/strong&gt;: 在高频场景下，必须优化 LLM 的推理速度，确保信号生成时间低于市场消化时间。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “NLP 在量化领域的核心价值，就是将海量的文本实时转化为可交易的信号。”&lt;/li&gt;
+&lt;li&gt;💬 “过滤了噪音，剩下的才是真正的金矿。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dHo6BUEir</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/2f63d77f2d9fbe6598bbec71a5433195d5edd3d4.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 02 May 2026 11:32:00 +0800</pubDate>
+    </item>
     <item>
       <title>回测年化差20%？量化交易策略一致性排查指南</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-02&amp;talker=57784510736@chatroom</link>
@@ -5273,127 +5450,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Y6DXBYEQC</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/a6d0e65f6986249abde8227c2d2f4688645546b4.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 12 Apr 2026 21:41:13 +0800</pubDate>
-    </item>
-    <item>
-      <title>LightGBM小市值优化策略：从因子聚合到Barra视角解读</title>
-      <link>https://bbs.quantclass.cn/thread/78011</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78011"&gt;【研究历程】无需担心拥挤的lightGBM小市值优化——兼容官方框架的机器学习范式，以小市值策略为例&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[LightGBM, 小市值策略, 因子聚合, 滚动训练, 特征工程, Barra归因, 交易性过滤, LambdaRank]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[本文详细阐述LightGBM滚动训练的小市值因子聚合策略流程，包括特征工程、模型训练与框架集成，并从Barra视角分析其与裸跑小市值的差异。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：传统小市值策略存在同质化问题，交易标的趋同。在最小市值5%的股票池中，直接选择市值最小的10支股票，其收益与复杂ML策略相比具有竞争力，甚至表现极高，并带有难以解释的特异性收益（可能源于尾部非线性、涨停、壳价值、隐含择时）。机器学习策略（本例中因子数量有限）在此小市值域中，超额收益能力相对较弱，但其收益来源更易被解释，且对反转、波动等A股强势风格因子有更明显的暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：机器学习策略的滚动回测范式，将“是否过拟合”从主观判断转化为流程和数学问题，提供了一种更系统、更科学的过拟合判断视角，超越了手工策略的样本内全局优化限制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：增加LightGBM模型使用的因子数量至100个以上，或近千个，有望极大提升策略表现和捕捉更多非线性Alpha。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用LightGBM模型对成百上千个因子进行非线性聚合，预测股票未来收益水平。预测目标并非直接收益，而是未来3日收益的&lt;strong&gt;截面排序&lt;/strong&gt;，以降低噪声并预测相对表现。模型训练针对特定市场域（最小市值5%或10%）进行专精化，并通过滚动训练确保模型在不同时间段的稳定性和泛化能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：使用43个常用量价、市场结构、基本面及风险暴露因子作为特征（示例，建议扩充）。&lt;strong&gt;预测目标&lt;/strong&gt;：构建“未来3日涨跌”因子，并对其进行&lt;strong&gt;截面排序&lt;/strong&gt;。&lt;strong&gt;特征工程&lt;/strong&gt;：所有因子特征均进行&lt;strong&gt;截面排序&lt;/strong&gt;以降低噪声。Lambda Rank模式下，特征工程改为部分对数+全部Z-score，并使用10组分桶。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;strong&gt;数据来源&lt;/strong&gt;: 官方选股框架回测生成的因子缓存文件 (&lt;code&gt;all_factors_kline.pkl&lt;/code&gt; 和 &lt;code&gt;factor_.*.pkl&lt;/code&gt;)。&lt;strong&gt;预过滤&lt;/strong&gt;: 滤除ST股票和上市未满250天的标的。&lt;strong&gt;域划分&lt;/strong&gt;: 仅保留市值最小的5%（或Lambda Rank的10%）的股票数据，并过滤一级风险标签。&lt;strong&gt;可交易性过滤&lt;/strong&gt;: 严格匹配框架真实模式，删除次日无法买入的数据。&lt;strong&gt;LightGBM特性&lt;/strong&gt;: 无需显式处理NaN数据，对因子共线性不敏感。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;strong&gt;回测区间&lt;/strong&gt;: 2021/01/01至2026/04/02，开启真实模式，仅主板。&lt;strong&gt;滚动训练&lt;/strong&gt;: 72个月训练集，12个月验证集，3个月测试集，步长3个月滑动。&lt;strong&gt;模型集成&lt;/strong&gt;: 每个窗口训练5个LightGBM模型，通过投票聚合预测结果降低偶然性。&lt;strong&gt;结果&lt;/strong&gt;: regression版本选10，lambda版本选5，对比裸跑小市值池（市值最小5%）有微小进步，曲线波动更小，选股差异化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：模型超额收益能力受限于因子数量（本例仅43个），可能未捕捉到更多非线性收益。Lambda Rank模式对噪声更敏感，更容易过拟合，但顶部收益更优。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：将机器学习模型预测结果与现有量化回测框架高效集成。处理大量历史因子数据，实现滚动训练流程。规范化因子名称，适配LightGBM模型输入要求（去除JSON符号）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;strong&gt;核心库&lt;/strong&gt;: &lt;code&gt;lightgbm&lt;/code&gt;, &lt;code&gt;pandas&lt;/code&gt;, &lt;code&gt;numpy&lt;/code&gt;, &lt;code&gt;scipy.stats.norm&lt;/code&gt;, &lt;code&gt;pathlib&lt;/code&gt;, &lt;code&gt;re&lt;/code&gt;。&lt;strong&gt;框架集成&lt;/strong&gt;: 利用官方框架的因子回调函数 (&lt;code&gt;calc_select_factor&lt;/code&gt;)，实现模型加载、特征构建与预测。&lt;strong&gt;模型管理&lt;/strong&gt;: 模型文件 (&lt;code&gt;model_YYMMDD_s{seed}.txt&lt;/code&gt;) 和列名文件 (&lt;code&gt;columns.txt&lt;/code&gt;) 按日期和种子组织。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;strong&gt;模型加载&lt;/strong&gt;: &lt;code&gt;_load_models_for_date&lt;/code&gt; 函数动态加载与预测日期匹配的最新训练模型集合。&lt;strong&gt;特征预处理映射&lt;/strong&gt;: &lt;code&gt;_col_name_to_model_name&lt;/code&gt; 函数将原始因子名称转换为LightGBM兼容格式。&lt;strong&gt;统一特征变换&lt;/strong&gt;: &lt;code&gt;log_transform&lt;/code&gt; (log1p, symlog), &lt;code&gt;cross_sectional_transform&lt;/code&gt; (rank, rank_gauss, zscore with tanh compression) 函数封装了训练阶段的特征处理逻辑，确保回测与训练的一致性。&lt;strong&gt;集成预测&lt;/strong&gt;: &lt;code&gt;sum(booster.predict(...))&lt;/code&gt; 实现了多个模型预测结果的加总（投票）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：官方框架版本兼容性（v2.1.0 vs v2.3.0新因子缓存机制）。因子数量对策略表现影响巨大（43个因子太少，建议100+）。双创板需要单独考虑选股数量和涨幅归一化（10cm vs 20cm）。LightGBM不允许特征名包含JSON符号。训练目标为截面排序时，顶部预测稳定性可能不如整体排序。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子扩充与多样化&lt;/strong&gt;: 立即着手扩充LightGBM策略的因子库，目标100+甚至数百个因子，尝试更多非线性、高频、另类数据因子，以发现更深层次的Alpha。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;滚动训练框架复用&lt;/strong&gt;: 将文中提供的&lt;code&gt;_load_models_for_date&lt;/code&gt;, &lt;code&gt;calc_select_factor&lt;/code&gt;等函数作为模板，结合自身回测框架，快速搭建可实盘的LightGBM滚动预测模块。尤其注意特征处理函数&lt;code&gt;log_transform&lt;/code&gt;和&lt;code&gt;cross_sectional_transform&lt;/code&gt;的复用，确保训练与预测环节特征工程的一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多目标与多模型探索&lt;/strong&gt;: 针对不同的持仓数量需求（例如，选股少则追求顶部收益，选股多则追求整体稳定性），可尝试切换回归任务（对整体排序鲁棒）与Lambda Rank任务（对顶部排序优化），并根据各自特点调整特征工程和模型参数（如&lt;code&gt;label_gain&lt;/code&gt;策略）。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78011</guid>
-      <pubDate>Sun, 12 Apr 2026 19:40:11 +0800</pubDate>
-    </item>
-    <item>
-      <title>深度解析 Solana 链上跟单机器人：基于 Rust 与 gRPC 的资金追踪与毫秒级狙击实战</title>
-      <link>https://bbs.quantclass.cn/thread/78060</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78060"&gt;Solana Meme狙击机器人独家开源（Rust）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Solana 跟单, Yellowstone gRPC, 资金流追踪, Rust 异步交易, 阶梯止盈]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：开源 Solana 跟单系统，通过 gRPC 毫秒级追踪聪明钱并实现自动化狙击与阶梯止盈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha 源于对“聪明钱”及其关联“新钱包”的实时监控。通过逆向工程历史高收益 Meme 的操盘路径，在同一 Slot 内发现白名单地址交互时进行抢跑（Sniper）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于“新钱包”判定因子（接收方历史交易次数 ≤ 3 且转账金额 &amp;gt; 0.5 SOL），结合“交易所黑名单”剔除噪音。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：利用 Yellowstone gRPC 订阅 System Program 的 SOL 转账及 Pump.fun/Bonk 的链上事件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：通过内置 30+ 知名交易所（Binance, OKX 等）热钱包地址库，防止追踪路径在交易所端发生“污染”导致的分支失效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：传统 RPC 在 Solana 400ms 出块周期下延迟过高；资金流追踪易受交易所归集地址干扰。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Rust 2021 + Tokio 异步运行时；Yellowstone gRPC 提供低延迟流式数据；DashMap 实现 Slot 级别交易缓存的高并发读写。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Sniper Cache 模式&lt;/strong&gt;：缓存同一 Slot 内所有交易，利用分片锁设计分析同 Slot 内所有交易者，实现比单纯监测创建者更精准的跟单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;阶梯止盈状态机&lt;/strong&gt;：通过 TrailingStopManager 维护持仓代币的最高价，匹配动态规则（如 &amp;quot;50:20&amp;quot; 表示盈利 50% 后回撤 20% 触发卖出）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：gRPC 订阅速度比传统 RPC 快数倍；基础设施建议部署于阿姆斯特丹（Hetzner/Vultr），利用 &amp;lt; 10ms 的验证者物理延迟优势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据获取&lt;/strong&gt;：放弃 WebSocket 轮询，迁移至 Yellowstone gRPC 协议以获取更底层的链上数据流，减少 Slot 落后。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;过滤策略&lt;/strong&gt;：引入交易所热钱包黑名单库（Static Array/Set），在构建资金流有向图时自动剪枝，提高监控钱包池的质量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交易执行&lt;/strong&gt;：交易指令应集成 Jito Tip 机制，通过 MEV 管道提高打包优先级并防止被夹。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78060</guid>
-      <pubDate>Sun, 12 Apr 2026 13:41:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘模拟进度与策略回测差异避坑指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;amp;talker=57784510736@chatroom"&gt;2026-04-12_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛠️ 实盘模拟功能：开发者们的“进度条”&lt;/h3&gt;
-&lt;p&gt;聊天记录透露了投资者关心的实盘模拟功能进展。目前的实盘客户端尚不支持完全一致的模拟功能（如选股、仓位分配及定风波信号计算但不实际下单），但好消息是该功能已在开发中，官方预计今年内会上线。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 回测结果“打架”？对齐参数是核心&lt;/h3&gt;
-&lt;p&gt;不少用户反馈框架回测与客户端回测结果存在巨大差异（回撤甚至相差30%），主要原因及对策包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;起始资金至关重要&lt;/strong&gt;：资金量不同会直接导致回测逻辑偏移，必须严格对齐config中的起始资金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码与环境一致性&lt;/strong&gt;：检查Python版本以及实盘与框架代码是否完全同步。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子构造实现&lt;/strong&gt;：后置过滤等逻辑在客户端可能不支持盘中实时计算，建议通过因子构造在回测中先行实现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 客户端升级报错：避开“早鸟”陷阱&lt;/h3&gt;
-&lt;p&gt;升级至3.6.1版本后，部分用户遇到了&lt;code&gt;StrategyConfig&lt;/code&gt;初始化异常。这通常是因为导入了尚未正式开放内测的“仓管策略”导致的内核调用冲突。目前的建议是换回稳定的3.55版本，或等待两周后的内测更新。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌊 国际局势与市场的“蝴蝶效应”&lt;/h3&gt;
-&lt;p&gt;地缘政治动态（如伊朗霍尔木兹海峡局势、特朗普的社交媒体发言）对市场情绪有着显著影响。讨论中提到了大宗商品（如布伦特原油）可能因此出现的飙升压力，提醒量化交易者在策略中需考量突发宏观事件的冲击。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 金句与洞察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“两头收费。共赢” —— 红牛&lt;/li&gt;
-&lt;li&gt;“回测网站上下载的小市值的精心随机，客户端回测出来的跟没有个股择时一样” —— long（揭示了参数对齐在复杂择时策略中的敏感性）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76971&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-12&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
