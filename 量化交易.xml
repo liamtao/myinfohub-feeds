@@ -7,7 +7,135 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 04 May 2026 08:34:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 22:33:49 +0000</lastBuildDate>
+    <item>
+      <title>自适应粒度NeuroHMM：重塑高频订单流建模的深度态势感知</title>
+      <link>https://www.bilibili.com/video/BV1XXRKBkE28</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1XXRKBkE28"&gt;市场信息同时包含逐笔层面的微观细节与更长周期的流动性趋势，而单一时间粒度模型往往顾此失彼&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么固定时间尺度的模型在高频交易中注定会产生“观察偏差”？&lt;/li&gt;
+&lt;li&gt;💡 如何在赋予神经网络强大拟合能力的同时，保留概率模型对市场状态切换的可解释性？&lt;/li&gt;
+&lt;li&gt;🚀 市场波动剧烈时，模型能否像经验交易员一样自动切换到“精细观察”模式？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 从“刚性分布”到“神经演化”：NeuroHMM 的跨代升级&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;深度特征与状态结构的共生&lt;/strong&gt;: 传统HMM受限于刚性的参数分布假设，难以应对高维非线性的订单流。NeuroHMM将深度学习的特征提取能力与概率状态空间结合，在保留市场状态（如流动性强弱）解释性的同时，显著增强了建模的灵活性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;条件归一化流的分布赋能&lt;/strong&gt;: 针对高频数据非高斯、多峰的统计特征，通过Conditional Normalizing Flow替代静态发射分布，使模型能条件化地生成复杂观测，精准刻画高频市场的尾部风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 自适应力度注意力：打破时间尺度的“二元对立”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态变焦机制&lt;/strong&gt;: 市场节奏并非恒定。该模型引入门控机制，实时根据局部波动率与交易频率，在“逐笔（Tick）”微观细节与“分钟”宏观趋势之间动态切换。这解决了看太细容易丢失趋势、看太粗容易抹掉信号的建模顽疾。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行多分辨率编码&lt;/strong&gt;: 架构通过空洞因果卷积捕捉瞬时撮合细节，同时利用小波变换与LSTM提取持久流动性模式，为模型提供了一个既有广度又有深度的“全息视图”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 高频订单流状态感知建模&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多尺度特征提取&lt;/strong&gt;: 部署并行编码器，分别针对逐笔流和聚合流提取微观与宏观特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境敏感权重分配&lt;/strong&gt;: 引入基于市场统计量的门控逻辑，让模型在不同波动环境下自动调整尺度权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态转移映射&lt;/strong&gt;: 将多尺度特征嵌入NeuroHMM框架，实现从观测序列到隐含市场状态切换的概率建模。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 严禁在波动的临界点使用单一分辨率模型，这会导致预测滞后或虚假信号。避免直接使用缺乏解释性的纯深度学习模型，这会降低风险预警的可靠性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “市场在不同阶段最有用的观察力度并不固定，它会随着波动强弱和交易活跃度变化而切换。”&lt;/li&gt;
+&lt;li&gt;💬 “这个架构是先分尺度看清楚，再有选择地合起来，最后用状态模型把动态过程表达出来。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1XXRKBkE28</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/412f9fd99cbc603d0cd026126ee3e9401bd9a5a2.png" length="0" type="image/png"/>
+      <pubDate>Mon, 04 May 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化实战录：数学变换点石成金，AI助力打造高胜率策略</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;amp;talker=57784510736@chatroom"&gt;2026-05-04_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🚀 工具基础：从因子计算到批量IC分析&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前置准备&lt;/strong&gt;：运行IC分析工具前，必须先跑完因子计算流程。群友正探索如何结合因子计算实现批量IC分析与归因研究。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分析局限&lt;/strong&gt;：不可盲目崇拜IC值，它仅是参考维度之一。评估策略时，逻辑硬度以及是否过拟合才是核心指标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🧪 点石成金：数学变换是策略优化的“整容刀”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;现象与对策&lt;/strong&gt;：在复现研报或开发小市值策略时，若因子分析结果不如预期，往往是因为数学处理不够“干净”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实操反馈&lt;/strong&gt;：通过对因子进行数学变换，可以显著优化收益曲线。有成员分享其策略在变换后年化收益提升6%，回撤降低1%，证明了“数学在量化中很有用”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📊 策略博弈：定风波为何是保守派的“心头好”？&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定风波 vs 风火轮&lt;/strong&gt;：定风波策略在ROA（收益回撤比）上表现亮眼，部分优化后的版本比值能超过4。对于追求稳健的“保守派”而言，其40%左右的年化收益更具吸引力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;择时与选股&lt;/strong&gt;：苏打水择时的有效性建立在“相信选股能创新高”的前提下。在17-18年等极端行情中，单纯靠择时难以安稳度过，选股质量是抗风险的关键。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🧠 AI量化：低门槛下的策略爆发期&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;效率革命&lt;/strong&gt;：AI工具极大缩短了开发周期，即便数学基础一般的投资者也能在AI辅助下，在一天内完成策略的逻辑优化与变换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未来趋势&lt;/strong&gt;：群友们倾向于将个人积累的框架与AI生成的策略“缝合”，以提升实盘的稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;“不要老看ic，那个也只是参考的，主要看逻辑硬度和有没有过拟合。” —— 木木十三&lt;/li&gt;
+&lt;li&gt;“苏打水择时本质就是如果你相信你的选股是未来能创新高，那么这就是有用的。” —— kunki&lt;/li&gt;
+&lt;li&gt;“这纯ai干活就是快，我这种水平都能一天干出来一个量化策略。” —— 大苗条&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/80408&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/80504&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Mon, 04 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>实盘部署避坑指南：从内存优化、AI因子提纯到市场的冷思考</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;amp;talker=58453205219@chatroom"&gt;2026-05-04_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🚀 告别策略延迟：服务器内存与环境优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;找出性能杀手&lt;/strong&gt;：当策略处理时长异常增加（如从5分钟变为18分钟）时，优先检查服务器内存占用。开发者发现连接到服务器的 Trae 等开发工具会大幅消耗资源，断开连接后性能即可恢复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;硬件与框架升级&lt;/strong&gt;：面对计算侵入下个时区的问题，建议直接升级到 v2.1 框架，或通过增加虚拟内存、升级物理内存来缩短计算时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署小技巧&lt;/strong&gt;：确保在执行脚本前 &lt;code&gt;cd&lt;/code&gt; 到正确的目录。对于复杂的终端操作，建议直接将报错截图发给 AI 获取指令，并使用 &lt;code&gt;Ctrl+Shift+C/V&lt;/code&gt; 进行终端复制粘贴。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 脑洞因子：如何精准捕捉“趴着装死”的币？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;通用连续选中次数因子&lt;/strong&gt;：由用户利用 AI 工具（Trae）编写，用于计算某个标的被选中的持续时长。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;：如果一个币长期处于成交额最低的 20% 且一直被策略选中却未爆发，该因子能帮助识别这些“停滞”资产，过滤掉那些表现乏力的标的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚖️ 实盘回测与参数调优的细节洞察&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据追溯问题&lt;/strong&gt;：&lt;code&gt;lookback_days&lt;/code&gt; 设置后需重启生效。虽然 runtime 文件夹可能看似只按三天保存，但内部实际包含的数据量是根据该参数确定的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对齐官方基准&lt;/strong&gt;：当实盘与官方监测数据对不上时，优先使用网页版的“实盘回测对比工具”，排除分钟偏移和参数差异的影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金管理建议&lt;/strong&gt;：如果将杠杆从 0.5 调回 1，通常是在减仓并移走部分本金后，为了保持剩余资金的暴露比例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📉 市场情绪：大饼破八万后的“反直觉”警告&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不要神化个人判断&lt;/strong&gt;：大饼破8万美金时，群内讨论热烈，但部分做空策略（如 NBL 空头主动暴露）遭遇较大回撤。这再次提醒交易者：市场不可预测，过度相信个人直觉往往是亏损的开始。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 提纯金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“还会跌的。” —— 邢不行（针对 BTC 破 8 万后的简短评述）&lt;/li&gt;
+&lt;li&gt;“现在才知道真是不能把自己的判断当回事。” —— WN_暖春拂晓（感叹行情预测之难）&lt;/li&gt;
+&lt;li&gt;“重装解决 99% 的问题。” —— WN_暖春拂晓（针对框架部署的硬核建议）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-04&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Mon, 04 May 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>基于分域ICIR打分的因子轮动方案：副旗舰策略的“赛道化”改造</title>
       <link>https://bbs.quantclass.cn/thread/80408</link>
@@ -5271,137 +5399,6 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-14&amp;talker=57784510736@chatroom</guid>
       <pubDate>Tue, 14 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>币圈量化实战洞察：策略进化、市场分域与风险避雷针</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-14&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-14&amp;amp;talker=58453205219@chatroom"&gt;2026-04-14_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;核心增量与洞察&lt;/h4&gt;
-&lt;p&gt;🌡️ &lt;strong&gt;Y指数：洞察市场过热的利器&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Y指数被定义为反映市场整体火热程度的指标，其原理与“落单狗”类似，主要观测市场整体热度与BTC热度的偏离程度。当市场过热时，它是逃顶的重要参考。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⚡ &lt;strong&gt;工具进化：Polars回测提速50%&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;社区发布了《回测网页版0.2.0》与《实盘框架1.4.4》。新版本中Polars回测与实盘功能已整合，性能提速50%以上，大幅提升了军备竞赛的效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📈 &lt;strong&gt;动量策略与做空的生死线&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;策略讨论：GA策略被确认为截面因子策略。Rave等动量策略近期表现强劲，甚至“抛光”了动量。但在中性状态下，若大饼、以太拉升而小币不跟，整体可能下跌。&lt;/li&gt;
-&lt;li&gt;风险警示：严禁在高位强行做空强势动量币（如Rave）。有用户因10%仓位手工做空陷入巨亏，面对“旱地拔葱”式上涨，左侧交易极易导致爆仓。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🛡️ &lt;strong&gt;安全防线：远离“带单”与山寨交易所&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;警惕欺诈：社区曝光了U商通过“带单”引诱用户进入山寨交易所（如所谓的comobit）的套路。这些平台界面酷似主流交易所，但本质上是杀猪盘。&lt;/li&gt;
-&lt;li&gt;手工禁令：手工操作风险巨大，甚至有人提出“所有加仓想法都推到下个月再看”以抑制上头情绪。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🧬 &lt;strong&gt;“血统”分域：链上生态决定炒作价值&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;核心逻辑：如果一个币种没有在BSC、ETH或SOL等主流链上发行代币，基本预示着其缺乏未来炒作价值。炒币也要看“血统”，独立L1在项目初期通常也会借用成熟链进行募资或生态建设。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;金句捕捉&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“输了砍掉小拇指的那种。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“所有加仓想法都推到下个月再看。” —— 陈聪汉&lt;/li&gt;
-&lt;li&gt;“炒b还得看血统。” —— 茶泡饭&lt;/li&gt;
-&lt;li&gt;“除了搞量化没爽点了。” —— 心想事陈&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=51111&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78074&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=77817&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78238&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-14&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Tue, 14 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>全流程AI量化实战：xbx-position-mgmt技能封装与微信远程回测指南</title>
-      <link>https://bbs.quantclass.cn/thread/78093</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78093"&gt;【SKILL基建之二】我把仓管回测封装成了 xbx-position-mgmt，微信随时跑因子。&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI Skill封装, 自动化回测, 远程交互, 框架工程化]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：将量化仓管框架抽象为AI Skill，实现通过IM工具驱动的自动化策略研发与回测闭环。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决AI在复杂量化框架下生成代码成功率低的问题，以及打破本地开发环境无法远程操作的限制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于 position-mgmt_v1.4.3 框架，集成 Claude Code、cc-connect 及 cc-switch，构建“微信端-本地CLI-量化内核”的交互链路。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：定义 SKILL.md 作为技能入口，通过 assets/ 提供标准化的 Factor/Section/Signal 模板，强制执行“先读模板、后查文档、再编码”的 Prompt Chain 逻辑；利用 batch_backtest.py 实现非侵入式的配置替换与串行回测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：必须严格限制 AI 对 core/ 目录的修改权限；微信端存在返回字符长度限制，需在引导文档中优化回测评价的展示逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;工程化Skill抽象&lt;/strong&gt;：将量化框架各组件抽象为标准技能包（.claude），通过强制性的模板依赖提升LLM代码生成的确定度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="2"&gt;
-&lt;li&gt;&lt;strong&gt;远程闭环构建&lt;/strong&gt;：部署 cc-connect 实现微信指令驱动本地计算，建立从“灵感输入”到“回测分析”的移动端量化流水线。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="3"&gt;
-&lt;li&gt;&lt;strong&gt;策略版本管理&lt;/strong&gt;：在 strategy 文件夹中集中管控 AI 生成的 Config 文件，结合自动化脚本实现多参数因子的快速迭代与择优。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78093</guid>
-      <pubDate>Mon, 13 Apr 2026 18:15:32 +0800</pubDate>
-    </item>
-    <item>
-      <title>把握临门一脚：基于订单簿失衡的Polymarket短线量化策略</title>
-      <link>https://bbs.quantclass.cn/thread/78126</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78126"&gt;pm 5min up or down 最近总结文档&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[订单簿微观结构、预测市场、执行质量控制、滑点博弈]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用PM结算前5分钟内的盘口失衡捕获短线Alpha，强调执行层优于参数层。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在BTC 5分钟结算市场临近结束阶段，信息流动会快速固化为盘口买卖力量的剧烈倾斜，而非长线趋势演变。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：结算前的博弈属于“确定性抢跑”，市场中最急迫的交易者会在最后窗口期通过扫盘完成仓位布局。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：挑战了“预测行情方向”的传统量化思路，证明在极短线预测市场中，捕捉“成交瞬间的盘口失衡”比预判宏观走势更具实战价值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于临近结算时刻的盘口流动性不对称。通过观察买/卖价的快速推进与退后，识别临门一脚的“力量倾斜”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于L2/L3订单簿的实时价格（Bids/Asks）漂移量与深度变化率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：强调数据的新鲜度，过滤过时数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：核心风险在于“买得太贵”或“买得太晚”，而非方向判断错误；环境恶化（点差扩大、价格跳空）是策略失效的主因。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：高频环境下的数据延迟与成交链路不确定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：采用两层过滤架构，第一层为“方向信号”，第二层为严格的“成交质量控制”（包括Price Limit、Spread Limit、Volatility Limit）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：针对Polymarket特定接口，邮箱类型账号（Type 1）在执行Redeem赎回操作时可能存在特定兼容性配置问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[逻辑转化]&lt;/strong&gt;：立即在回测系统中增加“滑点敏感度测试”与“盘口深度回放”，而非单纯优化信号阈值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[架构调整]&lt;/strong&gt;：将执行逻辑从策略逻辑中剥离，增加实时环境监测模块（如检测WebSocket延迟与点差健康度），信号必须在环境指标达标时才触发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[工程实践]&lt;/strong&gt;：针对PM平台的赎回逻辑进行针对性重构，特别是处理不同账号类型（邮箱 vs 钱包）在合约交互上的差异。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78126</guid>
-      <pubDate>Mon, 13 Apr 2026 12:12:28 +0800</pubDate>
     </item>
   </channel>
 </rss>
