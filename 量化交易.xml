@@ -7,7 +7,307 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 07 May 2026 08:44:07 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 22:42:32 +0000</lastBuildDate>
+    <item>
+      <title>匿名化优先：打破LLM在量化投资中的“身份依赖”陷阱</title>
+      <link>https://www.bilibili.com/video/BV19XRKBkEjn</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV19XRKBkEjn"&gt;匿名化优先的 BlindTrade 框架，遮蔽股票信息检验模型是否仍能提取有效信号并完成组合优化&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 &lt;strong&gt;LLM 真的懂市场，还是仅仅记住了公司的名字？&lt;/strong&gt; 如果模型依赖股票代码或品牌记忆来预测，那么回测中的高收益可能只是“记忆碎片”而非“交易逻辑”。&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;匿名化是否会抹杀有价值的语义信息？&lt;/strong&gt; 在剔除身份标签的同时，如何确保市场信号不被过度压缩，从而维持决策的有效性？&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;脱离了“身份提示”后，AI 还能在实盘环境中产生 Alpha 吗？&lt;/strong&gt; 验证模型在完全盲视身份条件下的迁移能力，是衡量金融大模型可信度的终极标准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 破除“身份依赖”的认知闭环&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;匿名化优先 (Anonymization-First) 框架&lt;/strong&gt;: 核心逻辑是将股票代码、公司名等显性标识替换为合成标签（如 &lt;code&gt;stop0026&lt;/code&gt;），并利用知识图谱替换文本中的专有名词。其目的是强迫模型从“识别身份”转向“理解信号”，确保预测力源于对市场规律的捕捉而非对训练数据的记忆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义图网络的知识传递&lt;/strong&gt;: 即使股票被匿名化，资产之间依然存在行业共性和语义相似性。通过 3GAT 图结构将行业关系与语义嵌入融合，使信息能够在匿名资产间传播，从而在不依赖身份的前提下重建横截面结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 模块化市场推理 SOP&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多维度信号拆解&lt;/strong&gt;: 构建四类专门 Agent 分别负责：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Momentum Agent&lt;/code&gt;: 分析价格趋势与成交量印证。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;News Event Agent&lt;/code&gt;: 基于匿名新闻标题判断事件冲击。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Mean Reversion Agent&lt;/code&gt;: 识别超买超卖与回归机会。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Risk Regime Agent&lt;/code&gt;: 评估宏观风险环境（最强信号源）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义特征量化&lt;/strong&gt;: 将 Agent 的推理文本编码为 384 维向量，结合数值分数与状态，构建 394 维的综合表示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关系建模&lt;/strong&gt;: 利用 3GAT 学习股票间的依赖关系，通过 PPO 策略网络输出防御、中性、进攻三类组合行为。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严格时间对齐&lt;/strong&gt;: 锁定 T-60 到 T-1 的信息窗口，执行横截面批处理，彻底杜绝前瞻偏差（Look-ahead Bias）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“回测美化”陷阱。必须通过随机打乱对照实验（Shuffle Test）来验证结果是否依赖于真实结构，而非流程漏洞或数据泄露。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 ‘交易不是离线分数好看就够了，系统很容易被历史相关数据泄露和回测偏差误导。’&lt;/li&gt;
+&lt;li&gt;💬 ‘匿名化不一定牺牲可交易性，只要方法设计合理，组合层依然能做出稳定结果。’&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV19XRKBkEjn</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/1c97b1080e4da614cf7887a8498e305a02821527.png" length="0" type="image/png"/>
+      <pubDate>Thu, 07 May 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>A股量化交易实盘日记：微盘股活跃，策略表现冰火两重天，1小时Pro数据揭示新金矿</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;amp;talker=57784510736@chatroom"&gt;2026-05-07_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;在一次量化交易社区的日常交流中，成员们分享了当日A股市场的实盘体验、策略表现、平台技术问题以及最新的数据挖掘成果。尽管市场普遍预期指数表现不佳，但部分策略和人工交易却取得了亮眼成绩，尤其是在微盘股和特定板块。同时，新的1小时Pro数据被认为是“金矿”，有望为未来策略开发带来突破。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 市场情绪与微盘股动态&lt;/h3&gt;
+&lt;p&gt;当日A股市场波动剧烈，群成员们的实盘表现也冰火两重天。有人对市场预期悲观，有人却实现了“吊打指数”的佳绩。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;市场预期与实际表现&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;开盘前，“今天要做好继续被指数吊打的心里准备。。。”（邢不行），但市场实际并未完全如预期般糟糕。&lt;/li&gt;
+&lt;li&gt;微盘股当天表现活跃，“微盘股20今天还成”（無慈悲な定量化機械），让一些配置微盘股的策略获得了收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略与个股表现&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;“杰克”策略表现出色，选出的票“真猛”，中途进场也能“喝上汤”。&lt;/li&gt;
+&lt;li&gt;“凌烟阁”策略4月后半月表现优异，但近期略有回撤，同时有人抱怨其未实现满仓。&lt;/li&gt;
+&lt;li&gt;“雷欧”策略近期表现不佳，遭遇“暴打”。&lt;/li&gt;
+&lt;li&gt;ST股票波动大，有成员被套在连续跌停中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人工交易高光&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;部分交易员通过手工操作在北证（享受30cm涨停板）和存储芯片板块获得了显著收益，“无心上班了”（baykop），展现了对市场热点的敏锐捕捉。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 交易平台故障与API更新&lt;/h3&gt;
+&lt;p&gt;在实盘交易日，平台稳定性是大家关注的焦点。当日出现了几类常见技术问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;客户端闪退&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;有成员反映“东北证券客户端登录时闪退，重新安装报错”，解决方案包括：&lt;ul&gt;
+&lt;li&gt;在进程管理中“杀掉进程再重装”。&lt;/li&gt;
+&lt;li&gt;尝试关闭如360、火绒等安全软件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实时数据获取异常&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;QMT平台出现实时数据不同步问题，通过重启QMT和客户端后解决。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API接口更新影响&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;官方助教发布通知，API接口更新可能导致部分3.6.4版本客户端用户自动登出，手动重新登录即可恢复。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 策略复盘与优化洞察&lt;/h3&gt;
+&lt;p&gt;夏普助教对多位成员提交的策略作业进行了详细复盘，提供了宝贵的见解和优化方向，核心思路多为“小市值+基本面选股”与“技术指标择时”的结合：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自适应均线VIDYA择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;特点：小时级均线能更快响应价格变化，权重随偏离度自动调整，减少震荡市误判。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;POS指标动量择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;洞察：“宽进严出”的阈值设置比“严进宽出”更适合A股震荡特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MACD零轴择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;亮点：MACD直接以零轴为界，不做金叉死叉优化，回测中反而能有效压低回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DO指标择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;解释：基于RSI双重EMA平滑后减50，信号围绕0轴波动，大于0做多、小于0空仓，能减少噪音。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PPO金叉死叉择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;优势：百分比形式解决了跨品种、跨价位信号的可比性问题，在批量回测中更实用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ENV包络线择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;逻辑：20日均线上下5%通道过滤假突破，结合基本面质量筛选，作为趋势跟踪型的风控过滤器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TRIX趋势择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;效果：结合0线阈值和5日持有期，能有效过滤震荡噪音，有助益于收益曲线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;COPP双周期动量择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;特点：用不同长度价格变化率的加权平均过滤噪音，0轴穿越信号干净，更扛震荡，能将最大回撤压至22%以内。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SROC（平滑ROC）趋势择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;权衡：EMA平滑ROC滤掉短线噪音，但震荡市中可能存在滞后和手续费损耗。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ER指标多空力量择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;设计：同时监控多空两端力量，信号对称，更干净，能平滑资金曲线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RMI动量噪音比指标&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;优势：正向动量除以绝对波动，剔除无序波动对趋势信号干扰，比传统RSI更抗噪。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TDI指标区分趋势与震荡&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;效果：通过“净动量减去近期震荡强度”区分行情，有效躲避不良行情，显著降低最大回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;苏打水老师回撤择时逻辑&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;核心：股价从高点回撤超过-4%即触发卖出/减仓，直接有效控制回撤，尤其适合波动大的北交所。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KDJ与RSV解耦择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;策略：RSV进入超卖/超买区域“装弹”，再等KD交叉“击发”，信号更有耐心，过滤假突破。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OBV多维度背离与形态识别择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;改进：使用EMA差分而非polyfit计算趋势，对多种形态进行量化处理，比单纯金叉死叉更细腻。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;魔改PSY择时&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;创新：将上涨幅度占比加入PSY，使量价结合，提升了收益回撤比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💎 1小时Pro数据挖掘新机遇&lt;/h3&gt;
+&lt;p&gt;“木木十三”分享了他在1小时Pro数据挖掘上的重大发现，认为该数据是一个“金矿”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据潜力&lt;/strong&gt;：1小时Pro数据非常有用，胜率“夸张”，有望带来策略突破。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;理解误区&lt;/strong&gt;：应将其视为“日”因子，提取日内行为标签化，而非简单地将“一日变四日”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用方向&lt;/strong&gt;：有望开发出与“定风波”或“苏打水”策略适配的选股逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分享&lt;/strong&gt;：已将数据加载器分享至社区，鼓励大家一同探索。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚀 量化工具与技术探索&lt;/h3&gt;
+&lt;p&gt;社区成员们也积极分享了在量化工具和技术上的探索：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rocket新版本期待&lt;/strong&gt;：木木十三透露已将新版本Fuel反编译并用Golang实现，期待Rocket新版本能带来更多功能，引发群内高度关注。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码习惯&lt;/strong&gt;：有成员讨论代码注释习惯是否为了适配手机竖屏，被回应是受限于某些AI助手的“垃圾”特性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💬 金句精选&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“今天要做好继续被指数吊打的心里准备。。。”——邢不行&lt;/li&gt;
+&lt;li&gt;“著名反指[旺柴]”——木木十三&lt;/li&gt;
+&lt;li&gt;“提前准备，好让痛苦慢慢的散开”——邢不行&lt;/li&gt;
+&lt;li&gt;“中概确实起来了，那个男人说的对呀”——Oliver&lt;/li&gt;
+&lt;li&gt;“今天居然没有被指数吊打”——土土&lt;/li&gt;
+&lt;li&gt;“微盘股20今天还成”——無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“今天吊打指数了卧槽”——土土&lt;/li&gt;
+&lt;li&gt;“要开收盘再开”——土土&lt;/li&gt;
+&lt;li&gt;“谁开的香槟”——迷糊&lt;/li&gt;
+&lt;li&gt;“今天这踏马喜马拉雅山”——土土&lt;/li&gt;
+&lt;li&gt;“这个户全手工”——baykop&lt;/li&gt;
+&lt;li&gt;“无心上班了”——baykop&lt;/li&gt;
+&lt;li&gt;“不是，你整的有点太高科技了”——北海&lt;/li&gt;
+&lt;li&gt;“哥哥，我还在地球呢，你怎么已经上火星了”——Point71&lt;/li&gt;
+&lt;li&gt;“太难了 这个a股 赚点钱容易吗”——Cocj&lt;/li&gt;
+&lt;li&gt;“应对快速的涨跌确实不错”——long&lt;/li&gt;
+&lt;li&gt;“天崩开局”——Cyan.&lt;/li&gt;
+&lt;li&gt;“大佬们别赚了”——（多人）&lt;/li&gt;
+&lt;li&gt;“权重拉完之后小市值大涨半年”——SASIOVERLXRD&lt;/li&gt;
+&lt;li&gt;“数据挖掘N天终于又有新收获”——木木十三&lt;/li&gt;
+&lt;li&gt;“大家真心可以研究研究 1h pro，这个数据很好用”——木木十三&lt;/li&gt;
+&lt;li&gt;“这胜率好夸张”——baykop&lt;/li&gt;
+&lt;li&gt;“黄金坑”——無慈悲な定量化機械&lt;/li&gt;
+&lt;li&gt;“我只能这数据是一个金矿[旺柴]”——木木十三&lt;/li&gt;
+&lt;li&gt;“刑大说过定风波是一种市场行为模式，那么在1h数据里面就可以存在某种以时间为为度的风格可以提炼出来”——木木十三&lt;/li&gt;
+&lt;li&gt;“这个真的有搞头 不亚于苏打水”——Cocj&lt;/li&gt;
+&lt;li&gt;“你们都在肝，而我还在约会，我真该死”——Joe&lt;/li&gt;
+&lt;li&gt;“但你体会到买卖股票的多巴胺 那是约会替代不了的”——Cocj&lt;/li&gt;
+&lt;li&gt;“套牢了就消停了”——kunki&lt;/li&gt;
+&lt;li&gt;“越痛越爱”——Cocj&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80625&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80138&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80394&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/76971&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/76973&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/a/s/59b9f8fc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/76970&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/62245&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/76115&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bbs.quantclass.cn/thread/79912&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80165&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80226&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80492&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80506&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80283&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80028&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80547&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80300&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80307&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80569&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80066&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80350&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80364&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80465&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80240&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80586&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;qtcls.cn/80095&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;bbs.quantclass.cn/thread/80986&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>数据之坑与策略之惑：量化交易者的实战避坑指南</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;amp;talker=58453205219@chatroom"&gt;2026-05-07_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ 避坑指南：遇到报错，先试全量更新数据&lt;/h3&gt;
+&lt;p&gt;在量化交易的实战中，数据的一致性是策略运行的基石。群友在讨论中发现，很多诡异的 Bug（如 &lt;code&gt;IndexError: list index out of range&lt;/code&gt; 或仓位数据不一致）往往并非代码逻辑问题，而是&lt;strong&gt;数据损坏或过期&lt;/strong&gt;导致的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心洞察&lt;/strong&gt;：尤其是经历过长假（如五一）后，本地缓存数据可能与服务端产生偏移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;当你发现回测结果与之前不一致，或者实盘运行出现莫名报错时，&lt;strong&gt;第一优先级操作是：删除缓存 $\rightarrow$ 全量更新数据&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;如果依然报错，检查账户类型设置是否与实际账户一致。&lt;/li&gt;
+&lt;li&gt;如果内存不足导致报错，可以尝试增加虚拟内存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📉 策略回撤：面对 NBL 等策略的波动怎么看？&lt;/h3&gt;
+&lt;p&gt;当市场出现“大B小B都涨，但大饼没跟上”的局面时，部分策略（如 4龙狗、NBL）会出现回撤。对于这种波动，群友分享了不同的心态与视角：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;理性视角&lt;/strong&gt;：关注整体盈利曲线，而非短期波动。有观点指出 NBL 整体盈利已创新高，短期回撤是正常波动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;心态建设&lt;/strong&gt;：面对回撤，有人选择定投，有人选择在压力测试中寻找机会。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔍 回测与实盘：我们真的能相信回测吗？&lt;/h3&gt;
+&lt;p&gt;关于回测的价值，群友们展开了一场关于“真相”的讨论：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测的局限&lt;/strong&gt;：回测容易让人陷入“自我欺骗”的陷阱，过度拟合会导致结果极其美好，但实盘压力巨大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实战哲学&lt;/strong&gt;：最好的验证是“样本外上压力”，让策略在真实的时间轴上接受考验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📅 学习进度管理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;作业截止时间&lt;/strong&gt;：旗舰策略作业已延期至 &lt;strong&gt;5月24日&lt;/strong&gt; 截止。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预警&lt;/strong&gt;：后续新的旗舰策略将增加额外的作业，建议尽早完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;回测都是骗自己，直接样本外上压力&amp;quot; —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;&amp;quot;少做少错不做不错&amp;quot; —— yocknow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;相关链接：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/80905&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-07&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Thu, 07 May 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>算法交易如何重塑资本市场：同行财报信息的快速传导机制</title>
       <link>https://www.bilibili.com/video/BV1XXRKBkEtp</link>
@@ -5160,216 +5460,6 @@ ightarrow$ 存储于 &lt;code&gt;InfluxDB&lt;/code&gt; 或 &lt;code&gt;kdb+&lt;/
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78407</guid>
       <pubDate>Fri, 17 Apr 2026 01:37:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化与玄学共舞：红牛老板揭秘L2数据、择时与周期投资心法</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;amp;talker=57784510736@chatroom"&gt;2026-04-17_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;✨ 红牛老板的“红红火火”系列：实盘直播，知行合一
-红牛老板以其独特的“红红火火”系列分享，在群内进行实时实盘解说和分析。这种模式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;强调实战与验证&lt;/strong&gt;：通过边看实盘边截图来写帖，提供当下可验证的分析。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心见解难被认同&lt;/strong&gt;：他指出，帖子中越核心的见解越难被大众认可。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;辉煌的直播过往&lt;/strong&gt;：曾创下三个月从几人到五千人同时在线，每天直播至少八小时的记录（20多年前）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🚀 策略进化论：从“简配版”到“凌烟阁”的量化探索
-群内成员积极讨论并分享了各种量化策略，从择时逻辑到具体策略的实盘表现：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;MA13+5简配版&lt;/strong&gt;：该策略作为入门案例，其核心逻辑是在选股日（如周一）统计30只股票中MA13向上数量，若超过5只则本期满仓，否则空仓。红牛老板强调这只是“最简配版，不入流的”，旨在说明择时而非实际应用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凌烟阁机制&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;特点：采用“板+集合竞价”的选股逻辑，结合集合竞价数据进行择时买入。&lt;/li&gt;
-&lt;li&gt;回测表现：“特别炸裂”，年化收益率可达300%。&lt;/li&gt;
-&lt;li&gt;实盘挑战：滑点问题严重，“收益全在滑点上”，客户端操作可能不够，需要重新开发。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凌烟阁与定风波对比&lt;/strong&gt;：群友认为凌烟阁的择时效果不输定风波，且能提供“每小时一次机会”，更为精细和灵活。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📊 L2数据：透视主力与散户博弈的“显微镜”
-红牛老板强烈推荐使用L2数据，认为其是理解市场动态的强大工具：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实时性与有效性&lt;/strong&gt;：L2数据对于短期（一两天）乃至当日行情都“非常有效”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“逃顶”利器&lt;/strong&gt;：他曾依靠L2数据成功判断市场顶部并清仓，随后大盘即出现利空。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;洞察主力行为&lt;/strong&gt;：L2逐笔数据能清晰展现“主力和散户是怎么打战的”，通过分析能理解主力意图。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度实践建议&lt;/strong&gt;：建议投资者如果能坚持一年，每天观察一只股票的逐笔数据，理解市场微观结构，“想亏都不可能”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性价比高&lt;/strong&gt;：L2数据每年仅需200多元，是“值得拥有”的“好武器”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔮 玄学择时：信任与感知的超验力量
-红牛老板分享了他独特的投资哲学，将传统玄学思想融入市场择时：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;五行与周期&lt;/strong&gt;：他提到通过五行（如木年利木股，火年易起战事）来理解市场和宏观事件的周期性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信念的力量&lt;/strong&gt;：认为玄学预测不准的“最大原因是你不信”，并指出“越初学，越精准”，存在“新手保护期”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“天时地利人和”&lt;/strong&gt;：强调投资是“天时地利人和”的结合，需要放下一切杂念，用心去“感知”，才能达到“最准最灵”的状态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;顺势而为&lt;/strong&gt;：他表示不主动做选择，而是“让事情来选择我”，在“节点”到来时，根据形势走向行动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“一切都是命，但对个人来说有择时”&lt;/strong&gt;：他认为宏观走势是定数，但个人可以通过选择适合自己的领域和时机，提升自身层次。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🛠️ 量化交易的幕后：平台、数据与框架挑战
-群内成员也讨论了量化交易平台和数据处理中的实际问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;QMT客户端异常&lt;/strong&gt;：有用户反映QMT客户端出现自动暂停运行、数据未及时更新、择时信号未计算等问题，建议回退内核或重启解决。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ETF数据粒度&lt;/strong&gt;：目前ETF数据尚不能精确到1小时，只接受H整数级别数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI代码生成与框架适配&lt;/strong&gt;：有开发者尝试利用AI生成代码，但发现需要大量人工审核文档，并适配LSP（语言服务器协议）以提高AI编写和理解代码的效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📈 传统分析再思考：报表与图表的精细解读
-红牛老板也提倡结合传统方法进行投资：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;报表选股&lt;/strong&gt;：计划从明天开始，将通过分析报表来选择股票，并在帖子中分享备选股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;图表分析要素&lt;/strong&gt;：除了MACD和13日均线，还包括量比、日成交量翻倍波动等，并提出将股东人数指标叠加到图表上进行分析。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;💡 金句分享&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“帖子里讲的东西越核心其实越得不到认可的。” – 红牛&lt;/li&gt;
-&lt;li&gt;“实盘不可能靠这么简单的方法。论坛很多人不相信择时，只是用个最简单的方法来说明而己。” – 红牛&lt;/li&gt;
-&lt;li&gt;“滑点太大了。我2月份实盘到现在，收益全在滑点上了。” – YE&lt;/li&gt;
-&lt;li&gt;“凌烟阁择时效果不输定风波” – 無慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;“比定好，每小时一次机会” – ShawnSu&lt;/li&gt;
-&lt;li&gt;“一要强调30+5那个是最简配版。不入流的。要么你们深入研究要么等我新版” – 红牛&lt;/li&gt;
-&lt;li&gt;“最终目的是给行业定高中低风险区。你们分区操作” – 红牛&lt;/li&gt;
-&lt;li&gt;“最好的东西你们是不看的” – 红牛&lt;/li&gt;
-&lt;li&gt;“你买块豆腐还货比三家，你买股票这公司你啥都不知道。你不亏钱谁来亏” – 红牛&lt;/li&gt;
-&lt;li&gt;“一切都是命，但对个人来说有择时” – 你的热心网友&lt;/li&gt;
-&lt;li&gt;“你把一切都放下，去感知的时候。就是最准最灵的。” – 红牛&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🔗 相关链接&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://mp.weixin.qq.com/s?__biz=MjI3Njc0NTk4MQ==&amp;amp;mid=2650584008&amp;amp;idx=1&amp;amp;sn=02aad6aec866390971e488630124d08c&amp;amp;chksm=b6d1790b1b2ad722ed61bc0ba1f10b344891b271ec80fda00038f0abbde7a2adc9c8d79118d0&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0416MtidM6cRZBmyfRpdQ1bn&amp;amp;sharer_shareinfo=763d4b4aa1543bf7e202719d2469e915&amp;amp;sharer_shareinfo_first=763d4b4aa1543bf7e202719d2469e915#rd"&gt;一夜之间，3家A股公司或被*ST&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78378"&gt;[工具箱]X1策略查看器-动态载入因子版--大A策略分析工具 - 量化小论坛&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78409"&gt;红红火火 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/78356"&gt;qtcls.cn/78356&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://qtcls.cn/78391"&gt;qtcls.cn/78391&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/78441"&gt;https://bbs.quantclass.cn/thread/78441&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/78444"&gt;https://bbs.quantclass.cn/thread/78444&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78436"&gt;【剑南框架】大佬年化300%的集合竞价策略如何实盘？如何拉数据，如何清洗QMT数据对齐彩虹，如何验证？一篇文章给你参考答案 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://mp.weixin.qq.com/s?__biz=MjM5NzUyNjc0MA==&amp;amp;mid=2650794364&amp;amp;idx=1&amp;amp;sn=a954c66e58f38b8efbf41eee8dd34776&amp;amp;chksm=bfe3b4fc5dbbb248c1b13ac4e8d63fe8710777ce681fe7e8ca0680fe4d3d2a655376219270ae&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0417WqYx95XSPvEvTlSkhpgu&amp;amp;sharer_shareinfo=9c6c715da05851523910290470f6d46b&amp;amp;sharer_shareinfo_first=9c6c715da05851523910290470f6d46b#rd"&gt;特朗普：伊朗刚刚宣布霍尔木兹海峡全面开放，随时准备通行，谢谢！&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://mp.weixin.qq.com/s?__biz=Mzg4MDc2MDU2Mg==&amp;amp;mid=2247824444&amp;amp;idx=1&amp;amp;sn=f03dcb1678a3d7b912fedfb0b61e6490&amp;amp;chksm=ce79007d135e0a6810ad8dc619235d653b5bc43a9ade956b3738f32ad30031e7969df2cf0d69&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0417thatU2rSw7F6WAQDZDh7&amp;amp;sharer_shareinfo=334229a496cdd65347e140f7e68eacf5&amp;amp;sharer_shareinfo_first=334229a496cdd65347e140f7e68eacf5#rd"&gt;以色列宣布全国基本解除战时限制&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Fri, 17 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易实盘故障与策略优化：从API配置到暴涨币应对</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;amp;talker=58453205219@chatroom"&gt;2026-04-17_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;本次聊天记录围绕量化交易实盘中的常见问题、策略表现以及框架更新展开，涵盖了从API配置到特定币种处理的多个方面。参与者分享了实战经验和解决思路，为B圈量化交易者提供了宝贵的洞察。&lt;/p&gt;
-&lt;h3&gt;🚨 实盘API与配置疑难杂症&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;TradFi数据屏蔽&lt;/strong&gt;：实盘数据中心已直接拉黑TradFi数据，因此实盘框架无需额外设置&lt;code&gt;block_tradfi = True&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;API Key无效问题&lt;/strong&gt;：&lt;code&gt;Invalid Api-Key ID&lt;/code&gt;报错常见原因包括：&lt;ul&gt;
-&lt;li&gt;IP白名单未设置或设置错误。&lt;/li&gt;
-&lt;li&gt;币安平台普通账户与统一账户类型配置不匹配。&lt;/li&gt;
-&lt;li&gt;未正确执行API加密流程。&lt;/li&gt;
-&lt;li&gt;API密钥本身输入错误或使用了错误的子账户API。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加密流程处理&lt;/strong&gt;：若未走加密流程，可直接将子账户的API Key和Secret配置到相关参数中，而非加密后的文件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;母子账户API冲突&lt;/strong&gt;：有用户反馈同时使用母账户和虚拟子账户的不同API可能导致报错，即使停止策略和数据中心也无效。建议：&lt;ul&gt;
-&lt;li&gt;优先使用真实邮箱注册的子账户API。&lt;/li&gt;
-&lt;li&gt;考虑将策略迁移到新的子账户中，并链接其独立的API。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 币圈策略表现与市场洞察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;近期市场表现&lt;/strong&gt;：全市场普涨反弹，多头暴露的策略（如浪填、浪轮）表现良好，但NBL策略因市场涨幅超大饼而出现回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ordi币暴涨&lt;/strong&gt;：部分动量策略未能及时捕捉到ordi的上涨，引发了对市场异动的探讨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RAVE币争议&lt;/strong&gt;：邢不行指出RAVE币存在明显的庄家操控，其主要持仓账户多有“劣迹斑斑”的历史。然而，该币的暴涨也让部分动量策略获利。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;盈亏同源&lt;/strong&gt;：用户讨论了拉黑这类“妖币”的利弊，认为规避风险的同时也可能错失高额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;下架币处理&lt;/strong&gt;：对于TRU等下架币，由于其不可控性，建议手动拉黑以规避潜在风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;晒单效应&lt;/strong&gt;：有用户晒单后策略遭遇回撤，再次验证了“晒单魔咒”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 框架更新与效率优化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;仓管回测框架2.1.0公测版&lt;/strong&gt;：即将发布，旨在进一步提升框架的回测速度。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;2.0版本速度反馈&lt;/strong&gt;：用户对2.0版本的回测速度提升表示非常满意，认为“超级明显，提升好几倍”，加快了“印钞速度”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘回测对比工具指南&lt;/strong&gt;：学废菌分享了相关帖子，指导用户升级框架和网页版，利用工具进行策略对比。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码版优势&lt;/strong&gt;：虽然代码版前期上手难度较高，但在长期策略研究和高效问题排查方面，它提供了更大的灵活性和友好性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💾 服务器与存储空间管理&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;存储空间清理&lt;/strong&gt;：数据中心会自动清理旧数据。用户可以手动删除旧框架的&lt;code&gt;data&lt;/code&gt;目录，以节省空间。同时，调整&lt;code&gt;get_kline_num&lt;/code&gt;参数，只保留策略所需的分钟偏移数据也能有效管理存储。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;服务器进程被杀&lt;/strong&gt;：配置较低的云服务器（如2C2G）在CPU负载过高（如100%持续10-20秒）时，可能会出现进程被杀的情况。建议使用&lt;code&gt;pm2 start&lt;/code&gt;命令来运行策略，以保证进程的稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;init_time&lt;/code&gt;错误&lt;/strong&gt;：当配置文件中的&lt;code&gt;init_time&lt;/code&gt;早于数据最早时间时，程序会报错。解决方案是修改&lt;code&gt;config&lt;/code&gt;文件中的&lt;code&gt;start_date&lt;/code&gt;参数，使其不早于服务器上已有的数据起始时间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 投资策略思考&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;NBL与沧浪亭关系&lt;/strong&gt;：邢不行指出NBL是沧浪亭的子集，意味着NBL的进化可以看作是旗舰策略的升级。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MSTR与BTC轮动&lt;/strong&gt;：有用户探讨将MicroStrategy (MSTR) 和比特币 (BTC) 进行轮动策略。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;特性&lt;/strong&gt;：MSTR与BTC高度相关，但在市场剧烈波动时，MSTR的涨跌幅通常会超过BTC，表现出更强的“妖性”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;潜在策略&lt;/strong&gt;：利用这种特性，尝试基于bias指标进行轮动操作。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“follow your heart lose your money be a jiucai forever” — 邢不行&lt;/li&gt;
-&lt;li&gt;“盈亏同源，拉黑防亏，也防了赚” — 冰茶solo&lt;/li&gt;
-&lt;li&gt;“你们很奇怪诶，赚钱了还问为什么，在怕什么，怕赚钱？” — 韭菜网友&lt;/li&gt;
-&lt;li&gt;“币股常常比币本身妖” — 乔治刘&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;Quantclass.cn 链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78145&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-17&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Fri, 17 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于纯合约域的双均线增强策略：利用SpotSwapBoth效应实现高收益中性对冲</title>
-      <link>https://bbs.quantclass.cn/thread/78384</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78384"&gt;【b圈】只有合约域的双均线动量-落单狗中性策略。收益不错哦！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[纯合约域(SpotSwapBoth)、双均线因子、资金费率过滤、中性对冲]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用纯合约域的趋势性配合DMA因子及费率过滤构建非对称高收益中性策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：在纯合约(Futures-only)域中利用双均线(DMA)捕捉趋势动量。核心逻辑在于特定域(SpotSwapBoth &amp;lt; 0.5)内的趋势性更强，配合费率过滤极端情况。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：多头因子 $Factor = MA(n/3) - MA(n)$。作者对比了原始差值与去量纲版本 $(MA(n/3) / MA(n)) - 1$，实盘建议使用去量纲版本以增强解释性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：1. 域过滤：&lt;code&gt;SpotSwapBoth &amp;lt; 0.5&lt;/code&gt;；2. 波动过滤：&lt;code&gt;资金费率绝对值 &amp;lt;= 0.015&lt;/code&gt;；3. 空头筛选：必须满足 &lt;code&gt;HoursSinceSpotAndSwap &amp;gt; 0&lt;/code&gt; 即现货已上市，构建多空非对称逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：回测期2025年至今；多头单因子年化超1000%，回撤约44%；中性组合后年化679.71%，最大回撤显著降至-12.57%，盈亏比1.08。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：双均线因子在全域(Universal)表现平庸，其Alpha高度依赖于“纯合约”这一特定子域的统计特性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：基于Pandas的向量化实现。使用 &lt;code&gt;rolling(n).mean()&lt;/code&gt; 计算均线，通过 &lt;code&gt;eps = 1e-8&lt;/code&gt; 处理除零异常，采用多Offset(0-23)平滑资金曲线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过参数平原分析(300-504周期)，验证了因子在该参数区间内的稳定性，避免了单点过拟合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：注意标的数量限制，由于纯合约币种随时间增加，回测需从2025年开始才有足够的币种分散风险，否则需调整域限制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[域发现]&lt;/strong&gt;：复现 &lt;code&gt;SpotSwapBoth&lt;/code&gt; 过滤逻辑，将其作为因子挖掘的前置过滤器，针对纯合约或纯现货标的进行定向优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[因子修正]&lt;/strong&gt;：在实盘中采用 &lt;code&gt;(df['ma1'] / df['ma2']) - 1&lt;/code&gt; 进行去量纲处理，确保因子在不同价格尺度的币种间具有可比性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[策略对冲]&lt;/strong&gt;：尝试“做多纯合约新币 + 做空有现货基础的落单狗”这一非对称组合，利用上市溢价与回归逻辑双头获利。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78384</guid>
-      <pubDate>Thu, 16 Apr 2026 19:19:24 +0800</pubDate>
     </item>
   </channel>
 </rss>
