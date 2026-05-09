@@ -7,7 +7,193 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 08 May 2026 22:48:13 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2026 08:42:13 +0000</lastBuildDate>
+    <item>
+      <title>打破‘会说不会投’：CNBUS2 Portfolio 如何重构金融智能体评测范式</title>
+      <link>https://www.bilibili.com/video/BV1aURmB4ENV</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1aURmB4ENV"&gt;热榜新闻如何变成ETF配置决策：从热点叙事到资产配置的关键一跃&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么通用能力极强的 LLM 在金融实操中经常出现“认知断层”，能总结热点却无法给出稳健的配置方案？&lt;/li&gt;
+&lt;li&gt;💡 传统的个股预测基准（Benchmark）为何在真实投资环境中失效，且难以区分“真实推理能力”与“运气成分”？&lt;/li&gt;
+&lt;li&gt;🚀 如何构建一套可复现、低噪声且贴近真实决策流的评测体系，让金融智能体从“信息理解工具”进化为“决策执行工具”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知断层：现有评测范式的失效&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;能力错位&lt;/strong&gt;: 现有范式过度依赖预设股票池和过滤后的新闻，这与投资者面对的“开放世界信息流”存在巨大落差。模型在静态基准上得分高，并不代表其具备在动态市场中捕捉叙事并转化为决策的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;噪声干扰&lt;/strong&gt;: 个股波动受公司突发事件影响极大（高噪声），容易掩盖模型底层的推理逻辑。而真实交易虽真实，但不可复现且难以隔离运气因素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ CNBUS2 Portfolio：从叙事到配置的新路径&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;: 模拟真实投资者的信息获取路径——从“公共注意力流（热榜新闻）” $\rightarrow$ “宏观/行业信号提炼” $\rightarrow$ “ETF 组合权重配置”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;信息压缩&lt;/strong&gt;: 将海量高冗余的热榜新闻压缩为稳定、聚焦的市场叙事，剔除重复信息与噪声。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号提炼&lt;/strong&gt;: 将表层语义转化为金融语义，识别政策变化、行业景气度及主题轮动，形成投资假设。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权重落实&lt;/strong&gt;: 将投资假设转化为跨资产/行业 ETF 的具体配置比例，确保逻辑自洽且前后一致。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免将配置决策视为端到端的“黑箱”；必须将过程拆解为“读-想-做”三个阶段，以便精准诊断模型是在哪个环节出现偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 评测维度与实验洞见&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ETF 替代个股&lt;/strong&gt;: 使用 ETF 承载宏观主题，降低个体噪声，使评测重点聚焦于“叙事 $\rightarrow$ 逻辑 $\rightarrow$ 配置”的映射质量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;滚动窗口验证&lt;/strong&gt;: 采用 2024 年至 2025 年中的滚动时间窗口，确保结果贴近真实市场且可复现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键发现&lt;/strong&gt;: 通用语言能力强 $
+eq$ 金融配置能力强。不同模型在将宏观叙事转化为具体权重时表现出显著的行为差异，证实了从文本理解到投资决策之间存在明显的能力断层。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “金融智能体的评测不能只看通用推理能力或单点预测准不准，更关键的是看它有没有连贯、可执行且可解释的配置逻辑。”&lt;/li&gt;
+&lt;li&gt;💬 “关注的不是信息有没有，而是模型能不能自己从复杂公共信息里找出有用线索。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1aURmB4ENV</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/2a3ce5b479e58475d7d22593d76d4c98456f6414.png" length="0" type="image/png"/>
+      <pubDate>Sat, 09 May 2026 10:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>具身智能的进化与去魅：从技术迷思到物理世界的商业博弈</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/69fee24d1b7bd50295c9f74b?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/jhfuba3dahq8"&gt;高能量&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/69fee24d1b7bd50295c9f74b?utm_source=rss"&gt;Vol.216 产业观察41｜具身“不够卷”、世界模型和机器人大脑：再访逐际动力张巍&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 既然行业如此内卷，为什么具身智能反而是比新能源车大得多的“无限赛道”？&lt;/li&gt;
+&lt;li&gt;💡 为什么说“大模型不等于大脑”，而是一个运行在技能之上的操作系统？&lt;/li&gt;
+&lt;li&gt;🚀 从实验室到名利场，学术大牛转型创业者必须经历哪五次“脱胎换骨”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 具身智能的本质：人形是覆盖任务的最优解&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;形态决定上限&lt;/strong&gt;: 人形机器人并非为了模仿而模仿，而是在人类设计的环境中，追求单一形态下“服务任务数量最大化”的数学最优解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用性是“长”出来的&lt;/strong&gt;: 具身智能无法复刻大模型“先通用再落地”的路径，其能力必须在垂直场景中通过数据反馈形成飞轮，完成从技能模型到通用模型的进化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 技术解构：世界模型是工具，大脑是操作系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;世界模型的物理意义&lt;/strong&gt;: 它本质是对观测数据的降维压缩，是预测未来状态的概率模型。当前正从单纯的视觉预测（Video Generation）转向视频与行动同步预测（World Action Model）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agentic OS 的大脑架构&lt;/strong&gt;: 模型只是工具，大脑是管理记忆、思考和调用的操作系统。真正的“智能”在于系统二（逻辑推理）对系统一（本能运动/小脑模型）的精准调度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 创始人的蜕变路径：从解题思维到商业范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 转型 SOP&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;五重蜕变&lt;/strong&gt;: 必须经历学术、技术、工程、产品、商业化五个维度的升维，而非单纯的自我否定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组织进化&lt;/strong&gt;: 创始人需具备驾驭组织随技术阶段调整的能力，包括在不同成熟期对核心团队进行迭代。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“在不懂的领域被魅惑”。学术背景创业者最易在商业逻辑缺失时，因“技术崇拜”或“期望一步到位寻找CEO”而陷入决策偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “具身智能的下限比大模型高，上限也比大模型高。”&lt;/li&gt;
+&lt;li&gt;💬 “接受公司可能会死，是创业者最顶级的自我修行。输不起，就没法赢。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/69fee24d1b7bd50295c9f74b?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/FqcK9EzaP1vOh53dFufyg2u1Bkvk.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 09 May 2026 07:42:21 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI救市悖论：自动化巨头如何意外支撑中国商业地产？</title>
+      <link>https://www.bilibili.com/video/BV14EdgBjEWU</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3690979320137741"&gt;外刊情报局&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV14EdgBjEWU"&gt;《经济学人》：意料之外的“接盘侠”，AI大模型是如何拯救中国房地产的？🔥 | 外刊播客 | 中英字幕&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 中国商业地产如何从“鬼塔”危机中被意外拯救？&lt;/li&gt;
+&lt;li&gt;💡 AI繁荣为何反而催生大量“人类”办公需求？&lt;/li&gt;
+&lt;li&gt;🚀 自动化科技最终是否会“自我蒸发”其创造的物理空间？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 中国商业地产的“鬼塔”危机与科技寒冬&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;过度建设与高空置率&lt;/strong&gt;: 过去十年，开发商竞相建造“最宏伟的企业天际线”，导致各大城市充斥着“鬼塔”——未完工或完全空置的玻璃巨石。例如，武汉拥有近200个足球场大小的闲置甲级办公物业。在一些内陆城市，这类顶级空间的空置率超过40%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;科技监管与经济冲击&lt;/strong&gt;: 与房地产市场下行同步，中国政府对科技行业进行大规模监管整顿，导致科技巨头（如阿里巴巴、腾讯）大规模裁员，这些原本被寄予厚望的租户需求骤降，加剧了写字楼空置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“摩天大楼传送带”的惯性&lt;/strong&gt;: 商业地产开发周期漫长，即使市场需求已蒸发，早期启动的数十亿美元项目也无法中途停止。这导致数百万平方英尺的新库存持续涌入市场，进一步压低租金。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ AI：意想不到的地产“救世主”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“Deep Seek”引爆的AI热潮&lt;/strong&gt;: 2025年初，Deep Seek等中国本土AI公司推出可与国际顶尖系统媲美的AI模型，证明了国内企业在AI竞赛前沿的竞争力，成为区域经济的引爆点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI企业办公需求激增三倍&lt;/strong&gt;: UBS分析师数据显示，2026年3月，AI公司在中国的办公空间需求较去年同期增长三倍。这种爆炸性增长高度集中在杭州和深圳等科技中心，迅速消化了过剩的供给。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生态系统效应：数字淘金热中的“卖镐人”&lt;/strong&gt;: AI开发商并非唯一的需求来源。围绕AI核心技术，一个庞大的生态系统随之壮大，包括涌入城市的风险投资机构、管理资金的会计师和金融审计师、帮助传统企业整合AI的咨询公司，以及处理知识产权和法规遵从的法律团队。所有这些“企业挂件”都需要高端甲级办公空间，如同数字淘金热中销售镐头的商人。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚙️ 政府的干预：从“打压”到“扶持”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;租金补贴激励需求&lt;/strong&gt;: 地方政府从此前对科技行业的打压转向积极扶持，为创新AI公司提供租金补贴，降低其入驻高端办公楼的门槛，鼓励其大规模租赁市中心办公空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;土地供应收紧控制供给&lt;/strong&gt;: 同时，政府开始人为限制新的商业用地出让，阻止新项目开工，从而在需求侧提供支持、供给侧进行控制，以推动物业价值和租金回报率回升。在这些政策和市场力量的共同作用下，甲级写字楼的空置率已从30%降至20%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 AI悖论：自动化与人类劳动力的奇特共生&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI公司大量招聘“人肉后台”&lt;/strong&gt;: 尽管AI的宗旨是自动化，但当前AI公司租赁大量办公空间，是为了安置其自身的“人肉后台”和支持人员，包括数据处理、常规合规检查、基础行政和数据标注人员。这些“人肉后台”是构建自动化系统所需的“人工脚手架”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“打造摧毁办公室的机器，却租下最大的办公室”&lt;/strong&gt;: 这形成了AI行业的核心矛盾：其终极目标是取代这些日常办公岗位，但目前却需要大规模雇佣人类，租用大量物理空间来训练和完善其产品。这意味着AI行业正在租用优质物理资源，以容纳构建自动化系统所需的人力劳动，而这些系统最终将使同样的人力劳动变得过时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“物理足迹”的不可忽视性&lt;/strong&gt;: 人们常将AI的影响视为纯粹的数字和虚拟，但此次案例表明，数字技术在物理世界中具有巨大、沉重、高度有形的足迹。它决定了武汉200个足球场面积的玻璃和钢铁的命运，影响地方土地政策，并重塑了法律、会计和咨询等实体经济。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “打造摧毁办公室的机器，却租下最大的办公室，至少目前是这样。”&lt;/li&gt;
+&lt;li&gt;💬 “数字经济总是在某个关键点与房地产、人力劳动和城市规划的物理世界紧密相连。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV14EdgBjEWU</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/753c1d6db78c0221184bee8204f10b26b72a713f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 09 May 2026 07:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI 叙事大转向：从“失业焦虑”到“算力基建大繁荣”</title>
+      <link>https://www.youtube.com/watch?v=ef4WR5vUJro</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ef4WR5vUJro"&gt;The Week the AI Story Shifted&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么曾经被视为“末日”的 AI 自动化，现在正演变为一场美国制造业的“文艺复兴”？&lt;/li&gt;
+&lt;li&gt;💡 既然 AI 能力溢出，为何大模型公司却宁愿分心去做极其乏味且高成本的企业级私有化部署？&lt;/li&gt;
+&lt;li&gt;🚀 “关系型部门”真的能成为 AI 冲击下的避风港，还是仅仅推迟了结构性失业的到来？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 劳动力市场的叙事转向：从替代到扩容&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;关系型扇区的抗风险性&lt;/strong&gt;: Alex Armas 指出，当服务价值取决于“由谁创造”或“如何交互”时，AI 的效率优势将失效。这预示着劳动力将向教育、医疗、私人服务等强调人际联结的领域大规模迁移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Jevons 悖论的现代演绎&lt;/strong&gt;: 历史证明生产力提升往往创造全新需求。正如 Excel 淘汰了簿记员却催生了海量分析师，AI 正通过降低门槛，将宠物护理、教培、竞技体育等曾为小众的领域转化为容纳数十万人的主力产业。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 基础设施战争：算力泡沫还是刚需错位？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;计算资源的“单向阀”效应&lt;/strong&gt;: 不同于金融资本的快速流动，算力建设受限于电力、变电站、冷却系统等物理瓶颈。市场对 Token 的需求近乎贪婪，导致当前的“过度建设”担忧更像是一种供需严重错位的假象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;马斯克的战略重心转移&lt;/strong&gt;: XAI 融入 SpaceX 并联手 Anthropic，标志着马斯克可能从模型竞速转向算力基建。高达千亿美元规模的 Terrafab 项目若落成，将不仅是芯片工厂，更是支撑未来二十年全球经济的动力心脏。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 产品进化的“线束工程”时代&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;填补能力悬崖&lt;/strong&gt;: 顶尖实验室意识到，模型本身的智力领先已远超应用端的消化能力。当前的重点正转向通过记忆、编排、语音交互等“配套工程”来降低企业的采用门槛。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;使用高效输入手段&lt;/strong&gt;：优先配置 Whisper 或类似语音工作流，利用“语速优势”快速向 AI 倾倒大脑中的模糊背景，缩短提示词构建时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拥抱“自主循环”工具&lt;/strong&gt;：利用 Codeex 的 &lt;code&gt;/goal&lt;/code&gt; 功能，将离散的单次对话升级为任务导向的闭环工程，实现 24/7 的自动化产出。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕媒体将任何企业裁员简单归因为“AI 取代”。Coinbase 等案例表明，宏观波动与管理层过度扩张往往才是裁员的底层逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “智能的需求天花板目前完全不可见。”&lt;/li&gt;
+&lt;li&gt;💬 “我们正在经历人类历史上规模最大的基础设施建设，AI 将成为全球乃至美国的基石性基建。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=ef4WR5vUJro</guid>
+      <enclosure url="https://i.ytimg.com/vi/ef4WR5vUJro/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 08 May 2026 23:23:21 +0800</pubDate>
+    </item>
     <item>
       <title>Anthropic 深度对谈：重构 Claude 智能体平台与 AI 基础设施的未来</title>
       <link>https://www.youtube.com/watch?v=lLypHkIVLqc</link>
@@ -4663,212 +4849,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=XwdLT7qF14E</guid>
       <enclosure url="https://i.ytimg.com/vi/XwdLT7qF14E/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 22 Apr 2026 19:28:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 三明治模型：在自动化执行时代重塑人类工作的核心价值</title>
-      <link>https://www.youtube.com/watch?v=G0LTv8hQ5Cs</link>
-      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=G0LTv8hQ5Cs"&gt;The AI Sandwich: Where Humans Excel in an AI World&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当 AI 能够高效完成 90% 的执行任务时，人类剩下那 10% 的价值究竟是负担还是特权？&lt;/li&gt;
-&lt;li&gt;💡 为什么说“追求美感”和“个人喜好”将成为未来职场最核心的竞争力，而非仅仅是点缀？&lt;/li&gt;
-&lt;li&gt;🚀 如何构建一个能够让 AI 像复利一样不断自我进化、不再重复犯错的工作系统？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 Compound Engineering：构建具备进化能力的知识系统&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;复利式进化 (The Compound Step)&lt;/strong&gt;: 传统工作流止于交付，而该框架的核心在于将审查中的反馈与错误“固化”为仓库中的知识。AI 代理在下次任务时会读取这些历史经验，从而实现能力的闭环增长。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;执行环节的终结&lt;/strong&gt;: 随着模型能力的提升，纯粹的“Work（执行）”环节已趋于解决。人类不需要再关注如何编写代码，而应关注输入什么样的“计划”以及如何定义“好”的标准。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI 三明治模型：面包与馅料的权力分配&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;三明治结构&lt;/strong&gt;: 人类是两片面包（起点与终点），AI 是中间的馅料。起点负责构思（Ideate）与头脑风暴（Brainstorm），确定解决问题的正确框架；终点负责打磨（Polish）与审美判定，赋予产品灵魂。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架切换 (Frame Flipping)&lt;/strong&gt;: 面对问题时，AI 往往困于既定逻辑。人类的特长在于打破原有层级，从更高维度的视角（如：从“修补零件”切换到“重构系统”）重新设定问题的边界。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 高阶人类工作范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;强化前端介入&lt;/strong&gt;：在进入执行前，投入更多精力进行多维度的头脑风暴，利用 AI 模拟不同视角，直到打磨出一个极高标准的方案计划。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;执行过程脱手&lt;/strong&gt;：信任并授权 AI 完成中间的繁琐执行逻辑，避免无意义的人工微操，将精力预留给最后的审美决策。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;末端审美升华&lt;/strong&gt;：在 AI 交付后，像艺术家一样进行“体感”测试。通过点击、阅读和感受，注入 AI 无法模拟的个性化品味（Taste）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识固化沉淀&lt;/strong&gt;：强制要求 AI 总结本次任务中的特有偏好或逻辑陷阱，将其转化为系统级规则，实现认知复利。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“全自动化”陷阱。缺乏人类“面包”封装的产出往往是平庸且同质化的（Slop），无法在竞争日益激烈的环境中生存。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “人类是三明治的面包，AI 是中间的馅料。如果你想让产出真正属于你自己，你不能完全自动化一切。”&lt;/li&gt;
-&lt;li&gt;💬 “倾听你的喜好和直觉。在 AI 时代，‘美感’和‘喜悦’才是最高级别的生产力。”&lt;/li&gt;
-&lt;li&gt;💬 “AI 就像被关在盒子里一整年的超级智能，它缺乏对你当前世界的具体语境，这正是人类介入的必要性所在。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=G0LTv8hQ5Cs</guid>
-      <enclosure url="https://i.ytimg.com/vi/G0LTv8hQ5Cs/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Apr 2026 18:51:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI狂飙背后的物理铁律：水、电、金属如何束缚数字巨兽？</title>
-      <link>https://www.bilibili.com/video/BV1PqopB1Egq</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1PqopB1Egq"&gt;转型投资：数据中心——高耗能、高耗水、高金属需求，5万亿美元机遇&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 AI的本质是虚无缥缈的云端代码，还是饥渴且消耗巨大的物理巨兽？&lt;/li&gt;
-&lt;li&gt;💡 市场为何只为算力溢价，却严重低估了支撑AI运转的能源、水资源及金属供应链挑战？&lt;/li&gt;
-&lt;li&gt;🚀 决定未来AI算力竞赛胜负的关键，是芯片参数还是变压器的交货期？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💧 AI的水资源困境：看不见的“物理巨兽”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;耗水惊人&lt;/strong&gt;: 仅Google爱荷华州一数据中心，2024年预计消耗14亿加仑水，相当于纽约市一天的用水量。到2030年，全球数据中心年水费账单将达1.2万亿升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;地理错配&lt;/strong&gt;: 2/3新建数据中心选址于水资源高度紧张地区，因过去选址优先考虑光纤网络、地价和电价，忽视水资源这一“免费附属品”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;废水难题&lt;/strong&gt;: 主流蒸发冷却系统将75%-80%的水直接蒸发带走热量，剩余20%变为高浓度工业化学废水（含杀菌剂、缓蚀剂等），直接排入市政下水道将导致处理厂崩溃。处理这些废水需建配套重型化工厂，耗电巨大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场盲区&lt;/strong&gt;: 大多数水务部门未将AI的指数级用水需求纳入长期规划，导致580亿美元的水利基础设施资金缺口。市场只为算力定价，严重低估水资源基建约束。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;: 如雇佣顶级马拉松运动员，只喂补剂（电力），却忘了给水，他跑不到2公里就会休克。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;紧盯科技巨头在非饮用水处理或闭环液冷技术上的投资占比，谁能实现水资源内部闭环，谁就能摆脱市政基建拖累。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚡ AI的电力瓶颈：数字速度与物理滞后&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;需求暴增&lt;/strong&gt;: AI专用容量18个月翻三倍，GPU耗电量每年复利增长30%，预计到2030年数据中心耗电将占全球电力需求3%以上，超过日本全国用电量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;致命时间差&lt;/strong&gt;: 建设AI数据中心（1-2年）与升级电网（7-10年）存在巨大时间差。电网升级涉及环保审批、土地谈判、居民抗议等，无法像软件一样快速扩张。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稳定性要求&lt;/strong&gt;: AI大模型训练对电力稳定性要求极高，微小的电压波动或毫秒级停电都可能导致千万美元级别的训练崩溃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案&lt;/strong&gt;: 科技巨头转向自建稳定电源，如购买小型模块化核反应堆（SMRs），但核电建设同样逃不开物理世界的滞后性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;: 砸重金买法拉利车队（AI数据中心），车子很快造好，但当地全是泥巴路，修高速（电网）需10年。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;紧盯电网变压器的平均交货期，若继续拉长到3年以上，表明物理瓶颈仍在恶化。&lt;/li&gt;
-&lt;li&gt;关注电网扩建招标中铜和铝的长期远期订单流向，观察结构性短缺指标。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧱 AI的材料约束：被忽视的“硬伤”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;金属消耗&lt;/strong&gt;: 每建设一兆瓦数据中心容量，需消耗60-75吨物理金属，其中冷却系统占35-45%（铜管、铝材）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;供应链紧张&lt;/strong&gt;: 预计到2030年代中期，全球铜需求将出现600万吨结构性短缺。变压器交货期已拉长至2-4年，价格上涨60%以上。特种金属（如镓、锗）价格暴涨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;价格不敏感&lt;/strong&gt;: 金属和变压器成本在AI数据中心总资本支出中占比不足5%，科技巨头对价格上涨不敏感，但有钱也买不来时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;矿产开发周期&lt;/strong&gt;: 从地质勘察到产出第一批金属需10-15年，无法像云端实例那样快速启动。这种根深蒂固的周期错配是最坚硬的物理防线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比&lt;/strong&gt;: 矿产开发是物理世界最慢的齿轮，无法像复制软件一样快速扩张产能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “AI它其实是一头极其饥渴，而且消耗巨大的物理巨兽。”&lt;/li&gt;
-&lt;li&gt;💬 “今天市场真正定价的根本就不是纯粹的算力，而是变压器的交货期，还有下水道的排水能力。”&lt;/li&gt;
-&lt;li&gt;💬 “未来35年内，决定谁能在算力竞赛里赢的关键变量，其实是电网接入排队权了。”&lt;/li&gt;
-&lt;li&gt;💬 “资本和算力永远会流向资源阻力最小的地方。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1PqopB1Egq</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/a5a505d0559694a71ace4c6f2b19c6ad03525241.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Apr 2026 18:15:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI基础设施加速光通信网络革新，产业链迎万亿级增长机遇</title>
-      <link>https://www.bilibili.com/video/BV1wddoBqENh</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546699079354794"&gt;研报看世界&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1wddoBqENh"&gt;2026年04月 高盛 全球科技行业光通信网络 AI基础设施的下一个超级趋势 视频时长19分钟&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 AI芯片算力上限如何被网络技术突破，实现1+1&amp;gt;2？&lt;/li&gt;
-&lt;li&gt;💡 何种网络扩展模式将驱动光通信市场九倍增长，突破千亿？&lt;/li&gt;
-&lt;li&gt;🚀 CPO为何成为AI时代光模块的颠覆者，其渗透率将如何重塑市场格局？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI网络协同：解锁芯片算力边界&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;算力倍增器&lt;/strong&gt;: 网络技术通过连接多个AI芯片，实现数据高速低延迟交换，释放单个芯片无法企及的算力上限。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场巨变&lt;/strong&gt;: 随着AI基础设施加速发展，网络配置市场快速扩张，光通信网络价值链预计到2031年增长九倍，达1540亿美元。其中，横向扩展价值提升16倍，纵向扩展提升45倍，整体市场容量扩容13倍。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 扩展范式变革：横纵交织的性能飞跃&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;横向扩展 (Switch-centric)&lt;/strong&gt;: 通过交换机连接更多设备，已实现AI集群内超10万个GPU连接，主要提升集群规模。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;纵向扩展 (Rack-centric)&lt;/strong&gt;: 在单个设备或服务器机架内增加GPU和计算资源，甚至出现跨机架超级节点，速度媲美同机架内通信，主要提升单节点或单机架密度与性能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;价值驱动&lt;/strong&gt;: 从GB300 NVL72到Robin Ultra NVL576，计算单元升级使横向扩展价值量增长16倍，纵向扩展增长45倍，直接驱动可插拔光模块、CPO、铜缆、PCB中板需求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 CPO技术：光模块的终极演进&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心机制&lt;/strong&gt;: CPO（Co-Packaged Optics）通过将光引擎与交换芯片直接封装，大幅缩短电信号传输距离，支持更高信号速率，实现TB级带宽，同时降低功耗和尺寸。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场渗透&lt;/strong&gt;: 预计CPO渗透率将从14%（VRUBIN spec b）提升至29%（Robin Ultra），在高带宽需求下，其总体拥有成本、功耗节能优势显著，尤其在6.4T/12.8T速率下更具竞争力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;挑战与机遇&lt;/strong&gt;: 尽管CPO在三维封装、集成难度和制造成本上较高，但其在AI服务器中的应用将持续扩大，与可插拔光模块共同推动市场增长。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 供应链掘金：谁是AI浪潮下的赢家？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;上游核心&lt;/strong&gt;: 光芯片、电芯片、无源器件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中游制造&lt;/strong&gt;: 光模块、光引擎、PCB、线缆。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;下游集成&lt;/strong&gt;: 系统集成商服务数据中心及通信运营商。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主要受益者&lt;/strong&gt;: 光模块、光引擎、CPU、PCB、CCL制造商、cw激光器和EML生产商。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;投资风向标&lt;/strong&gt;: 中际旭创、易盛、天孚通信、联亚、全新、中兴电工、三菱电机、古河电工、盛虹科技、沪电股份、台光电、生益科技等企业普遍被看好，预计业绩将随AI服务器放量高速增长，部分公司单一产品配置即可超2025年全年EPS。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “网络技术释放了原本单个芯片没有办法达到的算力的上限。”&lt;/li&gt;
-&lt;li&gt;💬 “整个光通信网络的价值链，它有潜力从现在起九倍的增长到2031年，变成1540亿美元的一个市场。”&lt;/li&gt;
-&lt;li&gt;💬 “从横向扩展走到纵向扩展，整个的市场规模是有13倍的增长。”&lt;/li&gt;
-&lt;li&gt;💬 “CPU在功耗和节能上面的优势，所以它的渗透率也是在逐渐的上升的。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1wddoBqENh</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/6522260c40ef6126d69b2201b1d9dc133e78afaf.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Apr 2026 17:15:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>拒绝平庸：Stripe 首页重构背后的设计哲学与 AI 实践</title>
-      <link>https://www.youtube.com/watch?v=ypzNhwpmOD4</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ypzNhwpmOD4"&gt;How Stripe Built Their New Website&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 在业务极速扩张导致产品线高度复杂的背景下，如何通过设计维持“Manifesto（宣言）”式的叙事清晰度？&lt;/li&gt;
-&lt;li&gt;💡 当 AI 工具能让所有人快速达到 70 分的及格线时，顶尖设计师的核心竞争力和工作重心应如何迁移？&lt;/li&gt;
-&lt;li&gt;🚀 为什么“抗拒平庸的引力”是维持企业顶尖设计水准、构建长期品牌信任的最重要壁垒？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 叙事逻辑的降维解构：从线性堆砌到“便当盒”布局&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;分层触达与渐进式披露 (Progressive Disclosure)&lt;/strong&gt;: 传统的网页设计倾向于通过无限滚动的长页面来堆砌新业务，但这会导致核心叙事支离破碎。Stripe 采用了“Bento（便当盒）”结构，通过视觉卡片和原地弹窗（Modal）让用户在不脱离主航道的前提下，自主决定探索深度，将“浏览”转变为“交互之旅”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;视觉细节作为“信任的代理变量”&lt;/strong&gt;: 对于处理金钱的金融基础设施，界面的打磨程度（如 GDP 计数器的实时感、波浪动画的平滑度）直接向用户传递其后端系统的严谨性与安全性。设计不仅是审美，更是对“我们极度在乎细节”这一品牌内核的显性表达。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 对抗平庸：AI 时代的设计新范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;参数化感性设计&lt;/strong&gt;: 开发内部设计工具（如 Wave Generator），将色彩、纹理、速度等主观审美指标转化为可调节的实验参数，寻找“完美波浪”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI 加速原型探索&lt;/strong&gt;: 利用 AI 在一天内完成过去需要十天的设计变体搜索，将工作重心从“像素搬运”转向“高阶批判”与“品味决策”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨职能“扫店”机制 (Walking the Store)&lt;/strong&gt;: 创始人、设计师与工程师每周共同测试用户全链路旅程，打破部门墙，从全局视角审视产品交汇处的体验断裂。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要被 AI 生成内容的低成本所诱惑。AI 能快速产生“还可以”的结果，但这往往是通往平庸的捷径，必须通过人工干预修正 AI 在解剖学（如手部细节）和逻辑一致性上的硬伤。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 组织的质量守恒律：追求 MVQP 而非单纯的 MVP&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;最小可行质量产品 (MVQP)&lt;/strong&gt;: 相比于快速交付一个勉强可用的功能（MVP），Stripe 更倾向于在确保质量跨越特定阈值后再发布。这种对“不可接受平庸”的共识，能有效抵御大规模组织中常见的协作损耗。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;抗拒平庸的引力&lt;/strong&gt;: 组织越大，向“好歹能用”倾斜的重力就越强。必须通过制度化的审美坚持和决策者的极高标准，强制阻断这种向中庸靠拢的趋势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “网站就是你的宣言。你选择的颜色、细节和排版，都在无声地告诉世界你在乎什么，以及你对工作的投入程度。”&lt;/li&gt;
-&lt;li&gt;💬 “平庸具有强大的引力，接受‘足够好’是极其容易的。但如果你在每一个小决策上都妥协，最终的综合体必将走向平庸。”&lt;/li&gt;
-&lt;li&gt;💬 “AI 提高了设计的地板，它让我们从 7 分开始起跑。但要达到 10 分，依然需要人类的匠心、品味和对极致的执着。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=ypzNhwpmOD4</guid>
-      <enclosure url="https://i.ytimg.com/vi/ypzNhwpmOD4/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 22 Apr 2026 14:01:37 +0800</pubDate>
     </item>
   </channel>
 </rss>
