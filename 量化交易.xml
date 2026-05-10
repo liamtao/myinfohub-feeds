@@ -7,7 +7,121 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 09 May 2026 22:36:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2026 08:34:56 +0000</lastBuildDate>
+    <item>
+      <title>攻克美股量化：非标财年对齐技术架构与财务因子工程实战</title>
+      <link>https://bbs.quantclass.cn/thread/81174</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81174"&gt;牛马美股基建四——咕咕了很久的财务接口&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[非标财年对齐, TTM计算优化, 财务因子映射, 数据清洗去重]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过报告类型驱动逻辑解决美股非标财年对齐及核心财务因子缺失的技术难题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：1. &lt;strong&gt;非标财年错位&lt;/strong&gt;：美股公司（如AAPL, MSFT）财年截止日多样化，传统基于自然月（month==3/6/9/12）的对齐逻辑导致截面数据失效。2. &lt;strong&gt;关键指标缺失&lt;/strong&gt;：主流数据源（如Tushare）缺失总资产、总负债等基础原值，仅提供比率指标，无法直接适配成熟量化框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于 Python/Pandas 对原有 A 股财务接口 &lt;code&gt;fin_essentials&lt;/code&gt; 进行重构，适配美股市场特性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：1. &lt;strong&gt;属性注入与判定重构&lt;/strong&gt;：引入 &lt;code&gt;date_type&lt;/code&gt;（单季/累计/年报）替代“月份”作为 TTM 和单季剥离的触发条件。2. &lt;strong&gt;模糊时间窗口（Offset Tolerance）&lt;/strong&gt;：将同比/年报识别的 delta_month 窗口从固定的 12 个月放宽至 7-14 个月，以兼容非标财年的时间偏移。3. &lt;strong&gt;优先级去重机制&lt;/strong&gt;：针对同一发布日共存的多口径数据，建立“单季报 &amp;gt; 累计季报 &amp;gt; 年报”的优先级排序（Priority Queue），确保 &lt;code&gt;merge_asof&lt;/code&gt; 合并时的唯一性与准确性。4. &lt;strong&gt;因子反向推导&lt;/strong&gt;：利用 &lt;code&gt;debt_asset_ratio&lt;/code&gt; 等比率指标结合现有字段，反推 &lt;code&gt;B_total_assets&lt;/code&gt; 等缺失的资产负债表核心字段。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能表现】&lt;/strong&gt;：完成迁移后，成功实现在美股域内的批量因子分析与大市值策略回测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[&lt;strong&gt;架构抽象&lt;/strong&gt;：重构底层财务对齐引擎，将“自然月逻辑”解耦并抽象为“报告类型逻辑”，这是量化框架从单市场走向全球化的核心基石。]&lt;/li&gt;
+&lt;li&gt;[&lt;strong&gt;数据治理&lt;/strong&gt;：在处理美股财务数据时，必须预先建立基于 &lt;code&gt;date_type_pri&lt;/code&gt; 的去重层，否则 &lt;code&gt;merge_asof&lt;/code&gt; 会引入严重的信号污染。]&lt;/li&gt;
+&lt;li&gt;[&lt;strong&gt;因子工程&lt;/strong&gt;：针对数据源字段不全问题，应建立“衍生映射表”，通过财务勾稽关系利用现有比率指标反向修补缺失的基础字段。]&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81174</guid>
+      <pubDate>Sun, 10 May 2026 13:51:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化回测一致性：构建跨引擎标准化规范，消除策略实现的隐藏偏差</title>
+      <link>https://www.bilibili.com/video/BV1snRfBLEiM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1snRfBLEiM"&gt;回测结果不一致才是量化最大风险：你以为在比策略其实在比回测引擎&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么同一套交易策略在不同软件中会跑出完全不同的收益曲线？&lt;/li&gt;
+&lt;li&gt;💡 为什么“先扣成本再分配”是量化回测中不可逾越的财务红线？&lt;/li&gt;
+&lt;li&gt;🚀 在不改变策略逻辑的前提下，如何通过统计检验识别回测引擎的底层陷阱？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 回测基础设施的“一致性陷阱”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;算法偏差优于策略逻辑&lt;/strong&gt;: 回测不一致往往源于底层实现约定的分歧。例如，有些引擎支持零碎股交易，有些仅限整数股，由此产生的“舍入噪声”在长期复利下会严重扭曲收益率，使研究结论演变为“软件依赖”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;财务语义的执行顺序&lt;/strong&gt;: 交易成本的扣除时点（先扣成本再按目标权重分配 vs. 先分配再扣成本）具有完全不同的财务含义。若不统一规范，原本微小的实现差异会在多资产组合中被不断放大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 跨引擎对齐与审计方案&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心目标&lt;/strong&gt;: 建立一套最小化的参考回测实现（Reference Implementation），作为衡量所有引擎忠实度的“度量衡”，而非单纯对比哪个引擎更好。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;隔离交易噪声&lt;/strong&gt;: 优先采用 &lt;code&gt;Fractional Shares&lt;/code&gt;（分数股）模式进行回测，以物理隔离整数股舍入带来的实现误差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标准化成本处理&lt;/strong&gt;: 强制执行“先扣除交易成本，再更新市值资产并按权重分配”的闭环逻辑，确保成本直接进入调仓过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引擎特化适配&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Backtrader&lt;/strong&gt;: 必须开启 &lt;code&gt;PerCaps&lt;/code&gt; 并挂载 &lt;code&gt;SellFirst&lt;/code&gt; 补丁，防止手续费计算错误与保证金逻辑异常。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sparkfolio&lt;/strong&gt;: 手动执行 &lt;code&gt;Shift-1&lt;/code&gt; 对齐，修正收盘时点的收益率偏移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VectorBT&lt;/strong&gt;: 开启共享现金账户模式，确保现金流口径与标准对齐。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝不要直接对比引擎的默认输出结果。由于默认 API 往往隐藏了互不兼容的金融语义，未经适配的横向对比在统计学上是无意义的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 统计驱动的诊断框架&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mahalanobis 重新随机化&lt;/strong&gt;: 通过构建平衡且多样的股票桶（Buckets），在 2020-2024 年等不同市场状态下进行反复测试，减少样本分桶带来的偶然偏差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多维统计验证&lt;/strong&gt;: 结合置换检验（Permutation Test）与 Wilcoxon 检验。实验证明，即便在同一规范下，多数引擎仍存在显著的系统性偏差，必须通过统计功效分析确认差异的真实性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “如果回测基础设施不可审计，那么资金决策的依据就不是策略本身，而仅仅是某种特定的软件实现方式。”&lt;/li&gt;
+&lt;li&gt;💬 “很多时候我们以为在比较策略逻辑，实际上比较的只是引擎的默认设置。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1snRfBLEiM</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/a3125b645bec1cafc614dc9e9777d095145d195f.png" length="0" type="image/png"/>
+      <pubDate>Sun, 10 May 2026 10:42:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>烧了40亿Token总结出的Agent工程化实战：八步走与三避坑工作流</title>
+      <link>https://bbs.quantclass.cn/thread/81254</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81254"&gt;[拼好模] 我这一拳有40亿token的功力：平A型工作流分享&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI Agent工作流, Claude Code, 上下文管理, git版本控制, 工程化提示词]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过“计划与执行解耦”及“上下文冷启动”提升Agent产出的稳定性和质量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决Agent在复杂任务中因上下文污染、指令累积导致的逻辑跑偏及“模型精分”问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于具备文件操作能力的Agent（如Claude Code），引入Git进行版本控制，构建“方案设计-环境隔离-纯净执行”的解耦架构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Git状态机管理&lt;/strong&gt;：前置&lt;code&gt;git init&lt;/code&gt;，在每个迭代节点强制Commit，确保在Agent误操作文件时可通过&lt;code&gt;git checkout&lt;/code&gt;一键回滚。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文沙箱隔离&lt;/strong&gt;：在Plan阶段达成一致后，必须“新开Session”执行，仅携带终稿Plan和Checklist，消除Review过程中的冗余Token干扰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提示词三要素&lt;/strong&gt;：摒弃空泛的角色设定，通过“项目路径、风格范本、硬性约束”三维度进行背景注入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：严禁在已有污染的Context下强行纠偏；若Agent理解产生严重偏差，优先使用&lt;code&gt;/rewind&lt;/code&gt;回退而非反复对话纠偏。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Git辅助调试&lt;/strong&gt;：在Agent工作目录中建立Git记录，将&lt;code&gt;git log -p&lt;/code&gt;作为监控Agent代码修改路径的审计工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强制设计审核&lt;/strong&gt;：对于超过50行的代码或复杂文档任务，必须先输出&lt;code&gt;/plan&lt;/code&gt;并通过人工Checklist审查，禁止直接梭哈指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session冷启动&lt;/strong&gt;：养成定期重置Context的习惯，将复杂的长任务拆解为“Plan Session”与“Act Session”两个独立阶段。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81254</guid>
+      <pubDate>Sun, 10 May 2026 04:19:14 +0800</pubDate>
+    </item>
     <item>
       <title>AI量化策略审计神器：从四个维度彻底规避未来函数陷阱</title>
       <link>https://bbs.quantclass.cn/thread/81221</link>
@@ -193,6 +307,56 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-09&amp;talker=58453205219@chatroom</guid>
       <pubDate>Sat, 09 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量价齐升的量化实证：利用全市场成交额60日均线实现大幅降撤</title>
+      <link>https://bbs.quantclass.cn/thread/81040</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81040"&gt;不是所有空仓都叫空仓——全市场成交额择时的妙用&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[成交额择时, 市场流动性过滤, 缩量空仓逻辑, 小市值策略优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过全A成交额60日均线作为全局择时信号，可显著降低策略最大回撤并过滤低质量交易区间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：策略亏损最严重的阶段通常与全市场“缩量”高度重合。实证显示缩量日子占总交易日的57.6%，符合国内“牛短熊长”的流动性特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：成交额代表流动性溢价。缩量本质上是场内杠杆资金收手或参与者情绪低迷，导致小市值个股容易出现流动性匮乏带来的非理性下跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“必须时刻在场”的观点。通过简单的均线择时，虽然会错失极少数缩量反弹，但避开了绝大多数极端单边下跌（如2015年、2024年初）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于“量价齐升”的市场共识，将成交额作为情绪过滤器。仅在“当日全市场总成交额 &amp;gt; 60日成交额均值”时开仓，否则全仓避险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;汇总个股当日成交额得到全A总额；&lt;/li&gt;
+&lt;li&gt;计算全A总额的60日简单移动平均（SMA）；&lt;/li&gt;
+&lt;li&gt;截面信号计算：&lt;code&gt;Signal = 1 if Total_Volume &amp;gt; SMA(Total_Volume, 60) else 0&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在基础小市值策略上叠加该择时，最大回撤从48.34%降低至18.38%（降低约62%），年化收益从66%小幅下降至62.56%，大幅提升了夏普比率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【进阶优化】&lt;/strong&gt;：引入“定风波2”因子进行精细化处理，实现在放量下跌阶段（如4.23微盘股暴跌）强制空仓，在缩量强势反弹阶段（如4.7反弹）通过高阈值捕捉利润。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【实现Tricks】&lt;/strong&gt;：建议预计算个股的60日成交额均值，再通过截面聚合（Cross-section aggregation）求和，以提升在大样本数据集下的回测速度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;提供了一个结合基本面（ROE、归母净利润增速）与换手率过滤的小市值选股框架。&lt;/li&gt;
+&lt;li&gt;逻辑：&lt;code&gt;excluded_boards: [&amp;quot;cyb&amp;quot;, &amp;quot;kcb&amp;quot;, &amp;quot;bj&amp;quot;]&lt;/code&gt;（剔除双创北交所），&lt;code&gt;select_num: 3&lt;/code&gt;（集中持仓）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全局开关设计&lt;/strong&gt;：在现有量化框架中加入“全A成交额”全局变量，作为策略入场的前置Filter。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态阈值实验&lt;/strong&gt;：根据放量/缩量状态，动态调整定风波等风控因子的阈值（放量时放宽，缩量时收紧）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子替换验证&lt;/strong&gt;：测试“融资买入额”与“全市场成交额”在不同市场周期的择时敏感度。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81040</guid>
+      <pubDate>Fri, 08 May 2026 20:43:35 +0800</pubDate>
     </item>
     <item>
       <title>金融AI新范式：状态感知模型如何构建可信赖的股票收益预测与验证链路</title>
@@ -5401,230 +5565,6 @@ ightarrow$ 存储于 &lt;code&gt;InfluxDB&lt;/code&gt; 或 &lt;code&gt;kdb+&lt;/
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-21&amp;talker=58453205219@chatroom</guid>
       <pubDate>Tue, 21 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>告别经验主义：LLM自动化构建金融Alpha，提升股票预测精度</title>
-      <link>https://www.bilibili.com/video/BV12Rd6BAE4K</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12Rd6BAE4K"&gt;让大模型不再“聊金融”，而是真正开始“造因子”&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 传统金融预测为何陷入“手工因子”困境，大模型如何打破僵局？&lt;/li&gt;
-&lt;li&gt;💡 LLM生成的“非交易信号”Alpha，如何赋能深度模型实现更精准且可解释的股价预测？&lt;/li&gt;
-&lt;li&gt;🚀 相关公司情绪信息是市场噪声还是关键信号，LLM如何将其量化并融入预测体系？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 范式转移：从经验主义到自动化特征工程&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;传统痛点与局限&lt;/strong&gt;: 交易员和量化分析师高度依赖经验与试错，手工构建金融因子，过程耗时、难以扩展，且无法捕捉非线性、时变的市场动态及情绪冲击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LLM核心价值&lt;/strong&gt;: 将大语言模型与Transformer结合，旨在通过自动化、可解释的方式提升股票价格预测。LLM不再直接预测涨跌，而是充当“特征工程师”，基于多元数据（历史价量、技术指标、目标与关联公司情绪）生成灵活、高层的“公式化Alpha特征”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分工协同&lt;/strong&gt;: LLM擅长复杂信息推理与因子表达，将非结构化新闻转为结构化Alpha；时序模型（如Transformer）擅长从历史序列学习动态变化。这种分工提升了整体预测的稳健性与灵活性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 LLM如何“翻译”金融直觉为可执行Alpha&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多源信息融合&lt;/strong&gt;: 输入端汇集开盘价、最高价、最低价、收盘价、成交量（OHLCV），结合技术指标和情绪分数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上下文扩展&lt;/strong&gt;: 通过命名实体识别从新闻文本中抽取公司实体，识别与目标公司经常共同出现的“相关公司”，构建更贴近真实市场关联的生态视角。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;公式化输出&lt;/strong&gt;: LLM接收结构化输入和明确任务约束（如提示词引导至动量、均值回归、情绪组合等模式），直接输出可计算、符号化的Alpha表达式，同时附带自然语言解释，提升可解释性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ Alpha特征的实战效能与泛化验证&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;数据准备&lt;/strong&gt;: 收集目标股票的OHLCV、技术指标、情绪分数，并从新闻中识别关联公司及情绪。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LLM特征生成&lt;/strong&gt;: 利用提示词引导LLM，将原始数据与上下文信息转化为公式化、带解释的Alpha特征。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;预测模型集成&lt;/strong&gt;: 将生成的Alpha特征作为高层输入，喂给Transformer、LSTM、TCN、SVR、随机森林等多种预测模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨模型验证&lt;/strong&gt;: 评估Alpha特征在不同模型上的预测精度提升，验证其普遍有效性。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: LLM生成的Alpha作为“高层特征”而非“直接交易信号”使用，以规避直接交易的高风险和不稳定性，同时便于统一评估其增益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 研究洞察与未来展望&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心结论&lt;/strong&gt;: LLM生成的高层Alpha特征能显著提升股价预测准确率，且在多类预测器中得到验证，表明这些Alpha本身蕴含真实且稳健的预测价值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;认知突破&lt;/strong&gt;: 相关公司的情绪信息并非噪声，而是有价值的外部上下文。LLM不仅是文本分析工具，更可承担符号因子生成的角色，构建从文本到结构化信号再到时序模型利用的完整路径。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方法优势&lt;/strong&gt;: 降低人工Alpha构造成本，提升策略开发效率；结合公式与语言解释，提高透明度和可解释性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;局限与挑战&lt;/strong&gt;: 目前展示样本（5家公司）规模较小，缺乏详细的指标消融实验和稳健性测试，跨市场泛化能力需更大规模验证。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “真正有挑战的不是模型拼得更复杂，而是这些生成出来的Alpha能不能抓住目标公司以及相关公司之间的情绪传播效应，并最终对下游预测模型带来实际提升。”&lt;/li&gt;
-&lt;li&gt;💬 “LLM更擅长做推理和表达，把复杂信息整理成可用的因子；而时序模型更擅长从历史序列里学习动态变化。两者结合起来，就不是单纯靠语言模型拍脑袋预测。”&lt;/li&gt;
-&lt;li&gt;💬 “LLM在这里承担的不是聊天工具的角色，而是把原本凭经验偏直觉的金融想法，整理成可复用、可执行的因子工程能力。”&lt;/li&gt;
-&lt;li&gt;💬 “LLM生成的高层特征，具有真实而且相对稳健的预测价值。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV12Rd6BAE4K</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/119eb728d431e2a8f7623968f9aa5129a1d1c2c2.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 20 Apr 2026 22:08:16 +0800</pubDate>
-    </item>
-    <item>
-      <title>QMT量化实战：解构市值错位效应与动量反转因子构建指南</title>
-      <link>https://www.bilibili.com/video/BV1xWoTBuEhu</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xWoTBuEhu"&gt;每日一练：不同市值区间下反转与动量因子有效性对比&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ QMT量化交易平台 - 因子研究实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于原生Python环境，通过毫秒级行情推送与历史数据接口实现“行情-代码-回测”的闭环，核心在于利用市值作为调节阀来配置动量与反转因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：全品种历史行情数据（价格序列）、财务基础数据（Market Value 字段）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：因子累积IC曲线、分组收益曲线（单调性表现）、仿真回测报告。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;动量因子 (Momentum)&lt;/strong&gt;：趋势跟随逻辑，认为过去表现优异的股票在短期内会延续上涨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反转因子 (Reversal)&lt;/strong&gt;：均值回归逻辑，关注过度抛售或追涨后的回调机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IC值 (Information Coefficient)&lt;/strong&gt;：因子值与未来收益率的相关性，衡量因子的预测能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：多维度因子策略开发&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：针对不同市值范围的标的构建差异化选股模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：QMT客户端环境，引入Pandas等金融计算库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[数据调取]&lt;/strong&gt;：使用 &lt;code&gt;get_market_data&lt;/code&gt; 获取历史行情，从基础数据中提取 &lt;code&gt;Market Value&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[逻辑转化]&lt;/strong&gt;：利用 Pandas 的 &lt;code&gt;shift&lt;/code&gt; 函数处理时间序列，配合 &lt;code&gt;pct_change&lt;/code&gt; 计算N日收益率作为因子原始值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[因子平滑]&lt;/strong&gt;：通过 EMA (指数移动平均) 对因子进行平滑处理，以降低换手率。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：因子有效性验证与回测&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过量化指标评估因子在实盘中的胜率与稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[IC分析]&lt;/strong&gt;：计算因子值与下期收益率的相关性，观察累积IC曲线的平稳度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[分组回测]&lt;/strong&gt;：将全市场股票按因子值均分为五组，验证各组收益是否具备单调性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[市值对标]&lt;/strong&gt;：在沪深300（大盘）验证反转因子，在中证1000（小盘）验证动量因子。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市值区间 (Market Cap Sensitivity)&lt;/strong&gt;：核心策略权重变量。小市值环境下动量效应强（强者恒强）；大市值环境下反转效应强（均值回归）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;换手率控制 (Turnover Management)&lt;/strong&gt;：通过 EMA 平滑因子值 -&amp;gt; 牺牲部分瞬时信号精度，换取更低的交易摩擦成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;单调性破缺&lt;/strong&gt;：如果分组收益中间组突然跳挡，通常代表因子在公募重仓股等领域极度拥挤，面临失效风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;噪音规避&lt;/strong&gt;：在处理反转因子时，建议剔除最近一个月的收益数据，以规避短期噪音对逻辑的干扰。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子共振&lt;/strong&gt;：尝试构建“动量+市值+估值”三因子模型，多维度逻辑共振可显著提升策略稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;仿真先行&lt;/strong&gt;：利用QMT内置范例库，在模拟环境下踩平逻辑坑位后再开启实盘。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xWoTBuEhu</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/67e29c48a2dcfe1860e1c0c5440141a019f985ab.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 20 Apr 2026 14:39:20 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘攻坚战：凌烟阁稳定版前瞻与多维择时策略复现</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;amp;talker=57784510736@chatroom"&gt;2026-04-20_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;🚀 凌烟阁实盘：从公测迈向稳定&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;版本迭代计划&lt;/strong&gt;: 邢不行透露凌烟阁实盘客户端预计在周三转为稳定版，届时将对早跑起来的同学提供红包奖励。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实操建议&lt;/strong&gt;: 针对实盘初期的各种bug（如选股记录异常、择时信号漏发等），建议先用小资金跑通流程，理解策略逻辑比单纯挂机更重要。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛠 QMT 3.6.2 升级避雷针&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;软件稳定性&lt;/strong&gt;: 许多用户反映 3.6.2 版本存在数据不更新、显示异常等问题，部分老玩家建议暂时留守 3.5.5 或在多台机器上对比运行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;故障自修指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据延误&lt;/strong&gt;: 检查QMT行情源稳定性，尝试重启或清理系统缓存。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结果不一致&lt;/strong&gt;: 若客户端与回测框架结果打架，优先删除缓存文件夹（如 temp）并重下全量数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📊 策略百宝箱：多元择时的方法论&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Demaker 趋势法&lt;/strong&gt;: 利用高低价动量比值量化强度，设置 0.7/0.3 阈值来捕捉买卖拐点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;HULLMA（赫尔移动平均线）&lt;/strong&gt;: 核心优势在于滞后性极小，能比传统均线更早触发信号，适合中长线风控。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;位移均线（MADisplaced）&lt;/strong&gt;: 通过将均线前移（如20日线前移10日），让价格穿透信号更及时，有效过滤部分噪音。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PSY 情绪指标&lt;/strong&gt;: 将常用于大盘的情绪指标创新性应用于个股，虽然捕捉情绪拐点尚需优化，但提供了新视角。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🐂 盘面洞察：周期、逻辑与杠杆&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;红牛的周期观&lt;/strong&gt;: 不必频繁预测，只需等待节点信号。早盘强度结合周末利好（如航天板块）是加杠杆的绝佳爆发点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;选股还是择时？&lt;/strong&gt;: 多数资深用户认为精力应向“择时”倾斜。正如金句所言，最核心的逻辑往往不在代码里，而是在对市场的深层理解中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💡 交流金句&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;“最核心的东西是没代码的。” —— 红牛&lt;/li&gt;
-&lt;li&gt;“比海峡通行费赚多了，打多久赚多久。” —— zane (谈论地缘冲突与市场的奇妙联动)&lt;/li&gt;
-&lt;li&gt;“我就放在抄作业上。” —— 艾艾&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/77819&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78679&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78685&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78690&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 20 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>穿越牛熊：量化策略实战复盘与服务器进阶指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;amp;talker=58453205219@chatroom"&gt;2026-04-20_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;☁️ 云服务器选购与“防杀”攻略&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;低价避坑&lt;/strong&gt;：针对海外服务器需求，可将腾讯云官网切换至“国际”语言版，在最新活动中寻找廉价轻量云服务器（通常需重新注册海外账号）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;硬件瓶颈&lt;/strong&gt;：2C2G/2C4G配置在运行大型策略（如子策略参数量过万）时极易触发系统杀进程。解决该问题除开启虚拟内存外，物理升级至4C8G是保证实盘稳定的核心方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进阶路径&lt;/strong&gt;：使用代码版虽初期门槛较高，但被视为“修炼内功”，在应对复杂逻辑和长久运行上具备明显优势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📈 近期策略表现：中性与多头的较量&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;表现分化&lt;/strong&gt;：近期多头及动量策略多见冲高回落，基本回到周五原位；相比之下，“四龙狗”、中性策略及NBL表现稳健，正处于蓄势或平稳上涨阶段。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行情信心&lt;/strong&gt;：尽管受Rave调查等事件影响市场转冷，但专业观察者对行情延续持乐观态度。量化策略的收益往往具有爆发性，可能在半个月内走完一年的利润。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛠️ 实盘工具升级与因子探讨&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;功能迭代&lt;/strong&gt;：实盘网页版v0.5.3已发布，新增花式晒单及自研框架导入功能。建议在交易间隙（如服务器下单后10分钟）进行升级，以防干扰正常交易。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子改进&lt;/strong&gt;：讨论了针对“落单狗”策略的VolumeRatio因子优化，并强调了在动量策略中增加“后置过滤”的必要性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 核心洞察金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“用代码版相当于修炼内功。前期很难，但到了后期各种好处会慢慢显现出来的。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“来行情就是一瞬间。半个月把一年的收益全部走出来。” —— 邢不行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关资源链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=75591"&gt;【26分享会小白攻略】B圈实盘网页版v0.5.X使用指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78638"&gt;b圈每年都有动量行情吗？&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=77870"&gt;【b圈】落单狗VolumeRatio因子优化&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=77973"&gt;QuantClass Smart — 让AI陪你一起读帖子&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-20&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Mon, 20 Apr 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
