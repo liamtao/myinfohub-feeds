@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 10 May 2026 22:40:49 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 00:25:47 +0000</lastBuildDate>
     <item>
       <title>强化学习Q-Learning在量化交易中的应用与实战指南</title>
       <link>https://www.bilibili.com/video/BV1365J6mEvH</link>
@@ -94,6 +94,121 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1365J6mEvH</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/326be1aca4b142c249b3f65675bf07cb0ad2671d.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 10 May 2026 22:07:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>构建AI全天候ETF交易智能体：从面向日志编程到闭环自进化系统</title>
+      <link>https://www.bilibili.com/video/BV1Jn576XE7P</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Jn576XE7P"&gt;AI全栈量化【14】—— OpenClaw实盘机器人全流程拆解——面向日志编程 | 全天候交易 | 强化迭代 | 学习社群&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 全天候ETF交易智能体 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于“面向日志编程”的闭环反馈机制，通过 AI (OpenCloud) 监控量化系统日志并动态修改 JSON 配置文件来实现策略自进化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：量化系统运行日志 (Log)、JSON 参数文件、市场实时行情、ETF 因子数据及预选新闻信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：优化后的 JSON 配置文件（决定 ETF 候选池、仓位及委托参数） $\rightarrow$ 触发真实下单执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;面向日志编程&lt;/strong&gt;：将系统运行产生的日志作为 AI 的感知通道，使 AI 能根据执行结果（Reward）调整输入参数（Action）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenCloud 智能体&lt;/strong&gt;：充当“智能管家”，负责读取日志、分析状态并调用量化脚本执行具体任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Memory 机制&lt;/strong&gt;：AI 的经验存储库，用于记录历史交易教训、市场规律及风险提示，确保决策具有连续性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：智能体核心闭环运行&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实现量化策略的自动化感知、分析与参数优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：阿里云无影云电脑（Windows 服务器）、24小时运行的量化系统、OpenCloud 智能体配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[日志产生]&lt;/strong&gt;：量化系统在运行数据下载、因子加工、回测模拟及实盘委托四个模块时，实时输出结构化日志。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[感知读取]&lt;/strong&gt;：OpenCloud 智能体通过定时任务读取上述四个模块的日志文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[经验检索]&lt;/strong&gt;：AI 调用 &lt;code&gt;memory&lt;/code&gt; 文件夹中的历史经验 ID，结合当前日志分析系统表现（好/坏）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[决策输出]&lt;/strong&gt;：AI 根据分析结果，严格修改量化系统的 &lt;code&gt;JSON&lt;/code&gt; 配置文件（如调整 ETF 候选池、修改仓位比例）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行迭代]&lt;/strong&gt;：量化系统加载新 JSON 配置 $\rightarrow$ 执行新交易 $\rightarrow$ 产生新日志 $\rightarrow$ 进入下一轮循环。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：ETF 候选池动态优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在备选池中“优中选优”，结合主观行情与客观量化因子进行调仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：行业 ETF 预选池、实时行情数组、行业利好/利空新闻。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[信息输入]&lt;/strong&gt;：将 3 个行业 ETF 的预选信息、近期涨跌幅数组及量化因子文件提供给 AI。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[多维分析]&lt;/strong&gt;：AI 分析新闻利好利空 $\rightarrow$ 对比量化因子得分 $\rightarrow$ 监测市场整体风险等级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行调仓]&lt;/strong&gt;：若风险过大，AI 指令清仓；若有优质替代，AI 修改 JSON 文件替换候选池中的 ETF。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Agent.md&lt;/code&gt; (核心指令文档)&lt;/strong&gt;：定义智能体的工作流 $\rightarrow$ 决定了 AI 读取日志的顺序、分析的逻辑步骤及输出的规范。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;JSON&lt;/code&gt; 配置文件&lt;/strong&gt;：量化系统的底层开关 $\rightarrow$ 直接控制委托方式、仓位配置及信号触发阈值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Memory&lt;/code&gt; 存储区&lt;/strong&gt;：经验累积模块 $\rightarrow$ 影响 AI 对市场状态的判定准确率，防止重复犯错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;严格格式约束&lt;/strong&gt;：AI 必须严格按照 JSON 格式修改文件，任何格式错误将导致量化系统崩溃停止运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免盲目使用大模型&lt;/strong&gt;：针对特定规模（如 63 个 ETF）的任务，应选择性价比高的模型计划，避免不必要的 Token 浪费。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分级定时任务&lt;/strong&gt;：设置“短周期高频任务”（如 30 分钟/次）处理快速调仓，设置“长周期深度学习任务”（如 2 小时/次）进行 Memory 经验总结。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;另类数据集成&lt;/strong&gt;：尝试引入多模态信息（视频、音频）作为 AI 的辅助输入源，以提升策略的超额收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Jn576XE7P</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/6a29f4ea6747a68953adbf662198ab033d6db44e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 10 May 2026 20:41:35 +0800</pubDate>
+    </item>
+    <item>
+      <title>前沿市场情绪度量：基于价格缺口的行为金融量化框架</title>
+      <link>https://www.bilibili.com/video/BV1C4RLBHES3</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1C4RLBHES3"&gt;只用收盘价，也能看穿市场情绪&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在数据匮乏的前沿市场，传统的投资者情绪度量指标（如社交媒体、问卷调查）会失效？&lt;/li&gt;
+&lt;li&gt;💡 能否仅凭简单的“日度收盘价”这一个维度，精准捕捉复杂的市场行为偏差与情绪波动？&lt;/li&gt;
+&lt;li&gt;🚀 前沿市场的投资者在面对极端情绪时，真的会像成熟市场那样产生统一的“从众行为”吗？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 破局：用“价格缺口”重构情绪信号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;低依赖度量框架&lt;/strong&gt;: 针对前沿市场（如伊拉克证券交易所 ISX）流动性低、信息不对称且缺乏高频数据的痛点，摒弃对外部数据的依赖，直接从相邻交易区间的收盘价跳变（Price Gap）中提取情绪信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行为金融转译&lt;/strong&gt;: 价格跳变不仅是信息的更新，更是市场快速重估时夹杂的情绪驱动再定价。通过捕捉这种“跳变模式”，将纯粹的价格现象转化为可量化的行为金融信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 四维指标体系：全方位解构市场状态&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 核心量化指标 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;$\text{gray}$ (方向平衡)&lt;/strong&gt;: 衡量正负向缺口信号的相对平衡，定义市场总体情绪是偏向乐观还是悲观。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$\text{G}$ (波动强度)&lt;/strong&gt;: 度量情绪波动的绝对强度，反映市场参与者的活跃程度与情绪激进程度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$\text{SSD}$ (行业差异)&lt;/strong&gt;: 计算跨行业的情绪分散度，识别哪些行业（如银行业）对情绪更敏感，揭示市场内部的结构性分化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;$\text{GPI}$ (时间持续性)&lt;/strong&gt;: 刻画情绪信号在时间维度上的延续能力，判断波动是瞬时冲击还是趋势性延续。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔍 验证闭环：从数据到行为证据的链路&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多维验证链条&lt;/strong&gt;: 采用“收益相关性 $\rightarrow$ CSSD分析 $\rightarrow$ 事件研究 $\rightarrow$ 滚动窗口”的递进式验证，确保指标不仅能同步反映收益，且能解释极端条件下的行为模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反直觉发现&lt;/strong&gt;: 在 ISX 市场中，极端情绪并未导致投资者行为的一致性收缩（从众），反而出现了更高的收益分散度。这证明前沿市场的行为逻辑不能简单照搬成熟市场的经典理论。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “前沿市场不能照搬成熟市场的做法，而更需要一种对数据依赖低、同时又能稳定复制的情绪测量方法。”&lt;/li&gt;
+&lt;li&gt;💬 “在数据并不完备的前沿市场里，情绪并不是无法度量的黑箱，而是可以被稳定识别、用于分析的信号。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1C4RLBHES3</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/2512416e6122abb46027b87b2c5a9ef00a9ad28a.png" length="0" type="image/png"/>
+      <pubDate>Sun, 10 May 2026 19:00:00 +0800</pubDate>
     </item>
     <item>
       <title>攻克美股量化：非标财年对齐技术架构与财务因子工程实战</title>
@@ -5532,87 +5647,6 @@ ightarrow$ 存储于 &lt;code&gt;InfluxDB&lt;/code&gt; 或 &lt;code&gt;kdb+&lt;/
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;talker=57784510736@chatroom</guid>
       <pubDate>Thu, 23 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实盘框架2.1.0大升级：Polars加持下的提速与捡钱策略实战</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;amp;talker=58453205219@chatroom"&gt;2026-04-23_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;🚀 捡钱机会：NBL 策略的暴力美学&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高额回报&lt;/strong&gt;：有成员分享投 70 万 U 最终利润约 200 万 U 的实战案例，被调侃为“捡钱”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;定投建议&lt;/strong&gt;：相比直接定投 BTC，NBL 更有性价比。建议定投周期设为两年，每次定投金额建议覆盖 100 个币种以上。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;⚡️ 框架 2.1.0：Polars 驱动的性能飞跃&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;速度与效率&lt;/strong&gt;：新版框架通过引入 Polars 库，极大优化了因子计算速度，内存占用大幅降低，低配 2C2G 服务器也能流畅运行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多版本过渡&lt;/strong&gt;：新旧框架可共存运行，通过在 PM2 中设置不同进程名并错开分钟偏移，可以更充分地利用机器计算能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛡️ 避坑指南：实盘启动的核心细节&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;加密密钥配置&lt;/strong&gt;：启用加密 API Key 后，重启 PM2 前务必执行 &lt;code&gt;export X3S_TRADING_SECRET_KEY&lt;/code&gt; 命令，否则无法通过 Key 校验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Docker 环境升级&lt;/strong&gt;：升级网页版至 0.5.3 后，若出现库缺失报错，需进入容器手动安装 &lt;code&gt;polars&lt;/code&gt; 或覆盖最新脚本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🕒 分钟偏移：规避拥挤的下单艺术&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略优化&lt;/strong&gt;：使用非 0 分钟偏移（如 15 分钟）可有效避开下单拥挤问题。实盘分钟偏移数据由框架按频率自动合成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据一致性&lt;/strong&gt;：回测时需手动下载对应分钟偏移的数据包，确保回测与实盘逻辑的一致性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;✨ 聊天金句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“【nbl】现在不跟投，将来墙撞头。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“25 年单 nbl 这个策略，就能值回票价。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“现在是 AI 时代，问豆包就行了。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;🔗 相关链接&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/75591&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Thu, 23 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>波动率与流动性的负相关性：揭示市场微观结构的底层驱动力</title>
-      <link>https://bbs.quantclass.cn/thread/78705</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/78705"&gt;波动率和流动性的关系&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：市场规律与洞察&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：订单簿微观结构、流动性枯竭、波动率税、反身性反馈&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示波动率由流动性不连续性产生，且两者互斥，构建逆向择时逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：波动率并非由消息本身产生，而是由流动性在吸收消息时的“不连续性”产生。高波动率与流动性之间存在天然的负相关性（互斥性）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;微观层面&lt;/strong&gt;：订单簿（LOB）订单分布稀疏导致价格在寻找对手盘时必须跨越巨大的空隙（点差），产生非线性跳跃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【循环反馈】&lt;/strong&gt;：波动率上升 $\rightarrow$ 风险溢价 $r$ 扩张 $\rightarrow$ 风险厌恶/VaR模型触发强制减仓 $\rightarrow$ 做市商扩大价差或撤单 $\rightarrow$ 流动性进一步收缩 $\rightarrow$ 波动率飙升（自增强循环）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;挑战了将波动率视为独立风险指标的看法，将波动率视为流动性成本（滑点/冲击成本）的体现。&lt;/li&gt;
-&lt;li&gt;证伪了在波动率最高点进场（追随行情）的逻辑，因为此时支付的“波动率税”最高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：可以通过监测订单簿深度的消失（而非单纯的价格波动）来预判波动率从横盘进入暴涨模式的 전환点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[量化因子挖掘]&lt;/strong&gt;：构建一个基于订单簿深度（LOB Depth）与波动率的背离指标。监测当成交量放大但买卖价差（Bid-Ask Spread）扩大时，作为极端的逆向择时信号（左侧建仓）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[风险管理]&lt;/strong&gt;：在策略逻辑中，入场点选择应避免在波动率极高且流动性枯竭的时刻（入场成本/滑点成本预估//$\text{Bid-Ask Spread} \times 0.5$）入场，以降低实际成交价与理论价的差值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[资产类比分析]&lt;/strong&gt;：针对不同资产（美股、黄金、比特币）的构建不同流动性敏感度模型，例如在比特币这种碎片化流动性资产中，重点关注“地量”后的第一笔异常量能触发的波动率跳升。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/78705</guid>
-      <pubDate>Wed, 22 Apr 2026 23:27:41 +0800</pubDate>
     </item>
   </channel>
 </rss>
