@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 11 May 2026 00:25:47 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 08:48:09 +0000</lastBuildDate>
     <item>
       <title>强化学习Q-Learning在量化交易中的应用与实战指南</title>
       <link>https://www.bilibili.com/video/BV1365J6mEvH</link>
@@ -540,6 +540,41 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81221</guid>
       <pubDate>Sat, 09 May 2026 20:18:04 +0800</pubDate>
+    </item>
+    <item>
+      <title>告别混乱回测：量化仓位管理框架的可视化分类与多组对比增强方案</title>
+      <link>https://bbs.quantclass.cn/thread/81153</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81153"&gt;超好用的策略管理仓库及对比工具！！（含回测分类，所有资金曲线集合，任意时间周期，任意曲线超额，分年月收益率……）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[回测管理、可视化分析、量化工程、差异化对比]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：为量化回测框架提供自动分类管理、多维曲线对比及代码级配置差异追踪的增强方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：海量回测产生的数据目录管理混乱（查找困难），且缺乏多策略间归一化、交互式的横向对比工具，难以快速评估因子微调的收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：内嵌于官方 Python 仓位管理框架的 Web 服务（7777 端口），基于 HTML 实现高度交互的可视化面板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态归一化&lt;/strong&gt;：支持任意时间区间内的净值与回撤面积重算，解决非对齐时间段对比难题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;联动交互&lt;/strong&gt;：主图日期与多/空持仓、单币集中度图表完全联动；支持 Log/Linear 坐标一键切换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置溯源&lt;/strong&gt;：实现 Token 级的代码差异表，支持一眼看出不同回测组之间因子配置的细微差别。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能表现】&lt;/strong&gt;：将以往“翻查文件夹 -&amp;gt; 导出 Excel -&amp;gt; 手工绘图”的冗长流程转化为“勾选 -&amp;gt; 一键对比 -&amp;gt; 可视化筛选”的自动化流水线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标准化索引构建&lt;/strong&gt;：建立基于目录树的回测元数据索引系统，不仅记录收益率，更应自动提取配置参数（Token）作为搜索关键词。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建对比工作流&lt;/strong&gt;：在策略迭代阶段，强制执行归一化对比测试，排除单一行情段对策略稳健性评估的干扰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码与结果闭环&lt;/strong&gt;：在回测结果中强制嵌入 Git Commit ID 或配置文件 Diff 记录，确保证回测结果的可追溯性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81153</guid>
+      <pubDate>Sat, 09 May 2026 08:36:01 +0800</pubDate>
     </item>
     <item>
       <title>量化交易者的内存之战与AI时代的编程反思</title>
@@ -5581,72 +5616,6 @@ ightarrow$ 存储于 &lt;code&gt;InfluxDB&lt;/code&gt; 或 &lt;code&gt;kdb+&lt;/
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Tno8B6EkA</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/f5cd08da6e1b8cd3b25657e192ebe1a03781b887.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 23 Apr 2026 09:03:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>小市值策略的“四月劫”：从手工干预陷阱到凌烟阁择时进化论</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;amp;talker=57784510736@chatroom"&gt;2026-04-23_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;核心增量与深度洞察&lt;/h4&gt;
-&lt;h3&gt;📉 尊重“四月效应”：小市值的周期性低迷&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑陷阱&lt;/strong&gt;：四月是财报密集爆雷期，小市值往往表现弱势。这种“四月效应”是量化老鸟必须经历的心理磨炼。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;：不建议在此时盲目加仓赌补涨。若无明确策略信号，分批入场或老实等待回撤修复是更稳健的选择。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧘 手工干预：量化交易中最隐蔽的“自毁程序”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;陷阱本质&lt;/strong&gt;：一旦忍不住手工改单、调整资金比例或拉黑股票，就掉入了“人教人教不会，事教人一学就会”的陷阱。即便由于某种直觉躲过一跌，长期也会破坏系统的数学一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心洞察&lt;/strong&gt;：只要有一天忍不住手工，其实就入了陷阱。系统低谷期正是磨炼纪律的时刻。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌐 硬件护城河：网络稳定性决定交易成败&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;痛点案例&lt;/strong&gt;：凌烟阁策略对实时性要求高，若客户端因网络不稳（如移动宽带）掉线，会直接导致漏单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;优先选用电信或联通宽带，稳定性远高于移动。&lt;/li&gt;
-&lt;li&gt;对客户端进行心跳监控，一旦断开立即触发手机预警并重启。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧬 凌烟阁择时进阶：从单一指标到多维过滤&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成交额动量 (VRAMT)&lt;/strong&gt;：用成交额代替成交量来计算VR指标，对资金流动更敏感。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;阴跌过滤逻辑&lt;/strong&gt;：在止损阈值基础上，增加“连续5根K线阴跌”判断。利用最高价与最低价的连续下降识别阴跌，能有效防范阴跌带来的回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;择时指标多样性&lt;/strong&gt;：MACD趋势跟踪、布林带突破、BIAS均线交叉等均有应用，但需警惕负优化，参数需结合行情动态调整。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚙️ 轮动策略的“薛定谔”困境&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;噪音识别&lt;/strong&gt;：在风火轮等轮动策略中，过多的子策略可能演变成噪音。某些策略在2015年后已丧失超额收益，强行轮动只会增加无效波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化方法&lt;/strong&gt;：利用AI和文本工具重新审视子策略逻辑，剔除与当下市场风格严重背离的“僵尸策略”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💬 社区金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“4月不亏就是赚。” —— ShawnSu&lt;/li&gt;
-&lt;li&gt;“只要有一天忍不住手工了，其实就入陷阱了。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“人生中总是有些不得不吃的亏。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“量化都是骗人的。” —— 约翰林（群友合唱，意指市场反常时的自嘲）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/75656&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78919&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78937&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/79002&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78831&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78954&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78971&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78973&lt;/li&gt;
-&lt;li&gt;http://qtcls.cn/78997&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/79103&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-23&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Thu, 23 Apr 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
