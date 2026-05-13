@@ -7,7 +7,61 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 13 May 2026 08:46:19 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 22:38:54 +0000</lastBuildDate>
+    <item>
+      <title>突破点预测瓶颈：ATOMS框架如何通过随机演化与经济约束重塑量化交易决策</title>
+      <link>https://www.bilibili.com/video/BV1snRfBLER2</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1snRfBLER2"&gt;金融预测，为什么不能只看误差：ARTEMIS重构量化预测逻辑&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在极端行情下，预测误差越小的模型往往亏损越严重？&lt;/li&gt;
+&lt;li&gt;💡 既然市场充满噪声与时变性，如何构建一个能“自动对齐”经济逻辑的神经网络？&lt;/li&gt;
+&lt;li&gt;🚀 金融预测的终极目标，应当是追求数值的极致精确，还是判断的决策稳健？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式转移：从“拟合数值”进化为“捕捉方向”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;点预测的失效陷阱&lt;/strong&gt;: 传统模型过度优化均方根误差（RMSE），但在高频交易中，精准的价格点位往往因强噪声和突发“换挡”而失去意义，导致模型在崩盘阶段失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;方向性决策的优先权&lt;/strong&gt;: ATOMS 框架提出交易的核心价值在于稳定判断涨跌方向与波动强度，而非单纯拟合历史数据。这种建模方式更贴近真实的限价订单簿（LOB）决策逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 核心架构：ATOMS 的随机潜空间演化模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;潜空间编码 (Latent Space)&lt;/strong&gt;: 放弃直接处理高噪原始特征，通过编码器将其压缩为稳定的潜在表示，为后续建模提供连续且去噪的接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;随机微分方程 (SDE) 驱动&lt;/strong&gt;: 模拟市场的“漂移项”与“扩散项”，将市场的不确定性与扰动直接纳入模型演化路径，比确定性转移更自然地表达波动性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;信息压缩&lt;/strong&gt;: 利用 Encoder 将高维行情数据映射至低维流形。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态演化&lt;/strong&gt;: 应用 SDE 描述潜在状态随时间的连续非确定性转移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;目标对齐&lt;/strong&gt;: 在训练阶段强制模型在预测精度与方向强度之间进行权衡。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 三重约束：给黑盒模型套上“金融逻辑”的枷锁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PDE Loss (经济结构约束)&lt;/strong&gt;: 基于局部无套利条件建立残差约束，将偏微分方程代表的经济学定律直接写进训练目标，确保模型输出不违背常理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MPR Penalty (风险管理约束)&lt;/strong&gt;: 限制瞬时夏普比率（Sharpe Ratio）在合理区间，防止模型为追求拟合指标而产生过度激进或虚假的交易信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consistency Loss (系统稳定性约束)&lt;/strong&gt;: 要求演化后的潜在状态与编码器状态保持对齐，防止特征表达与时间动态“各走各路”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 稳健性验证：为什么 ATOMS 是崩盘时的定海神针&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;实验洞察&lt;/strong&gt;: 在高压力（Pressure Regime）环境下，ATOMS 的方向准确率（Directional Accuracy）优势显著，甚至在 RMSE 略高时依然能保住 64.89% 的方向判断率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消融证据&lt;/strong&gt;: 一旦去掉物理/经济约束（PDE/MPR），模型性能会迅速退化至接近随机，证明了“结构化机器学习”在极端波动中的核心价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “在高频交易里，很多时候不是把价格点位估得多精确，而是更稳定的判断下一步到底更可能涨还是跌。”&lt;/li&gt;
+&lt;li&gt;💬 “模型如果只追着历史数据跑，就很容易学到位，但一到极端行情里，适配会被迅速放大并失效。”&lt;/li&gt;
+&lt;li&gt;💬 “结构化机器学习可能比单纯追求误差更有实际价值。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1snRfBLER2</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/751aeee398f803d0bc0143275043acbc9f3b67d4.png" length="0" type="image/png"/>
+      <pubDate>Wed, 13 May 2026 19:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>黄金量化套利策略初探：数据整合、回测框架与潜在套利方向</title>
       <link>https://bbs.quantclass.cn/thread/81555</link>
@@ -80,6 +134,135 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81555</guid>
       <pubDate>Wed, 13 May 2026 10:29:42 +0800</pubDate>
+    </item>
+    <item>
+      <title>从硬件避坑到因子魔改：量化实战派的生存指南与策略进化</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;amp;talker=57784510736@chatroom"&gt;2026-05-13_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;核心内容提要&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🖥️ 实盘硬件避坑：Mini主机的“烤机”哲学&lt;/h3&gt;
+&lt;p&gt;实盘交易中，硬件的稳定性直接关系到真金白银。群友们分享了关于Mini主机的深度使用经验：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;品牌选择&lt;/strong&gt;：推荐“铭凡(Minisforum)”和“零刻(Beelink)”的Mini主机，这类机器在长时间挂机运行中表现较为稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;系统选择与散热&lt;/strong&gt;：有群友反馈Win11在某些盒子上可能因自动更新或驱动问题导致散热异常，进而引发盘中重启。实盘机器建议优先考虑稳定性，甚至有群友为解决散热回归Win10。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘操作指南&lt;/strong&gt;：买回新机器后的第一件事必须是“烤机”（压力测试）3-5小时。只有通过压力测试的机器才能上实盘，避免因硬件缺陷导致开平仓延时，造成不必要的巨额损失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚙️ 软件维护：登录态与内核升级的细节&lt;/h3&gt;
+&lt;p&gt;近期数据客户端版本（如3.6.4）出现的登录态掉线问题引起了广泛讨论：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;版本建议&lt;/strong&gt;：3.6.4版本在登录验证上存在细微Bug，建议升级至3.6.5内测版，该版本修复了休眠后登录态失效的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;维护细节&lt;/strong&gt;：升级版本时需同步更新内核，并注意清理数据缓存，防止安全软件拦截导致的运行异常。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 策略魔改：让因子逻辑“眉清目秀”&lt;/h3&gt;
+&lt;p&gt;关于策略优化和因子挖掘，资深群友提供了新的视角：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;脱离Pandas的黑盒&lt;/strong&gt;：木木十三提出，很多因子隐藏在复杂的Pandas代码中难以发现逻辑错误。尝试将因子用纯数学或中文表达式写出来，能更容易发现诸如“未复权价使用错误”等底层问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;杰克策略(Jack)的多参数跑法&lt;/strong&gt;：杰克策略展现了极强的鲁棒性。通过同时运行不同参数的杰克策略，可以实现选股的差异化，从而平摊风险，这种“参数组合”跑法被证明在震荡市中具有较好的救命效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分域与过滤&lt;/strong&gt;：大苗条分享了纯选股策略的优化心得，重点在于通过过滤和分域（如资金流特征差异）来提升收益回撤比，而非单纯增加排序条件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 市场洞察：大A是否从此“重视基本面”？&lt;/h3&gt;
+&lt;p&gt;群内引用了关于凯师傅策略魔改的讨论，探讨了量化策略的长效性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2019分水岭&lt;/strong&gt;：有观点认为2019年后A股定价逻辑发生变化，基本面权重增加。通过引入“低波动”因子对基本面策略进行过滤，可以显著提升近几年的回撤表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;小市值的未来&lt;/strong&gt;：面对“如果不炒垃圾，小市值策略是否失效”的质疑，实战派认为极致的抱团和风格切换是常态，量化策略需保持进化，增加对主流热点的捕捉能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;✍️ 行业金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“热点行情都是一时的，量化才是永恒。” —— baykop&lt;/li&gt;
+&lt;li&gt;“用中文写出来因子，真的很容易发现问题。” —— 木木十三&lt;/li&gt;
+&lt;li&gt;“慢就是快。” —— 土土&lt;/li&gt;
+&lt;li&gt;“商K是商量K线的地方吗？” —— 站岗资本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 资源链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78848&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>动量策略波动大，沧浪亭风控精细，量化交易实战洞察</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;amp;talker=58453205219@chatroom"&gt;2026-05-13_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;p&gt;🎢 量化交易：高收益策略伴随高波动
+动量策略（Momentum Strategy）因其追求高回报的特性，往往伴随着剧烈波动。群聊中多位用户分享了其动量策略近期经历大幅回撤（7天20%，30天甚至40%以上），但同时也指出，这种策略最终可能带来30-60%的收益。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;波动是常态&lt;/strong&gt;：对于动量策略，30-40%的回撤被认为是正常波动范围。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险与收益并存&lt;/strong&gt;：正如俗语“高收益高风险”，群友形象地类比：“你想赚得多，就得接受波动大，这就像你想要个漂亮温柔的女朋友，多花点钱也正常。”&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键在于“不死”&lt;/strong&gt;：在波动面前，维持低杠杆、确保资金不被爆仓是核心，只有“不死”，策略才有机会在市场回归时“起飞”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场差异性&lt;/strong&gt;：在当前行情下，不同用户的动量策略表现差异显著，未能“齐飞”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;⚙️ 沧浪亭策略：多层风控筑就稳健收益
+“沧浪亭策略”及其多个变体，展现了在量化交易中通过精细化风险控制实现稳健收益的思路。这些策略不仅关注收益，更强调如何在大波动市场中生存和发展。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;核心思路概览&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多空对冲&lt;/strong&gt;：通过多头持仓和空头对冲来消除方向性敞口，专注于捕捉选币和波动带来的超额收益（Alpha）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严格约束&lt;/strong&gt;：设定严格的净敞口范围和总杠杆上下限，避免策略演变为单边赌博。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态调整&lt;/strong&gt;：策略不固守头寸，而是基于多维度条件动态调整多空仓位和杠杆，例如在趋势不明朗时选择不入场。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;精细化风控亮点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;极端波动冻结机制&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;当空头侧涨跌幅超过10%时，暂停调仓4小时，有效规避追涨杀跌的陷阱。&lt;/li&gt;
+&lt;li&gt;亦有策略设定空头在1小时内波动超10%即暂停4小时调仓，相当于给组合加了一个“硬熔断”，防止极端行情下的盲目再平衡。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;低杠杆强制中性&lt;/strong&gt;：在低杠杆情境下强制多空头寸保持中性，作为额外的避险措施。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;二次敞口约束&lt;/strong&gt;：在策略回撤或仓位降低时，通过自动回归中性来提供“保护垫”，比简单限制杠杆更细致入微。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空头快速盈利时的“舒服模式”&lt;/strong&gt;：当空头快速盈利时，主动减仓空头而不补多头，这种反直觉的逻辑能够有效防止利润在反弹中回吐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子降噪&lt;/strong&gt;：对VolumeRatio因子进行优化，要求涨跌方向与振幅方向一致才计入成交量，从而过滤“假涨真跌”的杂音，使交易信号更纯净。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;策略优化与表现&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“四龙配狗”&lt;/strong&gt;：多头选择大饼、姨太等“四龙”，空头则根据它们的相关系数因子挑选“落单狗”做空，增加了动态择时信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权重调整&lt;/strong&gt;：通过提高多头配比和权重，让策略在牛市中积蓄更多动能，同时空头更侧重对冲而非直接收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘与回测数据&lt;/strong&gt;：多项策略回测显示，通过这些精细化的风控机制，能够实现高年化收益（如125%、200%甚至236%），同时将最大回撤控制在较低水平（如14%、19%、25%）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;🛠️ 平台技术问题与解决方案
+在使用量化交易平台时，用户可能遇到资金、数据等方面的问题，及时获取解决方案至关重要。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据未生成&lt;/strong&gt;：当遇到平台“没有数据生成”的问题时，需要确保已经完成了选币操作并计算完策略资金曲线，数据才会正常显示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;统一账户资金读取&lt;/strong&gt;：若出现“资金读不到”的情况，对于统一账户，需要将资金转入“全仓杠杆现货账户”才能被策略正确读取。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下架币种清仓问题&lt;/strong&gt;：对于 &lt;code&gt;delist&lt;/code&gt;（下架）操作后仓位未自动清空的情况，需要检查 &lt;code&gt;delist&lt;/code&gt; 脚本的默认设置。该脚本通常自带清仓功能并会将币种加入黑名单，具体操作和确认可以通过查看日志来追溯首次捕获和自动清仓的情况。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;金句:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“不怕只要不死，动量总有起飞的时候” — 流浪人生&lt;/li&gt;
+&lt;li&gt;“你想赚的多，你还不能接受人家波动大点吗？这就像你找个女朋友，你想要个长的漂亮的，温柔体贴的。人家多花点钱不也正常吗” — Andy&lt;/li&gt;
+&lt;li&gt;“动量的东西3-40，我觉得都算正常” — Andy&lt;/li&gt;
+&lt;li&gt;“低杠杆就不死” — 陈聪汉&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;相关链接:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80640"&gt;qtcls.cn/80640&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80162"&gt;qtcls.cn/80162&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80689"&gt;qtcls.cn/80689&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80705"&gt;qtcls.cn/80705&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/79949"&gt;qtcls.cn/79949&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80477"&gt;qtcls.cn/80477&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80522"&gt;qtcls.cn/80522&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80538"&gt;qtcls.cn/80538&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80606"&gt;qtcls.cn/80606&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80615"&gt;qtcls.cn/80615&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="qtcls.cn/80921"&gt;qtcls.cn/80921&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="bbs.quantclass.cn/topic/index?id=79220"&gt;bbs.quantclass.cn/topic/index?id=79220&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-13&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>从线程池到原生异步：量化数据采集系统的性能重构与稳定性增强</title>
@@ -5291,196 +5474,6 @@ ightarrow$ 存储于 &lt;code&gt;InfluxDB&lt;/code&gt; 或 &lt;code&gt;kdb+&lt;/
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-27&amp;talker=57784510736@chatroom</guid>
       <pubDate>Mon, 27 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化生存法则：数据兜底、代理突围与稳健理财之道</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-27&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰船队丨26分享会&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-27&amp;amp;talker=58453205219@chatroom"&gt;2026-04-27_B旗舰船队丨26分享会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛡️ 数据安全第一：永远准备好“B计划”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据兜底逻辑&lt;/strong&gt;：当彩虹（Rainbow）数据出现不稳定或连接失败时，应迅速切换至币安（Binance）数据。稳定数据源是量化交易的地基，无缝切换的兜底方案是系统的基本修养。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🪜 网络突围的理想与现实：自建“梯子”的坑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自建并非一劳永逸&lt;/strong&gt;：虽然购买的成品代理不稳定，但使用云服务器（如腾讯云新加坡）自建代理常面临端口封锁。龚博致指出，频繁修改端口和防火墙配置的精力成本极高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险边际意识&lt;/strong&gt;：群友提醒，私下使用AI辅助搭建代理固然方便，但切忌大规模传播教程，需警惕潜在的合规与监管风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 策略回撤期：是因子失效还是市场拥挤？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;浪淘沙回撤观察&lt;/strong&gt;：近期“浪淘沙”等因子表现不佳，持续回撤引发了关于“策略拥挤”的讨论。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子中性化进阶&lt;/strong&gt;：马歇尔分享了关于“因子中性化”的深度解析，将其类比为大学必修课。中性化本质上是在剥离市场噪音，通过数学手段寻找更纯粹的超额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💰 Bitfinex 借贷：寻找“稳稳的幸福”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;躺平理财学&lt;/strong&gt;：在策略波动大时，Bitfinex 提供的 10%-15% 年化借贷收益极具吸引力。该平台历史悠久且有上市公司背书，安全性被资深用户认可。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;门槛与建议&lt;/strong&gt;：最低 500 美元即可参与，适合作为闲置资金的避风港。茶泡饭总结道：这种“确定性”在动荡市场中非常值钱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 金句摘录&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“不论牛熊，依然宵禁。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;“确定性很值钱的。” —— 茶泡饭&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关资源&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=78550"&gt;因子中性化的直观解释以及一种新的中性化方法&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=79663"&gt;Bitfinex借贷，享受超低风险年化10%-15%的收入&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-04-27&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Mon, 27 Apr 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>美股慢牛投资法则：揭秘TQQQ的超额收益潜力与防爆仓机制</title>
-      <link>https://bbs.quantclass.cn/thread/79220</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/79220"&gt;如何最大化利用单边慢牛的特性------借助TQQQ放大beta&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[TQQQ, 杠杆ETF, 慢牛行情, 熔断机制, 逢低抄底, 年化收益, 回测]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示美股长期慢牛特性下，TQQQ逢低买入策略的超额收益潜力和其抗爆仓机制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;美股两大指数（SPX, NDX）展现长期“慢牛”走势，区别于其他资产的“脉冲式阶段性上涨、牛短熊长”模式。&lt;/li&gt;
-&lt;li&gt;慢牛表现为“弧形顶、暴跌与快速修复（向下插针）组成的阶梯式缓慢抬升”。&lt;/li&gt;
-&lt;li&gt;杠杆ETF（如TQQQ）在长期慢牛形态下能显著累积“滚仓复利”效果，而非底部震荡期的“震荡损耗”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;美股慢牛走势部分归因于“基本面和人为操纵”，以及“不断金融放水拉高股市估值”以支持前沿科技融资，延长繁荣周期。&lt;/li&gt;
-&lt;li&gt;熔断机制（7%, 13%, 20%跌幅暂停交易）确保NDX单日跌幅无法达到33.33%，从而从根本上避免3倍杠杆ETF TQQQ的单日爆仓清盘。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;传统观念认为杠杆ETF风险高易爆仓，本文通过分析熔断机制证伪TQQQ的爆仓可能性，并指出其“风险有限，收益无限”的特性，颠覆了对特定杠杆产品的风险认知。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;鉴于当前美国GOV和新兴产业的发展思路，以及SpaceX、AI独角兽IPO等，代表先进科技的NDX仍有巨大上涨空间，任何大幅回调都是“倒车接人”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;利用美股（特别是NDX）的长期“慢牛”特性和“向下插针、快速修复”模式，结合杠杆ETF TQQQ的“滚仓复利”效应。&lt;/li&gt;
-&lt;li&gt;策略核心是“逢低抄底”，即在TQQQ达到特定回撤比例时（如25%或50%）全仓买入并长期持有。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;历史收盘价数据（close）和日期数据（date）。&lt;/li&gt;
-&lt;li&gt;需要将日期转换为datetime格式并按正序排列。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略&lt;/strong&gt;：TQQQ回撤25%或50%时全仓抄底。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测结果&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;TQQQ回撤25%抄底：除2022年（16.88%）外，其余机会年化收益均不低于25%。&lt;/li&gt;
-&lt;li&gt;TQQQ回撤50%抄底：所有机会年化收益均不低于25%。&lt;/li&gt;
-&lt;li&gt;对比QQQ择时抄底（10%或20%回撤），TQQQ在同样条件下的年化收益显著更高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险指标（回测代码中提及）&lt;/strong&gt;：入场后最大跌幅（MaxDD），最长被套时间（Recovery）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;策略依赖于美股“慢牛”的宏观环境持续性，若市场进入长期震荡或熊市，杠杆ETF的震荡损耗将严重拖累收益。&lt;/li&gt;
-&lt;li&gt;2022年疫情导致的长期阴跌，即使是TQQQ回撤25%抄底，年化收益也相对较低（16.88%），这表明在特定极端市场环境下策略表现可能受限。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;文章附带代码旨在实现一个简单的股票回测分析工具，用于计算特定回撤策略的年化收益、最大回撤和恢复时间，帮助投资者评估策略的历史表现。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心库&lt;/strong&gt;：pandas (用于数据处理和分析), os (用于文件路径检查)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据源&lt;/strong&gt;：CSV格式的股票历史数据 (包含date和close列)。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据加载与排序&lt;/strong&gt;：使用pd.read_csv加载，df['date'] = pd.to_datetime(df['date'])进行类型转换，df.sort_values('date').reset_index(drop=True)强制按日期正序排列，确保回测逻辑的正确性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;历史最高点 (ATH) 追踪&lt;/strong&gt;：通过迭代实时更新ath = max(ath, current_price)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回撤信号触发&lt;/strong&gt;：drawdown_from_ath &amp;gt;= drawdown and not in_drawdown_cycle，使用in_drawdown_cycle布尔变量防止重复触发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略结果计算&lt;/strong&gt;：年化收益 (CAGR)，入场后最大跌幅 (MaxDD)，最长被套时间 (Recovery) 的具体计算逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;代码中明确处理了文件不存在的情况。&lt;/li&gt;
-&lt;li&gt;强制排序是处理数据可能乱序的关键步骤。&lt;/li&gt;
-&lt;li&gt;年化收益计算中包含if years &amp;gt; 0 else 0，避免除零错误。&lt;/li&gt;
-&lt;li&gt;MaxDD计算中包含max(0, max_dd_after)，确保回撤为非负值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;编写一个通用函数，接受任意ETF代码和回撤比例作为参数，自动化分析其“逢低抄底”策略的历史表现，并输出关键风险/收益指标。&lt;/li&gt;
-&lt;li&gt;结合实时行情数据，开发一个监控TQQQ或其他杠杆ETF回撤状态的脚本，当达到预设回撤阈值时自动发送交易信号（邮件/微信/API）。&lt;/li&gt;
-&lt;li&gt;扩展回测框架，纳入熔断机制的模拟，更精确地评估极端市场条件下杠杆ETF的实际风险和收益上限。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/79220</guid>
-      <pubDate>Sun, 26 Apr 2026 22:52:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>活着胜过赢一次：量化交易最大回撤的数学陷阱与风控生存法则</title>
-      <link>https://www.bilibili.com/video/BV1u1ovBZEDv</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1u1ovBZEDv"&gt;深度拆解最大回撤：从原理计算到策略风控落地&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么账户亏损 50% 后需要 100% 的涨幅才能回本？揭开盈亏非对称性的残酷真相。&lt;/li&gt;
-&lt;li&gt;💡 在净值波动中，为何“历史最高点”才是评估策略压力的唯一有效生命线？&lt;/li&gt;
-&lt;li&gt;🚀 为什么相关性系数低于 0.3 是多策略组合平滑收益、抵御极端回撤的终极秘诀？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 回撤的数学陷阱：非线性的回本灾难&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;盈亏非对称效应&lt;/strong&gt;: 修复回撤所需的涨幅与亏损比例并非线性关系。随着亏损增加，分母急剧缩小，导致回本难度呈指数级攀升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 亏损 10% 仅需 11% 收益回本，但亏损 50%（腰斩）则需要 100%（翻倍）才能回到原点。这就像从山坡滑落很简单，但重新爬回原点需要付出成倍的体力，一旦回撤失控，账户将陷入无法爬出的陷阱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 风险控制目标：心理阈值与卡玛比率&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锚定心理底线&lt;/strong&gt;：根据实战经验，将最大回撤目标设在投资者忍受极限内（通常为 15%-25%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设定容错空间&lt;/strong&gt;：基于历史最大回撤 (Hist MDD)，留出 1.5 至 2 倍的缓冲边界以应对极端行情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;监控卡玛比率 (Calmar Ratio)&lt;/strong&gt;：年化收益除以最大回撤，理想目标应大于 2，确保风险收益比具有竞争力。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 严禁仅凭直觉设定止损，必须结合历史数据与策略容量进行动态评估，防止因回撤过大导致策略被强制关停。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚔️ 防御防御机制：从仓位管理到主动熔断&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;仓位与杠杆控制&lt;/strong&gt;: 杠杆会同比例放大回撤。坚持固定比例风控，确保单笔交易预期损失不超过总资产的 1%-2%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多策略分散投资&lt;/strong&gt;: 寻找相关性 &amp;lt; 0.3 的低相关资产进行配置。利用收益互补效应平滑净值曲线，抵消局部失效带来的剧烈波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主动止损与账户熔断&lt;/strong&gt;: 建立“自杀开关”。当账户总回撤达到预设极值（如 15%）时，强制清仓并进入冷静期，杜绝情绪化博弈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “在量化交易中，保护本金、严控回撤的优先级永远高于追求高收益。”&lt;/li&gt;
-&lt;li&gt;💬 “活着永远比赢一次更重要，只要还在牌桌上，就永远有翻盘的机会。”&lt;/li&gt;
-&lt;li&gt;💬 “慢就是快：在回撤修复期间，首要目标是平稳回归而非增加暴露。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1u1ovBZEDv</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/8ef7ed8f179a45b4aa7543f52122854eed0d5042.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 26 Apr 2026 22:04:33 +0800</pubDate>
     </item>
   </channel>
 </rss>
