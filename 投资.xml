@@ -7,7 +7,579 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 19 May 2026 08:33:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 22:38:20 +0000</lastBuildDate>
+    <item>
+      <title>穿透估值迷雾：腾讯AI底层架构重构与商业闭环的深度解构</title>
+      <link>https://www.bilibili.com/video/BV14LLz68ESh</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV14LLz68ESh"&gt;腾讯控股转型，你跟上了吗？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在估值倍数大幅回撤的压力下，腾讯反而选择彻底推翻原有的AI引擎进行底层重构？&lt;/li&gt;
+&lt;li&gt;💡 面对AI对传统流量的“截流”恐慌，为什么基于人际关系的社交广告反而成了最安全的避风港？&lt;/li&gt;
+&lt;li&gt;🚀 算力禁运的“达摩克里斯之剑”下，腾讯如何通过软件抽象层构建一个能兼容多种国产芯片的“万能引擎”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知重构：从“跑分游戏”转向“商业实战”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;底层逻辑巨变&lt;/strong&gt;: 腾讯彻底抛弃了追求公开基准测试（Public Benchmarks）的高分，转向追求通用智能。这意味着AI不再是实验室里的“优等生”，而被要求成为能在泥泞现实中拉货的“卡车”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 跑分就像学生为了考试死记硬背，而真实商业场景（如微信群聊）则充斥着非结构化、充满噪音的碎片信息。腾讯的重构旨在让模型具备极强的信噪比过滤能力，而非单纯的参数规模。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 核心产品线：多方语境智能体 (Agentic AI)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;: 在微信、企业微信和QQ中构建基于多方语境（Multiparty Context）的智能体，实现从简单的1对1聊天向复杂社交场景的跨越。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;信噪比过滤&lt;/strong&gt;: 实时梳理群聊意图，区分反驳、默认与情绪发泄。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长文本记忆&lt;/strong&gt;: 在碎片化讨论中精准抽丝剥茧，实现无缝脉络衔接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;商业转化&lt;/strong&gt;: 将技术能力翻译为经常性收入（RR），通过高阶服务订阅和Token消耗实现变现。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕AI因吸收过多垃圾数据而产生“幻觉”，需通过重构强化学习堆栈来提升鲁棒性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 财务闭环：ROI 的长短周期错配&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;短周期（种菜）&lt;/strong&gt;: 优化广告算法（AdTech）和云广告变现。投入即见效，迅速转化为现金流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长周期（种果树）&lt;/strong&gt;: 开发 High 系列大模型并铺设算力基础设施。前期投入巨大，但依托社交图谱形成天然的数据和场景垄断。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑闭环&lt;/strong&gt;: 利用短周期的广告利润反哺长周期的模型研发，在不增加等比例成本的情况下，通过AI加速游戏资产生产以拉高毛利率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 算力突围：异构适配的“万能引擎”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标&lt;/strong&gt;: 消除对单一顶级芯片供应商的依赖，解决供应链不确定性导致的估值压制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;构建软件抽象层&lt;/strong&gt;: 研发编译器和编排层，实现对各种国产 ASIC 芯片的统一消化（Ingest）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异构适配&lt;/strong&gt;: 将互不兼容的国产芯片在软件层面统一，打造混合动力算力系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能力外溢&lt;/strong&gt;: 在解决内部算力焦虑后，将剩余计算能力导向腾讯云，将其转化为外部竞争优势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 终极博弈：App 智能体 vs. OS 级智能体&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心矛盾&lt;/strong&gt;: 微信通过社交关系链构建的“超级大脑”与苹果/安卓等操作系统原生 AI 之间的入口之战。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;穿透洞察&lt;/strong&gt;: OS 级 AI 拥有跨 App 读取数据的最高权限，而微信拥有最隐秘的情感记忆。这场战役将决定未来 10 年全球科技巨头的权力版图。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “市场已经不再为实验室里的优等生支付溢价了，他们想要的是能在泥泞的现实道路上拉货的卡车。”&lt;/li&gt;
+&lt;li&gt;💬 “基于情感和娱乐的原生意图是任何 AI 智能体都无法代劳的，这让原生人际网络成了 AI 时代最安全的避风港。”&lt;/li&gt;
+&lt;li&gt;💬 “腾讯用一年的时间，在软件层面上造出了一个万能的混合动力引擎，将算力焦虑转化为进攻性的弹药。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV14LLz68ESh</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/f3b86fcb2e64c3ea49faba97924a7dec86748816.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 20 May 2026 06:06:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>B站2026年Q1财报深度解构：广告业务成增长新引擎，盈利能力显著提升</title>
+      <link>https://www.bilibili.com/video/BV1QDLr6VE8v</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1QDLr6VE8v"&gt;大摩闭门会：Bilibili业绩解读 260519全网最快（推荐程度：4星选看）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在游戏业务自然下滑的背景下，B站依然能实现营收略超预期的增长？&lt;/li&gt;
+&lt;li&gt;💡 广告业务如何从单纯的营收补充转变为公司整体的盈利驱动引擎？&lt;/li&gt;
+&lt;li&gt;🚀 B站未来的股价走势将取决于哪些核心变量的博弈？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 增长逻辑：从单一依赖向多元驱动转型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;广告业务的强劲爆发&lt;/strong&gt;: 同比大增 30%，成为营收的核心增量。其底层逻辑在于用户基数的持续扩大（日活同比提升 8%）与用户粘性的增强（使用时长增加 10%），叠加春节期间 B2C AI 应用广告的集中投放，形成了多重共振。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;业务板块的结构性分化&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;游戏业务&lt;/strong&gt;: 同比下降 12%，处于老游戏自然下滑周期，符合市场预期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;直播与增值服务&lt;/strong&gt;: 增速持续收窄（同比仅增 4%），增长动能减弱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;电商及其他&lt;/strong&gt;: 同比下滑 4%，表现低迷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 财务底盘：运营效率的系统级优化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;盈利能力触底反弹&lt;/strong&gt;: Non-GAAP 运营利润达 5.24 亿元，运营利润率提升至 7%（同比增长 2.1 个百分点）；净利润 5.85 亿元，均超预期 14%，显示出公司在成本控制和效率提升上的显著成效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利润质量提升&lt;/strong&gt;: 毛利率提升至 37.1%，尽管营收波动较小，但通过优化运营效率，实现了稀释每股收益（EPS）同比 72% 的大幅增长。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 估值锚点与风险博弈&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;估值模型&lt;/strong&gt;: 采用现金流折现模型（DCF），设定加权平均资本成本 (WACC) 为 12%，永续增长率为 3%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 潜在上涨催化剂 (Bull Case)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;宏观经济强劲复苏 $\rightarrow$ 驱动广告增速超预期。&lt;/li&gt;
+&lt;li&gt;新游戏（如 SAO）表现亮眼 $\rightarrow$ 提升用户留存与付费率。&lt;/li&gt;
+&lt;li&gt;分成比例降低 $\rightarrow$ 直接增厚利润率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 潜在下行风险 (Bear Case)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;费用失控 $\rightarrow$ 销售营销费用或内容采购成本大幅上升 $\rightarrow$ 压缩利润率。&lt;/li&gt;
+&lt;li&gt;用户增长乏力 $\rightarrow$ 在激烈竞争环境下无法达到预期目标。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;广告业务确实成为了一个新的增长引擎，同时公司在控制成本、提高效率这方面确实见到了成效。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;在国内的互联网同行当中，广告业务能够持续超预期增长是非常少见的。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1QDLr6VE8v</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/8b8afd429f243fa6235ed9b29c403a094896b41e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 20 May 2026 00:00:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>2026中国水泥行业：从红利时代迈向“达尔文式”供给侧大整合</title>
+      <link>https://www.bilibili.com/video/BV1NLLq6QEqX</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1NLLq6QEqX"&gt;水泥行业整合加速，盈利修复何时来？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions) * 🤔 为什么在需求持续萎缩、全行业亏损的背景下，聪明的资金却在此时逆向进场布局？ * 💡 4.4万亿基建专项债为何无法抵消房地产下滑的影响？揭秘“水泥密度”的底层差异。 * 🚀 200亿产业基金如何通过“暴力买断”过剩产能，将区域市场利用率从50%强行提升至80%？ --- ### 🧩 需求脱钩：基建稳定器与房产引擎的失效 * &lt;strong&gt;单位投资额的水泥密度落差&lt;/strong&gt;: 房地产（尤其是高层住宅与地库）的水泥消耗密度远高于平铺式的公路基建或设备更新，导致基建增长难以填补地产需求的断崖式缺口。 * &lt;strong&gt;“减震器”逻辑&lt;/strong&gt;: 2026-2027年的基建投入仅能起到防止行业散架的托底作用，市场已放弃V型反转幻想，全面进入“筑底期”。 --- ### 🧩 供给侧“障眼法”：数据挤水分后的纪律重塑 * &lt;strong&gt;文书作业与物理退出&lt;/strong&gt;: 账面上消失的1.86亿吨产能中，仅有约1/3是物理层面的真实拆除，余下多为“许可产能”统计口径调整。 * &lt;strong&gt;打地基逻辑&lt;/strong&gt;: 统计口径的统一并非为了立刻提价，而是为了清理违规产能账本，为接下来更严厉的“错峰生产”和行业纪律执行扫清数据盲点。 --- ### 🧩 暴力整合：市场化基金驱动的“达尔文游戏” * &lt;strong&gt;封闭市场的两广模式&lt;/strong&gt;: 水泥受运输半径限制具有强区域属性。巨头拟在两广试点成立200亿规模的整合基金，通过买断并永久关停1/4落后产能，实现定价权回归。 * &lt;strong&gt;资本回报闭环&lt;/strong&gt;: 该模式旨在通过提升存量产线的产能利用率，将单区域年利润由亏损扭转至数十亿级别，实现投资者与退出者的“体面离场”。 --- ### 🛠️ 投资逻辑与监测路径 * &lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;: 1. 优先级排序：首选具有成本领先优势和强现金流的行业龙头（如海螺水泥），次选具备多重业务驱动的中国建材。 2. 锚定信号：关注煤炭价格走势对水泥价格的成本支撑效应，并紧盯下半年供给侧纪律的行效情况。 * &lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕流动性较低的标的（如华润建材科技）存在的折价风险；防范地方政府出于GDP和税收考虑对产能关停计划的干预。 --- ### 🌟 金句萃取 * 💬 “现在的水泥行业不再是依附于地产红利的温室花朵，而是一场残酷但极具暴力潜力的达尔文式生存游戏。” * 💬 “基建支出就像汽车在颠簸路面上的减震器，它能防止车体散架，但并不能让你重新起飞。”&lt;/h3&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1NLLq6QEqX</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/0ea7482d48a52585db78b389c99f8dbe3f3ed1c3.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 22:49:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>周期博弈与估值锚点：深度解构股市崩盘中的避险逻辑与认知误区</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/6a0bce551b7bd50295699fcf?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/pdhnn7v4wwtq"&gt;财自由&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a0bce551b7bd50295699fcf?utm_source=rss"&gt;151.复盘历史：本轮高估值崩盘，低估值能独善其身吗？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当核心科技资产估值走向极致并转头向下时，低估值资产一定会发生共振性崩盘吗？&lt;/li&gt;
+&lt;li&gt;💡 这一轮AI浪潮的利润增长，究竟是可持续的商业闭环还是下游“恐慌性资本开支”驱动的阶段性幻象？&lt;/li&gt;
+&lt;li&gt;🚀 面对市场风格极致切换带来的逆风期，投资者应如何构建超越“眼红比较”与“嫉妒心态”的底层心理防御机制？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 历史镜像：估值水平决定了崩盘时的“生存率”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2000年纳斯达克与伯克希尔的镜像效应&lt;/strong&gt;: 2000年3月至2002年，纳斯达克从泡沫高位崩盘跌超80%，但伯克希尔哈撒韦反而上涨了30%。这证明资产是否被带崩，不取决于它是否同属股市，而取决于其自身的估值安全边际与基本面底座。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;估值作为流动性避风港&lt;/strong&gt;: 当高位泡沫资产破裂时，资金会撤出寻找确定性。若大盘蓝筹或高分红资产（如银行、运营商）处于历史估值底部（低PB/低PE），它们往往能获得“避险红利”，非但不随波逐流，反而可能因资金流入而走强。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 深度解析：AI狂潮下的利润陷阱与商业逻辑闭环&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;利润不等于绝对安全&lt;/strong&gt;: 认为“这一轮AI有利润所以不是泡沫”是选择性记忆。思科等巨头在2000年同样拥有丰厚利润。利润的持续性不取决于硬件厂商（如英伟达）的财报，而取决于下游企业（如Meta、谷歌）投入的资本开支能否在终端转化成可落地的商业回报。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;爆发式成长VS持续性壁垒&lt;/strong&gt;: 资本市场常高估阶段性爆发（如一部爆款电影带来的利润）而忽视长期稳态增长。真正的成长股并非靠利润翻倍，而是在保持合理增速的同时具备跨越周期的竞争壁垒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 投资者逆风期生存指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;锚定估值底座&lt;/strong&gt;: 在狂热期拒绝参与任何“微观拥挤度”过高且估值远超业绩支撑能力的赛道，保持对低估值、高安全边际资产的配置耐性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;穿透商业闭环&lt;/strong&gt;: 审视当前赛道的增长是否依赖于某种不可持续的恐慌性投入，判断其长期现金流折现价值而非短期爆发力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接受“命运”规律&lt;/strong&gt;: 承认投资存在顺风与逆风期，将重心从“与他人收益率横向比较”转向“个人投资框架的深度修炼”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕杠杆踩踏&lt;/strong&gt;: 避开融资盘高度集中的“科技新贵”赛道，一旦基本面拐点出现，集体减持带来的踩踏效应将无视任何利好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “股价只要一高之后，那也谈不上什么成长或者不成长了，这就买贵了。”&lt;/li&gt;
+&lt;li&gt;💬 “股价是对现在所有人投票的结果，它对未来的预示作用其实很少。”&lt;/li&gt;
+&lt;li&gt;💬 “嫉妒也没有价值，你眼红不来，这是别人的命；只能管好自己，让你的方式尽量在正确的方向上。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a0bce551b7bd50295699fcf?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/Fisd70rykuiU2WmPrqBfxOoMp_lK.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 22:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>周期压力下的全球资产配置：2026-2027 宏观经济与市场博弈内参</title>
+      <link>https://www.bilibili.com/video/BV1L6Lz6VEMo</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1L6Lz6VEMo"&gt;摩根士丹利研究：核心预测 260519&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在地缘政治动荡期反而建议“超配”股票资产？&lt;/li&gt;
+&lt;li&gt;💡 AI 技术究竟是如何从单纯的科技热点演变为影响所有资产类别的核心变量？&lt;/li&gt;
+&lt;li&gt;🚀 能源价格高企是否会成为终结这一轮经济增长的“灰犀牛”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 地缘政治下的资产配置逻辑：寻找确定性的避风港&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;宏观基本面作为压舱石&lt;/strong&gt;: 尽管地缘冲突增加了回报分布的离散度，但发达市场（特别是美国）的企业盈利前景稳固，提供了坚实的微观支撑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 驱动的估值重构&lt;/strong&gt;: AI 不再仅是科技股的狂欢，而是贯穿全球资产配置的关键变量。通过提升企业运营杠杆与效率，它正在系统性抬升标普 500 等核心指数的市盈率天花板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能源冲击的“非对称性”&lt;/strong&gt;: 能源价格高企对全球的影响并非均等。美国和亚洲展现出较强的成本消化能力，而欧洲因其能源净进口属性且缺乏财政缓冲，面临更严峻的通胀与增长拖累。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 2026-2027 全球市场实操布局&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;区域选择&lt;/strong&gt;: 优先配置具备“顺周期政策 + AI 效率红利”的美国市场；对欧洲保持警惕，关注其服务业 PMI 下滑带来的增长风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;板块策略&lt;/strong&gt;: 在新兴市场中，利用“低波动 + 高股息”策略对抗地缘冲击；日本市场应聚焦于受益于内阁改革、具备抗风险韧性的特定公司。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能源对冲&lt;/strong&gt;: 密切关注布伦特原油 100 美元/桶的关键阈值，这是美股波动性从“短期受控”转向“持续冲击”的转折点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;低配公司债&lt;/strong&gt;: 在当前利率高位与通胀压力持久的环境下，投资级信用债利差有走阔风险，性价比低于高收益债及权益类资产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;警惕现金陷阱&lt;/strong&gt;: 面对通胀预测的上调（尤其是美国可能冲高至 3.4%），过度持有现金将导致实际购买力被动缩水。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “AI 技术已不再是投资决策中的加分项，而是贯穿所有资产类别和地区的绝对主线。”&lt;/li&gt;
+&lt;li&gt;💬 “全球经济正处于一个微妙的动态平衡：美国需求与供给在拉动上行，而能源价格飙升则是随时可能触发下行的导火索。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1L6Lz6VEMo</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/cf15599614d97ce0f57077818e7a874b21df3714.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 21:04:29 +0800</pubDate>
+    </item>
+    <item>
+      <title>百度2026Q1财报：AI核心收入首度过半，估值逻辑由搜索向基建重塑</title>
+      <link>https://www.bilibili.com/video/BV1nbLz6DE49</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1nbLz6DE49"&gt;小摩闭门会：百度解读 260519全网最快（推荐程度：4星选看）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 百度传统广告业务持续承压，为何其AI基建业务能逆势成为增长主力？&lt;/li&gt;
+&lt;li&gt;💡 资本支出飙升三倍导致现金流为负，这种激进投入能否换来长期估值重构？&lt;/li&gt;
+&lt;li&gt;🚀 投资者该如何完成从“搜索引擎”向“AI基础设施标的”的认知框架转换？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 业务逻辑：从搜索工具到AI基建的质变&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心收入质变&lt;/strong&gt;: 百度核心AI赋能业务收入占比首度达52%，标志着公司已完成从传统广告平台向AI技术实体的底层转型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云基建爆发增长&lt;/strong&gt;: GPU云业务同比暴涨184%，智能云总收入突破110亿，验证了市场在大模型时代对底层算力的强劲需求。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;利润换空间&lt;/strong&gt;: 毛利率下降至44%源于云业务高额的再投资成本，反映了管理层以短期财务压力换取AI基建市场领先地位的战略意图。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 百度价值评估手册&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 估值重构 (SOTP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;核心广告：锚定2026年预期利润，给予5倍PE。&lt;/li&gt;
+&lt;li&gt;云业务：对标云计算行业，给予2026年预期收入6倍PS。&lt;/li&gt;
+&lt;li&gt;昆仑芯片：对标半导体赛道，给予2026年预期收入35倍PS。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕过度关注短期广告收入波动，目前的核心变量在于AI基础设施的扩张速度及昆仑芯片的IPO进程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “百度已不再是那个带AI功能的搜索引擎，而是一个处于价值重估期的AI基础设施投资标的。”&lt;/li&gt;
+&lt;li&gt;💬 “现在的争论焦点不再是搜索能否变现，而是AI基建的成长性能否撑起未来的溢价空间。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1nbLz6DE49</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/806718e9b2206778d54ade5e6aa8f2c5bac099e1.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 20:16:39 +0800</pubDate>
+    </item>
+    <item>
+      <title>高歌猛进后的冷思考：泡泡玛特核心IP降温与增长可持续性深度内参</title>
+      <link>https://www.bilibili.com/video/BV1ZeLz6jEfy</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ZeLz6jEfy"&gt;德银闭门会：泡泡玛特解读 260519全网最快（推荐程度：4星选看）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 在海外市场暴涨数百倍的耀眼数据背后，泡泡玛特的同店销售为何反而出现了下滑趋势？&lt;/li&gt;
+&lt;li&gt;💡 盲盒模式的命门：当资深玩家产生“时尚疲劳”且核心IP稀缺性稀释时，依靠新品放量的策略能否跑通？&lt;/li&gt;
+&lt;li&gt;🚀 所谓的“多IP驱动”是否只是幸存者偏差？如果没有了 Labubu 制造的排队效应，品牌护城河还剩下什么？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 增长瓶颈：高基数效应与核心IP热度退潮&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;销售动能衰减&lt;/strong&gt;: 2026年4月线上销售虽然同比大增69%，但较2025年下半年月均值下降了13%，显示出从爆量增长向常态化回调的压力，未来数月面临同比负增长风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP生命周期危机&lt;/strong&gt;: 曾作为业绩支柱的 Labubu 热度显著下滑，二级市场价格从溢价转为打折。新IP如 Twinkle Twinkle 虽然密集发布，但除个别单品外，周边产品（如毛巾、盘子）在二级市场反应疲软，未能接棒形成新的爆发点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;放量策略的副作用&lt;/strong&gt;: 为了维持增长，公司加快了新品节奏，但这直接削弱了藏品的稀缺性，导致核心资深玩家出现“时尚疲劳”，复购决策难度增加，增长的可持续性存疑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 市场认知偏误与估值修复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑重构&lt;/strong&gt;: 市场普遍将泡泡玛特视为“IP孵化平台”，但本质上其增长极度依赖极少数顶级IP（如 Labubu）创造的稀缺感和排队氛围。一旦顶级IP吸引力下降，品牌整体的进店率和连带销售将受重创。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;盈利预测修正&lt;/strong&gt;: 2025年的爆发式增长被管理层坦诚为“带有机遇成分”，难以复制。2026年预计全球销售将进一步走弱，每股收益（EPS）预计出现11.2%的负增长。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 估值建议&lt;/strong&gt;: 基于DCF模型，目标价定为140港元，对应2026年14倍PE。目前市场估值尚未完全反映同店销售下滑及IP热度周期性回落的负面预期，评级建议为“卖出”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “管理层承认2025年的成功很大程度上靠运气，这意味着高增长的神话无法被简单复制。”&lt;/li&gt;
+&lt;li&gt;💬 “二级市场价格是衡量IP热度的真金白银。当最紧俏的IP开始打折，说明消费者的‘新鲜感’已被透支。”&lt;/li&gt;
+&lt;li&gt;💬 “盲盒本质上在卖稀缺性。当放量策略为了财报数字而牺牲掉这种稀缺感，品牌的长期价值便开始折损。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ZeLz6jEfy</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/993396b07e9c65e19e832c0651d4bf86836841e1.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 20:03:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>2026全球铝市风暴眼：供应极度紧绷下的投资逻辑与超级周期预判</title>
+      <link>https://www.bilibili.com/video/BV1tKLq6ZE2u</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1tKLq6ZE2u"&gt;瑞银研报解读：铝——中东供应冲击 vs 需求风险&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么全球铝库存已降至不足全球两天用量，市场仍对“超级周期”存在剧烈分歧？&lt;/li&gt;
+&lt;li&gt;💡 中东地缘冲突如何通过连锁反应，造成近20年来最严重的全球铝业供应危机？&lt;/li&gt;
+&lt;li&gt;🚀 面对从过剩到短缺的质变，投资者应如何在价格剧烈波动中构建分阶段的实操范式？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 供应侧余震：地缘冲突触发的系统性停摆&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中东产能休克&lt;/strong&gt;: 2026年3月阿联酋与巴林铝厂受袭，导致430万吨产能直接停摆。受制于天然气短缺与航道受阻，1/3的中东产能处于瘫痪状态，全年损失超200万吨。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;库存枯竭临界点&lt;/strong&gt;: 全球显性库存已跌破36万吨，较去年高点缩减六成。LME与CME库存创20年新低，除中国外，欧美日韩市场均面临极端找货困境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;产能补位真空期&lt;/strong&gt;: 中国产能已达上限，印尼与印度扩产受电力、物流拖累节奏缓慢，欧美复产无望，2026年供应缺口几无可能完全弥补。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 需求端重构：新能源转型下的结构化支撑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中国压舱石作用&lt;/strong&gt;: 尽管房地产新开工疲软，但新能源汽车、光伏储能及电网升级贡献了超80万吨的年增量，支撑中国需求维持3%左右的稳健增长。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;海外复苏引擎&lt;/strong&gt;: 欧美需求增长由AI数据中心建设与绿色能源转型驱动；东南亚则受益于制造业转移带来的基础设施建设需求，增速超3%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 2026年铝业投资实操手册&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;短线波段策略&lt;/strong&gt;：利用铝价中枢抬升（LME 3200-3800美元区间）的机会，在价格回调至关键技术支撑位时轻仓布局多单，严设止损点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中长线标的选择&lt;/strong&gt;：重点锁定具备成本控制优势、产能弹性大且布局新能源用铝板块的行业龙头企业。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态监控体系&lt;/strong&gt;：每日追踪LME库存变动、印尼出口政策及欧盟碳关税（CBAM）执行进度，根据贸易流重构及时调整仓位。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕高成本冶炼企业在极端波动下的现金流风险；避免在供应端突发性恢复（如中东局势超预期缓和）时盲目追高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “全球铝库存已不够全世界用两天，这是近20年来最严重的一次供应危机。”&lt;/li&gt;
+&lt;li&gt;💬 “2026年全球铝市场将完成从‘过剩’到‘短缺’的质变，分歧不在于是否短缺，而在于缺口究竟有多大。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tKLq6ZE2u</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/a692c04beb5d167ee9ed92ffbc5e1f04e90b3a06.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 19:13:17 +0800</pubDate>
+    </item>
+    <item>
+      <title>双驱超级周期：AI与能源转型的共振效应与全球投资新范式</title>
+      <link>https://www.bilibili.com/video/BV136Lq6vEQp</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV136Lq6vEQp"&gt;摩根士丹利：：亚太投资者交流会——上调增长预期，反映AI与能源资本开支超级周期&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么AI产业的终极竞争，本质上是一场关于“电力”的军备竞赛？&lt;/li&gt;
+&lt;li&gt;💡 在万亿美元级别的资本支出浪潮中，为何算力与绿电正走向深度绑定？&lt;/li&gt;
+&lt;li&gt;🚀 传统能源投资让位科技巨头，全球资金流向发生了怎样的“轨道级”切换？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 AI与能源：共生共荣的资本超级周期&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支出规模超越历史&lt;/strong&gt;: 到2030年，全球AI资本支出将超过1.2万亿美元，数据中心建设投入预计达6-7万亿美元。这一投资规模已远超互联网泡沫时期的全球总投资，其中中国占比约27%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;电力制约与“算电一体”&lt;/strong&gt;: AI算力的核心制约因素正从芯片转向电力。2026年全球数据中心耗电量将突破1000TWh。算力中心与绿色电力的“一体化布局”已成为衡量国家产业竞争力的核心指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双向赋能逻辑&lt;/strong&gt;: AI依赖低廉、稳定的低碳电力进行大模型训练与推理；而AI技术正通过精准出力预测和智能电网调度，反向重塑能源行业效率（如提升18%的运营效率）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 全局资产配置与避险策略&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;战略性超配&lt;/strong&gt;: 优先布局AI算力产业链（芯片/服务器/温控）、绿色能源设备（储能/特高压）及关键上游原材料。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;区域化配置策略&lt;/strong&gt;: 聚焦中美欧三大领跑区。中国侧重高端制造与出海主题，美国侧重算力芯片与能源优势，日本关注结构性机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;防御性对冲&lt;/strong&gt;: 采用“哑铃型”配置，即在追求AI智能体等成长性标的同时，配合大金融及优质制造资产作为“压舱石”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕阶段性产能过剩（尤其是新能源硬件与AI低端环节）；低配高杠杆、传统低效周期品；严防地缘政治导致的技术出口管制风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “算力和绿电已经是一个绑定的关系：稳定的便宜低碳电力，直接决定了AI产业的竞争力。”&lt;/li&gt;
+&lt;li&gt;💬 “全球最顶尖科技公司每年的AI投入，已经超过了传统油气巨头的勘探开发支出。金钱和资源已经彻底换了轨道。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV136Lq6vEQp</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/5192dd0745e6a29bdf757ffaf558b52d00eec2cd.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 18:00:59 +0800</pubDate>
+    </item>
+    <item>
+      <title>主跌趋势下的仓位平衡与存储赛道逻辑剖析</title>
+      <link>https://www.bilibili.com/video/BV18CLq6YE2E</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/322005137"&gt;史诗级韭菜&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18CLq6YE2E"&gt;第1185日投资记录：继续回撤及跑输市场，躺平挨打！&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 在主跌趋势的周线级别下，左侧抄底是否只是在接掉落的飞刀？&lt;/li&gt;
+&lt;li&gt;💡 面对一个估值被现金抵消一半的个股，底部的判定标准应在价格还是右侧信号？&lt;/li&gt;
+&lt;li&gt;🚀 存储赛道的巨头上市会对 A 股流动性产生怎样的“抽水效应”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 市场趋势与仓位调控&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;主跌趋势判定&lt;/strong&gt;: 当前处于连贯的下跌阶段，周线级别呈现主跌趋势，底部不可预判。建议持币者观望，持股者关注估值底（如 10 倍估值且现金覆盖一半）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;仓位平衡术&lt;/strong&gt;: 在极端行情中，采取低频、小幅度的“腾挪”策略（如 2%-5% 的微调），而非大开大合的操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 标的分析：达志股份与存储赛道&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;达志股份逻辑&lt;/strong&gt;: 股价上涨源于潜在的温蒂汉堡特许经营权预期，但需警惕国内汉堡市场激烈的价格竞争。核心支撑在于市值较小（约 51 亿）且 PS 倍数较低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;存储行业生态&lt;/strong&gt;: A 股存储板块高度依赖美股、韩国（三星、海力士）的趋势。核心逻辑在于长江存储等巨头尚未完全上市，目前监管层对存储及机器人赛道的炒作容忍度较高，旨在支持扩容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;流动性预警&lt;/strong&gt;: 预计核心存储企业大规模 IPO 后，将产生巨大的融资抽水效应，届时监管重心将从“鼓励融资”转向“防范金融风险”，可能压制行业估值高度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 投资执行范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;趋势确认&lt;/strong&gt;: 放弃左侧猜底，等待右侧交易信号出现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;个股筛选&lt;/strong&gt;: 优先考虑有高股息（如 5.5% 以上）且业绩有增长预期的低价标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;赛道布局&lt;/strong&gt;: 在核心巨头完成融资扩容前，关注存储与机器人赛道的弹性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕上市公司通过“诱导性陈述”（如虚构商业航天概念）拉高股价后实控人减持的套路，关注监管层对此类行为的定性罚款力度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;在主跌的趋势之下，你是下不眼底的。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;我们毕竟是个融资市，融资任务完成了，后面就要监管系统性风险了。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV18CLq6YE2E</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/f240939fe19b48fa1a6ac58a2c9f5bcf07e62b38.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 17:15:01 +0800</pubDate>
+    </item>
+    <item>
+      <title>从游戏巨头到AI引擎：深度解构腾讯控股的战略转型与估值重构</title>
+      <link>https://www.bilibili.com/video/BV1S1Lq6cEin</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1S1Lq6cEin"&gt;高盛研报解读：亚洲科技峰会纪要腾讯控股——战略转向AI深水区，锚定长期增长&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 腾讯如何从“流量为王”平滑过渡到“AI驱动”？&lt;/li&gt;
+&lt;li&gt;💡 为什么高盛在短期利润承压的情况下仍给出700港元的买入评级？&lt;/li&gt;
+&lt;li&gt;🚀 微信生态如何成为AI时代的“超级土壤”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 AI：腾讯全线业务的新型发动机&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;全场景技术闭环&lt;/strong&gt;: 腾讯通过自研芯片、云服务与AI大模型构建了从底层算力到顶层应用（如视频号、搜一搜）的深度闭环，AI不再是插件，而是内嵌的元能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生态降维打击&lt;/strong&gt;: 微信小程序的庞大触点为AI智能体（Agent）提供了天然的商业化实验场，实现了“连接一切”到“智能连接一切”的跃迁，这种闭环能力是其他大模型厂商难以复制的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 稳健底盘与未来突破点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;业务韧性与突破&lt;/strong&gt;: 2025年游戏国际市场收入突破百亿美金大关，且云服务首次实现规模化盈利，证明了腾讯在保持核心业务稳健的同时，具备极强的利润优化能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;监控AI转化率&lt;/strong&gt;: 持续观察混元大模型调用量与广告推荐精度、云服务盈利效率的关联性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;评估监管动态&lt;/strong&gt;: 重点锚定数据安全与全球平台经济规范对海外业务的边际影响。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕2026年Q1等短期财务报表的“投入型亏损”，管理层已明确表示AI投入将翻倍，短期利润承压是长线布局的必然代价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “腾讯正处于从数字经济的参与者到赋能者的身份转型关键期。”&lt;/li&gt;
+&lt;li&gt;💬 “短期利润的缩减，实质上是为获取未来十年全球科技版图入场券而进行的系统性预埋。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1S1Lq6cEin</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/5013232915906824dc230153806d4bd7a922b062.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 17:09:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>MongoDB 暴涨背后的逻辑：AI 泡沫、云复苏与高估值的生死博弈</title>
+      <link>https://www.bilibili.com/video/BV1TXLq64EXu</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1TXLq64EXu"&gt;需求环境向好，MongoDB能否上调全年指引？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 仅 3% 的温和超预期业绩，为何能支撑股价 35% 的暴烈反弹？&lt;/li&gt;
+&lt;li&gt;💡 AI 原生客户并未带来业务暴增，MongoDB 真正依赖的 AI 红利究竟藏在哪里？&lt;/li&gt;
+&lt;li&gt;🚀 当 AI 能够自动重构底层代码时，它究竟是 MongoDB 的护城河，还是摧毁其高溢价的“工程锤”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 云支出优化的终结与“收费公路”逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;确定性修复&lt;/strong&gt;: 市场交易的并非单季业绩冲高，而是企业“云支出优化”逆风期的结束。资金正在为软件基础设施行业的整体复苏节奏进行重新定价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;按量计费模型 (Usage-based Model)&lt;/strong&gt;: MongoDB 就像一条收费公路，企业在省钱期间将“卡车”（数据流）停在车库，而现在宏观环境松动，无需销售签单，只要数据量回升，收入便会自动反弹。这种无需依赖销售团队的确定性复苏在当前周期中极其稀缺。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 实时 AI 应用的“拦截者”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构错位竞争&lt;/strong&gt;: 不同于处理万亿参数的后台分析型数据库（如 Snowflake），MongoDB 定位于操作型数据库。在 RAG（检索增强生成）和向量搜索趋势下，AI 应用需要毫秒级响应的外部上下文记忆，MongoDB 正成为企业开发实时 AI 应用的首选基础设施。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 增长第二曲线&lt;/strong&gt;: 真正的金矿不在于头部的 AI 原生初创公司（其贡献目前喜忧参半），而在于庞大的传统企业。当 AI 编程助手加速代码编写 $\rightarrow$ 应用数量激增 $\rightarrow$ 底层数据库需求爆发，形成从点到面的增长逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 估值陷阱与生存底线&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;高溢价的合理性&lt;/strong&gt;: MongoDB 的增长调整后自由现金流倍数（2.01倍）远高于同行均值（1.32倍）。多头认为在预算紧张时，企业倾向于“供应商整合”，用一个成熟的统一平台替代多个零散的开源数据库，以降低人工维护成本（TCO）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 验证变量 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;盯着大额支票&lt;/strong&gt;: 确认是否获得大型企业核心系统的替换订单（Larger Enterprise Wins），而非仅在边缘创新项目试水。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监控利润率攀升&lt;/strong&gt;: 验证营业利润率是否能从 16.1% 稳步提升至 2027 财年的 19.3%。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要将 MongoDB 的复苏速度与 DataDog 类监控软件类比。数据库迁移涉及架构设计与数据迁移，周期长、滞后性强，切勿期待短期内出现类似 DataDog 的业绩暴涨。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “不要盯着那几个造大模型的公司，要盯着那些用 AI 工具写代码的千军万马。”&lt;/li&gt;
+&lt;li&gt;💬 “AI 究竟是 MongoDB 坚不可摧的护城河，还是会成为摧毁它高昂溢价的工程锤？”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1TXLq64EXu</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/2de654963939b9382ce8a8b74d6c3ecf84cbe4cf.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 15:55:17 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI电力基建的隐秘赢家：成熟制程芯片的逻辑反转与估值重构</title>
+      <link>https://www.bilibili.com/video/BV1WbLu6uEH8</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1WbLu6uEH8"&gt;力积电能否借EMIB供应链翻身？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在消费电子疲软、产能过剩的共识下，顶级资金反而疯狂押注被认为过时的“成熟制程”芯片厂？&lt;/li&gt;
+&lt;li&gt;💡 AI的狂飙突进是如何通过“电力管理”这一隐秘环节，将传统代工厂转化为AI基础设施的核心环节的？&lt;/li&gt;
+&lt;li&gt;🚀 一个盈利预期被砍掉近一半的公司，为什么反而能获得目标价的大幅上调？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 消费电子之坑与AI电源之桥&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑反转&lt;/strong&gt;: 市场表面在交易手机和PC的衰退，但底层在交易AI服务器对电源管理芯片（AI Power IC）的海量需求。这些芯片必须在成熟制程中生产，直接填平了消费电子留下的产能缺口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;恐慌性预定&lt;/strong&gt;: AI对产能的抢占引发了消费电子客户的危机感。为了防止2027年没货，客户开始提前下单，将“产能紧绷”推向了真正的“产能短缺”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 先进封装：从“修家用车”到“造F1赛车”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心技术&lt;/strong&gt;: 利基电通过与AP Memory合作，将硅电容（SC Cap）打入英特尔EMIB等先进封装供应链。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 将AI芯片比作万人体育场，瞬间计算相当于万人同时拧开水龙头。传统电容像远方水塔，补水太慢；硅电容则是直接在体育场围墙内建的“高压蓄水池”，在纳秒级提供稳定电力，防止系统崩溃。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;估值跃迁&lt;/strong&gt;: 这种高端定制业务使公司从简单的周期性代工厂，转变为与AI爆发曲线深度绑定的高壁垒供应商。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 财务噪音剔除与估值重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;揭秘EPS下跌&lt;/strong&gt;: 2026年每股收益（EPS）的大幅下调并非业务恶化，而是由于出售工厂引发的非经常性减值损失（会计干扰）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SOTP分布估值法&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;操作逻辑&lt;/strong&gt;: 将模拟和逻辑芯片业务对标台积电/世界先进（给予3.2倍PB），而将存储代工业务视为“白送”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;: 即使不计算存储业务，核心业务价值也足以支撑高目标价，且存储业务随价格谈判上涨将提供额外增量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 投资监测指标 (SOP)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;监控价格谈判&lt;/strong&gt;: 紧盯每月特殊DRAM和成熟代工的议价结果，出厂价上涨是定价权的直接证据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;追踪产能爬坡&lt;/strong&gt;: 监测中国大陆同行的产能释放速度与价格策略。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕大陆厂商大规模低价抢单导致的毛利率崩塌（若毛利跌破10%，高估值逻辑将失效）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “资金现在定价的，根本不是你手里的手机卖得好不好，而是你为了防范AI抢产能，不得不捏着鼻子签下的长期订单。”&lt;/li&gt;
+&lt;li&gt;💬 “这就是投行的叙事：用极端的安全边际说服你去接受高估值。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1WbLu6uEH8</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/3d02464fe0fc71b9bb5c14b4665d1f8d6ae474aa.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 19 May 2026 10:24:26 +0800</pubDate>
+    </item>
     <item>
       <title>半导体板块回撤与市场资金轮动的逻辑-深度内参</title>
       <link>https://www.bilibili.com/video/BV1EDLK64Eqy</link>
@@ -4042,654 +4614,6 @@ ightarrow$ 缩短久期 + 做空长久期科技股。&lt;/li&gt;
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Ca5U61E5W</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/3409b09c130b80a3a5241541332b818d4ef4b869.jpg" length="0" type="image/jpeg"/>
       <pubDate>Thu, 14 May 2026 08:30:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>腾讯2026年Q1财报透视：业务阵痛下的估值锚点与风险博弈</title>
-      <link>https://www.bilibili.com/video/BV1ka5U61ECE</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1ka5U61ECE"&gt;大摩闭门会：腾讯业绩解读 260514全网最快（推荐程度：4星选看）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 营收低于预期而利润超预期，腾讯的业务重心是否正在发生结构性偏移？&lt;/li&gt;
-&lt;li&gt;💡 650 港元的目标价背后，专业机构是如何通过“零部件求和法”为互联网巨头定价的？&lt;/li&gt;
-&lt;li&gt;🚀 在游戏增长放缓的背景下，人工智能与视频号广告能否成为腾讯的第二增长曲线？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 业务实相：营收降速与利润韧性的背离&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;增收不增利的表象之下&lt;/strong&gt;: 腾讯 2026 年 Q1 营收虽增长 9.1% 但未及预期，主因在于传统现金牛——游戏业务（+7.9%）与社交网络（-2.1%）表现疲软。然而，广告（+19.8%）与金融科技（+9.1%）的强劲增长，以及经营效率的提升，支撑了利润端的超预期表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;估值模型的精密拆解&lt;/strong&gt;: 报告采用 SOTP（Sum of the parts）估值法，将腾讯拆解为“核心业务”与“投资账本”两部分。核心业务通过 DCF 模型（折现率 10%，永续增长 3%）锚定为 560 港元/股；联营公司投资则按账面价值并施加 30% 的“控股折价”后锚定为 90 港元/股，共同构筑了 650 港元的价值底座。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 投资者决策矩阵&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;动态追踪新游管线&lt;/strong&gt;: 重点关注国内及海外新游戏上线的流水表现，这是修复营收预期的关键杠杆。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;评估 AI 商业化速率&lt;/strong&gt;: 观察面向消费者的 AI 产品普及速度，将其作为估值溢价的调节因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;监测宏观与监管边际变化&lt;/strong&gt;: 紧盯反垄断政策与游戏行业监管力度，这是决定下行风险的核心变量。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕过度依赖单一业务维度的误判，需综合衡量广告份额增长与社交存量流失的对冲关系。&lt;/li&gt;
-&lt;li&gt;规避忽略“控股折价”的估值陷阱，投资版图的账面价值需在安全边际下进行重估。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “营收的 Miss 并非终点，而是业务重心从社交/游戏向广告/AI 迁移的阵痛期。”&lt;/li&gt;
-&lt;li&gt;💬 “核心业务看折现，投资版图看打折——这是理性评估互联网巨头价值的必经之路。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1ka5U61ECE</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/67eaae6a1360339391cd043685d3189993e218b8.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 14 May 2026 08:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>交易者的底层建模：从流程具象化到心理韧性的深度重构</title>
-      <link>https://www.bilibili.com/video/BV168526uEdb</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/342287046"&gt;请不要叫我梁同学&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV168526uEdb"&gt;Hey 期权交易者！从入门到精深，你终于走到了这一步！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么写不出 SOP 的交易策略本质上只是“直觉的幻觉”？&lt;/li&gt;
-&lt;li&gt;💡 为什么“能力圈”的收缩反而是主观交易获利能力的扩张？&lt;/li&gt;
-&lt;li&gt;🚀 辞职全职交易前，为什么你必须先经历一次长达一年的“系统失效期”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 成功交易者的底层建模：从认知到行为的重组&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;SOP 是思维的物理落脚点&lt;/strong&gt;: 交易剧本（Playbook）的核心价值不在于定量化，而在于通过文字化过程剔除模糊地带，逼迫交易者进行逻辑自洽的深层思考。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场倾向 (Market Propensity) 的专注&lt;/strong&gt;: 不同市场的价格行为特征迥异。主观交易者应严控品种池，在有限的能力圈内深耕，避免因精力分散而稀释策略的统计学优势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KAIZEN：迂回式的持续改进&lt;/strong&gt;: 交易能力的成长并非线性，而是在“学A忘B”的循环中通过连接碎片化知识点（Connecting dots）实现的。缓慢但扎实的进步远胜于追逐暴富。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 职业转型与全职交易的生存阈值&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;压力测试&lt;/strong&gt;: 在考虑辞职前，必须经历至少一年“系统不表现”的困难时期，以此评估自己在资金回撤下的心理承载力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;样本思维锚定&lt;/strong&gt;: 将关注点从“当前这一笔”拉长至“未来 500 笔交易”，以大样本量抵御连续亏损带来的风格漂移（Style Drift）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;防御性基建&lt;/strong&gt;: 确保拥有交易之外的长期投资方式，并将现有交易流程尽可能自动化，以降低职业化后的心理内耗。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝不在市场情绪最高涨或个人战绩最辉煌时贸然辞职；严禁在亏损期试图通过预测市场来寻找心理慰藉。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “交易是一门正经的生意，赚钱有它自己的节奏。不要试图追逐暴富，那往往是毁灭的开始。”&lt;/li&gt;
-&lt;li&gt;💬 “学会面对亏损是你最核心的弱点。当资金曲线过于平滑时，真正的风险反而正在滋生。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV168526uEdb</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/24f167186540e8186501d41ebbba4a9f3469734e.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 14 May 2026 00:17:19 +0800</pubDate>
-    </item>
-    <item>
-      <title>中概特斯拉爆发与美光周期之辩：洞察市场风险，构建长线空头策略</title>
-      <link>https://www.youtube.com/watch?v=6-zeKfZ_Ucw</link>
-      <description>&lt;p&gt;&lt;a href="UCZiMm8G7JNFdMZHmX-ZrNUw"&gt;Finding Your Edge  交易之刃&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=6-zeKfZ_Ucw"&gt;TSLA突破、中概股“回马枪”洗盘怎么破？深度解析：美光(MU)是周期股陷阱还是成长股？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 在市场普遍看多时，如何逆向布局空头仓位并有效管理风险？&lt;/li&gt;
-&lt;li&gt;💡 美光究竟是周期股还是成长股？这一定义如何影响其估值与交易策略？&lt;/li&gt;
-&lt;li&gt;🚀 面对市场短期回调和养成“买跌”坏习惯的交易者，如何识别真正的反转信号？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场动态与交易布局：高低切换下的机遇&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;特斯拉与中概股爆发&lt;/strong&gt;: 特斯拉和英伟达补涨，中概股如京东、阿里巴巴在市场高低切换中表现强劲，特别是“算力出海”概念带动相关板块。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;周期与风险分散&lt;/strong&gt;: 农产品（DBA）和能源板块作为分散风险的布局，其波动率较低，需结合宏观判断（如经济周期、地缘政治）进行长期配置。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;特斯拉&lt;/strong&gt;: 紧贴5日线持仓，目标位（如IV达99%或股价突破500）分批减仓，严格止损。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中概股&lt;/strong&gt;: 关注缩量回踩后的高损益比介入机会（如京东放量上涨后回拉），止损设置在关键支撑位（如BABA 138/145）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;波音&lt;/strong&gt;: 利用期权IV较低时介入，一旦翻倍可持有免费仓位。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 中概股信息不规范，财报意义不大，易出现“反向回马枪”洗盘；高Beta高波动股票需严格小仓位（如1%）控制风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 美光估值之谜：周期性与破坏性创新的博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心矛盾&lt;/strong&gt;: 美光是否为周期股，直接决定其估值逻辑。若为周期股，则PE应低；若转变为成长股，则当前估值被严重低估。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;周期股特征&lt;/strong&gt;: 周期股在周期底部PE高（预期营收下降），周期顶部PE低（预期营收增长），存在戴维斯双击与双杀。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非周期性论点&lt;/strong&gt;: 市场部分观点认为，AI时代对内存需求激增，美光已摆脱周期性，成为芯片成长股的一部分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;周期性论点&lt;/strong&gt;: 内存消耗与产生护城河不深，产能已定，且当前涨价更多源于供给不足，最终将回归周期本质。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 交易原则&lt;/strong&gt;: 面对观点分歧且看不清的标的，选择不操作，避免不确定性带来的风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 风险指标与逆向空头布局：市场心理的博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场心理陷阱&lt;/strong&gt;: 上涨过程中，市场会奖励“逢跌买入”的习惯，导致投资者在真正下跌时被深套，最终以跳空低开、闷杀收场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;真实下跌信号&lt;/strong&gt;: 真正的下跌浪往往是低开且跳空，不给反弹机会，场外资金耗尽是信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;宏观风险警示&lt;/strong&gt;: 日债和美债收益率持续冲高（美债30年已达5%），对经济和高估值科技股构成巨大压力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场内部弱点&lt;/strong&gt;: 市场宽度（NMO）变差，等权重指数（RSP）表现疲软，半导体板块内部出现分化，预示市场整体容易快速向下调整。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 空头布局指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;利用利润垫&lt;/strong&gt;: 利用多头波段交易产生的利润，布局长期（6月、7月、明年3月、9月）的少量空头期权仓位（1-2%仓位）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;追求高损益比&lt;/strong&gt;: 选择损益比极高、确定性相对较强的目标（如QQQ见640的空头机会），确保即使胜率25%也能打平。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险可控&lt;/strong&gt;: 确保单个空头仓位损失严格控制在1-2%以内。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要在下跌初期做多，因为杀跌深度和反弹力度均不确定，无法计算清晰的损益比。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “你在任何布局中都占有优势，你的交易系统一定是在有些地方有优势，有些地方就没有优势。”&lt;/li&gt;
-&lt;li&gt;💬 “人家的判断肯定是比我专业得多，人家懂这个东西，干了一辈子东西，已经被市场证明过非常多次了。”&lt;/li&gt;
-&lt;li&gt;💬 “真正的下跌浪是容易什么？一定是低开而且跳空的，上面的人往上一闷，你下面人一就没什么机会。”&lt;/li&gt;
-&lt;li&gt;💬 “但凡我但凡看不清楚的，我都选择不做。”&lt;/li&gt;
-&lt;li&gt;💬 “只要是缩量，这千万不能放量。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=6-zeKfZ_Ucw</guid>
-      <enclosure url="https://i.ytimg.com/vi/6-zeKfZ_Ucw/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 22:39:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>被低估的AI能源巨头：拆解算力竞赛背后的物理限制与投资逻辑</title>
-      <link>https://www.bilibili.com/video/BV1fY5y6bEdT</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fY5y6bEdT"&gt;VST和NRG股价回调过度了吗？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当全人类都在疯狂加码算力时，为什么掌握AI命脉的电力巨头反遭市场抛售？&lt;/li&gt;
-&lt;li&gt;💡 电网监管的繁文缛节，究竟是阻碍AI落地的“收费站”，还是保护系统不崩溃的“保险丝”？&lt;/li&gt;
-&lt;li&gt;🚀 在数字乌托邦的尽头，最终决定AI天花板的是芯片制程，还是烧开水的汽轮机？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 算力尽头的物理硬壁：电网监管与物理限制&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;监管恐慌的本质&lt;/strong&gt;: 市场对PJM等电网的安全审查（RBP）存在预期错位。这并非单纯的行政审批拖延，而是为了防止数据中心这类“工业巨兽”直接接入现有电网导致系统性瘫痪的必要安全校验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;物理基建的不可逾越性&lt;/strong&gt;: 在德州ERCOT等放松监管的地区，限制AI扩张的瓶颈已不再是政策，而是地下的天然气管线、变电站的浇筑以及高压输电线的物理互联。数字世界的算力欲望正狠狠撞向物理世界的基建周期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 拨开财报迷雾：能源市场 vs. 容量市场&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 投资价值判别逻辑 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;噪音过滤&lt;/strong&gt;: 将受季节天气（如暖冬）影响的“能源市场”收入（随行就市、看天吃饭）视为短期噪音。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心锚定&lt;/strong&gt;: 聚焦“容量市场”（Capacity Market）协议。这是数据中心为锁定未来供电权支付的“保位费”，属于旱涝保收的基本盘。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;识别稀缺性&lt;/strong&gt;: 重点寻找握有存量发电机组、稀缺并网指标及天然气资产的企业，它们在供需极度失衡中掌握了结构性定价权。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要因为短期天气波动导致的一季度业绩下滑而否定长期的AI耗电逻辑，基本面逻辑与天气随机性必须物理隔离。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 管理层的资本意志：逆向回购的真实信号&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资本流向逻辑&lt;/strong&gt;: 在华尔街因恐慌抛售时，NRG与Vistra管理层正动用数亿美金大比例回购自家股票（最高达公司市值3%）。这种极高的机会成本支出表明，公司内部视自家股票为比新建产能更具吸引力的资产。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;确定性增量&lt;/strong&gt;: 关注存量资产的“内部挖潜”，如核电站的功率升级（科曼奇峰）和基建项目的提前交付，这些是比远期规划更硬核的现金流支撑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “无论人类科技多么超前，这些所谓的‘人类之光’最终都必须插上电才能运行。”&lt;/li&gt;
-&lt;li&gt;💬 “最终限制AI天花板的，也许不是程序员写的代码复杂度，而是我们能否在物理世界里烧出足够多的开水来转动汽轮机。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fY5y6bEdT</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/68daa62affe810397db7f93558365a0c2c2c9c4b.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 21:41:19 +0800</pubDate>
-    </item>
-    <item>
-      <title>破除金融视错觉：高盛逆势调高富途目标价，揭秘AUM复利驱动的增长真相</title>
-      <link>https://www.bilibili.com/video/BV1v65y69E39</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1v65y69E39"&gt;富途控股：资产驱动增长，买入评级维持！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么富途在账面亏损9100亿的表象下，真实资金反而净流入了9400亿？&lt;/li&gt;
-&lt;li&gt;💡 在利率下行的预期中，市场为何忽略了券商负债端的成本对冲红利？&lt;/li&gt;
-&lt;li&gt;🚀 为什么说“不再增加新客户”可能反而是一家成熟财富管理平台爆发的前兆？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 破除“视错觉”：被情绪定价掩盖的底层复利&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;格式塔效应的陷阱&lt;/strong&gt;: 市场惯于盯着K线图的阴影（短期价格疲软、账面浮亏）尖叫，却忽略了整体结构的稳健。高盛上调目标价至210.47美元，本质是看穿了短期情绪定价与资产底层逻辑的严重背离。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;账面浮亏 vs. 资本搬家&lt;/strong&gt;: 类比“房产评估价下跌但住户未搬走”，一季度虽有账面市值缩水，但9400亿港元的真金白银净流入证明了客户正在“逢低买入”而非逃离，基本盘极度稳固。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 逻辑重构：从“博弈手续费”到“财富管理基建”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;换手率回归的中性真相&lt;/strong&gt;: 换手率从16倍降至13倍并非衰退，而是从高风险投机向长期财富管理的成功转型。这种转变降低了佣金收入的波动性，换取了更高质量、长生命周期的现金流价值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;降息敏感度的量化脱敏&lt;/strong&gt;: 市场担忧美联储降息压缩利息收入，但忽略了负债端融资成本的同步下降。高盛压力测试显示，降息25个基点对总收入的影响仅约为1%，市场由于该微小变量产生了过度的非理性抛售。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 降维打击：存量博弈外的万亿增量蛋糕&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;对手误判论&lt;/strong&gt;: 富途真正的竞争对手不是零佣金的在线券商，而是收费昂贵、体验滞后的传统银行。传统银行25个基点的佣金与富途3个基点构成了“法式大餐 vs. 一杯咖啡”的成本代差，驱动了高净值客户资产的持续迁移。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高粘性的数字资产壁垒&lt;/strong&gt;: 接近100%的客户留存率源于其构建的社交网络（牛牛圈）与交易习惯沉淀。用户放弃的不仅是低费率，更是其多年积累的社交关系与数字投资资产，转换成本极高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 增长引擎：从“数人头”到“AUM复利”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;内生增长的闭环&lt;/strong&gt;: 即使没有大规模新增用户，老客户通过稳健理财工具（如现金宝）获得的复利增长也会驱动AUM自我膨胀。高盛将估值核心从“新增用户数”切换到“AUM自然增长”，揭示了其作为成熟金融基建的底层驱动力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 投资者监测框架&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;切换估值锚点&lt;/strong&gt;: 将核心关注指标从“单季新增开户数”转向“总资产管理规模 (AUM) ”的净流入情况。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;验证海外扩张&lt;/strong&gt;: 盯紧日本、澳洲等新市场的获客效率，确保每位用户的获客成本处于2500港币左右的健康中枢。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;净AUM大幅流失&lt;/strong&gt;: 若出现该信号，意味着客户正在真实撤资离场而非账面波动，长线逻辑需重估。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;获客成本失控&lt;/strong&gt;: 需警惕烧钱换规模但留存率低下的扩张模式，若CAC持续攀升需降低预期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “市场盯着图表看到了怪物，高盛却看到了那棵长满果实的大树。”&lt;/li&gt;
-&lt;li&gt;💬 “你要放弃的不仅是那区区几个基点的差价，而是你整个投资生活的数字资产。”&lt;/li&gt;
-&lt;li&gt;💬 “资金在交易恐慌的倒影，而智慧在交易资产底层的复利逻辑。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1v65y69E39</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/92b91f35a818bf1f43baac3b66acd42d3cf969df.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 21:19:13 +0800</pubDate>
-    </item>
-    <item>
-      <title>2026年IP零售深度内参：泡泡玛特与名创优品的出海博弈与估值重塑</title>
-      <link>https://www.bilibili.com/video/BV1uX5y62E5q</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546699079354794"&gt;研报看世界&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1uX5y62E5q"&gt;2026年05月 高盛 中国IP 零售与玩具跟踪报告 视频时长15分钟&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 在全球消费信心持续走低的背景下，中国IP零售巨头如何维持高增速并实现估值回归？&lt;/li&gt;
-&lt;li&gt;💡 为什么泡泡玛特在海外市场出现了显著的增速下滑，这是否预示着出海红利的见顶？&lt;/li&gt;
-&lt;li&gt;🚀 名创优品从“十元店”到“全球顶级IP企业”的战略转型，其底层的商业逻辑和护城河究竟是什么？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场分化与出海阵痛：高基数下的增长压力&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;国内外市场极速背离&lt;/strong&gt;: 2026年4月，泡泡玛特中国线上销售激增96%，而美国市场因去年同期高基数（LABUBU三代热销）及消费信心不足，同比大幅下滑40%以上。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;消费信心冰点效应&lt;/strong&gt;: G10国家消费者信心处于历史低位，高盛下调美国消费者可支配收入预期，直接压制了非必需消费品（如潮流玩具）的海外需求空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 IP生命周期的“二级市场反噬”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心IP溢价缩水&lt;/strong&gt;: 追踪数据显示，LABUBU、Molly、Cry Baby等头部IP在二级市场的折扣持续扩大，LABUBU部分系列甚至跌至3-4折。这反映了IP供给过剩或核心粉丝群体的购买力边际递减。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结构性机会依然存在&lt;/strong&gt;: 尽管整体低迷，但SKULLPANDA等特定系列（如You Found Me）表现坚挺，价格有所回升，证明高艺术属性与差异化设计仍是穿越周期的关键。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 名创优品：从零售终端向IP孵化器的升维&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;全球旗舰店矩阵化&lt;/strong&gt;: 名创优品计划在沪港京、东京、巴黎、纽约打造六大旗舰画廊（Galleries），以此作为吸引全球艺术家、孵化自有IP“YOYO”的核心节点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;品类无边界扩张&lt;/strong&gt;: 战略性加大IP联名服饰、美妆、珠宝投入，试图通过全场景覆盖摆脱单一潮玩品类的周期性风险，目标是10年内将100个中国IP推向全球。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 穿越周期的经营准则&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;强化体验式消费&lt;/strong&gt;: 复制Pop Land成功路径，通过线下主题乐园延长用户停留时间（从3-4小时提升至6小时以上），提升复购率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;极速供应链周转&lt;/strong&gt;: 学习名创优品将产品周转次数维持在50%左右，通过极高效率对冲市场需求的不确定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多元化分发路径&lt;/strong&gt;: 在新产品发售时，结合抖音、天猫等线上平台进行阶梯化释放（如Twinkle Twinkle新系列），并根据实时流量动态调整库存。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕“过载联名”：二级市场反馈显示，非核心关联的跨界联名（如部分冰箱或K-pop联名）若定价过高，极易跌破发行价。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “未来的名创优品将不再是卖货的零售商，而是一个拥有全球IP生命力的文化公司。”&lt;/li&gt;
-&lt;li&gt;💬 “当G10国家消费者信心集体走向低位时，只有具备强文化穿透力的IP才能抵御可支配收入下滑带来的硬着陆。”&lt;/li&gt;
-&lt;li&gt;💬 “二级市场的折价不是IP的终结，而是IP从投机溢价回归消费逻辑的洗牌期。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1uX5y62E5q</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/ffe572cd8c1374a692b993622c2e7d3f8348c512.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 19:38:54 +0800</pubDate>
-    </item>
-    <item>
-      <title>市场极化下的投资思考：科技股独舞，老登股的坚守与风险</title>
-      <link>https://www.bilibili.com/video/BV1295k6TEEF</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/322005137"&gt;史诗级韭菜&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1295k6TEEF"&gt;第1181日投资记录：特朗普访华引发科技股加速，老登们的血都要被抽干了……&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 在科技股狂飙的市场中，坚守传统价值股是机会还是风险？&lt;/li&gt;
-&lt;li&gt;💡 如何评估并应对港股低市值股票的“退通风险”？&lt;/li&gt;
-&lt;li&gt;🚀 面对市场极端分化，如何构建穿越周期的投资逻辑与心态？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场极化：科技股独舞与老登股承压&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心观察&lt;/strong&gt;: 当前市场呈现极端分化，科技股大幅上涨带动指数，但多数传统股票（“老登股”）持续下跌，市场缺乏轮动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上涨驱动&lt;/strong&gt;: 科技股虽权重非绝对，但其巨大涨幅协同指数上行。市场正提前演绎中美在高科技领域的合作预期（如稀土换算力卡）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;投资困境&lt;/strong&gt;: 投资者面临“被迫做科技股”的局面，传统行业赚钱效应修复遥遥无期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛡️ 港股个股深度剖析与风险应对&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;同仁堂国药 (08138.HK)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;价值点&lt;/strong&gt;: 双天然中药顶级品牌，60%+营收来自海外，不走医保规避集采风险，现金流健康，负债率低（6%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险点&lt;/strong&gt;: 市值低于60亿港元可能触发“退通风险”，交易量低。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对指南&lt;/strong&gt;: 评估个人离岸账户持有能力及风险承受度，考虑是否在低点（如40亿市值以下）配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;福寿园 (01448.HK)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;长期价值&lt;/strong&gt;: 中国最大殡葬行业，未来3-4年将迎来老龄化死亡高峰，行业无资本开支，毛利率高达80%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;短期压力&lt;/strong&gt;: 去年一次性补缴所得税、计提商誉、管理层内斗。当前业绩难再恶化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对指南&lt;/strong&gt;: 若市场进一步下跌至50亿港元以下，可考虑再次参与。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;神威药业 (02877.HK)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;价值点&lt;/strong&gt;: 账上现金充裕（80亿），净现金50亿，远超市值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对指南&lt;/strong&gt;: 若市值跌至70亿港元以下，可视为高性价比的“烟蒂股”进行配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚔️ 投资策略：坚守与风险共舞&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;坚持固有策略&lt;/strong&gt;: 在市场风格不符自身逻辑时，选择“一条路走到黑”，不盲目追逐热点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;严格控制仓位&lt;/strong&gt;: 单一标的亏损控制在可接受范围，避免重仓导致不良持股体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度理解标的&lt;/strong&gt;: 明确投资逻辑、潜在风险（如退通），并根据自身情况做独立决策。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;避免在市场高潮期追高不符合自身投资逻辑的标的。&lt;/li&gt;
-&lt;li&gt;警惕港股低市值股票的“退通风险”，尤其对无离岸账户的投资者影响大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果你想要赚钱，你只能去科技。如果你在老登股身上的话呢，基本上都是下跌。”&lt;/li&gt;
-&lt;li&gt;💬 “我个人目前的立场就是一一条路走到黑啊，就一就就就就就这个点位啊，我也不敢去接飞刀。”&lt;/li&gt;
-&lt;li&gt;💬 “我们只说实话。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1295k6TEEF</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/cb2984d93f515b6643aae7945effc67fae2062c0.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 16:59:24 +0800</pubDate>
-    </item>
-    <item>
-      <title>破译投资周期：从概率思维到认知的钟摆</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/6a049e941b7bd50295198c8e?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/wyyl8fbhlnfl"&gt;截胡不截财&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a049e941b7bd50295198c8e?utm_source=rss"&gt;EP.143 「读书」A股进度条到什么《周期》了？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么精准的“择时”是投资中的幻觉，而感知“区间”才是胜率的关键？&lt;/li&gt;
-&lt;li&gt;💡 资产价格的“均值回归”是否在所有标的上都适用？为什么在个股层面这可能是致命的误区？&lt;/li&gt;
-&lt;li&gt;🚀 当市场处于极致狂热或极度恐惧时，普通投资者如何通过一套可量化的纪律对抗人性的“钟摆效应”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知升维：周期的底层逻辑与铁律&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;概率思维替代预测思维&lt;/strong&gt;: 投资收益并非来自对未来的精准预测，而在于通过研究周期提高胜率与赔率。预测未来是人类无法具备的能力，而应对概率才是专业投资者的核心壁垒。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;周期的三大铁律&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;非线性震荡&lt;/strong&gt;: 周期永远不走直线，而是曲线震荡上行（以标普500为例，大部分时间在均线上下波动）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;相似而不相同&lt;/strong&gt;: 每轮周期的触发点（驱动因素）不同，但人类的情绪反应（狂热与恐惧）惊人地相似。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;极端化倾向&lt;/strong&gt;: 周期很少在中间地带停留，往往在极端的高点与低点之间摆动（钟摆效应）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 维度拆解：多重周期的交织与错位&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;经济周期 vs 资产周期&lt;/strong&gt;: 经济周期相对稳定，但股市（领先指标）反应最快，房地产（滞后指标）反应最慢且自带杠杆，导致其波动周期更长、破坏力更大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;企业盈利周期与杠杆反噬&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;经营杠杆&lt;/strong&gt;: 固定成本在高增长期放大收益，在衰退期转化为沉重负担。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;财务杠杆&lt;/strong&gt;: 杠杆是双刃剑，在基本面恶化时会迅速将资产价值推向归零。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;心理周期（钟摆效应）&lt;/strong&gt;: 投资者的心态在“极度乐观”与“极度悲观”之间摆动。最危险的时刻是大家觉得没风险时，最安全的时刻是大家觉得全是风险时。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 实操指南：应对周期的“有时、有胆、有备”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;有时（测量体温）&lt;/strong&gt;: 观察非专业人群（如出租车司机、早餐摊主）对股票的关注度；监控公募基金发行量、私募规模等资金流向指标，判定市场处于哪个温度区间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;有胆（逆势操作）&lt;/strong&gt;: 在众人恐惧、估值处于历史极低分位时，分批建仓；在市场极度狂热、估值泡沫化时，克制贪婪，逐步减仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;有备（风险对冲）&lt;/strong&gt;: 关注无风险利率（如国债收益率）的变动，预判其对成长股估值的冲击；通过跨资产类别（股、债、汇、房）的分散投资，构建防御底仓。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;避免在个股层面盲目迷信“价格均值回归”，基本面改变后的下跌是价值毁灭而非机会。&lt;/li&gt;
-&lt;li&gt;警惕“过早预测”带来的心理损耗，过早的正确判断在实际操作中等同于错误。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “最危险的时刻是大家觉得没风险的，以及最安全的时刻是大家觉得全是风险的。”&lt;/li&gt;
-&lt;li&gt;💬 “过于超前跟错误没有区别。”&lt;/li&gt;
-&lt;li&gt;💬 “集中投资致富，分散投资保持财富。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a049e941b7bd50295198c8e?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/Fv9lH25xe_8H62paPPo8R23tjL-H.png" length="0" type="image/png"/>
-      <pubDate>Wed, 13 May 2026 16:35:28 +0800</pubDate>
-    </item>
-    <item>
-      <title>瑞银转向全面看多内地楼市：揭秘工业利润修复与供给平衡背后的反弹逻辑</title>
-      <link>https://www.youtube.com/watch?v=hl1Nx8qA2GI</link>
-      <description>&lt;p&gt;&lt;a href="UC8gZZWIWmBuCb_gzC8DUrvw"&gt;老厉害&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=hl1Nx8qA2GI"&gt;「瑞银」20260513：一线城市房价已完成触底，2027年将上涨2%，二线城市房价下半年触底。三大支撑逻辑：工业企业利润、员工财富效应、郊区空置率下降｜瑞银全面转向看多，仅剩大摩对楼市回暖持续性存疑&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 瑞银在短期内从看空转向全面看多的底层逻辑支撑是什么？&lt;/li&gt;
-&lt;li&gt;💡 工业企业利润，特别是AI产业链的爆发，如何重构一线城市的购房需求？&lt;/li&gt;
-&lt;li&gt;🚀 中国房地产市场的去库存周期何时终结？房价拐点究竟在何处？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 破局负反馈：工业利润修复与房价的正相关传导&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;财富效应的源头回归&lt;/strong&gt;: 瑞银指出，工业企业利润与一线城市房价的相关系数高达0.63。2026年一季度工业企业利润同比增长15%且PPI转正，意味着企业现金流改善，有望打破“房价下跌-裁员降薪-需求萎缩”的负反馈循环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI产业链的定点爆破&lt;/strong&gt;: 调研显示AI相关企业利润同比激增125%，且总部高度集中于北京、上海、深圳。这种高净值人群的收入增长，将直接转化为核心城市核心地段的购买力，推动房价结构性修复。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 供给侧出清：一线城市郊区空置率的显著下降&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;库存消化的实质进展&lt;/strong&gt;: 瑞银通过分析挂牌房源中毛坯房占比发现，一线城市郊区空置率已较2023年大幅收窄。随着近年土地供应缩量，未来新房新增供应将持续处于低位，供需关系已经基本平衡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2027年见底预判&lt;/strong&gt;: 根据模型预测，全国房地产去库存将于2027年2月完成。瑞银认为一线城市房价目前已稳定，二线城市将于2026年下半年止跌，2027年一线城市有望迎来2%的上涨。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 逻辑穿透：审视投资风向标背后的变量&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 关键行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锚定核心城市资产&lt;/strong&gt;: 优先聚焦高新产业（如AI、高端制造）总部所在城市的房产价值修复，这些区域具备更强的收入支撑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;监测二手房成交规模&lt;/strong&gt;: 关注核心城市二手房成交总金额与面积的增长，瑞银预期2026年该指标将显著回升。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕统计口径偏差。研报中用毛坯房占比推导空置率可能忽略了精装修房交付趋势；此外，本轮PPI转正由上游原油驱动，下游中小企业能否同步受益仍存变数。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “这一轮复苏有望打破长久以来的产业链负反馈，核心变量在于工业企业‘钱袋子’的重新充盈。”&lt;/li&gt;
-&lt;li&gt;💬 “去库存的终点已在倒计时，2027年2月或将成为全国房价止跌的集体分水岭。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=hl1Nx8qA2GI</guid>
-      <enclosure url="https://i.ytimg.com/vi/hl1Nx8qA2GI/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 16:01:11 +0800</pubDate>
-    </item>
-    <item>
-      <title>保罗·格雷厄姆谈创业高地：为何硅谷不可替代及区域中心的崛起路径</title>
-      <link>https://www.youtube.com/watch?v=QHJkUw31YX8</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=QHJkUw31YX8"&gt;Paul Graham, Founder of Y Combinator, Live from Stockholm&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么“偶遇”对顶级创作者的价值远超“预约”？&lt;/li&gt;
-&lt;li&gt;💡 为什么即便只有 50% 的胜率，依然值得远赴硅谷“朝圣”？&lt;/li&gt;
-&lt;li&gt;🚀 瑞典如何通过鼓励“人才流失”来反向促成初创生态的繁荣？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 物理迁徙的底层逻辑：从“小池塘”跃入“奥林匹斯山”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;认知迷雾的消除&lt;/strong&gt;: 在偏远地区，伟大目标往往笼罩在不可见的迷雾中。进入硅谷这种“中心”，能让你直接对标顶级选手，将“不可能”的目标降维成“极高但明确”的硬门槛。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 这就像在小村庄玩单机游戏，你以为自己是满级大佬；到了硅谷就像进入全球同服的排位赛，你不仅能看清顶级职业选手的操作细节，还会发现他们并非异类，只是投入了常人难以想象的努力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 社交基建的降维打击：Pay-it-Forward 文化的进化优势&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;非线性收益的偶遇&lt;/strong&gt;: 硅谷最核心的资产是“高密度的随机碰撞”。相比带有预设目的的正式会议，随机交谈由于反馈周期短、筛选效率高，往往能带来改变命运的转折点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“助人为乐”的算法逻辑&lt;/strong&gt;: 硅谷盛行无理由帮助他人的文化。这并非纯粹的道德高尚，而是一种高效的社交策略：由于“无名小卒”变身“超级巨头”的速度极快，广泛播撒善意是收益最高的长期投资。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 区域性创新中心的构建路径：去而复返的生态灌溉&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;主动朝圣&lt;/strong&gt;: 创始人必须在硅谷至少浸泡 4-6 个月，通过 YC 等平台完成认知重塑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入速度代差&lt;/strong&gt;: 学习硅谷投资者的决策紧迫感，通过引入海外竞争倒逼本地资本提升效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;文化反哺&lt;/strong&gt;: 归国后积极推广“高信任”和“互助”文化，打破本地圈层的保守偏见。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕本地投资者的“本地偏见”，利用海外经历实现身价的“降维打击”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “一旦你登上了奥林匹斯山，顶峰的迷雾就会散去。它依然很高，但不再是遥不可及。”&lt;/li&gt;
-&lt;li&gt;💬 “硅谷是一个没人会无故踢你，反而人人都想拍拍你脑袋并问你‘我能帮你做什么’的地方。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=QHJkUw31YX8</guid>
-      <enclosure url="https://i.ytimg.com/vi/QHJkUw31YX8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 14:30:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>摩根士丹利周期论剑：金融、线缆与大宗商品市场深度洞察与未来展望</title>
-      <link>https://www.bilibili.com/video/BV1Ni5C6BEsA</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546909549529340"&gt;小鹿投研日记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Ni5C6BEsA"&gt;5.13 完整版大摩闭门会｜锂铜继续看多和新政解读/铝出现分歧，厄尔尼诺现象推高电力需求，光纤需求爆发/利率悖论&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)🤔 中国经济复苏背景下，为何债券利率持续承压而非反弹？💡 战略性金属新规与全球供需失衡，将如何重塑锂、铜等大宗商品市场格局？🚀 光纤价格飙升与产能克制扩张，线缆行业能否延续高景气周期？---### 🧩 金融市场：出口强劲与利率之谜* &lt;strong&gt;债券利率承压&lt;/strong&gt;: 经济反弹、通胀上行，但债券利率仍受制于1.7-1.8%区间。主因是出口结汇导致被动流动性增加，以及二季度贷款投放淡季银行主动配置债券。* &lt;strong&gt;央行政策微调&lt;/strong&gt;: 央行已在回收流动性以稳定债券利率，并强调提升银行贷款定价能力，暗示此前贷款利率偏低。政策表述已从“继续下行”转为“维持低位运行”。* &lt;strong&gt;房地产影响&lt;/strong&gt;: 房地产市场回暖节奏决定利率调控需谨慎，以呵护市场情绪，避免大规模抽流动性导致利率大幅反弹。* &lt;strong&gt;实体经济信号&lt;/strong&gt;: PPI转正与制造业、基建投资的合理增速，表明经济基本面并非通缩困境，而是供给侧阶段性过剩与产业升级驱动。---### 🧩 线缆行业：中天科技与光纤结构性机遇* &lt;strong&gt;光纤需求爆发&lt;/strong&gt;: 无人机、中国及北美数据中心需求激增，驱动光纤价格飙升（G652D价格从18元涨至近100元）。产品结构高端化，G657A1/A2等多模光纤出货占比超50%。* &lt;strong&gt;供给端克制扩产&lt;/strong&gt;: 中天、恒通等头部企业光棒产能扩产幅度仅20-30%，且多为满足中长协订单，而非无序扩张，中期供需格局仍偏紧。* &lt;strong&gt;多元业务支撑&lt;/strong&gt;: 海洋业务（海底电缆、海工）受益于中国海上风电加速并网及欧洲订单交付；路缆业务在全球电网投资驱动下保持稳健增长。* &lt;strong&gt;估值修复潜力&lt;/strong&gt;: 尽管股价表现强劲，中天科技估值仍低于同行，存在修复空间，尤其在海上风电政策（如深远海发展方案）催化下，有望斩获更多欧洲订单。---### 🧩 工业金属：铝、锂、铜的多重扰动* &lt;strong&gt;铝价预期&lt;/strong&gt;: 地缘政治风险缓解及中国库存压力带来分歧，但欧洲溢价高企及中国出口关税制约，导致库存传导至海外需时较长，未来数月实体市场紧张感将加剧，价格或续涨。* &lt;strong&gt;锂价困境与机遇&lt;/strong&gt;: 供应端持续收紧（津巴布韦出口停滞、宜春矿区换证停产），加之新矿业法将锂列为战略金属，政策审批趋严，短期供应扰动加剧。需求端（储能）强劲，25万/吨被视为关键观察点。广交所期货国际化有望增加流动性与价格推力。* &lt;strong&gt;铜市供需失衡&lt;/strong&gt;: * ****: 铜矿端（IPHONE产量指引下调，Freeport复产延迟）供应持续紧张。* ****: 国内“反向开票”和“循环贸易虚假发票”严查，导致有票废铜供应骤减，变相利好电解铜需求。* ****: 非洲刚果金地区因柴油、硫磺价格上涨，冶炼成本吨增约3000美元，小企业或面临减产。* ****: 虚假贸易打击或降低市场整体流动性，但具体量化影响不明。---### 🧩 黑色系与动力煤：底部回升与保供优先* &lt;strong&gt;黑色系回暖&lt;/strong&gt;: 罗纹、热卷及焦煤焦炭等关注度显著提升，可能源于板块轮动及底部安全边际。制造业出口良好支撑热卷需求；罗纹或受益于地产见底预期。* &lt;strong&gt;动力煤：保供优先&lt;/strong&gt;: 厄尔尼诺现象预示夏季高温，国家保电意愿强烈，要求电厂增储煤炭。短期内，保供压力可能优先于煤价调控，煤炭作为替代能源的需求将维持。---### 🌟 金句萃取* 💬 “中国具备产能控制能力，想控产能非常容易，想造出来则更难，故合理制造业与基建投资对长期竞争力至关重要。”* 💬 “在光纤领域，头部企业扩产克制，非无序扩张，反映出行业在经历十年下行周期后的成熟与理性。”* 💬 “中国新矿业法将锂列为战略性金属，所有审批收归中央，短期内将显著加剧锂矿供应扰动。”* 💬 “废铜市场在‘反向开票’和‘循环贸易’严查下，有票供应减少，对电解铜形成结构性利好，加剧全球精炼铜供应紧张局面。”&lt;/h3&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Ni5C6BEsA</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/3512b760d8fb86e7be1797f49b1abaeac41172fb.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 13:48:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>宏观金融、光纤通信与有色金属：多维度产业逻辑深度拆解</title>
-      <link>https://www.bilibili.com/video/BV1DLRQBvEmx</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/581845812"&gt;财安君&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1DLRQBvEmx"&gt;摩根士丹利 周期论剑 (普通话) 金融、原材料、线缆行业更新&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么经济反弹、通胀上行，但债券利率却在低位徘徊而未随之反弹？&lt;/li&gt;
-&lt;li&gt;💡 光纤行业在经历十年下行周期后，此次上涨是短期炒作还是结构性需求爆发？&lt;/li&gt;
-&lt;li&gt;🚀 有色金属（铝、锂、铜）的供应端扰动与成本传导机制如何影响未来的价格走势？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 金融利率：被动流动性与政策呵护的共振&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;利率低位逻辑&lt;/strong&gt;: 尽管经济有反弹迹象，但出口好转带动结汇增加，导致国内流动性被动投放增加，给债市带来压力。同时，二季度处于贷款投放淡季，资金主动配置债券，共同压制了利率反弹。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;政策锚点&lt;/strong&gt;: 监管层目前倾向于维持利率稳定，以呵护房地产企稳。未来重点在于提升银行的利率定价能力，而非简单的降息降准。只要名义GDP增速与融资需求维持在相对高位，利率低估的状态终将通过“正常化”过程修复。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 光纤通信：从“低端过剩”到“高端驱动”的认知升级&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;需求端三重爆发&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;无人机需求&lt;/strong&gt;: 核心驱动力之一。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据中心升级&lt;/strong&gt;: 阿里、字节等云厂商招标量大增，需求强度超预期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;北美市场抢购&lt;/strong&gt;: 北美布线厂绕过中间商直接与中国企业签长协（锁量不锁价）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产品结构优化&lt;/strong&gt;: 基础产品（G652D）占比从 60% 以上降至 50% 以下，高附加值产品（G657A1/A2 及多模光纤）出货占比提升，且价格涨幅巨大（部分产品从 30 多元涨至 200 元），极大地拉动了毛利率（部分企业 4 月毛利达 70%-80%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;供给端克制&lt;/strong&gt;: 头部企业扩产幅度仅 20%-30%，且主要为满足长协需求，行业避免了无序扩产，维持了高毛利局面。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 有色金属：供应端扰动与成本推升&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;铝 (Aluminum)&lt;/strong&gt;: 市场出现分歧。虽然中国库存较高，但由于高关税限制铝锭出口，仅铝线有小幅套利空间。欧洲由于制裁俄罗斯导致供应紧缺，溢价高企。预计未来几个月实体端将感知到供应紧张，价格有上涨潜力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;锂 (Lithium)&lt;/strong&gt;: 供应端持续承压。津巴布韦出口受限、宜春矿山换证停产。新矿业法将锂定义为战略金属，审批权上收，且提高了资源储量判定标准（0.4 阈值），导致预期供应量下降。叠加库存低、需求稳，市场一致看多。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;铜 (Copper)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;废铜危机&lt;/strong&gt;: 查循环贸易发票及反向开票政策导致“有票废铜”有效供应减少。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;矿端受限&lt;/strong&gt;: 铜矿供应未恢复，叠加废铜减少，预计全球电解铜产量将下降。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;成本传导&lt;/strong&gt;: 刚果金地区因柴油、硫磺成本上升，导致生产成本增加约 3000 美金/吨，将对小规模企业产生减产影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 投资操作指南 (SOP)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 关注维度&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;金融股&lt;/strong&gt;: 关注息差改善与房地产企稳带来的收入增长加速。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;光纤板块&lt;/strong&gt;: 重点跟踪海缆订单交付（尤其是欧洲市场）及深远海风电政策落地。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;有色金属&lt;/strong&gt;: 关注锂矿进口数据（5-7 月）及铜冶炼企业的减产幅度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕铝股在高位出现获利回吐（Profit Taking）风险。&lt;/li&gt;
-&lt;li&gt;锂价在 20-25 万区间可能触发储能项目 IRR 降低而抑制需求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “中国的融资增速在大部分国家中依然靠前，目前的利率水平在名义GDP和融资需求面前是被低估的。”&lt;/li&gt;
-&lt;li&gt;💬 “光纤行业的逻辑已从简单的价格上涨，转变为‘产品结构提升 + 需求端爆发 + 供给端克制’的共振。”&lt;/li&gt;
-&lt;li&gt;💬 “废铜不是消失了，而是‘有票的废铜’少了，这导致了有效供应的物理性下降。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DLRQBvEmx</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/70f68e1064bb1a2fe7972b9b23aad3f0948fdd19.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 11:35:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>美股风云：英伟达谷歌前瞻、英特尔逼空下的市场震荡与投资洞察</title>
-      <link>https://www.bilibili.com/video/BV1vy556zEcN</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/342287046"&gt;请不要叫我梁同学&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1vy556zEcN"&gt;美股 大利好！华尔街预测NVDA业绩大幅增长！GOOG和SpaceX合作太空项目！INTC的空头损失惨重！TSLA继续看涨吗？MU空头非常郁闷！CRWV还涨吗？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 英伟达、谷歌等科技巨头如何在新赛道中维持增长势头并应对风险？&lt;/li&gt;
-&lt;li&gt;💡 极端市场行情如“史诗级逼空”背后，空头与多头博弈揭示了何种投资盲区？&lt;/li&gt;
-&lt;li&gt;🚀 在市场剧烈波动与板块分化加剧时，投资者应如何识别趋势并避免“踏空”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 科技巨头业绩与新增长极&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;英伟达前瞻&lt;/strong&gt;: 芯片供需失衡持续利好，Blackwell平台将主导高端GPU市场，预计营收超预期（花旗预测Q1营收730亿美元，超市场预期14亿美元）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;潜在风险&lt;/strong&gt;: 地缘政治（中国市场份额降至零）、供应链不确定性（CEO回答被指闪烁其词）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;谷歌太空算力&lt;/strong&gt;: 携手SpaceX洽谈火箭发射协议，计划将数据中心部署至太空轨道；明确2027年初发射两颗圆形试验卫星验证技术，开启算力新竞赛。AI公司Anthropic已同意全面启用SpaceX算力中心。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场异动与空头困境&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;英特尔逼空&lt;/strong&gt;: 股价自3月底以来狂飙214%，市值增加超4400亿美元，做空者账面亏损逾120亿美元，但卖空比例仍接近52周高点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动量交易&lt;/strong&gt;: 英特尔被视为动量交易典型代表，市场分析指出强劲动能下做空风险极高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;空头弱势&lt;/strong&gt;: 盘中虽有抛售，但空头缺乏持续砸盘意愿，多头低位承接意愿强，导致K线常带长下影线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 大盘与个股行为洞察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;大盘震荡&lt;/strong&gt;: 纳指剧烈震荡后收跌，但上涨趋势线仍有效；标普、道指、罗素空头不强，多头态势未改，但回调不可避免。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;板块分化&lt;/strong&gt;: 半导体、软件、互联网等科技板块微跌（跌幅不大），医疗计划、铜铝白银等领涨。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;个股观察&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;英特尔/美光&lt;/strong&gt;: 近期疯狂走势历史罕见，有高位回调需求，但空头不强势，或走震荡洗盘。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高通/CRWV&lt;/strong&gt;: 遇前期阻力区回调，需关注止跌情况，或走震荡横盘。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;特斯拉/谷歌/苹果/英伟达/礼来&lt;/strong&gt;: 整体维持上涨态势或回调后止跌，英伟达创历史新高后测试支撑位。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “直勾勾的运动可以双向直勾勾的运动。”&lt;/li&gt;
-&lt;li&gt;💬 “空头只要弱势的话，被多头识别到的话，那可能走震荡洗盘的概率会高一点。”&lt;/li&gt;
-&lt;li&gt;💬 “不要太去抓拐点，避免踏空，因为这些图你一旦要卖掉的话，他万一再来一个大的阳线，这个缺口怎么办？”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1vy556zEcN</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/03849b3b51e81b975deb225df0e676b8b1a3c282.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 13 May 2026 09:53:13 +0800</pubDate>
     </item>
   </channel>
 </rss>
