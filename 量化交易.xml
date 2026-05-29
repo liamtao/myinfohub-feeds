@@ -7,7 +7,86 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 May 2026 08:37:23 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 May 2026 22:44:17 +0000</lastBuildDate>
+    <item>
+      <title>AI驱动量化选股：大模型如何重塑投资阿尔法</title>
+      <link>https://www.bilibili.com/video/BV1vtVa6nEqd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1vtVa6nEqd"&gt;AI 赋能量化：ChatGLM 驱动的研报情感因子选股体系&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 传统量化模型为何在AI时代步履维艰，错失非结构化数据中的阿尔法？&lt;/li&gt;
+&lt;li&gt;💡 大语言模型（LLM）如何从卖方研报中“嗅探”高维情感，并转化为稳健的选股因子？&lt;/li&gt;
+&lt;li&gt;🚀 本地化部署的ChatGLM-6B，如何在保证数据隐私、控制成本的同时，深度赋能金融投研？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 大模型选股：突破传统瓶颈的智能利器&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统模型困境&lt;/strong&gt;: 2023年AI爆发与市场风格快速轮动，传统线性基本面模型难以捕捉复杂非线性关联，对非结构化文本（研报、新闻）处理滞后，导致反应不灵敏，业绩承压。尤其在科创50与红利领涨、成长跑输价值的市场结构下，低维度模型局限性凸显。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LLM赋能新范式&lt;/strong&gt;: 通过ChatGLM深度挖掘研报语义，构建高维度情感因子，旨在捕捉传统模型无法触达的Alpha收益。这是一种“大模型标注、小模型计算”的主流策略，解决金融领域高质量标注数据匮乏问题，兼顾深度理解与高频响应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ ChatGLM本地部署与高效因子构建三步走&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ChatGLM-6B本地部署&lt;/strong&gt;: 实现数据隐私、定制化微调与长期推理成本优化。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;硬件选择&lt;/strong&gt;: 显存受限可采 &lt;code&gt;int4&lt;/code&gt; 量化（最低6GB显存），追求精度推荐 &lt;code&gt;FP16&lt;/code&gt;（13GB+显存）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;环境搭建&lt;/strong&gt;: 确保Python版本在3.8以上，transformers库版本在4.27以上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署优化&lt;/strong&gt;: 金融机构内网环境需提前打包 &lt;code&gt;docker镜像&lt;/code&gt; 进行离线同步部署。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;研报情感自动化打分 (ChatGLM)&lt;/strong&gt;: 将非结构化文本转化为可量化连续数值。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Prompt设计&lt;/strong&gt;: 遵循角色定义（专业金融分析师）、评分标准（0-5分连续值）、规范输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据洞察&lt;/strong&gt;: 分析发现卖方研报普遍存在右偏特征（均值4.09分，高分段频率高），理解此情绪偏差。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BERT承接知识与高效特征提取&lt;/strong&gt;: 解决大模型推理速度与成本问题。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;标签转化&lt;/strong&gt;: 将ChatGLM打分转化为 &lt;code&gt;三分类标签&lt;/code&gt; 作为BERT微调的监督信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效率优化&lt;/strong&gt;: 引入 &lt;code&gt;LoRA&lt;/code&gt;、&lt;code&gt;Adapter&lt;/code&gt; 等参数高效微调技术，使BERT适应金融语料。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关键输出&lt;/strong&gt;: 提取BERT顶层 &lt;code&gt;CLS向量&lt;/code&gt; (768维)，作为个股研报的“数字指纹”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XGBoost滚动训练与量化因子生成&lt;/strong&gt;: 将语义向量转化为指导实战的量化因子。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;训练机制&lt;/strong&gt;: 采用 &lt;code&gt;滚动训练&lt;/code&gt;（过去6个月样本训练，预测未来1年参数），确保时效性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标签设计&lt;/strong&gt;: 关注 &lt;code&gt;超额收益&lt;/code&gt;，对 &lt;code&gt;CAR&lt;/code&gt;（累计异常收益）进行行业中性化处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子输出&lt;/strong&gt;: 生成 &lt;code&gt;sentiment score&lt;/code&gt;，并划分为不同等级（如&lt;code&gt;class3&lt;/code&gt;看多，&lt;code&gt;class1&lt;/code&gt;看空）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 实战验证：超额收益与稳健性兼备&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子有效性&lt;/strong&gt;: 与BARA动量因子相关度0.43（保留独立Alpha空间），IC均值 &amp;gt; 0.03（T检验显著，胜率 &amp;gt; 60%），月度IC稳定在零轴上方，半衰期长达4.8个月（适合中长期策略）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分组收益与多空表现&lt;/strong&gt;: 十组分层组合呈现理想单调性，最高组年化收益19.92%（信息比率1.05）；多空组合年化收益16.00%（夏普比率1.19），具备稳定Alpha获取能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;纯因子剥离风格影响&lt;/strong&gt;: 对市值、行业等风格因子进行正交化处理后，ICIR从1.01显著提升至2.93，预测能力更强且稳定；最大回撤仅 ~3%，分组绝对收益平稳度大幅提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Top50选股策略回测 (2014-2023)&lt;/strong&gt;: 每月按情感得分选前50只等权配置并月度调仓，实现年化收益20.8%，Alpha收益15.6%，对中证500基准具备强单边超额能力，2023年相对超额收益12.46%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;持仓特征&lt;/strong&gt;: 行业分布均衡（化工、机械、食品饮料等），市值中位数长期稳定在100亿人民币左右（典型中盘风格），具备持续获取Alpha的土壤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “传统的低维度模型已经难以适应当前的结构性行情。”&lt;/li&gt;
+&lt;li&gt;💬 “这种大模型标注小模型计算的范式，是当前量化私募界的主流方案。”&lt;/li&gt;
+&lt;li&gt;💬 “在因子投资中，能达到这种显著水平是非常不容易的。”&lt;/li&gt;
+&lt;li&gt;💬 “因此对不同表现的个股具有极佳的区分度。”&lt;/li&gt;
+&lt;li&gt;💬 “量化之路漫漫，但工具的进化已为我们点亮了前路。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1vtVa6nEqd</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/20a4cb28e3e81d8db0d5d04012fcc38ec723ffb6.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 29 May 2026 22:25:43 +0800</pubDate>
+    </item>
     <item>
       <title>模糊的预期与确定的陷阱：论量化交易的边界与博弈核心</title>
       <link>https://bbs.quantclass.cn/thread/84976</link>
@@ -37,6 +116,114 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/84976</guid>
       <pubDate>Fri, 29 May 2026 01:21:39 +0800</pubDate>
+    </item>
+    <item>
+      <title>A股震荡市中的量化策略复盘与AI赋能实践</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;amp;talker=57784510736@chatroom"&gt;2026-05-29_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;📈 策略表现与市场波动观察&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;小市值策略遭遇回撤&lt;/strong&gt;：部分参与者反馈小市值策略在近期行情中表现不佳，尤其是小市值100等策略近期出现明显的净值回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行情逻辑判断&lt;/strong&gt;：市场资金呈现出从微盘/小市值流向红利低波或大市值抱团板块（如诺亚方舟、发电类大市值股票）的特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;板块异动分析&lt;/strong&gt;：半导体板块表现与国外科技股走势存在差异，国内科技股与国外半导体/AI板块呈现出一定的尾部依赖关系。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛠️ AI赋能量化研究的新范式&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;构建AI工具框架&lt;/strong&gt;：资深交易者（如木木十三）分享了通过构建结构化工具集合来赋能AI的实战经验。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心思路&lt;/strong&gt;：给AI提供充足的工具（知识库、回测引擎、数据接口、互联网搜索工具），比单纯写Prompt（skill）更重要。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具组合&lt;/strong&gt;：使用Claude和Codex轮流进行数据分析、报告生成和策略复盘，实现从数据到洞察的自动化转换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;建议初学者不要仅仅依赖单向的模型对话，而是要为AI打造一套完整的“工作站”，包含数据中心和回测环境，让AI能够基于实盘数据进行深度分析。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🛡️ 策略配置与风险控制的方法论&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心策略矩阵&lt;/strong&gt;：讨论中涉及了“风火轮”、“定风波”、“凌烟阁”等多种风格迥异的策略组合。&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定风波策略&lt;/strong&gt;：定位为风险管理与回撤控制工具，而非追求绝对超额收益的工具。强调通过增加offset（偏移量）来应对震荡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风火轮策略&lt;/strong&gt;：需要庞大的策略池支撑，适合通过不同风格的覆盖来获取超额收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险管理策略建议&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;避免“裸跑”&lt;/strong&gt;：在不确定的市场中，通过组合不同风格的策略（如：轮子 + 定2 + 定3）来平滑收益曲线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合策略逻辑&lt;/strong&gt;：不同策略（如定风波）可以作为组合中的“压舱石”，在小市值崩塌时提供安全感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💬 金句摘录&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;定风波、风火轮、凌烟阁，还是不一样的风格。三者合在一起，我觉得更踏实。&amp;quot; —— &lt;strong&gt;邢不行&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;你工具要给足，给足了，就能做，给不足就没用。&amp;quot; —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;你真信了，就未来了。&amp;quot; —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;过去只是过去，历史上定3这种骗也正常。&amp;quot; —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;给AI提供工具，比写skill重要。&amp;quot; —— &lt;strong&gt;木木十三&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 quantclass.cn 相关链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/52132&lt;/li&gt;
+&lt;li&gt;https://bbs.quantclass.cn/thread/84167&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化实盘与B圈博弈：从‘浪填’策略到200u的生存幻想</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;amp;talker=58453205219@chatroom"&gt;2026-05-29_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🚀 浪填策略与量化工具实践&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;‘浪填’策略讨论&lt;/strong&gt;：群友对一种名为“浪填”的策略进行了讨论，认为其效果优于默认设置，且具有与动量反向操作的特性。其中提到该策略可能带有后置过滤机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hyperliquid API 接入&lt;/strong&gt;：确认量化交易可以接入 Hyperliquid 的 API 接口进行自动化操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术排障 (Claude Code &amp;amp; DeepSeek)&lt;/strong&gt;：针对 Claude Code 更新后与 DeepSeek V4 Pro 接口出现 400 报错的问题，建议通过 Python 脚本直接请求接口进行对照实验，排查是接口字段变更还是客户端问题，必要时可回退版本至 2.1.153 之前。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;仓管框架更新&lt;/strong&gt;：OKX 版本的仓管框架已发布，支持回测与实盘管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💰 模拟盘作业与分红激励&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分红暴增原因&lt;/strong&gt;：由于本次将“跑模拟盘”设为必修项，整体完成率下降，导致单个完成者的分红金额增加，最高可达 2200 元。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;博弈心理&lt;/strong&gt;：部分成员认为这是一个“虚假利好”，预测大量群友在最后期限前冲进来完成作业，会导致策略拥挤，收益随之暴跌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘门槛&lt;/strong&gt;：强调实盘或模拟盘均可作为作业，且有纯小白在一天内跑通实盘的案例，鼓励新人尝试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📉 B圈生存现状与心理博弈&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;流量转移预期&lt;/strong&gt;：探讨大陆清退美股证券账户可能为 B 圈带来新流量，这些人进入后可能会因为山寨币波动更大而迅速转向梭哈山寨币。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资产波动认知&lt;/strong&gt;：讨论了 B 圈的高杠杆（如 100 倍）对心智的冲击，以及在暴跌行情中，历史高点回撤 70% 是常态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生存幻象&lt;/strong&gt;：针对新人提出的“200u 如何变 10wu”的问题，群友给出冷峻回答：200u 可能连下单门槛都达不到，或者在追求高倍数策略的过程中迅速回撤至 100u 而放弃。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🇺🇸 美股与宏观对冲&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;美股恐高心理&lt;/strong&gt;：面对美股不断破新高，交易者在“想跑不敢跑”和“等待暴跌抄底”之间纠结。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对冲思路&lt;/strong&gt;：讨论了通过买入 Put（看跌期权）来构建反脆弱性，等待大暴跌的到来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🖋️ 金句提炼&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;量化不准上桌&amp;quot; —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;&amp;quot;历史哪次高点下来不得斩70%&amp;quot; —— 嘻嘻.&lt;/li&gt;
+&lt;li&gt;&amp;quot;200u都下不了单&amp;quot; —— 心想事陈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=82512"&gt;言出法随，B 圈量化新人1天跑通实盘&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;【监测】B旗舰策略监测文件---更新至2026-05-29&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-29&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>零依赖秒回测：Mini PTrade 助力本地化量化策略研发效率革命</title>
@@ -5212,181 +5399,6 @@ otin 	ext{Top 20%}) 	ext{ and } (S_{i,t} 	ext{ once in } 	ext{Top 10%})$&lt;/li&
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-15&amp;talker=58453205219@chatroom</guid>
       <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Binance Alpha链上Alpha币数据接入量化框架实战指南</title>
-      <link>https://bbs.quantclass.cn/thread/81685</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81685"&gt;【数据】BN Alpha 链上数据collector官方石盘回测框架无缝兼容&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：数据管道, Binance Alpha API, 链上数据, 因子工程, BMAC集成, 价格匹配算法&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：构建Binance Alpha链上Alpha币数据管道，解决匹配与集成难题，赋能量化回测与实盘。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用Binance Alpha链上代币（alpha币）的DEX价格与Binance永续合约价格之间的价差（溢价）作为交易信号，捕捉市场中的价格不一致性，尤其在山寨币热潮期间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：计算DEX价格（&lt;code&gt;alpha_close&lt;/code&gt;）与CEX永续合约价格（&lt;code&gt;close&lt;/code&gt;）的相对价差：&lt;code&gt;(alpha_close - close) / close&lt;/code&gt;。在选币阶段，筛选价差最大的前50%个币持有24小时。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：因子构建需要&lt;code&gt;alpha_onchain_1h&lt;/code&gt;数据集中的&lt;code&gt;alpha_close&lt;/code&gt;（链上价格）和主&lt;code&gt;candle_df&lt;/code&gt;中的&lt;code&gt;close&lt;/code&gt;（CEX永续合约价格）。特别强调&lt;code&gt;alpha_close&lt;/code&gt;数据可能稀疏（仅限于alpha币），非alpha币会返回&lt;code&gt;NaN&lt;/code&gt;。为避免框架在选币时因&lt;code&gt;NaN&lt;/code&gt;静默删除老币，必须在时序因子（如&lt;code&gt;AlphaClose.py&lt;/code&gt;）中对&lt;code&gt;alpha_close&lt;/code&gt;列进行&lt;code&gt;fillna(0.0)&lt;/code&gt;处理，并在截面因子中使用&lt;code&gt;&amp;gt; 0&lt;/code&gt;的判断来跳过哨兵值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：回测区间为2025年4月至今（受Alpha API数据历史限制）。因子表现被描述为“一般般”，主要受益于“ALPHA山寨季的东风”，不建议直接使用，主要为示范用途。持仓周期24H，选择做多最大价差的50%币种。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略表现依赖于特定市场环境（如山寨币季）；数据源的&lt;code&gt;NaN&lt;/code&gt;处理不当会导致数据污染或错误选币池。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据获取与整合&lt;/strong&gt;：从Binance Alpha公开API抓取5分钟粒度的链上Alpha币数据（K线和元数据），并转换为BMAC兼容格式。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代币路由与匹配&lt;/strong&gt;：解决“同名不同币”（如BOB）和“永续合约有1000x/1000000x变体”的问题，确保alpha链上数据能准确匹配到对应的永续合约。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;API限制与数据时效&lt;/strong&gt;：Alpha klines API仅保留约390天历史数据；元数据（如持币数、流动性、分数）仅为当前快照，历史数据需持续采集，无法回溯。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架集成&lt;/strong&gt;：将新增的链上数据流平滑接入现有的回测和实盘量化框架，避免与现有数据列冲突，并确保数据对齐。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稀疏数据处理&lt;/strong&gt;：外部数据源（如&lt;code&gt;alpha_close&lt;/code&gt;）可能对部分符号缺失，需要特殊处理&lt;code&gt;NaN&lt;/code&gt;值，防止框架误判和静默删除。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;项目架构&lt;/strong&gt;：独立数据抓取项目&lt;code&gt;alpha-onchain-data&lt;/code&gt;，仿照BMAC的数据收集机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据输出&lt;/strong&gt;：生成&lt;code&gt;pkl&lt;/code&gt;文件，分为&lt;code&gt;alpha_onchain/kline_1h_resample/{N}m/{SYMBOL}.pkl&lt;/code&gt;（1小时K线，按分钟偏移量分目录）和&lt;code&gt;alpha_onchain/meta/{SYMBOL}.pkl&lt;/code&gt;（元数据，单文件）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据转换&lt;/strong&gt;：将5分钟原始数据resample为1小时K线，并严格复制BMAC的resample、fill_gaps、filter_gaps逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;框架集成接口&lt;/strong&gt;：通过修改框架的&lt;code&gt;data_source_dict&lt;/code&gt;和在&lt;code&gt;core/data_bridge.py&lt;/code&gt;中实现&lt;code&gt;load_alpha_onchain_kline&lt;/code&gt;和&lt;code&gt;load_alpha_onchain_meta&lt;/code&gt;两个loader函数进行接入。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Python依赖&lt;/strong&gt;：&lt;code&gt;aiohttp&lt;/code&gt;（HTTP并发）、&lt;code&gt;pandas&lt;/code&gt;（数据处理，要求&lt;code&gt;&amp;lt;3&lt;/code&gt;版本）、&lt;code&gt;numpy&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;部署&lt;/strong&gt;：使用&lt;code&gt;PM2&lt;/code&gt;进行守护进程运行（实盘），或一次性&lt;code&gt;update.py&lt;/code&gt;进行历史回填（回测）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代币路由算法&lt;/strong&gt;：核心是基于价格偏差&lt;code&gt;|alpha链上价格 × multiplier / perp价格 - 1|&lt;/code&gt;进行贪心配对。设定严格（≤10%）、弱匹配（10-50%）、跳过（&amp;gt;50%）三档阈值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;特殊代币处理&lt;/strong&gt;：对于&lt;code&gt;listingCex=true&lt;/code&gt;的已上市现货代币，直接使用&lt;code&gt;cexCoinName&lt;/code&gt;与永续合约的&lt;code&gt;base asset&lt;/code&gt;匹配，绕过价格算法。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;人工锁定&lt;/strong&gt;：通过&lt;code&gt;config.json&lt;/code&gt;中的&lt;code&gt;perp_alpha_overrides&lt;/code&gt;提供人工强制映射机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Loader实现细节&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;优先使用显式&lt;code&gt;symbol&lt;/code&gt;参数，其次是&lt;code&gt;symbol_swap&lt;/code&gt;，不查找&lt;code&gt;symbol_spot&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;兼容&lt;code&gt;'BTC-USDT'&lt;/code&gt;和&lt;code&gt;'BTCUSDT'&lt;/code&gt;等符号命名差异。&lt;/li&gt;
-&lt;li&gt;对K线数据列加&lt;code&gt;alpha_&lt;/code&gt;前缀避免与主&lt;code&gt;candle_df&lt;/code&gt;冲突。&lt;/li&gt;
-&lt;li&gt;对时间列进行&lt;code&gt;pd.to_datetime&lt;/code&gt;、&lt;code&gt;tz_localize(None)&lt;/code&gt;、&lt;code&gt;drop_duplicates&lt;/code&gt;、&lt;code&gt;sort_values&lt;/code&gt;标准化处理。&lt;/li&gt;
-&lt;li&gt;使用&lt;code&gt;pd.merge_asof(direction='backward', tolerance=pd.Timedelta('1h'))&lt;/code&gt;进行数据合并，防止过期数据无限向前填充。&lt;/li&gt;
-&lt;li&gt;针对缺失列自动填充&lt;code&gt;NaN&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;元数据采样&lt;/strong&gt;：元数据行的写入频率与&lt;code&gt;enabled_hour_offsets&lt;/code&gt;配置对齐，以减少磁盘占用，同时通过&lt;code&gt;merge_asof(tolerance=1h)&lt;/code&gt;确保各个offset的K线都能匹配到最近的元数据快照。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;并发控制&lt;/strong&gt;：通过&lt;code&gt;concurrency&lt;/code&gt;（HTTP请求并发数）和&lt;code&gt;process_concurrency&lt;/code&gt;（进程级代币处理并发数）优化数据抓取效率和稳定性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;API历史数据限制&lt;/strong&gt;：Binance Alpha klines API仅保留约390天历史，导致早期数据无法回填。这是一个无法通过代码解决的硬性限制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;元数据不可回溯&lt;/strong&gt;：历史元数据必须通过持续运行collector才能积累，首次部署只能从部署时点开始获取。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子NaN处理&lt;/strong&gt;：外部因子（如&lt;code&gt;alpha_close&lt;/code&gt;）的&lt;code&gt;NaN&lt;/code&gt;值会触发框架选币逻辑中的静默过滤，必须在生成因子时进行&lt;code&gt;fillna(0.0)&lt;/code&gt;处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;实施一个鲁棒的外部链上数据采集管道（如Binance Alpha），并设计精确的代币路由算法（基于价格偏差匹配、&lt;code&gt;cexCoinName&lt;/code&gt;覆盖、人工配置）来确保新数据源与现有交易标的的高效准确关联。&lt;/li&gt;
-&lt;li&gt;在量化框架中，通过自定义&lt;code&gt;loader&lt;/code&gt;函数和利用&lt;code&gt;pandas.merge_asof&lt;/code&gt;（并设定合适的&lt;code&gt;tolerance&lt;/code&gt;参数）集成外部数据流，以实现时间序列数据的精确对齐，并有效防止数据过时。&lt;/li&gt;
-&lt;li&gt;在开发依赖外部稀疏数据源的因子时，务必在因子生成或数据预处理阶段主动处理&lt;code&gt;NaN&lt;/code&gt;值（例如&lt;code&gt;fillna(0.0)&lt;/code&gt;），以避免在框架的选币或交易逻辑中因数据缺失而导致意想不到的符号过滤或错误计算。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81685</guid>
-      <pubDate>Thu, 14 May 2026 20:56:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>深度回测揭示：为何量化小市值策略应剔除科创板？——基于行业集中度与板块基因的归因分析</title>
-      <link>https://bbs.quantclass.cn/thread/81794</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81794"&gt;小市值：我的超人 | 科创板小市值：我的超鬼&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[科创板、小市值因子、卡玛比率、行业集中度、定价效率]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：回测证实科创板小市值因子表现显著劣于其他板块，剔除该板块可将策略卡玛比从4提升至5以上。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在裸小市值、基本面优化、量价优化等多种风格测试中，科创板在2022及2024年均表现出极端的回撤风险（“超鬼”）。相比之下，北交所虽然流动性更差、市值更小，但因子收益远超科创板。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;行业集中度风险&lt;/strong&gt;：科创板电子、医药、机械行业占比近60%，属于“高研发、长周期”赛道。当半导体或医药周期下行时，由于缺乏其他行业轮动缓冲，小市值公司首当其冲，Beta下行掩盖了Alpha。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;机构化定价效率&lt;/strong&gt;：科创板机构持股占比高，定价更趋于“美股化”，错误定价机会被快速抹平。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;板块基因差异&lt;/strong&gt;：科创板定位于研发攻坚期企业，不确定性极高，而北交所定位“专精特新”，已具一定创新成果。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“全市场小市值普适性”假设。在量化策略中，板块分类（Sector Selection）的权重在特定年份甚至超过了因子本身的贡献。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过横向对比5种小市值变体策略在五大板块（沪深主板、创业板、科创板、北交所）的统计表现，定位回撤来源。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：回测区间覆盖2022年至今；行业分类依据申万一级；板块代号定义为1=深主板、2=沪主板、3=创业板、4=科创板、5=北交所。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：实验表明，仅“龙头行业小市值”策略在科创板选股数30-50时勉强及格，其余情形均显著跑输全市场平均水平。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[策略优化] 建议在全市场小市值策略逻辑中，显式通过黑名单机制剔除代码开头为“688”的科创板标的，以获得更高的风险收益比（Kalmar Ratio提升25%+）。&lt;/li&gt;
-&lt;li&gt;[研究延伸] 关注科创板行业集中度变动，若后期行业分布趋于多元化，可重新评估因子的有效性。&lt;/li&gt;
-&lt;li&gt;[风控建议] 警惕“研发驱动型”小市值公司的尾部风险，其估值逻辑受行业景气度（Beta）影响远大于市值规模逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81794</guid>
-      <pubDate>Thu, 14 May 2026 19:15:20 +0800</pubDate>
-    </item>
-    <item>
-      <title>警惕回测引擎的“静默误差”：量化投资中的实现风险与度量框架</title>
-      <link>https://www.bilibili.com/video/BV1xnRfBLEpU</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xnRfBLEpU"&gt;回测结果，可能从一开始就错了：同一策略不同回测，为何结果差这么多&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么同样的数据和策略，换一个回测引擎可能会得出截然不同的盈亏结论？&lt;/li&gt;
-&lt;li&gt;💡 既然回测代码没有报错，为什么我们依然要怀疑回测结果的真实性？&lt;/li&gt;
-&lt;li&gt;🚀 如何在投入真实资金之前，将不可见的“实现风险”转化为可量化的指标？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知破局：回测引擎并非中立的“基础设施”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实现风险 (Implementation Risk)&lt;/strong&gt;: 绝大多数研究者默认回测引擎是透明的管道，但实际上引擎在撮合成交、成本计入、盯市估值等环节的实现逻辑差异，会悄悄扭曲策略结果。这种误差最危险之处在于它“不报错”，但却能改变结论。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;软件偏差 $
-eq$ 统计偏差&lt;/strong&gt;: 金融界习惯于讨论过拟合、数据挖掘等统计风险，却忽视了软件层面的实现偏差。如果引擎不一致，那么研究者以为在检验策略，实际上可能在检验软件实现的差异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 风险显形：从不可见到可度量的测量框架&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建统一基准 (Benchmark Suite)&lt;/strong&gt;: 设定覆盖低/高换手、规则/机器学习等不同风格的基准策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;执行零成本对照 (Zero-cost Control)&lt;/strong&gt;: 首先在零成本设定下运行多个引擎。若结果一致，则证明后续差异源于成本模型实现而非系统噪声。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨引擎一致性检验&lt;/strong&gt;: 将同一组策略放入多个独立引擎执行，并引入一个可审计的“参考实现”作为基准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;量化指标评估&lt;/strong&gt;: 应用 ES、IUI、DAF 和 CSI 四个指标评估分歧程度及决策影响。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要仅依赖单一回测引擎的漂亮曲线；对于高换手策略，必须格外警惕成本模型带来的量级偏差，因为其实现风险随换手率单调递增。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 核心指标：量化实现风险的四把尺子&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;分歧程度 (ES &amp;amp; IUI)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ES (Engine Spread)&lt;/strong&gt;: 计算统计量的变异系数，衡量不同引擎结果的离散程度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;IUI (Implementation Uncertainty Interval)&lt;/strong&gt;: 为指标附上不确定性区间，将风险直接呈现在报告中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;决策影响 (DAF &amp;amp; CSI)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DAF (Deviation Amplification Factor)&lt;/strong&gt;: 衡量引入成本后，原有的微小分歧被放大了多少倍。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;CSI (Conclusion Switching Index)&lt;/strong&gt;: 检查指标（如夏普比率）的正负号是否翻转。若发生翻转，意味着策略结论被彻底改写。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔍 软件取证：将回测比较转化为缺陷检测&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反向识别缺陷&lt;/strong&gt;: 通过多引擎对比，可以将实现风险的度量转化为“软件取证”工具，识别出未被文档记录的成本模型缺陷、基础设施漏洞或架构不一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结论鲁棒性验证&lt;/strong&gt;: 在实盘部署前，通过交叉比对确认结果是否在不同引擎下保持一致，从而验证回测结果的稳健性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 &amp;quot;最危险的不是程序报错，而是没有报错，却悄悄改变了结论。&amp;quot;&lt;/li&gt;
-&lt;li&gt;💬 &amp;quot;交易成本是实现层面风险的主要预测因素，高换手策略会将这种风险显著放大。&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xnRfBLEpU</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/545ecc968b00db6aaf48570db9b113b22e4c1e3b.png" length="0" type="image/png"/>
-      <pubDate>Thu, 14 May 2026 19:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
