@@ -7,7 +7,48 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 29 May 2026 22:44:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 08:34:02 +0000</lastBuildDate>
+    <item>
+      <title>港股ETF开盘时间差套利：基于市场制度性真空捕获确定性Alpha的实战指南</title>
+      <link>https://bbs.quantclass.cn/thread/85331</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/85331"&gt;零杠杆无融券！港股ETF开盘套利：每天15分钟，年化10%-15%，新手照做就行&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[跨市场套利, ETF折溢价, 集合竞价, 定价权真空期]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用AH市场开盘集合竞价制度差异导致的定价权真空期进行ETF折价套利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：9:20-9:25，港股已进入连续竞价产生真实成交，而A股ETF仍处于不可撤单的集合竞价阶段，形成了独一无二的定价权真空期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：A股ETF的实时参考净值(IOPV)在9:30开盘前仅反映前日收盘价，导致市场对港股隔夜/开盘实时涨跌幅反应滞后，散户情绪驱动产生系统性折价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：该规律不仅存在于港股ETF，亦可能存在于其他具有显著交易时间差或实时净值计算滞后的跨境互挂产品中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于机构套利资金对定价偏差的必然修复。只要折价率超过交易成本，套利资金会于开盘后迅速推高ETF价格以对冲，90%的修复发生在开盘15分钟内。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：理论净值估算 = 前日ETF收盘价 × (1 + 指数实时开盘涨跌幅)；触发因子 = (理论净值 - 集合竞价价) / 理论净值 ≥ 阈值(0.3%-0.8%)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测数据与表现】&lt;/strong&gt;：实测胜率80%以上，平均单次收益约0.7%-0.8%，最大回撤控制在2%以内，且在节假日后及重大事件驱动日机会显著增加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：核心风险在于港股盘中剧烈反转及持仓过夜的贝塔风险；需通过硬性时间止损（9:45）进行风险剥离。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【算法优化】&lt;/strong&gt;：采用“权重股代理法”，通过监控前5大权重股（占比&amp;gt;50%）的竞价数据，可实现对指数理论净值误差≤0.2%的快速估算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：必须避开含美股成分的ETF（如中概互联），避免因美股隔夜定价权产生的误导性溢价；严控佣金成本在万一以内，否则将侵蚀利润空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[自动化开发]：实现实时抓取港股9:20后的真实成交价，对比A股ETF实时集合竞价，自动计算折价率并触发买入提醒。&lt;/li&gt;
+&lt;li&gt;[标的库建立]：筛选日均成交额&amp;gt;10亿、前5大权重占比&amp;gt;50%的纯港股通ETF（如513180、513330）建立核心券池。&lt;/li&gt;
+&lt;li&gt;[执行纪律]：严格锁定9:24:40后的下单窗口，并设定9:45为强制平仓硬时间戳，规避日内趋势波动对套利收益的干扰。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/85331</guid>
+      <pubDate>Sat, 30 May 2026 09:54:56 +0800</pubDate>
+    </item>
     <item>
       <title>AI驱动量化选股：大模型如何重塑投资阿尔法</title>
       <link>https://www.bilibili.com/video/BV1vtVa6nEqd</link>
@@ -5360,44 +5401,6 @@ otin 	ext{Top 20%}) 	ext{ and } (S_{i,t} 	ext{ once in } 	ext{Top 10%})$&lt;/li&
 &lt;/ul&gt;
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-15&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>策略魔改与框架进化：从前置筛选到回撤压缩的量化实战指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-15&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-15&amp;amp;talker=58453205219@chatroom"&gt;2026-05-15_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛡️ 策略优化的“减法”艺术&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;前置筛选优于事后补救&lt;/strong&gt;：在策略（如都江堰策略）中加入PctChange因子，剔除1000小时跌幅超80%的弱势币种。其逻辑在于通过前置过滤去掉“拖后腿”的资产，使剩余票数更易走出放量波段，提升整体抗性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结构化控制风险&lt;/strong&gt;：魔改版沧浪亭方案通过将多空两侧权重独立计算、信号分离及分段杠杆控制，有效避免了一侧波动对整体的“污染”。这种架构能将子策略的高回撤（30%-68%）在组合层面压缩至17.28%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;⚙️ 实盘框架的维护与系统进阶&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;框架1.4.5关键更新&lt;/strong&gt;：新版本针对交易平台（BN）的杠杆调整与下架公告做了兼容，并新增了小时成交额统计。建议用户及时升级以确保实盘稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;无损迁移因子数据&lt;/strong&gt;：升级框架时，可利用网页版实盘的“导出”功能将因子打包，在新框架中点击“导入”即可一键迁移，解决更新后缺失因子的痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Webhook通知切换&lt;/strong&gt;：若将企微通知切换为飞书，不能仅更改URL，还需对底层函数逻辑进行适配修改。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;📉 市场洞察：波动中的生存法则&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;洗盘的积极意义&lt;/strong&gt;：BTC的闪崩在量化视角下被视为“暴力洗盘”。对于偏进攻型或中性策略，这种波动能让仓位从高位震荡回归到更安全的中性状态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资产价值回归&lt;/strong&gt;：BNB在市场波动中表现出较强的稳健性。对于量化投资者而言，应坚信“垃圾终将归零”，在泡沫破裂中通过策略逻辑获利。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;“做好前置筛选，比事后调仓更扛揍。” —— 邓普顿&lt;/li&gt;
-&lt;li&gt;“垃圾终将归零，只需要耐心等待。” —— WN_暖春拂晓&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78680&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=81763&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-15&amp;talker=58453205219@chatroom</guid>
       <pubDate>Fri, 15 May 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
