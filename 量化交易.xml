@@ -7,7 +7,94 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 30 May 2026 22:39:47 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 31 May 2026 08:32:36 +0000</lastBuildDate>
+    <item>
+      <title>筹码博弈与局部相似性建模：利用半径邻居回归捕捉台股中期趋势</title>
+      <link>https://www.bilibili.com/video/BV1GyGC6LEXL</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1GyGC6LEXL"&gt;基于半径邻居回归的台湾股市中期趋势预测研究：这篇论文关注的是台湾加权股价指数，也就是TAIEX的中期趋势预测问题：基于半径邻居回归的台湾股市中期趋势预测研究：论&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在制度约束鲜明的新兴市场，局部相似性匹配比全局深度学习模型更具鲁棒性？&lt;/li&gt;
+&lt;li&gt;💡 筹码结构（外资与投信行为）如何从市场噪音中提取出相关性高达 0.7 的核心预测信号？&lt;/li&gt;
+&lt;li&gt;🚀 如何通过半径参数（Radius）的动态校准，在金融不确定性中锁定“历史重演”的交易机会？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---\&lt;/p&gt;
+&lt;h3&gt;🧩 状态依赖与局部规律：RNR 模型的预测内核&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对抗全局平均的失真&lt;/strong&gt;: 传统模型（如 LSTM）试图拟合所有历史样本，容易被不相干的阶段干扰。RNR 模型仅在特征空间中寻找与当前筹码、价量状态足够相似的历史片段，只有在“历史高度相似”时才给出预测，这种机制更契合金融市场的 Regime Dependent（状态依赖）特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;筹码行为的定价逻辑&lt;/strong&gt;: 台湾市场受 QFII（外资）影响极大，其净买卖指标与指数相关性高达 0.707。模型通过将机构资金流、融资维持率与技术指标结合，捕捉的是市场主导资金的博弈共识，而非单纯的量价变动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---\&lt;/p&gt;
+&lt;h3&gt;🛠️ 从筹码特征到期货交易的闭环系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;特征工程集成&lt;/strong&gt;: 聚合筹码端（外资/投信/融资）、技术端（MA/MACD/布林带）与市场端（换手率/开盘缺口），采用 60 日窗口捕捉机构调仓周期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;半径参数校准&lt;/strong&gt;: 寻找最优相似性阈值（实验表明半径在 14-15 左右），在 20 日方向预测中追求 85% 以上的准确率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险受控的交易&lt;/strong&gt;: 基于预测信号操作台指期（TAIEX Futures），强制执行 10% 止损边界，将预测概率转化为可回测的复利收益。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;避开纯统计陷阱&lt;/strong&gt;: 仅依赖相关系数筛选特征往往劣于基于市场知识（领域认知）自选的特征集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态半径挑战&lt;/strong&gt;: 半径过大会引入噪声，半径过小则导致信号稀疏，需针对不同市场周期进行回测校验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;---\&lt;/p&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “模型复杂度不是唯一关键，真正有效的预测框架来自对市场机制的深刻理解与合适建模方法的结合。”&lt;/li&gt;
+&lt;li&gt;💬 “预测不应关注所有时候市场平均怎么走，而应关注当市场处于类似筹码和价量状态时，过去通常怎么走。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1GyGC6LEXL</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/f239ed95e144e179c4e1fb9afd260c28b5a2a87d.png" length="0" type="image/png"/>
+      <pubDate>Sun, 31 May 2026 10:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化回测框架的架构跃迁：基于计划与执行解耦的高效缓存管理方案</title>
+      <link>https://bbs.quantclass.cn/thread/85571</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/85571"&gt;【剑南框架】Fusion大一统，量化更轻松——重磅重做！！！一键智能全流程，因子选股不多算。新建调度方式，不惧官方更新！&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;☑‸ 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章兴性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Planner-Executor架构, 偏差缓存MD5, 依赖链管理, 像量化回测优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过计划与执行解耦以及全局缓存共享，极大地提升了Fusion量化框架的回测传输与存储效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;⛭️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：传统回测框架中缓存不统一、缺乏分步骤回测；依赖链条不清晰导致因子参数修改后需要大量冗余重算；多策略组合时发生数据预处理的重复计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Planner-Executor 解耦架构&lt;/strong&gt;：计划器（Planner）负责扫描依赖链、MD5比对并生成执行计划；执行器（Executor）调度原生函数实现落地。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外挂式计划者&lt;/strong&gt;：不修改原生函数内部逻辑，保证了与官方框架的向后兼容性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;共享缓存出口&lt;/strong&gt;：引入 &lt;code&gt;runtime_cache_name&lt;/code&gt; 字段，允许不同的 &lt;code&gt;config&lt;/code&gt; 共用同一因子缓存，避免重复计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能跳过机制&lt;/strong&gt;：基于依赖链的MD5校验，仅重算受影响的时序/截面因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全息列保留&lt;/strong&gt;：强制保留所有一级行业。资金流等数据，减少研究过程中反复整理数据的时间成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;存储&lt;/strong&gt;：因子缓存占用从 55G 降以 14G。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;耗时&lt;/strong&gt;：5个策略组的回测时间从 1282秒 降至 780秒（约减少 40%）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：当 &lt;code&gt;end_date&lt;/code&gt; 设置为 &lt;code&gt;None&lt;/code&gt; 时，框架会自动扫描数据中心，一旦数据更新则会触发全量重算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓存共享化&lt;/strong&gt;：在多策略研究阶段，通过化名或指定目录强制共用因子缓存，可提升 IO 效率并截断重复计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;固定回测终点&lt;/strong&gt;：做因子研究时必须手动指定 &lt;code&gt;end_date&lt;/code&gt; 而非 &lt;code&gt;None&lt;/code&gt;，避免因数据中心日常更新导致的“缓存阶跃式失效”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖链外置&lt;/strong&gt;：参考 Planner 思路，将“因子-策略-仓管”的依赖关系在执行前进行静态解析，而非在计算过程中动态判断，以实现更可控的分步骤回测。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/85571</guid>
+      <pubDate>Sun, 31 May 2026 09:42:02 +0800</pubDate>
+    </item>
     <item>
       <title>从回测陷阱到实盘突破：TD3算法构建高稳定性自动化交易系统全解析</title>
       <link>https://www.bilibili.com/video/BV1hwVV6xEGc</link>
@@ -5246,102 +5333,6 @@ otin 	ext{Top 20%}) 	ext{ and } (S_{i,t} 	ext{ once in } 	ext{Top 10%})$&lt;/li&
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1T85X6eEre</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/a0410ce40c4710b308e5bae8d034abe7c987577b.png" length="0" type="image/png"/>
       <pubDate>Sat, 16 May 2026 11:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>数字货币分域回测深度洞察：双月牙碧池的Alpha来源与现货-合约市场轮动分析</title>
-      <link>https://bbs.quantclass.cn/thread/81973</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81973"&gt;全市场不同币池的表现及都江堰、落单狗应用&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[分域回测, 双月牙碧池, 因子切割, 现货合约差异]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过维恩图对币池进行精细化分域切割，揭示了非重叠区域（双月牙）具有极强的Alpha超额潜力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：回测显示“现货 ∩ 合约”（主流币交集）表现垫底（RD -0.14），而“双月牙”（仅现货或仅合约的非对称部分）RD达0.75，表现大幅跑赢GA。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：纯现货域（老币）弹性降低且币种缩减；纯合约域（新上币）在2025年后表现出强劲溢价；交集区域因做空便利与套利密集，成为更适合做空的分域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：现货与合约的博弈结构决定了Alpha分布，主流币种因流动性陷阱，其多头价值在量化维度上远低于边缘分域。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于回避高度博弈的重叠市场，利用“因子切割”手法锁定市场非对称机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：通过 &lt;code&gt;SpotSwapBoth&lt;/code&gt; 因子区分币池，实现逻辑：&lt;code&gt;market='mix_swap'&lt;/code&gt;, &lt;code&gt;filter_list=[('SpotSwapBoth', 1, 'val:==0')]&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：对比了不同选币逻辑（先剔除再选币 vs 先选币再剔除）的差异，指出官方逻辑与因子过滤逻辑在低相关性选币时的显著表现差异。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：双月牙分域21年至今净值增长11.93倍，年化回报+58.75%，最大回撤-77.81%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[因子优化] 在多头策略选币池中尝试显式排除 &lt;code&gt;SpotSwapBoth == 1&lt;/code&gt; 的重叠币种，直接切向“双月牙”域提升Sharpe。&lt;/li&gt;
-&lt;li&gt;[策略部署] 针对“现货 ∩ 合约”分域构建专门的对冲或空头策略，捕捉其超跌特征。&lt;/li&gt;
-&lt;li&gt;[工程实现] 利用 &lt;code&gt;filter_list&lt;/code&gt; 实现维恩图分域的自动化切换，监控Binance上架新币（如TradFi/Meme类）对特定分域容量的扩充。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81973</guid>
-      <pubDate>Sat, 16 May 2026 08:42:46 +0800</pubDate>
-    </item>
-    <item>
-      <title>硬核因子优化：无参增强筹码反转与委托变动强度，打造高效反转策略</title>
-      <link>https://bbs.quantclass.cn/thread/81960</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/81960"&gt;A股进击_不死鸟策略&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[筹码反转因子, 委托变动强度, 因子增强, 反转策略, 集合竞价]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[无参增强筹码反转与委托强度因子，显著提升反转策略表现。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：筹码反转因子容易选出超跌且有退市风险的股票，这表明该因子可能捕捉到市场极度悲观后的“绝望筹码”特征。集合竞价时段在价格不变动情况下的委托量变化，能够有效揭示特定资金的隐秘建仓行为。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：高筹码反转值指示大量筹码被深套，一旦出现反转信号，抛压相对较轻，易被拉升。集合竞价的委托变动强度捕捉的是不引起价格冲击的交易，常由具备实力的资金操作，具有前瞻性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;筹码反转&lt;/strong&gt;: 识别超跌后上方抛压较小的股票，以期待反转。原始因子通过累加套牢筹码回本所需反弹幅度衡量抛压。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;委托变动强度&lt;/strong&gt;: 识别集合竞价（09:20-09:25）期间，在不引起价格变动下，资金的隐秘买入量，暗示“牛逼操盘手”的低调建仓。两者结合用于反转策略：寻找超跌且有暗流资金介入的标的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;筹码反转因子优化&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;广度加权&lt;/strong&gt;: 对解套幅度值以价格分位数远近（如1到19）进行加权，深套筹码权重高，旨在识别“绝望死筹”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;平方加权&lt;/strong&gt;: 使用解套值的平方作为权重，进一步放大深套筹码的影响，提升因子有效性（因子得分从0.10提升至0.42，第一分箱从7.59提升至9.36）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;委托变动强度因子优化&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;买卖双边纳入&lt;/strong&gt;: 不仅计算买单暗流，也纳入卖单变化进行考量，提升信息全面性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时间加权&lt;/strong&gt;: 对集合竞价09:20-09:25，越接近开盘的委托量（价格未变动部分）赋予更高权重，捕捉更即时和有价值的信息（因子得分从7.38提升至13.08，第20分箱从8.09提升至11.38）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;筹码反转&lt;/strong&gt;: 需历史筹码分布数据，计算各分位上筹码回本所需反弹幅度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;委托变动强度&lt;/strong&gt;: 需集合竞价期间（09:20-09:25）逐笔委托数据，提取价格未变动时的买卖单增量，并以N日全天成交额均值进行归一化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：优化后的因子在回测中显著提升分箱收益和因子得分。卷优化后的策略表现良好，适配2D（两天）持有周期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;筹码反转因子&lt;/strong&gt;: 易选到有退市风险的股票，建议短持（2D）并结合风险标签过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;集合竞价因子&lt;/strong&gt;: 实盘要求高，需在09:25数据获取后，09:30前完成下单，以最小化滑点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;基于平方加权的筹码反转因子与时间加权的买卖双边委托变动强度因子，构建一个2D持有的反转策略。核心挑战在于集合竞价数据的实时获取（需在09:25完成）与极速交易下单（在09:30前）。&lt;/li&gt;
-&lt;li&gt;对筹码反转因子选出的股票，务必结合财务指标、ST标签或其他风险预警机制进行二次筛选，以规避潜在的退市风险股，提高策略的稳健性和资金安全性。&lt;/li&gt;
-&lt;li&gt;进一步探索委托变动强度因子，可尝试对其买卖方向进行更精细的分离处理（如单独构建卖方强度因子），或引入多日委托均值来捕捉更长期的隐秘资金流向，以挖掘更多市场微观结构特征。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/81960</guid>
-      <pubDate>Sat, 16 May 2026 00:19:09 +0800</pubDate>
     </item>
   </channel>
 </rss>
