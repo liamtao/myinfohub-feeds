@@ -7,7 +7,341 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 01 Jun 2026 09:04:12 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 22:59:13 +0000</lastBuildDate>
+    <item>
+      <title>AI Agent与Notion高效协同：八步构建智能驱动的第二大脑</title>
+      <link>https://www.youtube.com/watch?v=YGWcFMR8gk8</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=YGWcFMR8gk8"&gt;Learn To Use Notion With AI Agents (Full Guide)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Codeex 与 Notion - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：AI Agent (Codeex) 作为超级应用，通过插件、内置浏览器及上下文感知能力，深度控制并优化 Notion 的数据管理与工作流，构建智能化第二大脑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、应用内上下文（AppShots）、外部网页内容、Notion数据库/页面内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：Notion 数据库条目、页面内容修改、格式化研究报告（通过 slashtabs）、自动化日常总结、iMessage 交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI Super App&lt;/strong&gt;: 集聊天、编程、知识工作于一体的跨应用平台（如 Codeex, Claude Desktop App）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notion Plugin&lt;/strong&gt;: 赋予 AI Agent 特定 Notion 操作能力（如创建、编辑、查询）的技能包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AppShots&lt;/strong&gt;: 快速捕获当前屏幕应用上下文并发送给 AI Agent 的功能，实现跨应用无缝协作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Slashtabs&lt;/strong&gt;: Notion 中用于组织多标签页内容的区块，适合 AI 插入结构化研究。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Custom Notion Skill&lt;/strong&gt;: 用户为特定 Notion 工作流定制的 AI Agent 自动化指令集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：AI Agent 与 Notion 的基础配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：建立 AI Agent 对 Notion 的基本控制与交互能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：确保已下载并安装 Codeex 桌面应用、Notion 桌面应用，并拥有付费 ChatGPT 账户（Codeex访问权限）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;下载安装&lt;/strong&gt;：访问 &lt;code&gt;notion.com/desktop&lt;/code&gt; 下载 Notion，访问 &lt;code&gt;chatgbt.com/codexc&lt;/code&gt; 下载 Codeex。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codeex 登录&lt;/strong&gt;：使用 ChatGPT 账户登录 Codeex。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notion 插件集成&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;点击 Codeex 左上角 &lt;code&gt;Plugins&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;搜索并选择 &lt;code&gt;Notion&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;点击 &lt;code&gt;Download&lt;/code&gt; 安装 Notion 插件。&lt;/li&gt;
+&lt;li&gt;安装后，可在 Codeex 对话框中输入 &lt;code&gt;@&lt;/code&gt; 验证插件是否可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：在 Codeex 内高效管理 Notion 内容&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：利用 Codeex 的内置浏览器与 AI 指令，实现 Notion 内容的实时查看与编辑，无需切换应用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已安装 Notion 插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;AI 创建/修改 Notion 内容&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在 Codeex 对话框中，使用 &lt;code&gt;@notion&lt;/code&gt; 指令发起 Notion 操作，例如：&lt;code&gt;@notion, please go to key docs inside notion. Add a new database in that page called Codeex new database. Add 10 different entries inside that database and make them all poems about the latest news about Codeex and Claude Code.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;AI 完成操作后，生成的 Notion 链接可直接点击跳转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notion 页面在 Codeex 内嵌浏览器中打开&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;对于 Codeex 返回的 Notion 链接，进行 &lt;code&gt;右键点击&lt;/code&gt; -&amp;gt; 选择 &lt;code&gt;Open in browser&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;Notion 页面将在 Codeex 侧边栏的内置浏览器中加载，支持登录并保持会话。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 实时编辑 Notion 页面&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;在 Codeex 内嵌 Notion 浏览器中，向 AI 发送编辑指令，例如：&lt;code&gt;Please remove the worst five and remove the news date column and add a category column which is multi select.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;观察 Notion 页面内容实时更新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：为 AI Agent 建立 Notion 工作规范&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过在 Notion 中预设指令，确保 AI Agent 在处理特定内容时遵循统一的格式与逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：存在需要 AI Agent 协作的 Notion 页面或数据库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建 Agent 指令区&lt;/strong&gt;：在 Notion 关键页面（例如：&lt;code&gt;Key Docs&lt;/code&gt; 顶部）创建显眼的文本区块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;撰写明确指令&lt;/strong&gt;：详细说明 AI Agent 应如何处理该页面的数据、格式要求（例如：&lt;code&gt;If you are an AI agent read the following tabs... explain how to use the video database, how to use the quicknotes, how to use the chorus docs and how to use ad scripts.&lt;/code&gt; 确保脚本粉色、CTA绿色）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：定制 AI Agent 的 Notion 技能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：封装特定 Notion 操作流程为可复用技能，提高 AI Agent 执行效率与一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：具备一个已在 Codeex 中成功执行并期望标准化的 Notion 工作流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;引导 AI 执行任务&lt;/strong&gt;：通过多轮对话，让 AI Agent 成功并完美地完成某个 Notion 相关任务（例如：&lt;code&gt;Add a note to the Codeex notes database... Make sure to format it correctly... make sure to be more concise and include primary source links.&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指令封装为技能&lt;/strong&gt;：当 AI Agent 执行结果满意后，向其发出指令：&lt;code&gt;Okay, turn that into a skill called notion quicknote.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调用定制技能&lt;/strong&gt;：在 Codeex 对话框中，通过 &lt;code&gt;/notion quicknote&lt;/code&gt; 或 &lt;code&gt;/quicknote notion&lt;/code&gt; 直接调用该技能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 5：利用 Slashtabs 优化 Notion 研究整合&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在 Notion 页面中以整洁、结构化的方式集成 AI Agent 生成的深度研究，避免页面混乱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：一个用于承载研究内容的 Notion 页面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;发出研究指令&lt;/strong&gt;：向 Codeex 发送详细研究请求，并明确要求使用 Slashtabs 格式：&lt;code&gt;Hey, I want you to do in-depth research... and put it in. And you just say slash tabs at the top of the page that I have open so that you don't clutter it. I want original sources to where you found the information. I want some research on how to use codeex with notion. Stuff that I didn't find on the internet. All you should be adding is the slashtabs.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;（可选）将格式转化为技能&lt;/strong&gt;：当研究结果格式满意后，指示 Codeex：&lt;code&gt;Hey I really like this format. Please make this a skill. I want you to call it notion research and say to always use this format unless I specify something different than listen to my command when I do it in the future.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调用研究技能&lt;/strong&gt;：使用 &lt;code&gt;/notion research&lt;/code&gt; 调用定制的研究整合技能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 6：通过 AppShots 快速传递 Notion 上下文&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：无论在 Notion 桌面应用何处，都能一键将当前 Notion 页面链接及上下文传递给 Codeex，实现快速接力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Codeex 桌面应用在后台运行，Notion 桌面应用打开至特定页面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;触发 AppShots&lt;/strong&gt;：在 Notion 页面中，同时按下 &lt;code&gt;Command + Command&lt;/code&gt;（两次 Command 键）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发送指令&lt;/strong&gt;：AppShots 将自动粘贴 Notion 页面链接至 Codeex 对话框。接着输入 AI 指令，例如：&lt;code&gt;Please add three ideas to this. Add them as long form.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;（可选）结合其他技能&lt;/strong&gt;：AppShots 后可立即接续其他定制技能，例如：&lt;code&gt;Can you notion research.&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 7：构建 AI Agent 专属 Notion 笔记与自动化报告&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：为 AI Agent 创建独立的笔记空间，并设定自动化任务，定期总结工作进展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：存在一个专供 AI Agent 写入的 Notion 数据库（如 &lt;code&gt;Codeex quicknotes&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建 Agent 专属笔记&lt;/strong&gt;：确保 Notion 中存在一个 AI Agent 可以写入的数据库（例如，通过定制技能 &lt;code&gt;/notion quicknote&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设置自动化日志&lt;/strong&gt;：向 Codeex 发送自动化指令：&lt;code&gt;Hey Codex, I want you to set up an automation so that every single night at 1000 p.m. I want you to write a daily summary which explains all of the chats we did and all of the most important things. And I just want you to write a journal entry in your quick notebook. And I want you to just make it no more than like a one pager which explains everything that we did. And then I want you to email it to me... make sure to include at the top tasks that I might need to do? Like try to infer the most important things, include them at the top and tasks that I need to do at the top based on all my context.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;验证自动化&lt;/strong&gt;：确认 Codeex 已创建名为 &lt;code&gt;Daily Codec Summary&lt;/code&gt; 的自动化任务，并设定为每日 10 p.m. 执行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 8：利用 Notion 高质量示例库指导 AI 生成&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过提供结构化的高质量内容示例，指导 AI Agent 生成符合特定风格和标准的输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Notion 中已建立一个包含各类高质量内容示例（如视频脚本、推文、广告文案）的数据库或页面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;创建高质量示例库&lt;/strong&gt;：在 Notion 中，建立一个名为 &lt;code&gt;High-Quality Examples&lt;/code&gt; 的区域，分类存储各种类型的优秀内容（如 &lt;code&gt;Top Performing YouTube Videos&lt;/code&gt;, &lt;code&gt;High-Quality Content&lt;/code&gt;, &lt;code&gt;Scripted Instagram Videos&lt;/code&gt; 等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结合 AppShots 传递上下文&lt;/strong&gt;：在 Notion 中打开需要 AI 参照的文档（如 &lt;code&gt;Chorus Docs&lt;/code&gt;），使用 &lt;code&gt;Command + Command&lt;/code&gt; 触发 AppShots。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指令 AI 参照示例&lt;/strong&gt;：向 Codeex 发送指令，明确要求其参照 Notion 中的高质量示例：&lt;code&gt;Okay I need to write 10 short form scripts like Riley's style. Please write them on chorus. Please look at the high quality examples on notion. They're in key docs. Please write them in that style about chorus.&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Codeex Plugins (插件)&lt;/strong&gt;：扩展 AI Agent 功能集，提供与 Notion 等外部应用的集成能力。安装后，通过 &lt;code&gt;@&lt;/code&gt; 符号调用特定插件技能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codeex Built-in Browser (内置浏览器)&lt;/strong&gt;：一个保持用户登录状态的浏览器，允许在 Codeex 界面内直接访问并与 Notion 等网页应用交互，实现无缝多任务处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codeex Skills (技能)&lt;/strong&gt;：用户自定义或系统预设的自动化指令序列，用于简化重复性任务或标准化特定工作流。通过 &lt;code&gt;/&lt;/code&gt; 符号调用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AppShots (应用快照)&lt;/strong&gt;：一种跨应用上下文传输机制，通过双击 &lt;code&gt;Command&lt;/code&gt; 键，将当前活跃应用的屏幕截图和相关链接自动发送给 AI Agent。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automation (自动化)&lt;/strong&gt;：在 Codeex 中预设的定时或事件触发任务，例如每日生成总结并发送邮件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;无固化设置的混乱&lt;/strong&gt;：未为 AI Agent 建立稳固的 Notion 设置，尤其在多 Agent 或多用户协同环境下，易导致工作流混乱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缺乏明确指令&lt;/strong&gt;：未在 Notion 中为 AI Agent 提供清晰的操作指引，可能导致输出格式不符或逻辑偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定制化技能&lt;/strong&gt;：将重复且完美的 AI 操作流程封装为自定义技能，大幅提升工作效率与一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AppShots + 技能&lt;/strong&gt;：结合 AppShots 快速传递上下文与定制技能，实现快速、精准的跨应用操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Notion Slashtabs&lt;/strong&gt;：利用 Slashtabs 结构化 AI 生成的研究内容，保持页面整洁与信息易读性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI Agent 专属笔记&lt;/strong&gt;：为 AI Agent 设立独立 Notion 笔记，方便其记录和总结，避免与人类笔记混淆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高质量示例库&lt;/strong&gt;：在 Notion 中建立内容风格和质量的参考库，训练 AI 产出符合预期的内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全屏 Notion 体验&lt;/strong&gt;：在 Codeex 内嵌浏览器中，通过 &lt;code&gt;Command + B&lt;/code&gt; 隐藏侧边面板，实现 Notion 全屏操作，同时仍可调用 AI 功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=YGWcFMR8gk8</guid>
+      <enclosure url="https://i.ytimg.com/vi/YGWcFMR8gk8/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Jun 2026 21:41:43 +0800</pubDate>
+    </item>
+    <item>
+      <title>从算力工厂到 agentic AI：NVIDIA 重新定义计算范式与个人电脑</title>
+      <link>https://www.bilibili.com/video/BV1Rn5F6fECD</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Rn5F6fECD"&gt;【完整高清字幕版】英伟达黄仁勋2026年GTC大会演讲全文 260601（推荐程度：5星必看）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 &lt;strong&gt;为什么说 AI Agent 将终结传统的“点击与输入”计算模式？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;当 CPU 不再为人类服务而是为 Agent 设计时，底层架构会发生怎样的突变？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;“AI 工厂”如何将算力直接转化为营收，从而改变企业的资本投入逻辑？&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 计算范式的代际跃迁：从应用到 Agent&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Agent 核心定义&lt;/strong&gt;: AI Agent 不再是简单的问答机器，而是一个由 &lt;strong&gt;模型（大脑）+ 运行环境（身体）+ 工具/技能（手脚）+ 运行时（工作坊）&lt;/strong&gt; 组成的完整闭环系统。它能够观察、推理、规划并调用外部工具完成复杂任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互逻辑重构&lt;/strong&gt;: 计算模式从“启动应用 $\rightarrow$ 点击 $\rightarrow$ 输入”进化为“表达意图 $\rightarrow$ AI 生成代码/调用工具 $\rightarrow$ 交付结果”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;算力即营收&lt;/strong&gt;: 在 AI 工厂模型中，算力（Tokens）直接等同于收入。性能/瓦特（Tokens per Watt）成为衡量企业盈利能力的核心指标，而非单纯的硬件成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 硬件底座的激进演进：Vera Rubin 与 Agent CPU&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vera Rubin 系统&lt;/strong&gt;: 并非单一芯片，而是一个多机架 Pod 级超算系统。其核心在于“极端协同设计”（Extreme Co-design），通过移除冗余线缆、采用 PCB 中板设计，将组装时间从 2 小时缩短至 5 分钟，极大提升了可靠性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vera CPU (Agent-Centric CPU)&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;认知转译&lt;/strong&gt;: 传统 CPU 是为“以秒计”的人类设计的，而 Agent 是“以纳秒计”的。Agent 等待 CPU 响应的每一毫秒都在浪费昂贵的 GPU 算力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构突破&lt;/strong&gt;: 追求极致的单线程性能（IPC）和内存带宽（LPDDR5X），旨在消除 Agent 调用工具和访问数据库时的延迟瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 企业级 Agent 部署范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模型层&lt;/strong&gt;: 部署高性能 LLM（如 Nemotron-3 Ultra），根据业务需求进行微调。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编排层 (Harness)&lt;/strong&gt;: 使用编排框架（如 Open Shell）定义 Agent 的行为逻辑、权限与安全沙箱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具层 (Skills)&lt;/strong&gt;: 接入 CUDA-X 库等专业工具集，赋予 Agent 处理科学计算或工程问题的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运行时 (Runtime)&lt;/strong&gt;: 在优化过的 AI 平台（云端或本地）运行，确保内存管理（KV Caching）高效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要仅追求低廉的芯片价格，而应关注“Token 产出/瓦特”，因为错误的架构会导致营收能力低下且资产寿命缩短。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 个人计算的重启：RTX Spark 与 AI PC&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;端侧 Agent 化&lt;/strong&gt;: PC 将从“运行软件的工具”变为“运行个人 Agent 的载体”。Agent 24/7 全天候运行，通过本地模型（NemoTron）与云端模型协同，管理家居、处理工作流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RTX Spark 架构&lt;/strong&gt;: 将 Blackwell GPU 与定制 Grace CPU 融合，旨在支持本地 Agent 原生运行，实现从“软件驱动”到“意图驱动”的交互变革。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 物理 AI 与具身智能的闭环&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cosmos 3 世界模型&lt;/strong&gt;: 解决物理 AI 缺乏第一视角数据的痛点。通过“计算产生数据”，利用合成视频和模拟环境为机器人提供训练集。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通用机器人底座 (Isaac Groot)&lt;/strong&gt;: 提供从模型、仿真到硬件参考设计的全栈平台，将 Agentic 计算模式从数字世界延伸至物理实体（人形机器人、自动驾驶车）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “过去 40 年我们定义了 PC，现在我们要重新定义它：PC 将不再是启动应用的入口，而是个人 AI Agent 的载体。”&lt;/li&gt;
+&lt;li&gt;💬 “Compute is revenue. Performance per watt is your revenue.”&lt;/li&gt;
+&lt;li&gt;💬 “我们不再是 GPU 公司，而是一家基础设施公司。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Rn5F6fECD</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/fab325d91f10d7f09dcdb20cc26cf8848660129c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Jun 2026 21:22:28 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI 经济学大转向：从“补贴时代”迈向“Token 稀缺时代”</title>
+      <link>https://www.youtube.com/watch?v=ex6abzvzaIo</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ex6abzvzaIo"&gt;The AI Token Shortage Begins&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 &lt;strong&gt;为什么 AI 巨头的营收暴涨却让企业用户感到“价格惊恐”？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;当 AI 从“按席位付费”转向“按 Token 付费”，商业底层逻辑发生了怎样的质变？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;在 Token 成为稀缺资源的未来，企业的核心竞争力将如何被重新定义？&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 商业逻辑的范式转移：从席位到 Token&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;经济单元的置换&lt;/strong&gt;: AI 公司的核心营收单位已从“席位（Seat）”转移到“Token”。这意味着营收不再受限于用户增长数量，而取决于 AI 代理（Agents）在后台产生的数据消耗量。这种转变导致了 OpenAI 和 Anthropic 等公司 ARR 的指数级跃升（如 Anthropic 从 30 亿飙升至 470 亿）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 补贴时代的终结&lt;/strong&gt;: 过去，高额的月费订阅（如 200 美元/月）实际上是对权力用户的巨额补贴。部分用户消耗的 Token 实际价值可达订阅费的 10-20 倍。现在，厂商正通过引入使用限制和阶梯计费，强制将用户推向真实的成本线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 Token 稀缺性：AI 时代的“新原油&amp;quot;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;结构性短缺&lt;/strong&gt;: 算力不足以支撑所有潜在需求，导致 Token 成为一种稀缺资源。这种稀缺性引发了“Token Maxing”（Token 极值化）现象，即企业在不计成本地尝试 AI 极限，但随之而来的是严重的 ROI 质疑（如 Uber 的 AI 预算在 4 个月内耗尽）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场响应机制&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;成本驱动创新&lt;/strong&gt;: 出现如 Cursor Composer 2.5 等低成本、高性能的替代模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;价格战&lt;/strong&gt;: 中国模型（如 DeepSeek）通过激进的价格削减，吸引那些无法承担顶尖模型高昂成本的企业客户。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 企业 AI 部署的生存策略&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;成本审计&lt;/strong&gt;: 立即废除纯粹追求消耗量的“Token 排行榜”，转向以输出结果（Output）为核心的价值评估模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分级调用&lt;/strong&gt;: 采用“混合模型架构”，简单任务调用 Gemini Flash 等廉价模型，核心复杂任务调用 Opus/GPT-5 等顶尖模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能力对齐&lt;/strong&gt;: 识别内部的“能力过剩（Capabilities Overhang）”，通过引入外部咨询服务（如 OpenAI Deployment Company）快速将模型潜力转化为实际生产力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免在不具备 Agent 编排能力的情况下盲目增加 Token 预算，否则将陷入“高消耗、低回报”的死循环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 基础设施的垂直整合与权力重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;算力霸权的转移&lt;/strong&gt;: Elon Musk 将 SpaceX 转型为“新云（Neo Cloud）”，通过 Colossus 数据中心为 Anthropic 提供算力支持。这标志着 AI 竞争的重心从纯软件模型层下移至物理基础设施层。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轨道数据中心&lt;/strong&gt;: 算力需求之巨，已促使马斯克与贝佐斯开始布局“空间数据中心”，将物理空间的拓展视为解决 Token 稀缺性的终极方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “我们正处于从 AI 补贴时代向 Token 稀缺时代的世俗转移。”&lt;/li&gt;
+&lt;li&gt;💬 “模型发布开始像 iPhone 发布一样：每次升级都只是相机好了一点，而真正的突破在于承载模型的‘外壳’（Harnesses）和工作流。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=ex6abzvzaIo</guid>
+      <enclosure url="https://i.ytimg.com/vi/ex6abzvzaIo/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Jun 2026 18:02:16 +0800</pubDate>
+    </item>
+    <item>
+      <title>深潜 DeepMind：Demis Hassabis 的科学野心与 AI 赛跑的必然性</title>
+      <link>https://www.youtube.com/watch?v=WC_embCiwgU</link>
+      <description>&lt;p&gt;&lt;a href="UCUl-s_Vp-Kkk_XVyDylNwLA"&gt;Unsupervised Learning: With Jacob Effron&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=WC_embCiwgU"&gt;A Conversation With Demis Hassabis' Biographer&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 &lt;strong&gt;AI 竞争是不可避免的宿命吗？&lt;/strong&gt; 为什么即使是像 Demis 这样理想主义的领导者，最终也会意识到单打独斗的安全性是徒劳的？&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;“科学品味”如何决定技术突破？&lt;/strong&gt; 为什么在蛋白质折叠预测上，对“解决问题”的执念比“赢得比赛”更能带来诺贝尔奖级的成果？&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;科学家领导力 vs. 硅谷网络力：&lt;/strong&gt; 当学术纯粹性遭遇产品化速度，DeepMind 的“多向对冲”策略在面对 OpenAI 的“集中豪赌”时，究竟是稳健还是迟钝？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 AI 竞赛的集体行动困境&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;必然的赛跑&lt;/strong&gt;: 面对极其强大的技术诱惑，全球范围内必然会出现多个实验室（如美国、中国、法国、加拿大）。单一实验室追求安全是无效的，因为只要有一个实验室不安全，全世界都不安全。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从单体到共治&lt;/strong&gt;: Demis 的认知经历了从“希望由单一实验室控制 AGI”到“意识到这是一个只有政府能解决的集体行动问题”的转变。他现在主张由政府充当执行者，建立像 FDA 那样的审查机制，甚至认为最终需要中美协作才能真正实现全球安全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知偏差：被低估的 Demis 与 DeepMind&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;名声的错位&lt;/strong&gt;: 相比于 Sam Altman 的社交媒体掌控力和 Dario Amodei 的公开对抗，Demis 过于“稳健”和“理智”，导致他在公众认知中的存在感较低，但他在 AI for Science 领域的统治力极其深厚。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;战略对冲 vs. 集中豪赌&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google DeepMind&lt;/strong&gt;: 依托深厚资金和人才，倾向于在多个路径上同时下注（Hedging），追求广泛的智能探索。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI/Anthropic&lt;/strong&gt;: 倾向于在特定路径（如 Scaling Law、Coding Agents）上进行高浓度的集中投注，从而在产品化（如 ChatGPT、Claude Code）上获得先发优势。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 打造前沿科技突破的“科学品味” (Scientific Taste)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心痛点&lt;/strong&gt;: 团队在达到“业界领先”后容易产生满足感，从而陷入局部最优，无法攻克真正的科学难题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;定义终极目标&lt;/strong&gt;: 将目标从“击败竞争对手”提升为“彻底解决该科学问题”（例如：从“预测得比别人准”到“让生物学家能用它造药”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;评估 idea 流动性&lt;/strong&gt;: 观察团队在讨论时的状态。如果团队在碰撞可能性、方案流畅，则判定为“具有流动性”，应加大资源投入并强力推进。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;果断切换领航员&lt;/strong&gt;: 当原项目负责人因认知局限而建议“宣布胜利”时，迅速更换为具有更高愿景和执行力的领导者。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 权力博弈与独立之梦&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Project Mario (潜逃计划)&lt;/strong&gt;: Demis 曾计划在 Reed Hoffman 的 10 亿美元资助下从 Google 分拆，将其作为与 Google 谈判安全监督权的筹码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最终抉择&lt;/strong&gt;: 放弃独立是为了获取极大规模的算力资源并避免法律纠纷，因为他的核心驱动力是“做科学”而非“经营公司”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “如果一个实验室是安全的而其他实验室不是，这并不能让世界变得更安全。”&lt;/li&gt;
+&lt;li&gt;💬 “我并不在意落后两年，因为我有深厚的口袋和技术储备，我可以追回来。”&lt;/li&gt;
+&lt;li&gt;💬 “科学品味在于：如果你听到了思想的流动，你就应该继续推进。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=WC_embCiwgU</guid>
+      <enclosure url="https://i.ytimg.com/vi/WC_embCiwgU/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 01 Jun 2026 13:00:23 +0800</pubDate>
+    </item>
     <item>
       <title>AI时代的职业幸存者：从‘劳动力总量谬误’到超级个体的跃迁</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6a11576de59ebca93628a427?utm_source=rss</link>
@@ -4692,148 +5026,6 @@ ightarrow$ 多平台排版。通过角色分工降低认知负载，提升产出
       <guid isPermaLink="true">https://www.youtube.com/watch?v=gdrPkpXuNks</guid>
       <enclosure url="https://i.ytimg.com/vi/gdrPkpXuNks/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 18 May 2026 15:08:17 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI时代生存法则：从“做好事”到“定义好事”的认知跃迁</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/69fc3822e1eb34a939e60a49?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/aqe9qbjdhrvc"&gt;科技慢半拍&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/69fc3822e1eb34a939e60a49?utm_source=rss"&gt;#135 当AI来敲门，我们如何完成从焦虑到重建的过程？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)🤔 AI冲击下，人类为何难以接受并持续对抗？💡 当AI能“完成一切”时，人的价值何在？🚀 如何从“做好事”转向“定义好事”？---### 🧩 心理防线：从否认到对抗* &lt;strong&gt;深层动因&lt;/strong&gt;: AI挑战的不仅是技能，更是个体长期建立的自我认同和价值。否认与对抗是维护稳定世界观的心理保护机制。* &lt;strong&gt;典型表现&lt;/strong&gt;: 嘲笑、口诛笔伐、刻意不用AI、挑剔AI缺点，本质是为回避“那我怎么办”的深层问题。* &lt;strong&gt;“星期三”启示&lt;/strong&gt;: 梵辉与DeepMai的围棋对弈，反映了从“AI不可能”到“被碾压”的剧烈认知冲击，最终促进行业重建。---### 🧩 价值重塑：从“做”到“定义”* &lt;strong&gt;旧范式&lt;/strong&gt;: 过去价值在于“能把一件事做好”，稀缺性在于执行能力。* &lt;strong&gt;新范式&lt;/strong&gt;: 当AI使“产出”变得容易，稀缺性转向“判断能力”，即“能否定义什么才算做好”。* &lt;strong&gt;分水岭&lt;/strong&gt;: “用AI做事” vs. “用AI重构做事方式”。后者是工作重心从直接产出结果到设计结果产出方式的迁移。---### 🛠️ 个人进化：穿越变革的三条路径*   &lt;strong&gt;路径一：持续对抗 (封闭)&lt;/strong&gt;: 坚持原有工作方式，拒绝或象征性接触AI。短期或有小众认同，长期空间受限，易被淘汰。*   &lt;strong&gt;路径二：AI辅助执行 (效率提升)&lt;/strong&gt;: 将AI引入流程，提高效率、接更多任务，但仍停留在执行者位置。效率虽高，但易被替代。*   &lt;strong&gt;路径三：重构工作本质 (稀缺性提升)&lt;/strong&gt;: 重新思考工作核心，从直接产出转向定义、设计、构建系统和框架。*   &lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:1.  &lt;strong&gt;拆解工作&lt;/strong&gt;: 识别重复性、规则性、可步骤化的任务，看清AI可介入的边界。2.  &lt;strong&gt;主动引入AI&lt;/strong&gt;: 从简单任务（初稿、探索方案）开始，习惯“先生成再判断”的新模式。3.  &lt;strong&gt;刻意训练判断力&lt;/strong&gt;: 深入思考“为什么好”、“如何解决问题”，将隐性判断显性化。4.  &lt;strong&gt;提高抽象层级&lt;/strong&gt;: 从“做什么”转向“解决什么问题”，将技能融入更高层能力。5.  &lt;strong&gt;留出第二路径&lt;/strong&gt;: 探索相邻方向，增加新能力，避免单一技能绑定未来。---### ⚙️ 组织与社会：构建协同适应生态*   &lt;strong&gt;企业层面&lt;/strong&gt;:*   &lt;strong&gt;短期&lt;/strong&gt;: 建立AI工具试用室、研讨会、明确沟通渠道、倾听反馈。*   &lt;strong&gt;中期&lt;/strong&gt;: 重构岗位、绩效考核，设立轮换和内部创业机制，监测焦虑状态。*   &lt;strong&gt;长期&lt;/strong&gt;: 产教融合、创新孵化，构建可持续人才生态。*   &lt;strong&gt;政策层面&lt;/strong&gt;:*   &lt;strong&gt;短期&lt;/strong&gt;: 建立AI就业影响监测平台，发布预警，制定补贴税收优惠。*   &lt;strong&gt;中期&lt;/strong&gt;: 完善失业保险和转职补贴，推动教育体系改革，AI素养纳入必修。*   &lt;strong&gt;长期&lt;/strong&gt;: 关注数字落差，为边缘人群提供免费在线培训。*   &lt;strong&gt;整体策略&lt;/strong&gt;: 培训 + 心理关怀 + 岗位重塑，实现个体韧性与适应力。---### 🌟 金句萃取*   💬 “当一个人说AI做不了我的工作的时候，他真正想表达的其实是另一句话：我希望他做不了。”*   💬 “AI带来的并不是简单的替代，而是一种更深层的东西，它在重新划分每一个行业里的层级。”*   💬 “过去我们通过做事情来证明自己的价值，而未来我们更多是通过决定做什么事情来体现自己的价值。”*   💬 “AI并没有在一夜之间改变世界，它只是让很多原本缓慢发生的变化被加速了。”*   💬 “AI不会替你做出选择，但它会让你不做选择这件事变得越来越难。”&lt;/h3&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/69fc3822e1eb34a939e60a49?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/FjEU4F42G3zJL-UNKefhb0B4FFTw.PNG" length="0" type="image/png"/>
-      <pubDate>Sun, 17 May 2026 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Anthropic 首席研究 PM 深度解析：AI 智能体的“做梦”机制与研发范式重构</title>
-      <link>https://www.youtube.com/watch?v=T4ieZPIEmd8</link>
-      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=T4ieZPIEmd8"&gt;Inside How Anthropic Is Building the Next Claude | Alex Albert&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么将模型视为“不断生长的生物”而非“静态代码”，是 AI 时代产品开发的核心差异？&lt;/li&gt;
-&lt;li&gt;💡 智能体（Agents）为何需要像人类一样“做梦”来清理记忆并处理逻辑冲突？&lt;/li&gt;
-&lt;li&gt;🚀 当 AI 能在 10 分钟内完成传统 PM 数天的分析工作时，人类 PM 的护城河将退缩至何处？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 模型即产品的研发新范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;培育而非建造&lt;/strong&gt;: 模型研发具有高度的不确定性。PM 无法像传统软件一样精准定义功能点，而是通过设定“能力桶”（Coding, Knowledge work）和训练指标，在模型生长过程中通过直觉和数据进行干预。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性格即基础设施 (Character as Infrastructure)&lt;/strong&gt;: Claude 的性格不是简单的 Prompt 堆砌，而是深度训练的结果。在智能体化时代，模型的“价值观”和“判断力”直接决定了其在无监督环境下进行复杂决策的可靠性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自适应思考 (Adaptive Thinking)&lt;/strong&gt;: 模型正进化出自主分配计算资源的能力。根据任务复杂度和对用户的上下文了解深度，模型会自主选择是“秒回”还是进入“深度思考”模式，实现了性能与成本的动态平衡。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 智能体的记忆与“梦境”机制&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;记忆重组 (Memory Consolidation)&lt;/strong&gt;: 智能体在后台静默时会启动类人的“梦境”进程。它会重新遍历用户历史对话，识别矛盾点、修剪冗余信息并提炼核心主题，将碎片化数据转化为结构化的长期记忆。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼类比&lt;/strong&gt;: 这就像一位私人秘书在下班后整理白天的杂乱笔记，剔除废话并划出重点，以确保第二天能提供更精准的辅助。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ AI 原生 PM 的增效模型&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;识别“单向门”决策&lt;/strong&gt;: 区分不可逆决策（如模型基础架构选择）与可逆决策。对于可逆决策（如代码功能微调），应利用 AI 极速推进，不应在传统规划流程上浪费时间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;构建“文档化”组织&lt;/strong&gt;: 强制将所有隐性知识（策略、 onboard 流程、会议结论）转化为书面文档，为模型提供高质量的上下文语料。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;角色对弈测试&lt;/strong&gt;: 利用 Claude 模拟不同的利益相关者进行辩论，挑战自己的决策假设，识别逻辑盲区。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“反馈噪音”。在面对海量用户反馈时，必须使用 AI 进行合成化分析（Synthetic Eval），而非盲目追逐单个用户的随机需求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果一个决策不是‘单向门’（不可逆），那么在 AI 时代，它的试错成本实际上已经趋于零。”&lt;/li&gt;
-&lt;li&gt;💬 “智能体性格的塑造，是为了让它在没有人盯着的时候，依然能做出符合预期的判断决策。”&lt;/li&gt;
-&lt;li&gt;💬 “模型正处于一个‘锯齿状前沿’，有些领域它表现得像神，有些则像婴孩，PM 的任务就是测量并填补这些缺口。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=T4ieZPIEmd8</guid>
-      <enclosure url="https://i.ytimg.com/vi/T4ieZPIEmd8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 17 May 2026 13:00:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>中国无人车浪潮：AI发展与就业稳定的双重挑战</title>
-      <link>https://www.bilibili.com/video/BV1FHL56JEiz</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546390143699831"&gt;每天经济学人&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FHL56JEiz"&gt;经济学人 - 中国无人车狂飙，司机如何求生？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 中国在AI和自动化领域的全球领先地位，如何与“不破坏就业”的政策目标共存？&lt;/li&gt;
-&lt;li&gt;💡 大规模部署无人车面临哪些实际技术瓶颈和交通管理挑战？&lt;/li&gt;
-&lt;li&gt;🚀 传统司机岗位将被取代，国家层面如何引导劳动力转型以应对AI冲击？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 无人车：中国AI飞速发展的前沿与阵痛&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;****: 中国无人车部署速度惊人，青岛一年内从少量增至1200辆无人配送车，目标4000辆。预计2025年短途无人配送车达3.3万辆，2026年无人出租车达1.4万辆。高盛预测五年内中国将有70万辆Robo-taxi（占网约车12%）。&lt;/li&gt;
-&lt;li&gt;****: 每次无人配送都是技术奇迹，但也直接威胁人类司机的生计。这种冲突已成为无人车发展的前线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ AI就业冲击下的中国式两难&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;****: 中国领导人希望引领AI和自动化，但又必须防止大规模失业。五年经济计划强调“预防和化解大规模失业风险”。监管机构曾提出不应以取代人类就业为目标应用AI。&lt;/li&gt;
-&lt;li&gt;****:&lt;ul&gt;
-&lt;li&gt;****: 单一公司在单一城市部署超过1200辆车面临挑战。青岛的Neolix车队曾因堵塞交通引来抱怨。武汉的百度Robo-taxi项目也出现过车辆“冻结”导致交通混乱和乘客滞留，甚至导致政府暂停发放新牌照。&lt;/li&gt;
-&lt;li&gt;****: 无人车通常只能在非高峰时段进行配送。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;****:&lt;ul&gt;
-&lt;li&gt;****: 青岛政府不担心Neolix的无人车导致失业，因为它主要替代60岁左右、驾驶三轮车、从事高风险低收入运输工作的人群。年轻人不愿从事此类工作。&lt;/li&gt;
-&lt;li&gt;****: 美团已开始培训配送司机操作无人机配送，岗位包括装载食物和监控飞行。目前团队规模尚小（200人），但计划扩大，甚至培训医院员工操作无人机运送样本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;****: 中国正在试验“人本主义”的自动化策略，即在追求AI取代常规工作的最终目标前，通过培训和引导，让部分受影响的工人适应新的自动化协作岗位，以此减缓失业冲击，在短期内避免大规模社会问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “他们想在AI和自动化方面引领世界，但又不想破坏就业。”&lt;/li&gt;
-&lt;li&gt;💬 “虽然每一次这样的配送都是一个技术奇迹，但在短期内，它可能会剥夺人类司机的一笔收入。”&lt;/li&gt;
-&lt;li&gt;💬 “自动化最终的目标是取代那些需要定期支付工资的工人，用不需要工资的机器人取而代之。在中国，这也终将成为现实。”&lt;/li&gt;
-&lt;li&gt;💬 “在对AI引发的就业末日感到焦虑的世界里，中国在‘人本主义自动化’方面的实验将被密切关注。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FHL56JEiz</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/430853967456d9f71d6be98713d22834b7ca4185.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 17 May 2026 06:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>抢占全球生态位：中国人型机器人的出海雄心与估值逻辑</title>
-      <link>https://www.bilibili.com/video/BV1rELG6kEJL</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1rELG6kEJL"&gt;大摩闭门会：人形机器人浪潮：出海布局，抢占先机 260515全网最快（推荐程度：4星选看）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么中国企业要在行业极早期便不遗余力地推动人型机器人出海？&lt;/li&gt;
-&lt;li&gt;💡 合作模式如何从“实验室研发”转向“真实场景的商业闭环”？&lt;/li&gt;
-&lt;li&gt;🚀 在2030年中国出口份额提升的路径中，机器人扮演着怎样的支柱角色？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 全球生态卡位：从单纯出口到深度耦合&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;生态体系与数据闭环&lt;/strong&gt;: 中国集成商正通过深度合作提前抢占海外生态，核心逻辑在于利用海外市场的消费能力与劳动力缺口，建立早期数据闭环并应对监管边界。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;商业模式的跃迁&lt;/strong&gt;: 合作已从科研、娱乐订单转向与空客（Airbus）、日本航空（JAL）等巨头的商业订单及战略协同，标志着行业正跨入广泛的商业验证与产业升级阶段。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 产业实操与投资逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;供应链卡位监测&lt;/strong&gt;: 重点追踪零部件供应商在头部集成商中的渗透率及产能利用率提升情况。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;估值锚定&lt;/strong&gt;: 采用分部估值法（SOTP），对机器人业务使用现金流折现（DCF）模型，建议锚定11%的WACC与4%的永续增长率。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕挖掘机等传统基建周期性下滑对财务的拖累，以及核心零部件（如谐波减速机）因技术更迭被市场淘汰的下行风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “人型机器人正处于商业验证阶段，将成为支撑中国高端制造和出口的全新支柱。”&lt;/li&gt;
-&lt;li&gt;💬 “出海的本质在于抢占生态建设和数据闭环的先手优势。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1rELG6kEJL</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/3fa78c2684e9d4e54fd6e0bc724eb40ddb394bc7.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 16 May 2026 19:28:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
