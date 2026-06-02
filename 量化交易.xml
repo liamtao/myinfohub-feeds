@@ -7,7 +7,93 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 02 Jun 2026 01:06:22 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2026 08:34:16 +0000</lastBuildDate>
+    <item>
+      <title>破局非平稳市场：构建可部署的中期权益配置闭环强化学习系统</title>
+      <link>https://www.bilibili.com/video/BV1gUGC6kEYM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1gUGC6kEYM"&gt;EvoNash-MARL：面向中期权益配置的闭环多智能体强化学习框架&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在回测中表现优异的单一强化学习策略，在实盘部署时往往迅速失效？&lt;/li&gt;
+&lt;li&gt;💡 面对非平稳的金融市场，如何利用博弈论（PSRO）实现策略群体的动态自适应与进化？&lt;/li&gt;
+&lt;li&gt;🚀 为什么说交易约束不应是后处理的“补丁”，而必须是训练与选择闭环的核心变量？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 破除单点幻觉：为何量化配置需要“闭环博弈”而非单一模型？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非平稳市场的低信噪比与分布偏移&lt;/strong&gt;: 权益市场状态（牛、熊、震荡、冲击等）频繁切换，导致因子关系极不稳定。单一策略在噪声奖励下极易过拟合，且静态集成（Ensemble）缺少策略替换机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PSRO风格的博弈聚合&lt;/strong&gt;: 引入多策略群体（Population），不依赖单个模型解释所有市场状态。通过策略间的表现构造Payoff Matrix，并利用乘法权重更新（Multiplicative Weights）动态分配策略混合权重，逼近纳什均衡以避免过度依赖单点策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略进化与League Best Response&lt;/strong&gt;: 评估系统根据超额Sharpe、下行风险和CVaR等计算适应度（Fitness），通过变异淘汰差策略，并针对当前混合策略训练最佳应对者（Best Response），确保策略池持续吐故纳新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 稳健执行：从理论信号到可交易仓位的约束传导&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缩小理论与真实交易的鸿沟&lt;/strong&gt;: 回测中表现优异的信号在加入交易成本、贝塔漂移和容量限制后容易迅速衰减。因此，交易约束必须是训练和选择闭环的一部分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;因子中性化&lt;/strong&gt;: 对策略生成的原始信号执行Factor Neutralization，降低不希望承担的外部因子暴露。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号非线性放大与特征质量加权&lt;/strong&gt;: 通过Nonlinear Amplification增强高置信度信号，并结合Feature Quality Weighting按特征质量微调信号强度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;尺度最优化选择&lt;/strong&gt;: 在交易成本、市场冲击、容量限制和尾部风险的约束下，利用Execution Scale Optimization选择合适的真实可交易仓位表达。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝对禁止将交易约束放到训练之后的“后处理”阶段。如果训练时忽略非线性容量惩罚等物理限制，生成的最强信号在实盘中极易被摩擦成本吞噬。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 严苛检验：如何用 Walk-Forward 与多维指标对策略“脱水”？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Walk-Forward 滚动协议模拟真实部署&lt;/strong&gt;: 废弃一次性的划分方式，采用252天训练、21天测试的滚动窗口。Checkpoint的选择仅在Validation切片上进行，高度模拟策略在真实时间推进中的反复重训与筛选过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全方位稳健性评估 (Robust Score)&lt;/strong&gt;: 不再单看平均超额Sharpe，而是惩罚窗口间的波动和最差窗口表现，同时将最差单日表现、下行CVaR和约束违反率纳入硬性过滤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;统计显著性的清醒认知&lt;/strong&gt;: 即使V21在历史累计收益上显著领先，但在考虑数据窥探风险后，White's Reality Check（P值0.6765）和Spotlight检验（P值0.5040）并不显著。这说明闭环系统带来的是稳健性提升的证据，而非无可辩驳的超额收益源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “本文最合理的定位，不是证明市场可以被稳定击败，而是展示了一个更严谨的金融强化学习系统设计思路——把金融配置问题从预测收益，转向在非平稳市场中选择可部署、可验证、受约束的策略系统。”&lt;/li&gt;
+&lt;li&gt;💬 “交易成本和容量约束不是最后随便扣一下的，而是必须进入训练和选择过程的硬性边界。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1gUGC6kEYM</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/48f29ae4801f96fbfd68767dcd9107be11685397.png" length="0" type="image/png"/>
+      <pubDate>Tue, 02 Jun 2026 10:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Binance美股通道拆解：券商直连VS链上RWA的路径之争与实操指南</title>
+      <link>https://bbs.quantclass.cn/thread/86549</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86549"&gt;[RWA] 说好的抄作业，结果你把券商搬进来了？-- BN美股那件事&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[RWA、券商直连、Nest Trading、Alpaca API、bStocks、Ondo GM]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[拆解BN券商直连美股架构与Ondo链上SPV代币化路径差异]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：Binance未采用Ondo式的“SPV发行代币”路径，而是通过Nest Trading（ADGM持牌经纪壳）路由 + Alpaca Securities托管清算，实现了7000+美股/ETF的“券商直连”交易。其本质是加密券商入口，而非原生的链上资产池。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：传统RWA项目受限于链上流动性池（如Ondo的USDon swapper）和发行规模上限；而Binance的券商直连通道直接复用美股传统清算网络，解决了RWA资产的“容量瓶颈”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：对Ondo等现有代币化美股项目在用户入金和交易深度上形成降维打击，但由于bStocks（链上证券凭证）暂未落地，目前阶段该方案尚未实现真正的“链上可组合性”（DeFi乐高）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决加密资产与合规美股市场的直接映射，以及多币种实时结算摩擦。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：采用两层通道架构。前端由持牌实体Nest Trading做经纪转介，后端通过Alpaca API进行交易执行、清算与托管。资金流以USDC为基准，非USDC资产在下单时由系统自动执行对冲换币。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;交易规则限制：市价单仅限常规交易时段，盘前盘后仅支持限价单，且GTC（一直有效）订单不支持碎股（Fractional Shares）。&lt;/li&gt;
+&lt;li&gt;隐含成本：自动兑换USDC存在汇率差，ADR标的需额外收取每股0.01-0.03 USD的额外费用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1. 交易系统参数适配&lt;/strong&gt;：若对接该通道进行量化交易，需前置同步其“Trade Parameters”配置接口，动态校验每只股票的Min/Max Order Size（普遍为5 USD至50万 USD）及最大挂单数限制（200个）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2. 监控套利闭环&lt;/strong&gt;：密切跟踪未来bStocks链上合约的释放。重点分析其是否支持“链上代币与券商持仓”的双向赎回。若支持，可利用Alpaca API与链上DEX（如Uniswap）构建跨市场无风险套利系统（Arb）。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86549</guid>
+      <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
+    </item>
     <item>
       <title>回测即谎言？量化交易实盘必经的七大“杀猪盘”陷阱全解析</title>
       <link>https://www.bilibili.com/video/BV1dL5F6AEfu</link>
@@ -5199,84 +5285,6 @@ otin 	ext{Top 20%}) 	ext{ and } (S_{i,t} 	ext{ once in } 	ext{Top 10%})$&lt;/li&
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1A5LA6sEBo</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/2c65ac4b293e68e4da76eb1a6fab6baf5ae35ffe.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 18 May 2026 16:17:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI驱动的量化实盘部署：从基础设施运维到策略核心的注意力转移</title>
-      <link>https://bbs.quantclass.cn/thread/82512</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/82512"&gt;言出法随，B 圈量化新人1天跑通实盘。&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：量化实盘部署、AI运维助手、基础设施自动化、错误日志分析&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用AI接管量化实盘的运维脏活，将研究员注意力集中于策略逻辑与风险管理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：量化新人面对服务器选型、端口配置、Docker容器部署、K线数据对齐及环境依赖等基础设施构建时的“第一堵墙”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Ubuntu服务器 (2核2G)、腾讯云、实盘框架、API Key管理、企业微信通知推送。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;配置缺失&lt;/strong&gt;：&lt;code&gt;PosStrategyConfig&lt;/code&gt; 初始化时缺少 &lt;code&gt;name&lt;/code&gt; 和 &lt;code&gt;hold_period&lt;/code&gt; 关键字段导致启动失败。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据对齐/预热&lt;/strong&gt;：实盘数据窗口有限，&lt;code&gt;init_time&lt;/code&gt; 必须落在实盘覆盖范围内，且需预留足够的K线数量以满足指标计算窗口（如1497小时窗口需要提前约62天的数据）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;级联错误&lt;/strong&gt;：K线不足导致主流程中断 $\rightarrow$ 策略回测结果未生成 $\rightarrow$ 统计脚本找不到 &lt;code&gt;资金曲线.csv&lt;/code&gt; 文件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;建立自动化运维清单&lt;/strong&gt;：将AI作为工程助手，通过喂入服务器日志、策略代码和配置文件，快速定位配置项缺失、路径错误或数据窗口不足等非逻辑性Bug。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实施“安全隔离”部署&lt;/strong&gt;：将环境部署、端口开启等重复性工程任务交给AI，但将API Key创建、权限分配及资金安全确认等核心风控环节严格人工接管。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化实盘初始化逻辑&lt;/strong&gt;：在编写策略时，明确定义所需的最早K线时间戳，并在实盘启动脚本中加入数据预校验机制，防止因分钟级数据缺失导致系统崩溃。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/82512</guid>
-      <pubDate>Mon, 18 May 2026 11:53:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>大单交易的市场冲击深度解构：从平方根经验公式到最优执行框架</title>
-      <link>https://www.bilibili.com/video/BV1CU5f6yEE6</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1CU5f6yEE6"&gt;【量化教程】订单如何影响股价；回测必备公式；滑点到底能多大？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么看似简单的“平方根公式”在诞生40年后，依然是量化交易员估算成本的首选？&lt;/li&gt;
-&lt;li&gt;💡 同样是一笔大单，为什么推动股价的边际成本会随着成交量的增加而呈现明显的递减趋势？&lt;/li&gt;
-&lt;li&gt;🚀 面对“永久冲击”与“临时冲击”，交易员如何在快速获利与保护利润之间找到最优执行平衡点？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场冲击的底层逻辑：从经验直觉到经济学模型&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;平方根模型 (Square Root Model)&lt;/strong&gt;: 源自Bara的研究，该模型认为价格波动与交易量占比的平方根成正比。这揭示了市场操纵的边际效应递减规律：初始拉抬股价容易，但单量越大，进一步推动价格的难度越高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凯勒线性理论 (Kyle’s Lambda)&lt;/strong&gt;: 1985年提出的经典理论。它将市场参与者划分为“知情交易者”与“噪声交易者（散户）”。市场冲击系数（Lambda）取决于两者的博弈：当知情者的确定性买单越强、散户的随机噪声越弱时，价格变动的线性斜率越高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最优执行框架 (Optimal Execution)&lt;/strong&gt;: 2000年后的研究将复杂的下单哲学（如TWAP、VWAP）统一到成本最小化的框架下，将交易成本拆解为不可逆的“永久冲击”、可控的“临时冲击”以及因时间流逝产生的“风险敞口”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 交易执行优化方法论&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;建立冲击基准&lt;/strong&gt;: 将单笔交易量与日均成交量（ADV）及波动率（Sigma）挂钩，通过回测数据拟合出适合特定市场的冲击系数常数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强制成本建模&lt;/strong&gt;: 在任何量化策略回测中，必须引入市场冲击成本逻辑，否则回测收益将因无法体现真实流动性损耗而失效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态拟合优化&lt;/strong&gt;: 根据基金经理的风险偏好，在“前置出货”（降低时间风险）与“均匀拆单”（降低冲击成本）之间切换策略。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;警惕过拟合&lt;/strong&gt;: 避免盲目使用极其复杂的机器学习或强化学习模型来估计冲击，在低信噪比的市场环境下，经典线性或平方根模型通常更稳健。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果不计算买卖单对市场价格的影响，回测是‘猛如虎’，实盘就是‘2.5’。”&lt;/li&gt;
-&lt;li&gt;💬 “知情交易者的单子是往一处使的劲，必然推升价格；而散户的单子是随机噪声，互相抵消。”&lt;/li&gt;
-&lt;li&gt;💬 “每一笔大单都是在与市场博弈，交易成本往往会吃掉所有的Alpha，最终让券商赚走了钱。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1CU5f6yEE6</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/01e5035cdf7c0699bdf67ebfc4103d885b99cb7d.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 18 May 2026 09:05:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
