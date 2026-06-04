@@ -7,7 +7,214 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 03 Jun 2026 22:32:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 09:03:10 +0000</lastBuildDate>
+    <item>
+      <title>跨界套利新机会：利用Binance美股现货与TradFi合约赚取高额资金费实战</title>
+      <link>https://bbs.quantclass.cn/thread/86606</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86606"&gt;【策略前沿直击】Binance所内合约策略分享,稳稳的幸福&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资金费率套利、跨市场套利、美股现货、TradFi、风险控制]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用加密用户在TradFi美股合约的杠杆需求与Binance美股现货进行期现套利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于Binance原生用户在TradFi端杠杆交易美股合约产生的极高资金费率（年化可达100%~200%+）。通过在TradFi端做空美股合约，同时在Binance现货端（底层路由至Alpaca Securities）买入等量美股现货，对冲价格波动风险并赚取高额资金费收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：以过去7天资金费率年化均值（mean_ann%）及中位数（median_ann%）为筛选因子，优先选择前3名高资金费且表现稳定的品种（如NOK、ASTS、NVO）进行构建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;通道摩擦&lt;/strong&gt;：现货端买入成本（&amp;gt;350u为千1，≤350u最低0.35u/笔），分红扣税20%；合约端吃单万4，需要精确计算手续费磨损。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;爆仓与划转风险&lt;/strong&gt;：由于现货无API，若标的暴涨，合约端面临爆仓风险，且无法自动将现货平仓转为合约保证金。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ADL与极端行情&lt;/strong&gt;：美股暴跌时合约端可能触发自动减仓（ADL），导致对冲头寸失衡。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：Binance美股现货目前不提供API支持，无法实现全自动化的程序化下单、保证金监控以及一键双端对冲平仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：现货市价单滑点较大且体验不佳，实盘开仓必须使用限价单；单笔下单金额需大于350 USD，否则会触发0.35 USD的最低平台费，变相抬高交易成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;资金费率实时监控&lt;/strong&gt;：编写脚本通过API或网页端爬取TradFi美股合约的资金费率历史，计算其年化均值与标准差，筛选出费率高且波动率低的标的（如NOK、ASTS）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;头寸管理与滑点控制&lt;/strong&gt;：单笔套利金额应显著大于350 USD以规避固定手续费，且必须采用限价单（Limit Order）进行双边手工或半自动对冲开仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预警系统建设&lt;/strong&gt;：在现货缺乏API的情况下，针对合约端设计保证金率与价格剧烈波动的即时警报，以便在极端行情下能够及时人工介入进行双向平仓。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86606</guid>
+      <pubDate>Thu, 04 Jun 2026 10:49:40 +0800</pubDate>
+    </item>
+    <item>
+      <title>模型优化的尽头是制度失效：金融ML的“评价压缩”困境与二阶治理范式</title>
+      <link>https://www.bilibili.com/video/BV13UGC6kEM4</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV13UGC6kEM4"&gt;金融机器学习中的策略饱和、制度失效与评价控制：问题不只是模型还不够强，而是我们一直在固定的评价标准下做优化：金融机器学习中的策略饱和、制度失效与评价控制：当优化&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么机器学习模型越强大，市场策略反而越拥挤且容易在波动中集体失效？&lt;/li&gt;
+&lt;li&gt;💡 当所有机构都在追求极致的夏普比率和回撤控制时，金融系统正在发生怎样的“评价压缩”？&lt;/li&gt;
+&lt;li&gt;🚀 如果模型调优已达极限，我们该如何通过“二阶治理”来修正已经失灵的评价标准？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 评价压缩：算法竞争背后的隐形枷锁&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;金融系统本质是一套评价制度&lt;/strong&gt;: 在投资优化框架中，策略的选择依赖于一个预设的排序逻辑（如夏普比率、波动率约束）。这些标准并非自然存在，而是由合同、监管和风险体系固定的“制度安排”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器学习是压缩的加速器&lt;/strong&gt;: ML增强了策略搜索能力，但在固定的评价标准下，它只会更快地将不同机构推向同一类“合格策略”区域。这导致了表面上模型各异，底层逻辑却高度耦合的结构性脆弱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从“拥挤”到“压缩”的认知升维&lt;/strong&gt;: 普通拥挤是持仓相似，而“评价压缩”是筛选标准趋同。即使数据和模型完全不同，只要评价过滤器一致，最终都会被推向同一个不可持续的窄小空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 诊断与重构：应对系统二阶失效&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;识别二阶失败 (Second-order Failure)&lt;/strong&gt;: 当重新校准模型、增加数据都无法恢复表现，且失败集中在特定市场状态（如流动性枯竭）时，说明失效的不是模型参数，而是评价标准本身不再能捕捉环境结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 评价操作 SOP (Standard Operating Procedure)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;状态检测&lt;/strong&gt;: 识别校准无效与条件性失效信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;故障分类&lt;/strong&gt;: 判定是模型执行层问题还是评价标准适配问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;评价变换&lt;/strong&gt;: 生成新的候选排序（如将流动性风险显性纳入风险定义）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;约束过滤&lt;/strong&gt;: 确保变换不违反投资授权与监管红线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳健选择&lt;/strong&gt;: 在合规前提下切换至更符合当前环境的评价逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;闭环审计&lt;/strong&gt;: 完整记录触发信号与选择依据，防止指标套利。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“评价套利”——系统可能通过修改指标（如调整VaR计算窗口）让表现看起来更好，而非真实降低风险。必须坚持评价操作与独立监督的分离。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “系统优化的是策略，而不是定义策略优劣的标准。”&lt;/li&gt;
+&lt;li&gt;💬 “危机不只是持仓拥挤，而是评价标准导致的结构性耦合被压力状态暴露了出来。”&lt;/li&gt;
+&lt;li&gt;💬 “当优化能力足够强之后，更关键的问题变成：我们到底在优化什么？”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV13UGC6kEM4</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/6e32403b9e834436a72f7b0d8c0dffccfe36937f.png" length="0" type="image/png"/>
+      <pubDate>Thu, 04 Jun 2026 10:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>破除线性框架迷思：利用LSTM捕捉中期收益，实现投资组合的非线性权重优化</title>
+      <link>https://www.bilibili.com/video/BV15FLz66ETo</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV15FLz66ETo"&gt;基于LSTM的投资组合权重优化方法研究：为什么要重新思考投资组合优化？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的马科维茨（Markowitz）均值-方差框架在处理1-2年的中期资产配置时往往表现乏力？&lt;/li&gt;
+&lt;li&gt;💡 LSTM的“记忆机制”如何将破碎的历史收益序列转化为具备超额收益的配置权重？&lt;/li&gt;
+&lt;li&gt;🚀 机器学习模型预测的高收益，在多大程度上是由更高的风险暴露（Beta）换取的？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知解构：从价格预测到权重生成的范式转移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非线性时序捕捉&lt;/strong&gt;: 传统金融模型假设收益率是线性的或稳定的，而LSTM通过“门控机制”能够识别历史市场状态对未来收益的长程非线性影响，从噪声中提取出更具持续性的趋势特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;收益预期生成器&lt;/strong&gt;: 本研究将LSTM的定位从“分类工具”转向“预期生成器”。它不直接给出买卖点，而是输出未来投资周期内的资产预期收益，为权重分配提供最底层的决策依据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化配置实操逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;特征工程重构&lt;/strong&gt;: 放弃原始日收益，采用滚动计算的“年化收益序列”作为输入，使数据维度与1-2年的中期投资目标对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权重映射机制&lt;/strong&gt;: 采用“收益驱动型”加权逻辑，将LSTM预测的资产胜率与配置权重挂钩，构建超越等权重（Equal Weight）的动态配置方案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多周期滚动回测&lt;/strong&gt;: 在1年、1.5年及2年三个维度进行敏感性分析，验证模型在不同持有期下的稳健性与胜率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“收益率幻觉”。LSTM组合虽然在年化收益上击败基准，但也可能带来更高的系统性风险（Beta）暴露，在实际操作中必须强制引入风险约束模块或夏普比率优化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “LSTM在组合优化中的核心价值，在于它能将历史长河中的非线性‘信息碎片’重组为可执行的资产配置语言。”&lt;/li&gt;
+&lt;li&gt;💬 “机器学习不应被视为风险管理的终结者，而应作为提升收益预期精准度的模块化组件。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV15FLz66ETo</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/ae9924df308131118536190c9766f53ea389acd3.png" length="0" type="image/png"/>
+      <pubDate>Wed, 03 Jun 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化交易实战：微盘动荡期的策略优化与心态管理</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;amp;talker=57784510736@chatroom"&gt;2026-06-03_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📉 微盘股波动的真相：策略为何“失灵”？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;市场环境：近期小市值策略普遍表现不佳，部分策略出现“开香槟即遭打脸”的现象，与动量策略赚钱、反转策略亏钱的结构牛市环境有关。&lt;/li&gt;
+&lt;li&gt;策略优化：如果单一策略回撤波动过大，不要急于否定。通过混合多个择时策略（建议不少于3个），可以利用策略间的对冲效应，显著降低整体回撤，提升持有体验。&lt;/li&gt;
+&lt;li&gt;操作原则：不要在历史回撤出现时盲目降低仓位，应等待行情好转后再做调整。历史数据告诉我们，当前困境在历史上出现过多次，唯有保持信心才能在曲线中生存。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧠 牛市新人的加仓信号：反向指标的逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;风险感知：当市场出现大量入市不久的新人，且他们在上涨中频繁加仓（牛市第二、三次加仓），往往意味着行情可能接近顶部。&lt;/li&gt;
+&lt;li&gt;应对：老手在此时通常选择减仓。与其关注短期收益率的涨幅，不如审视自身策略在整体波动中的抗压能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔧 量化实操中的技术痛点与解决思路&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;计算瓶颈：部分用户反馈盘中获取数据或计算超时，建议联系技术支持或通过策略参数优化（如调整标的筛选条件）解决。&lt;/li&gt;
+&lt;li&gt;选股策略：针对近期选股中频繁出现大市值标的情况，可添加收盘价过滤条件（如&lt;code&gt;val:&amp;lt;=30&lt;/code&gt;）来缩小选股范围。&lt;/li&gt;
+&lt;li&gt;工具选择：除了自动化策略，期权对冲也是一种提升心态、对冲股票回撤的有效手段，但需注意开户条件与风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 金句摘录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“你回看曲线都是容易的呀，但是你身在曲线当中都是艰难的。” —— 邢不行&lt;/li&gt;
+&lt;li&gt;“择时是为了心态能放平。” —— 强力苏打水&lt;/li&gt;
+&lt;li&gt;“大A负责慢，外围负责牛。” —— baykop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 资料链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://qtcls.cn/a/s/59b9f8fc"&gt;凌烟阁1期核对状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/86601"&gt;择时策略BUFF加成讨论&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>市场波动的应对之道：从量化策略到心理建设的深度复盘</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;amp;talker=58453205219@chatroom"&gt;2026-06-03_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;📈 面对市场动荡的策略应对逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大小币种的走势分化&lt;/strong&gt;：在当前熊市周期中，常出现大饼（BTC）独跌而小市值币种表现抗跌的现象。这种现象并非反常，参考2022年熊市，这通常是市场末端的征兆，往往预示着后续可能发生大小币种同步下跌的超跌行情。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略框架的优越性&lt;/strong&gt;：对于跑动量策略的投资者，建议信任模型数据。在大阴线中，策略通过Rebalance（再平衡）机制对持仓减少的币种加仓，随后若行情反弹，再通过减仓实现逻辑上的胜率累积。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;心态管理与止损&lt;/strong&gt;：不要因为短期的5%-10%回撤就盲目加仓或恐慌止损。在策略回测与表现正常的情况下，保持纪律，避免在策略尚未触发调整信号时主观干预。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;💡 交易所风险与资产安全观&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;中心化平台的脆弱性&lt;/strong&gt;：金融机构（如FTX）即使拥有强大的资本背书、顶级赞助和创始人效应，依然存在瞬间崩塌的风险。对于交易所跑路的恐惧是合理的，但无需过度焦虑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资产价值的社会协作论&lt;/strong&gt;：价值并非天生赋予，而是人类协作的产物。即便是黄金或大饼，其价值的核心在于全球范围内的共识。当市场极端恐慌时，高个子（大资金持有者）通常比普通投资者更有动力去维护市场稳定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化实操避坑指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;远离深度虚值期权&lt;/strong&gt;：如果是为了投机赌波，应选择合适的买入（Buy）策略而非卖方，但切记避免买入流动性极差的深度虚值期权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;注意回测与实盘的差异&lt;/strong&gt;：在选币回测框架中，需警惕股票合约等非标资产混入导致的偏差，实盘建议优先使用专业的仓管框架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略优化方向&lt;/strong&gt;：后续将丰富26年系列的空头组合，通过混入不同的多头策略来降低整体回撤，平滑收益曲线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🗣️ 金句洞察&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;“前一个小时KTV，后一个小时ICU。” —— 流浪人生&lt;/li&gt;
+&lt;li&gt;“信仰这东西跟成本有关，成本越低信仰越高。” —— Andy&lt;/li&gt;
+&lt;li&gt;“跌了之后继续跌就是esports。” —— 茶泡饭&lt;/li&gt;
+&lt;li&gt;“天塌了，还有个高的顶着。” —— 红～碎叶&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关参考链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83338"&gt;一行代码，竟让马嵬坡选币增加30%&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;B旗舰策略监测文件---更新至2026-06-03&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=18504"&gt;XTX Markets take home test&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-03&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>拒绝“老登”股：基于大盘新低与特定基准日的抗跌背离因子构建指南</title>
       <link>https://bbs.quantclass.cn/thread/86577</link>
@@ -342,6 +549,43 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1GwLz6uEio</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/9f2ee4dcf0b5a2c75844ce27b6b71251954f7da2.png" length="0" type="image/png"/>
       <pubDate>Mon, 01 Jun 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>低成本搭建大模型生产力：土区Apple ID订阅ChatGPT Plus与CPA反代实操指南</title>
+      <link>https://bbs.quantclass.cn/thread/86522</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86522"&gt;80元的gpt plus正价渠道开通&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[ChatGPT Plus订阅, 土耳其Apple ID, 礼品卡充值, CPA反代, 生产力优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过土区Apple ID低成本订阅ChatGPT Plus并配合CPA反代实现免代理本地调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：国内IP直连大模型API或Web端存在严格限制，且Plus官方订阅（20美元/月）成本较高；本地敲代码时频繁切换全局代理影响开发流程的顺畅性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;支付端：iOS App Store (土耳其区) + 里拉(TRY)礼品卡 + 虚拟账单地址生成器。&lt;/li&gt;
+&lt;li&gt;客户端：使用CPA (Cloudflare Partner Proxy/Reverse Proxy) 反代服务代理大模型 API (如 Claude Code)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;注册受阻&lt;/strong&gt;：注册土区账号时易提示“此时无法创建您的账户”。需更换干净IP（避免使用万人骑机场IP）、使用Safari无痕模式，或先注册国区账号再进行转区。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缓存干扰&lt;/strong&gt;：登录新土区ID时可能因本地缓存被识别并打回国区。解决方案：在登录前通过访问 &lt;code&gt;itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143480&amp;amp;cc=tr&lt;/code&gt; 链接强制重置并清除App Store账户缓存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资金安全&lt;/strong&gt;：海鲜市场购买礼品卡存在黑卡风险，可能导致Apple ID被封。建议筛选高信誉老卖家，或通过币安(Binance)钱包内置的土耳其礼品卡渠道购买。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;低成本订阅实践&lt;/strong&gt;：准备干净IP，生成真实土耳其账单地址完成土区Apple ID注册/转区。通过App Store余额充值开通ChatGPT Plus，将月度订阅成本降低至约75-80元人民币。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地开发免T子直连&lt;/strong&gt;：配置CPA反代，将反代后的API Base URL和Key配置到本地开发工具（如Claude Code、Cursor或IDE插件）中。脱离全局代理依赖，提升本地代码编写时的AI响应速度与稳定性。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86522</guid>
+      <pubDate>Mon, 01 Jun 2026 11:21:34 +0800</pubDate>
     </item>
     <item>
       <title>沪深300日频方向预测：微弱信号与噪声深渊</title>
@@ -4837,445 +5081,6 @@ otin 	ext{Top 20%}) 	ext{ and } (S_{i,t} 	ext{ once in } 	ext{Top 10%})$&lt;/li&
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-20&amp;talker=58453205219@chatroom</guid>
       <pubDate>Wed, 20 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从DDPG到TD3：破解量化交易中的高估偏差与稳定性陷阱</title>
-      <link>https://www.bilibili.com/video/BV1rsLz6WE8N</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1rsLz6WE8N"&gt;深度解析TD3强化学习：从DDPG缺陷到量化实战落地&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在量化交易中，一个让AI交易员变得“乐观”的算法反而会导致实盘崩盘？&lt;/li&gt;
-&lt;li&gt;💡 如何在充满随机噪声的金融市场中，构建一个既能捕捉收益又具备极强鲁棒性的价值评估体系？&lt;/li&gt;
-&lt;li&gt;🚀 面对连续动作空间（如精准仓位管理），如何通过数学机制强制模型在“激进”与“保守”之间寻找最优平衡点？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 破解“高估偏差”：TD3 的审慎逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点&lt;/strong&gt;: DDPG 算法在处理连续动作时极易产生“高估偏差”，即模型将随机噪声误认为正向收益，导致 Q 值虚高，最终在错误时机重仓下单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;截断双 Q 学习 (Clipped Double Q Learning)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 就像聘请两位独立的金融分析师对同一笔交易打分，但最终不听那个最乐观的，而选择其中最保守（数值最低）的评估结果。通过这种“取其低者”的滤镜，强制抵消系统性的正向偏差，防止估值泡沫。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 稳定性的三重保障机制&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;执行意图&lt;/strong&gt;: 将算法从“追求单次最高收益”转向“追求长期稳健表现”，降低模型在非平稳环境下的发散风险。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;实施延迟策略更新&lt;/strong&gt;: 设定更新节奏为 &lt;code&gt;Critic (更新多次) -&amp;gt; Actor (更新一次)&lt;/code&gt;。确保决策层（Actor）的每一次调整都建立在已经收敛且稳健的价值评估（Critic）之上，避免因评估标准剧烈波动而导致系统震荡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入目标策略平滑&lt;/strong&gt;: 在计算目标值时，向动作中加入微小的正态分布噪声。通过评估动作及其周围区域的平均表现，而非孤立的极值点，消除 Q 函数的“尖峰”，防止模型过拟合于特定的价格波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;精细化仓位控制&lt;/strong&gt;: 利用 TD3 的连续动作空间特性，将输出从简单的“买/卖”升级为具体的“持仓比例”（如 65.5%），实现更精细的风险管理。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;学习率陷阱&lt;/strong&gt;: 金融数据信噪比极低，学习率应谨慎设定在 $10^{-4}$ 到 $10^{-5}$ 之间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;更新系数&lt;/strong&gt;: 软更新系数 $\tau$ 应调小，以保证网络更新足够平滑，防止在剧烈行情中崩溃。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “在量化交易视角下，稳定性是决定实盘表现的核心。没有稳定性，再高的历史收益也只是过眼云烟。”&lt;/li&gt;
-&lt;li&gt;💬 “宁可保守，也不要盲目乐观的态度，是防止策略崩盘的重要屏障。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1rsLz6WE8N</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/cd904aaedd38bfe38ef7e19ff85ff07b184e548a.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 19 May 2026 21:54:49 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化研究的“操作系统”：CRAFT如何通过多智能体重构经验研究工作流</title>
-      <link>https://www.bilibili.com/video/BV1bT596ME4p</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1bT596ME4p"&gt;QRAFTI：让量化研究流程可复现：不是生成因子，而是重构量化研究链路&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在复杂的量化研究中，“可复现的研究流程”比一个单纯的“高收益因子”更具资产价值？&lt;/li&gt;
-&lt;li&gt;💡 多智能体协作（Multi-Agent）如何解决大模型在长链条金融研究中常见的“目标丢失”与“逻辑执行混乱”？&lt;/li&gt;
-&lt;li&gt;🚀 如何将模糊的自然语言研究指令，精准转化为可审计、标准化的金融计算依赖图？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 核心逻辑：从“黑盒因子”到“白盒工作流”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;研究链条的结构化重塑&lt;/strong&gt;: 资产定价研究并非单次回归，而是一系列互相依赖的动作。CRAFT的核心不在于预测，而在于将“直觉提出-数据处理-信号构造-组合检验-报告撰写”的漫长链条拆解为可追溯的研究轨迹。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多智能体角色化治理&lt;/strong&gt;: 弃用单体大模型，通过专门化的Agent（研究分解、因子构造、代码补足、报告生成）协同工作。这种角色隔离机制确保了计划执行与逻辑解释的分离，显著提升了错误定位的效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;金融工具站的“抗漂移”设计&lt;/strong&gt;: 将面板数据对齐、因子控制、稳健性检查等高频金融操作封装成标准接口。这种受约束的工具调用替代了纯动态代码生成，有效降低了LLM输出的随机性与逻辑漂移。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化研究自动化范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;需求翻译&lt;/strong&gt;: 将自然语言研究请求拆解为明确的多步计算计划（Reflection-based Planning）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;原子化操作&lt;/strong&gt;: 优先调用标准工具接口进行金融计算，仅在工具不足时退回自定义代码生成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关系拓扑化&lt;/strong&gt;: 记录所有中间产出与最终结果的依赖关系，自动生成计算关系图（Computation Graph）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;标准化诊断&lt;/strong&gt;: 强制输出包含非因子控制、分层稳健性检查等维度的研究诊断报告。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕过度依赖纯动态代码生成。在长链条研究中，缺乏约束的代码生成会导致模型在中途偏离最初的研究目标，必须通过结构化流程进行质量干预。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “CRAFT更像是量化研究团队的一个操作系统，它真正关心的是工作流质量（Workflow Quality），而不仅仅是预测质量。”&lt;/li&gt;
-&lt;li&gt;💬 “这种把角色、工具和研究痕迹都结构化起来的思路，可能比单次生成一个好结果更重要。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1bT596ME4p</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/4aeabf9061e722cb2259a3f0e1a3c24ec4b1386c.png" length="0" type="image/png"/>
-      <pubDate>Tue, 19 May 2026 19:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>BTC动量增强空头策略“琴月阴”：落单狗、黄果树等全线收益回撤双提升</title>
-      <link>https://bbs.quantclass.cn/thread/82694</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/82694"&gt;落单狗适度理解（二）落单狗2.0琴月阴——副旗舰级优化策略&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;&lt;/h2&gt;
-&lt;p&gt;📝 元信息 (Meta Info)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[BTC动量, 空头策略, 落单狗优化, 择时过滤, 回撤控制]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于BTC动量反转效应择时，显著提升空头策略收益并大幅降低回撤。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;&lt;/h2&gt;
-&lt;p&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;BTC动量与次日市场收益存在反向关系：BTC上涨后，次日全市场（尤其是落单狗选币）普遍下跌；BTC下跌后，次日全市场普遍上涨。&lt;/li&gt;
-&lt;li&gt;BTC自身也呈现出动量反转效应，尤其在下跌后次日反转效应急剧增强，有更大概率带领市场上涨。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;BTC作为体量庞大且主流的金融资产，大资金追求稳定性而非投机，使其具备“兜底”特性。&lt;/li&gt;
-&lt;li&gt;大市值带来大惯性，导致其价格表现出反转效应，以控制波动和保持稳定。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：传统空头策略若未考虑BTC的择时反转效应，可能在BTC引领市场上涨时遭遇不必要的亏损。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;/h2&gt;
-&lt;p&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用BTC前一日的动量反转效应进行择时过滤。具体做法是，只在BTC前一日动量为正（即BTC上涨）时，才允许空头策略开仓，以此规避BTC引领市场上涨对空头策略造成亏损的时期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子名称&lt;/strong&gt;：&lt;code&gt;BTCBias&lt;/code&gt; (BTC动量因子)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;计算逻辑&lt;/strong&gt;：&lt;code&gt;df['btc_bias'] = df['btc_close'] / df['btc_close'].rolling(n, min_periods=1).mean() - 1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数选择&lt;/strong&gt;：&lt;code&gt;n&lt;/code&gt;参数应与持仓周期匹配，文章建议设置为24（对应24小时持仓）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;需要BTC的收盘价数据（&lt;code&gt;btc_close&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;数据频次应与因子计算周期及策略持仓周期保持一致。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;优化目标&lt;/strong&gt;：显著提升空头策略的年化收益，大幅降低最大回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应用范围&lt;/strong&gt;：对“落单狗”策略及其变种（四龙戏狗）、“黄果树”系列、 “马嵬坡”、“落九天”、“无脑空新币”等所有空头策略均有效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回测区间&lt;/strong&gt;：展示的回测图表涵盖2021年至2026年。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心指标提升（示例）&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;落单狗&lt;/strong&gt;：年化收益从26.77%提升至41.25%，最大回撤从-55.82%降低至-28.63%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;黄果树1&lt;/strong&gt;：年化收益从3.69%提升至25.01%，最大回撤从-52.90%降低至-26.43%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;马嵬坡&lt;/strong&gt;：年化收益从27.95%提升至52.45%，最大回撤从-45.13%降低至-23.21%。&lt;/li&gt;
-&lt;li&gt;综合来看，优化后的策略在累计净值、年化收益、年化收益/回撤比、修复涨幅、修复时间、盈亏收益比、收益率标准差等所有关键指标上均有显著提升（收益指标提升，风险指标降低）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：虽然回撤大幅降低，但择时过滤可能导致开仓频率下降（资金利用率未充分提及），评论区提出换手率可能较高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;&lt;/h2&gt;
-&lt;p&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：在现有量化策略配置框架中，如何优雅地引入基于BTC动量的全局择时过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略配置（Config）&lt;/strong&gt;：在策略的&lt;code&gt;filter_list_post&lt;/code&gt;（后置过滤列表）中添加&lt;code&gt;('BTCBias', 24, 'val:&amp;gt;0')&lt;/code&gt;，以在BTC动量为正时才执行开仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据获取&lt;/strong&gt;：通过&lt;code&gt;extra_data_dict&lt;/code&gt;配置，确保能获取到&lt;code&gt;'coin-btc'&lt;/code&gt;的&lt;code&gt;'btc_close'&lt;/code&gt;数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子实现&lt;/strong&gt;：提供&lt;code&gt;signal&lt;/code&gt;和&lt;code&gt;signal_multi_params&lt;/code&gt;函数模板，用于计算BTC动量因子&lt;code&gt;btc_bias&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;&lt;/h2&gt;
-&lt;p&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将&lt;code&gt;BTCBias&lt;/code&gt;因子（基于BTC收盘价的指定周期动量）作为后置过滤器集成到现有量化交易框架中，为所有空头策略提供择时过滤功能。&lt;/li&gt;
-&lt;li&gt;对现有的空头策略（如落单狗、黄果树等）进行回测验证，并根据策略的具体持仓周期调整&lt;code&gt;BTCBias&lt;/code&gt;因子中的&lt;code&gt;n&lt;/code&gt;参数，以确保择时逻辑与策略周期匹配。&lt;/li&gt;
-&lt;li&gt;探索&lt;code&gt;BTCBias&lt;/code&gt;因子的进一步优化，例如尝试不同的动量计算方法（如对数收益率动量），或引入更复杂的BTC市场结构指标进行多因子融合，以期获得更稳健的择时效果。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/82694</guid>
-      <pubDate>Tue, 19 May 2026 10:57:14 +0800</pubDate>
-    </item>
-    <item>
-      <title>D1量化交易平台前端可视化工具链：从配置分散到工作流编排与可视化回测的工程实现</title>
-      <link>https://bbs.quantclass.cn/thread/82691</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/82691"&gt;【D1框架】超好用可视化前端发布（长期持续更新）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[可视化回测、工作流编排、D1框架、Vue 3、Polars]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[通过构建可视化前端平台，解决D1框架配置分散问题，实现量化策略的可视化开发、回测与分析]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：[D1框架原有的config配置过于分散，导致策略开发与调整不便，缺乏直观的交互性]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：[Vue 3 + Composition API, TypeScript, Element Plus, ECharts 5, CodeMirror 6, Pinia, Vite 6, FastAPI, Polars]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：[实现了可视化模式与代码模式的双向同步，可视化配置参数自动生成策略代码骨架，支持Python语法高亮与自动补全]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：[通过引入 Polars 替代 Pandas，提升了数据分析效率并降低了内存占用]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：[前端与D1回测框架的路径连接逻辑，以及评论区反馈的 context.buy cash 分割逻辑 Bug]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[1. 引入可视化 UI 层来封装复杂的量化配置，降低策略参数调优的门槛]&lt;/li&gt;
-&lt;li&gt;[2. 在工程化过程中，利用 Polars 进行高性能数据处理，并配合异步 FastAPI 后端以保证系统响应性]&lt;/li&gt;
-&lt;li&gt;[3. 结合 CodeMirror 实现代码与 UI 配置的实时双向绑定，提供既满足新手可视化勾选，也满足老手直接修改代码的灵活开发体验] ]&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/82691</guid>
-      <pubDate>Tue, 19 May 2026 00:15:09 +0800</pubDate>
-    </item>
-    <item>
-      <title>QMT数据疑云与微盘股“绿油油”：量化社群从困境到抱团取暖的真情实录</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;amp;talker=57784510736@chatroom"&gt;2026-05-19_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;🚨 QMT客户端数据更新问题频发，用户需关注网络与版本&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;问题回顾&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;多位用户反馈QMT客户端自动更新数据异常，导致选股失败或收到“实时数据超时”通知。&lt;/li&gt;
-&lt;li&gt;具体表现为：数据未及时更新，甚至有用户无法正常选股。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;官方解释与应对&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“数据管家-耶伦”指出主要原因是CDN服务商网络故障，导致数据下载延迟或失败。&lt;/li&gt;
-&lt;li&gt;客户端的容错机制会在3小时后重新尝试下载。用户可尝试手动增量更新。&lt;/li&gt;
-&lt;li&gt;“西蒙斯·西西哈哈”强调，这类通知旨在提前告知QMT的不稳定性风险，虽然重要但不紧急，建议用户联系客户经理推动QMT更新。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;社区经验与建议&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;部分用户发现回退到旧版本（如从2.0回退到1.0）能解决数据问题。&lt;/li&gt;
-&lt;li&gt;“--坤”建议，为确保稳定性，可考虑将网络运营商更换为电信，称其“稳若泰山”。&lt;/li&gt;
-&lt;li&gt;“木木十三”提到，新版本Fusion可能改变了盘中择时数据的行为逻辑，需要数据库配合处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📉 微盘股“绿油油”：市场情绪低迷与抱团取暖&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场表现&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;微盘股指数经历了显著下跌，多位量化交易者表示账户“绿油油”或“亏成狗了”，甚至“快突破最大回撤了”。&lt;/li&gt;
-&lt;li&gt;“定风波”等策略在盘中高位接盘，损失惨重。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;社群情绪&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;聊天记录中弥漫着集体“麻了”、“好无语”、“悲伤”的低迷情绪，但也不乏通过“听了直播才知道大家都没有赚钱，开心了”来互相安慰的“抱团取暖”现象。&lt;/li&gt;
-&lt;li&gt;有用户戏称这种共同亏损为“茶话会因子”和“苏打绿策略”。&lt;/li&gt;
-&lt;li&gt;“力割_萌新”用幽默方式表达了对微盘股“骗炮”行情的强烈不满。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;短暂反弹&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;午后微盘股指数出现V型反弹，科创50也表现强劲，但部分用户的个股未能同步翻红。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⏱️ QMT策略执行效率：网络与硬件是关键&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据更新与策略执行时间&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;不同用户QMT实时数据更新时间差异大，从1分半到10分钟不等。&lt;/li&gt;
-&lt;li&gt;完成数据抓取、信号计算和执行的整个流程，通常需要3-7分钟。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;影响因素&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;网络速度：被认为是关键因素之一，“朝阳”提到移动宽带经常超时，建议更换电信宽带。&lt;/li&gt;
-&lt;li&gt;硬件配置：虽然“西蒙斯·西西哈哈”警告不要轻易使用Tick数据，因为“同学硬件没大家想的那么强”，但“尼古拉斯不穿鞋”则认为“至少给硬件强的同学一个选择嘛”。&lt;/li&gt;
-&lt;li&gt;QMT接口速度和本地硬盘速度也被提及。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;优化尝试&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“無慈悲な定量化機械”分享了使用Tick数据合成分钟线以实现短延迟更新的测试，并解释了三种数据类型（QMT准确1m、Tick定时合成1m、剩余Tick合成1m）。&lt;/li&gt;
-&lt;li&gt;“啊驹”也采用类似方法：盘中Tick合成实时分钟线，盘后请求QMT分钟线作为权威数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;📚 策略优化与学习资源共享&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;排雷过滤因子&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“Joe”分享了针对ST股票的“排雷过滤因子”，旨在帮助识别和避免深套股票。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小市值策略更新&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“大苗条”更新并经“小马哥认证”的“意外收获的小市值”策略，年化收益达68%，结合了小市值、基本面改善（归母净利润增速和ROE）和LMA动量过滤。&lt;/li&gt;
-&lt;li&gt;该策略的一个有趣之处在于，为了控制回撤，将择时周期设为1小时级别，代价是收益被砍掉1/3，体现了“盈亏同源”的实战取舍。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资金流策略解析&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“分享会助教-林奇”分享了“cashflow策略原理解析（一）”的帖子，建议实盘用户深入了解其金融学原理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;学习资源提醒&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;“long”发现基础课程中包含往年分享会的试看，提醒大家利用这些宝贵的学习资源。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;金句集锦&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;“别的群怨声载道，本群普天同庆？” — long&lt;/li&gt;
-&lt;li&gt;“绿了吧唧” — 艾艾, 到过我兜里的那就是我的本金, ShawnSu, Cyan., long, Point71&lt;/li&gt;
-&lt;li&gt;“换电信吧，稳若泰山，别为了一年几百块纠结了” — --坤&lt;/li&gt;
-&lt;li&gt;“麻了，今天换仓日，买进了卖不出” — long&lt;/li&gt;
-&lt;li&gt;“快突破最大回撤了” — 朝阳&lt;/li&gt;
-&lt;li&gt;“策略年化20%，本月-0.82%，我太菜了” — 黑黑夜夜&lt;/li&gt;
-&lt;li&gt;“这种‘盈亏同源’的取舍在实战中很真实——想控回撤就得接受收yi打折，没有白捡的好事。” — 夏普&lt;/li&gt;
-&lt;li&gt;“又安静了，小市值啊，怎么不小市值了？他妈的天天小来小去的，什么相信xx，梭哈微盘，一天天的不是涨停，就是暴涨，聊天记录分分钟999+，怎么我一上车小市值就不暴涨了？被我一手买崩了？我不在的时候，你们天天要么会所嫩模，要么买车买房。又要全国全世界旅游，又是天天山珍海味各种大餐，怎么把我骗上车就不涨了，tmd有这么巧吗？” — 力割_萌新&lt;/li&gt;
-&lt;li&gt;“听了直播才知道大家都没有赚钱，开心了” — elikong, 站岗资本, baykop, 黑黑夜夜, DennisY, 巫语若解相思&lt;/li&gt;
-&lt;li&gt;“怕兄弟苦，更怕兄弟开路虎” — Relax&lt;/li&gt;
-&lt;li&gt;“苏打绿” — long, 黑黑夜夜, 巫语若解相思&lt;/li&gt;
-&lt;li&gt;“人人都以为自己是武松老板” — 黑黑夜夜&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;相关链接&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/82678&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/18505&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76971&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76973&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/a/s/59b9f8fc&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76970&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/62245&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=80504&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=78880&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/76869&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/82658&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 19 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>市场回调下策略如何逆袭？都江堰与沧浪亭的优化秘籍，以及API部署的那些坑</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;amp;talker=58453205219@chatroom"&gt;2026-05-19_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📉 &lt;strong&gt;市场“跳水”？进攻型策略如何逆势而上！&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;浪淘沙策略的韧性：&lt;/strong&gt; 即使市场经历回调，偏进攻的浪淘沙轮动和浪淘沙填充策略也表现出色。&lt;ul&gt;
-&lt;li&gt;早在5月16日，这些策略就已调整为中性甚至偏空头状态，有效规避了风险。&lt;/li&gt;
-&lt;li&gt;目前，市场参与者甚至期待进一步的下跌。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;⚙️ &lt;strong&gt;都江堰策略的“时间胶囊”：&lt;code&gt;start date&lt;/code&gt;如何影响你的选币？&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;start date&lt;/code&gt; 的核心作用：&lt;/strong&gt; 这个参数如同一个时间胶囊，它决定了根据过去一段时间的排名情况来选择当前小时的币种。&lt;ul&gt;
-&lt;li&gt;它直接影响你的当前持仓币种。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实盘操作建议：&lt;/strong&gt; 回测时可设为固定日期（如2021-01-01），但在实盘中，需要根据K线数据向前调整2-3个月，以确保选币逻辑的一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;长期趋势：&lt;/strong&gt; 长期来看，不同的 &lt;code&gt;start date&lt;/code&gt; 最终选币结果会趋于一致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最新框架：&lt;/strong&gt; 新的实盘框架支持截面因子的增量计算，只要不重启，就不需要频繁手动修改 &lt;code&gt;start date&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;📈 &lt;strong&gt;都江堰策略升级：双因子过滤“坑币”，收益蹭蹭涨！&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原版都江堰的局限：&lt;/strong&gt; 仅依赖成交量缩量入场，可能不幸选中持续阴跌的币种。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;巧妙优化方案：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;方案一：&lt;/strong&gt; 在原版基础上，引入 &lt;code&gt;PriceChange&lt;/code&gt; 因子。它通过涨跌幅排序，优先选择涨幅靠前的币种，再结合 &lt;code&gt;VolumeMaxBias&lt;/code&gt; 过滤，实现了量价结合。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;效果：&lt;/strong&gt; 这种“简单有效”的优化，能让收益提升20%~30%，同时回撤保持稳定，有效避开那些“阴跌B”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方案二：&lt;/strong&gt; 加入 &lt;code&gt;MtmMean&lt;/code&gt; 动量因子。策略只保留那些缩量但同时具有上涨动量的币种，大幅降低了踩到“假突破”雷的风险。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;效果：&lt;/strong&gt; 回测曲线明显更平滑，选币更稳健。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;⚠️ &lt;strong&gt;策略“魔改”陷阱：小心因子设置的“无效区”！&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关键提醒：&lt;/strong&gt; 邓普顿分享的这些策略改进思路很棒，但要警惕一个常见误区！&lt;ul&gt;
-&lt;li&gt;如果策略配置中选币因子被设置为 &lt;code&gt;999&lt;/code&gt; 等特定值，那么即使你加入了再多复杂的因子，它们也可能完全不起作用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;经验之谈：&lt;/strong&gt; 论坛上的帖子和魔改方案，最好带着批判性思维去看待，并非所有“改进”都能如愿以偿。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🔍 &lt;strong&gt;沧浪亭策略的“七十二变”：找到你的“圣杯”了吗？&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;探索精神：&lt;/strong&gt; 沧浪亭策略的魔改空间巨大，就像“七十二变”一样充满可能性。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成功案例：&lt;/strong&gt; 有人尝试了7个方向，其中两个效果显著。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;创新思路：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;利用 &lt;code&gt;OnlySel&lt;/code&gt; 因子进行分组，再结合 &lt;code&gt;PctChange&lt;/code&gt; 动量进行择强，实现大币轮动。&lt;/li&gt;
-&lt;li&gt;引入 &lt;code&gt;MSTR&lt;/code&gt; 替代大饼，用 &lt;code&gt;ALLUSDT&lt;/code&gt; 覆盖小币风格，拓宽策略覆盖面。&lt;/li&gt;
-&lt;li&gt;给BNB设置2倍惩罚系数，让策略在趋势期更坚定持有BNB，体现了对特定品种特性的深度拿捏。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;邢大的严苛标准：&lt;/strong&gt; 只有那些“表现足够惊艳”的策略，才能获得邢大的认可和分享。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💻 &lt;strong&gt;多实例实盘框架部署：API“失灵”怎么办？&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;场景再现：&lt;/strong&gt; 在同一台服务器上，同时运行加密的实盘框架（如 &lt;code&gt;position-mgmt-trading&lt;/code&gt;）和用于作业的模拟盘框架（如 &lt;code&gt;position-mgmt-trading-simulate&lt;/code&gt;），可能遇到API报错问题。&lt;ul&gt;
-&lt;li&gt;即使两个框架使用同一个API，模拟盘框架也可能提示API无效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;解决方案：&lt;/strong&gt; 启动第二个实盘框架时，同样需要带上密钥启动。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;原理揭秘：&lt;/strong&gt; 这是因为在不同的“session”中，环境变量是相互隔离、互不可见的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关于加密API的思考：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;心理安慰：&lt;/strong&gt; 加密API更多是一种“心理安慰剂”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实际风险：&lt;/strong&gt; 如果服务器被攻破，攻击者依然能够获取你的API Key。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最佳实践：&lt;/strong&gt; 分散风险，将不同的实盘部署在不同的服务器上，避免“把鸡蛋放在一个篮子里”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 &lt;strong&gt;市场风向标：流动性多头与抄底时机&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;流动性多头强劲：&lt;/strong&gt; 今年以来，流动性多头表现异常强劲。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逆向投资哲学：&lt;/strong&gt; 真正的投资机会，往往出现在“所有人都不看好”的时候。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行动指南：&lt;/strong&gt; “入场表现最差的”币种，或许蕴藏着巨大的反转潜力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;当前市场展望：&lt;/strong&gt; 有观点认为市场可能进一步下跌至6万。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;币种偏好：&lt;/strong&gt; 相对而言，大饼（BTC）表现较为坚挺，而SOL被一些人视为“垃圾币”，BNB则被寄予厚望。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;&lt;strong&gt;金句集锦&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;这波市场的回调，偏进攻浪淘沙轮动和浪淘沙填充策略，都是处理得不错的。在5月16号的时候就已经陆续都变成中性状态甚至偏空头状态了。目前希望市场进一步下跌。&amp;quot; —— 邢不行&lt;/li&gt;
-&lt;li&gt;&amp;quot;策略真的是要所有人都不看好的情况下进厂&amp;quot; —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;&amp;quot;入场表现最差的&amp;quot; —— WN_暖春拂晓&lt;/li&gt;
-&lt;li&gt;&amp;quot;论坛上的帖子看看就好 别当真&amp;quot; —— 心想事陈&lt;/li&gt;
-&lt;li&gt;&amp;quot;加密其实没啥用 心里舒服点&amp;quot; —— 心想事陈&lt;/li&gt;
-&lt;li&gt;&amp;quot;表现不够惊艳的，邢大都讲不下去.......&amp;quot; —— 马歇尔&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;&lt;strong&gt;相关链接&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;https://qtcls.cn/81880&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/82609&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/82600&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/77006&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76972&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/a/s/0a725cbd&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76998&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/62302&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=80305&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-19&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Tue, 19 May 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
