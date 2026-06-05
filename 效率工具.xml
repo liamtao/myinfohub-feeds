@@ -7,7 +7,67 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 05 Jun 2026 08:38:45 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 22:36:06 +0000</lastBuildDate>
+    <item>
+      <title>利用Codex构建全自动邮箱管理工作流：从零实现收件箱零待办</title>
+      <link>https://www.youtube.com/watch?v=2Yy8EJlZJFE</link>
+      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=2Yy8EJlZJFE"&gt;Codex Runs My Inbox Now&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Codex - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：Codex作为AI代理容器，通过内置浏览器与文件系统访问权限，将复杂任务解构为可自动执行的“卡片流”，实现人机协同的闭环自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：邮箱（Gmail）、Slack消息、Notion会议记录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：已处理的回复邮件、已归档的消息、自动化执行的系统操作指令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Vibe Coded&lt;/strong&gt;：利用自然语言通过AI实时生成应用逻辑与UI界面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Compound Learning&lt;/strong&gt;：系统记录每一步操作决策，实现AI prompt的动态进化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inbox Zero&lt;/strong&gt;：通过AI辅助过滤与自动处理，保持邮箱收件箱常态清空的状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：自动化邮箱清空与回复&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：减少低价值的邮件筛选、整理与回复工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Codex环境、Cora CLI或Gmail API接入授权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[自动捕获]&lt;/strong&gt;：Codex定时扫描收件箱，为每封邮件生成独立交互卡片。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[智能拟稿]&lt;/strong&gt;：AI根据上下文Draft回复，并读取日历权限提供可用时间建议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交互审核]&lt;/strong&gt;：用户通过语音或文本对卡片下达指令（如：“与Doug约在Brooklyn”、“存档此邮件”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[批量执行]&lt;/strong&gt;：点击“Execute”按钮，由AI代理自动在后台完成发送与归档操作。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：跨平台信息源整合（公司Feed）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将Slack、Notion等碎片化信息汇总到单一终端进行集中处理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[信息聚合]&lt;/strong&gt;：在Codex中创建专用Thread，连接Slack与Notion数据源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[分类标记]&lt;/strong&gt;：系统生成任务卡片，标记为“待审核”、“执行中”或“已完成”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指令分发]&lt;/strong&gt;：针对无需参与的讨论，输入决策（如：“投票支持标记为已完成”），由AI代理同步至对应平台。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Auto Review Mode&lt;/strong&gt;：开启该模式后，系统进入自动决策流，减少用户干预频率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model 5.5 (Extra High)&lt;/strong&gt;：推荐的Codex模型配置，确保在复杂自动化任务中保持高逻辑处理准确度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local File System Mapping&lt;/strong&gt;：所有交互记录均保存在本地文件系统，确保决策可追溯与AI学习样本的积累。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：在配置自动化时必须设定明确的“验证步骤”，避免AI在未核实情况下发出误导性回复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：将所有任务以“卡片”形式呈现，通过统一的指令动作管理不同平台（邮件、Slack、日历），实现认知负担的最小化。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=2Yy8EJlZJFE</guid>
+      <enclosure url="https://i.ytimg.com/vi/2Yy8EJlZJFE/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 05 Jun 2026 16:14:46 +0800</pubDate>
+    </item>
     <item>
       <title>逃离996：解析“大理”背后的数字基建与现代生存系统</title>
       <link>https://www.bilibili.com/video/BV1noGx6VEY3</link>
