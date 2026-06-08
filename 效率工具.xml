@@ -7,7 +7,73 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 08 Jun 2026 09:07:04 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 22:41:37 +0000</lastBuildDate>
+    <item>
+      <title>Codex与Hermes Agent的全模态免费替代方案配置指南</title>
+      <link>https://www.bilibili.com/video/BV1DXET6REdn</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/316183842"&gt;技术爬爬虾&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1DXET6REdn"&gt;长期免费使用Codex，Hermes等Agent，保姆级教程&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Codex与Hermes Agent - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：利用开源工具将主流模型平台（如Argus）的全模态API接入本地代理环境，实现零成本替代订阅制模型服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Argus官网申请的API Key、开源辅助软件及本地WSL环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化驱动的文字生成、全模态图片生成及接入即时通讯软件的智能Agent。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Codex加加&lt;/strong&gt;：用于给Codex更换模型后端及管理API配置的辅助插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Argus API&lt;/strong&gt;：提供文本、图像、视频生成能力的免费旗舰模型接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Skill&lt;/strong&gt;：Codex系统内定义的自动化任务单元（如网页抓取、绘图调用）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：Codex模型后端接入&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：绕过官方订阅，通过第三方API调用免费模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装Codex加加开源软件，申请Argus API Key。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;配置接入&lt;/strong&gt;：进入Codex加加管理控制台，添加供应商名称“ARGUS”，接入方式选“纯API”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;端点配置&lt;/strong&gt;：在API base URL填入服务器地址，填入API Key，上游协议选“Chat”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型生效&lt;/strong&gt;：重启Codex，在模型选择菜单中锁定目标模型（如AGONE2.0flash）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：自建图像生成Skill&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：弥补API接入后缺失的内置生图功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Playwright CLI环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;目录转换&lt;/strong&gt;：将项目文件夹内存储Skill的目录名修改为 &lt;code&gt;.codex&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;学习调用&lt;/strong&gt;：拉起Playwright CLI，通过提示词引导模型搜索并学习模型文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码编写&lt;/strong&gt;：调用Skill Creator，生成图像调用脚本，并在代码第八行手动替换API Key。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API Base URL&lt;/strong&gt;：定义后端服务的请求地址，决定调用哪个供应商的模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Skill目录结构&lt;/strong&gt;：Codex识别扩展功能的关键路径，必须严格按照特定命名规则存放。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;确保项目文件夹中存放技能的文件夹命名正确（&lt;code&gt;.codex&lt;/code&gt;），否则模型无法识别脚本。&lt;/li&gt;
+&lt;li&gt;脚本内的API Key需手动替换占位符，不可直接运行原始代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;利用WSL（Windows Subsystem for Linux）部署Hermes Agent，可实现无缝接入微信等IM渠道，大幅提升交互便利性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1DXET6REdn</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/9349c5c550c9e4886ca2feebebff05482cf944ca.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 08 Jun 2026 16:38:42 +0800</pubDate>
+    </item>
     <item>
       <title>一人公司AI基建：如何通过高频使用将工具转化为身体的延伸</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6a24be9c7444b57222348eda?utm_source=rss</link>
