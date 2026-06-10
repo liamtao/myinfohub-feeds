@@ -7,7 +7,51 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 09 Jun 2026 22:39:54 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 08:36:08 +0000</lastBuildDate>
+    <item>
+      <title>量化交易核心心法：奖励函数设计与工业级稳健性构建</title>
+      <link>https://www.bilibili.com/video/BV1fuEm6jEer</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fuEm6jEer"&gt;量化交易强化学习下奖励函数核心设计准则：收益风险制衡、反奖励黑客与疏密型奖励机制研究&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么回测完美的策略在实盘中会迅速崩盘？&lt;/li&gt;
+&lt;li&gt;💡 智能体是如何通过“作弊”手段在不产生真实利润的情况下骗取奖励的？&lt;/li&gt;
+&lt;li&gt;🚀 如何在保证收敛效率的前提下，建立一套穿越牛熊的奖励函数防御机制？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 奖励函数：算法的价值观锚点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心逻辑&lt;/strong&gt;: 奖励函数决定了智能体对市场的认知，是区分“虚假利润”与“稳健增长”的行为导向标。错误的奖励设计会引导模型偏离轨道。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼技巧转译&lt;/strong&gt;: 奖励函数就像给赛车手设定的KPI，如果你只考核“圈速”，车手会为了速度而无视路况最终翻车；我们需要的是将“风险”和“收益”同时纳入考核公式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 工业级奖励机制设计 (SOP)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多目标加权&lt;/strong&gt;: 将PNL与夏普比率、最大回撤进行线性加权组合，形成实时风险惩罚公式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入反作弊正则化&lt;/strong&gt;: 显性设置交易滑点与手续费惩罚，强制限制异常高频刷单行为。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分阶段塑造 (Reward Shaping)&lt;/strong&gt;: 训练初期使用密集反馈加速收敛，后期逐渐过渡至稀疏的最终盈利目标，防止模型对引导项产生依赖。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕“奖励黑客 (Reward Hacking)”：当奖励指标持续上升但净值停滞时，必须立即介入审计。&lt;/li&gt;
+&lt;li&gt;避免单一目标优化：拒绝完全依赖终极结果的稀疏奖励，这会导致模型因长周期学习反馈缺失而无法收敛。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “奖励函数是算法的灵魂与行为导向标，直接定义了智能体眼中的世界。”&lt;/li&gt;
+&lt;li&gt;💬 “古德哈特定律：当一个指标被选为衡量目标时，它就失去了作为指标的意义。”&lt;/li&gt;
+&lt;li&gt;💬 “在量化交易中，奖励函数的设计决定了50%的成功，剩下的50%取决于持续的监测与迭代。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fuEm6jEer</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/4eac58e5d2d27a067284aebd389caa717e4cc76c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 09 Jun 2026 21:14:34 +0800</pubDate>
+    </item>
     <item>
       <title>量化实盘的生存指南：从凌烟阁偏移到工业级开发框架的进化</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-09&amp;talker=57784510736@chatroom</link>
@@ -97,6 +141,96 @@
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-09&amp;talker=58453205219@chatroom</guid>
       <pubDate>Tue, 09 Jun 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>元学习：构建自进化量化交易系统的认知革命</title>
+      <link>https://www.bilibili.com/video/BV1omE36yE1T</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1omE36yE1T"&gt;Meta-Learning赋能强化学习：新市场自适应与跨市场策略复用方案&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在非平稳市场中，传统的“刻舟求剑”式拟合历史策略必将失效？&lt;/li&gt;
+&lt;li&gt;💡 学习如何学习（Meta-Learning）为何能让策略从“死记硬背”进化为“灵活应变”？&lt;/li&gt;
+&lt;li&gt;🚀 如何通过双层优化机制，在面对突发行情时实现策略的秒级迁移与自我进化？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 元学习（Meta-Learning）的底层逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心定义&lt;/strong&gt;: Meta-Learning 不再针对单一任务（Task）优化，而是学习一套能跨任务、跨市场快速适应的“通用初始化权重”，赋予模型“以变应变”的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼类比&lt;/strong&gt;: 传统策略如同一个只会背诵固定考题答案的学生，而 Meta-Learning 训练出的策略则是一个掌握了底层解题逻辑、即便面对陌生考卷也能迅速触类旁通的“学霸”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ MAML算法：量化进化的核心引擎&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;任务采样 (Sampling)&lt;/strong&gt;: 在多样化的市场任务分布中采样，确保环境的多样性以防止过拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内层循环 (Inner Loop)&lt;/strong&gt;: 利用少量K线数据，进行少量梯度步更新，使策略迅速适应当前市场环境（Regime）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外层循环 (Outer Loop)&lt;/strong&gt;: 作为上帝视角，基于所有任务在微调后的综合表现，反向优化初始参数（Theta），确保模型具备最佳的起点状态。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕元过拟合（Meta-overfitting）：若训练环境缺乏多样性，模型将失去迁移能力。&lt;/li&gt;
+&lt;li&gt;算力权衡：MAML涉及二阶梯度计算，实战中需通过一阶近似或硬件加速以满足微秒级交易需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;⚡ 跨市场策略迁移的实战模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;冷启动解决方案&lt;/strong&gt;: 针对新币种或数据稀缺市场，利用高流动性蓝筹市场训练出的通用先验参数，可极大缩短策略冷启动周期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态防御机制&lt;/strong&gt;: 配合自适应学习率，当检测到市场流动性枯竭或风格剧变（如加息突变）时，策略能通过内循环快速下调风险敞口，实现防御性进化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “在极度不确定的市场中，学习的能力永远比习得的知识更具确定性。”&lt;/li&gt;
+&lt;li&gt;💬 “量化交易不是寻找圣杯策略，而是构建一个能够持续生成策略的自进化系统。”&lt;/li&gt;
+&lt;li&gt;💬 “在量化领域，防御往往比进攻更体现水平。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1omE36yE1T</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/59414d1ffef29b5d4a92e7774549fb12bdb796ff.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 08 Jun 2026 22:30:39 +0800</pubDate>
+    </item>
+    <item>
+      <title>USDC小额归集系统逻辑重构与合并订单工程化实践</title>
+      <link>https://bbs.quantclass.cn/thread/86700</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86700"&gt;NBL实盘框架v0.1.3 USDC 归集、小额碎单处理、最小下单金额过滤&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：技术与工程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：USDC归集、订单拆单、小额资产处理、工程日志优化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过修正归集逻辑与强化日志明细，解决小额资金合并的系统性Bug。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：处理小额碎单（&amp;lt;最小下单金额）时，存在本地累计清零Bug、拆单预过滤错误以及USDC合并逻辑执行不透明问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于Binance现货/合约API的交易模型，涉及账户配置管理、交易执行流及客户端基础类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑闭环&lt;/strong&gt;：引入“先并入再判断”机制，仅在订单实际消费资金后清空本地累计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑过滤&lt;/strong&gt;：统一归集筛选与下单规则，排除重复下单（减仓单需防范双算风险）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API处理&lt;/strong&gt;：对 &amp;lt; min_notional 的跳过单进行回流处理，避免无意义重试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;杠杆冲突&lt;/strong&gt;：下单前触发的“目标仓位精调”逻辑会导致页面杠杆配置被重置为1x，需禁用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双算风险&lt;/strong&gt;：若减仓单既进入币种下单链路又进入USDC归集链路，会导致仓位异常，必须在过滤规则上进行互斥校验。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态判定&lt;/strong&gt;：减仓模式下 &amp;lt; 5U 需允许执行，而调仓模式下则应保留累计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;实施“USDC合并明细”日志审计：将“待归集资金”、“原始金额”、“跳过并入金额”和“最终金额”进行字段化输出，确保盯盘时可追溯资金去向。&lt;/li&gt;
+&lt;li&gt;优化小额资金处理：在拆单预过滤阶段增加对 &lt;code&gt;reduceOnly&lt;/code&gt; 语义的识别，确保减仓指令不会被错误拦截。&lt;/li&gt;
+&lt;li&gt;修复账户配置状态管理：移除下单链路中对页面杠杆的自动校准逻辑，由外部配置文件强行约束杠杆倍数。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86700</guid>
+      <pubDate>Mon, 08 Jun 2026 19:13:38 +0800</pubDate>
     </item>
     <item>
       <title>市场大幅回调下的量化策略表现与投资者心态复盘</title>
@@ -1353,6 +1487,16 @@ df['zscore'] = (df['close'] / df['ma'] - 1) / df['bw']
       <guid isPermaLink="true">https://www.bilibili.com/video/BV15FLz66ETo</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/ae9924df308131118536190c9766f53ea389acd3.png" length="0" type="image/png"/>
       <pubDate>Wed, 03 Jun 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>热度因子市值中性化深度分析：六种方法论对比与选股风格漂移探究</title>
+      <link>https://bbs.quantclass.cn/thread/86590</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86590"&gt;【热度挖掘】【第二期】市值中性化热度，效果会很好吗？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info) - &lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子] - &lt;strong&gt;核心标签&lt;/strong&gt;：[市值中性化、热度因子、回归残差、风格漂移] - &lt;strong&gt;一句话总结&lt;/strong&gt;：深度拆解热度因子与市值的强耦合性，揭示不同中性化方法对因子超额收益来源的本质改写。 --- ## 🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha) - &lt;strong&gt;【核心逻辑】&lt;/strong&gt;：热度因子与市值正相关，原始策略实质在博取小市值溢价；中性化旨在剥离市值偏好以提取纯粹的情绪信号。 - &lt;strong&gt;【因子构建】&lt;/strong&gt;：对比了原始热度、高斯秩回归、市值分组去均值及三种OLS残差法（原始市值、Log市值、剔除银行版）。 - &lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用横截面回归取残差。实验发现OLS类方法因对极端大市值敏感，导致回归系数受大盘股支配，选股结果产生严重的“大盘风格偏移”（平均市值超万亿）；而高斯秩回归与分组去均值则将持仓推向中盘。 - &lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：原始热度年化17.01%但回撤高达37.96%；原始市值OLS残差策略收益回撤比（0.56）最高，但其本质由于过度集中于银行、保险、石油等权重股而发生了风格置换。 - &lt;strong&gt;【风险与衰减】&lt;/strong&gt;：完全剥离市值影响（如高斯秩方法）会导致年化收益腰斩至8%左右，证明热度因子在小市值端的暴露是其核心阿尔法来源。 --- ## 💡 落地与行动指南 (Actionable Takeaways) - &lt;strong&gt;中性化方案优化&lt;/strong&gt;：在进行市值中性化时，应警惕普通OLS回归导致的选股逻辑被大市值长尾样本“绑架”，推荐使用对异常值不敏感的【高斯秩回归】。 - &lt;strong&gt;对冲策略启发&lt;/strong&gt;：鉴于OLS中性化热度策略与原始策略极低的选股重合度且偏向蓝筹股，可将其作为大盘风格的选股增强模块或对冲池。 - &lt;strong&gt;后续挖掘方向&lt;/strong&gt;：建议转向对【波动率因子】进行中性化处理，尝试在剔除纯风险暴露后，捕捉那些未被市场充分定价的“纯净热度”信号。&lt;/h2&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86590</guid>
+      <pubDate>Wed, 03 Jun 2026 17:39:53 +0800</pubDate>
     </item>
     <item>
       <title>分而治之：DENNET分解增强网络如何通过结构化预测重塑量化交易</title>
@@ -2822,6 +2966,49 @@ eq$ 经济收益。&lt;/li&gt;
       <pubDate>Fri, 29 May 2026 22:25:43 +0800</pubDate>
     </item>
     <item>
+      <title>都江堰策略进阶：基于双窗口因子外置时间的策略优化</title>
+      <link>https://bbs.quantclass.cn/thread/85206</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/85206"&gt;【b圈】都江堰策略优化--符合条件的币外置一段时间再买--综合提升50%以上！&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[都江堰策略、因子外置时间、双窗口、持仓效率、补位逻辑]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过将历史资格窗口与因子窗口解耦并引入强制当前确认逻辑，显著提升策略收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：将传统的“因子选币”转化为“潜伏+确认”模式，通过强制要求补位标的在当前时刻（1H）仍满足选币标准，确保进入组合的标的处于高爆发潜伏期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：提出“因子外置时间”概念，通过设置双窗口参数（base_n为底层因子窗口，m为历史资格窗口），实现进场逻辑与资格筛选的物理分离。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在固定 base_n=3600 条件下，m=72 表现最优；相比原版，净值提升近100%，收益回撤比提升30%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决原版策略补位时仅看历史窗口导致买入后即下跌（缺乏实时性验证）的问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：在 Numba 补位循环中添加实时验证逻辑：在 &lt;code&gt;need_count&lt;/code&gt; 补位步骤中增加 &lt;code&gt;if current_rank_pct &amp;lt;= threshold_pct&lt;/code&gt; 的即时检查，过滤掉不再符合条件的标的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;将策略补位逻辑重构，引入实时过滤机制：在选入新标的之前，除满足历史窗口（m）条件外，必须同步校验当前时刻（T）的因子阈值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol start="2"&gt;
+&lt;li&gt;开展参数平原测试：针对新引入的“外置时间”窗口（m），建议遍历 [1, 168] 区间，关注收益回撤比的稳定性而非单一净值最大值。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;ol start="3"&gt;
+&lt;li&gt;策略联动建议：由于“因子外置时间”优化可能会降低整体选币数量，建议将其作为多头组合的子策略，搭配其他非相关策略以平衡持仓规模与风险。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/85206</guid>
+      <pubDate>Fri, 29 May 2026 22:14:26 +0800</pubDate>
+    </item>
+    <item>
       <title>模糊的预期与确定的陷阱：论量化交易的边界与博弈核心</title>
       <link>https://bbs.quantclass.cn/thread/84976</link>
       <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/84976"&gt;我不用量化的理由系列3 —— 模糊的才是最美的&lt;/a&gt;&lt;/p&gt;
@@ -4242,6 +4429,36 @@ eq$ 经济收益。&lt;/li&gt;
       <pubDate>Mon, 25 May 2026 20:31:07 +0800</pubDate>
     </item>
     <item>
+      <title>金融虚无主义下的加密市场分裂：公链赌场与机构暗网的二元范式</title>
+      <link>https://bbs.quantclass.cn/thread/84121</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/84121"&gt;【杂谈】从2021猫狗币狂欢，到2026金融虚无主义&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[金融虚无主义、市场微观结构、流动性税、反身性、隐私许可链]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：解析散户放弃基本面信仰后的加密市场二元化生存结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：散户风险偏好从寻找基本面资产转向激进追逐无锚标的；Meme币持有时间中位数缩短至100秒，且存在严重的头部效应（12个币占总市值55%）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：2022年机构与项目方的接连爆雷导致散户对传统价值叙事彻底失望，产生“金融虚无主义”。价格波动本质上是群体关注度的实时投影，且交易伴随着隐形的“流动性税”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“基本面/估值/DCF”在Meme领域的有效性。散户已不再博弈价值，而是在明牌赌局中支付变现惩罚以获取尾部不对称回报。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：机构正通过隐私许可链实现资产代币化与清算，与公链赌场形成物理隔离，加密市场将长期维持“高波动公链”与“合规暗网”的平行结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;放弃对Meme标的进行基本面分析，转而关注监控链上关注度（如持币地址数变化率、社交媒体热度趋势）作为短期趋势跟踪的输入因子。&lt;/li&gt;
+&lt;li&gt;审视策略组合中的流动性暴露，量化急于成交带来的滑点摩擦（即文中所述“流动性税”），优化订单执行逻辑以降低变现成本。&lt;/li&gt;
+&lt;li&gt;识别“做市商”策略，在波动率极高的市场环境下，放弃方向性预测，专注于提供流动性并捕获变现惩罚的套利机会。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/84121</guid>
+      <pubDate>Mon, 25 May 2026 17:18:31 +0800</pubDate>
+    </item>
+    <item>
       <title>因子投资核心方法论：从组合构建到模型检验的全面解析</title>
       <link>https://www.bilibili.com/video/BV1CmGW6rEkr</link>
       <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1CmGW6rEkr"&gt;石川《因子投资：方法与实践》（下）：因子实证、模型构建与 A 股量化实践全解析&lt;/a&gt;&lt;/p&gt;
@@ -4461,368 +4678,48 @@ eq$ 经济收益。&lt;/li&gt;
       <pubDate>Mon, 25 May 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>因子投资：破解A股超额收益的量化方法论</title>
-      <link>https://www.bilibili.com/video/BV18hGH6yEn2</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18hGH6yEn2"&gt;石川《因子投资：方法与实践》（上）：理论溯源、维度解析与行业实操全导论&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 资产预期收益率，除了市场涨跌，还有哪些深层驱动力？&lt;/li&gt;
-&lt;li&gt;💡 在数百种“因子”中，如何识别那些真正带来超额收益的“真因子”？&lt;/li&gt;
-&lt;li&gt;🚀 面对“因子动物园”的学术乱象，量化投资者如何回归投资本质，避免陷阱？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 因子投资第一性原理：收益分解公式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资产收益本质&lt;/strong&gt;: 任何资产的预期收益率，均可拆分为两部分——因承担风险而获得的报酬，以及市场定价误差带来的额外惊喜。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Alpha (异象)&lt;/strong&gt;: 代表定价误差，即剔除已知风险因子后，仍无法解释的超额收益，是量化交易员最渴望捕捉的利润源泉。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Beta * Lambda (系统性收益)&lt;/strong&gt;: Beta衡量资产对特定风险的敏感度（因子暴露），而Lambda则是投资者因勇敢承担这种特定风险而获得的补偿（因子溢价）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼技巧&lt;/strong&gt;: 资产收益如同复合光束，因子公式如同三棱镜，将其分解为不同“色彩成分”，分别对应着可解释的风险补偿与待捕捉的市场异象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 因子的本质：系统性风险与两大识别标准&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;定义&lt;/strong&gt;: 因子并非某家公司的特有属性，而是描述众多资产共同暴露的某种系统性风险，是影响一大片资产的共性力量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;营养成分类比&lt;/strong&gt;: 股票、债券等资产犹如餐桌上的食物，形态各异；而价值、动量、规模等因子，则如食物的蛋白质、脂类、碳水化合物，决定其风险和收益特征。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;两大硬指标&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;影响力&lt;/strong&gt;: 必须能驱动大量资产的共性运动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风险溢价&lt;/strong&gt;: 长期内，必须能让投资者获得正的风险溢价。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;底层逻辑&lt;/strong&gt;: 多因子模型是对资产收益底层驱动逻辑的简化与降维，帮助我们穿透数千只股票的表面波动，直接锁定背后核心驱动变量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 因子研究的双维视角：截面与时序&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;截面角度 (Cross-sectional)&lt;/strong&gt;: 犹如摄影中的定格拍摄，在某一瞬间观察成千上万只股票，通过均值模型解释资产间收益差异的因子特征。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时序角度 (Time series)&lt;/strong&gt;: 犹如延时摄影，持续观察同一个资产，探究其收益率如何随时间波动，关注因子在不同宏观环境或市场阶段的表现稳定性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;转换&lt;/strong&gt;: 量化研究中的数据是一个庞大的立方体，横向切割研究截面差异，纵向拉伸研究时序演变，两者之间存在平滑转换能力，是构建严谨回测系统的基本功。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 因子理论的演进：从CAPM到行为金融&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;20世纪60年代&lt;/strong&gt;: CAPM（资本资产定价模型）首次科学量化高风险高收益关系，将所有风险简化为单一市场Beta。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;1970年代&lt;/strong&gt;: APT（套利定价理论）打破CAPM单一因子局限，认为资产收益由多个维度风险源决定，为更多因子研究打开大门。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;1990年代&lt;/strong&gt;: Fama-French三因子模型里程碑式地引入规模（SMB）和价值（HML），清晰解释了此前CAPM无法解释的异常收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;21世纪&lt;/strong&gt;: 行为金融学指出，市场并非总是理性，投资者心理偏差也是因子重要来源，拓宽了因子研究的视角。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 “因子动物园”的困境与真伪鉴别标准&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;现状&lt;/strong&gt;: 学术界已挖掘超过400个异常因子，存在严重的“发表偏差”（Publication bias），即只汇报显著结果，隐藏失败尝试。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;灵魂拷问&lt;/strong&gt;: 著名学者约翰·科克伦质疑这些因子是否相互独立、是否提供非冗余新信息、是否具备坚实的经济学解释。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;统计陷阱&lt;/strong&gt;: “数据窥探”（Data snooping）导致过度拟合，即便因子无效，纯靠运气也可能在历史数据中发现显著结果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;新标准&lt;/strong&gt;: 为对抗多重假设检验误差，学术界对因子T统计量要求已从大于2.0提升至3.0或更高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;真伪鉴别&lt;/strong&gt;: 严谨的样本外测试和背后深刻的经济学逻辑，才是区分真因子与伪因子的金标准。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 业界实践：因子拥挤与Alpha Beta的区分&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;双重身份&lt;/strong&gt;: 因子在主动投资中用于寻找超额收益，在组合优化中作为风险模型约束风险敞口。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子拥挤 (Factor Crowding) 风险&lt;/strong&gt;: 若大量量化基金集中买入同一类股票，会推高其价格，导致未来预期收益快速衰减。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;持续监测资金流向。&lt;/li&gt;
-&lt;li&gt;密切关注因子热度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Smart Beta策略&lt;/strong&gt;: 将经过学术验证的经典因子转化为低成本、标准化的投资产品，兼具指数基金的便捷与主动管理的智慧。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Alpha与Beta的准确区分&lt;/strong&gt;: 核心在于识别管理人赚取的收益究竟源于其独特的选股能力（真正超额收益），还是仅仅通过暴露于某些众所周知的风险因子（系统性回报）。这直接影响管理费支付的合理性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “掌握了这个公式，你就掌握了因子投资的第一性原理。”&lt;/li&gt;
-&lt;li&gt;💬 “我们买股票，本质上是在购买这些底层的风险因子组合。”&lt;/li&gt;
-&lt;li&gt;💬 “严谨的样本外测试和背后深刻的经济学逻辑，才是区分真因子与伪因子的金标准。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV18hGH6yEn2</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/f35dd6d809cc2af382d4e24df28ae986953b621e.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 24 May 2026 22:15:14 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化数据中心工程化演进：高性能 Go 版 Exodia 的架构设计与实战指南</title>
-      <link>https://bbs.quantclass.cn/thread/83927</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/83927"&gt;大A-数据中心golang版本，对齐最新小客户端版本【依旧5倍速度，依旧没有依赖】&lt;/a&gt;&lt;/p&gt;
+      <title>因子动量的伪命题：实证视角下的轮动价值重估</title>
+      <link>https://bbs.quantclass.cn/thread/83969</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/83969"&gt;【婴儿车勇闯大A】偏科生的底层假设（二）：你的因子，真的都有动量吗？&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;AI摘要&lt;/h2&gt;
 &lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[增量更新、Go性能优化、数据中心架构、跨平台回测、QMT实时数据]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于Go实现的高性能量化数据更新服务，性能较Python提升2-4倍且支持全平台。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：Python在处理大规模CSV增量更新时（如5000+文件）效率较低；量化实战中Mac/Linux环境对QMT等Windows独占数据的回测支持缺失。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Go语言实现，利用SQLite (WAL模式) 存储元数据与分钟级数据；通过 &lt;code&gt;qmt_proxy&lt;/code&gt; (FastAPI) 实现跨机器数据调度；外部接口支持通过JSON状态文件与外部程序（如Elixir）解耦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;流式处理&lt;/strong&gt;：针对大文件采用流式读写，避免Pandas常见的内存溢出（OOM）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;性能模式&lt;/strong&gt;：支持 &lt;code&gt;PERFORMANCE/EQUAL/ECONOMY&lt;/code&gt; 三档并发调度，最高支持61核并行处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;二进制兼容性&lt;/strong&gt;：实现与Pandas输出 &lt;code&gt;byte-identical&lt;/code&gt;（逐字节一致）的GBK编码CSV，保留版权行与特定排序逻辑，确保旧有Python策略无缝迁移。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：实测在16核环境下，Go版比Python版快2-4倍（如5482个文件处理耗时由43s降至12.2s）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：针对GBK编码、LF换行符及CSV版权行做了严格适配；针对QMT接口特性，在 &lt;code&gt;min_data&lt;/code&gt; 拉取中实现了分批（Batch）请求与并发冲突控制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;性能迁移&lt;/strong&gt;：对于大规模I/O密集型的数据清洗与合并任务，应考虑将Python后端逻辑迁移至Go，利用其原生并发模型解决瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨平台桥接&lt;/strong&gt;：采用“Windows端 qmt_proxy + Linux端 调度服务”的架构，解决量化实战中实盘数据源与研究环境平台不统一的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;状态驱动架构&lt;/strong&gt;：通过 &lt;code&gt;update_success.json&lt;/code&gt; 和 &lt;code&gt;products-status.json&lt;/code&gt; 构建外部程序感知机制，实现策略系统与数据更新服务的松耦合。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/83927</guid>
-      <pubDate>Sun, 24 May 2026 20:26:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘金融顶刊策略：从T-1反转到T-12动量的跨周期获利逻辑</title>
-      <link>https://www.bilibili.com/video/BV1gAGE6TEaA</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1gAGE6TEaA"&gt;【量化论文速读】全球动量反转本一体，包括大A；韭菜牛散机构殊途同归&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么过去一个月的表现往往与下月相反，而一年前的趋势却能在今天持续？&lt;/li&gt;
-&lt;li&gt;💡 市场中的“噪音交易者”是如何在无意间制造了可预测的超额收益（Alpha）？&lt;/li&gt;
-&lt;li&gt;🚀 如何仅通过简单的线性回归，将T-1到T-12的滞后收益转化为稳健的投资模型？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 价格预测的“时间刻度”规律&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;反转与动量的时域分布&lt;/strong&gt;: 统计学显著性证明，T-1个月（前一月）对当月收益具有强烈的&lt;strong&gt;负相关性&lt;/strong&gt;（反转效应）；T-2个月相关性消失；而T-3至T-12个月则呈现显著的&lt;strong&gt;正相关性&lt;/strong&gt;（动量效应）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨市场的一致性&lt;/strong&gt;: 这种“先反转后动量”的现象不仅存在于美股，在大A（中国股市）、港股及东亚其他股市同样高度显著，数值绝对值越大，策略有效性越强。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 行为金融学：三类投资者的心理博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;噪音交易者（韭菜）的逆向驱动&lt;/strong&gt;: 节点一和节点二的短期反转主要由散户驱动。他们盲目跟风、追涨杀跌，导致短期内价格脱离价值，产生反转需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知情者（机构）的理性推演&lt;/strong&gt;: 节点三和节点四的长期动量则由知情者主导。他们在消息初期谨慎观察，在确认利好（如财报、政府合同）后持续买入，形成长期趋势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;未知情者的反应迟钝&lt;/strong&gt;: 中间层的投资者因反应不足或盲目自信，在趋势确认后才缓慢入场，进一步强化了动量的持续性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 量化策略构建与风控&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;数据准备&lt;/strong&gt;: 提取目标标的前12个月的月度收益率数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型构建&lt;/strong&gt;: 建立线性回归模型，对T-1赋予负权重，舍弃T-2，对T-3至T-12赋予正权重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信号生成&lt;/strong&gt;: 利用加权后的线性组合预测下月收益，以此作为买入/卖出信号。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕订单失衡率（OIB）过高的时段，散户占比极高时，T-1的反转会异常剧烈，若不及时调整权重可能导致回撤。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “大道至简：将不同月份的收益进行简单的线性加权组合，就能预测未来。”&lt;/li&gt;
-&lt;li&gt;💬 “短期反转由噪音交易者驱动，而长期动量则是知情者与迟钝者共同堆砌的趋势。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1gAGE6TEaA</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/b797438fa48f607532fb12a991de815a4c325bef.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 24 May 2026 20:25:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>跨境券商监管后，Ondo链上美股与ONDO代币的RWA投资机遇深度解析</title>
-      <link>https://bbs.quantclass.cn/thread/83720</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/83720"&gt;[RWA]今天你on了吗？--适度理解Ondo&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[RWA, Ondo, Tokenized Securities, 跨境券商, 美股链上, ONDO代币, 监管套利, 价值捕获, SPV结构]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[深度解析跨境券商监管后Ondo链上美股产品及ONDO代币的价值捕获机制与风险]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[因子动量、RCF、策略有效性、因子轮动、买入持有]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：大多数因子无动量，且因子动量策略难以跑赢买入持有策略。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：中国证监会联合八部门对老虎、富途、长桥等跨境券商顶格重罚，没收全部违法所得，内地存量用户两年内只能卖不能买、不能入金，两年后全面关停境内服务。该监管行动显著收窄了中国内地散户合法买卖美股（特别是特斯拉、英伟达等热门标的）的渠道，传统合法路径（港股通、QDII、跨境理财通）存在门槛、额度、费率或标的局限。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：政策驱动：国家金融安全与数据监管趋严背景下，对未经许可跨境展业的金融机构进行集中整治。用户需求转移：大量被传统渠道受限的内地投资者将寻求新的、合规性待考证但便利性高的美股敞口获取路径。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：直接冲击传统跨境券商的商业模式和用户基础，尤其对其内地客户资产构成重大影响。间接推动链上代币化证券（RWA）作为潜在替代方案的需求增长，促使市场对RWA平台的价值进行重新评估。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：Ondo的Global Markets (美股on token) 若能有效承接这部分增量需求，其交易量和用户数将显著增长。Ondo平台可能成为内地用户获取美股敞口的&amp;quot;下一个入口&amp;quot;，推动RWA赛道整体发展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：只有不到30%的因子具有强动量特征（RCF），且这些因子高度集中于价值-成长类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：否定了“所有因子均可轮动”的假设，并指出因子动量组合在 gross return 层面即难以战胜简单的买入持有组合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：A股市场散户驱动的定价错误与高换手特征，是否会赋予因子动量优于美股的额外超额收益。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Ondo的&lt;code&gt;on token&lt;/code&gt;（如TSLAon, SPYon）提供美股/ETF的价格敞口，通过在链上发行“结构化票据”实现。其底层资产由美国受监管的托管券商持有，发行主体为英属维京群岛（BVI）的破产隔离SPV。on token价格设计为“总回报追踪器”，即&lt;code&gt;token价格 = 底层股价 × sValue乘数&lt;/code&gt;，该乘数会随股息再投资而增长，体现累计总回报，而非简单价格镜像。Ondo Global Markets通过买卖报价中嵌入微小价差（0.01%-0.03%）赚取收入，而非铸造/赎回费或管理费，旨在薄利多销抢占市场。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：ONDO代币与Ondo公司业务增长之间存在弱连接，ONDO仅为DAO治理代币，无法直接捕获Global Markets的收入。on token不赋予股东投票权或信息权，仅提供经济敞口。地区限制与KYC门槛可能筛掉部分大陆用户。结构性风险：底层资产托管券商暴雷、SPV内部欺诈、智能合约漏洞、监管强制关闭等“黑天鹅”事件，尽管有1:1抵押、第三方验证和优先担保权，但风险非零。ONDO代币作为纯crypto资产，面临高波动、叙事轮动、解锁砸盘等市场风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决传统跨境美股交易的合规性、门槛高、便利性差等痛点，特别是针对中国内地用户在现有监管框架下的受限问题。实现美股资产链上代币化，使其能在DeFi生态中流通、抵押、交易，提升流动性和可组合性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：多层实体架构：Ondo Finance Inc. (美国，核心运营)，Ondo Foundation (开曼，基金会，支持DAO)，Ondo DAO (链上，治理Flux Finance协议)，Flux Finance (链上DeFi借贷)，Ondo Global Markets (BVI) Limited (英属维京群岛，破产隔离SPV，发行美股on token)。底层资产托管：通过美国受监管的托管券商买入真实股票/ETF，并由BVI SPV持有。代币发行：BVI SPV在链上发行“结构化票据”形式的on token（ERC-20等），与底层资产1:1锚定，每日由第三方（Ankura Trust）验证。法律框架：采用瑞士法管辖的结构化票据，通过Security Agent对底层资产享有优先担保权，实现破产隔离。产品线：OUSG (链上短期美债，投向BlackRock BUIDL)，USDY (收益型美元代币，tokenized note)，Ondo Global Markets (美股on token)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：总回报追踪器实现：通过&lt;code&gt;sValue&lt;/code&gt;乘数机制，将底层资产的股息再投资效应体现在token价格中，而非简单价格镜像。低价差报价模型：通过极低的买卖价差（0.01%-0.03%）吸引用户，降低交易成本，这依赖于高效的底层股票执行和链上做市。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：KYC是链上铸造/赎回的必要环节，对大陆用户可能构成挑战。on token链上转账无限制，但首次获取需KYC。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于过去收益率或指标表现的因子时序持续性，试图通过轮动捕捉高收益因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：利用过去 N 个月的收益率或 ICIR 进行因子加权或多空排序。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：因子轮动带来的高换手成本、印花税及滑点会显著削弱实盘净值，策略存在严重的电费（交易成本）覆盖危机。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;评估RWA平台的风险控制&lt;/strong&gt;：对潜在RWA投资机会，需详细审查其法律结构（特别是SPV的破产隔离、托管方、管辖法律、第三方审计/验证机制），以评估底层资产安全性及对手方风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跟踪政策与用户流向&lt;/strong&gt;：结合中国监管政策动态（如QDII额度、港股通范围）及市场对链上美股的需求变化（通过Binance等CEX上on token的交易深度、价差变化、社群讨论热度），预测RWA代币的潜在市场空间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设计ONDO代币价值捕获模型&lt;/strong&gt;：若考虑投资ONDO代币，需密切关注Ondo DAO治理提案，特别是关于平台收入如何与ONDO代币持有者建立硬连接的机制，或探索基于Flux Finance协议的新型DeFi策略。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/83720</guid>
-      <pubDate>Sun, 24 May 2026 02:04:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易实战：从策略选股、技术底层的 Golang 到未来函数避坑</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;amp;talker=57784510736@chatroom"&gt;2026-05-24_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 策略实战与资金配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;小市值策略资金预估&lt;/strong&gt;：在运行多个小市值策略（如5个策略，每策略1只股）时，若单股估价在20元以下，5万元本金理论上足够。但需注意&lt;strong&gt;科创板&lt;/strong&gt;的交易门槛（最小买入单位200股），建议多预留约1万元以防资金不足导致无法下单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;小市值推荐&lt;/strong&gt;：对于寻找起步策略的投资者，社区推荐关注“纯小市值TOP100”策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 技术底层与性能探讨&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Golang 的性能优势&lt;/strong&gt;：在量化系统和游戏服务器开发中，Golang 因其开发便捷且运行速度快而备受推崇。相比于 Rust 或 C 语言，Golang 在处理 IO 问题时表现优秀，足以满足绝大多数高性能需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DSL 的应用&lt;/strong&gt;：在因子编写中，使用 DSL（领域特定语言）能极大地提高编写效率，使策略逻辑更直观。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 避坑指南：未来函数与回测细节&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;警惕未来函数&lt;/strong&gt;：在处理港股数据对齐时，由于数据对齐方式不当，容易引入“未来函数”（即在回测时使用了未来的数据来预测现在），这会导致回测结果虚高，必须谨慎处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;K线信号判断&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;close&lt;/code&gt;：基于当前K线收盘价判断信号。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;next_open&lt;/code&gt;：基于下一根K线开盘价判断信号。需仔细甄别是否在逻辑上形成了“偷看未来”的违规操作。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;ol&gt;
+&lt;li&gt;放弃“因子池全轮动”的盲目策略，优先筛选并聚焦于表现出显著 RCF 特征（如价值类）的因子进行实验。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 实用资源与技巧&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;客户端操作&lt;/strong&gt;：在客户端查看策略结果时，可以通过“策略结果文件夹 $\rightarrow$ 对应策略文件夹”快速定位路径。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;界面偏好&lt;/strong&gt;：用户普遍认为在量化客户端中，百分比形式的数值显示比绝对值更直观舒适。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;quot;golang的性能真心牛&amp;quot; —— 木木十三&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83864"&gt;大A框架中港股数据对齐导致【未来函数】的分析与解决&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/75656"&gt;杰克的帖子&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/83927"&gt;木木十三分享的配置指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/83678"&gt;小市值基本面策略分享&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易员的生存实录：回撤、择时与策略博弈</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;amp;talker=58453205219@chatroom"&gt;2026-05-24_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;📈 策略表现：从“大黄”到“都狗”的交替&lt;/h3&gt;
-&lt;p&gt;在量化策略的实战中，资金曲线的波动是常态。近期群友观察到中性策略的表现出现了有趣的演变：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;新旧交替&lt;/strong&gt;：2026年的中性策略“都江堰-落单狗”（都狗）近期表现强劲，历史新高；而2025年的“大黄”策略则显现出疲态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;心态博弈&lt;/strong&gt;：面对策略回撤，成熟的交易员将其视为“正常现象”，而部分用户则在寻找“抄底”加仓的时机。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚙️ 技术洞察：择时与过滤的艺术&lt;/h3&gt;
-&lt;p&gt;如何让策略在波动中生存？对话中探讨了关于“择时”的实现方式：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;择时的多样性&lt;/strong&gt;：择时并非单一手段，框架支持多种实现路径：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;前置过滤&lt;/strong&gt;：在信号产生前进行筛选。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;后置过滤&lt;/strong&gt;：在信号产生后，通过条件过滤掉不理想的交易。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资金曲线择时&lt;/strong&gt;：基于整体收益曲线的走势来决定是否运行策略。&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;&lt;ol start="2"&gt;
+&lt;li&gt;在回测框架中引入“买入持有”作为基准线（Benchmark），所有轮动策略必须证明其在扣除交易摩擦后的净表现显著优于该基准，否则直接剔除。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作建议&lt;/strong&gt;：对于追求稳健的交易者，可以尝试“后置过滤”，这就像在狂风中加了一把伞（定风波），能让资金曲线更加平稳。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚠️ 交易实操：风险与渠道&lt;/h3&gt;
-&lt;p&gt;除了代码和模型，交易的底层支撑同样关键：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;脚本维护&lt;/strong&gt;：注意监控脚本的报错（如 &lt;code&gt;NoneType&lt;/code&gt; object is not subscriptable），这通常意味着数据缺失，需及时重启并排查数据源。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;入金路径&lt;/strong&gt;：在购买U（USDT）时，目前较为推荐的路径是：&lt;code&gt;C2C&lt;/code&gt; $\rightarrow$ &lt;code&gt;OKX&lt;/code&gt; $\rightarrow$ &lt;code&gt;Binance&lt;/code&gt;，以确保资金流转的相对安全。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💬 金句摘录&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;最近遭遇回撤，也很正常&amp;quot; —— Andy&lt;/li&gt;
-&lt;li&gt;&amp;quot;把动量当山寨币马丁炒&amp;quot; —— 茶泡饭&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关资源&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;【监测】B旗舰策略监测文件---更新至2026-05-24 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-24&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sun, 24 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘A股“行业明灯”量化策略：从底层逻辑到实操手册的深度拆解</title>
-      <link>https://www.bilibili.com/video/BV1q2GB6BEBG</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1q2GB6BEBG"&gt;换个思路做A股！高股息小市值暗藏红利机会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛠️ 行业明灯量化选股策略 - 标准实操手册 (SOP)&lt;/h3&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于“均值回归”与“逆向投资”思维，通过行业热度指标识别情绪顶峰并主动避险，结合高股息、低PEG及小市值效应筛选高性价比标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Tushare Pro基本面数据（股息率、PEG、市值、股价）、申万一级行业行情数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：每周第一个交易日执行的10只等权重持仓股票列表。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行业宽度&lt;/strong&gt;：指行业内股价突破20日均线的股票比例，用于量化行业过热程度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行业明灯&lt;/strong&gt;：指银行、煤炭、钢铁等周期性强、易引发情绪极值的预设反向指标行业。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景：周度自动化调仓执行&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：规避业绩雷区与情绪高位，捕捉低价小市值股的超额收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：PTrade交易终端、Tushare积分（&amp;gt;2000）、账户可用资金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[强制风控]&lt;/strong&gt;：系统检查当前月份 -&amp;gt; 若属于 &lt;code&gt;1月&lt;/code&gt; 或 &lt;code&gt;4月&lt;/code&gt;（业绩雷区） -&amp;gt; &lt;code&gt;立即清仓&lt;/code&gt; 并停止本周交易。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[明灯过滤]&lt;/strong&gt;：计算申万行业宽度 -&amp;gt; 锁定最热行业 -&amp;gt; 若该行业在 &lt;code&gt;JENDLIST&lt;/code&gt;（明灯名单）中 -&amp;gt; 保持 &lt;code&gt;空仓&lt;/code&gt; 避险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[四重选股过滤]&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;粗选&lt;/strong&gt;：剔除科创板、北交所、ST/退市股及当日涨跌停个股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高股息筛选&lt;/strong&gt;：按 &lt;code&gt;DVTTM&lt;/code&gt; 降序排列，仅保留前 &lt;code&gt;25%&lt;/code&gt; 的标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PEG校准&lt;/strong&gt;：筛选 &lt;code&gt;PEG&lt;/code&gt; 在 &lt;code&gt;[-3, 3]&lt;/code&gt; 之间的股票，确保估值与增长匹配。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;价格锁定&lt;/strong&gt;：过滤股价在 &lt;code&gt;[2, 9]&lt;/code&gt; 元之间的标的，规避退市风险并保留上涨弹性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[组合构建]&lt;/strong&gt;：对剩余股票按 &lt;code&gt;总市值&lt;/code&gt; 从小到大排序 -&amp;gt; 选取前 &lt;code&gt;10&lt;/code&gt; 名作为目标持仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[执行交易]&lt;/strong&gt;：卖出非目标股 -&amp;gt; 按可用资金的 &lt;code&gt;99.9%&lt;/code&gt; 等金额买入新入选股票。&lt;/li&gt;
+&lt;li&gt;&lt;ol start="3"&gt;
+&lt;li&gt;建立因子动量与 ICIR 持续性的交叉验证逻辑，验证“过去赚得多”与“过去预测稳”是否在目标因子集合上存在重合。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[filter_move_list]&lt;/strong&gt;：清仓月设置 -&amp;gt; 默认为 &lt;code&gt;[1, 4]&lt;/code&gt;，核心逻辑是主动放弃高风险时段以换取长期稳健。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[PEG 阈值]&lt;/strong&gt;：性价比控制器 -&amp;gt; 设定在 &lt;code&gt;-3~3&lt;/code&gt;，旨在剔除估值严重透支或无增长支撑的垃圾股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[小市值偏好]&lt;/strong&gt;：排序逻辑 -&amp;gt; 优先选取市值最小的个股，利用A股长期的“小市值溢价”获取超额回报。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回测与实盘差异&lt;/strong&gt;：回测中可能存在预加载数据的“未来函数”效应，实盘需通过Tushare实时接口获取数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流动性陷阱&lt;/strong&gt;：小市值标的在极端行情下可能出现无法成交的情况，需关注市场整体流动性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略微调&lt;/strong&gt;：若需降低换手率，可将调仓频率改为双周；若需更高安全性，可缩小股价上限至 &lt;code&gt;7元&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据权限&lt;/strong&gt;：确保Tushare积分充足，否则 &lt;code&gt;daily_basic&lt;/code&gt; 等核心接口调用受限将导致策略失效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1q2GB6BEBG</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/eb116b1a52cc3b24172b8d7a92366262bc180476.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 23 May 2026 20:20:23 +0800</pubDate>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/83969</guid>
+      <pubDate>Sun, 24 May 2026 22:16:33 +0800</pubDate>
     </item>
   </channel>
 </rss>
