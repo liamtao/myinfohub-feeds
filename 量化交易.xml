@@ -7,7 +7,65 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Jun 2026 08:35:45 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 22:37:56 +0000</lastBuildDate>
+    <item>
+      <title>超越传统优化：端到端多目标强化学习(MORL)量化系统构建指南</title>
+      <link>https://www.bilibili.com/video/BV1BiEz6dEAv</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1BiEz6dEAv"&gt;基于帕累托最优的多目标强化学习量化策略构建：多维交易目标联合优化方案&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的“单目标加权求和”在真实金融市场中经常失效？&lt;/li&gt;
+&lt;li&gt;💡 多目标强化学习（MORL）如何帮助我们在收益、风险与交易成本的冲突中找到“帕累托前沿”？&lt;/li&gt;
+&lt;li&gt;🚀 如何在不重新训练模型的前提下，让交易系统在瞬息万变的市场中自动切换风险偏好？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 多目标量化的价值跃迁与帕累托最优&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统痛点&lt;/strong&gt;: 金融市场的帕累托前沿（Pareto Frontier）往往是非凸（Non-convex）的。传统的线性加权求和法无法有效触达那些最优的资产配置点，导致策略在多变市场中缺乏灵活性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MORL 价值&lt;/strong&gt;: 多目标强化学习允许模型通过一次训练捕获整个帕累托前沿。当市场风格波动时，只需在模型内部动态切换策略偏好，而无需耗费大量算力进行重训，具备极高鲁棒性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;帕累托支配与前沿&lt;/strong&gt;: 当且仅当解 A 在所有目标维度上都不劣于 B 且至少有一个维度严格优于 B 时，A 支配 B。互不支配的解构成帕累托前沿（Pareto Front），代表无法在不牺牲某一目标（如降低回撤）的前提下提升另一目标（如预期收益）的物理边界。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ MOMDP 建模与非凸前沿的突破&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;向量化奖励&lt;/strong&gt;: 多目标马尔可夫决策过程（MOMDP）的核心是将传统的标量奖励替换为包含收益、波动率、换手率等多维度的向量化奖励函数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线性标量化局限&lt;/strong&gt;: 线性标量化只能识别前沿上属于凸壳（Convex Hull）部分的策略。面对非凸区域时，无论如何调整权重都无法触及优质中间策略，极易陷入“量化陷阱”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (MOMDP 构建 SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;定义向量化奖励&lt;/strong&gt;: 将超额收益、最大回撤、摩擦成本（佣金、滑点及市场冲击）独立建模为包含 N 个维度的奖励向量。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入偏好权重&lt;/strong&gt;: 使用偏好权重向量对目标重要性进行动态调整，使策略同时取决于当前状态与偏好，训练出通用条件策略。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 主流 MORL 算法选型与实战权衡&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多策略方法 (Envelope Q-learning)&lt;/strong&gt;: 利用凸包的几何特性学习值函数包络面，支持实盘中不重训的情况下实现策略的平滑切换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;梯度算法 (Gradient-based)&lt;/strong&gt;: 通过计算雅可比矩阵（Jacobian Matrix），寻找能让所有目标同时提升的最优更新方向，适用于高频或大容量订单的连续控制场景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进化算法 (NSGA-II)&lt;/strong&gt;: 在强化学习探索阶段通过非支配排序维持策略种群的多样性，能有效防止模型过早收敛于局部震荡的风险区域。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 动态交易成本与硬性风险约束&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;交易成本向量化&lt;/strong&gt;: 引入成交量与日均交易量比率（Volume/ADV ratio）作为代理变量，实时感知流动性压力。当市场波动率走高时，策略自动滑向低换手率区域以对冲摩擦成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;约束型 MDP (CMDP)&lt;/strong&gt;: 在满足硬性风险约束（如绝对回撤阈值、单日最大风险敞口）的前提下寻找最优解，确保在探索阶段不触碰爆仓红线。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (风险防御 SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;确定安全边界&lt;/strong&gt;: 建立安全函数，确定绝对不容逾越的风险阈值作为硬性约束。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用拉格朗日乘子法&lt;/strong&gt;: 通过对偶优化机制引入拉格朗日乘子，当策略触及风险边缘时动态增大乘子，迫使模型将安全性置于第一优先级。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “多目标强化学习的目的，从来不是为了简单的追求最高收益，而是在多变且充满约束的金融市场中寻找收益、风险与成本之间的最优权衡。”&lt;/li&gt;
+&lt;li&gt;💬 “传统的单目标策略在面临黑天鹅等突发事件时，往往因为覆盖面窄而迅速失效，而多策略前沿覆盖具备更强的稳健性。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1BiEz6dEAv</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/404279d708f58ecbc1d26edf25d144821f97f706.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 11 Jun 2026 22:43:39 +0800</pubDate>
+    </item>
     <item>
       <title>万因子·歌者计划：A股量价因子挖掘与工程化实践</title>
       <link>https://bbs.quantclass.cn/thread/86748</link>
@@ -71,6 +129,123 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86743</guid>
       <pubDate>Thu, 11 Jun 2026 11:36:28 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化交易新革命：用uv管理环境，让AI帮你无痛写出轮动策略</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;talker=57784510736@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;amp;talker=57784510736@chatroom"&gt;2026-06-11_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h4&gt;🚀 告别 Conda，拥抱极速 Python 环境管理新秀 uv&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;为什么选择 uv？&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;速度极快&lt;/strong&gt;：不仅安装和同步依赖速度飞起，而且依赖管理逻辑非常清晰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不占空间&lt;/strong&gt;：虚拟环境中的库文件实际上是链接，并不会像 Conda 那样真正占用多余的磁盘空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免污染&lt;/strong&gt;：支持为每个项目（目录）配置独立的虚拟环境，彻底杜绝不同项目间库文件的互相污染。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🧙‍♂️ Dark Magician (DM) 框架：用 DSL 限制 AI 乱写“未来函数”&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI 写代码的硬伤&lt;/strong&gt;：一旦放任 AI（如 Claude、DeepSeek）去自由编写 Pandas 代码，极易出现数据窗口不对齐或悄悄使用“未来数据”的奇葩操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DSL 的规训作用&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;DM 框架最新上线了&lt;strong&gt;轮动 DSL&lt;/strong&gt;。在 DSL 的严格限制下，AI 无法胡乱编写不对齐的代码。&lt;/li&gt;
+&lt;li&gt;框架会自动检测代码中是否存在像 &lt;code&gt;-1&lt;/code&gt; 这样看未来的索引操作。一旦发现便会报错，除非人工介入放行，极大降低了策略回测“作弊”的风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与 AI 对话的黄金提示词 (Prompt)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;提示 AI “&lt;strong&gt;用配置类，不要用 dict&lt;/strong&gt;”：虽然框架支持 dict，但配置类（如 &lt;code&gt;StockTiming&lt;/code&gt; 类）信息更清晰，能有效避免数据出错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🤖 大模型哪家强？量化写代码模型实测&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一梯队&lt;/strong&gt;：GPT-4o 和 Claude。写代码下限极高，能够很好地遵守 &lt;code&gt;claude.md&lt;/code&gt; 等约束性规则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性价比之选&lt;/strong&gt;：DeepSeek 属于合格的下限。虽然偶尔需要纠正，但胜在便宜。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新晋选手&lt;/strong&gt;：MiniMax (M3模型)。拥有大额免费额度且5小时重置一次，性能与 DeepSeek 半斤八两，配合 IDE（如 Trae）使用体验流畅。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;📊 弱市求生：以“回撤面积”作为轮动的灵感&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;行情背景&lt;/strong&gt;：微盘股近期持续走弱，市场“跌多涨少”。“定风波”策略凭借极强的控制回撤能力（通过空仓躲避）表现亮眼。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轮动新思路&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;论坛大佬分享了“以&lt;strong&gt;回撤面积&lt;/strong&gt;判断轮动大小”的思路。通过测算策略的回撤面积，在不同属性的策略（如大盘/小盘、三星/中等生）之间进行轮动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;反转还是顺势？&lt;/strong&gt; 轮动面积大的策略（博反转，物极必反）还是轮动面积小的策略（避险），是量化交易中值得探讨的有趣课题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💻 基础架构：将运行环境（QMT）与策略开发彻底分离&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;QMT 的痛点&lt;/strong&gt;：QMT 极其消耗资源且容易崩溃，最适合在 Windows 虚拟机里运行，并保持一天重启一次的频率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解耦才是王道&lt;/strong&gt;：建议将 Rocket/QMT 与策略编写及回测环境彻底分离。开发端使用 Mac 或 WSL2 跑 &lt;code&gt;uv&lt;/code&gt; 环境，实盘信号通过 HTTP 或 JSON 序列化透传至 Windows 执行端。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;💬 群友金句&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;quot;学会 uv 你就回不去 conda 了，速度快，而且依赖管理清晰。&amp;quot; —— &lt;em&gt;木木十三&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;如果今年全年定风波表现很好的话，只能说明今年行情很差。&amp;quot; —— &lt;em&gt;邢不行&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&amp;quot;别弹起来骗凌烟阁进去就是好跌。&amp;quot; —— &lt;em&gt;long&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h4&gt;🔗 社区优质内容链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86649"&gt;纯大市值策略“不爱回撤” | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=82771"&gt;成长抱团股策略【非常适合轮动】 | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86729"&gt;A股_无限漫谈_微盘股与抱团股_(一) | 策略分享会&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/86709"&gt;DM 升级与轮动 dsl 上线讨论帖&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;talker=57784510736@chatroom</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>下架币的实盘避坑指南与论坛葫芦经济学</title>
+      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;talker=58453205219@chatroom</link>
+      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;amp;talker=58453205219@chatroom"&gt;2026-06-11_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;💡 实盘遇到“下架币”？教你自动化求生指南&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;在量化实盘中，选到即将下架的币（Delist）如果处理不当，可能会面临资产严重缩水的风险。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;下架币的威力&lt;/strong&gt;：有群友分享，1000 U 的下架币因为忘记处理，最后一路缩水至 100 U。如果错过了在币安的卖出时机，只能尝试提到链上或其他交易所卖掉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化避坑指南&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;网页版用户&lt;/strong&gt;：默认已启动 &lt;code&gt;delist&lt;/code&gt; 机制，系统会自动帮清掉下架币并拉黑，无需手动干预。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代码版用户&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;可以通过 PM2 启动自动化脚本：进入环境和服务器路径，运行 &lt;code&gt;pm2 start delist.py&lt;/code&gt;，再运行 &lt;code&gt;pm2 save&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;也可以手动干预：直接在服务器的策略文件（如 &lt;code&gt;26分享会基础策略.py&lt;/code&gt;）中将下架币填入拉黑列表，保存并上传。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;关于拉黑策略的探讨&lt;/strong&gt;：有群友实测“拉黑一半”的策略，运行一段时间后发现效果并不明显，最终选择不盲目拉黑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;📊 论坛“加精新规”数据曝光，葫芦基本面如何？&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;p&gt;马歇尔分享了 4 月 1 日修改论坛加精规则后的运行数据，新规有效缓解了葫芦的“通货膨胀”：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精华率有所下降&lt;/strong&gt;：3 月发帖 444 篇，加精 123 篇（精华率 27.7%）；4 月发帖 424 篇，加精 103 篇（精华率 24.3%）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;银葫芦发行量收紧&lt;/strong&gt;：3 月发出 2257 个银葫芦（平均每篇 18.3 个）；4 月发出 1835 个（平均每篇 17.8 个）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;群友调侃&lt;/strong&gt;：加精门槛变高、发行量收紧，正好可以“低位囤葫芦等升值”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🗣️ 社群金句&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;blockquote&gt;
+&lt;p&gt;“这才是最高级的自由，可以指着老板骂。” —— &lt;strong&gt;TheNotoriousPhD&lt;/strong&gt; （谈及财务自由后为何还要坚持上班）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=81086"&gt;【帖子加精规则V2】官方点评、葫芦仙人及论坛版主&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;【监测】B旗舰策略监测文件---更新至2026-06-11&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-11&amp;talker=58453205219@chatroom</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>势能机奖励塑形：解决量化交易智能体稀疏奖励与收敛难题的“数学导航仪”</title>
@@ -4443,165 +4618,6 @@ eq$ 经济收益。&lt;/li&gt;
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1A5LA6sEhr</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/52ef6dc9948b9e2e7a575f70e5c0876b3ffb70d8.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 26 May 2026 19:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>动量策略失效深度归因：从流动性枯竭与OI背离到多维环境温度计构建</title>
-      <link>https://bbs.quantclass.cn/thread/84304</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/84304"&gt;案发：动量被暴揍。嫌疑人六名。&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[动量策略失效、价格冲击、未平仓合约（OI）背离、市场宽度、环境温度计]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过对2025年Q4动量策略大规模回撤的归因分析，构建基于流动性与上涨质量的多维风险预警系统。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：2025年10月后，市场出现了严重的动量失效现象，表现为“动量多空差”全面转负，且失效具有显著的持续性（非短期脉冲式）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：失效并非由单一因素导致，而是多种微观结构因素的协同作用（围殴效应）：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;流动性枯竭（主犯）&lt;/strong&gt;：成交额腰斩导致价格冲击翻倍，导致强币在冲高时缺乏承接，产生大幅回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上涨质量恶化（主犯）&lt;/strong&gt;：价格上涨伴随OI（未平仓合约）不增甚至下降，表明上涨缺乏新增资金接力，多为薄盘口下的无效波动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;环境因子（从犯）&lt;/strong&gt;：市场宽度转负、高波动率作为放大器加剧了亏损。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：挑战了“分化大=动量好做”的传统直觉，揭示了在高冲击环境下，高分化往往是趋势即将结束的信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：资金流向的结构性变化（如资金从山寨币向BTC集中）可能导致市场进入长期的“无风险”阶段，从而系统性改变动量因子的统计分布。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过识别“环境温度计”来规避失效期。Alpha来源于对市场微观结构的风险识别而非对价格趋势的直接预测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：构建“动量环境温度计”，将九项指标映射为“风险分位”：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;结构压力层（50%权重）&lt;/strong&gt;：横截面分化、价格冲击、单币成交额、市场宽度、市场波动率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;上涨质量层（50%权重）&lt;/strong&gt;：OI不跟（Price $\uparrow$ &amp;amp; $OI$ $\downarrow$）、OI过热、Funding费率异常、Funding过热。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;合成方式&lt;/strong&gt;：对各项指标基于崩盘前分布计算百分位（Risk Quantile），采用前24小时平滑处理以降低噪声，最后进行加权合成。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需要高频（小时级）K线、成交额、OI、Funding费率数据。需将各项指标相对于崩盘前基准分布进行归一化处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略面临的主要风险在于“温度计”可能导致过早空仓（如在2025年7月和9月）从而损失部分收益；此外，在极端市场环境下的容量上限受限于流动性衰竭程度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：单一指标噪声极大，难以直接作为择时信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：使用Python实现，通过平滑算法（Moving Average）与风险分位映射（Quantile Mapping）实现信号平滑与标准化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：实现逻辑为：读取数据 $\rightarrow$ 自动计算九项分位指标 $\rightarrow$ 输出加权温度计曲线 $\描述$ 综合风险值。通过分位数映射解决不同量级指标的统一问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：数据源需包含OI数据；需针对不同时段的波动率进行动态阈值设定（避免事后诸葛亮）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[1. 构建基于风险分位的环境监控指标，而非单纯依赖单一的趋势信号。]&lt;/li&gt;
-&lt;li&gt;[2. 在因子挖掘阶段，引入“上涨质量”维度，即通过 $Price/OI$ 的背离关系来识别虚假突破。]&lt;/li&gt;
-&lt;li&gt;[3. 在实战应用中，必须加入基于流动性（价格冲击）的冲击成本过滤，避免在流动性枯竭时参与高波动交易。]&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/84304</guid>
-      <pubDate>Tue, 26 May 2026 05:18:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>微盘股“还债”时期的量化生存：择时控仓与跨境出海的实操洞察</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;amp;talker=57784510736@chatroom"&gt;2026-05-26_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;核心内容提炼&lt;/h4&gt;
-&lt;p&gt;🛡️ &lt;strong&gt;旗舰策略的“定海神针”：择时与控仓&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤控制是第一要义&lt;/strong&gt;：邢不行指出，旗舰策略首要注重的不仅是收益，更是对回撤的控制。只有稳住回撤，投资者才敢放心放大资金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;凌烟阁的防御表现&lt;/strong&gt;：在微盘股大幅回调的背景下，凌烟阁策略表现亮眼。该策略自5月15日仓位降至5成后持续减仓，目前仅余1成左右仓位，成功规避了近期的“漏尿日”暴跌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信号的一致性与差异&lt;/strong&gt;：由于参数微调或个性化配置，不同用户的“风火轮3”等策略信号会出现偏移。在波动市场中，哪怕微小的参数差异也会导致截然不同的多空结果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🧠 &lt;strong&gt;A股投资的方法论：理性分析情绪而非逻辑&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑让位给情绪&lt;/strong&gt;：在A股，传统的价值或行业逻辑有时会失效。资深交易者建议“用理性去分析市场情绪，而不是去死磕逻辑”，理解市场共识的偏移比研究基本面更管用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第一个牛熊是用来修心的&lt;/strong&gt;：邢不行认为，投资者在第一个牛熊周期中很难赚到钱。这个阶段的核心意义在于体验市场的残酷，磨炼心态，从而在第二个周期中实现盈利。心态不好，即便有强力策略也难以执行。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;🌎 &lt;strong&gt;跨境投资实操：IBKR开户与资金出海&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;IBKR版本选择&lt;/strong&gt;：盈透证券（IBKR）分为香港版和美国版。美国版（LLC结尾）不涉及CRS（共同申报准则）申报，隐私性更强。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;入金瓶颈的解决&lt;/strong&gt;：开立离岸账户（如中银香港、汇丰等）是入金的关键。建议有条件的投资者亲自去一趟香港，线下办理的成功率远高于线上APP申请。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跨境搬砖的诱惑&lt;/strong&gt;：美股科技龙头（如AMD、美光等）近期走势极强，这种“强者恒强”的马太效应让不少转战美股的手工交易者收益颇丰。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;⚙️ &lt;strong&gt;量化工具与策略研究建议&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;客户端更新&lt;/strong&gt;：v3.6.5及以上版本已支持1小时Pro数据的订阅更新，旧版本用户需及时升级。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略分层研究法&lt;/strong&gt;：分析一篇优质策略贴时，建议采用“分层法”——逐层查看不同条件的过滤效果，找出对最终策略收益贡献最大的核心因子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;交流金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“用理性分析情绪，别分析逻辑。” —— 站岗资本&lt;/li&gt;
-&lt;li&gt;“回测的时候最大回撤-20呢，这才哪到哪。赶紧熊吧，过了第一个牛熊就能赚钱了。” —— 土土&lt;/li&gt;
-&lt;li&gt;“旗舰策略，首要注重的还是对于回撤的控制，这样才有可能让你放心放大资金。” —— 邢不行&lt;/li&gt;
-&lt;li&gt;“跌了死拿，涨了拿不住，我不是韭菜谁是？” —— Joe&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=81506&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/82186&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76971&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76973&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/a/s/59b9f8fc&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76970&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/62245&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=81960&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=82245&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实战填坑指南：从框架升级到RWA抽血时代的生存法则</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;amp;talker=58453205219@chatroom"&gt;2026-05-26_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;🛠 框架升级与K线不足的“填坑”指南&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;版本选择是关键&lt;/strong&gt;：遇到都江堰策略运行中途K线数量不足，优先升级到框架2.1.1或1.4.6版本。这两个版本支持增量更新，只要不重启就能持续运行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;不仅仅是换核&lt;/strong&gt;：如果只更换&lt;code&gt;core&lt;/code&gt;文件依然报错，建议整个框架完整更换，确保系统能自动计算并补充K线。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“重启”有代价&lt;/strong&gt;：使用&lt;code&gt;pm2 restart&lt;/code&gt;等命令会被系统视为重启。重启会触发删除缓存数据，重新全量计算子策略资金曲线。对于首次运行就报错的情况，框架升级也无法跳过初始K线补全的过程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数对齐逻辑&lt;/strong&gt;：沧浪亭的&lt;code&gt;init_time&lt;/code&gt;务必晚于都江堰的时间。如果K线依然不足，尝试将起始日期往后挪，或者微调策略参数（如将959改为800）以减少对历史数据的依赖。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🛡 如何在“狗庄”的暴击下生存？&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成交额过滤的局限&lt;/strong&gt;：单纯依靠成交额过滤无法完全避开暴跌风险（如esports案例），因为成交额无法反映庄家的操纵意图。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进阶过滤维度&lt;/strong&gt;：尝试引入“持仓额”（Open Interest）或“市值”过滤，并在策略中加入止损逻辑和拉黑机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模拟盘警告&lt;/strong&gt;：模拟盘不支持增量更新，实盘操作时需注意环境差异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📈 行业洞察：RWA时代的流动性迁移&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;RWA的“抽血”效应&lt;/strong&gt;：资金正在从山寨币甚至BTC向RWA（现实世界资产）迁移。币安近期频繁上线美股合约和RWA相关资产，反映了流动性的结构性转移。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BTC的信仰挑战&lt;/strong&gt;：随着矿工算力向AI倾斜以及算力进一步向大矿场集中，BTC的去中心化安全性正面临长期的隐忧。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;寻找“白给”的机会&lt;/strong&gt;：在趋势不明时，与其赌单边涨跌，不如关注科学家范畴的零成本机会，如RWA项目的空投或黄金上链资产的利差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;💬 核心金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“无用之用方为大用，所以它才有无限的定价空间。” —— &lt;strong&gt;洛森&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“强者从不抱怨环境。” —— &lt;strong&gt;WN_暖春拂晓&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“我只知道AI没有盲区。” —— &lt;strong&gt;gcouple.J&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关资源链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/84304&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=81766&lt;/li&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=83160&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/77006&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76972&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/a/s/0a725cbd&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/76998&lt;/li&gt;
-&lt;li&gt;https://qtcls.cn/62302&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-26&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Tue, 26 May 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
