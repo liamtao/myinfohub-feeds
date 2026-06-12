@@ -7,7 +7,118 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Jun 2026 22:37:56 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 09:36:51 +0000</lastBuildDate>
+    <item>
+      <title>量化投研中的Python多进程加速：架构逻辑与工程实践指南</title>
+      <link>https://www.bilibili.com/video/BV12WEr6kEMk</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/180151814"&gt;科大金工&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12WEr6kEMk"&gt;量化投研中Python多进程优化逻辑_量化金融代码研究&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Python多进程投研加速 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：利用多进程（Multiprocessing）绕过 Python 的全局解释器锁（GIL）限制，通过多核心并行分配任务，实现计算性能的线性扩展。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：高频逐笔交易数据（Leveto）、因子模型参数集、截面回归任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：降维后的日度/分钟级因子特征表、模型调参的最优权重序列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GIL (全局解释器锁)&lt;/strong&gt;：导致 Python 标准线程无法真正并行利用多核 CPU 的锁机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;物理核心&lt;/strong&gt;：CPU 内部真实的计算单元，决定了任务并行的上限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据复制开销&lt;/strong&gt;：多进程环境下每个进程拥有独立内存空间，需将数据分发给各进程产生的额外耗时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：高频数据降维与因子计算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将海量高频逐笔数据压缩为低频因子值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：数据按股票/日期完成独立切片，且任务间无依赖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;函数构建&lt;/strong&gt;：将单只股票单日的因子计算逻辑封装为独立函数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进程分发&lt;/strong&gt;：使用 &lt;code&gt;joblib&lt;/code&gt; 或 &lt;code&gt;multiprocessing&lt;/code&gt; 库将数据块分发至各 CPU 核心。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果汇总&lt;/strong&gt;：并行计算完成后，收集各进程返回的数组并合并为最终因子库。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：因子清洗与回归分析&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：消除因子行业/风格偏向，利用 OLS 回归计算残差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：截面数据之间无数据重叠。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;截面拆解&lt;/strong&gt;：基于日期或截面标签对数据集进行划分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行回归&lt;/strong&gt;：对每个截面独立启动回归函数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;进程池规模 (Pool Size)&lt;/strong&gt;：对应 CPU 物理核心数，设定过高会导致频繁的进程上下文切换从而降低效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务颗粒度 (Task Granularity)&lt;/strong&gt;：划分任务过细会增加序列化开销；划分过粗会导致短板效应，即等待最后一只股票计算完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内存溢出&lt;/strong&gt;：因多进程会为每个核心复制一份内存副本，务必评估数据集总量与总内存上限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IO 瓶颈&lt;/strong&gt;：多核计算时，确保使用 SSD (NVMe M.2) 及更高规格的 PCI-E 存储通道，防止 IO 堵塞。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;算法优于算力&lt;/strong&gt;：多进程仅是工程手段，优化算法逻辑（如减少重复计算、提升向量化效率）带来的性能提升远超硬件升级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具选型&lt;/strong&gt;：工程化环境推荐 &lt;code&gt;joblib&lt;/code&gt;，分布式集群环境推荐 &lt;code&gt;Ray&lt;/code&gt; 或 &lt;code&gt;Dask&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12WEr6kEMk</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/75d3d6f13cd8bae006fc730a92dc5d786e3745ed.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 12 Jun 2026 11:30:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>A股万因子研究第二包：参数化扩展与波动率归一化信号解析</title>
+      <link>https://bbs.quantclass.cn/thread/86756</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86756"&gt;【相空牛马研究分享】万因子·歌者计划-第二批一万个因子继续开源，Pack-002 因子包介绍报告&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[万因子计划、参数化扩展、波动率归一化、因子工程、量价信号]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：解析10,000个A股量价因子体系，重点阐述波动率归一化因子设计与参数化挖掘范式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：以“波动率归一化”为核心，通过“信号骨架 = 偏离量 ÷ 波动量”构建跨个股可比的量价信号，实现对个股量级差异的剔除。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动挖掘 (AM_)&lt;/strong&gt;：利用遗传编程 (GP) 挖掘非线性时序表达式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数化扩展 (PX_)&lt;/strong&gt;：基于经典因子结构进行网格搜索扩展，有效提升因子覆盖率与稳健性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;另类数据 (ALT_)&lt;/strong&gt;：引入筹码分布、股东结构及分析师评级数据，扩充信号维系。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：仅依赖日频K线；ALT因子需额外的数据预处理逻辑 (如 &lt;code&gt;fr_export_chip.py&lt;/code&gt;)；质量评分体系包含OOS-ICIR、符号稳定性及规模暴露中性化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：逆向/反转信号占主导 (57%)，需注意组合方向对齐；因子多不代表策略强，需防范单一信号骨架导致的过拟合或暴露集中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决大规模因子库管理与验证的效率问题，避免无效因子导致回测爆炸。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于 &lt;code&gt;select-stock-pro&lt;/code&gt; 框架；使用 &lt;code&gt;manifest.csv&lt;/code&gt; 进行多层Gate（Gate A-D）筛选，实现分层质量管控。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;短信号/长基准模式&lt;/strong&gt;：例如 &lt;code&gt;ts_std(amount, 4) / ts_mean(amount, 120)&lt;/code&gt;，通过动态长窗口归一化处理短期偏离。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;层次聚类与去重&lt;/strong&gt;：通过 &lt;code&gt;cluster_id&lt;/code&gt; 过滤独立簇重复信号，优化因子的因子空间独立性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;分层策略部署&lt;/strong&gt;：生产策略建议优先部署Gate D级别因子，并利用 &lt;code&gt;manifest.csv&lt;/code&gt; 进行基于 &lt;code&gt;ICIR&lt;/code&gt;、&lt;code&gt;Monotonicity&lt;/code&gt; 和 &lt;code&gt;Size_corr&lt;/code&gt; 的定量筛选。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;组合构建&lt;/strong&gt;：合并多包因子时，务必依据 &lt;code&gt;cluster_id&lt;/code&gt; 进行去重处理，避免同源因子导致的配置过曝。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因子对齐&lt;/strong&gt;：针对57%的逆向因子，建议在策略框架层面实现自动符号对齐，以防范方向性统计偏差。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86756</guid>
+      <pubDate>Fri, 12 Jun 2026 11:09:11 +0800</pubDate>
+    </item>
     <item>
       <title>超越传统优化：端到端多目标强化学习(MORL)量化系统构建指南</title>
       <link>https://www.bilibili.com/video/BV1BiEz6dEAv</link>
@@ -4533,91 +4644,6 @@ eq$ 经济收益。&lt;/li&gt;
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1gtVN6iEm9</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/183e28e46819d7e57cf17cb588446e4d500d79c4.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 26 May 2026 22:32:31 +0800</pubDate>
-    </item>
-    <item>
-      <title>解构仅合约超额收益：从供给结构与收益端建立动态预警系统</title>
-      <link>https://bbs.quantclass.cn/thread/84421</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/84421"&gt;关于仅合约超额市场观察的思考&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[仅合约Alpha、BSC链结构、超额收益归因、动态监控框架]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过供给端与收益端双维监控，识别仅合约超额的结构性轮动与系统性消退。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：仅合约（Futures-only）板块的超额收益高度依赖于币安Alpha市场及BSC链的新币效应。近期观察到Alpha市场内部出现从“新币”向“老币”的收益迁移，而非总量消失。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：超额收益的持续性由“产生土壤”（Alpha市场供给）与“传导载体”（仅合约标的中Alpha属性占比）共同决定。若BSC链占比稳定且有Alpha属性标的承接力强，则超额具有韧性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“仅合约超额已死”的简单论断，提出“轮动即暂时，消失即消退”的动态判定准则，强调必须剔除TradFi代币等噪音干扰来观察市场真实结构。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha来源于新币从创建到上市Alpha市场的过程（Alpha市场溢出）。通过监控仅合约标的中“有Alpha”与“无Alpha”的比例，以及BSC链与非BSC链的收益差，捕捉结构性机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;供给端指标&lt;/strong&gt;：Alpha市场新增标的的链分布（特别是BSC占比）及发行节奏。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;收益端指标&lt;/strong&gt;：仅合约标的相对现货/合约全市场的超额收益率（Alpha Spread）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需针对仅合约标的进行属性标记（是否有Alpha经历、所属公链），并需识别并剔除TradFi类代币，防止样本污染导致占比指标假性下降。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：当“有Alpha”标的占比持续萎缩且“无Alpha”标的无法接棒超额时，判定为系统性衰减。当前风险点在于超额结构单一，高度集中于币安链，缺乏跨链扩散的普适性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【监控自动化】&lt;/strong&gt;：开发针对Binance Alpha市场新币发行链属性的实时抓取工具，重点监控BSC链的供给占比是否跌破阈值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【样本清洗优化】&lt;/strong&gt;：在量化回测或实盘因子计算中，建立TradFi代币黑名单，将其作为独立市场处理，避免干扰对仅合约Alpha密度的判断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【动态仓位调整】&lt;/strong&gt;：当观察到超额收益在币安链内部从新币切换至老币时，应定义为内部轮动而非策略失效，保持实盘策略运行但需优化标的选择偏好。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/84421</guid>
-      <pubDate>Tue, 26 May 2026 19:13:51 +0800</pubDate>
-    </item>
-    <item>
-      <title>告别死板回测：Trades 扩散模型如何重构真实、可交互的金融市场仿真环境</title>
-      <link>https://www.bilibili.com/video/BV1A5LA6sEhr</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1A5LA6sEhr"&gt;TRADES：基于扩散模型的真实响应式限价订单簿市场仿真&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么传统的市场回测方法无法真实衡量交易行为对市场的冲击影响？&lt;/li&gt;
-&lt;li&gt;💡 扩散模型如何从单纯的静态图像生成跨越到高频金融订单流的动态交互？&lt;/li&gt;
-&lt;li&gt;🚀 衡量市场仿真质量的“黄金标准”是什么？Trades 给出的三大维度如何量化评估？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 市场仿真的三大主线：有用性、真实性与响应性&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;仿真系统的核心困境&lt;/strong&gt;: 传统回放（Market Replay）缺乏反馈，而基于智能体的仿真（ABS）又因真实交易者行为不可知而过度简化，导致无法进行真实的反事实实验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Trades 的评估闭环&lt;/strong&gt;: 该研究提出了三位一体的评价体系：Usefulness（能否训练价格预测模型）、Realism（是否符合金融统计分布与微观规律）以及 Responsiveness（仿真市场能否对外部注入的交易行为产生可测量的反应）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 条件扩散模型：逐条生成的动态撮合机制&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基于状态的条件约束&lt;/strong&gt;: 不同于一次性生成整段轨迹，Trades 利用过去 N 条订单和 LOB（限价订单部）快照作为条件，通过 Transformer 扩散模型仅生成“下一条”有效订单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实时撮合逻辑&lt;/strong&gt;: 生成的订单立即进入电子交易所（Electronic Exchange）进行撮合与更新，产生的最新 LOB 状态再次反馈给模型作为下一步生成的输入。这种设计将生成模型转变为一个可交互的“世界智能体”（World Agent）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 深度学习市场仿真工作流&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;数据准备&lt;/strong&gt;: 使用 Deep Market 框架对高频数据（如 Tesla/Intel）进行 LOB 字段标准化处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型训练&lt;/strong&gt;: 基于 Transformer 架构建模订单流与快照之间的时序依赖，预测去噪后的订单参数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交互评估&lt;/strong&gt;: 引入 POV Agent 进行 A/B 实验，通过对比有无外部交易时 Mid-Price 的偏移曲线，验证市场的响应能力。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 扩散模型采样成本较高，在进行超高频仿真时需考虑计算效率瓶颈；同时需注意 GAN 类模型容易出现的模式崩坏（Mode Collapse）问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “策略行为不会反过来改变历史市场，因此它无法真正衡量市场冲击。”&lt;/li&gt;
-&lt;li&gt;💬 “Trades 的意义在于把市场仿真从离线生成数据，进一步推向了可交互的实时市场实验平台。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1A5LA6sEhr</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/52ef6dc9948b9e2e7a575f70e5c0876b3ffb70d8.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 26 May 2026 19:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
