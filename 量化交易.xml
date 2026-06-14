@@ -7,7 +7,63 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 13 Jun 2026 22:41:39 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2026 08:32:43 +0000</lastBuildDate>
+    <item>
+      <title>量化交易数据基建升级：解锁5000分Tushare权限实现毫秒级离线回测</title>
+      <link>https://www.bilibili.com/video/BV1TZJF6AEHi</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1TZJF6AEHi"&gt;每日分享～Tushare 5000积分解锁4类核心数据，赋能量化策略升级&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Tushare 量化基础设施 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于高权限 Tushare API 获取元数据并持久化至本地 DuckDB 数据库，实现行情计算与逻辑研发的完全脱机化与本地化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Tushare 5000分权限接口（包含行情、复权因子、行业分类、财务报表等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：支持标准 SQL 毫秒级查询的本地结构化数据仓库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;复权因子&lt;/strong&gt;：用于离线修正股价连续性的关键参数，通过公式重构真实成交价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行业中性化&lt;/strong&gt;：基于申万标准的风险因子对冲技术，确保策略专注于超额收益而非行业波动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：全量数据一键增量同步&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决 API 限流难题，建立高频更新、无网络依赖的本地量化仓库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Tushare 账户积分达到 5000 分，安装 python 环境及管理工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[一键同步]&lt;/strong&gt;：在终端输入命令 &lt;code&gt;python -m tushare_manager --run_bash_date --all&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[增量更新]&lt;/strong&gt;：系统自动识别缺失日期并补全，首次同步需约 15-30 分钟。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：毫秒级离线复权行情回测&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：彻底摆脱 QMT 在线计算延迟，将回测效率从分钟级提升至毫秒级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[SQL 关联]&lt;/strong&gt;：利用 DuckDB 执行 &lt;code&gt;JOIN&lt;/code&gt; 操作关联行情表与 &lt;code&gt;adj_factor&lt;/code&gt; 表。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[动态复权]&lt;/strong&gt;：应用公式 &lt;code&gt;前复权价 = 原始价 * 当日因子 / 基准因子&lt;/code&gt; 在内存中即时完成逻辑计算。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API 调用频次控制&lt;/strong&gt;：权限从 200次/分 升级至 500次/分，支持全市场行情并行下载不排队。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;涨跌停价格参数&lt;/strong&gt;：直接获取 &lt;code&gt;up_limit&lt;/code&gt; 和 &lt;code&gt;down_limit&lt;/code&gt;，替代不精确的比例估算，支持打板策略精准识别。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;申万行业分类 (L1/L2)&lt;/strong&gt;：提供标准行业归属及历史回溯信息，解决粗糙分类导致的中性化失真。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：严禁在回测逻辑中忽略 &lt;code&gt;SUSPEND&lt;/code&gt;（停复牌）数据。若不通过停复牌日期过滤交易信号，回测系统会按停牌日的虚假收盘价记录成交，导致小市值策略收益率严重虚高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧&lt;/strong&gt;：建议将所有行情复权逻辑下沉至 SQL 查询层处理，利用数据库引擎的向量化优势，避免将海量数据加载至 Pandas 进行低效循环，从而实现“高铁级”的回测响应。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1TZJF6AEHi</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/bc8c55f14a2582d32ece6f0201988c6438575cd2.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 14 Jun 2026 12:26:30 +0800</pubDate>
+    </item>
     <item>
       <title>告别非黑即白：如何用深度强化学习构建优雅稳健的量化交易智能体</title>
       <link>https://www.bilibili.com/video/BV18gJp6YEKo</link>
@@ -4561,65 +4617,6 @@ eq$ 经济收益。&lt;/li&gt;
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/84704</guid>
       <pubDate>Wed, 27 May 2026 23:02:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>破解因子动物园：基于OWL估计器的量化资产定价新范式</title>
-      <link>https://www.bilibili.com/video/BV13QG16EEqF</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV13QG16EEqF"&gt;因子相关性与横截面收益：OWL 模型的因子筛选&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当数百个量化因子高度相关时，传统的资产定价模型为何会集体失效？&lt;/li&gt;
-&lt;li&gt;💡 为什么随机挑选变量的 Lasso 算法在金融高维数据面前显得过于“鲁莽”？&lt;/li&gt;
-&lt;li&gt;🚀 如何在不依赖先验知识的情况下，让模型自动识别并聚类相关因子以提升样本外表现？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 因子动物园与共线性陷阱&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信息冗余危机&lt;/strong&gt;: 量化领域进入“因子动物园”时代，大量新因子实为旧因子的变体（64%的因子相关系数绝对值 &amp;gt; 0.5），导致多重共线性（Multicollinearity）严重，使得 Fama-MacBeth 回归估计量极其不稳定。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信号噪声悖论&lt;/strong&gt;: 在高度相关的背景音中辨别核心定价信号极难，简单的人为剔除相关因子缺乏理论依据，无法保证结果的一致性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ SDF 框架：资产定价的底层逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心机制&lt;/strong&gt;: 引入随机折现因子（Stochastic Discount Factor, SDF）框架，将关注点从“风险溢价”转向“风险价格 (Risk Price B)”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 如果风险溢价是观察到的结果，那么风险价格就是投资者为对冲特定风险愿意支付的“边际成本”。只有当 B 显著不为零时，该因子才提供不可替代的定价信息。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;构建二次型目标函数 $Q(B)$。&lt;/li&gt;
-&lt;li&gt;通过最小化加权定价误差的平方和来寻找最稳健的风险价格参数。&lt;/li&gt;
-&lt;li&gt;灵活调整权重矩阵 $W$ 以提升估计效率。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 OWL 估计器：有序加权的降维利器&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心突破&lt;/strong&gt;: 有序加权 Lasso (Ordered Weighted Lasso, OWL) 通过引入权重向量并对系数绝对值进行降序排列，实现了对较大风险价格的合理约束。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分组特性 (Grouping Property)&lt;/strong&gt;: 不同于 Lasso 随机剔除相关变量的“掷硬币”行为，OWL 能将高度相关（正相关或负相关）的因子视为整体，赋予相似的系数，实现自动聚类。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数学底座&lt;/strong&gt;: 当相关系数趋向 $\pm 1$ 时，系数间的欧式距离趋向 0，强制实现系数同步。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 实证分析与样本外验证&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;测试资产构建&lt;/strong&gt;: 放弃个股回归（规避幸存者偏差与小盘股噪声），采用市值加权投资组合（Portfolio）并实施双变量排序（Double Sorting），剔除 20%-40% 的极小盘垃圾股。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实证结论&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;市场因子回归&lt;/strong&gt;: OWL 成功穿透迷雾，重新确认市场因子是资产回报的首要驱动项。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;驱动力转移&lt;/strong&gt;: 发现 2000 年后市场驱动力从动量/盈利转向流动性风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;规模效应之谜&lt;/strong&gt;: 证明规模溢价的消失部分源于“垃圾股”的污染，剔除后规模效应重新显著。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 绩效提升&lt;/strong&gt;: 样本外测试显示，OWL 构建的五因子组合在夏普比率 (SR) 上比传统模型提升 20%-30%，且收益分布更接近正态分布，降低了肥尾风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “量化模型中的因子显著性，往往高度依赖于你的样本过滤条件；规避垃圾股往往比寻找因子本身更重要。”&lt;/li&gt;
-&lt;li&gt;💬 “OWL 不仅仅是一个数学工具，它为量化交易者提供了一套从因子降维到策略落地的完整框架。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV13QG16EEqF</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/11a309179948c4a1d73b00567fcd7e50b6e276b6.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 27 May 2026 21:50:10 +0800</pubDate>
     </item>
   </channel>
 </rss>
