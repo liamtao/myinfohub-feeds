@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 16 Jun 2026 22:37:02 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jun 2026 08:35:28 +0000</lastBuildDate>
     <item>
       <title>告别手动筛选：基于EZXT与QMT的可转债双低量化自动化交易策略实操</title>
       <link>https://www.bilibili.com/video/BV1SDjV6YErj</link>
@@ -76,6 +76,49 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1SDjV6YErj</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/63e2210ef2fac4e54f74a83b99af6b39a3daaf14.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 16 Jun 2026 21:29:34 +0800</pubDate>
+    </item>
+    <item>
+      <title>基于Deribit期权隐含概率的Polymarket套利：利用Longshot Bias挖掘No端溢价</title>
+      <link>https://bbs.quantclass.cn/thread/86850</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86850"&gt;BTC年底能上150K吗？从链上赌局看Polymarket的错误定价机会&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Longshot Bias, 隐含概率, Black-Scholes, 跨市场套利, 预测市场]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Deribit期权隐含概率纠正Polymarket低概率事件的高估偏差，捕捉NO端溢价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：Longshot Bias（冷门偏好偏差），即预测市场中低概率事件的Token通常被系统性高估，而高概率事件被低估。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：零售投资者的“彩票心态”导致对小概率暴利事件的非理性博弈，叠加加密市场天然的看涨偏好（Long Bias），导致YES端溢价严重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：Polymarket的NO端（否定低概率事件）存在显著的统计学正期望，回测胜率可达75%，年化收益率极高。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：以高效的Deribit期权市场为基准，利用Black-Scholes模型从期权链隐含波动率（IV）反推特定行权价的到期概率，与Polymarket价格对比寻找Edge。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：$Edge = P_{Polymarket} - P_{Deribit_Implied}$，当Edge显著（如&amp;gt;3%）且流动性充足时作为入场信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需通过期权曲面插值获取连续的概率分布，而非仅依赖单一行权价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：预测市场流动性深度有限（需过滤&amp;lt;$10k市场），且资金占用周期长。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：原版工具缺乏历史追溯能力。作者通过SQLite实现持久化追踪，记录IV、到期天数、Edge趋势等维度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python扫描器 + SQLite存储 + Hermes定时任务汇报。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：引入流动性过滤机制（Liquidity Threshold），确保Edge在实盘中具备可成交性，减少虚假信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：由于两端市场到期日未必完全对齐，需进行时间价值（Theta）或插值修正。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[量化回测]：利用HuggingFace上的Polymarket-v1数据集（12亿条记录）进行Longshot Bias的分类回测。&lt;/li&gt;
+&lt;li&gt;[系统开发]：构建自动化监控脚本，重点扫描Polymarket中YES端报价低于0.1的品种，寻找NO端的卖出/买入机会。&lt;/li&gt;
+&lt;li&gt;[概率建模]：基于Deribit期权链实时构建波动率曲面，提升隐含概率计算的精度。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86850</guid>
+      <pubDate>Tue, 16 Jun 2026 11:16:06 +0800</pubDate>
     </item>
     <item>
       <title>别只看多空情绪！用LLM拆解70类事件叙事，解锁量化交易的独立Alpha因子</title>
@@ -634,6 +677,61 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86779</guid>
       <pubDate>Sat, 13 Jun 2026 12:08:02 +0800</pubDate>
+    </item>
+    <item>
+      <title>解构万因子库Pack-003：时序分布形态与非线性动量的10,000个原始挖掘信号</title>
+      <link>https://bbs.quantclass.cn/thread/86776</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86776"&gt;【相空牛马研究分享】万因子·歌者计划-第三批一万个因子继续开源，Pack-003 因子包介绍报告&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[因子挖掘, 独立簇代表, 时序偏度与峰度, 非线性动量, 量价回归]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：发布1万个几乎纯自动挖掘的独立簇代表因子，主打时序分布形态与非线性动量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑与三大信号族】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1. 日内振幅-成交量回归族&lt;/strong&gt;：利用成交量或收益率对日内波动幅度进行时序回归（如 &lt;code&gt;ts_regression_beta&lt;/code&gt;），提取每单位成交量带来的振幅变化斜率（价格弹性），捕捉短期方向性修正。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2. 成交量/额统计矩族&lt;/strong&gt;：对成交额或成交量进行极值归一化（&lt;code&gt;ts_maxmin&lt;/code&gt;）后，计算其时序峰度/标准差（如 &lt;code&gt;ts_kurt&lt;/code&gt;, &lt;code&gt;ts_std&lt;/code&gt;），捕捉量能释放的不均匀性（高峰度对应偶发性异常放量）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3. 动量非线性变换族&lt;/strong&gt;：对收益率或换手率通过几何平均（&lt;code&gt;ts_mean_return&lt;/code&gt;，比算术平均对异常值更鲁棒）提取动量，并用幂次压缩（如 &lt;code&gt;signed_power&lt;/code&gt; 保留方向性的平方根）进行稳定化处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Top-1 因子&lt;/strong&gt;：&lt;code&gt;AM_signed_power_ts_mean_return_div_6f6b674a&lt;/code&gt; = &lt;code&gt;signed_power(ts_mean_return(div(high, volume), 72), exponent=0.5)&lt;/code&gt;，Q=0.892。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代表因子2&lt;/strong&gt;：&lt;code&gt;AM_log_ts_regression_beta_intraday__1894aeed&lt;/code&gt; = &lt;code&gt;log(ts_regression_beta(intraday_range, ret_10, 39))&lt;/code&gt;，Q=0.867。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;代表因子3&lt;/strong&gt;：&lt;code&gt;AM_ts_kurt_ts_maxmin_amount_0d9e3693&lt;/code&gt; = &lt;code&gt;ts_kurt(ts_maxmin(amount, 36), 31)&lt;/code&gt;，Q=0.867。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据频次&lt;/strong&gt;：日频 K 线数据，无财务及另类数据依赖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;所需字段&lt;/strong&gt;：复权价格（开/高/低/收）、成交量、成交额、换手率、流通市值、总市值、振幅、跳空缺口（gap）、各周期收益率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;预处理手法&lt;/strong&gt;：通过 &lt;code&gt;ts_maxmin&lt;/code&gt; 进行极值归一化，通过 &lt;code&gt;signed_power&lt;/code&gt; 进行非线性幂次压缩。对于逆向因子（高值偏空）需进行符号翻转。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测区间&lt;/strong&gt;：2010–2025（A 股）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;表现指标&lt;/strong&gt;：Q 分均值 0.428（中位数 0.441），Top-1 因子 Q 分达 0.892。样本内 RankIC IR 均值 -0.025，样本外 -0.028，IS/OOS ICIR 比值约 0.89（衰减约 11%，泛化性能良好）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;原始挖掘信号的 Q 分中枢（0.428）天然低于参数化精选因子，需要配合 &lt;code&gt;Q ≥ 0.5&lt;/code&gt; 阈值筛选。&lt;/li&gt;
+&lt;li&gt;偏度（&lt;code&gt;ts_skew&lt;/code&gt;）和峰度（&lt;code&gt;ts_kurt&lt;/code&gt;）类因子对异常值极度敏感（如停复牌跳空），在极端行情下可能存在分布不稳定性。&lt;/li&gt;
+&lt;li&gt;覆盖率较低（如 &amp;lt;50%）的因子通常由于依赖稀疏数据（如 &lt;code&gt;gap&lt;/code&gt; 字段），需配合框架的最小覆盖过滤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1. 复现Top-1量价比几何动量因子&lt;/strong&gt;：在回测系统中复现 &lt;code&gt;signed_power(ts_mean_return(div(high, volume), 72), 0.5)&lt;/code&gt;。注意：&lt;code&gt;div(high, volume)&lt;/code&gt; 作为基础算子需做适当的价格复权与单位对齐；&lt;code&gt;ts_mean_return&lt;/code&gt; 应采用几何平均以平滑异常波动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2. 引入时序偏度与峰度算子&lt;/strong&gt;：在因子挖掘流水线中增加 &lt;code&gt;ts_skew&lt;/code&gt; 和 &lt;code&gt;ts_kurt&lt;/code&gt; 算子，重点对经过 &lt;code&gt;ts_maxmin&lt;/code&gt; 极值归一化后的成交量/成交额序列进行探索，捕捉市场微观结构中的“放量不均匀性”特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3. 构建因子过滤与符号对齐流&lt;/strong&gt;：针对自动挖掘因子的特点，建立两阶段筛选机制：第一阶段剔除 &lt;code&gt;Q &amp;lt; 0.5&lt;/code&gt; 且覆盖率低于 &lt;code&gt;80%&lt;/code&gt; 的因子；第二阶段利用 ICIR 的符号自动识别机制对多数“逆向信号”进行方向翻转，避免多因子合成时信号抵消。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86776</guid>
+      <pubDate>Sat, 13 Jun 2026 01:54:38 +0800</pubDate>
     </item>
     <item>
       <title>突破强化学习训练瓶颈：量化交易中的课程学习方法论与实战避坑指南</title>
@@ -4462,89 +4560,6 @@ eq$ 经济收益。&lt;/li&gt;
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1GyGC6LEXL</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/f239ed95e144e179c4e1fb9afd260c28b5a2a87d.png" length="0" type="image/png"/>
       <pubDate>Sun, 31 May 2026 10:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化回测框架的架构跃迁：基于计划与执行解耦的高效缓存管理方案</title>
-      <link>https://bbs.quantclass.cn/thread/85571</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/85571"&gt;【剑南框架】Fusion大一统，量化更轻松——重磅重做！！！一键智能全流程，因子选股不多算。新建调度方式，不惧官方更新！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;☑‸ 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章兴性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Planner-Executor架构, 偏差缓存MD5, 依赖链管理, 像量化回测优化]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过计划与执行解耦以及全局缓存共享，极大地提升了Fusion量化框架的回测传输与存储效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;⛭️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：传统回测框架中缓存不统一、缺乏分步骤回测；依赖链条不清晰导致因子参数修改后需要大量冗余重算；多策略组合时发生数据预处理的重复计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Planner-Executor 解耦架构&lt;/strong&gt;：计划器（Planner）负责扫描依赖链、MD5比对并生成执行计划；执行器（Executor）调度原生函数实现落地。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;外挂式计划者&lt;/strong&gt;：不修改原生函数内部逻辑，保证了与官方框架的向后兼容性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;共享缓存出口&lt;/strong&gt;：引入 &lt;code&gt;runtime_cache_name&lt;/code&gt; 字段，允许不同的 &lt;code&gt;config&lt;/code&gt; 共用同一因子缓存，避免重复计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能跳过机制&lt;/strong&gt;：基于依赖链的MD5校验，仅重算受影响的时序/截面因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全息列保留&lt;/strong&gt;：强制保留所有一级行业。资金流等数据，减少研究过程中反复整理数据的时间成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;存储&lt;/strong&gt;：因子缓存占用从 55G 降以 14G。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;耗时&lt;/strong&gt;：5个策略组的回测时间从 1282秒 降至 780秒（约减少 40%）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：当 &lt;code&gt;end_date&lt;/code&gt; 设置为 &lt;code&gt;None&lt;/code&gt; 时，框架会自动扫描数据中心，一旦数据更新则会触发全量重算。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;缓存共享化&lt;/strong&gt;：在多策略研究阶段，通过化名或指定目录强制共用因子缓存，可提升 IO 效率并截断重复计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;固定回测终点&lt;/strong&gt;：做因子研究时必须手动指定 &lt;code&gt;end_date&lt;/code&gt; 而非 &lt;code&gt;None&lt;/code&gt;，避免因数据中心日常更新导致的“缓存阶跃式失效”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;依赖链外置&lt;/strong&gt;：参考 Planner 思路，将“因子-策略-仓管”的依赖关系在执行前进行静态解析，而非在计算过程中动态判断，以实现更可控的分步骤回测。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/85571</guid>
-      <pubDate>Sun, 31 May 2026 09:42:02 +0800</pubDate>
-    </item>
-    <item>
-      <title>【剑南框架】Fusion大一统重塑：量化开发的“零入侵”进化论</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-31&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-31&amp;amp;talker=57784510736@chatroom"&gt;2026-05-31_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 剑南框架重磅重做：Fusion 框架的“乐高化”集成&lt;/h3&gt;
-&lt;p&gt;“剑南框架”迎来重磅更新，致力于让量化策略的构建更加轻松：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;零入侵开发&lt;/strong&gt;：最大的亮点在于对官方框架实现“零入侵”，开发者只需加入大一统工具即可运行，无需大规模改动原有底层代码。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;版本兼容方案&lt;/strong&gt;：即使在 26 版官方 Fusion 尚未完全普及的情况下，25 版依然可以平替使用。若遇到小时级别计算缺失的问题，只需简单注释掉相关流程即可。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 避坑指南：因子权重报错的“克星”&lt;/h3&gt;
-&lt;p&gt;在实际操作中，新手容易遇到因子权重（error）的问题，核心复盘如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略文件是关键&lt;/strong&gt;：该错误通常并非代码逻辑漏洞，而是因为“策略文件”未同步复制或路径配置错误。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作指南&lt;/strong&gt;：在使用该框架时，务必确保策略配置文件与代码同步，这是策略能够正确读取权重参数的前提。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧐 进阶课题：选股相似性的量化对比&lt;/h3&gt;
-&lt;p&gt;针对如何对比两个策略的选股相似度，目前已有以下共识：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;工具现状&lt;/strong&gt;：目前尚无一键式傻瓜工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;：这属于定制化需求，需要量化研究员自己编写代码逻辑，通过提取不同策略的持仓/选股列表进行交集计算或相关性分析。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;✨ 金句摘录&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“对官架零入侵。” —— 站岗资本&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;🔗 相关链接&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/topic/index?id=85571&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-05-31&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 31 May 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
