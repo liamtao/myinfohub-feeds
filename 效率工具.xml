@@ -7,7 +7,73 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 18 Jun 2026 08:38:51 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 08:51:57 +0000</lastBuildDate>
+    <item>
+      <title>如何构建个人AI智囊团：基于文件系统的决策辅助系统</title>
+      <link>https://www.youtube.com/watch?v=H29laIK8q7M</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=H29laIK8q7M"&gt;How I Turned Codex Into My AI Life Coach in 13 Minutes (5-Step Tutorial)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ AI个人决策智囊团 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于本地文件夹的Prompt工程系统，通过四份核心Markdown文档构建AI的“个人长期记忆”与“决策约束框架”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：个人目标、生活/业务原则、能量状态以及对话中的认知积累。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：具备高度场景相关性、符合个人价值观的决策建议与行动路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Skill.md&lt;/strong&gt;：定义AI的角色定位、行为模式与交互协议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plan.md&lt;/strong&gt;：个人生命/商业周期的核心上下文（目标、原则、能量清单）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Learnings.md&lt;/strong&gt;：决策过程中的增量认知库，实现AI的学习迭代。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eval.md&lt;/strong&gt;：强制AI自我评估的防御性核查清单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：构建AI智囊团架构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实现个人经验与AI计算能力的系统性对接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：支持本地文档读取的AI模型（如Claude Code、Codex等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初始化文件夹&lt;/strong&gt;：创建独立的Advisor目录，建立四份Markdown核心文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定义行为 (Skill.md)&lt;/strong&gt;：设定AI为“信任的顾问”，要求其在回答前反射核心上下文、区分事实与假设、提供具体的下一步行动建议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;存入上下文 (Plan.md)&lt;/strong&gt;：拆解年度目标、核心原则（如“工作即游戏”）、能量分布清单（高/低能耗活动）、商业与财务概况。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;建立反馈环 (Learnings.md &amp;amp; Eval.md)&lt;/strong&gt;：在Skill.md中强制AI在对话后写入新洞察，并在回答前比对Eval.md中的20项 yes/no 核查清单。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Plan.md核心模块&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;目标 (Goals)&lt;/strong&gt;：一年期的明确量化节点，建议链接金融数据接口（可选）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原则 (Principles)&lt;/strong&gt;：3-4个指导决策的价值观约束（例如：舍弃干扰项）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能量审计&lt;/strong&gt;：建立能量给予与消耗的清单，作为决策优先级判断的量化依据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Eval.md评估标准&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;强制核查点&lt;/strong&gt;：必须 cite 目标与原则、必须区分假设、必须提供2-3个可立即执行的动作步骤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;禁止在Skill.md中堆砌个人敏感信息，个人数据应严格隔离在Plan.md中。&lt;/li&gt;
+&lt;li&gt;避免空谈大道理，若AI给出的建议缺乏具体行动点，即视为Eval执行失败。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;定期与AI对话以刷新Learnings.md，使其成为个人的动态认知演化记录。&lt;/li&gt;
+&lt;li&gt;优先使用能力最强的模型（如Claude 3.5 Sonnet/Fable）以提升决策建议的深度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=H29laIK8q7M</guid>
+      <enclosure url="https://i.ytimg.com/vi/H29laIK8q7M/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 17 Jun 2026 13:00:17 +0800</pubDate>
+    </item>
     <item>
       <title>Codex与Hermes Agent的全模态免费替代方案配置指南</title>
       <link>https://www.bilibili.com/video/BV1DXET6REdn</link>
