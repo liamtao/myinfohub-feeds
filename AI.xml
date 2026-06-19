@@ -7,7 +7,453 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 19 Jun 2026 08:51:57 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2026 22:33:27 +0000</lastBuildDate>
+    <item>
+      <title>万亿AI算力背后的隐形瓶颈：软件调度、材料革命与半导体供应链大重构</title>
+      <link>https://www.bilibili.com/video/BV1dbjr6HEm6</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1dbjr6HEm6"&gt;概述了半导体行业的最新动态，重点讨论了内存架构、光互连技术与代工竞争的变革&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在英伟达GPU算力狂飙的背后，科技巨头们却面临着4000亿美元的“内存吃灰”危机？&lt;/li&gt;
+&lt;li&gt;💡 一家不卖硬件的纯软件公司，如何通过“预测算法”对传统内存巨头实施降维打击？&lt;/li&gt;
+&lt;li&gt;🚀 便宜的砷化镓与被台积电产能卡脖子的苹果，将如何合力重塑过去由亚洲主导的半导体硬件供应链？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 4000亿美元的内存死局与软件调度的“前店后仓”破局&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内存开支呈指数级飙升&lt;/strong&gt;: 随着AI大模型参数量爆炸，GPU全速运转需要海量数据实时交互。华尔街预测，超大规模数据中心的内存（DRAM）支出占比将从现在的8%直奔2027年的40%，成为CFO的账本噩梦。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MXT的“前店后仓”降维打击&lt;/strong&gt;: AMD收购的软件公司MXT，通过AI算法预测CPU的数据请求。它将最常用的“热数据”留在昂贵的DRAM（前店），把不常用的“冷数据”提前从慢速、高容量且便宜的闪存（NAND，后仓）反向预加载到DRAM中，几乎零延迟地用软件实现了廉价闪存替代昂贵内存的效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场奶酪重分配&lt;/strong&gt;: 这一技术切断了三星、海力士等传统内存厂商无节制涨价的底气，同时大幅提振了对NAND闪存的需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 光通信的材料战争：砷化镓对磷化铟的降维打击&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;物理极限的碰撞&lt;/strong&gt;: 传统的VCSEL激光器在100G以上会因电光转换带宽限制（S21散射参数衰减）导致信号失真，如同开关按得太快导致灯泡全程发光乱码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Picojoule的38GHz物理突破&lt;/strong&gt;: 初创公司Picojoule通过将信号在38GHz超高频下的衰减控制在-3dB内，推出了200G VCSEL激光器，挑战了光通信传输极限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;材料成本的颠覆&lt;/strong&gt;: 这一突破意味着可以使用极度便宜且广泛可得的“砷化镓”（GaAs）材料，直接抢占昂贵“磷化铟”（InP）的高速网络市场。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 英特尔的濒死体验与Apple的“机会第二次敲门”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;历史的黑色幽默&lt;/strong&gt;: 当年英特尔因傲慢拒绝了乔布斯的初代iPhone代工请求，将移动时代拱手让给台积电；如今在AI时代，因台积电CoWoS先进封装产能被英伟达和AMD抢空，苹果不得不回头寻找英特尔作为备胎。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;两大利好催化估值重塑&lt;/strong&gt;: 传闻美方推动苹果与英特尔在美本土展开芯片设计制造合作，同时英特尔挖来前SK海力士高管Silk Hilli全面接管先进封装，精准补齐高带宽内存堆叠短板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 产业变局下的追踪范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;监控关键指标一&lt;/strong&gt;：死盯Picojoule的200G VCSEL在实验室数据之外的“量产良率”，这是低成本光通信材料颠覆市场的核心分水岭。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监控关键指标二&lt;/strong&gt;：跟踪英特尔在美本土先进封装产能的“实际爬坡数据”，这直接决定了其能否真正承接苹果的产能外溢。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;在评估光通信供应链时，不要盲目认为可以100%完全去铝化。即使波长切换避开了铝的氧化退化，部分高水平量子结仍可能保留砷化镓与铟镓砷的混合设计，需警惕供应链测算偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “今天市场表面上看起来在追逐算力，但资金真正交易的预期，其实是算力瓶颈的破局之道。”&lt;/li&gt;
+&lt;li&gt;💬 “当台积电的产能成为整个AI世界的瓶颈时，市场是非常愿意为任何一个有潜力接盘的备胎支付超高溢价的。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dbjr6HEm6</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/5e263a52ac7a522d792b197360ac462efa417c5a.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 20 Jun 2026 05:51:23 +0800</pubDate>
+    </item>
+    <item>
+      <title>样本效率的百万倍鸿沟：AI如何以极其铺张的“大力出奇迹”对抗人类智能</title>
+      <link>https://www.bilibili.com/video/BV1E2jk6fEmd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1E2jk6fEmd"&gt;AI中心的数据黑洞&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么前沿AI模型能力在飙升，人类却依然在“学习效率”上保持百万倍的绝对碾压？&lt;/li&gt;
+&lt;li&gt;💡 为什么即使模型参数无限大，Chinchilla 缩放定律也无法帮AI弥补与人类之间的效率鸿沟？&lt;/li&gt;
+&lt;li&gt;🚀 既然AI的训练过程低效得离谱，为什么AI实验室的商业故事在经济上依然能完全闭环？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 样本效率：AI繁荣底部的“数据黑洞”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;本质是数据堆砌而非机制跃迁&lt;/strong&gt;: 当前AI的跨越式进步并非源于学习机制的根本性突破，而是依赖海量、高定制、由数万名人类专家人工喂养的特定数据，配合庞大算力生生“堆”出来的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;百万倍的效率鸿沟&lt;/strong&gt;: 一个人类到成年只需接收约2亿个语言token，花费数十小时即可学会驾驶或操控机器人；而前沿模型则需要数10万亿到数百万亿token，自动驾驶模型所需数据量比人类高出3到4个数量级。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强化学习的合成真相&lt;/strong&gt;: 强化学习（RL）本质上并非让模型像人一样自主顿悟，而是一种高成本的“合成数据生成方式”，即用大量算力在验证器或评分标准下筛选好数据，进而让模型预测正确的行为路径。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 破除迷思：为什么“进化预训练”与“无限扩大规模”救不了AI的低效&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;人类基因组的容量限制&lt;/strong&gt;: 针对“人类有数亿年进化预训练”的反驳，人类基因组仅3G且仅有1-2%为蛋白质编码区，根本装不下所谓的“预训练网络参数”。进化更可能是帮人类找到了正确的超参数和损失函数，人类依然是在一生中从零构建神经网络权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;缩放定律的数学诅咒&lt;/strong&gt;: 依据 Chinchilla 缩放定律，参数与数据是独立对损失函数做加法。即使将模型参数扩大到无限大，为了维持同样的损失，所需的数据量最多也只能减少10倍，根本无法填补与人类之间千倍至百万倍的样本效率鸿沟。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 商业逻辑的闭环与无法逾越的“分布外”边界&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;以极低效率换取无限规模化&lt;/strong&gt;: 尽管AI训练耗能极高、极其铺张，但其核心优势在于“学成后可无限并行部署”。人类专家训练成本虽低但无法复制，AI一旦学会某项常见任务，其技能价值即可在数万个并发对话中摊销，实现极高的商业回报。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分布外思考的死穴&lt;/strong&gt;: 常见、规则明确且可预测的白领工作极易被纳入训练分布，但对于需要高频“分布外思考”的工作（如软件工程），现有低样本效率的范式难以胜任，人类工程师的互补性需求在短期内不仅不会降低，反而会增加。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AGI的终极自举 (Self-Bootstrap)&lt;/strong&gt;: 实现通用人工智能的核心不在于人类手动喂养数据，而在于当前低样本效率的AI能否成功实现“AI研究本身的自动化”，用AI去攻克AI自身的样本效率瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “我们看到的AI像是一片闪耀着各种能力的星系，但在它中心有一个肉眼看不见、把所有星座维系在一起的东西，那就是一个难以想象的巨大数据黑洞。”&lt;/li&gt;
+&lt;li&gt;💬 “即使你把参数数量增加到无穷大，所需数据量也只会减少十倍。单纯扩大当前模型的规模，无法弥补与人类之间数千到数百万倍的效率差距。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1E2jk6fEmd</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/039f14f835fd02db764b2098ed5c97af8001f033.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 20 Jun 2026 02:31:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>穿透AI狂热的真实账本：万亿算力泡沫、财务粉饰与终极合谋</title>
+      <link>https://www.bilibili.com/video/BV1tbjk63Eww</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1tbjk63Eww"&gt;硅谷AI泡沫不是信仰，是财务数据撑不住的“准邪教”&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 一年亏损210亿元却能被捧上神坛，硅谷AI初创公司是如何用财务魔术掩盖巨大资金黑洞的？&lt;/li&gt;
+&lt;li&gt;💡 为什么科技巨头、传统软件厂商和科技媒体，都在心照不宣地合谋维系这场“万亿级GPU泡沫”？&lt;/li&gt;
+&lt;li&gt;🚀 支撑AI繁荣的虚幻账本中，最致命的“第一张多米诺骨牌”究竟握在谁的手里？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 财务粉饰与循环注水：AI独角兽的“炼金术”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;左手倒右手的营收魔术&lt;/strong&gt;: 某些AI巨头账面上看似光鲜的客户收入，实则是投资财团以合资或采购名义变相注入的“投资款”，用来粉饰最顶层的营收增速。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;推理成本的“财务腾挪”&lt;/strong&gt;: 运行大模型极高昂的算力推理成本本应计入主营业务成本，却被包装成“免费试用”挪至销售与营销费用，从而强行在报表上“变”出正数毛利率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;法拉利租车类比&lt;/strong&gt;: 这相当于开租车行买了一整支法拉利车队，却把买车钱算作“品牌营销费”，从而欺骗投资人称每租一单的毛利都是100%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;巨头与初创的“闭环合谋”&lt;/strong&gt;: 初创公司签下无法支付的天价算力合同（推高科技巨头的RPO未来确定性收入预期），科技巨头则以高估值给初创公司注资以支付算力费，形成无消费者真实需求支撑的自我循环。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛡️ 媒体收编与行业甩锅：泡沫中的舆论共谋&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;准入式新闻与自我审查&lt;/strong&gt;: 科技媒体因害怕错过风口（FOMO）及担心被公关拉黑、失去独家测试权，放弃了批判性监督，沦为狂热共识的啦啦队。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“末日拯救论”的公关算计&lt;/strong&gt;: AI巨头大肆宣扬“AI可能毁灭人类”的科幻式末日论，本质上是以宏大叙事转移公众对版权侵权、隐私泄露和产品缺陷的注意力，用末日论当免死金牌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SaaS末日的万能替罪羊&lt;/strong&gt;: 传统软件行业因零利率时代终结、过度杠杆而陷入销售效率腰斩的崩溃困境。CEO们不愿承认产品过剩，反而将业绩下滑归咎于“AI智能体太强大，取代了传统软件”，以此掩盖自身衰退。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 洞察泡沫破裂的关键风向标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 关键监测指标 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;紧盯四大云巨头（Hyper Scalers）的资本支出（CapEx）变化&lt;/strong&gt;: 谷歌、微软、亚马逊和Meta正处于“红皇后假说”的军备竞赛中。一旦有任何一家突然放缓AI基建支出，市场信念将在瞬间逆转。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;监控上游半导体库存&lt;/strong&gt;: 密切跟踪三星、SK海力士等存储芯片巨头的库存积压情况，这是云巨头砍单最直接的物理反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;审计美股大盘的英伟达权重风险&lt;/strong&gt;: 英伟达在标普500中占比极高，一旦其业绩预期因下游砍单破裂，需警惕整个大盘的系统性崩盘。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕所有未披露真实Unit Economics（单位经济效益）的AI企业。&lt;/li&gt;
+&lt;li&gt;拒绝为单纯依靠科技巨头“倒手资金”存活的B端AI套壳工具支付溢价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “今天新闻看起来是在讲AI有多神奇，但真账定价的反而是背后那套算不平的账。”&lt;/li&gt;
+&lt;li&gt;💬 “这完全是一个脱离了真实消费者需求、由恐慌驱动的自我循环军备竞赛系统。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1tbjk63Eww</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/54544d336221a425823c58b62ff3476f5930fc28.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 20 Jun 2026 02:10:42 +0800</pubDate>
+    </item>
+    <item>
+      <title>暴跌30%背后的真相：为什么AI颠覆不了独立品牌与物理护城河</title>
+      <link>https://www.bilibili.com/video/BV1s7je62Ehw</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1s7je62Ehw"&gt;AI重塑电商流量，Shopify结构性利好品牌官网导流&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在AI大模型快速迭代的背景下，华尔街反而将电商平台的估值硬生生砸掉了30%？&lt;/li&gt;
+&lt;li&gt;💡 为什么AI最喜欢“绝对低价和速度”，但真实流量却反常地流向了配送更慢的独立品牌？&lt;/li&gt;
+&lt;li&gt;🚀 为什么能用自然语言生成网页的“Vibe Coding”无法取代传统的电商后台技术栈？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 被高估的“AI末日论”与无法证伪的看空泥潭&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;市场情绪与真实数据的倒挂&lt;/strong&gt;: 华尔街抹去几百亿市值并非因为财报难看，而是陷入了“无法证伪”的恐惧。投资者在未来的想象空间里玩“打地鼠”，任何无法用当下数据反驳的AI颠覆论调都成了做空的筹码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI作为超级导流管的本质&lt;/strong&gt;: 现阶段的AI本质上是进化版的搜索引擎，极擅长理解极细分的精准意图，从而绕过传统搜索的竞价广告，直接将用户“空降”到最对口的品牌独立站。AI不仅没有消灭品牌，反而成了独立站的超级销售员。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 Vibe Coding的硅谷幻觉与商业后台的重重集成&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代码展示不等于商业机器&lt;/strong&gt;: “用嘴建站”（Vibe Coding）只能解决看得见的前端展示页面，却无法攻克水面下的商业堡垒。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;三大不可替代的底层壁垒&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;支付费率谈判力&lt;/em&gt;: Shopify拥有海量商家交易规模，能拿到极低的信用卡通道费，自建站的高昂手续费会直接吞噬利润。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;服务器级深度集成&lt;/em&gt;: 如Meta的CAPI（转化API），在iOS隐私新政下解决广告追踪必须依靠双边平台的长期信任与安全标准，非AI写两行代码可解决。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;实时库存与商业目录同步&lt;/em&gt;: 语言模型讨厌抓取原始网页。没有结构化的商品目录API，AI就无法掌握实时库存，一旦频繁导致退单，将彻底摧毁消费者信任。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 送奶工谬误与人类对控制感的终极执念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;历史的镜像（送奶工谬误）&lt;/strong&gt;: 1960年代美国牛奶需求极高且稳定，但即便在巅峰期，自动配送的牛奶也仅占30%，随汽车普及更降至零。这证明科技进步并不等于人类心智模式的突变。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全自动购物的心理焦虑&lt;/strong&gt;: 一个家庭年均购买近300种快消品，让AI接管意味着出让绝对决策权。只要系统发生一次误判（如送错酱油数量），消费者的“失控感”就会爆发。人类需要的是对生活的“控制感”和购物的“娱乐感”，而非绝对的无摩擦效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 物理世界的终极决战与真正的护城河&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;重资产的物理肉搏&lt;/strong&gt;: 亚马逊生鲜实现40倍增长靠的不是推荐算法，而是在整个履约网络里大规模部署重型冷藏设备（大冰柜）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极度微观的物理细节&lt;/strong&gt;: DoorDash能赢是因为它们精确绘制了公寓楼梯间地图、标注了外卖员该走前门还是偏门。在冰淇淋融化前，最先进的算法在垂直空间里也无能为力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单位经济学与需求网络&lt;/strong&gt;: 自动驾驶（如Waymo）车辆属于极高资本支出的重资产，必须维持极高运转率，最终仍需接入掌握了海量真实C端需求网络的平台（如Uber）。数字技术再高频，议价权最终依然掌握在物理世界里。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “AI或许能帮你画出一张完美的餐厅设计图，但他没法帮你搞定供应链、卫生许可证，还有后厨的下水道。”&lt;/li&gt;
+&lt;li&gt;💬 “在真实世界的商业搏杀中，最大的成本往往不是开发那几行代码的技术成本，而是系统崩溃瞬间带来的信任成本和机会成本。”&lt;/li&gt;
+&lt;li&gt;💬 “数字技术再高频，议价权最终依然掌握在物理世界里。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1s7je62Ehw</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/65e7018cb1fea6a9e4118f920385d06d7ab6ba1c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 19 Jun 2026 22:31:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Fable 5禁令下的全球AI变局：地缘政治博弈与开源路由模型的崛起</title>
+      <link>https://www.youtube.com/watch?v=4hvA6aCwf6E</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=4hvA6aCwf6E"&gt;The Models Trying to Replace Fable&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当“AI一键关停权”成为地缘政治武器，全球企业如何构建免受政治波及的技术免疫力？&lt;/li&gt;
+&lt;li&gt;💡 在前沿大模型价格高企与供应不稳的双重夹击下，开源模型与智能路由是否能彻底瓦解闭源独占的神话？&lt;/li&gt;
+&lt;li&gt;🚀 为什么说AI时代的竞争正在从拼“单体模型参数”演变为拼“推理成本与智能路由架构”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 地缘政治下的“AI断供”：技术主权与信任赤字的全面爆发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI一键关停权的地缘冲击&lt;/strong&gt;: 美国对Anthropic Fable 5的禁令彻底打破了“全球可无障碍获取美国顶尖大模型”的幻想。在G7峰会上，欧洲盟友深感在AI主权上的软肋，英国申请豁免遭拒，法国总统马克龙直言美国掌控了“AI生死开关”，欧洲被迫在缺乏算力基建的窘境下加速技术自主。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源模型的“安全阀”效应&lt;/strong&gt;: 禁令直接推动了企业从闭源向开源的逃离。开源模型不仅是成本选择，更是业务确定性的底线。使用本地运行的开源模型意味着绝对控制权，企业不必担心核心业务因地缘政治指令而在一夜之间被“拔掉插头”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 智能路由与混合架构：击碎“暴力大模型”的效率革命&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;智能路由胜过单体蛮力 (Smart Routing over Brute Force)&lt;/strong&gt;: 盲目使用最贵单体模型的时代宣告结束。以Harvey与Fireworks的合作实验为例，开源小模型作为初审“打工者”处理基础事务，仅将高难任务分派给昂贵的闭源大模型作为“顾问”。这种混合架构不仅大幅降本，更通过多模型对抗实现了超越单一模型的性能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;轻量化模型的“极限智价比”&lt;/strong&gt;: 像GLM 5.2和Vibe Thinker 3B等轻量级开源模型，正在特定任务上以极低成本达到或逼近闭源前沿模型的水平。企业开始意识到：AI不需要时刻存储全人类的冗余知识，大模型只需具备解决特定问题的“纯粹智商”，其余知识由外部数据库提供。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 企业级AI效能自救指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;资产与风险审计&lt;/strong&gt;：全面盘点依赖外部闭源API的节点，评估政治与技术断供对核心业务的破坏系数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建本地退路&lt;/strong&gt;：在私有或本地环境部署同等能力的开源模型（如DeepSeek或GLM系列），作为闭源API的冗余备份。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实施智能路由架构&lt;/strong&gt;：引入多模型分流控制层，将日常、低阶任务导向廉价小模型，仅将硬核推理任务路由至顶尖大模型，极致压降Token开销。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕 Benchmark 幻觉&lt;/strong&gt;：部分开源小模型在发布时存在针对测试集的过度微调。企业引入新模型前必须基于自身真实业务数据集进行内部评估（Internal Evals），而非盲信公开排行榜。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “Anthropic的关停开关证明了技术主权从来不是抽象概念。G7不应将盟友锁定在竞争性的AI依赖中。”&lt;/li&gt;
+&lt;li&gt;💬 “用最昂贵的模型去处理所有任务不是质量战略，而是懒惰。构建路由层以合理成本分配任务的团队，正在同时赢得成本与效能的绝对优势。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=4hvA6aCwf6E</guid>
+      <enclosure url="https://i.ytimg.com/vi/4hvA6aCwf6E/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 19 Jun 2026 17:37:51 +0800</pubDate>
+    </item>
+    <item>
+      <title>数据黑洞与样本效率：为什么AI无法像人类一样举一反三</title>
+      <link>https://www.youtube.com/watch?v=4pG3SJQPAwk</link>
+      <description>&lt;p&gt;&lt;a href="UCXl4i9dYBrFOabk0xGmbkRA"&gt;Dwarkesh Patel&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=4pG3SJQPAwk"&gt;The data black hole at the center of AI&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么拥有数万亿参数的AI，在学习微小新技能时依然需要成百上千名专家的数据支撑？&lt;/li&gt;
+&lt;li&gt;💡 仅凭3GB大小的基因组，人类是如何在极低的数据吞吐量下实现完美“举一反三”的？&lt;/li&gt;
+&lt;li&gt;🚀 如果AI无法跨越“样本效率”的鸿沟，这会彻底阻碍AGI的到来，还是会催生出一条独特的商业摊销路径？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 样本效率的残酷现实：AI只是堆砌数据的“缝合怪”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据黑洞本质&lt;/strong&gt;: AI近年来的进步，核心驱动力在于数据分布的拓宽与算力的压榨，而非样本效率的提升。RL（强化学习）本质上是在消耗海量算力针对验证器进行“合成数据生成”，迫使模型预测正确的输出路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“弗兰肯斯坦”拼贴体&lt;/strong&gt;: AI模型并不像人类那样真正融合了各种技能，它更像是一个由数十亿个精心构建的专家示例、思维链和规则，通过庞大的参数硬生生缝合起来的“拼接体”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源追赶的真相&lt;/strong&gt;: 开源模型之所以能在几个月内迅速追赶闭源前沿模型，是因为最核心的驱动力——高质量数据，极易通过公用API进行蒸馏和复制，而超参数或架构微调并不是主导因素。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 百万倍的鸿沟：人类与AI在数据吞吐上的物理差距&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;2亿 vs 百万亿&lt;/strong&gt;: 人类从出生到成年，日常听闻的语言符号（Token）总量仅约2亿。而前沿AI模型的训练数据已达数十万亿甚至百万亿级别，两者存在近百万倍的样本效率差距。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;物理常识的极速内化&lt;/strong&gt;: 青少年只需20小时即可学会驾车，而Waymo和Tesla需要使用多出3到4个数量级的数据和数百万小时的仿真；人类只需几小时就能掌握机械臂的遥控，而AI机器人至今无法处理复杂的开放式任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基因与超参数的类比&lt;/strong&gt;: 有人辩称进化相当于AI的预训练，但人类基因组仅3GB且只有1-2%编码蛋白质，根本无法存储百亿参数。进化更像是寻找到了“正确的超参数和损失函数”，人类在生命周期中仍是从零构建大脑连接。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 尺度定律的极限与商业维度的“降维打击”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;尺度定律的无能为力&lt;/strong&gt;: 依靠Chinchilla定律，即便将参数量无限增加，所需的数据量最多也只能减少到原本的十分之一。这意味着单纯“做大模型”根本无法缩短与人类数万倍的效率差距，人类处于完全不同的尺度曲线上。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“鲁棒性”摊销的商业策略&lt;/strong&gt;: 虽然训练AI极其低效，但其优势在于“可复制性”和“无寿命限制”。AI学会的技能可以通过千亿次会话瞬间摊销，从而抹平其惊人的训练成本，在商业上依然实现盈利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;软件工程师的未来生态&lt;/strong&gt;: AI将首先被用于自动执行机械且常见的任务。但由于互补性输入（Complementary Input）效应，具备处理“分布外（OOD）问题”能力的人类软件工程师在2028年的需求量反而将超过现在。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;我们眼中的AI是由各种能力闪烁交织的星系。但在其中心，存在着一个维持星系运转、却无法被肉眼看见的、无法想象的庞大数据黑洞。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;正确的理解方式是：这些模型不像是一个掌握了各种不同技能的人类，而更像是一个由数十亿个精心构建的样本拼接而成的弗兰肯斯坦怪物。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=4pG3SJQPAwk</guid>
+      <enclosure url="https://i.ytimg.com/vi/4pG3SJQPAwk/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 19 Jun 2026 17:17:05 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代设计未死：Figma CEO谈品味、创造力与“超迷信”的科技未来</title>
+      <link>https://www.youtube.com/watch?v=d1q4L_jiWEo</link>
+      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=d1q4L_jiWEo"&gt;Figma's CEO on How to Stand Out in the AI Era&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当AI一键生成设计，为什么“品味”和“创意独特性”成了最稀缺的防御性资产？&lt;/li&gt;
+&lt;li&gt;💡 为什么AI实验室在疯狂扩张后终将面临产品聚焦与边界收缩的宿命？&lt;/li&gt;
+&lt;li&gt;🚀 什么是“超迷信（Hyperstition）”，它如何让一个虚无的科技概念自我实现？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 算法平庸化浪潮下，“独特品味”是抵御AI替代的唯一屏障&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AI输出的本质是均值&lt;/strong&gt;: AI模型基于已有数据分布进行训练，其默认生成的任何设计或写作都代表了“群体平均水平”。过度依赖AI会导致作品迅速沦为平庸的“网络垃圾（Slop）”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平庸时代的创造力溢价&lt;/strong&gt;: 当一键设计和写作拉平了技术门槛，能够识别“平均水平”并拒绝第一版草稿、持续雕琢和注入独特声线与批判性思考的人，将获得比以往更高的市场溢价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设计岗位的边界正在扩张&lt;/strong&gt;: 由于AI使开发原型极其快速，大批非技术人员（如PM、工程师）正在进入设计领域，未来“设计师”的定义和岗位数量不仅不会减少，反而会大幅增加。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 纵向扩张 vs 边界收缩：AI巨头实验室的博弈与现实限制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;巨头的钟摆效应&lt;/strong&gt;: AI实验室试图纵向蚕食相邻行业（如设计、自动化），但这种无限扩张终会遭遇瓶颈。OpenAI在经历爆发后不得不关闭部分项目以聚焦核心，而Anthropic目前正处于扩张期，后续仍需面临市场筛选与核心定位。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;初创企业的护城河&lt;/strong&gt;: 即便AI巨头垂直整合，构建具体场景、高交互体验和深度解决用户痛点的工具（如Figma）依然具有极其稳固的壁垒，因为“做出好产品”需要极高的产品精度和设计品味。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 超迷信（Hyperstition）：科技迷因如何自我召唤并塑造现实&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;迷因召唤存在&lt;/strong&gt;: 观念、想法和恐慌可以通过吸引注意力和资源，从而“无中生有”地召唤出自己的物理存在，如比特币的暴涨和AI的爆发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI安全与竞争的死循环&lt;/strong&gt;: AI安全主义者最初为了防止军备竞赛而成立非营利组织，但正是由于这种高度关注与对强大AI的恐惧，反而极大地刺激了资本和公众的神经，最终“自我实现”地引爆了当前激烈的AI军备竞赛。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ AI 时代的内容与设计突围法则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;拒绝首轮输出&lt;/strong&gt;：坚决不用AI直接生成的初稿作为终稿，必须在AI框架上进行多轮反向微调和个性化重塑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主动打破分布界限&lt;/strong&gt;：在创作或设计时，刻意引入非主流的、具备强烈个人偏好和质感的元素，脱离“模型训练分布”的安全区。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;撰写乐观的科技故事&lt;/strong&gt;：由于AI训练集严重缺乏人类与AI和谐共处的“好故事”，主动输出乐观主义内容，帮助净化AI未来训练数据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕AI万能幻觉&lt;/strong&gt;：AI模型的上限在探索人类已知边界时会迅速收敛，过度依赖AI一键生成将导致个人作品迅速贬值并失去独特性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “当新的AI模型发布时，每个人都在社交媒体上寻找‘什么已经死去了’，但我更倾向于留下来并宣称‘我们回来了’。”&lt;/li&gt;
+&lt;li&gt;💬 “AI是根据数据的平均分布进行训练的。如果你不主动去探索人类创意和知识的边界，你就会陷入最糟糕的平庸分布里。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=d1q4L_jiWEo</guid>
+      <enclosure url="https://i.ytimg.com/vi/d1q4L_jiWEo/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 19 Jun 2026 14:20:14 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代的降维打击：从网页设计到全自动营销的范式重构</title>
+      <link>https://www.youtube.com/watch?v=8OOuCnZB-4o</link>
+      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=8OOuCnZB-4o"&gt;The Age Of The 40-Year-Old Solo Founder Is Here&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在AI时代，“经验丰富的老牌创作者”反而拥有比年轻极客更强大的降维打击优势？&lt;/li&gt;
+&lt;li&gt;💡 网页设计的终局是什么？它如何从一个单一的视觉呈现工具演变为企业的“营销大脑”？&lt;/li&gt;
+&lt;li&gt;🚀 如何利用AI在几天内完成过去整个工程团队需要数月甚至一年才能构建的数字化资产？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 经验与品味的降维释放：AI时代的创作者杠杆&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;品味重于代码&lt;/strong&gt;: 模型的无限智能需要行业专家的定向引导。拥有深厚行业经验的创始人，能够将对客户、行业周期和产品定位的深刻理解（Taste）注入提示词（Prompts）和系统架构中，消除设计上的“AI痕迹”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI是生产力的克隆机器&lt;/strong&gt;: 过去创办企业需要庞大团队，耗费数月进行沟通对齐。如今，通过将个人技能和品味注入AI，单人创作者可以瞬间克隆出数百个具备专业技能的AI代理，实现生产力的指数级爆发。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 智能网页吞噬与全自动营销：Ploy的实操范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 数字化重构行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;智能资产抓取 (Slurping)&lt;/strong&gt;: 输入旧网站URL，利用 deterministic 抓取方法在数十秒内解析既有内容，自动生成高保真的现代设计系统，并重构所有基础组件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多维数据注入与对齐&lt;/strong&gt;: 连接Figma、Github、Analytics、CRM和邮件系统，使网站成为实时反映企业业务变化的系统化平台。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化AI引擎优化 (AEO)&lt;/strong&gt;: 生成符合ChatGPT、Perplexity和Claude抓取偏好的Schema标记和FAQ，在AI搜索时代实现自动曝光与获客。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免为了填充内容而无节制地生成低质量垃圾信息（AI Slop），这会导致搜索引擎和AI模型降低对网站权威性的评分。&lt;/li&gt;
+&lt;li&gt;避免频繁进行手动无规则微调，这会破坏AI所建立的底层设计系统的一致性，应优先使用自然语言标注和意图引导。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “模型的无限智能，需要特定领域的专业经验作为方向盘，才能创造出世界级的产品。”&lt;/li&gt;
+&lt;li&gt;💬 “未来的社会属于极少数拥有品味和洞察的创始人，因为AI已经彻底抹平了代码与工程实现的壁垒。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=8OOuCnZB-4o</guid>
+      <enclosure url="https://i.ytimg.com/vi/8OOuCnZB-4o/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 19 Jun 2026 14:00:26 +0800</pubDate>
+    </item>
+    <item>
+      <title>7.5万亿美元的具身智能风口：2026商业化元年背后的硬件降本死局与中国供应链重塑</title>
+      <link>https://www.bilibili.com/video/BV1xQja61ED2</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xQja61ED2"&gt;大摩研报深度解读：亚洲机器人与人形机器人（具身AI最大机遇，2050年TAM达7.5万亿美元）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在大脑无所不能的数字世界，AI一旦硬塞入物理肉身就会遭遇“摩擦力降维打击”？&lt;/li&gt;
+&lt;li&gt;💡 48%的企业将“2.8万美元”视为普及引爆点，如何将百万造价的机器降至经济型代步车价格？&lt;/li&gt;
+&lt;li&gt;🚀 减速器需求爆发性增长1904倍的背后，预示着资本、产能与地缘供应链怎样的版图重组？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 2026具身智能商业化：为什么说今年是产业落地的绝对元年？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;物理世界对虚拟精确性的残酷解构&lt;/strong&gt;: 在数字世界中试错成本几乎为零。然而，一旦AI大脑试图控制金属躯壳去拧开水瓶、搬运纸箱，引力、摩擦力及材料损耗等物理碰撞会疯狂施加阻力，优雅的算法瞬间变成极度复杂的物理对抗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;从Demo走向试点部署的临界点&lt;/strong&gt;: 摩根士丹利指出，2024和2025年见证了机器人运动性能的跃迁（静态展示与demo），而2026年则是从小规模试点部署走向广泛商业化的元年。到2050年，该领域的潜在市场规模（TAM）将达到惊人的7.5万亿美元。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 2.8万美元“生死线”下的硬件降本暴利革命&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代步车级别的价格甜蜜点&lt;/strong&gt;: 调研显示，48%的企业认为，只有单台机器人成本降至1.4万至2.8万美元（约合10万至20万人民币）这一“代步车区间”时，市场才会迎来广泛爆发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主战场的维度转移&lt;/strong&gt;: 决定商业化生死的根本不是大模型等软件层面的高深，而是硬件物料清单（BOM）的极致压榨。只有能实现高精度且成本极低的核心部件，AI大脑才不会沦为温室里昂贵的科技玩具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 1904倍爆发式增长：为何“减速器”成了机器人的核心命脉？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;关节软骨的核心角色&lt;/strong&gt;: 减速器在机器人体内的作用类似于人类的关节软骨。电机的快转速和控制盲点，必须通过高精度的减速器转化为精准平稳、有力度的动作，否则钢铁机器人根本无法平稳端起一杯滚烫的咖啡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资本与产能的疯狂涌入&lt;/strong&gt;: 预测到2050年，电机的需求增长370倍，轴承增长157倍，而减速器将爆发性增长1904倍。以往的高端定制品正被迫向亿级产能、白菜价倾斜，倒逼整个基础工业链体系重构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 中国供应链的绝对统治力：政策红利与本土制造的双轮驱动&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;政策红利与真金白银&lt;/strong&gt;: 中国“十四五”规划将机器人列为战略新兴产业。上海、深圳、北京等地推出百亿级产业规划及高达30%的研发补贴，全国累计超过270亿美元的政府引导基金强力注资。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降本飞轮与应用落地&lt;/strong&gt;: 2025-2030年中国机器人出货量复合增长率预计达85%。中国除了芯片这一软肋，电池、电机、减速器等几乎完全实现国产化配套，极具场景适配优势。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;锁定单一受控场景&lt;/strong&gt;: 优先在环境规则、高度可控的闭环场景（如宁德时代的包装线、顺丰分拣、美的洗衣机产线）进行机器人试水部署，而非一开始就挑战复杂的无序环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;以“足够便宜”切入现场&lt;/strong&gt;: 放弃追求实验室里完美无缺的艺术品，先以成本可控的方案切入产业一线，依靠真实物理世界的交互，构建独有的数据回传和迭代飞轮。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕“波士顿动力式”的战略误区。过度偏向基础研究、实验室属性过重，导致AI视觉感知落后且造价昂贵，极易在早期商业化竞争中被主打工程落地和极致性价比的敏捷同行淘汰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “AI大脑再聪明，如果没有高精度且成本极低的硬件支撑，它就永远只能是个养在温室里的昂贵玩具。”&lt;/li&gt;
+&lt;li&gt;💬 “在颠覆性创新的初期，造得便宜往往比造得完美更重要，商业化最终拼的是工程落地能力和生态的整合。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xQja61ED2</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/524e4afd0b08fb61e15ad8e77712f3fca9d553f0.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 18 Jun 2026 23:28:10 +0800</pubDate>
+    </item>
     <item>
       <title>AI培训：撬动全球经济增长的最后杠杆</title>
       <link>https://www.youtube.com/watch?v=v3jwNZ94GLo</link>
@@ -4679,609 +5125,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV14WVJ6vEPW</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/4a3154ade944822c732f232d6693464e2a8b88d0.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 02 Jun 2026 14:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>英伟达RTX Spark与AI智能体：重塑个人计算的范式革命</title>
-      <link>https://www.youtube.com/watch?v=vH7rDhyn1W8</link>
-      <description>&lt;p&gt;&lt;a href="UCkHrq03gWLLx6vjS2DOJ8aA"&gt;孙富贵&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=vH7rDhyn1W8"&gt;这一次，他想干什么？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 个人电脑运行逻辑已稳定50年，为何英伟达认为AI智能体（Agent）将彻底推翻现有的“人-工具-结果”模式？&lt;/li&gt;
-&lt;li&gt;💡 云端大模型已触手可及，为什么黄仁勋坚持要求AI智能体必须“住进”本地电脑？&lt;/li&gt;
-&lt;li&gt;🚀 从单纯的芯片厂商转向平台垄断者，英伟达发布RTX Spark芯片背后的商业算计是什么？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 范式转移：从工具到智能体&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;逻辑重构&lt;/strong&gt;: 传统PC逻辑中，人是唯一的操作主体，软件是辅助工具；AI智能体则具备自主拆解任务、调用工具并执行复杂链条的能力，人仅需提出需求，即从“使用者”转变为“决策者”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;能力飞跃&lt;/strong&gt;: 智能体能够实现跨软件协同，例如将“照片修复”与“视频剪辑”自动串联，抹平了专业操作的语言门槛，人与人的差异将集中在驾驭AI的深度与产出质量上。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 本地算力：AI落地的护城河&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;识别云端AI瓶颈：必须绕过数据传输的物理延迟与隐私泄露隐患。&lt;/li&gt;
-&lt;li&gt;部署本地算力：利用具备“统一内存架构”的硬件，确保模型权重常驻内存，实现毫秒级响应。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 目前RTX Spark面临高昂的整机成本与软件兼容性双重门槛，短期内仅适配专业创作者及高端用户，尚非大众消费品。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚙️ 硬件革命：统一内存的必然性&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;技术变革&lt;/strong&gt;: RTX Spark打破传统CPU与GPU分离架构，采用ARM架构内核搭配Blackwell GPU，通过统一内存池消除数据传输瓶颈，实现极高带宽与低功耗。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比解释&lt;/strong&gt;: 传统架构如同“通过传送带在两个房间搬运货物”，而统一内存架构则是“将两个房间合二为一，共用一个中央仓库”，直接消除了搬运开销带来的延迟。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “云端决定AI的上限，本地决定AI的普及。”&lt;/li&gt;
-&lt;li&gt;💬 “未来的PC，不只服务于人，要服务于AI智能体。”&lt;/li&gt;
-&lt;li&gt;💬 “人和人之间的能力差别，将主要体现在AI驾驭能力，以及驾驭AI产出水平的高低。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=vH7rDhyn1W8</guid>
-      <enclosure url="https://i.ytimg.com/vi/vH7rDhyn1W8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 02 Jun 2026 12:00:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI Agent与Notion高效协同：八步构建智能驱动的第二大脑</title>
-      <link>https://www.youtube.com/watch?v=YGWcFMR8gk8</link>
-      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=YGWcFMR8gk8"&gt;Learn To Use Notion With AI Agents (Full Guide)&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Codeex 与 Notion - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：AI Agent (Codeex) 作为超级应用，通过插件、内置浏览器及上下文感知能力，深度控制并优化 Notion 的数据管理与工作流，构建智能化第二大脑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、应用内上下文（AppShots）、外部网页内容、Notion数据库/页面内容。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：Notion 数据库条目、页面内容修改、格式化研究报告（通过 slashtabs）、自动化日常总结、iMessage 交互。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI Super App&lt;/strong&gt;: 集聊天、编程、知识工作于一体的跨应用平台（如 Codeex, Claude Desktop App）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Notion Plugin&lt;/strong&gt;: 赋予 AI Agent 特定 Notion 操作能力（如创建、编辑、查询）的技能包。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AppShots&lt;/strong&gt;: 快速捕获当前屏幕应用上下文并发送给 AI Agent 的功能，实现跨应用无缝协作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Slashtabs&lt;/strong&gt;: Notion 中用于组织多标签页内容的区块，适合 AI 插入结构化研究。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Custom Notion Skill&lt;/strong&gt;: 用户为特定 Notion 工作流定制的 AI Agent 自动化指令集。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：AI Agent 与 Notion 的基础配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：建立 AI Agent 对 Notion 的基本控制与交互能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：确保已下载并安装 Codeex 桌面应用、Notion 桌面应用，并拥有付费 ChatGPT 账户（Codeex访问权限）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;下载安装&lt;/strong&gt;：访问 &lt;code&gt;notion.com/desktop&lt;/code&gt; 下载 Notion，访问 &lt;code&gt;chatgbt.com/codexc&lt;/code&gt; 下载 Codeex。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Codeex 登录&lt;/strong&gt;：使用 ChatGPT 账户登录 Codeex。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Notion 插件集成&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;点击 Codeex 左上角 &lt;code&gt;Plugins&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;搜索并选择 &lt;code&gt;Notion&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;点击 &lt;code&gt;Download&lt;/code&gt; 安装 Notion 插件。&lt;/li&gt;
-&lt;li&gt;安装后，可在 Codeex 对话框中输入 &lt;code&gt;@&lt;/code&gt; 验证插件是否可用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：在 Codeex 内高效管理 Notion 内容&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：利用 Codeex 的内置浏览器与 AI 指令，实现 Notion 内容的实时查看与编辑，无需切换应用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已安装 Notion 插件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;AI 创建/修改 Notion 内容&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;在 Codeex 对话框中，使用 &lt;code&gt;@notion&lt;/code&gt; 指令发起 Notion 操作，例如：&lt;code&gt;@notion, please go to key docs inside notion. Add a new database in that page called Codeex new database. Add 10 different entries inside that database and make them all poems about the latest news about Codeex and Claude Code.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;AI 完成操作后，生成的 Notion 链接可直接点击跳转。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Notion 页面在 Codeex 内嵌浏览器中打开&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;对于 Codeex 返回的 Notion 链接，进行 &lt;code&gt;右键点击&lt;/code&gt; -&amp;gt; 选择 &lt;code&gt;Open in browser&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;Notion 页面将在 Codeex 侧边栏的内置浏览器中加载，支持登录并保持会话。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI 实时编辑 Notion 页面&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;在 Codeex 内嵌 Notion 浏览器中，向 AI 发送编辑指令，例如：&lt;code&gt;Please remove the worst five and remove the news date column and add a category column which is multi select.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;观察 Notion 页面内容实时更新。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 3：为 AI Agent 建立 Notion 工作规范&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过在 Notion 中预设指令，确保 AI Agent 在处理特定内容时遵循统一的格式与逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：存在需要 AI Agent 协作的 Notion 页面或数据库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;创建 Agent 指令区&lt;/strong&gt;：在 Notion 关键页面（例如：&lt;code&gt;Key Docs&lt;/code&gt; 顶部）创建显眼的文本区块。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;撰写明确指令&lt;/strong&gt;：详细说明 AI Agent 应如何处理该页面的数据、格式要求（例如：&lt;code&gt;If you are an AI agent read the following tabs... explain how to use the video database, how to use the quicknotes, how to use the chorus docs and how to use ad scripts.&lt;/code&gt; 确保脚本粉色、CTA绿色）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 4：定制 AI Agent 的 Notion 技能&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：封装特定 Notion 操作流程为可复用技能，提高 AI Agent 执行效率与一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：具备一个已在 Codeex 中成功执行并期望标准化的 Notion 工作流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;引导 AI 执行任务&lt;/strong&gt;：通过多轮对话，让 AI Agent 成功并完美地完成某个 Notion 相关任务（例如：&lt;code&gt;Add a note to the Codeex notes database... Make sure to format it correctly... make sure to be more concise and include primary source links.&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;指令封装为技能&lt;/strong&gt;：当 AI Agent 执行结果满意后，向其发出指令：&lt;code&gt;Okay, turn that into a skill called notion quicknote.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;调用定制技能&lt;/strong&gt;：在 Codeex 对话框中，通过 &lt;code&gt;/notion quicknote&lt;/code&gt; 或 &lt;code&gt;/quicknote notion&lt;/code&gt; 直接调用该技能。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 5：利用 Slashtabs 优化 Notion 研究整合&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在 Notion 页面中以整洁、结构化的方式集成 AI Agent 生成的深度研究，避免页面混乱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：一个用于承载研究内容的 Notion 页面。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;发出研究指令&lt;/strong&gt;：向 Codeex 发送详细研究请求，并明确要求使用 Slashtabs 格式：&lt;code&gt;Hey, I want you to do in-depth research... and put it in. And you just say slash tabs at the top of the page that I have open so that you don't clutter it. I want original sources to where you found the information. I want some research on how to use codeex with notion. Stuff that I didn't find on the internet. All you should be adding is the slashtabs.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;（可选）将格式转化为技能&lt;/strong&gt;：当研究结果格式满意后，指示 Codeex：&lt;code&gt;Hey I really like this format. Please make this a skill. I want you to call it notion research and say to always use this format unless I specify something different than listen to my command when I do it in the future.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;调用研究技能&lt;/strong&gt;：使用 &lt;code&gt;/notion research&lt;/code&gt; 调用定制的研究整合技能。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 6：通过 AppShots 快速传递 Notion 上下文&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：无论在 Notion 桌面应用何处，都能一键将当前 Notion 页面链接及上下文传递给 Codeex，实现快速接力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Codeex 桌面应用在后台运行，Notion 桌面应用打开至特定页面。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;触发 AppShots&lt;/strong&gt;：在 Notion 页面中，同时按下 &lt;code&gt;Command + Command&lt;/code&gt;（两次 Command 键）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;发送指令&lt;/strong&gt;：AppShots 将自动粘贴 Notion 页面链接至 Codeex 对话框。接着输入 AI 指令，例如：&lt;code&gt;Please add three ideas to this. Add them as long form.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;（可选）结合其他技能&lt;/strong&gt;：AppShots 后可立即接续其他定制技能，例如：&lt;code&gt;Can you notion research.&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 7：构建 AI Agent 专属 Notion 笔记与自动化报告&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：为 AI Agent 创建独立的笔记空间，并设定自动化任务，定期总结工作进展。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：存在一个专供 AI Agent 写入的 Notion 数据库（如 &lt;code&gt;Codeex quicknotes&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;创建 Agent 专属笔记&lt;/strong&gt;：确保 Notion 中存在一个 AI Agent 可以写入的数据库（例如，通过定制技能 &lt;code&gt;/notion quicknote&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设置自动化日志&lt;/strong&gt;：向 Codeex 发送自动化指令：&lt;code&gt;Hey Codex, I want you to set up an automation so that every single night at 1000 p.m. I want you to write a daily summary which explains all of the chats we did and all of the most important things. And I just want you to write a journal entry in your quick notebook. And I want you to just make it no more than like a one pager which explains everything that we did. And then I want you to email it to me... make sure to include at the top tasks that I might need to do? Like try to infer the most important things, include them at the top and tasks that I need to do at the top based on all my context.&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;验证自动化&lt;/strong&gt;：确认 Codeex 已创建名为 &lt;code&gt;Daily Codec Summary&lt;/code&gt; 的自动化任务，并设定为每日 10 p.m. 执行。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 8：利用 Notion 高质量示例库指导 AI 生成&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过提供结构化的高质量内容示例，指导 AI Agent 生成符合特定风格和标准的输出。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Notion 中已建立一个包含各类高质量内容示例（如视频脚本、推文、广告文案）的数据库或页面。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;创建高质量示例库&lt;/strong&gt;：在 Notion 中，建立一个名为 &lt;code&gt;High-Quality Examples&lt;/code&gt; 的区域，分类存储各种类型的优秀内容（如 &lt;code&gt;Top Performing YouTube Videos&lt;/code&gt;, &lt;code&gt;High-Quality Content&lt;/code&gt;, &lt;code&gt;Scripted Instagram Videos&lt;/code&gt; 等）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结合 AppShots 传递上下文&lt;/strong&gt;：在 Notion 中打开需要 AI 参照的文档（如 &lt;code&gt;Chorus Docs&lt;/code&gt;），使用 &lt;code&gt;Command + Command&lt;/code&gt; 触发 AppShots。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;指令 AI 参照示例&lt;/strong&gt;：向 Codeex 发送指令，明确要求其参照 Notion 中的高质量示例：&lt;code&gt;Okay I need to write 10 short form scripts like Riley's style. Please write them on chorus. Please look at the high quality examples on notion. They're in key docs. Please write them in that style about chorus.&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Codeex Plugins (插件)&lt;/strong&gt;：扩展 AI Agent 功能集，提供与 Notion 等外部应用的集成能力。安装后，通过 &lt;code&gt;@&lt;/code&gt; 符号调用特定插件技能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Codeex Built-in Browser (内置浏览器)&lt;/strong&gt;：一个保持用户登录状态的浏览器，允许在 Codeex 界面内直接访问并与 Notion 等网页应用交互，实现无缝多任务处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Codeex Skills (技能)&lt;/strong&gt;：用户自定义或系统预设的自动化指令序列，用于简化重复性任务或标准化特定工作流。通过 &lt;code&gt;/&lt;/code&gt; 符号调用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AppShots (应用快照)&lt;/strong&gt;：一种跨应用上下文传输机制，通过双击 &lt;code&gt;Command&lt;/code&gt; 键，将当前活跃应用的屏幕截图和相关链接自动发送给 AI Agent。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Automation (自动化)&lt;/strong&gt;：在 Codeex 中预设的定时或事件触发任务，例如每日生成总结并发送邮件。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;无固化设置的混乱&lt;/strong&gt;：未为 AI Agent 建立稳固的 Notion 设置，尤其在多 Agent 或多用户协同环境下，易导致工作流混乱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;缺乏明确指令&lt;/strong&gt;：未在 Notion 中为 AI Agent 提供清晰的操作指引，可能导致输出格式不符或逻辑偏差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;定制化技能&lt;/strong&gt;：将重复且完美的 AI 操作流程封装为自定义技能，大幅提升工作效率与一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AppShots + 技能&lt;/strong&gt;：结合 AppShots 快速传递上下文与定制技能，实现快速、精准的跨应用操作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Notion Slashtabs&lt;/strong&gt;：利用 Slashtabs 结构化 AI 生成的研究内容，保持页面整洁与信息易读性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI Agent 专属笔记&lt;/strong&gt;：为 AI Agent 设立独立 Notion 笔记，方便其记录和总结，避免与人类笔记混淆。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高质量示例库&lt;/strong&gt;：在 Notion 中建立内容风格和质量的参考库，训练 AI 产出符合预期的内容。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全屏 Notion 体验&lt;/strong&gt;：在 Codeex 内嵌浏览器中，通过 &lt;code&gt;Command + B&lt;/code&gt; 隐藏侧边面板，实现 Notion 全屏操作，同时仍可调用 AI 功能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=YGWcFMR8gk8</guid>
-      <enclosure url="https://i.ytimg.com/vi/YGWcFMR8gk8/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 01 Jun 2026 21:41:43 +0800</pubDate>
-    </item>
-    <item>
-      <title>从算力工厂到 agentic AI：NVIDIA 重新定义计算范式与个人电脑</title>
-      <link>https://www.bilibili.com/video/BV1Rn5F6fECD</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1221628467"&gt;小白投资笔记&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Rn5F6fECD"&gt;【完整高清字幕版】英伟达黄仁勋2026年GTC大会演讲全文 260601（推荐程度：5星必看）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 &lt;strong&gt;为什么说 AI Agent 将终结传统的“点击与输入”计算模式？&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;💡 &lt;strong&gt;当 CPU 不再为人类服务而是为 Agent 设计时，底层架构会发生怎样的突变？&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;🚀 &lt;strong&gt;“AI 工厂”如何将算力直接转化为营收，从而改变企业的资本投入逻辑？&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 计算范式的代际跃迁：从应用到 Agent&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Agent 核心定义&lt;/strong&gt;: AI Agent 不再是简单的问答机器，而是一个由 &lt;strong&gt;模型（大脑）+ 运行环境（身体）+ 工具/技能（手脚）+ 运行时（工作坊）&lt;/strong&gt; 组成的完整闭环系统。它能够观察、推理、规划并调用外部工具完成复杂任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交互逻辑重构&lt;/strong&gt;: 计算模式从“启动应用 $\rightarrow$ 点击 $\rightarrow$ 输入”进化为“表达意图 $\rightarrow$ AI 生成代码/调用工具 $\rightarrow$ 交付结果”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;算力即营收&lt;/strong&gt;: 在 AI 工厂模型中，算力（Tokens）直接等同于收入。性能/瓦特（Tokens per Watt）成为衡量企业盈利能力的核心指标，而非单纯的硬件成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 硬件底座的激进演进：Vera Rubin 与 Agent CPU&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Vera Rubin 系统&lt;/strong&gt;: 并非单一芯片，而是一个多机架 Pod 级超算系统。其核心在于“极端协同设计”（Extreme Co-design），通过移除冗余线缆、采用 PCB 中板设计，将组装时间从 2 小时缩短至 5 分钟，极大提升了可靠性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vera CPU (Agent-Centric CPU)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;认知转译&lt;/strong&gt;: 传统 CPU 是为“以秒计”的人类设计的，而 Agent 是“以纳秒计”的。Agent 等待 CPU 响应的每一毫秒都在浪费昂贵的 GPU 算力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;架构突破&lt;/strong&gt;: 追求极致的单线程性能（IPC）和内存带宽（LPDDR5X），旨在消除 Agent 调用工具和访问数据库时的延迟瓶颈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 企业级 Agent 部署范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;模型层&lt;/strong&gt;: 部署高性能 LLM（如 Nemotron-3 Ultra），根据业务需求进行微调。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;编排层 (Harness)&lt;/strong&gt;: 使用编排框架（如 Open Shell）定义 Agent 的行为逻辑、权限与安全沙箱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具层 (Skills)&lt;/strong&gt;: 接入 CUDA-X 库等专业工具集，赋予 Agent 处理科学计算或工程问题的能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;运行时 (Runtime)&lt;/strong&gt;: 在优化过的 AI 平台（云端或本地）运行，确保内存管理（KV Caching）高效。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 不要仅追求低廉的芯片价格，而应关注“Token 产出/瓦特”，因为错误的架构会导致营收能力低下且资产寿命缩短。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 个人计算的重启：RTX Spark 与 AI PC&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;端侧 Agent 化&lt;/strong&gt;: PC 将从“运行软件的工具”变为“运行个人 Agent 的载体”。Agent 24/7 全天候运行，通过本地模型（NemoTron）与云端模型协同，管理家居、处理工作流。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;RTX Spark 架构&lt;/strong&gt;: 将 Blackwell GPU 与定制 Grace CPU 融合，旨在支持本地 Agent 原生运行，实现从“软件驱动”到“意图驱动”的交互变革。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 物理 AI 与具身智能的闭环&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cosmos 3 世界模型&lt;/strong&gt;: 解决物理 AI 缺乏第一视角数据的痛点。通过“计算产生数据”，利用合成视频和模拟环境为机器人提供训练集。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;通用机器人底座 (Isaac Groot)&lt;/strong&gt;: 提供从模型、仿真到硬件参考设计的全栈平台，将 Agentic 计算模式从数字世界延伸至物理实体（人形机器人、自动驾驶车）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “过去 40 年我们定义了 PC，现在我们要重新定义它：PC 将不再是启动应用的入口，而是个人 AI Agent 的载体。”&lt;/li&gt;
-&lt;li&gt;💬 “Compute is revenue. Performance per watt is your revenue.”&lt;/li&gt;
-&lt;li&gt;💬 “我们不再是 GPU 公司，而是一家基础设施公司。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Rn5F6fECD</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/fab325d91f10d7f09dcdb20cc26cf8848660129c.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 01 Jun 2026 21:22:28 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 经济学大转向：从“补贴时代”迈向“Token 稀缺时代”</title>
-      <link>https://www.youtube.com/watch?v=ex6abzvzaIo</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ex6abzvzaIo"&gt;The AI Token Shortage Begins&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 &lt;strong&gt;为什么 AI 巨头的营收暴涨却让企业用户感到“价格惊恐”？&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;💡 &lt;strong&gt;当 AI 从“按席位付费”转向“按 Token 付费”，商业底层逻辑发生了怎样的质变？&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;🚀 &lt;strong&gt;在 Token 成为稀缺资源的未来，企业的核心竞争力将如何被重新定义？&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 商业逻辑的范式转移：从席位到 Token&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;经济单元的置换&lt;/strong&gt;: AI 公司的核心营收单位已从“席位（Seat）”转移到“Token”。这意味着营收不再受限于用户增长数量，而取决于 AI 代理（Agents）在后台产生的数据消耗量。这种转变导致了 OpenAI 和 Anthropic 等公司 ARR 的指数级跃升（如 Anthropic 从 30 亿飙升至 470 亿）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI 补贴时代的终结&lt;/strong&gt;: 过去，高额的月费订阅（如 200 美元/月）实际上是对权力用户的巨额补贴。部分用户消耗的 Token 实际价值可达订阅费的 10-20 倍。现在，厂商正通过引入使用限制和阶梯计费，强制将用户推向真实的成本线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 Token 稀缺性：AI 时代的“新原油&amp;quot;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;结构性短缺&lt;/strong&gt;: 算力不足以支撑所有潜在需求，导致 Token 成为一种稀缺资源。这种稀缺性引发了“Token Maxing”（Token 极值化）现象，即企业在不计成本地尝试 AI 极限，但随之而来的是严重的 ROI 质疑（如 Uber 的 AI 预算在 4 个月内耗尽）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市场响应机制&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;成本驱动创新&lt;/strong&gt;: 出现如 Cursor Composer 2.5 等低成本、高性能的替代模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;价格战&lt;/strong&gt;: 中国模型（如 DeepSeek）通过激进的价格削减，吸引那些无法承担顶尖模型高昂成本的企业客户。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 企业 AI 部署的生存策略&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;成本审计&lt;/strong&gt;: 立即废除纯粹追求消耗量的“Token 排行榜”，转向以输出结果（Output）为核心的价值评估模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分级调用&lt;/strong&gt;: 采用“混合模型架构”，简单任务调用 Gemini Flash 等廉价模型，核心复杂任务调用 Opus/GPT-5 等顶尖模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;能力对齐&lt;/strong&gt;: 识别内部的“能力过剩（Capabilities Overhang）”，通过引入外部咨询服务（如 OpenAI Deployment Company）快速将模型潜力转化为实际生产力。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免在不具备 Agent 编排能力的情况下盲目增加 Token 预算，否则将陷入“高消耗、低回报”的死循环。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 基础设施的垂直整合与权力重构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;算力霸权的转移&lt;/strong&gt;: Elon Musk 将 SpaceX 转型为“新云（Neo Cloud）”，通过 Colossus 数据中心为 Anthropic 提供算力支持。这标志着 AI 竞争的重心从纯软件模型层下移至物理基础设施层。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;轨道数据中心&lt;/strong&gt;: 算力需求之巨，已促使马斯克与贝佐斯开始布局“空间数据中心”，将物理空间的拓展视为解决 Token 稀缺性的终极方案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “我们正处于从 AI 补贴时代向 Token 稀缺时代的世俗转移。”&lt;/li&gt;
-&lt;li&gt;💬 “模型发布开始像 iPhone 发布一样：每次升级都只是相机好了一点，而真正的突破在于承载模型的‘外壳’（Harnesses）和工作流。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=ex6abzvzaIo</guid>
-      <enclosure url="https://i.ytimg.com/vi/ex6abzvzaIo/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 01 Jun 2026 18:02:16 +0800</pubDate>
-    </item>
-    <item>
-      <title>深潜 DeepMind：Demis Hassabis 的科学野心与 AI 赛跑的必然性</title>
-      <link>https://www.youtube.com/watch?v=WC_embCiwgU</link>
-      <description>&lt;p&gt;&lt;a href="UCUl-s_Vp-Kkk_XVyDylNwLA"&gt;Unsupervised Learning: With Jacob Effron&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=WC_embCiwgU"&gt;A Conversation With Demis Hassabis' Biographer&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 &lt;strong&gt;AI 竞争是不可避免的宿命吗？&lt;/strong&gt; 为什么即使是像 Demis 这样理想主义的领导者，最终也会意识到单打独斗的安全性是徒劳的？&lt;/li&gt;
-&lt;li&gt;💡 &lt;strong&gt;“科学品味”如何决定技术突破？&lt;/strong&gt; 为什么在蛋白质折叠预测上，对“解决问题”的执念比“赢得比赛”更能带来诺贝尔奖级的成果？&lt;/li&gt;
-&lt;li&gt;🚀 &lt;strong&gt;科学家领导力 vs. 硅谷网络力：&lt;/strong&gt; 当学术纯粹性遭遇产品化速度，DeepMind 的“多向对冲”策略在面对 OpenAI 的“集中豪赌”时，究竟是稳健还是迟钝？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI 竞赛的集体行动困境&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;必然的赛跑&lt;/strong&gt;: 面对极其强大的技术诱惑，全球范围内必然会出现多个实验室（如美国、中国、法国、加拿大）。单一实验室追求安全是无效的，因为只要有一个实验室不安全，全世界都不安全。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从单体到共治&lt;/strong&gt;: Demis 的认知经历了从“希望由单一实验室控制 AGI”到“意识到这是一个只有政府能解决的集体行动问题”的转变。他现在主张由政府充当执行者，建立像 FDA 那样的审查机制，甚至认为最终需要中美协作才能真正实现全球安全。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知偏差：被低估的 Demis 与 DeepMind&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;名声的错位&lt;/strong&gt;: 相比于 Sam Altman 的社交媒体掌控力和 Dario Amodei 的公开对抗，Demis 过于“稳健”和“理智”，导致他在公众认知中的存在感较低，但他在 AI for Science 领域的统治力极其深厚。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;战略对冲 vs. 集中豪赌&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Google DeepMind&lt;/strong&gt;: 依托深厚资金和人才，倾向于在多个路径上同时下注（Hedging），追求广泛的智能探索。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;OpenAI/Anthropic&lt;/strong&gt;: 倾向于在特定路径（如 Scaling Law、Coding Agents）上进行高浓度的集中投注，从而在产品化（如 ChatGPT、Claude Code）上获得先发优势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 打造前沿科技突破的“科学品味” (Scientific Taste)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点&lt;/strong&gt;: 团队在达到“业界领先”后容易产生满足感，从而陷入局部最优，无法攻克真正的科学难题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;定义终极目标&lt;/strong&gt;: 将目标从“击败竞争对手”提升为“彻底解决该科学问题”（例如：从“预测得比别人准”到“让生物学家能用它造药”）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;评估 idea 流动性&lt;/strong&gt;: 观察团队在讨论时的状态。如果团队在碰撞可能性、方案流畅，则判定为“具有流动性”，应加大资源投入并强力推进。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;果断切换领航员&lt;/strong&gt;: 当原项目负责人因认知局限而建议“宣布胜利”时，迅速更换为具有更高愿景和执行力的领导者。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 权力博弈与独立之梦&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Project Mario (潜逃计划)&lt;/strong&gt;: Demis 曾计划在 Reed Hoffman 的 10 亿美元资助下从 Google 分拆，将其作为与 Google 谈判安全监督权的筹码。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;最终抉择&lt;/strong&gt;: 放弃独立是为了获取极大规模的算力资源并避免法律纠纷，因为他的核心驱动力是“做科学”而非“经营公司”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果一个实验室是安全的而其他实验室不是，这并不能让世界变得更安全。”&lt;/li&gt;
-&lt;li&gt;💬 “我并不在意落后两年，因为我有深厚的口袋和技术储备，我可以追回来。”&lt;/li&gt;
-&lt;li&gt;💬 “科学品味在于：如果你听到了思想的流动，你就应该继续推进。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=WC_embCiwgU</guid>
-      <enclosure url="https://i.ytimg.com/vi/WC_embCiwgU/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 01 Jun 2026 13:00:23 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI时代的职业幸存者：从‘劳动力总量谬误’到超级个体的跃迁</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/6a11576de59ebca93628a427?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/aqe9qbjdhrvc"&gt;科技慢半拍&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a11576de59ebca93628a427?utm_source=rss"&gt;#137 从“打工人”到“超级个体”，为什么年轻人在AI时代更有机会？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 AI 真的会像‘分蛋糕’一样通过抢夺份额导致大规模失业吗？&lt;/li&gt;
-&lt;li&gt;💡 为什么在技术冲击中，年轻人反而拥有天然的‘避震器’而资深员工更容易陷入‘疤痕效应’？&lt;/li&gt;
-&lt;li&gt;🚀 当传统的‘职场斜坡’被AI夷平，普通人如何通过构建数字资产进化为‘超级个体’？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 技术革命的宏观真相：蛋糕在变大而非被瓜分&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;劳动力总量谬误 (Lump of Labor Fallacy)&lt;/strong&gt;: 这是一个典型的认知陷阱，即错误地认为社会工作总量是固定的。历史证明，从蒸汽机到电力革命，技术杀死的不是工作，而是‘昂贵的低效’。生产力提升通过杠杆效应创造出全新的生态位，将人类从低阶稀缺（如温饱）推向高阶价值领域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;回弹效应 (Rebound Effect)&lt;/strong&gt;: 当技术降低某项服务的成本（如粮食、计算力），人类对该服务及其衍生品的需求反而会指数级爆炸。例如，Excel 淘汰了百万记账员，却催生了更多财务分析师，因为数据处理成本降低释放了企业对深度分析的渴求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 微观个体的残酷现实：技术替代的‘疤痕效应’&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;路径依赖与职业断裂&lt;/strong&gt;: 技术冲击对宏观数据影响不大，但对微观个体具有摧毁性。被替代者往往面临‘疤痕效应’：收入永久性落后、职业等级被迫向下流动（进入复杂度更低、更易被再次替代的岗位），以及生活质量的连锁崩塌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反脆弱性的代际差异&lt;/strong&gt;: 35岁以下受过高等教育的年轻人表现出更强的适应力。这并非因为资源更多，而是因为他们处于生命周期的特殊窗口期，缺乏沉淀过深的‘职业专用化’技能，其技能状态更像‘未组装的乐高’，具备极高的通用性和迁移速度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 职场逻辑的底座切换：从‘线性斜坡’到‘平台底座’&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;职场斜坡的消失&lt;/strong&gt;: 传统的‘打杂 $\rightarrow$ 积累经验 $\rightarrow$ 晋升’的线性成长路径被AI承包。初级执行性任务被自动化，导致新人失去了在琐碎工作中磨练基础的机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结果交付者的崛起&lt;/strong&gt;: 雇佣逻辑从‘买潜力/时间’转变为‘买结果交付能力’。新人被要求从第一天起就具备全局视野，能够调用AI工具链独立完成以往需要一个团队才能产出的结果，实现从‘零件’到‘V型CTO’的角色跃迁。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 超级个体的进化路径：构建个人数字资产&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;交付完整结果&lt;/strong&gt;: 停止在简历上罗列技能，尝试独立完成一个端到端的闭环项目（如一个小工具或分析模型），证明具备‘结果交付’能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;构建数字资产&lt;/strong&gt;: 将调试AI的提示词库、自动化工作流剧本、系统设计方案转化为可复用的资产，使身价与‘资产复利’挂钩而非‘出卖工时’。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度精通核心工具&lt;/strong&gt;: 放弃追逐所有新工具，选定一款即时创作工具（如Claude/Figma）和一款流程派遣工具，练至肌肉记忆级别。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提供可点击证据&lt;/strong&gt;: 用 Github 提交记录、在线运行的产品链接替代纸质证书，建立基于证据的个人信用体系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;公开场合成长&lt;/strong&gt;: 通过 Build in Public 方式分享学习进度与成果，利用社交媒体积累全球流动性的信用福利。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “技术杀死的不是工作，而是昂贵的低效。它解放了人类的双手，就是为了给大脑腾出地方。”&lt;/li&gt;
-&lt;li&gt;💬 “在数字时代的职场，真正的安全感不再来自于拥有一份工作，而来自于随时离开一份工作的能力。”&lt;/li&gt;
-&lt;li&gt;💬 “AI 不是一个简单的人类替代器，它是一个技能的放大器。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a11576de59ebca93628a427?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/FvxnN3F59fR7i4kkL915ACy1ZO25.PNG" length="0" type="image/png"/>
-      <pubDate>Sun, 31 May 2026 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从模型迭代到超级应用：AI 代理平台的认知升级与实操路径</title>
-      <link>https://www.youtube.com/watch?v=84NkgiTcOdo</link>
-      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=84NkgiTcOdo"&gt;The Latest Codex Updates and The Truth about Opus 4.8&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 &lt;strong&gt;AI 模型是否已进入“iPhone 时代”？&lt;/strong&gt; 当模型升级带来的感知差异逐渐降低，我们是否应该将关注点从底层的参数竞赛转向上层的应用交互？&lt;/li&gt;
-&lt;li&gt;💡 &lt;strong&gt;“超级应用 (Super App)”如何重定义生产力？&lt;/strong&gt; 当 AI 能够直接控制操作系统、管理浏览器会话并自主调度子代理时，传统的软件交互界面是否将变得冗余？&lt;/li&gt;
-&lt;li&gt;🚀 &lt;strong&gt;什么是“代理原生应用 (Agent-Native App)”？&lt;/strong&gt; 在一个由 AI 驱动的生态中，应用是否应该从“为人设计”转向“为代理设计”，从而实现真正的生成式 UI 和个性化自动化？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI 模型迭代的边际效应递减&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;iPhone 式升级&lt;/strong&gt;: 当前顶级模型（如 Claude Opus 4.8 与 GPT 5.5）的差距在缩小。升级不再是量级跳跃，而是像 iPhone 迭代一样，仅在相机或细微性能上有所提升，用户难以感知实质性差异。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;效率与成本的博弈&lt;/strong&gt;: 根据 Deep Suite 数据，GPT 5.5 在编码任务中展现出更高的得分，且在成本和 Token 消耗上比 Opus 4.8 更具效率，形成了“更高分、低成本”的竞争优势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ OpenAI Codeex 的超级应用演进&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点&lt;/strong&gt;: 传统的 AI 交互局限于聊天窗口，无法与实际工作环境（操作系统、网页、外部工具）无缝融合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;跨平台控制&lt;/strong&gt;: 在 Windows/Mac 上启用 &lt;code&gt;Computer Use&lt;/code&gt;，通过 Chat GPT 手机端远程控制桌面端 Codeex，实现手机操控电脑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度浏览器集成&lt;/strong&gt;: 在 Codeex 内置浏览器中维持登录状态，利用多标签页并行处理任务（如：在 Notion 中编辑文档 $\rightarrow$ 实时在浏览器预览 $\rightarrow$ 无需跳转应用）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代理集群调度&lt;/strong&gt;: 使用“超级提示词”指令 Codeex 启动多个子代理（Sub-agents），将复杂大任务拆分为多个独立线程并行执行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全局检索&lt;/strong&gt;: 使用 &lt;code&gt;Cmd + G&lt;/code&gt; 对所有历史代理对话进行全文本搜索，快速找回特定知识点。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩  vibe Coding 的范式转移&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;去平台化趋势&lt;/strong&gt;: 用户正从 Lovable、Replit 等专用 Vibe Coding 平台转向 Codeex 或 Claude Code。因为只要具备合适的插件（如 Neon Postgres, Vercel），直接在超级应用中通过提示词即可完成从数据库搭建到部署的全流程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;类比转译&lt;/strong&gt;: Vibe Coding 正在从一种“独立软件服务”演变为 AI 代理的一项“通用技能 (Skill)”。未来的开发不再需要特定的 IDE，而是在超级应用中通过 &lt;code&gt;@&lt;/code&gt; 插件直接实现部署。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 构想：代理原生 mini-app 与生成式 UI&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点&lt;/strong&gt;: 目前 AI 插件虽能连接 Gmail/Slack，但缺乏一个高效的、可交互的界面让用户对 AI 的操作建议进行最后 10% 的精细化审核与修改。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;定义 mini-app&lt;/strong&gt;: 代理根据任务需求，实时生成一个临时 UI 界面（例如：一个像 Tinder 一样左右滑动来审核邮件草稿的界面）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;闭环反馈&lt;/strong&gt;: 用户在 mini-app 中执行“发送”或“归档”，该行为数据回传给代理，实现个性化微调（RLHF 的个体化实现）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;集成认证&lt;/strong&gt;: 理想状态下，mini-app 应直接继承超级应用的插件认证权限，实现无缝调用 API。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “我们正在进入一个模型发布的‘iPhone 时代’，每次更新都只是微小的改进，而不再是真正的飞跃。”&lt;/li&gt;
-&lt;li&gt;💬 “与其成为 AI 的消费者，不如成为 AI 的生产者。学习如何成为‘代理原生 (Agent Native)’，否则你将被代理所使用。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=84NkgiTcOdo</guid>
-      <enclosure url="https://i.ytimg.com/vi/84NkgiTcOdo/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 31 May 2026 22:27:11 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 时代 Solo Founder 的极速构建法：从 ADHD 直觉到自动化工程流</title>
-      <link>https://www.youtube.com/watch?v=GdxLaeyu33c</link>
-      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=GdxLaeyu33c"&gt;The Exact AI Skills This Solo Founder Uses to Build 5 Apps at Once | Josh Pigford&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在 AI 时代，花费数月打磨产品才上线是一个“糟糕的主意”？&lt;/li&gt;
-&lt;li&gt;💡 如何将个人的 ADHD（注意力缺陷）特质转化为并行构建多个 AI 产品的竞争优势？&lt;/li&gt;
-&lt;li&gt;🚀 面对 LLM 不可避免的幻觉与 Bug，如何构建一套“对抗性”的质量把控体系？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知重启：从“单一专注”到“并行探索”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;认知特质利用&lt;/strong&gt;: 承认并接纳 ADHD 带来的思维跳跃，利用 AI 降低执行成本，将原本的“分心”转化为在多个产品间快速切换的“并行开发能力”，以应对对单一项目长期投入产生的心理疲劳。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反直觉的发布节奏&lt;/strong&gt;: 构建 $\rightarrow$ 发布 $\rightarrow$ 验证。摒弃传统的“完美主义”开发周期，主张在 24 小时甚至当天发布。因为真实的市场需求（Demand）无法通过落地页收集邮箱来模拟，只有在用户实际使用时才会产生真正的反馈。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 工业级 AI 构建工作流 (Build Skill SOP)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;研究阶段 (Research)&lt;/strong&gt;: 调用研究技能，分析现有代码库 $\rightarrow$ 调研竞争对手实现方式 $\rightarrow$ 检索最新 API 文档 $\rightarrow$ 生成高层级技术研究文档。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;计划阶段 (Implementation)&lt;/strong&gt;: 将大功能拆解为 3-30 个“可独立用户测试”的微小阶段（Phases），每个阶段对应一个独立的 Git 分支（Work Tree），防止上下文污染（Context Rot）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;构建阶段 (Build Phase)&lt;/strong&gt;: 针对具体阶段进行深度研究 $\rightarrow$ UI 设计 $\rightarrow$ 代码实现 $\rightarrow$ 更新进度文件（记录决策过程，供后续阶段参考）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对抗性审查 (Adversarial Review)&lt;/strong&gt;: 采用多模型交叉验证：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;主构建&lt;/strong&gt;: 使用 Claude Opus 进行整体规划与初版代码编写。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bug 挖掘&lt;/strong&gt;: 使用 GPT-3.5/4 进行第一轮对抗性审计，捕捉 Opus 遗漏的 Bug。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;压力测试&lt;/strong&gt;: 运行“But for Real”技能，通过强硬的 Prompt 逼迫 AI 重新审视代码漏洞。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识闭环 (Learning Loop)&lt;/strong&gt;: 运行“Learning Skill”，分析当前工作树中的失败尝试与对话记录，将经验固化到 &lt;code&gt;.cursorrules&lt;/code&gt; 或 &lt;code&gt;cloud.md&lt;/code&gt; 配置文件中，确保 AI 不在下次开发中重复犯错。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免在单个庞大的上下文窗口中完成所有开发，必须通过 Work Tree 建立“存档点”，以便在出错时快速回滚且减少幻觉。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 品牌与增长的极简逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;品牌先行&lt;/strong&gt;: 在触碰代码前，先在 Adobe Illustrator 中完成 Logo 字体筛选 $\rightarrow$ 确定色系 $\rightarrow$ 建立视觉基调（如：用“引号”概念传达 LLM 的引用特性）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;功能驱动文案&lt;/strong&gt;: 在产品功能完全构建并迭代完成后，再根据实际 feature set 生成营销页面文案，而非基于假设的价值主张。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;低成本验证&lt;/strong&gt;: 只要产品能覆盖基础设施成本（服务器费），即视为初步生存；通过社交媒体（如 Twitter）快速获取初始流量，而非依赖复杂的营销漏斗。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “人们倾向于通过建立落地页来延迟面对‘没人关心’的恐惧，但这只是在浪费时间，直接把产品扔出去才是唯一的验证方式。”&lt;/li&gt;
-&lt;li&gt;💬 “AI 抹平了技术门槛，但 25 年的‘战壕经验’决定了你能够多快地识别出哪些方案在未来几个月会崩溃。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=GdxLaeyu33c</guid>
-      <enclosure url="https://i.ytimg.com/vi/GdxLaeyu33c/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 31 May 2026 13:00:03 +0800</pubDate>
-    </item>
-    <item>
-      <title>10万亿美元AI大基建：穿透资本迷雾，揭秘华尔街的算力金融游戏</title>
-      <link>https://www.bilibili.com/video/BV1fUVG6NEKn</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fUVG6NEKn"&gt;AI算力周期，资本是瓶颈吗？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 面对10万亿美元的天文数字账单，全球金融系统真的能抗住而不崩盘吗？&lt;/li&gt;
-&lt;li&gt;💡 为什么说制约AI发展的根本不是“钱不够”，而是华尔街的“管道建设”？&lt;/li&gt;
-&lt;li&gt;🚀 当资本市场完成无限融资后，人类文明将撞向哪堵物理世界的“硬墙”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 指数级坍缩：AI周期的“十倍法则”与资本焦虑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;摩尔定律的基建版&lt;/strong&gt;: 科技迭代遵循“十倍法则”。从互联网到移动云时代耗资1万亿，而AI周期仅前4年就逼近此数。到2027年，仅顶级巨头的年支出就将突破1万亿美元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非线性预测困局&lt;/strong&gt;: 大语言模型的Token消耗量在极短时间内飙升5倍，这种增长是非线性的。AI基建不再只是单纯的“修路（铺光缆）”，而是要求同步建设“巨型发电厂”与“冷气系统”的立体式大跃进。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 资本降维：10万亿只是256万亿版图中的4%&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;深不可测的资本池&lt;/strong&gt;: 全球资产总额高达256万亿美元。即便AI基建耗资10万亿，分摊到数年后也仅占已知资产的4%，其体量对金融系统而言仅是“不痛不痒”的资产配置。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;金融错配的桥接&lt;/strong&gt;: 系统内并不缺钱（货币市场有7.6万亿闲置，私募信贷有4.9万亿），缺的是安全通道。华尔街正在将原本投资于低风险债券的“养老金/保险资金”，通过金融工具转化为AI基建的燃料。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 金融炼金术：揭秘AI融资堆栈（Financing Stack）&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;资产证券化（ABS）的魔力&lt;/strong&gt;: 华尔街将数据中心与科技巨头签署的长期租约（10-20年）打包成债券（ABS/CMBS）。这使得追求稳健收益的养老金能通过“收租”逻辑，变相为高风险的AI革命买单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信贷接管股权&lt;/strong&gt;: 预计未来数据中心50%以上的资金将来自信贷市场。这标志着AI竞争已从巨头的“自有存款大战”演变为华尔街的“杠杆结构化游戏”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 谁在收割这场革命？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锚定另类资产管理巨头&lt;/strong&gt;: 关注具备全球基建部署能力的机构（如黑石、KKR），他们是AI时代的“数字包工头”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关注大型投行负债表&lt;/strong&gt;: 只有具备万亿级资金吞吐能力的银行（如摩根大通、高盛），才能吃下结构化融资的巨额利费。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕盲目的“科技股集中度”恐慌。虽然前五大公司占比极高，但市场正通过“回报离散度”对各家AI基本面进行独立定价，而非同涨同跌的纯泡沫。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 终极红线：物理定律对金融幻想的无情修正&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;金融无限，资源有限&lt;/strong&gt;: 无论金融工程能创造出多少万亿的流动性，物理世界的电网容量、核能许可、水资源消耗是硬性的瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;算力终点是电力&lt;/strong&gt;: 下一个周期的核心命题将从“谁有钱买芯片”转向“谁有权调用能源”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “资本市场的创新和流动性，总是能奇迹般地跟上人类的野心；但物理世界有它的硬性极限。”&lt;/li&gt;
-&lt;li&gt;💬 “与其去问这10万亿谁来出，不如抬头看看谁在发电。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fUVG6NEKn</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/5cae7289c24a946db22c562909b3d7f0227c6035.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 30 May 2026 15:20:37 +0800</pubDate>
     </item>
   </channel>
 </rss>
