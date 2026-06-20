@@ -7,7 +7,96 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 19 Jun 2026 22:33:27 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2026 08:32:44 +0000</lastBuildDate>
+    <item>
+      <title>揭秘全市场热度恒定规律：基于自选热度与行业中性化的量化选股新视角</title>
+      <link>https://bbs.quantclass.cn/thread/86921</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86921"&gt;A股进击_再探概念数据&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[注意力流动、市值中性化、行业轮动、粘性因子、概念热度]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[揭示市场总热度恒定一亿的流动规律，并提供自选热度中性化提纯思路]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;总量守恒&lt;/strong&gt;：全市场总热度的绝对值总和恒定为一亿，个股热度呈等权或相关性加权流向各所属概念，总量保持不变，呈现出在个股和概念间的自由流动特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多重共线性&lt;/strong&gt;：自选热度虽与市值高度正相关，但在分板块内部该相关性依然成立，并明确受到上市时长和特定板块属性的系统性影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行业周期性&lt;/strong&gt;：行业层面的自选热度中位数具有极其稳定的时间延续性与周期性特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场粘性&lt;/strong&gt;：全市场关注粘性的日度加总时序表现出高度规律性的波动特征。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：热度指标本质上是市场有限注意力的资金化/行为化度量。由于市场整体注意力资源存在上限（表现为恒定的一亿总量），个股和板块在争夺注意力时受到市值大小（大市值天然吸金）和新股效应（上市时长短受关注度高）的非对称影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：全市场日度关注粘性的规律性波动，可能对应了市场整体风险偏好（Risk-on/Risk-off）或增量资金进出场的宏观周期。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：剔除市值、行业及上市时长带来的天然注意力偏置（Bias），提取个股的“超额关注度”作为预测未来收益率的Alpha来源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;对数转换&lt;/strong&gt;：对市值与自选热度进行 $log$ 变换以消除右偏分布影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;板块与上市时长中性化&lt;/strong&gt;：在特定策略中，对自选热度进行板块和上市时长的截面回归（提取残差），以大幅提升因子的“域纯度”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：由于个股层面量纲的存在，单纯使用原始自选热度容易引入市值大盘股偏置，导致小盘股信号失真；直接个股层面的粘性可能因噪声过大而不易直接使用，需在行业或全市场层面进行合成平滑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子提纯实验&lt;/strong&gt;：对个股日度自选热度 $Attention_{i}$ 进行中性化处理：$log(Attention_{i}) = \beta_0 + \beta_1 log(MV_{i}) + \beta_2 Age_{i} + \sum \gamma_j Sector_{i,j} + \epsilon_{i}$，提取残差 $\epsilon_{i}$ 作为纯净的注意力Alpha因子，测试截面选股效果。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;行业轮动通道&lt;/strong&gt;：计算申万一级/二级行业的自选热度中位数，构建行业层面的动量与均值回归策略，捕捉由注意力周期性流向带来的行业超额收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;市场情绪择时&lt;/strong&gt;：加总日度全市场关注粘性，结合指数走势，构建情绪顶底部指标（如粘性骤降可能对应情绪退潮期），作为多头策略的仓位风控开关。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86921</guid>
+      <pubDate>Sat, 20 Jun 2026 11:50:25 +0800</pubDate>
+    </item>
+    <item>
+      <title>告别因子堆砌：为什么高维资产定价的经济价值最终由稀疏性兑现</title>
+      <link>https://www.bilibili.com/video/BV17fJc6nEDm</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV17fJc6nEDm"&gt;高维资产定价里，真正有价值的不是更多因子，而是在复杂空间里找到更稀疏的风险结构&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 在机器学习资产定价中，“模型越复杂越好”真的是不容置疑的金科玉律吗？&lt;/li&gt;
+&lt;li&gt;💡 为什么简单的因子空间压缩会适得其反，甚至丢掉最核心的定价信号？&lt;/li&gt;
+&lt;li&gt;🚀 面对庞大的“因子动物园”，我们该如何在大空间里构建更具经济纪律性的稀疏选择机制？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 复杂性与稀疏性的辩证共生&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;混淆的稀疏性概念&lt;/strong&gt;: 传统研究将“容量稀疏”（限制候选空间维度）与“因子稀疏”（最终定价结构的简洁性）混为一谈。前者过早切断了可能的信息源，而后者才是值得保留的经济解释力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;复杂性作为搜索工具&lt;/strong&gt;: 扩大非线性特征空间（复杂性）的作用并非为了保留更多无用因子，而是为了撑大候选空间，使得蕴含正确经济方向的“稀疏路径”更有可能被包含在内。类比于沙滩淘金，只有沙滩足够大，真金被淘出的概率才最高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选择规则决定泛化表现&lt;/strong&gt;: 在超参数环境下，能完美拟合训练样本的解有无数个。Basis Pursuit 偏向选择高均值收益的稀疏解，而 Ridge-less 则偏向选择分散化降波动的密集解。实验证明，稀疏解在样本外的夏普比率和确定性等值收益上具有压倒性优势。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 高维资产定价优化行动指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;无情扩张候选特征&lt;/strong&gt;: 采用丰富的非线性特征扩展（Rich Nonlinear Feature Expansion）最大限度做大候选特征空间，坚决避免过早进行PCA降维。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运用基底追踪（Basis Pursuit）&lt;/strong&gt;: 将条件SDF写成特征托管因子的线性组合，通过最小L1范数求解，从海量维度中强力淘洗出稀疏的定价核。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基于随机支配性评估&lt;/strong&gt;: 监测一阶随机支配性（First Order Stochastic Dominance），验证稀疏SDF是否能在多风险厌恶系数场景下皆获得更优收益。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕过早空间压缩&lt;/strong&gt;: 盲目套用传统低维模型，极易把那些“方差低但定价含义极高”的稀疏方向当作噪音直接抹除。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;提防“只会分散、不会提取”的密集陷阱&lt;/strong&gt;: 缺乏精准选择规则（Selection Rule）的复杂模型，最终只会退化为靠强行分散来拉低波动的密集解，丧失信号提取能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “高维资产定价的成功，不应被理解成因子越多越好，而应理解成更大的候选空间，让真正有用的稀疏风险结构更容易被发现。”&lt;/li&gt;
+&lt;li&gt;💬 “复杂性的经济价值，最终是通过因子稀疏性来兑现的。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV17fJc6nEDm</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/6bd71349f924f5dd13c249ef83a7f064804f00db.png" length="0" type="image/png"/>
+      <pubDate>Sat, 20 Jun 2026 10:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>用Attention机制重构量化交易：从数学内核到强化学习智能决策</title>
       <link>https://www.bilibili.com/video/BV1Chj66wE6D</link>
@@ -4418,107 +4507,6 @@ df['zscore'] = (df['close'] / df['ma'] - 1) / df['bw']
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86549</guid>
       <pubDate>Mon, 01 Jun 2026 23:35:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>回测即谎言？量化交易实盘必经的七大“杀猪盘”陷阱全解析</title>
-      <link>https://www.bilibili.com/video/BV1dL5F6AEfu</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1dL5F6AEfu"&gt;回测年化50%，实盘却亏20%？量化新手必避的7大深坑&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么回测年化收益 1000% 的“神级策略”，一上实盘往往瞬间被打回原形？&lt;/li&gt;
-&lt;li&gt;💡 如果你的策略参数超过 10 个，你是在寻找市场规律，还是在死记硬背历史答案？&lt;/li&gt;
-&lt;li&gt;🚀 如何通过简单的“信号平移法”，瞬间识破策略中隐藏的“上帝视角”作弊行为？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知错觉：回测曲线不等于财富密码&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;未来函数：量化里的“作弊器”&lt;/strong&gt;: 很多新手在回测中偷偷动用了未来才会发生的信息（如当日收盘价），这在逻辑上属于“先看答案再考试”，实盘中根本无法复现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;幸存者偏差：被忽视的阵亡者&lt;/strong&gt;: 剔除退市股票的回测会产生严重的盈利幻觉。实验证明，包含与剔除退市股的回测收益差额可达 26%，实盘中你极易踩中“退市雷”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;过度拟合：给历史噪音量身定制&lt;/strong&gt;: 策略参数越多、对历史数据拟合越完美，其在未来的失效风险就越高。这种策略捕捉的是“随机波动”而非“本质规律”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 实战避坑与逻辑重构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;信号偏移验证&lt;/strong&gt;: 将策略信号手动前移一日（用 t-1 日信号指导当日交易），若收益暴跌，则证明原策略存在未来函数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;奥卡姆剃刀原则&lt;/strong&gt;: 严格控制参数数量（建议不超过 3 个），逻辑越简单粗暴，策略的泛化能力通常越强。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强制摩擦成本&lt;/strong&gt;: 在回测设置中至少加入 0.5‰ - 1‰ 的滑点以及完整的税费，将“纸面富贵”转化为真实收益预期。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;样本外交叉验证&lt;/strong&gt;: 将历史数据分为训练集和测试集，只有在未见过的数据上表现稳健的策略才具备实盘价值。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕流动性陷阱：单笔交易量严禁超过该股日均成交量的 1%-5%，否则实盘根本无法成交。&lt;/li&gt;
-&lt;li&gt;拒绝数据窥探：坚持“逻辑先行”，基于经济学原理构建策略，而非在海量数据中盲目进行相关性“大海捞针”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “量化交易里最让人上头的，也是最容易让新手栽跟头的，就是那个回测收益等于实盘收益的谎言。”&lt;/li&gt;
-&lt;li&gt;💬 “漂亮的回测曲线背后，往往隐藏着各种陷阱；在量化交易的世界里，活下来比什么都重要。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dL5F6AEfu</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/1ade25c0ecca28bc0dd2c2c0c5542b45ea3bba11.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 01 Jun 2026 22:37:51 +0800</pubDate>
-    </item>
-    <item>
-      <title>LSTM-GCN：突破股票预测困境，深挖时空依赖，预见市场联动</title>
-      <link>https://www.bilibili.com/video/BV1GwLz6uEio</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1GwLz6uEio"&gt;融合时间依赖与股票关系结构的 LSTM-GCN 股票收益预测模型&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么仅分析单只股票历史走势，不足以准确预测市场？&lt;/li&gt;
-&lt;li&gt;💡 复杂多变的股票间关系，如何被高效建模为机器可理解的“图”结构？&lt;/li&gt;
-&lt;li&gt;🚀 LSTM与GCN两大深度学习利器，如何巧妙融合实现时间与空间信息的交织互鉴？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 传统预测的盲区：孤立与线性假设的失效&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;单只股票的局限&lt;/strong&gt;: 金融市场高波动、非平稳，单只股票走势受多方影响，并非孤立事件，忽视了行业及资产间的联动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;传统模型（ARIMA, GARCH, VAR）的瓶颈&lt;/strong&gt;: 这些方法依赖平稳性、线性关系及特定统计假设，但真实市场往往不满足这些条件，尤其在剧烈波动或结构变化时，其对复杂非线性的表达能力受限。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 LSTMGCN：跨越时间与空间的预测范式革新&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心洞察&lt;/strong&gt;: 股票收益预测不仅要捕捉个股历史的时间依赖，更要理解股票间的“空间”关联（由相关性形成的结构）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LSTM的价值与不足&lt;/strong&gt;: LSTM擅长学习时间序列的动态模式，解决梯度消失，但其建模对象主要为时间序列本身，无法显式捕捉股票间的联动影响。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GCN的补位&lt;/strong&gt;: GCN在股票关系网络上传播、聚合信息，弥补了LSTM的空间信息盲区，使得模型能同时回答“这只股票过去怎么走”和“它如何与其他股票共同影响市场”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 市场“图谱”构建与时空信息融合机制&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;股票图谱构建&lt;/strong&gt;: 将股票视为图中的“节点”，两只股票相关性超过特定阈值（本文设为0.3）则视为存在“边”，从而将股票集合转化为可供GCN处理的图结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;获取原始股票与指数日度收盘价，转换为收益率以降低非平稳性。&lt;/li&gt;
-&lt;li&gt;使用PCA（主成分分析）去除市场共同模式，减少虚高相关性影响。&lt;/li&gt;
-&lt;li&gt;LSTM从个股收益序列中提取时间特征，编码进隐藏状态。&lt;/li&gt;
-&lt;li&gt;GCN层接收LSTM隐藏状态，依据股票相关性图进行邻居聚合，融合结构信息。&lt;/li&gt;
-&lt;li&gt;更新后的表示继续传递至下一层或阶段，最终输出指数收益预测。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 模型虽表达力强，但需控制层数、隐藏维度及图结构密度，避免计算开销过大和过拟合。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 实证效果：预测性能显著提升&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;训练效率与精度&lt;/strong&gt;: LSTMGCN在DJIA、SIC50、CSI100数据集上，损失下降更快，最终损失更低，显示出更高的学习效率与精度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;趋势捕捉能力&lt;/strong&gt;: 预测曲线整体能较好跟随真实收益走势，尤其在主要趋势变化时捕捉明显，比单一模型更稳定。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;量化优势&lt;/strong&gt;: 在三个市场上，LSTMGCN的MAE和RMSE最低，R-squared最高，表明其对真实收益变化的解释能力更强，综合表现优于传统机器学习与单一深度学习模型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “股票收益预测不能只看过去的时间序列，还要看股票之间如何相互影响。”&lt;/li&gt;
-&lt;li&gt;💬 “LSTMGCN正是通过时空信息交互，把这两类信息统一到1个预测框架中。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1GwLz6uEio</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/9f2ee4dcf0b5a2c75844ce27b6b71251954f7da2.png" length="0" type="image/png"/>
-      <pubDate>Mon, 01 Jun 2026 19:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
