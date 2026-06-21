@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Jun 2026 22:36:50 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2026 08:32:43 +0000</lastBuildDate>
     <item>
       <title>交易学习的终极思考：从模仿单一方法到建立独立市场信仰的进化之路</title>
       <link>https://www.bilibili.com/video/BV1qMjH6NEYj</link>
@@ -47,6 +47,62 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1qMjH6NEYj</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/f96368b38b25a412108aca06b3e48d00bb70134d.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 20 Jun 2026 22:24:53 +0800</pubDate>
+    </item>
+    <item>
+      <title>突破黑盒局限：将 Transformer 注入强化学习的量化实盘落地指南</title>
+      <link>https://www.bilibili.com/video/BV13HjH6xEGM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV13HjH6xEGM"&gt;深度解析RL+Attention：Transformer如何抓取核心市场特征优化交易策略（下）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的 Transformer 架构无法直接应用于强化学习在线决策？如何通过“因果掩码”防范未来的信息泄露？&lt;/li&gt;
+&lt;li&gt;💡 面对高噪、异构、多频段的市场数据，如何进行高效的 Token 化与跨截面资产对齐？&lt;/li&gt;
+&lt;li&gt;🚀 在极低信噪比的量化场景中，如何通过工程手段降服训练不稳定性与实盘推理延迟？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式重构：Transformer 充当强化学习状态编码器&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;序列化与隐空间投影&lt;/strong&gt;: 多维状态观测（价格、持仓、波动率等）需被展平为 Token 序列，通过线性投影映射到隐空间，实现连续状态空间的离散化表示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;因果掩码的致命必要性&lt;/strong&gt;: 强化学习在线决策必须杜绝偷看未来状态。在 Self-Attention 计算时必须引入下三角因果掩码，强制信息流向单向化，这与 GPT 自回归机制完全一致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经典参数配置&lt;/strong&gt;: FFN（前馈网络）的维度在量化工程实践中，通常建议硬性设定为 Embedding 维度的 4 倍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 市场数据 Token 化与多模态嵌入&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;价格序列 Patch 化&lt;/strong&gt;: 类似 Vision Transformer，利用固定大小的滑动窗口将 K 线数据（OHLCV）打包成 Patch，再通过线性投影层进行高维向量映射。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多资产截面序列化&lt;/strong&gt;: 在同一时间截面上，并行构造多只股票的 Token，迫使模型在计算 Attention 时捕捉资产间的协整与相关性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;层次化多频融合&lt;/strong&gt;: 针对高频 Tick 数据与低频日线数据，采用层次化嵌入方案进行独立编码，随后在统一的向量空间中进行对齐与融合。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 动态 Attention 机制：市场状态的“温度计”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;市场状态自适应识别 (Regime Detection)&lt;/strong&gt;: Attention 权重不只是计算参数，而是动态特征指针。平稳趋势市场中，权重平滑分布于长历史窗口；震荡市场中，权重在局部高低点快速跳跃；危机市场中，权重则极度向极近期聚集，信息熵骤降。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;驱动核心机制&lt;/strong&gt;: 查询向量 Q 隐式编码了市场当前的波动率。一旦出现波动率聚集，Q 与 K 之间的点积得分会发生系统性偏移，自动强化模型对近期信息的关注度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 工业级实盘落地与抗过拟合方案&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;训练稳定性保障&lt;/strong&gt;: 强制引入梯度裁剪（Safety Rope）防止单次更新过猛，并配置学习率 Warm-up 机制，以平滑联调时的梯度崩塌。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极速推理降延&lt;/strong&gt;: 实盘必须利用 KV Cache 进行增量计算，规避重复计算历史序列；对超低延迟场景，采用模型蒸馏将知识迁移至轻量级学生网络。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;微结构噪声增强&lt;/strong&gt;: 在原始价格序列中注入符合市场微结构的轻微高斯噪声，强迫模型捕捉真实趋势，防止死记硬背历史噪声。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝不能因回测曲线漂亮而沾沾自喜。金融数据信噪比极低，必须将跨验证集上的夏普比率作为评估泛化能力的唯一铁律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;Attention 权重不只是冰冷的计算参数，它其实是模型在纷繁复杂的数据空间中寻找显著特征的动态指针。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;千万不能因为你回测曲线漂亮就沾沾自喜，那很可能只是模型记住了历史噪声。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV13HjH6xEGM</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/7410db1ab2e5410905be8cccea3acc967ea85366.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 20 Jun 2026 21:30:58 +0800</pubDate>
     </item>
     <item>
       <title>揭秘全市场热度恒定规律：基于自选热度与行业中性化的量化选股新视角</title>
@@ -273,6 +329,44 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1Chj66wE6D</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/3c8083a98bc1ea6f649f232f27e5e7478c90e408.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 19 Jun 2026 22:33:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>大市值动量域轮动：用行业热度与回调因子驯服极致动量</title>
+      <link>https://bbs.quantclass.cn/thread/86915</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86915"&gt;抱团策略又一发：大市值动量域&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[大市值动量, 行业热度过滤, 回调买入, 动量轮动]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：大市值长期趋势股辅以行业热度筛选与回踩买入逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：Alpha源于大市值长期强势股，通过行业热度（5日动量靠前股数量及变化量）锁定热点，并以20日最大回撤升序寻找强势股的回调买入机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;双层过滤：250日动量前 20% + 市值前 20%。&lt;/li&gt;
+&lt;li&gt;行业过滤：提取5日动量行业热度 Top 8。&lt;/li&gt;
+&lt;li&gt;域内排序：主力净流入 MA_20 + 20日最大回撤(升序) + 归母净利润同比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测表现】&lt;/strong&gt;：周频换仓，全 offset 平滑持仓 50 只。2017-2026 年化收益 26.80%，最大回撤 -61.90%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：动量风格在单边熊市或极端风格切换期（如 21-23 年）有长达 2.5 年的深幅回撤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;code&gt;industry_zlm_filter2&lt;/code&gt; 函数利用 pandas 的 &lt;code&gt;groupby&lt;/code&gt; 配合 &lt;code&gt;.rank()&lt;/code&gt; 和 &lt;code&gt;.diff(1)&lt;/code&gt;，以矩阵化计算实现动态行业强弱过滤，规避了慢速循环。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：克隆策略时需注意底层依赖，如评论区提到的 &lt;code&gt;get_param_in_list&lt;/code&gt; 等辅助函数在不同版本框架下的路径冲突。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反向回撤因子应用&lt;/strong&gt;：在强势股策略中引入“近期最大回撤升序”，可作为有效的低吸/防追高机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全 Offset 建仓平滑&lt;/strong&gt;：对于高换手的周频策略，必须采用多 Offset 组合建仓以平摊交易冲击成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态行业过滤器&lt;/strong&gt;：提取行业热度计算逻辑作为通用算子，用于板块轮动研究。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86915</guid>
+      <pubDate>Fri, 19 Jun 2026 17:43:06 +0800</pubDate>
     </item>
     <item>
       <title>从AI开发工具到抱团动量策略：量化交易者的前沿探索与实盘调优</title>
@@ -4417,84 +4511,6 @@ df['zscore'] = (df['close'] / df['ma'] - 1) / df['bw']
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1vrV66CEUr</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/ec588d93f62bd08017cb2a8d61567ece0b336ab8.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 02 Jun 2026 22:06:05 +0800</pubDate>
-    </item>
-    <item>
-      <title>非线性惩罚：为什么高杠杆的波动率拖累会呈平方级放大</title>
-      <link>https://bbs.quantclass.cn/thread/86569</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86569"&gt;波动率拖累与杠杆平方效应：悟了,关于赌狗的一场救赎！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[波动率拖累, 复合增长率, 杠杆极限, 盈亏不对称性, 市场中性策略]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：杠杆使收益线性放大，却使方差惩罚呈平方级非线性放大。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：长期资本复利增长率（$G$）受波动率拖累影响，满足 $G \approx \mu - \sigma^2 / 2$。施加 $n$ 倍杠杆后，方差项以 $n^2$ 速度扩张（$G(n) \approx n\mu - n^2\sigma^2 / 2$）。实测验证表明，1x杠杆时波动拖累为6.12%，2x时飙升至24.41%（约4倍），符合数学结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：波动率拖累源于 Jensen 不等式引发的算术与几何平均收益率偏差。多期复利下，亏损后的恢复成本呈非线性上升（如回撤 20.5% 需涨 25.8% 回本，而回撤 37.5% 则需涨 60% 才能回本）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“高单期平均收益即可加杠杆”的常识直觉。特别对中性策略而言，其常伴随低波动、高资金效率的“稳定幻觉”，极易诱使交易者过度加杠杆。但这忽视了尾部风险（极端行情多空端相关性跳变、流动性收缩）以及杠杆带来的隐性摩擦与借贷成本，导致复利曲线极易在高杠杆方差惩罚下发生崩溃。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：在动态市场环境下，通过设计基于瞬时波动率预测的自适应动态调仓算法（Volatility-Managed Portfolios），能否在保留底层策略 Alpha 的同时阻断方差拖累的二次方级非线性增长？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;风控约束先于收益优选&lt;/strong&gt;：在回测框架的参数优化中，必须将“硬体验阈值”（如最大回撤 $\le 25%$，回本所需涨幅 $\le 35%$）作为前置过滤器，彻底剔除由高杠杆伪造的“红色虚高收益”候选方案。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入方差拖累损耗测算&lt;/strong&gt;：在回测报告指标体系中，增设方差惩罚估算公式：&lt;code&gt;Variance_Drag = (Vol ** 2) / 2&lt;/code&gt;。对拟定杠杆倍数 $n$，评估 $n\mu - n^2\sigma^2/2$ 是否已经跨过复利增长的理论峰值拐点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中性策略名义杠杆控制&lt;/strong&gt;：在中性策略实盘部署前，必须将借币利息、保证金占用、滑点损耗以及极端行情下多空头独立风险暴露作为压力测试项，将名义杠杆严格限制在 1x 的复利脆弱区以下。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86569</guid>
-      <pubDate>Tue, 02 Jun 2026 21:44:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>破局非平稳市场：构建可部署的中期权益配置闭环强化学习系统</title>
-      <link>https://www.bilibili.com/video/BV1gUGC6kEYM</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1gUGC6kEYM"&gt;EvoNash-MARL：面向中期权益配置的闭环多智能体强化学习框架&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在回测中表现优异的单一强化学习策略，在实盘部署时往往迅速失效？&lt;/li&gt;
-&lt;li&gt;💡 面对非平稳的金融市场，如何利用博弈论（PSRO）实现策略群体的动态自适应与进化？&lt;/li&gt;
-&lt;li&gt;🚀 为什么说交易约束不应是后处理的“补丁”，而必须是训练与选择闭环的核心变量？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 破除单点幻觉：为何量化配置需要“闭环博弈”而非单一模型？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;非平稳市场的低信噪比与分布偏移&lt;/strong&gt;: 权益市场状态（牛、熊、震荡、冲击等）频繁切换，导致因子关系极不稳定。单一策略在噪声奖励下极易过拟合，且静态集成（Ensemble）缺少策略替换机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PSRO风格的博弈聚合&lt;/strong&gt;: 引入多策略群体（Population），不依赖单个模型解释所有市场状态。通过策略间的表现构造Payoff Matrix，并利用乘法权重更新（Multiplicative Weights）动态分配策略混合权重，逼近纳什均衡以避免过度依赖单点策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略进化与League Best Response&lt;/strong&gt;: 评估系统根据超额Sharpe、下行风险和CVaR等计算适应度（Fitness），通过变异淘汰差策略，并针对当前混合策略训练最佳应对者（Best Response），确保策略池持续吐故纳新。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 稳健执行：从理论信号到可交易仓位的约束传导&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;缩小理论与真实交易的鸿沟&lt;/strong&gt;: 回测中表现优异的信号在加入交易成本、贝塔漂移和容量限制后容易迅速衰减。因此，交易约束必须是训练和选择闭环的一部分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;因子中性化&lt;/strong&gt;: 对策略生成的原始信号执行Factor Neutralization，降低不希望承担的外部因子暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;信号非线性放大与特征质量加权&lt;/strong&gt;: 通过Nonlinear Amplification增强高置信度信号，并结合Feature Quality Weighting按特征质量微调信号强度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;尺度最优化选择&lt;/strong&gt;: 在交易成本、市场冲击、容量限制和尾部风险的约束下，利用Execution Scale Optimization选择合适的真实可交易仓位表达。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝对禁止将交易约束放到训练之后的“后处理”阶段。如果训练时忽略非线性容量惩罚等物理限制，生成的最强信号在实盘中极易被摩擦成本吞噬。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📊 严苛检验：如何用 Walk-Forward 与多维指标对策略“脱水”？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Walk-Forward 滚动协议模拟真实部署&lt;/strong&gt;: 废弃一次性的划分方式，采用252天训练、21天测试的滚动窗口。Checkpoint的选择仅在Validation切片上进行，高度模拟策略在真实时间推进中的反复重训与筛选过程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全方位稳健性评估 (Robust Score)&lt;/strong&gt;: 不再单看平均超额Sharpe，而是惩罚窗口间的波动和最差窗口表现，同时将最差单日表现、下行CVaR和约束违反率纳入硬性过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;统计显著性的清醒认知&lt;/strong&gt;: 即使V21在历史累计收益上显著领先，但在考虑数据窥探风险后，White's Reality Check（P值0.6765）和Spotlight检验（P值0.5040）并不显著。这说明闭环系统带来的是稳健性提升的证据，而非无可辩驳的超额收益源。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “本文最合理的定位，不是证明市场可以被稳定击败，而是展示了一个更严谨的金融强化学习系统设计思路——把金融配置问题从预测收益，转向在非平稳市场中选择可部署、可验证、受约束的策略系统。”&lt;/li&gt;
-&lt;li&gt;💬 “交易成本和容量约束不是最后随便扣一下的，而是必须进入训练和选择过程的硬性边界。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1gUGC6kEYM</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/48f29ae4801f96fbfd68767dcd9107be11685397.png" length="0" type="image/png"/>
-      <pubDate>Tue, 02 Jun 2026 10:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
