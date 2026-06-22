@@ -7,7 +7,76 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 21 Jun 2026 22:32:28 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Jun 2026 08:52:42 +0000</lastBuildDate>
+    <item>
+      <title>HyperFrames：零代码实现影视级AI视频生成的革命性工作流</title>
+      <link>https://www.youtube.com/watch?v=iqb5Rd6KKr8</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=iqb5Rd6KKr8"&gt;Full Tutorial: Make Professional Launch Videos for Free with Hyperframes | Bin Liu &amp;amp; Jake Moran&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ HyperFrames - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：HyperFrames 是一个基于 AI Agent 的代码原生视频生成框架。它将视频内容转化为 HTML、CSS 和 JavaScript 代码，利用大语言模型（LLM）的视觉理解力直接构建渲染管线，而非传统的图层堆叠编辑器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：HTML 结构、素材资源（图片/SVG/视频）、设计规范文件（design.md / frame.md）、Prompt 指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：高质量渲染后的 MP4、MOV 或 WebM 视频文件，支持透明背景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spatial Aesthetics (空间美学)&lt;/strong&gt;：基于网页设计的布局美感，侧重视觉内容的静态结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Temporal Aesthetics (时间美学)&lt;/strong&gt;：视频独有的时间维度处理，涉及叙事节奏与动态视觉流转。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code-as-Video&lt;/strong&gt;：HyperFrames 的核心概念，即视频的每一帧和动画效果均由代码生成和控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：从网页链接一键生成 launch video&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：快速将现有产品官网转化为宣传片。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 &lt;code&gt;HyperFrames&lt;/code&gt; 技能包。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初始化&lt;/strong&gt;：在终端运行安装命令或在 Codex/Claude 插件商店添加 &lt;code&gt;HyperFrames&lt;/code&gt; 插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;调用技能&lt;/strong&gt;：输入指令 &lt;code&gt;website to video&lt;/code&gt; 并附带目标 URL。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化执行&lt;/strong&gt;：Agent 会自动抓取资源、编写分镜脚本（Storyboard）并输出完整的渲染代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：基于设计指南的自定义视频创作&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：确保生成视频符合品牌风格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：准备包含品牌色值、字体的 &lt;code&gt;design.md&lt;/code&gt; 或 &lt;code&gt;frame.md&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;资产准备&lt;/strong&gt;：创建项目文件夹，放入 UI 截图或参考素材。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引导设置&lt;/strong&gt;：将 &lt;code&gt;frame.md&lt;/code&gt;（定义布局与品牌视觉）上传至项目文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑构建&lt;/strong&gt;：提示 Agent 读取资源包，并请求其生成“关键事件表（Table of Key Events）”进行分镜确认。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;细节修正&lt;/strong&gt;：通过 Studio 界面进行所见即所得的微调，这些更改将自动同步为代码 Diff。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Studio Inspector&lt;/strong&gt;：允许用户在 UI 层直接修改文本、位置或动画参数，底层自动生成对应的 CSS/JS 代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storyboard.html&lt;/strong&gt;：通过 markdown 生成的静态分镜预览，用于在正式渲染前确认视觉密度和构图美感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;严禁直接依赖未经过 &lt;code&gt;frame.md&lt;/code&gt; 约束的原始 HTML，否则生成的视频容易产生“PPT 感”。&lt;/li&gt;
+&lt;li&gt;避免在大段文字或极其复杂的复杂逻辑上过度依赖 LLM 的时间美学判断，需通过关键分镜（Static Frames）进行前置校验。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;资源复用&lt;/strong&gt;：建立个人 launch video 库，通过 &lt;code&gt;pull&lt;/code&gt; 功能调用之前的代码组件（如：特定的文本动画、Prompt 对话框），无需从零构建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最后一步编辑&lt;/strong&gt;：利用 Studio 的 UI 界面处理 Agent 难以通过语义描述修改的“最后一英里”微调。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent 对话流&lt;/strong&gt;：使用“给我做一个 [Taylor Swift] 的视频”等指令测试能力，并将工作内容（如 Commit 记录）直接转化为 30 秒的进度汇报视频。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=iqb5Rd6KKr8</guid>
+      <enclosure url="https://i.ytimg.com/vi/iqb5Rd6KKr8/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 21 Jun 2026 13:00:23 +0800</pubDate>
+    </item>
     <item>
       <title>如何构建个人AI智囊团：基于文件系统的决策辅助系统</title>
       <link>https://www.youtube.com/watch?v=H29laIK8q7M</link>
