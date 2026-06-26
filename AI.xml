@@ -7,7 +7,138 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 26 Jun 2026 08:40:04 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 22:41:35 +0000</lastBuildDate>
+    <item>
+      <title>终结“一次性”训练：AI 如何通过在岗持续学习与虚拟“梦境”演练迈向 AGI</title>
+      <link>https://www.youtube.com/watch?v=20p5-kQXF_Q</link>
+      <description>&lt;p&gt;&lt;a href="UCXl4i9dYBrFOabk0xGmbkRA"&gt;Dwarkesh Patel&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=20p5-kQXF_Q"&gt;What does the next training paradigm look like?&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在代码和数学突飞猛进的今天，AI 在“电脑操作”等同样具备可验证特征的领域进展却异常缓慢？&lt;/li&gt;
+&lt;li&gt;💡 如果 AI 仅靠上下文窗口来“临时在岗学习”，我们是否正在白白浪费高达 30%-50% 的推理算力以及最宝贵的部署反馈？&lt;/li&gt;
+&lt;li&gt;🚀 如何在数据极其稀缺、非确定性的真实世界中，让模型低损耗、高效率地将“在岗经验”沉淀为永久的神经网络权重？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式转移：RLVR 的宏大博弈与“可刷性”极限&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可验证不等于可刷性 (Verifiable vs. Grindable)&lt;/strong&gt;: 代码和数学可以通过搭建并行、确定性的虚拟沙盒（如容器）进行成千上万次并行 rollout 训练；而现实中的“电脑操作”无法在数据中心被低成本、无限次复制和无限制重放，这使得极其消耗样本的传统强化学习在此类领域举步维艰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文窗口的“假性学习”局限&lt;/strong&gt;: 将长达数月的在岗信息塞入超长上下文窗口虽能实现高样本效率，但这种学习是临时且极其昂贵的。无法将知识压缩进模型权重（Parameters）会导致推理算力严重浪费，且无法形成人类大脑那样的抽象泛化能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 迈向持续学习的破局路径&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;同策略自蒸馏 (OPSD, On-Policy Self-Distillation)&lt;/strong&gt;: 一种比传统强化学习和有监督微调（SFT）更高效的权重更新机制。它不依赖外部显性奖励，而是引导基础模型去匹配在长上下文会话中已经积累了丰富经验的“导师模型”的预测概率。这种更新方式极其稀疏，既能提炼关键洞察，又不会因过度拟合而遗忘基础通用知识。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自主梦境演练 (Dreaming / Test-time Training)&lt;/strong&gt;: 若 AI 能自行构建高逼真度的世界模拟器进行无限次自我推演和策略强化，其消耗的真实世界数据将降低数个数量级。这可能成为继预训练、RL、推理算力之后的“第四大标度律（Scaling Law）轴线”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;通用化冷启动&lt;/strong&gt;：利用 RLVR（可验证奖励强化学习）训练出具备基础问题解决、路径探索和容错纠错能力的通用型 Agent 种子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;场景化长上下文部署&lt;/strong&gt;：将 Agent 投放至真实业务场景，利用超长上下文窗口支持其进行连续一周的“带薪在岗实践”，积累具身认知。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;增量式同策略自蒸馏 (OPSD)&lt;/strong&gt;：在每周结束时，根据用户的主观反馈触发 OPSD，将这一周长会话中的高价值经验进行稀疏梯度更新，无损沉淀回模型权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化梦境合成 (Dreaming)&lt;/strong&gt;：开启 test-time 训练模式，让 Agent 在后台自主构建特定业务场景的微型模拟器，通过大量平行虚拟 rollout 实现经验的自我倍增。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免使用传统的全量有监督微调（SFT）来保存会话记忆，这相当于让 AI 强行背诵每天发生的所有废话，会导致严重的灾难性遗忘和泛化能力崩溃。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “如果不能从短视界泛化到长视界，智能体怎么可能被直接丢进真实世界，去白手起家创办一家媲美沃尔玛的企业？”&lt;/li&gt;
+&lt;li&gt;💬 “人类的持续学习不是把所有观察结果都挂在嘴边，而是将正确的直觉和宏观知识刻进权重的过程。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=20p5-kQXF_Q</guid>
+      <enclosure url="https://i.ytimg.com/vi/20p5-kQXF_Q/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 26 Jun 2026 16:56:10 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代的人机共存：硅谷顶级访谈中的前沿洞察与生存哲学</title>
+      <link>https://www.youtube.com/watch?v=MCJn08wBeV8</link>
+      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=MCJn08wBeV8"&gt;Hard Fork Live: Watch the Full Show!&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 既然AI能像人类一样协作、编码甚至进行科学研发，我们距离彻底失去“人类职业壁垒”还有多远？&lt;/li&gt;
+&lt;li&gt;💡 硅谷精英们为何一边对AGI（通用人工智能）保持极高狂热，一边又极度担心 AI 成为失去控制的“技术奇点”？&lt;/li&gt;
+&lt;li&gt;🚀 在一个 AI 能够生成一切平均产出的世界里，所谓“品味（Taste）”与“人的Agency”是否是唯一的避难所？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知结构重构：从工具到平台&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;去中心化的 frontier（前沿）&lt;/strong&gt;: AI 的演进不能仅局限于少数头部企业，必须让每个企业都能在自己的业务边界触达 frontier，这才是经济从 AI 中获益的核心路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能的层级化应用&lt;/strong&gt;: 不应将所有任务统称为“AI任务”。简单的协作应利用小模型降本，而核心研发逻辑则应由 frontier 级别模型驱动，实现“因地制宜”的智能配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;认知覆盖（Cognitive Coverage）&lt;/strong&gt;: 软件开发的未来不再是手工敲代码，而是对 AI 生成代码的“认知验证”。人类的工作属性正在向元认知（Meta-cognition）转型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 行动范式：在AI时代重塑工作流&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;建立认知覆盖能力&lt;/strong&gt;: 学习如何审计 AI 生成的产出，从“执行者”转变为“评估者”与“架构师”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;区分 verifiability（可验证性）&lt;/strong&gt;: 在处理任务时，识别任务是否具有明确的正确性（如数学、编程），针对高验证性任务大胆使用自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对抗信息平庸化&lt;/strong&gt;: 警惕模型输出的“平均值”，利用独特的人类洞察力和审美，对 AI 输出进行二次加工与 Crafting（深度打磨）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;拒绝“Token Maxing”&lt;/strong&gt;: 不要为了使用AI而使用AI，确保 marginal cost（边际成本）与 marginal value（边际价值）匹配。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隐私警惕&lt;/strong&gt;: 不要轻易将核心业务或敏感信息泄露给不可信的对话模型，优先选择可匿名化或私有化部署的环境。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “西方文明的魔法在于将技术革命、自由市场与民主制度打造成了一个相互制衡的虚拟循环，我们必须为AI时代重新定义这种平衡。”&lt;/li&gt;
+&lt;li&gt;💬 “所谓的‘品味’，往往就是当模型能够生成所有平均产出后，那些人类能够识别并超越平均产出的独特直觉。”&lt;/li&gt;
+&lt;li&gt;💬 “不要把 AI 仅仅当成工具，它是你工作流的合伙人，你应该学会管理一个由百个Agent组成的智囊团。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=MCJn08wBeV8</guid>
+      <enclosure url="https://i.ytimg.com/vi/MCJn08wBeV8/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 26 Jun 2026 15:45:14 +0800</pubDate>
+    </item>
+    <item>
+      <title>测试时间计算：评估AI模型能力的全新范式与避坑指南</title>
+      <link>https://www.youtube.com/watch?v=AZrU6y3pUcU</link>
+      <description>&lt;p&gt;&lt;a href="UCSI7h9hydQ40K5MJHnCrQvw"&gt;No Priors: AI, Machine Learning, Tech, &amp;amp; Startups&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=AZrU6y3pUcU"&gt;Why Traditional Benchmarks Fail Modern AI Models with OpenAI Research Scientist Noam Brown&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在模型性能评测中引入“测试时间计算（Test-time Compute）”作为自变量是行业急需的共识？&lt;/li&gt;
+&lt;li&gt;💡 面对算力带来的模型表现指数级提升，现行的评测框架是如何陷入失效的？&lt;/li&gt;
+&lt;li&gt;🚀 如何构建一套能够兼容大规模推理成本、有效衡量模型真实潜力的评估逻辑？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 大模型评测的“坏平衡”与解构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;评测维度单一化风险&lt;/strong&gt;: 传统基准测试（Benchmark Grid）仅展示模型单次输出的静态结果，忽略了推理时间的投入。在模型能力随算力投入线性甚至指数增长的现状下，缺乏“测试时间控制”的数据无法体现模型的真实效能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能力提升与幻觉的边界&lt;/strong&gt;: 随着算力（Token budget）增加，模型在部分逻辑任务（如数独、复杂数学逻辑）上表现出无极限的提升趋势；但在知识检索等任务上存在 plateau（平台期）。评测不应再追求“单一分数”，而应绘制“性能随计算投入的变化曲线”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 重构评估逻辑与行动指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;建立基准X轴&lt;/strong&gt;: 在任何评测报告中，强制加入 Token 数量、资金成本或执行时间作为横坐标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;区分评测目标&lt;/strong&gt;: 将任务拆解为“推理密集型任务”（需大预算评测）与“事实检索型任务”（需效能上限预估）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对抗基准游戏化&lt;/strong&gt;: 引入未公开的“私有 Held-out 测试集”，从根源上杜绝针对特定基准的过拟合优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入耐心极限与预算限制&lt;/strong&gt;: 为评估设定明确的 token 预算上限，模拟真实生产环境的成本约束。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免单纯依赖“刷分”的 Benchmark，当模型能力提升主要源于算力堆叠时，必须警惕模型在长逻辑链任务上的逻辑断层与潜在的“隐蔽式 gaslighting（煤气灯效应）”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “现在的模型评测陷入了一个坏平衡：大家都知道现有的表格不够全面，但因为行业习惯，没人愿意率先打破这种单一维度的评测模式。”&lt;/li&gt;
+&lt;li&gt;💬 “能力评测的真正瓶颈不在于模型本身，而在于谁敢于为‘测试时间’设立明确的量化基准。”&lt;/li&gt;
+&lt;li&gt;💬 “如果不控制计算投入，所谓的 benchmark 排名不过是某种程度上的算力投入排名，而非模型智能水平的排名。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=AZrU6y3pUcU</guid>
+      <enclosure url="https://i.ytimg.com/vi/AZrU6y3pUcU/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 26 Jun 2026 10:25:40 +0800</pubDate>
+    </item>
     <item>
       <title>深度内参：CEO亲掌AI战略如何实现三倍ROI与大模型商业化的底层硬核博弈</title>
       <link>https://www.youtube.com/watch?v=VICrf_yV0co</link>
@@ -5022,155 +5153,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=DbeFq_uoaRs</guid>
       <enclosure url="https://i.ytimg.com/vi/DbeFq_uoaRs/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 06 Jun 2026 20:10:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>告别命令行：Hermes Desktop 桌面端全解析与 AI 智能体变现指南</title>
-      <link>https://www.youtube.com/watch?v=EJm8Ka-gVOc</link>
-      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=EJm8Ka-gVOc"&gt;Hermes Agent Desktop: Full Setup + Real Use Cases&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Hermes Desktop - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于多智能体协作与动态模型路由的桌面端 AI 交互平台，支持多会话隔离及本地/云端模型无缝集成。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户提示词、网页链接、本地文件、多媒体素材及定时 Cron 任务指令。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：结构化信息简报、多媒体资产（图像/媒体）、前端原型代码及自动生成的子智能体（Sub-agents）执行流。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Profile（配置文件/画像）&lt;/strong&gt;：具有独立人格（soul.md）、专属技能、记忆和特定底层模型的独立智能体实体。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sub-agent（子智能体）&lt;/strong&gt;：由主智能体动态复制、继承相同技能栈用于并发处理多任务的临时工作线程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Artifacts（制品）&lt;/strong&gt;：自动归档并集中管理会话中所有产生或引用的链接、媒体和文件的可视化知识库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cron（定时任务）&lt;/strong&gt;：基于预设时间循环执行的自动化脚本任务，无需保持终端常驻。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：高效多模型协同开发（以构建 Micro-SAS 为例）&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决单一模型（如 Opus）成本高昂或特定任务（如代码/策略）表现不均的问题，实现效率与成本最优。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已在 Hermes Desktop 中配置好多个不同模型底座的 Profile（如 Opus 48, GPT-55, Qwen 37 等）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：在左下角 &lt;strong&gt;Profile 面板&lt;/strong&gt; 中点击切换至高级推理模型（如 &lt;code&gt;Opus 48&lt;/code&gt; 底座）-&amp;gt; 录入 Micro-SAS 需求进行顶层系统设计与架构规划。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：将任务拆解为具体功能模块。切换至高上限代码模型（如 &lt;code&gt;GPT-55&lt;/code&gt; 对应的 &lt;code&gt;GPTM&lt;/code&gt; 智能体） -&amp;gt; 运行 &lt;code&gt;build me this app&lt;/code&gt; 指令。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[微观操作]&lt;/strong&gt;：提示智能体在后台生成 &lt;code&gt;Sub-agents&lt;/code&gt; 并发编写多项子功能，利用 &lt;code&gt;Artifacts&lt;/code&gt; 面板实时预览并检索生成的代码文件与图片。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：基于“逆向提示词”的自动化早报 Cron 任务配置&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：消除 AI 记忆截止痛点，利用联网搜索每天定时推送高精准度、格式优美的信息早报。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：确保客户端后台处于运行状态，或配置了本地离线推理设备（如 DGX Spark）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：点击底部工具栏的 &lt;strong&gt;Cron&lt;/strong&gt; 选项 -&amp;gt; 新建任务。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：在会话框内执行“脑部倾倒”与“逆向提示”双重组合指令：输入个人兴趣（如“AI、美股、凯尔特人队”），并追问 &lt;code&gt;What would be the best prompt I can use to set this up with you?&lt;/code&gt; 获取定制级高精度 Prompt。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[微观操作]&lt;/strong&gt;：将生成的定制 Prompt 填入 Cron 任务编辑器的内容框 -&amp;gt; 设置触发时间为每天 &lt;code&gt;09:00 AM&lt;/code&gt; -&amp;gt; 设定交付路径为 &lt;code&gt;Deliver to Desktop&lt;/code&gt; -&amp;gt; 点击 &lt;code&gt;Create Cron&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Sessions&lt;/code&gt; 控制器&lt;/strong&gt;：提供清晰的多线程隔离。 -&amp;gt; 避免在单一 Mono-thread 中无限制积累上下文（Context Window），防止调用时产生高昂的多余算力账单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Skills&lt;/code&gt; 管理面板&lt;/strong&gt;：展示并控制已加载的 150+ 种内置技能。 -&amp;gt; 允许手动关闭不常用的技能，直接减少注入 Prompt 的隐藏 Token 数量，从而大幅度降低单次 API 交互成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;避免在一个会话线程（Mono-thread）中无休止地聊天。超长上下文在调用 Opus 等大模型时会成倍放大 Token 消耗，导致月度账单飙升。应高频使用 &lt;code&gt;/new&lt;/code&gt; 指令或及时开启全新 Session。&lt;/li&gt;
-&lt;li&gt;不要在未验证应用价值的前提下盲目采购高端本地硬件（如售价 $4800 的 DGX Spark 或 Mac Studio），建议先在 Hermes 客户端内使用云端模型跑通个人变现 SOP，实现 ROI 正向后再做重资产投资。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Brain Dump + Reverse Prompting&lt;/strong&gt;：每次命令 AI 制定复杂计划前，先进行个人背景信息的“脑部倾倒”，接着命令 AI “为你设计最适合的 Prompt”，通过 AI 的超级智能反向纠偏，输出效果提升数倍。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;本地模型零成本套利&lt;/strong&gt;：利用本地运行的 Qwen 37 等开源模型，每 20 分钟自动扫描 Reddit、X 等平台的痛点贴，利用本地免费算力筛选高价值变现商机，直接生成微型 SAS 原型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=EJm8Ka-gVOc</guid>
-      <enclosure url="https://i.ytimg.com/vi/EJm8Ka-gVOc/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 06 Jun 2026 17:30:25 +0800</pubDate>
-    </item>
-    <item>
-      <title>从个人痛点到AI原生独角兽：Emergent创始人谈如何定义下一代全球化软件公司</title>
-      <link>https://www.youtube.com/watch?v=yyXCQHX55N4</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=yyXCQHX55N4"&gt;Emergent: How Six Months of Tinkering Led To A $100M ARR Company&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在软件公司贡献了全球经济增长的背景下，大部分人的软件创作灵感却永远死于无法获取技术门槛？&lt;/li&gt;
-&lt;li&gt;💡 在AI模型尚不完美、甚至被VC拒绝时，为何“生活在边缘（Living at the Edge）”是初创公司建立护城河的唯一路径？&lt;/li&gt;
-&lt;li&gt;🚀 从本地化服务（如Dunzo）转向全球化AI原生平台（Emergent），其底层思维模型发生了怎样的升维与重构？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI原生工具的开发哲学&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;技术降维与民主化&lt;/strong&gt;: 核心任务是将编程从“高门槛工程”转化为“自然语言交流”。用户只需通过聊天描述需求，系统自动处理从代码生成、测试到托管、部署的全链路，实现“想法即产品”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从Copilot到Autonomous Agents&lt;/strong&gt;: 放弃简单的补全助手逻辑，转向构建多智能体编排系统。通过专门的测试、设计与编码Agent集群，模拟真实软件开发的协同作业，并通过RL（强化学习）不断提升系统对复杂工程的消化能力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 创业方法论&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锚定极高难度目标&lt;/strong&gt;: 如参与Bench基准测试，以此作为团队技术演进的校准器和磨刀石。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;验证个人痛点&lt;/strong&gt;: 确保产品解决的是自己或特定群体高频、深度的真实痛点，而非虚构的市场需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;坚持“先做再缩”原则&lt;/strong&gt;: 即使在早期无需规模化，也要亲自下场交付，通过近距离交互挖掘真实反馈，积累数据资产。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;切忌在产品验证期过度分散注意力，当某类模型或业务模型出现数据向好苗头时，应果断聚焦、All-in资源。&lt;/li&gt;
-&lt;li&gt;警惕“为了AI而AI”，应通过不断的模型迭代（甚至重构架构）来适配底层技术的指数级进步。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “如果你从标普500中剔除软件公司，经济增长几乎是一条平线。我们的使命是让那十亿拥有想法的人，拥有将想法变为现实的武器。”&lt;/li&gt;
-&lt;li&gt;💬 “在AI时代，创业不是为了攻击地板，而是为了冲击天花板；从第一天起就以全球化视野构建公司，因为建设一个全球化公司与建设一个本地化公司的难度是完全一样的。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=yyXCQHX55N4</guid>
-      <enclosure url="https://i.ytimg.com/vi/yyXCQHX55N4/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sat, 06 Jun 2026 12:30:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI IPO热潮与数学领域的范式转移：科技巨头的商业逻辑与学术边界之争</title>
-      <link>https://www.youtube.com/watch?v=gIkyiAEpu7E</link>
-      <description>&lt;p&gt;&lt;a href="UCZcR2SVWaGWNlMqPxvQS3vw"&gt;Hard Fork&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=gIkyiAEpu7E"&gt;How We Got to the Biggest I.P.O. Race Ever | SpaceX, Anthropic &amp;amp; OpenAI&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 随着 OpenAI、Anthropic 与 SpaceX 等 AI 巨头竞相 IPO，科技行业的财富分配是否正在从“人人共享机会”转向“由少数 IPO 赢家垄断”的极度不平等格局？&lt;/li&gt;
-&lt;li&gt;💡 数学作为人类思维的最高艺术，在 AI 工具的强力介入下，究竟是获得了超越人类的“进化捷径”，还是将沦为丧失人类主体性的“廉价造物”？&lt;/li&gt;
-&lt;li&gt;🚀 当 AI 模型不仅能参与高端数学研究，还能影响 philanthropy（第三波慈善浪潮）流向时，我们是否已在不知不觉中交出了文明决策的控制权？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 AI 资本化与社会焦虑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;财富集中化效应&lt;/strong&gt;: 随着顶级 AI 公司上市，将产生大批财富阶层，这种“ lottery winners（彩票赢家）”现象将加剧如旧金山等地的贫富分化，引发社会稳定性危机。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Philanthropy 的新形态&lt;/strong&gt;: 随着 Anthropic 等公司员工 pledge（承诺）捐赠巨额股权，AI 财富正在重塑非营利组织资金链，但也带来了资金流向向特定领域（如 AI 安全、 shrimp welfare 等）畸形集中的风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ AI 与数学的博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;识别能力边界&lt;/strong&gt;: 区分 AI 擅长的“苏多库式”数值谜题（ toy problems）与具有深层逻辑价值的原创性数学发现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;建立防御规范&lt;/strong&gt;: 参考《Leiden Declaration》，在学术协作中使用 AI 时须建立透明度披露机制，防止“AI 生成物”挤占人类原创研究空间。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避坑指南&lt;/strong&gt;: 不要盲目迷信 AI 在数学竞赛（如 IMO）中展现的逻辑，需警惕模型在处理复杂未解问题时表现出的“看似合理但实质错误”的幻觉，尤其是在学术论文引用中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “现在的 AI 与数学之争，本质上是人类在面对一个既能像钢铁侠装甲般提升思考效率，又可能瞬间让自身变得无用的工具时的复杂心态。”&lt;/li&gt;
-&lt;li&gt;💬 “当财富向极少数企业集中时，IPO 不再仅仅是融资手段，而是平衡社会不稳定因素的必要阀门。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=gIkyiAEpu7E</guid>
-      <enclosure url="https://i.ytimg.com/vi/gIkyiAEpu7E/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 05 Jun 2026 15:18:11 +0800</pubDate>
     </item>
   </channel>
 </rss>

@@ -7,7 +7,82 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 26 Jun 2026 08:40:03 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 22:41:35 +0000</lastBuildDate>
+    <item>
+      <title>深度剖析美股映射A股的失效机制与定价真相</title>
+      <link>https://bbs.quantclass.cn/thread/87039</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87039"&gt;【隔夜美股映射大A】从「+5min最优」到「竞价即终局」 ——一次美股→A股前瞻性研究的完整拆解与诚实结论&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与深度思考 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[集合竞价、跳空定价、行业相关性、日内噪声、跨市场择时]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：美股映射A股的Alpha完全被开盘跳空吸纳，日内无额外定价信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：美股T日涨跌幅与A股T+1行业表现存在显著相关性（r≈0.115），但这种相关性在后疫情时代持续衰减，且表现出极强的非对称性：跌的传导始终强于涨。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：美股信息已在A股开盘前的集合竞价（9:15-9:25）中完全消化，开盘后5分钟的走势仅为跳空的噪声回响，非新信息定价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“日内通过美股映射做趋势跟踪”的有效性。实测数据显示，相关性最强时刻发生在跳空瞬间，待投资者可交易时，定价已完成，导致策略处于“已定价”的无效地带。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：中长期（月度/季度）滚动窗口的行业动量具有更强的共振性，可能是唯一具可操作性的方向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用跨市场行业定价差异，通过集合竞价定价的滞后性进行多空对冲或预防性调仓。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用申万一级行业口径，通过总市值加权实现跨市场行业对齐。必须剔除开盘后的噪声，聚焦跳空部分的信号分解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：相关性在T+2日归零；跳空定价占比达到117%，说明开盘即高点，追涨杀跌面临极大摩擦成本与信号衰减。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;停止尝试日内追涨杀跌&lt;/strong&gt;：放弃在该因子基础上开发日内高频策略，因为开盘后5分钟走势几乎是随机游走。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;转向低频轮动策略&lt;/strong&gt;：验证基于美股过去20-60日行业趋势的A股行业权重调整，将因子频率降至月度或季度，避开“跳空即定价”的微观陷阱。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;优化风控逻辑&lt;/strong&gt;：将该信号作为收盘前的预防性仓位管理工具，而非入场择时指标；在美股出现极端利空信号时，提前对冲A股高相关性行业头寸。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87039</guid>
+      <pubDate>Fri, 26 Jun 2026 12:03:38 +0800</pubDate>
+    </item>
+    <item>
+      <title>基于资金费率右尾偏离度的空头策略后置过滤因子研究</title>
+      <link>https://bbs.quantclass.cn/thread/87027</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87027"&gt;资金费Spread后置过滤：一个空头策略另类后置过滤方式&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资金费率、右尾偏离、空头策略、状态过滤、市场拥挤度]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过计算资金费率右尾厚度（RTE）作为后置过滤器，优化空头策略的时机选择。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：反直觉发现：当“高资金费率币种”相对市场整体的偏离度（Spread）过高时，往往代表市场极度偏向多头或右尾过热，反而不利于空头策略。通过判断右尾冷却状态作为过滤信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：定义“右尾超额（Right Tail Excess, RTE）”：将各币种资金费累计值与全市场中位数作差，取正偏离部分并求均值，最后进行滚动分位（Rank）处理，输出0-1的状态值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于小时级资金费率累计（Lag1，避免未来函数），使用双窗口（短窗口N小时计算右尾厚度，长窗口W小时判断历史分位）进行状态刻画。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在0.5倍全市场空头策略及多种主流空头宿主上验证，RTE &amp;lt;= 0.5 的Active状态与Inactive状态表现差异显著，有效降低回撤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略属于状态过滤器，不保证单次胜率，且在独立行情主导的空头策略（如落单狗）中效果弱于常规空头策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;使用 Pandas 的 &lt;code&gt;groupby&lt;/code&gt; 和 &lt;code&gt;transform&lt;/code&gt; 对海量合约数据进行分钟/小时级截面中位数计算。&lt;/li&gt;
+&lt;li&gt;引入 &lt;code&gt;.clip(lower=0)&lt;/code&gt; 实现右尾截断逻辑。&lt;/li&gt;
+&lt;li&gt;使用 &lt;code&gt;.rolling(w).rank(pct=True)&lt;/code&gt; 实现参数化的历史分位归一化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[因子实现]：可参考文中提供的 &lt;code&gt;FundingFeeRightTailExcessDualWindow&lt;/code&gt; 逻辑，在生产环境的回测框架中增加一道基于市场状态的 &lt;code&gt;post_filter&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;[策略优化]：对于所有基于资金费率的空头策略，测试将该RTE因子作为动态仓位管理的输入，而非仅作为硬开关，以平滑资金曲线。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87027</guid>
+      <pubDate>Thu, 25 Jun 2026 17:46:56 +0800</pubDate>
+    </item>
     <item>
       <title>微盘股惨遭“闷杀”，量化交易者如何优雅应对极端抱团行情</title>
       <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-24&amp;talker=57784510736@chatroom</link>
@@ -4403,94 +4478,6 @@ df['zscore'] = (df['close'] / df['ma'] - 1) / df['bw']
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86613</guid>
       <pubDate>Fri, 05 Jun 2026 15:16:04 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘MTFNet：如何在接近有效市场的金融数据中提取弱预测信号</title>
-      <link>https://www.bilibili.com/video/BV1rrVv6uEhX</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1rrVv6uEhX"&gt;面向金融时间序列预测的多尺度时序融合网络：这篇论文关注的是金融时间序列预测，尤其是股票指数这类高噪声、强非平稳、弱可预测的数据：面向金融时间序列预测的多尺度时序&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在金融预测中，点预测误差（MAE）最低的模型往往是没有任何逻辑的“随机游走”？&lt;/li&gt;
-&lt;li&gt;💡 面对高噪声的非平稳序列，如何通过频域变换为模型提供“周期先验”以过滤无意义波动？&lt;/li&gt;
-&lt;li&gt;🚀 既然价格点位无法精准预测，量化交易的胜算究竟来源于对绝对数值的逼近，还是对运动方向的洞察？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 攻克“随机游走”陷阱：从点预测转向方向博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;点预测的均值回归本质&lt;/strong&gt;: 在接近有效市场的环境下，明天的价格最好的近似就是今天的价格。实验证明，Random Walk 在 MAE/RMSE 等点预测指标上仍然是最强基准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;捕捉弱信号的逻辑重构&lt;/strong&gt;: MTFNet 的核心价值在于放弃追求绝对价位的完美拟合，转而通过多尺度结构提取足以支撑决策的方向性（Directional）信号。在标普500等指数上实现超过55%的方向准确率，显著优于随机游走的50%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ MTFNet 核心技术架构：降噪与特征捕获&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多尺度膨胀因果卷积 (MSDCC)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译&lt;/strong&gt;: 就像给模型安装了三组不同倍率的镜头。1倍关注局部脉冲，2倍捕捉中期震荡，4倍追踪长期趋势。通过并行分支学习，避免短中长期特征在早期发生混叠，同时确保无未来信息泄露。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;频率增强稀疏注意力 (FESA)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;降维解读&lt;/strong&gt;: 标准注意力机制容易被随机噪声“带偏”。FESA 利用傅里叶变换（FFT）找出市场主导周期（如5日交易周），并将其作为“引导滤镜”覆盖在注意力分布上，迫使模型关注更符合规律的时间节点，而非局部相似的噪声。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自适应尺度融合 (AASF)&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;动态决策&lt;/strong&gt;: 模型会根据当前市场是“趋势行情”还是“震荡行情”，动态调整不同尺度特征的权重，实现不同市场状态下的自适应特征聚合。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚀 量化实战应用 (SOP)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;多源特征输入&lt;/strong&gt;: 整合原始价量数据与 RSI、MACD、布林带等技术指标，构建多维特征窗口（如过去60个交易日）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;频域引导过滤&lt;/strong&gt;: 对输入序列进行 FFT 处理，提取 Top-K 主导频率，作为注意力机制的先验权重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;方向性决策执行&lt;/strong&gt;: 基于模型输出的涨跌方向预测，执行 Long-Cash（持仓或持币）策略，并设定合理的交易成本门槛。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;警惕“指标优越感”&lt;/strong&gt;: 若模型在点预测误差上输给随机游走属于正常现象，不可因此否定模型提取方向信号的能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;忽略摩擦成本&lt;/strong&gt;: 0.1% 的交易成本可能抹平微弱的方向预测增量，策略回测必须考虑实盘损耗。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “金融预测不能简单理解为拟合一条更平滑的价格曲线，而要思考模型到底捕捉到了什么可交易的信息。”&lt;/li&gt;
-&lt;li&gt;💬 “在价格层面，随机游走不是一个普通基准，而是有效市场理论下极强的统计下界；胜过它，靠的不是复杂度，而是结构化的先验。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1rrVv6uEhX</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/2aa408aa75879416b197befbb0b7913d604b1c09.png" length="0" type="image/png"/>
-      <pubDate>Fri, 05 Jun 2026 10:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>借镜回声星：深度拆解SpaceX的IPO定价与远期贴水逻辑</title>
-      <link>https://bbs.quantclass.cn/thread/86631</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86631"&gt;【科学家】SpaceX 到底贵不贵：以 SATS 为鉴&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资产定价代理、期权定价逻辑、IPO估值、远期贴水、情绪溢价分析]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用SATS拆解SpaceX估值，揭示2027交割的-30%远期贴水。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：SATS当前股票持仓隐含的SpaceX价格约为$95/股（折合市值$1.25万亿），相比IPO发行价$135（市值$1.77万亿）存在约30%的“远期贴水”。这表明市场不愿意为提前持有两年的远期资产支付时间溢价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：该深度折价由以下结构性风险决定：① 2027年11月交割的时间跨度成本；② 潜在的clawback（回购冲抵）条款削减股数风险；③ 标的未上市导致无法进行无风险做空套利；④ SATS自身承担的DISH主营衰退和高杠杆（约$242亿有息负债）噪音。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“代理资产能与现货无缝套利定价”的直觉。在无法对冲且存在多重信用交割风险的市场环境下，代理资产天然带有类似于“深价内敲出期权”的深度折价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：Binance Pre-IPO永续合约等高投机性渠道价格（~$159/股）显著高于IPO发行价和SATS隐含价。这种“散户衍生品高溢价 vs 机构代理高贴水”的价差，可作为市场极端情绪（FOMO）强度的量化代理指标。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;构建情绪监测因子&lt;/strong&gt;：量化追踪 &lt;code&gt;Spread = Price(Pre-IPO Contract) - Price(SATS Implied SpaceX)&lt;/code&gt;。当该价差拉大至极值（如文中对应的$185以上情绪档）时，可作为相关高Beta概念股（如特斯拉、卫星通信板块）的短期见顶/情绪出货信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代理资产定价修正算法&lt;/strong&gt;：在评估未上市独角兽Pre-IPO份额时，引入时间价值、交割信用和锁定期折价修正矩阵（通常取25%-35%的折价区间），而非简单参考一级市场最新公开估值。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86631</guid>
-      <pubDate>Fri, 05 Jun 2026 00:13:05 +0800</pubDate>
     </item>
   </channel>
 </rss>
