@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Jun 2026 08:41:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 00:54:19 +0000</lastBuildDate>
     <item>
       <title>深度剖析美股映射A股的失效机制与定价真相</title>
       <link>https://bbs.quantclass.cn/thread/87039</link>
@@ -159,6 +159,53 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86979</guid>
       <pubDate>Tue, 23 Jun 2026 21:02:07 +0800</pubDate>
+    </item>
+    <item>
+      <title>从炸板到放量长上影：基于市场反身性逻辑的强势空头形态反向获利策略</title>
+      <link>https://bbs.quantclass.cn/thread/86731</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86731"&gt;炸板之上---形态事件策略方法论&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[反身性交易, 强势空头形态, 放量长上影, 波动率过滤, 情绪博弈]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用市场对“空头形态”的一致性恐慌预期，通过反向做多获取短线超额收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：炸板、放量长上影等教科书级“空头信号”在A股市场次日开盘买入具有显著正期望。回测显示，放量长上影形态次日持有1天的平均涨幅达+0.42%。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：基于索罗斯的反身性理论。当市场达成一致性看空预期时，次日开盘的恐慌抛售压低了价格并释放了充足流动性，为聪明钱提供了低冲击成本的入场机会。策略本质是赚取“恐慌溢价”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：该逻辑可泛化至“强势空头形态家族”，如大阴线、三只乌鸦、阴包阳等，均具备不同程度的均值回归潜力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：筛选“意图明确但尚未成功”的标的。通过阳线过滤真出货，聚焦于“冲高回落-主力守位”的洗盘节奏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;形态定义：上影线比例 ≥ 60% 且 成交额/MA20(成交额) ≥ 2.0。&lt;/li&gt;
+&lt;li&gt;过滤条件：Close &amp;gt; Open (阳线支撑)、Close &amp;gt; MA20 (趋势向上)、波动率_20 ≤ 0.05 (过滤极端环境)。&lt;/li&gt;
+&lt;li&gt;综合打分：截面排名(收盘位置) + 截面排名(大户净买入占比)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：Open-Close 交易模式（次日开盘买，收盘卖），持股2天。优化后策略今年收益达 60%+，表现优于原版炸板策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：形态效应随持有时间增加而快速衰减（1天收益 0.42% -&amp;gt; 20天平均收益 0.06%），必须严格控制持仓周期。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决形态研究与实战定义的解耦。系统将形态计算（Factor Hub）与分析验证（Analytics Platform）分离。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：支持 UI 界面探索与 AI 自动化 CLI 调用。AI 可直接调用 CLI 返回的 JSON 结果进行多形态批量验证。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【算法逻辑】&lt;/strong&gt;：采用 open-close 模式模拟真实成交，计算形态出现后 T+N 天的归一化日收益，实现跨形态的横向效力对比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;[代码实现] 立即在现有因子库中引入 &lt;code&gt;Volatility_20&lt;/code&gt; 因子，作为所有短线形态策略的全局风控开关。&lt;/li&gt;
+&lt;li&gt;[因子改进] 弃用单一的形态触发，改用“收盘位置+大户资金流”的双维打分排序模型来提升选股胜率。&lt;/li&gt;
+&lt;li&gt;[规模化] 针对大阴线形态（信号密度日均 358 只）进行策略平移，解决炸板策略信号稀缺导致的容量瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86731</guid>
+      <pubDate>Tue, 23 Jun 2026 17:08:04 +0800</pubDate>
     </item>
     <item>
       <title>量化实盘风云：微盘风格轮动与AI策略辅助进阶</title>
@@ -4436,48 +4483,6 @@ df['zscore'] = (df['close'] / df['ma'] - 1) / df['bw']
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86648</guid>
       <pubDate>Fri, 05 Jun 2026 18:52:44 +0800</pubDate>
-    </item>
-    <item>
-      <title>浪淘沙到沧浪亭：基于都江堰与落单狗的量化策略硬核迭代与回测实操</title>
-      <link>https://bbs.quantclass.cn/thread/86613</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86613"&gt;【旧瓶装新酒】把 26 分都江堰落单狗塞进浪淘沙里&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[多空对冲、动态仓位管理、后置过滤、沧浪亭策略、无名填策略]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：对比都江堰与落单狗在不同仓管/过滤框架下的回测，实证沧浪亭及无名填的低撤高收优势。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于多头（都江堰）和空头（落单狗）50:50中性底仓，采用后置过滤（浪淘沙系列：如 &lt;code&gt;ZfMeanQ&lt;/code&gt; 波动率因子等）及动态仓管（无名填、沧浪亭）进行优化，旨在解决单边策略回撤过深和传统中性策略过于古板的痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建与过滤策略】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;空头后置过滤&lt;/em&gt;：引入 &lt;code&gt;('ZfMeanQ', 300/600, 'val:&amp;lt;0.5')&lt;/code&gt;，即限制在低波动区间才开空，提升空头策略的择时与选币超额。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;多头后置过滤&lt;/em&gt;：混合 &lt;code&gt;VolumeMeanQ&lt;/code&gt; + &lt;code&gt;ZfMeanQ&lt;/code&gt; + &lt;code&gt;浪Max23&lt;/code&gt;，波动大时做多，以择时控仓位为主。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;无名填（填充中性）&lt;/em&gt;：采用 &lt;code&gt;MultiRotationStrategyOverride&lt;/code&gt; 模式，group1 为带过滤的浪淘沙多空组合，group2 为普通无过滤中性，用 &lt;code&gt;(1 - group1已用仓位)&lt;/code&gt; 动态填充 group2，避免资金闲置。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;沧浪亭&lt;/em&gt;：不改变多空选币骨架，通过仓管层面的“三道闸门动态调仓”机制，在朴素中性基础上平滑资金曲线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;（回测区间：2021.01.01 - 2026.05.29）：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;沧浪亭&lt;/strong&gt;：累计收益 &lt;strong&gt;4866×&lt;/strong&gt;，年化 380%，最大回撤 &lt;strong&gt;-17.75%&lt;/strong&gt;，R/D &lt;strong&gt;21.42&lt;/strong&gt;（全场综合最优，抗跌且持续新高）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;无名填&lt;/strong&gt;：累计收益 1672×，年化 294%，最大回撤 -21.29%，R/D 13.82（回撤未显著增加的前提下，累计收益比普通中性高4.6倍）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;浪填&lt;/strong&gt;：累计 &lt;strong&gt;6228×&lt;/strong&gt;，年化 403%，回撤 -43.99%，R/D 9.15（累计收益最高，但回撤过大，近期未创新高）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;都江堰纯多/落单狗纯空&lt;/strong&gt;：纯多累计 760×，回撤 -63.7%；纯空累计 2.9×，回撤 -86.58%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：由于都江堰独特的换仓机制，浪淘沙选币对其几乎无改善作用，仅能提供择时防守；浪填策略过度依赖多头再择时，在近期震荡下跌行情中容错率低，未创新高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行动点 1（实现无名填仓位填充算法）&lt;/strong&gt;：在Python回测框架中实现 &lt;code&gt;MultiRotationStrategyOverride&lt;/code&gt; 逻辑。主策略（Group 1）因后置过滤而空置的仓位，由备用低风险/普通中性策略（Group 2）按 &lt;code&gt;Remaining_Cap = Total_Cap - Sum(Group1_Active_Cap)&lt;/code&gt; 实时等比填充，最大化资金利用率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动点 2（仓位管理与信号解耦）&lt;/strong&gt;：参考“沧浪亭”思路，在策略架构设计中，将“多空选币/信号生成”与“调仓/风控逻辑（三道闸门）”完全解耦。利用资金曲线、波动率等多重外在闸门动态控制整体组合的杠杆与敞口，而不是仅在因子层面做过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动点 3（多空非对称过滤设计）&lt;/strong&gt;：实证显示浪淘沙过滤对落单狗（空）的选币与择时均有强正向超额，对都江堰（多）却极弱。回测时需放弃对称的多空过滤机制，对多头侧重“大波动做多”的动态择时控仓，对空头侧重“选币纯化+低波择时”的精准打击。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86613</guid>
-      <pubDate>Fri, 05 Jun 2026 15:16:04 +0800</pubDate>
     </item>
   </channel>
 </rss>
