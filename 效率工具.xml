@@ -7,7 +7,81 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 03 Jul 2026 08:36:50 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jul 2026 22:38:25 +0000</lastBuildDate>
+    <item>
+      <title>Gemini Spark实测：AI个人代理如何通过深度集成重构工作流</title>
+      <link>https://www.youtube.com/watch?v=NDTWK6vIgmM</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=NDTWK6vIgmM"&gt;I Tested Gemini Spark: What Google’s AI Agent Can Actually Do in 21 Minutes&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Gemini Spark - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：深度嵌入Google生态的个人AI代理，通过原生API交互实现跨应用的数据联动与自动执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、Gmail邮件流、Google Calendar日历事件、Google Docs/Sheets文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化任务调度、文档自动生成、数据分析报告、任务通知提醒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spark 技能 (Skills)&lt;/strong&gt;：可复用的提示词与工作逻辑，用于标准化特定任务的执行流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务调度 (Scheduling)&lt;/strong&gt;：基于设定时间触发的自动化执行指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语音卡 (Voice Card)&lt;/strong&gt;：基于用户历史文档构建的写作风格模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：智能邮件分类与定期简报&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实现高效率的收件箱自动化管理，识别关键信息并过滤冗余。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;输入指令&lt;/strong&gt;：在Gemini界面切换至Spark模式，输入扫描近7天邮件的特定prompt。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;逻辑配置&lt;/strong&gt;：要求对邮件进行分类（ urgente/unsubscribe/recap），并包含发送人、总结及原文链接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化设置&lt;/strong&gt;：确认结果后，输入“Schedule this as a briefing every morning at 7:00 a.m. PST”，将任务固化为每日定时触发。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：播客嘉宾深度调研与文档撰写&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：自动化完成繁琐的采访准备工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;关联日历&lt;/strong&gt;：Spark自动扫描Google Calendar中的未来访谈事件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行研究&lt;/strong&gt;：调用YouTube与Web Search技能获取嘉宾公开访谈及文章。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成产物&lt;/strong&gt;：在Google Docs中自动生成包含主题提问的Prep文档。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：旅行自动化规划与价格监控&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：整合多平台数据实现旅行规划的全自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多源整合&lt;/strong&gt;：同步Calendar日程、Google Flights航线、Google Maps酒店及个人旅游规划文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能监控&lt;/strong&gt;：输入价格监测阈值（如：SFO to Tokyo低于$800），Spark将在目标达成时自动发送提醒。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;调度面板 (Schedules)&lt;/strong&gt;：集中管理所有已配置的自动化任务（邮件简报、日程检查、价格监控），支持手动运行或删除。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技能中心 (Skills)&lt;/strong&gt;：提供包括“匹配写作风格”与“多视角分析”在内的预设技能，允许自定义 prompts 以构建个性化 workflows。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;避免在Agent操作中处理涉及极端机密的数据，即便其具有权限。&lt;/li&gt;
+&lt;li&gt;必须对AI生成的最终文档（特别是研究报告和行程规划）进行人工复核，AI存在幻觉可能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;利用“多视角技能 (Get more perspective)”对抗认知偏见，通过预设的“批评家”、“构想者”角色分析复杂问题。&lt;/li&gt;
+&lt;li&gt;通过“匹配写作风格”功能，让AI基于个人历史文档构建Voice Card，产出内容更具辨识度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=NDTWK6vIgmM</guid>
+      <enclosure url="https://i.ytimg.com/vi/NDTWK6vIgmM/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 03 Jul 2026 14:28:47 +0800</pubDate>
+    </item>
     <item>
       <title>深度解构字节与美团的组织进化论：AI 时代如何重构招聘与团队效能</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6a3e50142e335a35a809d5b4?utm_source=rss</link>
