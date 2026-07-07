@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jul 2026 09:01:14 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 22:38:51 +0000</lastBuildDate>
     <item>
       <title>量化初学者的策略复现与实战：深度拆解孙悟空做空因子与广度闸门控制</title>
       <link>https://bbs.quantclass.cn/thread/87386</link>
@@ -47,6 +47,43 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87386</guid>
       <pubDate>Mon, 06 Jul 2026 22:04:48 +0800</pubDate>
+    </item>
+    <item>
+      <title>揭秘高频中性策略归零真相：强均值回归信号与交易成本的生死博弈</title>
+      <link>https://bbs.quantclass.cn/thread/87362</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87362"&gt;一个逻辑简单的中性策略：50%做多50%做空，亏光的真相是什么？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[均值回归, 交易摩擦, 横截面中性, 换手率衰减]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：证明加密短周期存在强均值回归，但高摩擦吞噬夏普9.11的Alpha。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：加密市场短周期（1H）呈现极其显著的系统性均值回归效应，1H多空利差t值达-21.76，反转胜率天然偏高；而动量效应在1H至24H级别完全失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：短周期价格受高频散户情绪与限价单薄弱流动性影响，极易产生局部超买超卖，随后迅速触发均值修复。时间周期拉长至24H后，这种微观结构噪音被消化，市场逼近随机游走。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：直接证伪了“加密货币短周期存在动量效应”的传统认知。同时证明，对于追求高频调仓的截面策略，交易成本（而非因子选币能力）才是决定生死的一等公民。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用1H级别强均值回归。买入过去1H表现最差的后50%标的，卖空表现最好的前50%标的，多空资金1:1对等。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于相对收益排序。数学证明：减去等权/中位数/市值加权均值等“中性化”操作不改变任何截面排名，Rank(R_i - R_mean) 等价于 Rank(R_i)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：币安合约 1H K线，2021-01至2026-07，共5.5年，覆盖730个代币标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：单边手续费 0.06%，1倍杠杆。1H反转策略在“零手续费”下表现极佳（年化+188.08%，夏普9.11，最大回撤-23.73%），但在“有手续费”时完全归零（年化-98.80%）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：高频调仓换手率极高。1H反转策略的年化手续费摩擦拖累高达287%，彻底覆盖并击穿了188%的因子信号收益，导致策略从天堂坠入地狱。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;截面排序代码重构优化&lt;/strong&gt;：在Python实现横截面多空时，无需进行多余的减均值运算，直接使用 &lt;code&gt;df.rank(axis=1)&lt;/code&gt; 即可，以此减少非必要的向量化算力开销并简化代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;建立“摩擦吞噬极限”前置硬约束&lt;/strong&gt;：开发1H至4H等短周期调仓策略前，必须测算无手续费表现与手续费拖累率（换手率 * 单边费率 * 2）。若信号超额收益无法覆盖此摩擦门槛，因子应直接舍弃或进行大幅度降频。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入换手限制过滤器（Turnover Constraint）&lt;/strong&gt;：为保留1H均值回归的强大Alpha，不能无条件执行50/50全截面换手。需设计非对称调仓机制（例如只有当排名发生显著跨越时才触发交易），通过牺牲部分信号精度换取换手率的断崖式下跌。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87362</guid>
+      <pubDate>Mon, 06 Jul 2026 12:15:08 +0800</pubDate>
     </item>
     <item>
       <title>藏在K线切片里的微观秘密：如何用多分钟偏移组合破解“假拟合”与实盘背离</title>
@@ -4384,35 +4421,6 @@ eq i} YES_bid_j - (1 - YES_bid_i) - Fees$。&lt;/li&gt;
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86698</guid>
       <pubDate>Mon, 08 Jun 2026 17:53:13 +0800</pubDate>
-    </item>
-    <item>
-      <title>市场大幅回调下的量化策略表现与投资者心态复盘</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-08&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-08&amp;amp;talker=57784510736@chatroom"&gt;2026-06-08_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;📉 市场回调下的量化策略表现&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤特征&lt;/strong&gt;：本次市场回调中，微盘股及小市值策略表现较弱，部分投资者面临10%至20%的累计回撤。市场存在明显的“跟跌不跟涨”特征，部分个股抹去了牛市以来的大部分涨幅。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技术性问题&lt;/strong&gt;：实盘执行中暴露出诸如策略开仓、卖出时点与开盘价、收盘价匹配偏差，以及部分客户端对特定指令（如bar_end）支持不足等技术痛点，影响了策略的实际收益率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应对之道&lt;/strong&gt;：面对市场大幅波动，多数成熟交易者选择坚持策略、保持纪律，避免盲目手动干预。部分投资者通过分批加仓或根据回撤幅度进行动态管理，而非直接清仓。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧠 投资心态与市场观察&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关于市场风格&lt;/strong&gt;：市场呈现“大盘股灾，微盘崩盘”的连锁反应。机构在利用量化工具对冲或止损，散户则常在恐慌中卖在开盘低点，随后又面临反弹带来的踏空感。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反常识观点&lt;/strong&gt;：在市场大跌时，往往是逆市品种或散户较少的票子冲击较小。部分投资者认为，与其追求“预测”反转，不如专注于策略本身的鲁棒性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 精选金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;收益减半，回撤翻倍。&amp;quot; —— 无慈悲な定量化機械&lt;/li&gt;
-&lt;li&gt;&amp;quot;如果跌到想停策略，那（加仓）就到位了。&amp;quot; —— long&lt;/li&gt;
-&lt;li&gt;&amp;quot;国家队喊我们做长线，自己做短线做得起飞。&amp;quot; —— SASIOVERLXRD&lt;/li&gt;
-&lt;li&gt;&amp;quot;今天这个跌幅，才是好样的呀。&amp;quot; —— 邢不行&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-08&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 08 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
