@@ -7,7 +7,47 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 Jul 2026 22:39:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2026 08:34:14 +0000</lastBuildDate>
+    <item>
+      <title>黄果树策略告急？深度剖析2026年CCI因子前所未有的长周期反转</title>
+      <link>https://bbs.quantclass.cn/thread/87499</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87499"&gt;【LeoTsai】黄果树浅度理解（警告: 内含大量拥挤失效过拟合）&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[黄果树策略, CCI因子失效, 因子反转效应, 选币范围拥挤度, 滚动Spearman相关系数]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：剖析2026年黄果树策略中CCI因子发生历史罕见的持续反转与失效现象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：2026年至今，CCI因子的单调性发生严重反转——选币范围越小，收益反而越低。Spearman \u03c1 滚动时序显示，该反转效应（失效）自1月份开始已持续超过5个月，无论是持续时长还是参数覆盖广度均远超历史任何一次失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：1. &lt;strong&gt;参数交互变异&lt;/strong&gt;：QVM（QuoteVolumeMean）在 [481, 610] 档位之间策略集体哑火。2. &lt;strong&gt;市场微观结构变化&lt;/strong&gt;：CCI作为空间因子，旨在通过超跌博取动量延续。但在22年与26年等绝对低位市场中，超跌代币极易触发“超跌反弹”而非阴跌，导致原有空头逻辑失效。3. &lt;strong&gt;拥挤度疑云&lt;/strong&gt;：虽然空头主动卖出成交量占比显示参数500与72存在微弱差异，但尚难判定完全由资金拥挤导致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：打破了“CCI因子随选币范围缩小收益单调递增”的既有共识，策略的最大失效周期已被历史性突破。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：黄果树策略基于CCI空间因子筛选超跌代币，通过QVM过滤成交量，在24H持仓周期下捕捉空头超额。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;空头目标：&lt;code&gt;S_CCI&lt;/code&gt;，持仓 &lt;code&gt;24H&lt;/code&gt;，选币比例 &lt;code&gt;0.2&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;因子与过滤：&lt;code&gt;Cci&lt;/code&gt; (参数 $p$), 过滤 &lt;code&gt;HoursSinceSpotAndSwap &amp;gt; 0&lt;/code&gt; 且 &lt;code&gt;QuoteVolumeMean&lt;/code&gt; (参数 $p$, &lt;code&gt;pct:&amp;lt;0.2&lt;/code&gt; 取交易量倒数后20%)。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于 2022-01-01 至 2026-06-21 历史数据，利用 15\u00d715 共225组 Cci\u00d7QVM 参数进行全量回测。引入方差分解（取过去6个月收益率）测算不同周期下CCI与QVM对策略收益的主效应占比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：2026年全周期最优参数平原（原300+）消失，CCI与QVM的主效应占比呈现交替轮回特征，当前正处于QVM主导且CCI极度衰减的反转周期。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;引入因子失效熔断机制&lt;/strong&gt;：在实盘或回测系统中部署滚动 Spearman \u03c1 监控。一旦CCI因子在 short_select_coin_num 维度的滚动相关系数持续为正（即发生反转）超过3个月，应立即触发策略降仓或暂停。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重构空间因子的行情适配器&lt;/strong&gt;：针对CCI易在低位遭遇“超跌反弹”的痛点，应引入市场波动率（VIX）或趋势指标。在市场Beta筑底阶段，自动收紧空头过滤门槛，或转向捕捉VC代币等具有持续阴跌属性的特定资产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态多参数平原融合&lt;/strong&gt;：摒弃单一固定参数（如双500），根据方差分解（Variance Decomposition）的动态主效应占比，在CCI与QVM影响力交替时，动态调整选币权重，规避共轭失效区间。`&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87499</guid>
+      <pubDate>Wed, 08 Jul 2026 13:10:41 +0800</pubDate>
+    </item>
     <item>
       <title>穿越25%回撤的量化生存：从路径可控性到九宫格市场的逻辑重构</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6a4d0a763fb7233cbf454bfc?utm_source=rss</link>
@@ -4369,47 +4409,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86700</guid>
       <pubDate>Mon, 08 Jun 2026 19:13:38 +0800</pubDate>
-    </item>
-    <item>
-      <title>Polymarket NegRisk 转换套利实战：利用盘口定价偏差实现无方向性盈利</title>
-      <link>https://bbs.quantclass.cn/thread/86699</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86699"&gt;Polymarket NegRisk 真实事件案例解析&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[NegRisk套利、预测市场、Polymarket、转换套利、盘口不平衡]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Polymarket中互斥且穷举事件的盘口定价偏离，通过合约转换机制实现低风险无方向套利。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：NegRisk事件（如世界杯冠军、NBA MVP）中，所有子市场YES代币的卖价（ask）之和常显著大于1（如案例中达1.062-1.072）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：由于每个子市场均存在买卖价差（ask-bid），当候选人数量多（40-60个）时，微小的价差累积会形成巨大的整体溢价；此外，做市商在低概率尾部选项上常给出保护溢价。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于NegRisk Adapter的 &lt;code&gt;convertPositions&lt;/code&gt; 机制，持有某子市场 i 的1份NO代币在逻辑上等价于持有除 i 之外所有子市场的YES代币各1份。当买入NO的成本低于转换后卖出所有YES的收入时，存在套利空间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：信号触发逻辑为 $\sum_{j
-eq i} YES_bid_j &amp;gt; NO_ask_i$（其中 $NO_ask_i = 1 - YES_bid_i$）。最优选择通常是买入极低概率（尾部）选项的NO代币。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：交易摩擦主要来自多腿（N &amp;gt; 50）成交的手续费累加；核心风险在于执行层面的异步性，即链上转换延迟或部分YES卖单无法以预期价格成交（深度不足）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：单次套利涉及数十次CLOB API调用（1次FOK买单 + N次FAK卖单）与1次链上合约交互，对执行框架的并发能力和异常处理要求极高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【算法优化】&lt;/strong&gt;：需遍历所有子市场作为“NO买入腿”的可能性，动态寻找净利最大的路径：$Net_Profit = \sum_{j
-eq i} YES_bid_j - (1 - YES_bid_i) - Fees$。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实时监控&lt;/strong&gt;：重点筛选参赛选手或可能结果超过30个的NegRisk事件，这类事件最易产生超定价溢价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;执行策略&lt;/strong&gt;：必须采用FOK (Fill-or-Kill) 锁定第一腿（买入NO）的成本，成功后再触发后续的链上转换与批量卖出逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;深度检查&lt;/strong&gt;：在计算信号时需剔除流动性枯竭的“僵尸”子市场，防止账面利润因无法成交而归零。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86699</guid>
-      <pubDate>Mon, 08 Jun 2026 18:24:04 +0800</pubDate>
     </item>
   </channel>
 </rss>
