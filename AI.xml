@@ -7,7 +7,154 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Jul 2026 08:45:15 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 22:38:24 +0000</lastBuildDate>
+    <item>
+      <title>零代码全栈开发实战：用AI Agent编排器Devon构建智能营销系统</title>
+      <link>https://www.youtube.com/watch?v=Vyyrvna-hUY</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=Vyyrvna-hUY"&gt;Devin AI: The Full Beginner’s Guide (Better Than Claude Code?)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Devon - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于多智能体协同网络，自动化执行代码编写、本地沙盒实时预览、数据库动态集成及云端自动化部署的无代码软件工程编排引擎。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言交互指令、视觉参考图像、本地静态素材、服务商鉴权凭证（GitHub/Supabase/Vercel Tokens）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：托管于 GitHub 并自动部署至 Vercel 的生产级响应式网页端应用，包含后端数据库（Supabase）直连的营销表单与多维数据可视化分析看板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Agents View（智能体视图）&lt;/strong&gt;：面向无代码用户的指令交互界面，通过自然语言调度多名 AI 协同作业。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sessions Board（会话看板）&lt;/strong&gt;：采用看板（Kanban）模式直观展示所有正在后台并发运行的 AI 智能体任务状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local Preview（本地预览）&lt;/strong&gt;：在本地计算机搭建轻量服务器实时运行并渲染应用程序，确保上线前的零成本安全测试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MCP (Model Context Protocol) Marketplace&lt;/strong&gt;：模型上下文协议插件市场，用于一键对接 Vercel、Supabase 等第三方底层基础设施。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：基础开发环境部署与本地站点初始化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：下载 Devon 客户端，初始化环境并生成首个个人响应式落地页。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已注册 GitHub 账户。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[软件下载]&lt;/strong&gt;：浏览器访问 &lt;code&gt;devon.ai&lt;/code&gt; -&amp;gt; 点击 &lt;code&gt;Download&lt;/code&gt; -&amp;gt; 选择对应的操作系统架构（macOS/Windows）进行安装。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[鉴权登录]&lt;/strong&gt;：启动 Devon -&amp;gt; 选择 &lt;code&gt;Sign in with GitHub&lt;/code&gt; 完成开发者凭证绑定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[模型选择]&lt;/strong&gt;：在聊天窗口的下拉模型选择器中，切换至目标推理模型（如：&lt;code&gt;GPT-5.6 Luna&lt;/code&gt; 或免费的 &lt;code&gt;GLM-5.2&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指令下达]&lt;/strong&gt;：在输入框输入任务描述（如：&amp;quot;请为 Riley Brown 检索互联网公开信息并构建一个精美的响应式个人主页，完成后在本地运行&amp;quot;）并回车。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[本地验证]&lt;/strong&gt;：待智能体执行完毕，点击右侧的 &lt;strong&gt;Local Preview&lt;/strong&gt; 按钮，在系统默认浏览器中打开并体验本地渲染生成的站点。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：第三方后端数据库（Supabase）集成与表单回传&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：接入结构化关系型数据库，实现前端营销表单（Lead Magnet）提交数据的云端持久化存储。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已注册并登录 Supabase 平台。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[工具连接]&lt;/strong&gt;：在 Devon 界面底部点击 &lt;strong&gt;open MCP marketplace&lt;/strong&gt; -&amp;gt; 找到 &lt;strong&gt;Supabase&lt;/strong&gt; 插件 -&amp;gt; 点击 &lt;strong&gt;Connect&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取凭证]&lt;/strong&gt;：访问 &lt;code&gt;supabase.com/dashboard/account/tokens&lt;/code&gt; -&amp;gt; 生成新的 Access Token 并复制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数注入]&lt;/strong&gt;：返回 Devon，将复制的 Token 粘贴至连接弹窗对应的输入框中 -&amp;gt; 点击 &lt;strong&gt;Add&lt;/strong&gt; 确认绑定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据库集成]&lt;/strong&gt;：向 Devon 发送指令：&amp;quot;请使用已接入的 Supabase 将此页面上的表单提交关联至云端数据库，确保保存用户的姓名、邮箱、粉丝数及平台偏好信息。&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据测试]&lt;/strong&gt;：在前端表单输入测试数据并提交 -&amp;gt; 登录 Supabase Dashboard -&amp;gt; 进入 &lt;strong&gt;Table Editor&lt;/strong&gt;（表编辑器） -&amp;gt; 选中 &lt;code&gt;guide_leads&lt;/code&gt; 对应数据表核实写入状态。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：密码安全防护的管理员数据看板搭建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：设计并实现一个仅限内部管理员访问、具备丰富数据维度与模拟数据支撑的可视化营销数据分析后台。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已成功完成场景 2 的数据库绑定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[安全访问控制]&lt;/strong&gt;：通过 prompt 告知 Devon 增加一条密码机制（如设定访问码为 &lt;code&gt;3694&lt;/code&gt;），用于对 &lt;code&gt;/dashboard&lt;/code&gt; 路径进行安全拦截。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据清洗与修正]&lt;/strong&gt;：在指令中显式命令将“最喜爱平台（Favorite Platform）”字段优化调整为“最大粉丝量平台（Biggest following platform）”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[大规模数据模拟]&lt;/strong&gt;：下达指令要求 Devon 执行数据自动生成逻辑，向数据库批量灌入 115 条符合现实画像的创作者模拟数据，以便进行看板测试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[看板渲染]&lt;/strong&gt;：自动生成各类可视化图表，展示核心数据切片（包含：创作者金字塔梯队分布、地域热点图、单平台粉丝总量排名及 CSV 数据导出功能）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：生产环境云端一键上线交付&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将本地通过测试的代码同步备份至 GitHub，并在生产服务器 Vercel 上实现全球公网访问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已注册 Vercel 账号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[接入 Vercel]&lt;/strong&gt;：在 Devon 的 &lt;strong&gt;MCP Marketplace&lt;/strong&gt; 激活 &lt;strong&gt;Vercel&lt;/strong&gt; 插件 -&amp;gt; 在弹出的浏览器中进行授权鉴权，选择目标子账户并确认允许全部项目导入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[云端推送]&lt;/strong&gt;：向 Devon 发送一键部署指令（例如：&amp;quot;请在 GitHub 上创建一个名为 &lt;code&gt;Riley-Land-Lead&lt;/code&gt; 的新公开仓库，保存当前全部代码，并自动部署至 Vercel。&amp;quot;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[上线验证]&lt;/strong&gt;：等待 Devon 后台自动创建 Git 仓库、上传源码并触发 Vercel 构建流水线。完成部署后，点击由 Vercel 分发的正式公网 URL 进行访问。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型选择下拉菜单 (Model Selector)&lt;/strong&gt;：控制执行任务的底层推理大脑。其中 &lt;code&gt;SWE 1.7&lt;/code&gt; 偏向底层逻辑重构，&lt;code&gt;Claude Fable 5&lt;/code&gt; 擅长创意前端实现，&lt;code&gt;GPT-5.6 Luna&lt;/code&gt; 与高配版的 &lt;code&gt;GLM-5.2&lt;/code&gt; 适合复杂的数据库联调与脚本生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Devon 界面切换器 (Editor vs. Agents View)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Editor 模式&lt;/strong&gt;：完全放开底层文件目录与代码编辑器，供具备代码背景的研发人员进行微观精准修改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agents 模式&lt;/strong&gt;：采用全自然语言会话流驱动，底层自动进行 Git 提交和冲突解决，适合非技术营销人员管理复杂应用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕敏感凭证泄露&lt;/strong&gt;：在向 Devon 下达密码保护和 API Key 关联时，必须确保 Supabase 的 &lt;code&gt;Service Role Key&lt;/code&gt; 和敏感密码不以明文硬编码的形式暴露在 GitHub 公开仓库中。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;依赖顺序锁定&lt;/strong&gt;：切勿在未连接 Supabase MCP 插件的情况下，直接命令 AI 编写数据库写入代码，否则极易生成充斥占位符的失效逻辑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;截图驱动式 UI 修正&lt;/strong&gt;：如果对生成的界面颜色、排版或按钮样式不满意，直接在操作系统中进行局部截图，并将图片贴入 Devon 聊天框中，配合简单评语（如“不喜欢这个褐色，请参考截图样式换成淡蓝色”），AI 的视觉识别模块可以精准捕捉定位并一键重构 UI。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;指令队列堆栈运行&lt;/strong&gt;：当智能体正在执行耗时较长的构建时，用户可以直接在输入框输入后续逻辑（如“继续生成 PDF 下载页”）并按回车。Devon 会自动将该指令置于队列（Queued）中，在上一个任务结束后无缝开始下一步，实现工作流无干预流水线操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=Vyyrvna-hUY</guid>
+      <enclosure url="https://i.ytimg.com/vi/Vyyrvna-hUY/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 16 Jul 2026 18:25:15 +0800</pubDate>
+    </item>
+    <item>
+      <title>对话本尼迪克特·埃文斯：撕开终极AI幻觉，重构技术变现的底层链条</title>
+      <link>https://www.youtube.com/watch?v=vDY_ocrkQ5w</link>
+      <description>&lt;p&gt;&lt;a href="UCUl-s_Vp-Kkk_XVyDylNwLA"&gt;Unsupervised Learning: With Jacob Effron&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=vDY_ocrkQ5w"&gt;Top AI Analyst Unpacks Today's AI Hype Cycle&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 &lt;strong&gt;物理极限未知的技术，我们该如何锚定其未来演进路径？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;💡 &lt;strong&gt;移动互联网的历史重演：为什么掏空钱包买算力的底层模型公司，可能成不了最后的赢家？&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;🚀 &lt;strong&gt;AI正在逐步蚕食高阶脑力劳动，这究竟是人类职业的末日，还是“杰文斯悖论”的又一次印证？&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 物理边界的“未知”与能力释放的“参差不齐”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;物理极限难以预测&lt;/strong&gt;: 与PC或智能手机时代不同，我们缺乏对大模型底层工作原理的科学解释。这导致AI的技术天花板无法被精准定量，从而引发了大规模的行业焦虑与乌托邦式的幻觉。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非线性的能力曲线 (Jagged Edge)&lt;/strong&gt;: AI展现出极其“参差不齐”的特征——它能完成极度复杂的17小时代码编写，却在极简单的常识判断上翻车。人类智力是多维的，不能用单一的线性尺度来度量AI的能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;放射科医生谬误 (Expert Fallacy)&lt;/strong&gt;: 杰夫·辛顿十年前断言应该停止培训放射科医生，但他并未理解医生工作的实际全貌。AI替代的是原子化的“任务（Tasks）”，而非由多元沟通与复杂决策组成的“职业（Jobs）”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 价值上移法则与底层模型的“管道化”危机&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大模型缺乏网络效应&lt;/strong&gt;: 与Windows操作系统的排他性或社交网络的强网络效应不同，目前头部大模型在性能上高度同质化。一旦资本门槛被跨越，底层模型极易走向恶性价格战与全面商品化（Commoditization）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重蹈移动运营商的覆辙&lt;/strong&gt;: 过去15年移动网络流量暴增数千倍，运营商在资本开支（CAPEX）上耗资数千亿，却几乎没有赚到超额利润。所有价值都顺着技术栈“向上迁移”，最终被Uber、YouTube和各类应用层捕获。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使能技术的宿命&lt;/strong&gt;: AI是一项伟大的使能技术（Enabling Technology），但正如电力的发明一样，最终获取最高利润的并不是发电厂，而是利用电力创造出洗衣机、工厂流水线的应用终端商。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 企业AI落地的“翻译官”困境与行动范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“工具建造者”缺失症&lt;/strong&gt;: 大多数普通员工不是工具构建者，更缺乏重新设计业务工作流的能力。直接丢给员工一个原始的AI对话框，最终只会产生浅浅的、低频的尝鲜式使用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;任务原子化拆解&lt;/strong&gt;: 深度剖析企业内部核心工作流，将岗位职责拆解为“高容错、高重复”的原子任务（如摘要生成、翻译、基础代码纠错），针对性引入AI模块。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;引入“前向部署工程师”&lt;/strong&gt;: 组建或聘请既懂大模型边界、又深刻理解企业数据架构的“翻译官”团队，负责将原生的API接口封装成符合特定行业习惯的业务SOP。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“AI包治百病”的数字转型陷阱。企业的核心数据壁垒、复杂的主权合规要求，决定了AI无法彻底跨越传统IT系统（如SAP、Workday）的集成壁垒。企业AI落地注定是一场漫长且伴随摩擦的渐进式转型，而非一蹴而就的魔法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “移动网络流量翻了上千倍，运营商投资了数千亿却几乎不赚钱，所有价值都被上层的Uber和YouTube吸走了。大模型同样面临这种被‘管道化’的致命风险。”&lt;/li&gt;
+&lt;li&gt;💬 “你不能通过假设‘一匹马是完美的球体’来预测马赛的输赢，把AI对职业的影响做成各种精美的雷达图，就是这种物理学家式的扯淡（Physicists' Horseshit）。”&lt;/li&gt;
+&lt;li&gt;💬 “如果底层模型的能力演进曲线放缓，那么所谓的算力护城河将在瞬间崩塌，技术优势将被极速抹平。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=vDY_ocrkQ5w</guid>
+      <enclosure url="https://i.ytimg.com/vi/vDY_ocrkQ5w/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 16 Jul 2026 13:00:05 +0800</pubDate>
+    </item>
     <item>
       <title>AI时代生存指南：从追逐概念转向重构底层手艺</title>
       <link>https://www.zengzhang.ai/p/aiep64-agent500ai-aiminimax</link>
@@ -104,6 +251,49 @@
       <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a57a05da4972c496dfc67f1?utm_source=rss</guid>
       <enclosure url="https://image.xyzcdn.net/FrCBZSIGv8StTNlNdSa674MAANUT.png" length="0" type="image/png"/>
       <pubDate>Thu, 16 Jul 2026 00:30:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>机器人进化的下一站：为何“分层控制”将重新击败端到端大模型？</title>
+      <link>https://sv101.fireside.fm/257</link>
+      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/sv101/rss"&gt;硅谷101&lt;/a&gt; | &lt;a href="https://sv101.fireside.fm/257"&gt;E244｜端到端vs上下分层：机器人路径之争，正在转向？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在真机数据极度匮乏的当下，Sim2Real（仿真到现实）是具身智能走向通用化的必由之路？&lt;/li&gt;
+&lt;li&gt;💡 相比于硅谷主流的“端到端”黑盒控制，为什么“上下分层结构”更有可能率先实现商业化落地？&lt;/li&gt;
+&lt;li&gt;🚀 机器人如何在完全陌生的无训练环境中，实现接近100%的开放世界零样本（Zero-Shot）精准抓取？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 具身智能的底层博弈：数据荒漠下的 Sim2Real 突围&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据极度稀缺瓶颈&lt;/strong&gt;: 机器人领域无法像自动驾驶那样，通过数百万辆车在现实中积累TB级数据。让人类穿着动捕服在家里做饭标数据难以规模化落地。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高保真仿真器的进化机制&lt;/strong&gt;: 既然现实数据不够，就必须在虚拟世界中模拟人类与生物数百万年的进化过程。通过高性能仿真器，在一张 GPU 上并行开出百万个环境，不追求画面的高分辨率与观赏性，而是极致逼近牛顿力学、摩擦力、形变等物理法则，实现毫米级的几何理解。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 软硬一体化与分层控制架构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;上层常识规划 (High-Level Planning)&lt;/strong&gt;: 利用大语言模型进行长程任务拆解（如“去冰箱拿水倒满水杯”），生成步骤思维链。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;底层动作控制 (Low-Level Manipulation)&lt;/strong&gt;: 由强绑定的软硬件一体化系统执行具体动作，通过闭环控制算法在亚毫米级误差内动态调整力反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态噪声自适应&lt;/strong&gt;: 在仿真阶段引入电机响应迟滞、机械噪声等硬件个体差异扰动，提高真机在物理世界的容错能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免依赖纯软件模型去适配第三方硬件，缺乏软硬强耦合的“裸模”无法有效消除 Sim2Real 差异（Gap）。&lt;/li&gt;
+&lt;li&gt;避免在通用控制成熟前过度追求昂贵且不稳定的五指灵巧手，绝大多数日常操作仅需稳定且低成本的二指夹爪即可完成。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “从今年下半年开始，上下分层的这种结构会重新再回到主流里面，这可能是最终走向商业化最有效的方法。”&lt;/li&gt;
+&lt;li&gt;💬 “机器人的仿真不需要它看起来很真实，而是要求底层物理一致性上尽可能接近真实，必须在真实和效率之间做大量的取舍设计。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://sv101.fireside.fm/257</guid>
+      <enclosure url="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/f/f0f20376-8faf-4940-b920-84af6c734e2d/cover.jpg?v=6" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>从末日预言到理性构建：AI舆论场正迎来谨慎乐观的范式转型</title>
@@ -259,6 +449,112 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=uzYLYlaGAZA</guid>
       <enclosure url="https://i.ytimg.com/vi/uzYLYlaGAZA/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 15 Jul 2026 15:08:28 +0800</pubDate>
+    </item>
+    <item>
+      <title>掌握GPT-5.6与Codex：从零构建AI首席幕僚与个人数字化操作系统</title>
+      <link>https://www.youtube.com/watch?v=WLg9qWOf6zw</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=WLg9qWOf6zw"&gt;How I Use ChatGPT Work and GPT-5.6 to Do Everything (Beginner Tutorial)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ ChatGPT &amp;amp; Codex - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于桌面端底层API与插件生态，通过定制指令与跨应用工作流实现本地及云端的自动化任务执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户提示词、Gmail邮件、Google Calendar日程、外部PDF文件及系统剪贴板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化邮件回复、已排程的日历事件、结构化Google Docs文档、交互式HTML网站（Sites）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Codex / ChatGPT Work&lt;/strong&gt;：桌面端的高级交互模式，支持更强的跨应用操作与开发者专用功能（如 Pull Requests）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Soul / Terra / Luna&lt;/strong&gt;：GPT-5.6 的三种模型版本，智能度与Token消耗依次递减。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sites&lt;/strong&gt;：Codex提供的一种原生网页发布功能，可将聊天生成的HTML代码一键部署为交互式网站。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：初始化配置与定制化环境搭建&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：消除AI回复冗余（AI Slop），确保模型理解个人背景并提供高专业度的技术反馈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装并登录 ChatGPT 桌面端应用（不推荐网页端）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[导航路径]&lt;/strong&gt;：点击 &lt;strong&gt;Settings&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Personalization&lt;/strong&gt; -&amp;gt; 打开 &lt;strong&gt;Custom Instructions&lt;/strong&gt; 面板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数配置]&lt;/strong&gt;：在“关于我”中注入专业背景及学习诉求（如要求解释系统架构与API）；在“如何回复”中设定四大原则：&lt;ul&gt;
+&lt;li&gt;严格限制代码块仅用于真实代码。&lt;/li&gt;
+&lt;li&gt;保持坦诚、好奇并敢于适度反驳（纠正AI一味逢迎的倾向）。&lt;/li&gt;
+&lt;li&gt;使用主动语态，彻底消除“AI Slop”冗余词汇。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[插件装载]&lt;/strong&gt;：导航至 &lt;strong&gt;Plugins&lt;/strong&gt;，一键安装核心效率套件：&lt;code&gt;Gmail&lt;/code&gt;、&lt;code&gt;Google Calendar&lt;/code&gt;、&lt;code&gt;Documents&lt;/code&gt;、&lt;code&gt;Presentations&lt;/code&gt;、&lt;code&gt;Spreadsheets&lt;/code&gt;、&lt;code&gt;Google Drive&lt;/code&gt;，以及 &lt;code&gt;PDF&lt;/code&gt;、&lt;code&gt;Slack&lt;/code&gt;、&lt;code&gt;Notion&lt;/code&gt;、&lt;code&gt;Figma&lt;/code&gt;、&lt;code&gt;RemNote&lt;/code&gt;等扩展插件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：构建 AI 首席幕僚（Chief of Staff）处理日常邮件与日程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：自动清理垃圾邮件、提取待办事项并智能化管理日历。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已启用 Gmail 与 Google Calendar 插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[信息提取]&lt;/strong&gt;：在独立会话中输入指令：&lt;code&gt;检查过去3天的邮件，列出前5个待办事项及可退订的列表，并附带原邮件链接&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自动化退订]&lt;/strong&gt;：针对退订列表，向 Codex 下达指令，允许其通过浏览器自动打开对应邮件并执行退订点击。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[声音复刻与回复]&lt;/strong&gt;：向 Codex 发送指令：&lt;code&gt;分析我已发送的邮件，创建 /email 技能以模拟我的语气撰写回复&lt;/code&gt;。测试并微调生成的技能，确认无误后调用 &lt;code&gt;Gmail&lt;/code&gt; 插件发送邮件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[智能排程]&lt;/strong&gt;：直接输入口语化指令（如“预订本周五 9:00 PST 与 Char 15分钟的 Google Meet 会议”），Codex 自动检索冲突日程、分配会议链接并写入日历。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：自动化会议准备（Podcast Prep）与主动工作流排程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将繁琐的背景调查与文档撰写转为自动定时任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已配置 Google Docs 插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[任务执行]&lt;/strong&gt;：运行 &lt;code&gt;podcast prep&lt;/code&gt; 技能。输入目标嘉宾的背景材料，Codex 自动进行全网检索并输出结构化采访大纲。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[文档导出]&lt;/strong&gt;：指令 Codex 将生成的完整采访指南直接写入并新建一个 Google Doc。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[排程触发]&lt;/strong&gt;：向 Codex 下达指令：&lt;code&gt;创建一个定时任务，每周五早 7:00 自动执行上述邮件、日程审查及会议准备工作流&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：移动端远程协同控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在离家或移动场景下，通过手机无缝调用电脑端的 Codex 算力与本地插件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：手机安装 ChatGPT App，电脑端安装防休眠工具 &lt;code&gt;Amphetamine&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[防休眠配置]&lt;/strong&gt;：在 Mac 端打开 &lt;strong&gt;Amphetamine&lt;/strong&gt;，设定保持清醒的具体时长（如数小时）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[远程连接]&lt;/strong&gt;：在手机端 ChatGPT App 中点击菜单，进入 &lt;strong&gt;Remote&lt;/strong&gt;（远程）模式，即可实时读取并操作电脑端的 Codex 线程。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 5：零代码交互式网站快速发布（Sites）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将静态的规划文本或教学需求转化为直观、可分享的网页。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：使用 GPT-5.6 生成完整的 HTML/CSS 结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[生成与转换]&lt;/strong&gt;：在 Codex 中完成页面交互设计后，输入指令：&lt;code&gt;将此内容转换为 Site 页面&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[预览与部署]&lt;/strong&gt;：点击 Codex Sites 原生浏览器预览，确认无误后可一键发布（支持私人分享或公开访问）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型选择 (Model)&lt;/strong&gt;：&lt;code&gt;GPT-5.6 Soul&lt;/code&gt; -&amp;gt; 提供最强通用智能与逻辑规划能力，建议作为默认主力模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;努力程度 (Effort Levels)&lt;/strong&gt;：&lt;code&gt;Medium Effort&lt;/code&gt;（中等努力）-&amp;gt; 智力输出与 Token 消耗的黄金平衡点，适用于 90% 任务；&lt;code&gt;High Effort&lt;/code&gt;（高等努力）-&amp;gt; 适用于超长代码编写或极度复杂的系统架构规划。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;线程组织 (Threads Grouping)&lt;/strong&gt;：&lt;code&gt;长生命周期单线程 (Long-running thread per workflow)&lt;/code&gt; -&amp;gt; 针对单一工作流（如首席幕僚、特定项目）持续在同一个线程内对话。Codex 具备自动压缩历史上下文的能力，可有效避免长对话导致的Token溢出与记忆混淆。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;电脑休眠会导致手机端 &lt;strong&gt;Remote&lt;/strong&gt; 连接彻底中断。必须使用类似 &lt;strong&gt;Amphetamine&lt;/strong&gt; 的工具强制维持电脑开机状态。&lt;/li&gt;
+&lt;li&gt;严禁直接信任并发布 Codex 生成的自动化“技能（Skills）”。必须通过小范围测试和反复迭代微调，确保AI理解其边界后再投入生产。&lt;/li&gt;
+&lt;li&gt;GPT-5.6 存在盲目迎合用户假设的倾向。必须在 Custom Instructions 中强制写入“candid and thoughtful”等抗迎合指令，迫使其提供客观、有批判性的技术方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;快捷键导航&lt;/strong&gt;：在 Mac 端长按 &lt;code&gt;#&lt;/code&gt;（Pound 键）加数字，可快速在 Pin 住的常用线程之间进行无缝切换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多端同步&lt;/strong&gt;：若同时使用 Claude Code，可在本地配置 &lt;code&gt;Symlink&lt;/code&gt;（符号链接），使 ChatGPT Work、Codex 与 Claude 共享同一个本地指令技能文件夹。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=WLg9qWOf6zw</guid>
+      <enclosure url="https://i.ytimg.com/vi/WLg9qWOf6zw/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 15 Jul 2026 13:00:28 +0800</pubDate>
     </item>
     <item>
       <title>穿越时空的进球：利用Gemini AI重构球王贝利消失的“最美瞬间”</title>
@@ -4991,203 +5287,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=8OOuCnZB-4o</guid>
       <enclosure url="https://i.ytimg.com/vi/8OOuCnZB-4o/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 19 Jun 2026 14:00:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>7.5万亿美元的具身智能风口：2026商业化元年背后的硬件降本死局与中国供应链重塑</title>
-      <link>https://www.bilibili.com/video/BV1xQja61ED2</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546879438621114"&gt;全球宏观洞察&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xQja61ED2"&gt;大摩研报深度解读：亚洲机器人与人形机器人（具身AI最大机遇，2050年TAM达7.5万亿美元）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在大脑无所不能的数字世界，AI一旦硬塞入物理肉身就会遭遇“摩擦力降维打击”？&lt;/li&gt;
-&lt;li&gt;💡 48%的企业将“2.8万美元”视为普及引爆点，如何将百万造价的机器降至经济型代步车价格？&lt;/li&gt;
-&lt;li&gt;🚀 减速器需求爆发性增长1904倍的背后，预示着资本、产能与地缘供应链怎样的版图重组？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 2026具身智能商业化：为什么说今年是产业落地的绝对元年？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;物理世界对虚拟精确性的残酷解构&lt;/strong&gt;: 在数字世界中试错成本几乎为零。然而，一旦AI大脑试图控制金属躯壳去拧开水瓶、搬运纸箱，引力、摩擦力及材料损耗等物理碰撞会疯狂施加阻力，优雅的算法瞬间变成极度复杂的物理对抗。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从Demo走向试点部署的临界点&lt;/strong&gt;: 摩根士丹利指出，2024和2025年见证了机器人运动性能的跃迁（静态展示与demo），而2026年则是从小规模试点部署走向广泛商业化的元年。到2050年，该领域的潜在市场规模（TAM）将达到惊人的7.5万亿美元。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 2.8万美元“生死线”下的硬件降本暴利革命&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代步车级别的价格甜蜜点&lt;/strong&gt;: 调研显示，48%的企业认为，只有单台机器人成本降至1.4万至2.8万美元（约合10万至20万人民币）这一“代步车区间”时，市场才会迎来广泛爆发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;主战场的维度转移&lt;/strong&gt;: 决定商业化生死的根本不是大模型等软件层面的高深，而是硬件物料清单（BOM）的极致压榨。只有能实现高精度且成本极低的核心部件，AI大脑才不会沦为温室里昂贵的科技玩具。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 1904倍爆发式增长：为何“减速器”成了机器人的核心命脉？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;关节软骨的核心角色&lt;/strong&gt;: 减速器在机器人体内的作用类似于人类的关节软骨。电机的快转速和控制盲点，必须通过高精度的减速器转化为精准平稳、有力度的动作，否则钢铁机器人根本无法平稳端起一杯滚烫的咖啡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;资本与产能的疯狂涌入&lt;/strong&gt;: 预测到2050年，电机的需求增长370倍，轴承增长157倍，而减速器将爆发性增长1904倍。以往的高端定制品正被迫向亿级产能、白菜价倾斜，倒逼整个基础工业链体系重构。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 中国供应链的绝对统治力：政策红利与本土制造的双轮驱动&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;政策红利与真金白银&lt;/strong&gt;: 中国“十四五”规划将机器人列为战略新兴产业。上海、深圳、北京等地推出百亿级产业规划及高达30%的研发补贴，全国累计超过270亿美元的政府引导基金强力注资。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;降本飞轮与应用落地&lt;/strong&gt;: 2025-2030年中国机器人出货量复合增长率预计达85%。中国除了芯片这一软肋，电池、电机、减速器等几乎完全实现国产化配套，极具场景适配优势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锁定单一受控场景&lt;/strong&gt;: 优先在环境规则、高度可控的闭环场景（如宁德时代的包装线、顺丰分拣、美的洗衣机产线）进行机器人试水部署，而非一开始就挑战复杂的无序环境。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;以“足够便宜”切入现场&lt;/strong&gt;: 放弃追求实验室里完美无缺的艺术品，先以成本可控的方案切入产业一线，依靠真实物理世界的交互，构建独有的数据回传和迭代飞轮。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕“波士顿动力式”的战略误区。过度偏向基础研究、实验室属性过重，导致AI视觉感知落后且造价昂贵，极易在早期商业化竞争中被主打工程落地和极致性价比的敏捷同行淘汰。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “AI大脑再聪明，如果没有高精度且成本极低的硬件支撑，它就永远只能是个养在温室里的昂贵玩具。”&lt;/li&gt;
-&lt;li&gt;💬 “在颠覆性创新的初期，造得便宜往往比造得完美更重要，商业化最终拼的是工程落地能力和生态的整合。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xQja61ED2</guid>
-      <enclosure url="http://i2.hdslb.com/bfs/archive/524e4afd0b08fb61e15ad8e77712f3fca9d553f0.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 18 Jun 2026 23:28:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI培训：撬动全球经济增长的最后杠杆</title>
-      <link>https://www.youtube.com/watch?v=v3jwNZ94GLo</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=v3jwNZ94GLo"&gt;Why Only AI Training Can Save the Economy&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为何单纯的算力投入已触及边际效益递减的临界点？&lt;/li&gt;
-&lt;li&gt;💡 为什么从“辅助型AI”转向“智能体协作”是当下企业的生死之战？&lt;/li&gt;
-&lt;li&gt;🚀 为什么“AI培训”将决定未来知识型经济的生产力上限？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 算力资本的虚妄与AI经济的真相&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基建泡沫陷阱&lt;/strong&gt;: 美国GDP中AI基础设施投入占比激增，但这种增长正面临严重挑战。企业正在从“随意采购”转向“Token使用效率”控制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;智能体转型逻辑&lt;/strong&gt;: AI经济的增长重心已由“单点辅助”向“代理机制（Agentic）”迁移，单人使用成本已从每月几十美元激增至数千美元，这直接导致了企业AI预算的严重超支。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 解决生产力“空转”的关键路径&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;建立管理范式&lt;/strong&gt;: 将AI管理从单纯的“提示词工程”提升至“智能体管理（Agent Management）”的高度，这更类似于对人类员工的协同管理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型路由与优化&lt;/strong&gt;: 强制执行“任务适配模型”，将高成本模型仅用于关键任务，通用性任务路由至轻量化或垂直化模型，降低Token成本。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;沙箱式实验&lt;/strong&gt;: 设立专门的AI沙箱环境，鼓励员工进行“自下而上”的实验，避免过度管控导致的 ROI 偏见。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕“预算上限（Caps）”导致的思维禁锢，防止因为成本控制而扼杀了深层次的创新使用案例。&lt;/li&gt;
-&lt;li&gt;避免仅依靠视频课程获取“虚假信心”，务必通过实战化的项目部署完成能力闭环。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “现在的AI行业已彻底转变为Token效率竞争业务，所有企业都在寻找降低成本的方法。”&lt;/li&gt;
-&lt;li&gt;💬 “管理智能体不是软件训练，而是全新的管理训练，每个知识工作者都必须掌握这个原始能力。”&lt;/li&gt;
-&lt;li&gt;💬 “预算审查虽然合理，但会推着企业走向‘已知回报偏差’，从而彻底丧失创造新价值的能力。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=v3jwNZ94GLo</guid>
-      <enclosure url="https://i.ytimg.com/vi/v3jwNZ94GLo/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 18 Jun 2026 17:29:26 +0800</pubDate>
-    </item>
-    <item>
-      <title>增长黑客AI周报：当AI进入消费与决策领域， Agent将如何重塑生产力边界</title>
-      <link>https://www.zengzhang.ai/p/aiep61-aiagentai4sloop-engineering</link>
-      <description>&lt;p&gt;&lt;a href="https://www.zengzhang.ai/feed"&gt;AI Growth Hacking Weekly · 增长黑客AI周报&lt;/a&gt; | &lt;a href="https://www.zengzhang.ai/p/aiep61-aiagentai4sloop-engineering"&gt;【增长黑客AI周报】EP#61 AI股神、瑞幸Agent点咖啡、漫剧赚钱、AI4S、钉钉新掌舵、美图会员、Loop Engineering等&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当消费决策权由人类转移至Agent时，品牌如何在新商业生态中生存？&lt;/li&gt;
-&lt;li&gt;💡 为什么衡量AI产品成功与否的指标不是用户量，而是大额付费用户的留存率？&lt;/li&gt;
-&lt;li&gt;🚀 当AI干活速度远超人类提出需求的速度，生产力瓶颈如何从工具切换至人的认知本身？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知结构：AI对物理世界与组织的重构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Agent驱动的消费入口重塑&lt;/strong&gt;: 品牌必须主动将业务接口嵌入Agent工具箱，否则将被自动排除在消费决策路径之外。例如瑞幸接入CLI允许Agent点餐，虽处于早期实验阶段，但标志着实体商业对自动化消费协议的接纳。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI Native组织的效率悖论&lt;/strong&gt;: 传统组织的流程沉淀常成为AI降速的阻碍。组织需实现管理上的“放手”，允许AI直接接管任务流，效率提升可达十倍量级。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 知识落地与行动范式&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建资产组合&lt;/strong&gt;: 内容创作者应建立可调用的个人资产库（如人像资产、封面图模版），以抵抗平台端的同质化冲击。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;投资决策量化&lt;/strong&gt;: 利用AI将碎片化观点（如“白毛股神”）聚合为可查询的多空地图，建立基于频率与立场标签的投资视野。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SEO自动化情报&lt;/strong&gt;: 利用任务自动化（如Grok+自动化脚本）监控细分领域专家情报，每日5分钟实现信息差消除。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;AI漫剧赛道竞争残酷，仅靠平台分账难以获利，核心盈利点已转向头部IP化运营或合规化服务提供。&lt;/li&gt;
-&lt;li&gt;盲目追求AI直出UI（如Figma设计稿）往往不可用，应采取“AI探索视觉方向+人工整理结构”的复合工作流。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “当 AI 能替人消费时，品牌不主动嵌入 Agent 工具箱，就会被 Agent 忽略。”&lt;/li&gt;
-&lt;li&gt;💬 “人参与流程，恰恰是给 AI 降速的原因。”&lt;/li&gt;
-&lt;li&gt;💬 “真正的对手不是同类产品，而是客户愿不愿意采用先进工具。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.zengzhang.ai/p/aiep61-aiagentai4sloop-engineering</guid>
-      <pubDate>Thu, 18 Jun 2026 14:00:30 +0800</pubDate>
-    </item>
-    <item>
-      <title>成为Agent Native：重塑未来工作流的AI智能体九大演进趋势</title>
-      <link>https://www.youtube.com/watch?v=vhyna9ur6Gc</link>
-      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=vhyna9ur6Gc"&gt;9 AI Agent Skills To Get Ahead of 99% of People&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么疯狂堆砌提示词参数的“黑客时代”已经终结，真正的“自然语言描述者”将继承世界？&lt;/li&gt;
-&lt;li&gt;💡 当AI智能体开始全权控制计算机并自主更新技能，人类的核心竞争优势将退缩至何处？&lt;/li&gt;
-&lt;li&gt;🚀 面对极度昂贵的前沿模型与性价比奇高的开源模型，企业如何重构其Token预算策略？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 从“提示词黑客”到“自然语言描述”：人机交互的终极简化&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;“描述即命令”的时代到来&lt;/strong&gt;: AI模型正在变得极其聪明，过去复杂的提示词技巧（如&amp;quot;I want you to act as...&amp;quot;）和文件手动管理已经失效。用户只需用自然语言描述最终期望的目标，AI即可自主解析并执行。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;技能（Skills）的自我进化与装配&lt;/strong&gt;: 技能是智能体执行特定任务的指令集。现在的趋势是，用户只需命令智能体“做好一件事”，并要求“将其固化为技能”，智能体就会在后台自动生成并动态更新。未来，智能体将根据人类的交互反馈，实现技能的自我迭代与自组装。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼转译（Wi-Fi化智能）&lt;/strong&gt;: AI智能体就像Wi-Fi一样，正在隐入我们日常使用的工具背景中。你不需要知道路由器是如何工作的，你只需要知道如何向它索取网络连接。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 智能体超级App与异步自动化工作流&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;超级App平台的崛起&lt;/strong&gt;: 以Codeex、Claude Code等为代表的智能体平台正在进化为通用超级App。它们集成了多线程并行对话、端到端自动化、内置浏览器以及应用托管功能，使用户可以在单一界面内完成所有知识性工作。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;日常任务技能化&lt;/strong&gt;：遇到高频重复工作，先要求AI执行，优化满意后直接下达指令：“将此流程固化为名为 [X] 的技能”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非线性多任务并行&lt;/strong&gt;：利用超级App（如Codeex）的快捷键（如 &lt;code&gt;Cmd+N&lt;/code&gt;）开启多个并行任务，让不同智能体在后台同步进行邮件汇总、日程安排和代码分析。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自然语言构建自动化（Cron Job）&lt;/strong&gt;：无需复杂的Zapier流，直接用日常自然语言命令AI：“每天早上9点，帮我搜集最新的 [主题] 资讯并自动生成摘要”。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;避免陷入手动管理细节的误区，过度使用底层API调试，应优先使用平台自带的“计算机使用（Computer Use）”和浏览器集成工具。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 算力预算分化时代：前沿大模型与开源平替的平衡&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;高昂的前沿Token成本&lt;/strong&gt;: 前沿智能体（如Fable 5等）的调用成本极高，复杂开发任务在API层面的开销巨大。企业和个人必须学会对任务进行“Token预算管理”（Token Budgeting）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;开源模型（以GLM 5.2为代表）的平替崛起&lt;/strong&gt;: 开源模型在前端设计和通用能力上已经逼近前沿模型，但成本却低数倍。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;配置中枢Open Router&lt;/strong&gt;：使用 Open Router 统一获取各类开源与商业模型的API Key，实现跨模型一键调用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;模型分级分流&lt;/strong&gt;：将高成本、重逻辑推理的“攻坚任务”分配给前沿模型；将重复性、格式化、前端设计等高频调用任务分流给 GLM 5.2 等高性价比开源模型。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “能将自己想要的东西描述得最清楚的人，将继承这个世界。唯一持久不变的提示词秘籍，就是准确描述你想要的目标。”&lt;/li&gt;
-&lt;li&gt;💬 “在智能体无处不在的新世界里，你如果是一个优秀的管理者，你就会成为一个出色的AI智能体经理。因为和智能体沟通，很快会变得像和人类沟通一样自然。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=vhyna9ur6Gc</guid>
-      <enclosure url="https://i.ytimg.com/vi/vhyna9ur6Gc/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 18 Jun 2026 02:27:07 +0800</pubDate>
     </item>
   </channel>
 </rss>
