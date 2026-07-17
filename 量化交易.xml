@@ -7,7 +7,45 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Jul 2026 22:38:24 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2026 08:39:58 +0000</lastBuildDate>
+    <item>
+      <title>拒绝手动抄写：利用 Python API 自动过滤币安链上美股 bStocks 黑名单</title>
+      <link>https://bbs.quantclass.cn/thread/87798</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87798"&gt;告别手抄黑名单：用 API 获取最新的币安现货 bStocks 清单&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[API逆向、资产分类过滤、量化实盘风控、python-binance]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过未公开的前端产品接口，程序化自动过滤币安美股代币（bStocks）黑名单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：代币化证券（bStocks）波动特征异于常规加密货币，混入选币池会污染策略信号。官方 &lt;code&gt;/api/v3/exchangeInfo&lt;/code&gt; 接口未提供 &lt;code&gt;assetType&lt;/code&gt; 等分类字段，导致传统黑名单依赖手动维护，存在滞后性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于 &lt;code&gt;python-binance&lt;/code&gt; SDK，结合币安 Web 端未公开的公共产品目录接口 &lt;code&gt;/bapi/asset/v2/public/asset-service/product/get-products&lt;/code&gt; 进行数据清洗。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑与实现】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;调用 &lt;code&gt;get_products()&lt;/code&gt; 接口，筛选出 &lt;code&gt;tags&lt;/code&gt; 包含 &lt;code&gt;&amp;quot;bStocks&amp;quot;&lt;/code&gt; 的 symbol 集合。&lt;/li&gt;
+&lt;li&gt;调用 &lt;code&gt;get_exchange_info()&lt;/code&gt; 获取当前所有状态为 &lt;code&gt;TRADING&lt;/code&gt; 且允许现货交易（&lt;code&gt;isSpotTradingAllowed&lt;/code&gt;）的活跃交易对。&lt;/li&gt;
+&lt;li&gt;取两者交集，生成最新最准的活跃 bStocks 黑名单。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;非官方API风险&lt;/strong&gt;：&lt;code&gt;get_products&lt;/code&gt; 为前端展示接口，无官方文档保证，字段和路径可能无通知变更。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;异常容灾机制&lt;/strong&gt;：由于是 Web API，若请求失败，不可默认返回空列表（这会导致美股代币混入选币池），必须采取“降级回退”策略，使用上一次成功缓存的黑名单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;工程集成&lt;/strong&gt;：在实盘框架定时刷新 &lt;code&gt;exchangeInfo&lt;/code&gt;（如每日一次）的任务中，同步并入 &lt;code&gt;get_products()&lt;/code&gt; 请求，动态更新过滤名单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全防线代码化&lt;/strong&gt;：实现本地缓存（如 JSON 或 Redis），当 &lt;code&gt;get_products&lt;/code&gt; 请求异常时，自动 fallback 到缓存名单，确保过滤机制不穿透。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87798</guid>
+      <pubDate>Fri, 17 Jul 2026 13:26:45 +0800</pubDate>
+    </item>
     <item>
       <title>Quant-Data-D1：基于 DuckDB 和 Arrow Flight 的 QMT 全市场数据标准化方案</title>
       <link>https://bbs.quantclass.cn/thread/87625</link>
@@ -38,6 +76,42 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87625</guid>
       <pubDate>Tue, 14 Jul 2026 23:16:53 +0800</pubDate>
+    </item>
+    <item>
+      <title>大众买卖信号的失效边界与反身性反思：从追涨到拥挤交易的实证研究</title>
+      <link>https://bbs.quantclass.cn/thread/87687</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87687"&gt;所有人都知道的买卖点，还有效吗？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[反身性、事件研究、拥挤交易、信号衰减、过滤机制]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：大众买卖信号呈现显著非对称性，拥挤交易导致中期反转而非即刻无效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：买卖信号表现非对称。放量突破作为买点中期表现偏弱（常识反转），而放量破位作为卖点仍具延续性。市场对看多信号的追涨共识极易导致买盘透支。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：看多共识极易通过追涨转化为买盘，而看空共识难以转化为同等力度的空单。放量突破信号在短期自我实现后，因买盘边际枯竭引发中期反转。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：大众熟知的技术指标（MACD金叉、放量突破等）并非对称的交易信号，盲目反做亦可能仅造成交易损耗，需重新定义其有效窗口期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：信号的“拥挤度”应通过关注度指标（如热股排行）动态调整权重；应验证“关注度升温—信号出现—超额收益衰减”的因果链路。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用大众交易信号的“拥挤程度”作为负向过滤器，剔除潜在透支的动量区间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用等权组合对冲全市场基准，按交易日而非事件个体统计t值以规避样本虚增。重点关注T+1至5日持有期的有效度变化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在小市值策略中引入“避开放量突破”过滤器，年化收益从19.44%提升至20.51%，但系统性回撤风险无法通过单纯信号过滤化解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：过滤器会导致调仓路径改变，引发较高的换手成本；且信号有效性具有市场状态依赖性，并非跨周期的稳健因子。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;【行动点1】将“大众热门指标”从信号源降级为“过滤器”。编写Pipeline逻辑：当选股策略触发标的同时存在高关注度放量突破信号时，强制推迟入场。&lt;/li&gt;
+&lt;li&gt;【行动点2】建立分时段有效度矩阵。对信号进行跨度为1-5日的收益衰减曲线分析，明确策略在不同持有期下的Alpha贡献峰值。&lt;/li&gt;
+&lt;li&gt;【行动点3】构建信号拥挤度监控体系。引入第三方社交数据或搜索热度作为独立特征，利用Benjamini–Hochberg方法修正多重检验下的假发现率，避免伪显著因子进入实盘。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87687</guid>
+      <pubDate>Tue, 14 Jul 2026 18:28:49 +0800</pubDate>
     </item>
     <item>
       <title>深度拆解做空策略：通过新币生命周期与相关性过滤实现超额收益优化</title>
@@ -4283,85 +4357,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86764</guid>
       <pubDate>Fri, 12 Jun 2026 16:17:58 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于市场状态切换与抱团率逻辑的结构化Alpha策略二次魔改与工程化实践</title>
-      <link>https://bbs.quantclass.cn/thread/86763</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86763"&gt;魔改结构化Alpha，当前是否为最好入场点！（更新2.0）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与深度思考 / 策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[结构化Alpha、抱团率、状态机切换、仓位管理、风险控制]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过引入抱团率与市场成交分位，对传统三状态决策树进行策略优化与工程拆解。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：抱团率（前5%股票成交额占比）是刻画A股风格切换的高效指标；高位回落通常预示资金向中小票扩散，而非单纯依赖低抱团率触发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：成交额集中度反映了市场流动性在核心资产与题材股之间的分配博弈。抱团瓦解阶段，资金流出的溢出效应带动中小票弹性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：防守阶段并非所有大票均同步受损，成交活跃度分位（MA5/MA20区间）可区分流动性驱动的防守行情与防御性的低波行情。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于“常规（动量/宽基）- 防守（低波/行业抱团）- 小票（抱团回落驱动）”三状态切换的决策树体系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;抱团率：$成交额_{top5%}/成交额_{total}$。&lt;/li&gt;
-&lt;li&gt;否决逻辑：当大盘防守触发且小票指数（如SH932000）处于5日/20日收益为负且加速下跌时，否决小票模式切换。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测表现】&lt;/strong&gt;：魔改版年化收益率48.52%，收益回撤比2.04，在2020-2025年间较原版显著提升。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：原策略将状态判断、子策略选股耦合，导致参数拟合重灾区且难以维护。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：引入“仓位管理层（State Machine）”与“子策略层”解耦架构，通过 &lt;code&gt;info.position_state&lt;/code&gt; 标记策略状态归属，实现配置驱动型策略开发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：通过状态因子（抱团率均线模式）替代锚定阈值，减少了对特定阈值的硬性拟合，提升了策略稳健性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[策略优化]：将抱团率由单纯的选股过滤因子提升为全局状态机决策因子，计算逻辑需包含全市场数据以防失真。&lt;/li&gt;
-&lt;li&gt;[工程重构]：参照仓管版结构，将状态判断逻辑（如动量判断、成交额分位）从策略核心算法中剥离，通过&lt;code&gt;config&lt;/code&gt;配置注入，实现多子策略并行回测与自动切换。&lt;/li&gt;
-&lt;li&gt;[风控加强]：部署“小票加速下跌否决”逻辑，在系统性防御阶段过滤小票切换，降低极端行情下的回撤敞口。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86763</guid>
-      <pubDate>Fri, 12 Jun 2026 15:18:31 +0800</pubDate>
-    </item>
-    <item>
-      <title>定风波2026“失效”幻觉：日内浮亏放大与持有期保护的认知错位</title>
-      <link>https://bbs.quantclass.cn/thread/86758</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86758"&gt;2026，定风波真的更容易骗人……吗？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[择时体验衰减, 盈亏体感错位, 反事实保护, 日内价格路径]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：2026年定风波开仓日内浮亏率飙升至64.29%引发失效幻觉，但周期胜率及空仓避险价值依然稳健。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：2026年定风波开仓后“当天即跌”的概率高达64.29%（年度首位），但完整持有周期的被骗率仅32.50%（低于历史均值）。日内先跌的批次中有61.54%在周期结束时实现转正，日内体感与周期真实表现存在严重错位（一致率仅62.71%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：负反馈体验源于心理偏差。开仓亏损在账户中实时可见（损失厌恶），而空仓成功避开的亏损（空仓批次中63.08%随后下跌，均幅-3.94%）属于看不见的“反事实保护”。此外，2026年创下连续8次日内被骗的历史极限记录，强化了负面记忆。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“高抱团或微盘拥挤导致策略失效”的直觉。统计表明成交抱团度与总被骗率几乎无相关性（Spearman系数为-0.002）；2026年处于极低微盘成交份额与高日内被骗率的异常背离区，说明传统宏观成交占比指标无法解释日内价格走势的漂移。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：定风波策略的核心价值不仅在于多头开仓收益，更在于高准确度的“空仓过滤”（反事实保护），强行全开仓将使周期平均收益由+0.513%降至-0.224%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：研究引入日内体感（09:50至收盘）与持有周期（09:50至下周期09:45）双维度，以揭示评估周期错配引发的认知偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：2026年虽周期胜率未衰减，但开仓当天的微观价格路径严重恶化，对交易者的实盘心理和资金占用构成极大挑战。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【执行算法优化】&lt;/strong&gt;：鉴于开仓首日高概率（64.29%）冲高回落且后期多有修复，不应直接推翻择时逻辑，而应转向研究09:45后的日内价格路径（如回撤幅度、尾盘承接），考虑引入分批建仓或限价单机制以优化入场点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【多维回测评估】&lt;/strong&gt;：在策略评价体系中，除标准周期收益外，需增设“首日最大回撤（Entry-Day MDD）”及“反事实避险期望值”，定量衡量实盘可执行性与心理摩擦成本。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86758</guid>
-      <pubDate>Fri, 12 Jun 2026 13:03:13 +0800</pubDate>
     </item>
   </channel>
 </rss>
