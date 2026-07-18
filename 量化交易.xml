@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Jul 2026 08:39:58 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 08:39:24 +0000</lastBuildDate>
     <item>
       <title>拒绝手动抄写：利用 Python API 自动过滤币安链上美股 bStocks 黑名单</title>
       <link>https://bbs.quantclass.cn/thread/87798</link>
@@ -45,6 +45,65 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87798</guid>
       <pubDate>Fri, 17 Jul 2026 13:26:45 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化小宇宙：解决AI时代策略爆炸痛点的全功能量化策略管理与对比工具</title>
+      <link>https://bbs.quantclass.cn/thread/87786</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87786"&gt;量化小宇宙：为你记住每一个策略灵感&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[量化工作流、策略管理系统、多回测对比、分钟偏移、存储优化]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[解决AI辅助量化中策略泛滥痛点的策略检索、重跑、对比与实盘导出工具]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命名规范即因子解析&lt;/strong&gt;：通过严格的参数化命名（如 &lt;code&gt;策略_分域_过滤_持仓周期_选币数量_单币持仓上限_杠杆&lt;/code&gt;）将策略属性固化在文件名中，工具通过正则解析自动识别“选币层”（多头/空头/中性/过滤等）与“仓管层”（固定比例/轮动/填充/择时等）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;引入 &lt;strong&gt;R/D&lt;/strong&gt;（Return/Drawdown，年化收益与最大回撤比）、胜率、盈亏比、最大回撤重演、新高占比等高级交互指标。&lt;/li&gt;
+&lt;li&gt;引入&lt;strong&gt;收益相关性&lt;/strong&gt;（$[-1, 1]$ 判定同涨同跌与对冲性）与&lt;strong&gt;选币相似度&lt;/strong&gt;（$[0, 1]$ 判定选币重合度）辅助组合配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;过拟合警示&lt;/strong&gt;：沧浪亭等仓管模块极易过度美化净值曲线。若中性策略与沧浪亭策略表现接近，应优先选择简单策略，因子和参数越多越容易过拟合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;AI接入后策略文件呈爆发式增长（单月上千个），导致人工检索困难、本地磁盘空间（pkl文件）迅速被撑满。&lt;/li&gt;
+&lt;li&gt;传统重跑旧策略需要手动修改代码、重命名文件、调整起止时间，无法批量或并行化管理。&lt;/li&gt;
+&lt;li&gt;跨框架（如选币框架与仓位管理框架）的回测结果无法直接在同一坐标轴内对比。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;Python 本地后端 + 前端 Web 交互（PyCharm 集成定位，支持导出 HTML 分享）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一键串行回测流&lt;/strong&gt;：勾选多个策略 -&amp;gt; 备份当前配置 -&amp;gt; 动态改名并修改 &lt;code&gt;start_time&lt;/code&gt; / &lt;code&gt;end_time&lt;/code&gt; -&amp;gt; 串行运行 &lt;code&gt;backtest.py&lt;/code&gt; -&amp;gt; 记录进度 -&amp;gt; 运行完毕自动还原 config。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自适应归一化对比&lt;/strong&gt;：支持 1~30个策略在任意框选时间区间内的自动归一化对齐（联动 BTC/ETH 走势），并可一键定位最大回撤发生区间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;存储空间优化&lt;/strong&gt;：提供一键清理选币结果 &lt;code&gt;PKL&lt;/code&gt; 文件功能，在不影响回测画图的前提下，大幅释放磁盘空间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实盘一键导出&lt;/strong&gt;：自动计算指定分钟偏移、沧浪亭时间/cap ratio、最小K线数量，实现回测配置向实盘配置的无缝转化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[规范化命名引擎]&lt;/strong&gt;：在 AI 提示词（Prompt）中强制加入标准命名模板，使 AI 生成的每个 &lt;code&gt;config.py&lt;/code&gt; 都自带结构化属性，便于编写 Python 脚本进行自动化检索与归类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[跨策略对齐算法]&lt;/strong&gt;：参考工具思路，编写一个简单的 Python 脚本，读取不同策略回测输出的 CSV 净值数据，通过 Pandas 进行时间戳对齐和归一化处理（以对比区间起点为 1），实现真正的跨策略横向对比。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自动化回测管道]&lt;/strong&gt;：实现一个简单的 Task Runner 脚本，通过 &lt;code&gt;subprocess&lt;/code&gt; 串行调用回测程序，并在执行前后自动处理 &lt;code&gt;config&lt;/code&gt; 备份与覆盖，避免手动修改带来的低级错误。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87786</guid>
+      <pubDate>Fri, 17 Jul 2026 07:59:31 +0800</pubDate>
     </item>
     <item>
       <title>Quant-Data-D1：基于 DuckDB 和 Arrow Flight 的 QMT 全市场数据标准化方案</title>
@@ -4314,49 +4373,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV13vJ565EVL</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/6d3ac59446158724fececd2e93f4f04d5c4c4605.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 12 Jun 2026 22:43:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化博弈中的动态资金管理与收益锁定架构升级</title>
-      <link>https://bbs.quantclass.cn/thread/86764</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86764"&gt;赚6000倍的策略一定会归零吗？赌狗也会有春天的吧&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：策略与因子 / 技术与工程&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：资金管理、动态止盈、仓位补回、策略中台、风险对冲&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过引入动态底仓与自动转仓外挂，实现激进策略的收益锁定与风险控制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：构建双账户模型（A-激进策略/B-存储账户），利用动态锚定底仓机制，实现“止盈后转入存储、回撤时从存储补回”的资金自动归集。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于当前总资金计算动态底仓（Dynamic Anchor），当A账户净值触及锚定值的倍数时强制止盈并转账；当回撤超过预设阈值时触发回补。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：解决高波动策略归零风险，通过“利润存现货”实现收益的非对称保全。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：手动加减仓执行不及时；断头式暴跌无法通过传统指标止损；资金利用率需根据账户收益状态动态优化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;引入基于解方程的动态底仓求解函数 &lt;code&gt;_solve_dynamic_anchor&lt;/code&gt;，实现资金规模扩展后的比例自适应。&lt;/li&gt;
-&lt;li&gt;采用虚拟资金曲线更新逻辑，无需修改原策略代码即可实现外挂式仓管。&lt;/li&gt;
-&lt;li&gt;强制处理时区不一致问题（UTC/北京时间自动转换），修复 &lt;code&gt;init_time&lt;/code&gt; 初始化报错。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;需彻底清除 &lt;code&gt;delist.json&lt;/code&gt; 等配置文件中被下架或特殊交易对（如USDC）的干扰。&lt;/li&gt;
-&lt;li&gt;计算仓位比例需使用固定起始时间，避免因策略中途介入导致的比例漂移。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;【架构实现】将仓管逻辑独立为装饰器或外挂层，通过读取各策略子账户净值序列，计算目标权重并统一输出给回测框架执行。&lt;/li&gt;
-&lt;li&gt;【模型扩展】基于 &lt;code&gt;refill_mode&lt;/code&gt; 扩展更多补仓策略（如阶梯补仓），并将止盈后的资金转入低风险中性策略而非仅仅闲置，进一步提升资金效率。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86764</guid>
-      <pubDate>Fri, 12 Jun 2026 16:17:58 +0800</pubDate>
     </item>
   </channel>
 </rss>
