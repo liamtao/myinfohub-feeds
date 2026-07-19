@@ -7,7 +7,41 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Jul 2026 22:32:44 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 08:32:36 +0000</lastBuildDate>
+    <item>
+      <title>揭秘币安Quanto港股永续合约：机制推导、双通道套利与微观结构风险</title>
+      <link>https://bbs.quantclass.cn/thread/87863</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87863"&gt;[RWA] 一股腾讯卖460U？Quanto到底是咋回事&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Quanto永续合约, 跨市场套利, 订单簿EWMA, 汇率对冲]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：剖析Quanto 1:1结算机制、休市EWMA定价与双合约套利边界。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：币安Quanto港股合约将HKD报价按1:1硬映射为USDT结算，阻断了实时汇率波动；非交易时段指数切换为币安订单簿EWMA模式，实现在无现货交易时段的价格发现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：1:1固定换算导致合约的Delta敞口与底层股票实际美元价值脱钩，其名义价值和盈亏随1/FX的波动而被放大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：常规“现货-期货”套利闭环在港股休市期失效。周末及夜盘合约偏离度完全由币安订单簿的微观结构决定，缺乏现货申赎的硬约束。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用同标的双合约（Quanto型 HK0700 与USDT-Priced型 TENCENT）因不同汇率折算路径产生的相对偏离度 z = Q * r / U - 1 进行统计套利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：Delta对冲比例公式：n_U ≈ n_Q / r（r 为实时HKD/USD汇率）。下单边界定义为可执行偏离度超过综合成本阈值 C（包含手续费、双边滑点、预计资金费和对冲误差）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：双边持仓面临汇率实时漂移导致的Delta失配、双边每8小时资金费率（最高±2%）逆转风险、以及非原子成交的执行滑点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【构建多时段高频数据库】&lt;/strong&gt;：分段（开市、午休、收市、周末）记录双合约的盘口（Bid/Ask）、实时汇率、Mark Price、Index Price及资金费率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【动态对冲比率回测】&lt;/strong&gt;：编写Python脚本，以 n_U ≈ n_Q / r 为核心逻辑，计算包含动态滑点和手续费在内的套利执行边界 C，验证统计偏离的回归周期。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87863</guid>
+      <pubDate>Sun, 19 Jul 2026 02:46:25 +0800</pubDate>
+    </item>
     <item>
       <title>拒绝手动抄写：利用 Python API 自动过滤币安链上美股 bStocks 黑名单</title>
       <link>https://bbs.quantclass.cn/thread/87798</link>
@@ -4326,53 +4360,6 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86776</guid>
       <pubDate>Sat, 13 Jun 2026 01:54:38 +0800</pubDate>
-    </item>
-    <item>
-      <title>突破强化学习训练瓶颈：量化交易中的课程学习方法论与实战避坑指南</title>
-      <link>https://www.bilibili.com/video/BV13vJ565EVL</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV13vJ565EVL"&gt;强化训练进阶技巧：用Curriculum Learning分阶段教学，平稳过渡真实复杂市场&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么传统强化学习（RL）直接应用于量化交易时常常无法收敛？&lt;/li&gt;
-&lt;li&gt;💡 课程学习（Curriculum Learning）如何通过“由易到难”的阶梯策略破解金融数据的低信噪比魔咒？&lt;/li&gt;
-&lt;li&gt;🚀 自动课程学习（ACL）如何通过教师-学生架构实现无需人工干预的智能进化？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 课程学习的理论支柱与任务复杂度建模&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;三要素框架&lt;/strong&gt;: 课程学习由任务生成（Task Generation）、调度策略（Scheduler）和过渡准则（Stopping Criteria）三大支柱构成，本质上是为智能体搭建通往终极目标的阶梯。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多维复杂度度量&lt;/strong&gt;: 任务复杂度评估绝不能仅看波动率，必须综合考虑信噪比（SNR）、价格跳跃频率、买卖价差宽度以及多资产相关性矩阵等特征。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;同步递进机制&lt;/strong&gt;: 将环境划分为“线性趋势、随机行走、历史回放”三级。特征工程需与其同步，从初始阶段的OHLCV基础数据，逐步演进到高维统计因子和机器学习集成特征。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 从沙盒到实战的渐进式训练SOP&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;第一阶段：构建零成本沙盒环境&lt;/strong&gt;。人工构造无随机扰动的极端单边趋势，将交易成本设为零。引入基于即时盈亏的强引导性线性反馈（Reward Shaping），帮助智能体快速建立价格行为映射。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第二阶段：注入波动率与执行成本&lt;/strong&gt;。采用几何布朗运动（GBM）在价格曲线中注入随机噪声，并逐步增加手续费、滑点与延迟，强制模型在盈利预期与摩擦成本间寻找平衡。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第三阶段：模拟市场微观结构&lt;/strong&gt;。引入限价订单簿（LOB）深度与挂单分布特征，在后期加入牛熊转换、极端暴跌等非平稳场景（Regime Switching），并融合多元异构数据进行综合决策。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;第四阶段：引入自动课程学习（ACL）&lt;/strong&gt;。采用教师-学生架构（Teacher-Student RL），由教师模型动态生成处于学生“近侧发育区”的交易场景，配合好奇心引导机制对困难样本进行非均匀采样。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;防范过度平滑陷阱&lt;/strong&gt;：避免在低难度沙盒环境停留过长，否则模型会丧失持续学习能力，在真实的高波动、高噪声环境中表现僵化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保持奖励函数一致性&lt;/strong&gt;：课程难度升级时，必须统一各阶段Reward的逻辑和量级，避免梯度震荡导致灾难性遗忘（Catastrophic Forgetting）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;落实严谨的OOS验证&lt;/strong&gt;：每一阶段课程完成后，必须在未见过的样本外（OOS）真实数据上执行交叉验证，警惕模型仅拟合特定课程难度而非掌握稳健策略。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “直接在真实且复杂的市场分布下训练，往往会让智能体迷失在巨大的噪声中。”&lt;/li&gt;
-&lt;li&gt;💬 “课程学习的本质，是在进阶速度与模型的鲁棒性之间寻找一个最优平衡点。”&lt;/li&gt;
-&lt;li&gt;💬 “由易到难的引导，才是让模型真正理解市场的基石。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV13vJ565EVL</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/6d3ac59446158724fececd2e93f4f04d5c4c4605.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Fri, 12 Jun 2026 22:43:34 +0800</pubDate>
     </item>
   </channel>
 </rss>
