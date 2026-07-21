@@ -7,7 +7,44 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 20 Jul 2026 22:36:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2026 08:32:55 +0000</lastBuildDate>
+    <item>
+      <title>揭秘动量策略“水泡汽”：超额收益背后的资金费套利真相</title>
+      <link>https://bbs.quantclass.cn/thread/87950</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87950"&gt;气泡水反着做, 似乎并不是纯动量策略,有关收益的一点新发现&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资金费归因, 反事实回测, 动量策略, 尾部风险]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示多头动量策略“水泡汽”的核心收益源自负资金费套利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：表面上的高收益多头动量策略，其底层收益高度依赖空头拥挤代币的负资金费率（吃资金费）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：2021-2026年回测中，资金费净收入占比高达72.23%，即使在价格损益为负的2025年，依靠资金费（4.66亿USDT）仍实现了整体盈利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证明部分“伪动量”策略在牛熊转换或高换手期间，其超额收益实际上来自于市场微观结构中的资金费贴水，而非单纯的价格趋势。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过做多空头极度拥挤、资金费率为负的币种，实现“价格动量 + 负资费收益”双重捕获。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：隐式筛选逻辑（气泡水反向）：寻找被过度做空的标的（负资金费率标的）进行多头配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：在回测框架 &lt;code&gt;equity.py&lt;/code&gt; 中，通过将资金费率矩阵置零（&lt;code&gt;np.zeros_like(funding_rates)&lt;/code&gt;）进行反事实验证，剥离价格变动与资费收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：2021.01.01 - 2026.06.30，最终净利润16.35亿 USDT，其中资金费净收入11.81亿 USDT（占比72.23%），手续费损耗3.23亿 USDT。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：1) 政策/规则风险（如2026年资费规则修改导致历史高资费不可持续）；2) 收益集中度高（前10个币种贡献了超30%的资费收入）；3) 尾部价格风险（2025年价格回撤达1.55亿 USDT）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反事实回测校验&lt;/strong&gt;：在开发任何永续合约策略时，必须加入“资金费置零”的对照组回测，以剥离非价格Alpha因素。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态规则适应性&lt;/strong&gt;：针对交易所资费规则的动态调整（如2026年资费改革），需在回测系统里引入动态费率调整因子，防止因历史高资费不可持续而导致的实盘失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资费集中度风控&lt;/strong&gt;：对贡献主要资费的币种设置单一标的持仓上限，防止因山寨币极端行情导致的价格端大额回撤。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87950</guid>
+      <pubDate>Tue, 21 Jul 2026 14:15:03 +0800</pubDate>
+    </item>
     <item>
       <title>公正的悖论：平均数下的评价锚定与激励治理困局</title>
       <link>https://bbs.quantclass.cn/thread/87938</link>
@@ -326,6 +363,42 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87687</guid>
       <pubDate>Tue, 14 Jul 2026 18:28:49 +0800</pubDate>
+    </item>
+    <item>
+      <title>从冷凝水到烧开水：基于当前突破因子的多头策略复现与动态阈值失效探究</title>
+      <link>https://bbs.quantclass.cn/thread/87681</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87681"&gt;气泡水反着做，看看烧开水怎么样【年化789.15%】，动态阈值反而拉胯的原因是什么？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[当前突破因子, 动态阈值失效, 动量衰竭, 沧浪亭仓位管理]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示突破因子在多头策略中的应用，并剖析多头动态阈值因标的标准差剧烈波动而失效的成因。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在空头策略中，做空前1%的最弱资产表现优异；然而在多头策略（烧开水）中，做多前1%的极强资产效果反而拉胯，5%~10%的头部资产表现更为稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：极度强势的资产往往动量已面临枯竭，呈现出更强的短期均值回归（反转）特征。此外，多头方向的“当前突破”因子标准差（std）波动极大且幅值较高（气泡水空头std稳定在0.1以下），导致动态阈值公式（Mean + k * Std）严重失真，使策略走向归零。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了将空头“动态阈值”调参经验直接对称平移至多头的假设，揭示了多空两侧在微观波动率结构上的非对称性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于资产成交均价突破（或回撤）幅值，筛选出具有极端突破特征的资产，利用其突破惯性或超跌反转获利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：多头“当前突破”因子（即“烧开水”因子），筛选前5%的资产进行1倍全仓做多。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：回测区间包含2021-2026年。固定阈值在 &amp;lt;5% 筛选范围下，净值表现优秀（年化超700%），但在2025年动量大年表现拉胯，表现出偏反转的策略风格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：动态阈值在多头下完全失效（净值趋于0）；策略最大回撤极高（普遍超-80%），单边牛市中存在踏空或假突破被套风险。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多空波动率非对称适配&lt;/strong&gt;：多头策略的动态阈值构建不可照搬空头，需对 $Std$ 进行平滑处理（如引入 $EMA$ 或对 $Std$ 设立上限），避免因单日极端行情导致阈值异常抬升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选币分位数敏感性测试&lt;/strong&gt;：设计突破多头策略时，应通过敏感性分析寻找拐点（如 Top 5%），避免盲目追求极端值（如 Top 1%）以防动量衰竭。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多空双向对冲组合&lt;/strong&gt;：可将多头固定阈值策略（烧开水）与空头动态阈值策略（气泡水）相结合，并引入资金/仓位管理机制，以平滑单一方向在牛熊切换中的系统性风险。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87681</guid>
+      <pubDate>Tue, 14 Jul 2026 17:15:44 +0800</pubDate>
     </item>
     <item>
       <title>深度拆解做空策略：通过新币生命周期与相关性过滤实现超额收益优化</title>
@@ -4251,98 +4324,6 @@ elif current_ratio &amp;lt;= 4%:
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1TZJF6AEHi</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/bc8c55f14a2582d32ece6f0201988c6438575cd2.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 14 Jun 2026 12:26:30 +0800</pubDate>
-    </item>
-    <item>
-      <title>DM框架 0.14.117 升级：AI驱动的量化研究新范式</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;amp;talker=57784510736@chatroom"&gt;2026-06-14_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 DM 框架迎来 0.14.117 大版本升级&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心更新&lt;/strong&gt;：框架升级至 0.14.117 版本，新增 2 进制一致的改造 demo，并附送了一套“大小盘轮动獖略”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;独立项目&lt;/strong&gt;：该 demo 为基于 DM 框架的独立示例库，下载后运行 &lt;code&gt;uv sync&lt;/code&gt; 即可自动导入。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI：量化研究的“自动驾驶各”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;DS 最懂量化&lt;/strong&gt;：站岗资本认为 DeepSeek 是目前最懂量化的大模型，配合新的示例库表现会更好。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;三分钟部署&lt;/strong&gt;：Joe 分享了“偺人法”——直接将讣坛帖子内容奉给 Codex，让 AI 自己在几分钟内完成从部署到 AI 寱接的全流程。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;授人以渔&lt;/strong&gt;：木木十三强调，该框架旨在教会用户如何构建自己的研究体系，包括因匐管理与獖略配置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 极简 DSL 与代码重构&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;10 行代码的威力&lt;/strong&gt;：在 DSL 模式下，原本复杂的“轮子”代码可精简至 10 行左右，大幅降低了与仓管框架的耦合度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;提示词更新&lt;/strong&gt;：每次升级后建议运行 &lt;code&gt;dm guide&lt;/code&gt; 命令，以更新内篙的 AI 提示词，但不会覆盖用户自定义部分。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 实战问答与细节&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Mac 版支持&lt;/strong&gt;：现有客户端已支持 Mac（4.0.0 版本），但需要单独联系获取，可满足数据中心需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因匐缓存问题&lt;/strong&gt;：若遇到因匐缓存日期不对，可先使用 &lt;code&gt;full&lt;/code&gt; 模式重跑，后续版本将进行修复。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 量化金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“这个框架纯纯给 AI 用的。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“在 DSL 模式下，轮子正儿八经有意义的代码 10 行左右。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“直接把参考案例给 AI 让 AI 总结方法讯。” —— long&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;📎 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;https://bbs.quantclass.cn/thread/86798&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Sun, 14 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>B圈生存指南：如何从“欲仙欲死”的动量回撤中突围</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;amp;talker=58453205219@chatroom"&gt;2026-06-14_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🌊 动量策略的“过山车”体验&lt;/h3&gt;
-&lt;p&gt;近期B圈动量策略表现极具挑战性，群友感叹其运行过程简直是“麻中麻”、“欲仙欲死”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回撤常态&lt;/strong&gt;：在加密货币市场，刚回本就遭遇回撤是量化策略运行的常态，投资者需具备极强的心理耐受力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利润回吐&lt;/strong&gt;：前期靠Alpha赚取的利润在市场波动中极易出现大幅回吐，如何保住利润成为讨论焦点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠 手动干预 vs 策略纪律&lt;/h3&gt;
-&lt;p&gt;针对策略的波动，群内衍生出了两种不同的操作流派：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;灵活轮换法&lt;/strong&gt;：有群友提出“动量创新高就转旗舰策略，等回撤了再转回动量”的轮换逻辑，本质是通过手动仓位管理来“炒策略”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;干预的争议&lt;/strong&gt;：资深投资者认为频繁干预并非好习惯，可能破坏量化系统的长期有效性；但也有观点调侃称，“想赚大钱还是得靠干预”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🍲 “大杂烩”与自动再平衡的艺术&lt;/h3&gt;
-&lt;p&gt;通过混合多种策略平滑曲线，被戏称为“大杂烩”或“乱炖”。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自动高抛低吸&lt;/strong&gt;：将动量策略作为整体配置的一小部分（如10%-15%），利用账户自动的再平衡机制，可以变相实现低买高卖，降低操作压力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;配置的双刃剑&lt;/strong&gt;：这种做法能让持有过程更“舒服”，但在极端的狂暴牛市中会因再平衡而摊薄超额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🚩 旗舰策略：量化投资的“省心之道”&lt;/h3&gt;
-&lt;p&gt;在动量策略反复横跳时，旗舰策略的稳定性被反复提及。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;闭眼躺平&lt;/strong&gt;：群友认为跑旗舰策略是目前最接近“躺赚”的方案，依托成熟的迭代监控体系，可以有效减少由于心理压力导致的操作变形。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 金句提炼&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“B圈策略的常态：刚回本就回撤。” —— &lt;strong&gt;Andy&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“量化都是骗人的，赚钱还得靠干预[偷笑]” —— &lt;strong&gt;gcouple.J&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;“选择了彩虹，就是最大的干预。” —— &lt;strong&gt;AK&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;【监测】B旗舰策略监测文件&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-14&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Sun, 14 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
