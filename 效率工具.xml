@@ -7,7 +7,103 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Jul 2026 08:32:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2026 22:37:01 +0000</lastBuildDate>
+    <item>
+      <title>拒绝低效Prompt：用Claude Design构建专属AI设计系统与高定幻灯片工作流</title>
+      <link>https://www.youtube.com/watch?v=VeWf0l4ci6Y</link>
+      <description>&lt;p&gt;&lt;a href="UCwAnu01qlnVg1Ai2AbtTMaA"&gt;Jeff Su&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=VeWf0l4ci6Y"&gt;Claude Design is Insanely Easy (even for beginners)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Claude Design - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于底层结构化Markdown设计规范，通过AI将非结构化规则转译为原生设计系统与高复用性布局模板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：&lt;code&gt;design.md&lt;/code&gt; 规范文件、品牌视觉资产（Logo/图标/色彩代码）、文本大纲（Markdown 格式）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：高度定制化、可交互且支持局部微调与全局参数控制的网页级（HTML）或传统格式幻灯片。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;design.md&lt;/code&gt;：用Markdown编写的、规定了色彩、字体、间距等核心视觉规范的跨平台设计规则书。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;设计系统 (Design System)&lt;/code&gt;：将原始 design.md 转译为 Claude Design 可识别的原生样式规则，确保后续所有输出风格一致。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;模板 (Template)&lt;/code&gt;：基于设计系统构建的、定义了幻灯片页面结构与排版布局（如标题页、两栏页等）的复用框架。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;claw.md&lt;/code&gt;：项目级的“持续学习指令文件”，用于沉淀并累积用户的历次修正反馈，使其自动应用于未来的设计中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Tweaks (微调开关)&lt;/code&gt;：全局功能切换控件，允许通过开关一键控制特定元素（如Logo、页码）的显示状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：设计规范清洗与初始化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：获取无版权风险、结构完善的高质量设计规范文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：拥有现成的品牌 &lt;code&gt;design.md&lt;/code&gt;（如 Stripe 的开源规范文件）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[上传文件]&lt;/strong&gt;：登录任意 AI 聊天工具 -&amp;gt; 上传原始品牌 &lt;code&gt;design.md&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行清洗提示词]&lt;/strong&gt;：在对话框输入以下命令：&lt;code&gt;remove the proprietary content from this design file and replace them using your own judgment. Keep everything else exactly as is. Rename it to &amp;quot;the subtle gradient design system&amp;quot;.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[保存输出]&lt;/strong&gt;：下载清洗重命名后输出的 Markdown 文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：构建 Claude Design 原生设计系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将基础设计规范升维为 Claude Design 原生设计系统，并注入个性化品牌资产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已清洗的 &lt;code&gt;design.md&lt;/code&gt; 文件、品牌 Logo 图片、常用图标、语气/文风原则规范文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[新建项目]&lt;/strong&gt;：进入 Claude Design -&amp;gt; 创建新对话 -&amp;gt; 选择最新 &lt;strong&gt;Opus&lt;/strong&gt; 模型 -&amp;gt; 将 AI Effort 设定为 &lt;strong&gt;Max&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[初始化设计系统]&lt;/strong&gt;：点击界面底部的 &lt;strong&gt;Create design system&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[填写系统描述]&lt;/strong&gt;：在描述框中填入基础定义（例如：&lt;code&gt;gradient design system, subtle, beautiful, and minimalistic&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[上传规范]&lt;/strong&gt;：滚动至底部，上传已清洗的 &lt;code&gt;design.md&lt;/code&gt; 文件 -&amp;gt; 等待 10~20 分钟系统生成模拟效果（Mockups）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[样式微调]&lt;/strong&gt;：点击 Mockups 的 &lt;strong&gt;Feedback&lt;/strong&gt; 按钮，用自然语言输入修正指令（例如：&lt;code&gt;replace the dark 900 color with this hex code [填入具体色值]&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[注入专属资产]&lt;/strong&gt;：上传品牌 Logo、常备图标集以及文风指南文件 -&amp;gt; 发送指令：&lt;code&gt;I've uploaded a voice principles file, my business logo, and some commonly used icons.&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：构建与沉淀幻灯片高定制化模板&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将视觉规范转化为具备明确版面结构的复用幻灯片骨架。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：完成初始配置的 Claude Design 设计系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[触发构建]&lt;/strong&gt;：在已配置好的设计系统对话中发送指令：&lt;code&gt;Go ahead and build a slide deck template for workshops and trainings.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[模板精细化调整]&lt;/strong&gt;：针对生成的初版模板，发送结构化修正指令（例如：&lt;code&gt;Add the gradient mesh to every single slide with a white background. Don't use orange backgrounds. Scale up the text to fill empty space. Add my logo to the bottom left footer.&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[归档定位]&lt;/strong&gt;：若需重新查看模板，点击 &lt;code&gt;All project files&lt;/code&gt; 下拉菜单 -&amp;gt; 双击 &lt;code&gt;templates&lt;/code&gt; 文件夹 -&amp;gt; 双击对应的模板 HTML 文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：基于大纲快速生成最终幻灯片&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：利用已沉淀的模板和设计系统，快速将文字大纲转化为成品幻灯片。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Markdown 格式的文字大纲、已建立的特定项目。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[装载配置]&lt;/strong&gt;：在项目主页中选择已创建的 &lt;strong&gt;Design System&lt;/strong&gt;，并指定对应的 &lt;strong&gt;Slides Template&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[上传大纲]&lt;/strong&gt;：上传 Markdown 格式的大纲文件，并发送指令：&lt;code&gt;Turn the attached talking points into a workshop deck and ask me anything you need before you build.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[对齐交互]&lt;/strong&gt;：针对 AI 提出的澄清问题，务必进行细致解答（不确定的可选择 &lt;code&gt;decide for me&lt;/code&gt;）并点击 &lt;strong&gt;Continue&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[沉淀修正经验]&lt;/strong&gt;：为使 AI 记住修改喜好，发送反馈并强制其创建 &lt;code&gt;claw.md&lt;/code&gt; 文件：&lt;code&gt;Review my feedback below, and in addition to making the edits, create a claw.md file you'll read for all future slide decks. Feedback: [填入具体反馈]&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Edit&lt;/code&gt; (编辑模式)&lt;/strong&gt;：单点微调控件 -&amp;gt; 直接点击画面中的文字或卡片元素，对字体大小、粗细、局部色值进行所见即所得的直接修改。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Annotate&lt;/code&gt; (标注工具)&lt;/strong&gt;：精细化局部视觉重塑 -&amp;gt; 在特定位置用画笔绘制圈选框，并附带针对该局部区域的文字重排或对比度修正指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Tweaks&lt;/code&gt; (开关微调)&lt;/strong&gt;：全局逻辑控制 -&amp;gt; 类似于后台控制开关，用于一键全局显示/隐藏 Logo，或一键开启/关闭页码显示，并可将当前状态存为默认配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;绝对避免在 Claude Design 中直接发送简单 Prompts 进行裸跑，这将导致生成无设计感、逻辑松散的幻灯片，并白白浪费高额 Token。&lt;/li&gt;
+&lt;li&gt;不要在每次做新幻灯片时新建项目。必须始终在包含已存 &lt;code&gt;claw.md&lt;/code&gt; 文件和定制模板的旧项目中开启新对话，否则此前积累的所有反馈和模型训练成果将会彻底丢失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;选用最新 &lt;strong&gt;Opus&lt;/strong&gt; 模型搭配 &lt;strong&gt;Max Effort&lt;/strong&gt; 配置，能在不浪费过多 token 的前提下获得极高的首发效果质量。&lt;/li&gt;
+&lt;li&gt;导出时首选独立网页格式（&lt;strong&gt;Standalone HTML&lt;/strong&gt;），既方便在任何浏览器零损呈现、快速分享，还可以令 AI 自定义诸如演示者视图与实时备注等高级交互面板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=VeWf0l4ci6Y</guid>
+      <enclosure url="https://i.ytimg.com/vi/VeWf0l4ci6Y/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 21 Jul 2026 13:00:15 +0800</pubDate>
+    </item>
     <item>
       <title>从浏览器到操作系统：AI Agent 深度工作流实操指南</title>
       <link>https://www.youtube.com/watch?v=juPDqb89dew</link>
