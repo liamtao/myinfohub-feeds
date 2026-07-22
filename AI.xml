@@ -7,7 +7,59 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Jul 2026 22:37:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 08:38:41 +0000</lastBuildDate>
+    <item>
+      <title>对话蚂蚁林波沈宇军：为何机器人需要“具身原生”底座模型</title>
+      <link>https://www.xiaoyuzhoufm.com/episode/6a5f79b3a3fec224d5a128cd?utm_source=rss</link>
+      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/dk4yh3pkpjp3"&gt;张小珺Jùn｜商业访谈录&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a5f79b3a3fec224d5a128cd?utm_source=rss"&gt;147. 和蚂蚁灵波沈宇军聊：机器人原生基础模型、大脑和本体的关系、预训练与数据scale up、老师汤晓鸥&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么直接把数字世界的视觉大模型（如 Diffusion、DINO）套给机器人行不通？&lt;/li&gt;
+&lt;li&gt;💡 机器人的“GPT-1时刻”究竟卡在哪里？百万级高质真机数据如何实现规模化（Scale up）？&lt;/li&gt;
+&lt;li&gt;🚀 在软硬一体与跨本体通用大脑的路线之争中，技术研发者该如何进行战略“豪赌”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 语义理解不等于空间感知：数字世界与物理世界的“核心错配”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“能看到”不等于“能摸到”&lt;/strong&gt;: 数字世界的模型擅长语义分类（如分辨这是一盆花或一只猫），但物理世界要求高精度的几何与距离认知。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;猫与玻璃门的比喻 (费曼转译)&lt;/strong&gt;: 阳台的玻璃门外有一只猫。数字世界的语义模型只关注“那有一只猫”；但机器人若要走过去，必须先感知到“身前有一扇玻璃门”，否则就会直接撞上去。这就是语义理解与空间感知的本质区别。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单向时间流逝的硬约束&lt;/strong&gt;: 视频生成模型在数字世界可以“双向建构”，但机器人的动作执行是实时的，时间无法倒流，必须使用单向注意力机制（Causal Attention）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 蚂蚁林波 2.0 的原生演进：从 1.0 的“魔改”走向底层重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;重构底座预训练&lt;/strong&gt;: 废弃 DINO 等数字世界视觉基模，完全从几何（点、线、面）角度出发，进行纯视觉原生的重构预训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;端到端单向建模&lt;/strong&gt;: 放弃“双向变单向”的微调路线，从零开始进行单向注意力机制（Causal Pretrain）训练。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;融合原生 MOE 架构&lt;/strong&gt;: 解决专家激活不均问题，采用稀疏化 MOE（混合专家模型）以兼顾机器人的实时推理效率与计算负载。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨本体与自由度升级&lt;/strong&gt;: 将数据管道从单一双臂升级至支持“头-腰-地盘-灵巧手”的多自由度协同，数据规模提升至 6 万小时高质真机数据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免强行在数字世界大模型上做“魔改”移植，底层不匹配会导致动作卡顿和泛化失效。&lt;/li&gt;
+&lt;li&gt;警惕仿真数据的“同质化陷阱”，柔性操作在物理引擎中仍有高失真率，核心仍需依赖真机与自主采集数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 机器人的 GPT-1 时刻：十万到百万级数据的“规模化突围”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;落后的不是本体，而是大脑&lt;/strong&gt;: 当前人形机器人行业的核心卡点是“大脑智能不足”，而大脑不足的根源在于“数据真空期”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据原生是终极战役&lt;/strong&gt;: 互联网图文数据无法映射物理世界的控制反馈。真正能带来机器人类 GPT Moment 的，是至少 10 万小时起步的原生预训练数据，以及百万小时级别的可规模化真机/Ego数据储备。中国凭借供应链和硬件生产优势，在数据采集的物理红利上将快于美国。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “看得更清楚，想得更明白，干得更利索。机器人就这么三个事，而干明白这个事情，对语言的依赖没有那么高。”&lt;/li&gt;
+&lt;li&gt;💬 “我还是很坚信具身智能一定会有自己的模型。如果这个观点不变，那它的数据必须要支撑它做自己的模型。”&lt;/li&gt;
+&lt;li&gt;💬 “创业一定是赌出来的。在有限资源和不确定路径下，敢做决定、敢赌，这是最关键的。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a5f79b3a3fec224d5a128cd?utm_source=rss</guid>
+      <enclosure url="https://image.xyzcdn.net/FvrM8NWWO-yrGdKP1Dg4Krj68cuM.png" length="0" type="image/png"/>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>AI Agent营销实战：用Codeex重构从社媒抓取到智能发布的九大自动化工作流</title>
       <link>https://www.youtube.com/watch?v=gOx37on-iA8</link>
@@ -5355,45 +5407,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=Nbynj-mKcNI</guid>
       <enclosure url="https://i.ytimg.com/vi/Nbynj-mKcNI/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sun, 21 Jun 2026 13:30:32 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI产业大重组：政策封锁催生开源崛起与多模型路由的“新叛军联盟”</title>
-      <link>https://www.youtube.com/watch?v=VK56IPRsA-s</link>
-      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=VK56IPRsA-s"&gt;The 5-Minute AI Weekly Recap: Realignment Week&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 当顶尖AI模型能随时被政府“一键下线”，企业该如何重新评估单点依赖的致命风险？&lt;/li&gt;
-&lt;li&gt;💡 为什么对Anthropic的出口管制，反而意外成了中国开源模型与多模型路由技术的“催化剂”？&lt;/li&gt;
-&lt;li&gt;🚀 在闭源巨头筑起的高墙之外，由开源生态、模型路由与局部循环（Loops）构成的“叛军联盟”将如何重塑AI版图？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 政策干预触发的AI产业大重组&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;单点依赖风险剧增&lt;/strong&gt;: 伴随美国出口管制导致Anthropic突然暂停Fable 5和Mythos 5的访问，企业意识到将战略完全押注于单一闭源API存在极高的合规与停摆风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中国开源模型的“真香”时刻&lt;/strong&gt;: 禁令真空直接利好了中国开源/开重（open weights）模型。GLM 5.2在实际使用中展现出媲美Opus和GPT的极佳体感，成功通过开发者的“体感测试”（Vibe Check），成为高性价比的替代方案。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 多模型路由与自主受控生态&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;架构去中心化评估&lt;/strong&gt;: 盘点业务中对单一闭源API的依赖，评估引入模型路由器（Routers）的可行性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;部署多模型并联机制&lt;/strong&gt;: 采用类似OpenRouter Fusion的架构，将Prompt并发分发至多个高性价比模型，再通过裁判模型（Judge Model）筛选最佳答案，以一半的成本换取顶尖性能。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;跑通本地开源链路&lt;/strong&gt;: 评估本地高配硬件需求，测试并运行高性能开源权重模型，确保核心业务底座的完全自主可控。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免盲目迷信各种刷榜的Benchmark跑分，应以实际业务场景的“体感测试”（Vibe Check）为准，防止引入在实际体验中迅速退化的“花瓶模型”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “AI领域的牌桌三年来首次被彻底掀翻。这为新生态的诞生创造了窗口期——一个能让企业在保持紧密利益对齐的同时，获取强大智能的‘叛军联盟’正在崛起。”&lt;/li&gt;
-&lt;li&gt;💬 “政府有能力随时关停顶级模型，这一事实为所有过度依赖单一模型的商业策略引入了全新的系统性风险。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=VK56IPRsA-s</guid>
-      <enclosure url="https://i.ytimg.com/vi/VK56IPRsA-s/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 21 Jun 2026 12:08:41 +0800</pubDate>
     </item>
   </channel>
 </rss>

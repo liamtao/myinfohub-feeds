@@ -7,7 +7,45 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 21 Jul 2026 22:37:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 08:38:41 +0000</lastBuildDate>
+    <item>
+      <title>科创50极端深V反弹：历史相似日统计证伪“趋势稳涨”叙事</title>
+      <link>https://bbs.quantclass.cn/thread/87958</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87958"&gt;【A市场】科创版：历史日内V翻盘并不等于反转&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[历史相似性检索、日内走势相似度、深V反抽统计、流动性修复]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：极端深V翻盘多为危机反抽，历史相似日统计不支持后市稳涨。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：盘中暴跌尾盘收高的“极端深V”形态（如科创50收涨+10.7%），在历史相似日检索中，事后1至20天走势表现均值显著偏弱（Top15相似日事后20天均值-11%，创业板Top10相似日事后20天均值-12.0%）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：此类形态多发生在市场承压期的流动性救援或超跌反弹（如2015年股灾救市、2016年熔断修复）。反弹动力来自交易结构的资金回流与政策维稳脉冲，而非基本面趋势的扭转。当天翻盘不等于底部确立，多表现为“填坑”而非“铺路”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“极端深V长阳奠定右侧慢牛起点”的惯性牛市叙事，表明在此类特殊交易日之后，盲目追高或右侧做多的期望值为负。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于时序形态和日内精细走势的“历史相似日”（Historical Analogs）匹配。利用已知历史区间的演化路径，对当前极端行情后的路径进行条件概率推演。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【特征构建与检索】&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;初筛条件&lt;/strong&gt;：筛选“软深V”形态（盘中振幅极大、收盘大涨且贴近全天高点）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相似度量化&lt;/strong&gt;：将日线开高低收（OHLC）与1小时级日内走势串联成多维特征向量，进行 $Z-score$ 归一化，再通过加权欧氏距离（Weighted Euclidean Distance）检索最邻近的历史交易日（Top N）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：针对历史数据缺失或不全的指数（如早期科创50无1小时K线），使用开盘、最低、收盘对齐日线，中间时点利用成分股（如流通市值Top 50）的成交额进行加权模拟，重构日内虚拟走势。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【算法开发】&lt;/strong&gt;：可利用 &lt;code&gt;scipy.spatial.distance.cdist&lt;/code&gt; 实现一套跨品种、跨周期的“极速形态相似性检索工具”，对极端偏离值（如深V、高位断头铡刀）进行模式匹配，量化未来胜率分布。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据补全方案】&lt;/strong&gt;：在面对冷启动或缺失历史高频数据的指数时，可采用文中“核心成分股成交额权重加权模拟”的算法，合成日内小时级/分钟级指数代理线（Proxy Line）。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87958</guid>
+      <pubDate>Tue, 21 Jul 2026 23:02:50 +0800</pubDate>
+    </item>
     <item>
       <title>揭秘动量策略“水泡汽”：超额收益背后的资金费套利真相</title>
       <link>https://bbs.quantclass.cn/thread/87950</link>
@@ -4268,62 +4306,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86814</guid>
       <pubDate>Sun, 14 Jun 2026 21:53:40 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易数据基建升级：解锁5000分Tushare权限实现毫秒级离线回测</title>
-      <link>https://www.bilibili.com/video/BV1TZJF6AEHi</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1TZJF6AEHi"&gt;每日分享～Tushare 5000积分解锁4类核心数据，赋能量化策略升级&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Tushare 量化基础设施 - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于高权限 Tushare API 获取元数据并持久化至本地 DuckDB 数据库，实现行情计算与逻辑研发的完全脱机化与本地化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Tushare 5000分权限接口（包含行情、复权因子、行业分类、财务报表等）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：支持标准 SQL 毫秒级查询的本地结构化数据仓库。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;复权因子&lt;/strong&gt;：用于离线修正股价连续性的关键参数，通过公式重构真实成交价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行业中性化&lt;/strong&gt;：基于申万标准的风险因子对冲技术，确保策略专注于超额收益而非行业波动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：全量数据一键增量同步&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决 API 限流难题，建立高频更新、无网络依赖的本地量化仓库。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Tushare 账户积分达到 5000 分，安装 python 环境及管理工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[一键同步]&lt;/strong&gt;：在终端输入命令 &lt;code&gt;python -m tushare_manager --run_bash_date --all&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[增量更新]&lt;/strong&gt;：系统自动识别缺失日期并补全，首次同步需约 15-30 分钟。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：毫秒级离线复权行情回测&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：彻底摆脱 QMT 在线计算延迟，将回测效率从分钟级提升至毫秒级。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[SQL 关联]&lt;/strong&gt;：利用 DuckDB 执行 &lt;code&gt;JOIN&lt;/code&gt; 操作关联行情表与 &lt;code&gt;adj_factor&lt;/code&gt; 表。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[动态复权]&lt;/strong&gt;：应用公式 &lt;code&gt;前复权价 = 原始价 * 当日因子 / 基准因子&lt;/code&gt; 在内存中即时完成逻辑计算。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;API 调用频次控制&lt;/strong&gt;：权限从 200次/分 升级至 500次/分，支持全市场行情并行下载不排队。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;涨跌停价格参数&lt;/strong&gt;：直接获取 &lt;code&gt;up_limit&lt;/code&gt; 和 &lt;code&gt;down_limit&lt;/code&gt;，替代不精确的比例估算，支持打板策略精准识别。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;申万行业分类 (L1/L2)&lt;/strong&gt;：提供标准行业归属及历史回溯信息，解决粗糙分类导致的中性化失真。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：严禁在回测逻辑中忽略 &lt;code&gt;SUSPEND&lt;/code&gt;（停复牌）数据。若不通过停复牌日期过滤交易信号，回测系统会按停牌日的虚假收盘价记录成交，导致小市值策略收益率严重虚高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧&lt;/strong&gt;：建议将所有行情复权逻辑下沉至 SQL 查询层处理，利用数据库引擎的向量化优势，避免将海量数据加载至 Pandas 进行低效循环，从而实现“高铁级”的回测响应。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1TZJF6AEHi</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/bc8c55f14a2582d32ece6f0201988c6438575cd2.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Sun, 14 Jun 2026 12:26:30 +0800</pubDate>
     </item>
   </channel>
 </rss>
