@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 22 Jul 2026 08:38:41 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 22:35:29 +0000</lastBuildDate>
     <item>
       <title>科创50极端深V反弹：历史相似日统计证伪“趋势稳涨”叙事</title>
       <link>https://bbs.quantclass.cn/thread/87958</link>
@@ -1547,6 +1547,46 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87145</guid>
       <pubDate>Wed, 01 Jul 2026 00:52:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>时间维度下的比特币阿尔法：基于“隔夜效应”过滤的突破交易策略</title>
+      <link>https://bbs.quantclass.cn/thread/87129</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87129"&gt;BTC隔夜突破策略：从时间维度切割收益的复现与深度分析&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[隔夜效应, 时间维度切割, 突破策略, 交易日过滤, 市场微观结构变迁]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过过滤特定交易日与突破信号，将弱化的隔夜效应转化为正期望的条件突破策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：比特币在2021年ETF上市前存在极强的“隔夜效应”（16:00-次日10:00累计收益达+944.92%，而日间仅-42.35%）。ETF上市后该规律反转，日间收益转正（+30.00%），无条件隔夜收益转负（-17.20%）。此外，不同星期的隔夜收益差异巨大，周五→周一、周一→周二、周三→周四表现最佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：ETF上市前流动性和波动率集中在美股夜间时段；上市后，合规资金常态化交易提升了美股日间时段（对应亚太夜间）的定价效率，导致无条件隔夜红利衰减。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“无脑买入并持有隔夜”的长期可行性，强调了必须将“无条件时间套利”升级为“有条件（信号触发+星期过滤）时间套利”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：结合10日价格通道突破与特定高胜率星期进行双重过滤，在16:00买入，次日10:00卖出，从而在弱化的隔夜市场中精准捕获正期望的时间溢价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：当今天收盘价突破过去10天最高价，且当天属于特定交易日（周五、周一、周三）时触发买入信号，次日开盘卖出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：基于Binance BTC-USDT永续合约1小时K线（2019-2026），单边手续费0.06%，1x杠杆。全时段累计净值2.40，年化13.84%，最大回撤-14.48%，Sharpe 1.03。在ETF上市后依然保持13.72%年化，表现稳健。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：绝对收益跑输BTC买入持有基准（全时段6.48倍）；双重过滤导致信号极稀疏（7年仅131笔交易），存在过拟合风险和统计显著性不足问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：使用Pandas进行高效的向量化计算，通过 &lt;code&gt;rolling(n).max().shift(1)&lt;/code&gt; 提取通道上轨，避免显式For循环。交易模拟部分通过索引偏移 &lt;code&gt;idx + 1&lt;/code&gt; 匹配次日开盘价计算收益率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;多品种隔夜效应普适性测试&lt;/strong&gt;：将此回测框架复用到ETH、SOL等主流山寨币，寻找更具统计显著性的跨市场隔夜规律。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态星期选择器构建&lt;/strong&gt;：开发自适应星期过滤器，采用滚动窗口（如近120天）动态统计各星期隔夜Sharpe，替换硬编码的持仓规则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时间窗口精细化切片&lt;/strong&gt;：尝试缩短突破周期（如N=5）或引入成交量/波动率因子进行假突破过滤，以缓解因信号稀疏导致的资金利用率瓶颈。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87129</guid>
+      <pubDate>Tue, 30 Jun 2026 20:19:56 +0800</pubDate>
     </item>
     <item>
       <title>白马抱团策略的小资金轻量化改造：价格、数量、Offset与板块的实战优化</title>
@@ -4271,41 +4311,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-15&amp;talker=58453205219@chatroom</guid>
       <pubDate>Mon, 15 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>警惕回测陷阱：初始资金规模对量化策略执行一致性的关键影响分析</title>
-      <link>https://bbs.quantclass.cn/thread/86814</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86814"&gt;由于初始资金导致的风火轮框架与实盘选股开仓不一致的一次记录&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[回测一致性、最小买入单位、实际杠杆偏差、大市值策略]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示初始资金规模通过限制高价股撮合，导致回测与实盘择时严重背离的工程陷阱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：大市值轮动策略，选取市值最大的30只个股，通过多offset平滑持仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：对比27w与1000w初始资金在2019-2026年间的表现。1000w组收益翻倍，27w组涨幅不足50%，且在2026年4月高价科技股（如寒武纪）行情中因资金量不足无法足额开仓，导致严重跑输。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：小额资金在面对高单价标的时，受限于“最小买入股数”限制，会导致实际杠杆被迫降至0.2-0.4，使策略从“满仓运行”退化为“轻仓观望”，彻底改变策略性质。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：回测框架（stock-position-mgmt）生成的信号与实盘下单逻辑不一致，导致择时天数与开仓频率出现显著偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：即使选股逻辑完全一致，初始资金的差异也会通过影响个股权重分配，进而影响后续的择时决策（价格分位数计算等），产生蝴蝶效应。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：高资金规模组实际杠杆稳定在0.9，而低资金组杠杆波动剧烈且持续下降，直接反映了策略在不同资金体量下的不可扩展性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;回测环境对齐&lt;/strong&gt;：在进行生产环境部署前，必须确保回测框架的初始资金设置与实盘可用资金严格一致，严禁使用“无限拆分”或“虚拟杠杆”的理想化回测。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入撮合约束逻辑&lt;/strong&gt;：在Python回测代码中加入对&lt;code&gt;min_shares&lt;/code&gt;（最小交易单位）和个股单价的硬约束检查，若剩余资金不足以购买一手则强制该标的权重为0并重新分配。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;监控实际杠杆指标&lt;/strong&gt;：将“实盘杠杆 vs 回测预期杠杆”作为系统监控的核心指标，一旦偏差超过5%立即触发报警，排查是否因单价上涨导致的被动轻仓。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86814</guid>
-      <pubDate>Sun, 14 Jun 2026 21:53:40 +0800</pubDate>
     </item>
   </channel>
 </rss>
