@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 25 Jul 2026 08:33:58 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jul 2026 22:40:17 +0000</lastBuildDate>
     <item>
       <title>算得出天体却算不出人性：南海泡沫中的量化策略复盘与纪律启示</title>
       <link>https://bbs.quantclass.cn/thread/87994</link>
@@ -44,6 +44,26 @@
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87994</guid>
       <pubDate>Fri, 24 Jul 2026 23:42:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化学习提效指南：2026量化分享会课程导航与知识库整理规范</title>
+      <link>https://bbs.quantclass.cn/thread/87988</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87988"&gt;🍦【导航】26分享会课程导航&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[知识管理, 课程导航, 归档规范, 飞书表格]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：提供系统化的量化课程目录导航与本地知识库规范化整理方案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;量化知识库标准化构建&lt;/strong&gt;：在本地依据“分类思维导图”建立“项目-类型-期数”三级目录，避免量化策略、数据源和回测代码混杂。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文件重命名与检索自动化&lt;/strong&gt;：利用文章给出的命名规则，可编写Python脚本（结合os和shutil库）对下载的视频、课件及配套代码进行一键式重命名与归档，实现资料的快速检索。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87988</guid>
+      <pubDate>Fri, 24 Jul 2026 16:52:29 +0800</pubDate>
     </item>
     <item>
       <title>基于多桶聚合与动态仓位因子的分钟偏移覆盖实盘方案</title>
@@ -4271,46 +4291,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86847</guid>
       <pubDate>Tue, 16 Jun 2026 02:53:55 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化交易实战心得：从模型优化到抱团策略的深度复盘</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-16&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-16&amp;amp;talker=57784510736@chatroom"&gt;2026-06-16_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 优化模型提效：利用中等生与DS算法改进动量计算&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;研究显示，使用‘考尔曼动量’或‘回归动量’替代传统的涨跌幅衡量动量，在近十年数据回测中表现更优。&lt;/li&gt;
-&lt;li&gt;对于国产模型（如DeepSeek），建议使用英文智能体指令（Prompt）进行工程化配置，可显著提升代码逻辑的处理能力。&lt;/li&gt;
-&lt;li&gt;推荐配置：OpenCode + DM框架 + LSP配置，在处理策略逻辑时比传统代码助手更稳定、高效。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔄 策略迭代：从两轮车到三轮车的进化逻辑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;策略轮动反思：单纯的双因子轮动（如大盘+微盘）在当前行情下波动极大。社群讨论认为，应引入‘三轮车’逻辑，即整合大盘、抱团、微盘三种风格的策略，以提升稳健性。&lt;/li&gt;
-&lt;li&gt;抱团策略观察：抱团风格往往具有较强的持续性，通过对成交额集中度与行业轮动的监控，可以比大小盘轮动捕捉到更频繁的市场机会。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 实战洞察：小市值策略的回归与择时修正&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;小市值beta本位：测试表明，各种复杂的择时因子（量价优化、主板筛选等）在长期回测中往往难以稳定跑赢纯‘小市值TOP 30’的简单组合。策略越复杂，反而越容易陷入过度拟合。&lt;/li&gt;
-&lt;li&gt;代码执行规范：对于使用DM框架的策略，在开发时务必遵循Lint规范。Lint检查不通过的代码往往隐藏着未来函数风险或逻辑缺陷，不可盲目使用&lt;code&gt;--no-lint&lt;/code&gt;跳过。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💬 投资金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;木木十三：“Lint过了不一定没有未来，但Lint不过一定有未来（未来函数）。”&lt;/li&gt;
-&lt;li&gt;站岗资本：“加再多的玩意，小市值跌的时候他也一起跌。”&lt;/li&gt;
-&lt;li&gt;Joe：“赚钱好难啊，亏钱好容易。”&lt;/li&gt;
-&lt;li&gt;子風：“懂得越多亏得越快。”&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 引用链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;成交额集中度、风格抱团与小市值收益 | 策略分享会: https://bbs.quantclass.cn/topic/index?id=84618&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-16&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Tue, 16 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
