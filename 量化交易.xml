@@ -7,7 +7,53 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Jul 2026 22:41:02 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 08:40:31 +0000</lastBuildDate>
+    <item>
+      <title>链上跨交易所美股套利实战：Binance与Hyperliquid价差挖掘指南</title>
+      <link>https://bbs.quantclass.cn/thread/88037</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/88037"&gt;来不及等币安美股船队了，先开链上美股套利吧&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：策略与因子 / 技术与工程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：价差套利、订单流收敛、持仓时长敏感性、交易所数据质量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Binance与Hyperliquid美股代币价差，通过收敛逻辑实现高胜率套利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用不同交易所对同一美股代币定价机制的暂时性偏离进行对冲。核心在于赌相对价格收敛而非预测方向，公式为 basis = Binance价格 / Hyperliquid价格 - 1。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：采用“动态基准”（历史价差中位数）与“零基准”（假设价格完全对齐）两种模式进行偏离度计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：区间为2026年4月至7月；阈值40bp；持仓时长优化至24小时以内时，零基准策略胜率超过90%，净收益显著提升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：交易摩擦主要来自双边手续费及“单腿成交”导致的损益磨损；分红期间的专项资金费率会造成剧烈价差，构成潜在干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：Hyperliquid API存在严重的早期历史数据断档（近5000根K线限制），数据质量审计显示4-5月数据覆盖率极低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于API定时任务进行数据全量采集；采取IOC下单模式，并通过观察次根K线高低点验证成交可行性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：Binance存在复杂资金费率机制（包括调节分红的特殊费率），而Hyperliquid缺乏对应机制，需在逻辑中剔除或单独建模处理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;【策略优化】构建基于持仓时长的动态止盈框架，设置24小时硬止盈以降低资金费率风险并释放保证金空间。&lt;/li&gt;
+&lt;li&gt;【数据清洗】针对Hyperliquid历史断档严重的特点，建立基于数据质量审计的加权回测，优先使用7月以后的高质量数据片段。&lt;/li&gt;
+&lt;li&gt;【系统构建】在实现实盘时，引入对分红日期的特殊标记，在分红平衡费率触发点进行自动化避险或套利逻辑调整。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/88037</guid>
+      <pubDate>Tue, 28 Jul 2026 00:10:08 +0800</pubDate>
+    </item>
+    <item>
+      <title>历史韵脚与量化反思：跨越百年的技术创新泡沫、债务大周期与投资生存指南</title>
+      <link>https://bbs.quantclass.cn/thread/88032</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/88032"&gt;宏观_无限漫谈_创新，泡沫，汇率，利率与周期_(一)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info) - &lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察] - &lt;strong&gt;核心标签&lt;/strong&gt;：[宏观债务周期, 技术成熟度曲线, 多部门债务去杠杆, 量化回测样本偏差] - &lt;strong&gt;一句话总结&lt;/strong&gt;：以数百年技术泡沫与债务周期复盘，警示短周期量化策略在系统性大转向中的失效风险。 --- ## 🔭 模块 A：市场规律与深度思考 (Market Insights) - &lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：短期（如2016-2025年）回测数据由于处于特定的宏观大周期稳态环境，其“明确有效”的策略经验本质上是对既定规则的精细化适配，一旦遭遇宏观大周期转向（如去杠杆、利率长期通道改变），生存前提将彻底瓦解，过往经验极易因路径依赖而彻底失效。 - &lt;strong&gt;【归因分析】&lt;/strong&gt;：大债务周期（50-75年）见顶时，全社会总债务率因GDP崩塌而被动冲高，去杠杆过程长达数年乃至数十年（如1929大萧条、1990日本失去的20年），此阶段市场定价逻辑从“未来预期”骤降至“自由现金流出清”，导致估值与杠杆双重踩踏。 - &lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“无择时、纯多头、仅基于近十年数据拟合”的量化策略在极端下行周期中的抗风险能力。在系统性萧条期，缺乏宏观择时与空头对冲的策略由于路径依赖将面临毁灭性打击，熊市底部可以持续不断被击穿。 - &lt;strong&gt;【衍生假设】&lt;/strong&gt;：在长期利率转向（如US10Y走出下行通道）和逆全球化大背景下，资产价格与汇率、利差的联动可能改变过去十年的均值回归逻辑，开启新的趋势性大周期。 --- ## 💡 落地与行动指南 (Actionable Takeaways) - 1. 在量化回测框架中引入“宏观状态过滤器（Regime Filter）”，利用长端国债利率（US10Y/CN10Y）、三部门债务率等宏观指标，对策略进行极端压力测试，避免对单一稳态环境的过度拟合。 - 2. 增加对冲模块设计，将纯多头策略升级为“多头+宏观波动率对冲”或“多头+信用利差/汇率趋势空头对冲”，为极端市场环境预留安全边际。 - 3. 开发基于“自由现金流/资本开支”动态变化（如Alphabet单季FCF转负事件）的个股基本面排雷因子，在科技创新泡沫中后期，对高估值、高资本开支但现金流失血的标的实施降权或禁买。&lt;/h2&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/88032</guid>
+      <pubDate>Mon, 27 Jul 2026 18:05:56 +0800</pubDate>
+    </item>
     <item>
       <title>优化风火轮3大市值轮动：白马抱团策略的深度相关性分析与成交量过滤逻辑实现</title>
       <link>https://bbs.quantclass.cn/thread/88028</link>
@@ -4168,118 +4214,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;talker=58453205219@chatroom</guid>
       <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>告别手动筛选：基于EZXT与QMT的可转债双低量化自动化交易策略实操</title>
-      <link>https://www.bilibili.com/video/BV1SDjV6YErj</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1SDjV6YErj"&gt;DuckDB+QMT落地！可转债双低量化策略实操详解&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🛠️ EZXT可转债双低策略 - 标准实操手册 (SOP)&lt;/h3&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于“双低”指标与均线多头趋势，结合 DuckDB 极速数据库与 QMT/东财双底API，实现自动筛选与极速下单。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：可转债行情数据（价格、转股溢价率、均线指标）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：买入/卖出交易信号及 QMT 自动执行的限价交易指令。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;双低值&lt;/strong&gt;：转债价格 + 转股溢价率（数值越低代表债底保护越强、进攻性越好）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Dry Run&lt;/strong&gt;：模拟运行模式，仅输出策略计算的买卖信号而不进行实盘交易。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;QMT&lt;/strong&gt;：极速量化交易客户端，提供行情API对接及底层交易接口。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景 1：策略初始化与运行模式切换&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：实现策略从模拟观察（Dry Run）到实盘下单的无缝切换。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：打开 minute 扩展目录，确保 QMT 客户端正常运行（实盘时）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[模拟运行]&lt;/strong&gt;：在命令行中运行 &lt;code&gt;python strategies/bot.py&lt;/code&gt;，启动 Dry Run 模式进行信号验证。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[实盘下单]&lt;/strong&gt;：在确认信号符合预期后，在命令后追加参数，运行 &lt;code&gt;python strategies/bot.py trade&lt;/code&gt; 开启实盘交易。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;场景 2：多源数据自动化获取与容灾&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：保证数据获取的极速性与高可用性，避免因单一接口失效导致策略中断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：无。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[本地读取]&lt;/strong&gt;：策略优先尝试从本地 &lt;code&gt;DuckDB&lt;/code&gt; 极速数据库读取秒级数据。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[API降级]&lt;/strong&gt;：若本地无数据，自动调用 &lt;code&gt;QMT API&lt;/code&gt;（&lt;code&gt;xtdata&lt;/code&gt;）下载数据并同步写入 &lt;code&gt;DuckDB&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[最终兜底]&lt;/strong&gt;：若 QMT 未开启，自动降级至免费且免注册的 &lt;code&gt;东方财富 API&lt;/code&gt; 进行数据拉取（耗时约 5 秒）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;BN&lt;/code&gt;&lt;/strong&gt;：设置同时持有的最大转债数量 -&amp;gt; 默认值为 &lt;code&gt;10&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;max price&lt;/code&gt;&lt;/strong&gt;：转债价格上限过滤闸口 -&amp;gt; 默认 &lt;code&gt;130&lt;/code&gt;，超过此价格的转债将被直接过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;max premium&lt;/code&gt;&lt;/strong&gt;：转股溢价率上限过滤闸口 -&amp;gt; 默认 &lt;code&gt;50&lt;/code&gt;，超过此溢价率的转债将被过滤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;USAFILA&lt;/code&gt;&lt;/strong&gt;：均线多头过滤器开关 -&amp;gt; 默认开启（&lt;code&gt;True&lt;/code&gt;），用于筛选趋势向好的标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;main muscle&lt;/code&gt;&lt;/strong&gt;：均线得分最低阈值（每满足一层均线多头加25分） -&amp;gt; 默认最低 &lt;code&gt;50&lt;/code&gt; 分。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;银行转债陷阱&lt;/strong&gt;：警惕如光大、浦发等低双低但正股长期平庸的标的，易造成资金低效占用。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;强赎风险&lt;/strong&gt;：需防范即将到期或处于强熟期的转债，避免被动转股或低价赎回。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流动性风险&lt;/strong&gt;：小余额转债易出现滑点，应防范买不进、卖不出的情况。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;通过微调配置，将 &lt;code&gt;max price&lt;/code&gt; 降至 120、&lt;code&gt;max premium&lt;/code&gt; 降至 30，可使策略风格更加防守与稳健。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1SDjV6YErj</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/63e2210ef2fac4e54f74a83b99af6b39a3daaf14.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 16 Jun 2026 21:29:34 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于Deribit期权隐含概率的Polymarket套利：利用Longshot Bias挖掘No端溢价</title>
-      <link>https://bbs.quantclass.cn/thread/86850</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86850"&gt;BTC年底能上150K吗？从链上赌局看Polymarket的错误定价机会&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Longshot Bias, 隐含概率, Black-Scholes, 跨市场套利, 预测市场]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用Deribit期权隐含概率纠正Polymarket低概率事件的高估偏差，捕捉NO端溢价。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：Longshot Bias（冷门偏好偏差），即预测市场中低概率事件的Token通常被系统性高估，而高概率事件被低估。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：零售投资者的“彩票心态”导致对小概率暴利事件的非理性博弈，叠加加密市场天然的看涨偏好（Long Bias），导致YES端溢价严重。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：Polymarket的NO端（否定低概率事件）存在显著的统计学正期望，回测胜率可达75%，年化收益率极高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：以高效的Deribit期权市场为基准，利用Black-Scholes模型从期权链隐含波动率（IV）反推特定行权价的到期概率，与Polymarket价格对比寻找Edge。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：$Edge = P_{Polymarket} - P_{Deribit_Implied}$，当Edge显著（如&amp;gt;3%）且流动性充足时作为入场信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需通过期权曲面插值获取连续的概率分布，而非仅依赖单一行权价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：预测市场流动性深度有限（需过滤&amp;lt;$10k市场），且资金占用周期长。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：原版工具缺乏历史追溯能力。作者通过SQLite实现持久化追踪，记录IV、到期天数、Edge趋势等维度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：Python扫描器 + SQLite存储 + Hermes定时任务汇报。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：引入流动性过滤机制（Liquidity Threshold），确保Edge在实盘中具备可成交性，减少虚假信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：由于两端市场到期日未必完全对齐，需进行时间价值（Theta）或插值修正。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[量化回测]：利用HuggingFace上的Polymarket-v1数据集（12亿条记录）进行Longshot Bias的分类回测。&lt;/li&gt;
-&lt;li&gt;[系统开发]：构建自动化监控脚本，重点扫描Polymarket中YES端报价低于0.1的品种，寻找NO端的卖出/买入机会。&lt;/li&gt;
-&lt;li&gt;[概率建模]：基于Deribit期权链实时构建波动率曲面，提升隐含概率计算的精度。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86850</guid>
-      <pubDate>Tue, 16 Jun 2026 11:16:06 +0800</pubDate>
     </item>
   </channel>
 </rss>

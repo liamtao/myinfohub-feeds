@@ -7,7 +7,75 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Jul 2026 22:41:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 08:40:31 +0000</lastBuildDate>
+    <item>
+      <title>超越GPT的表格神器：用Claude在Excel中无缝构建动态财务模型与交互看板实操指南</title>
+      <link>https://www.youtube.com/watch?v=fZ1Kmuafzzk</link>
+      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=fZ1Kmuafzzk"&gt;Claude Opus 5 is INSANE at Excel (Better Than Fable)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ Claude Excel Add-in - 标准实操手册 (SOP)&lt;/h3&gt;
+&lt;h4&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 Excel Add-in 插件实现 Claude 模型的原生对接与单元格上下文感知，赋能 AI 深度掌控表格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户提示词（Prompts）、实时网页搜索数据（Web Search）、活动单元格选区上下文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：多场景动态电子表格、公式化财务模型、交互式参数下拉菜单、动态对比大盘及图表。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Claude Extension&lt;/strong&gt;：嵌入在 Excel 内的侧边栏插件，支持对话、查看历史，可直接控制工作簿。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opus 5&lt;/strong&gt;：Anthropic 旗舰模型，擅长处理复杂逻辑、自动化财务建表及高水准视觉排版。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Checks Tab&lt;/strong&gt;：逻辑校验页，用于通过平衡公式（如：期初 + 新增 - 流失 = 期末）检验模型计算的准确性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h4&gt;
+&lt;h5&gt;场景 1：Claude Excel 插件初始化与环境配置&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在 Excel 内部建立与 Anthropic/Claude 的实时连接，并开启自动编辑权限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已安装 Microsoft 365 (Excel) 且拥有 Claude 付费账户。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：打开 Excel -&amp;gt; 点击上方菜单栏的 &lt;strong&gt;Add-ins (加载项)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：在搜索栏中输入 &lt;code&gt;Claude&lt;/code&gt; -&amp;gt; 点击 &lt;strong&gt;Add (添加)&lt;/strong&gt; 并在右侧侧边栏中点击登录授权。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数配置]&lt;/strong&gt;：在侧边栏中启用 &lt;strong&gt;Web Search (网络搜索)&lt;/strong&gt; 与 &lt;strong&gt;Accept all edits (接受所有修改)&lt;/strong&gt; 开关。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;场景 2：24个月动态财务预测模型构建 (含多场景切换)&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：基于启动资金、获客成本及流失率等关键指标，快速构建可交互切换的牛市/熊市/基准财务模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：自动整理并准备好项目的核心运营假设数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：在侧边栏顶部将模型切换至 &lt;strong&gt;Opus 5&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：向 Claude 发送提示词，详细指定初始客户数（如 1000 个）、月费（$100）、客户流失率（3%）、获客成本（$400）等参数，并要求包含下拉菜单和敏感性分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[微观操作]&lt;/strong&gt;：在 Claude 规划好表结构并发出确认请求时，回复 &lt;code&gt;go&lt;/code&gt; 即可开始自动执行多表格创建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：在生成的 assumptions 页面的 Scenario 下拉菜单中任意切换 &lt;code&gt;Bear&lt;/code&gt;、&lt;code&gt;Base&lt;/code&gt; 或 &lt;code&gt;Bull&lt;/code&gt; 案例，整套模型即自动联动更新。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Model Selector&lt;/strong&gt;：模型选择器（支持 Opus, Sonnet, Fable 等）。对高复杂度的建模、专业设计排版需求，强烈建议全程使用 Opus 5。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accept All Edits&lt;/strong&gt;：允许 AI 直接控制并自动覆写单元格内容，若关闭，AI 仅会提供代码或对话建议而不修改表单。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;避免在复杂任务中使用稳定性较差的 Fable 5，否则极易发生生成中断或逻辑丢失。&lt;/li&gt;
+&lt;li&gt;GPT 的 Excel 官方插件默认生成样式缺乏美感。若先用 GPT 生成了框架，可直接接入 Claude 发送“美化调整”提示词，让 Claude 自动重构行高、调色盘与字体，以达到出色的交付标准。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;敏感性数据看板联动&lt;/strong&gt;：利用 &lt;code&gt;INDEX&lt;/code&gt;/&lt;code&gt;MATCH&lt;/code&gt; 等公式绑定下拉菜单，使 charts 页面的所有对比图表一键同步，向投资人/合伙人汇报时视觉效果更佳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自动化勾稽校验&lt;/strong&gt;：在提示词中强制加入“要求建立 Checks 页”，可帮你在复杂的几十列数据中秒级定位公式引用逻辑错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=fZ1Kmuafzzk</guid>
+      <enclosure url="https://i.ytimg.com/vi/fZ1Kmuafzzk/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 27 Jul 2026 23:23:11 +0800</pubDate>
+    </item>
     <item>
       <title>前数据科学家的AI高效学习工作流：如何用Notebook LM与Claude实现10倍速知识内化</title>
       <link>https://www.youtube.com/watch?v=sbmP6i-MChk</link>
@@ -8394,69 +8462,6 @@ Cursor，这款被誉为“AI编程界Photoshop”的IDE，究竟有何魔力让
 </description>
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1cANJzDE3S</guid>
       <pubDate>Wed, 18 Jun 2025 17:21:57 +0800</pubDate>
-    </item>
-    <item>
-      <title>沉浸式翻译：程序员必备的文档与视频实时翻译神器</title>
-      <link>https://www.bilibili.com/video/BV1Wj7hz9E4y</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Wj7hz9E4y"&gt;沉浸式翻译 英文就像看母语&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;---文章主要内容
-本文介绍了一款名为“沉浸式翻译”的浏览器插件，旨在提高用户在阅读英文文档、PDF及观看视频时的翻译效率和体验。
-该插件支持多种主流浏览器，提供原文与译文对照显示、自定义翻译引擎、多种排版样式等功能，并特别强调其在保持格式方面的优势。
-作者将其推荐为目前功能最全、翻译效果最稳定的工具。&lt;/p&gt;
-&lt;h3&gt;重要概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;沉浸式翻译 (Immersive Translate)&lt;/strong&gt;：一款浏览器插件，支持Chrome、Edge、Firefox等，提供网页、PDF、视频字幕的原文与译文对照显示，旨在提供沉浸式的阅读翻译体验。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BubbleDoc&lt;/strong&gt;：沉浸式翻译中专门用于文档翻译（PDF/EPUB）的引擎，特点是能高保真地保留原文复杂排版格式（如表格）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI术语库 (AI Terminology Database)&lt;/strong&gt;：一个预设专业领域标准翻译的模块，确保技术术语翻译的一致性（如将“class”稳定翻译为“类”）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;输入框增强 (Input Box Enhancement)&lt;/strong&gt;：一个便捷功能，用户在输入框输入中文并连按三下空格键后，插件能自动将其翻译成英文，便于英文资料搜索。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;主要观点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;传统的翻译插件或复制粘贴到AI翻译的方式，在处理长文本时效率低下且体验不佳。&lt;/li&gt;
-&lt;li&gt;插件默认的微软翻译可能存在“机翻”感，中文表达不够自然。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：通过Pedantic AI文档的翻译案例，对比微软翻译与接入大模型（如DeepSeek）后的自然度差异。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;接入大语言模型（如DeepSeek）作为翻译引擎能显著提升译文的自然度和准确性。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：同一Pedantic AI文档的句子，使用DeepSeek翻译后“舒服多了”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;插件提供的多种译文显示样式（如虚线边框）能有效区分原文和译文，提高阅读清晰度，优于混杂显示。&lt;/li&gt;
-&lt;li&gt;模糊效果功能为英文学习者提供了独特的挑战，需将鼠标移到译文上才能显示，增加了阅读趣味性。&lt;/li&gt;
-&lt;li&gt;BubbleDoc引擎在翻译复杂格式（如含英文和数字的表格）的PDF文档时，能极佳地保持原文格式和数据对应，这是多数翻译软件难以做到的。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：提及许多类似软件要么翻译质量差，要么格式崩溃，而沉浸式翻译能同时保住内容和格式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;AI术语库和自定义AI翻译角色功能，确保了专业领域术语翻译的准确性和一致性，节省了人工纠错的时间。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;支撑&lt;/strong&gt;：例如“class”能被正确翻译成“类”而不是“班级”，编程术语如Python不会被翻译成“蟒蛇”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;该插件提供的YouTube、Netflix等视频平台字幕实时翻译效果，通常优于平台自带的翻译功能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;安装插件&lt;/strong&gt;：在Chrome、Edge、Firefox等主流浏览器中安装“沉浸式翻译”插件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;更换翻译引擎&lt;/strong&gt;：通过提供API Key（如DeepSeek）或开通会员，将默认翻译引擎更换为更自然的大语言模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;调整显示样式&lt;/strong&gt;：在基本设置中选择偏好的译文显示样式，如“虚线边框”以清晰区分原文与译文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用模糊效果&lt;/strong&gt;：开启模糊效果进行英文阅读练习，通过鼠标悬停查看译文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;活用输入框增强&lt;/strong&gt;：在网页输入框输入中文后，连按三下空格键即可自动翻译成英文，便于英文搜索。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;使用BubbleDoc翻译PDF&lt;/strong&gt;：点击“PDF EPUB”按钮，选择“BubbleDoc”标签页进行高质量的PDF/EPUB文档翻译。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;保存双语PDF&lt;/strong&gt;：鉴于免费用户每月页数限制，建议翻译完成后保存双语PDF以便离线阅读。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自定义AI翻译角色&lt;/strong&gt;：在高级设置中根据阅读内容（如技术文档、学术论文）选择或自定义AI翻译角色。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;建立AI术语库&lt;/strong&gt;：利用术语库功能预设专业词汇的标准翻译，提高技术文档翻译的一致性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实时字幕翻译&lt;/strong&gt;：在YouTube、Netflix等视频平台开启插件进行实时字幕翻译。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;考虑开通会员&lt;/strong&gt;：若需更多高级功能或支持开发者，可考虑开通会员，并可使用评论区推荐链接获得优惠。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“能把内容和格式都保住的沉浸式翻译算是我用过的工具里面表现的最好的了。”&lt;/li&gt;
-&lt;li&gt;“在大多数的时候费版配合我们自己的API Key就已经非常非常的够用了。”&lt;/li&gt;
-&lt;li&gt;“我真心推荐你试试看。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Wj7hz9E4y</guid>
-      <pubDate>Thu, 05 Jun 2025 17:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
