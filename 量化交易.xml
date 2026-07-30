@@ -7,7 +7,73 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Jul 2026 08:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 23:22:33 +0000</lastBuildDate>
+    <item>
+      <title>烂板策略深度穿透：集合竞价“最后一跳”如何蚕食微观Alpha与应对策略</title>
+      <link>https://bbs.quantclass.cn/thread/88063</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/88063"&gt;烂板策略的最后一跳： alpha还在，还是已经被抢没了？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[集合竞价微观结构, 烂板策略, 最后一跳（Last-Tick Jump）, 拥挤度度量, 摩擦成本]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[集合竞价尾部跳升剧烈抬高成本，烂板策略因极度拥挤导致实盘胜率大幅下滑]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：在集合竞价 09:25 前的最后几秒内（“最后一跳”），烂板股票的撮合价会被突然异常抬高。2026年数据显示，精选烂板策略的“最后一跳”中位数已达 100.30bp，P90 高达 314.04bp，超过 50bp 的跳升已成常态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：策略极度拥挤。大量资金采用类似（如09:15:02自动挂涨停价抢单）的通道与时序策略，在09:25截止前集中撮合，导致微观流动性瞬间承压，价格被动大幅推高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：该现象严重侵蚀了次日开盘后的期望收益。2026年实际数据表明，“最后一跳”平均每笔侵蚀约 1.15% 的收益。无跳升情况下策略期望收益为 1.44%（胜率51.4%），而实际交易中降至 0.29%（胜率44.2%），持仓体验极差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：随着尾部定价效率被抢筹扭曲，烂板策略的 Alpha 正在向极少数能够容纳溢价的“超级牛股”右偏集中，常态化个股的统计套利空间已被滑点完全覆盖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用曾涨停但未封死的“烂板”个股次日情绪修复与流动性溢价，属于短期行为金融学与动量修复因子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：对比“策略可比市场”、“烂板域”与“精选烂板”三大横截面在 P90、&amp;gt;50bp占比、中位数等指标上的时间序列走势（2024-2026），剔除全市场共性趋势以提取纯粹的策略拥挤度超额。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略实盘容量极低，实盘成交偏差（Slippage）已成为第一风险，历史回测的底层 Alpha 虽强，但在实盘中已触碰容量天花板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【行动点 1：引入“竞价跳升限制”主动撤单机制】&lt;/strong&gt;：在下单执行算法（EMS）中引入 09:24:50 后的即时模拟撮合价监控。若计算出“最后一跳”预期溢价超过 50bp，则主动撤销该笔竞价单，改用盘中低吸或放弃交易，避免高位接盘。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【行动点 2：动态拥挤度风控分配】&lt;/strong&gt;：将策略 P90 跳升幅度作为策略分配权重的“硬风控阀值”。当精选烂板域的 P90 滚动均值突破 200bp 时，系统自动对该策略执行限额减半（缩容），防止实盘资金死磕拥挤摩擦成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【行动点 3：测试“次日盘中探底”承接策略】&lt;/strong&gt;：鉴于底层 Alpha 仍存在但竞价开盘被抢筹，可回测“次日 09:30 - 10:00 盘中回调承接”的变体方案，避开高成本的 09:25 集合竞价拥挤节点。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/88063</guid>
+      <pubDate>Wed, 29 Jul 2026 22:17:03 +0800</pubDate>
+    </item>
+    <item>
+      <title>众神亮出血条：AI产业链现金流压测与融资反身性解析</title>
+      <link>https://bbs.quantclass.cn/thread/88045</link>
+      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/88045"&gt;【科学家】“DEX” 与 AI 超级周期（一）——借来的未来&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[AI反身性、FCF压测、Capex/OCF、融资风险溢价]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：深度解析AI基建转入“借钱建设”周期，评估圈外收入对巨头现金流支撑的极限。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：四大云巨头经营现金流(OCF)对资本开支(PP&amp;amp;E)的覆盖倍数从2.46倍骤降至1.42倍；Alphabet单季FCF转负，标志着基建投入已显著侵蚀旧业务现金留存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：AI基建属前置重资产，收入确认存在长时滞（Wait Time）。融资环境从“主动利用杠杆”向“被动补足建设缺口”转化，导致Amazon、Oracle等科技债风险折价（Spread）及融资成本上升。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：挑战了“AI需求即增长”的简单逻辑。NVIDIA开始为OpenAI等客户提供融资担保，标志着供应商与客户信用深度捆绑，订单真实性受“无限流”融资质疑，增加了系统性金融风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：若AI硬件迭代周期快于债务偿还周期，云厂商将面临巨大的资产减值与债务违约风险博弈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;[财务拐点监控]&lt;/strong&gt;：量化监测云巨头Capex/OCF比值，当该比例持续逼近或超过1且利差（Spread）走高时，可作为AI板块估值阶段性见顶的量化信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[模型层压测算式]&lt;/strong&gt;：采用“自养所需收入 = 算力支出 / (1 - 其他成本率)”进行压力测试。测算显示OpenAI等头部厂商需维持30%-40%的CAGR且收入增长3-4倍方能实现FCF平衡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[策略风险对冲]&lt;/strong&gt;：在量化配置中区分“卖铲子（高周转/现金流强）”与“二房东（重资产/高杠杆）”角色，当前宏观流动性下应警惕高债务依赖的新云与中云资产。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/88045</guid>
+      <pubDate>Tue, 28 Jul 2026 21:20:08 +0800</pubDate>
+    </item>
     <item>
       <title>链上跨交易所美股套利实战：Binance与Hyperliquid价差挖掘指南</title>
       <link>https://bbs.quantclass.cn/thread/88037</link>
@@ -4122,98 +4188,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86834</guid>
       <pubDate>Wed, 17 Jun 2026 16:46:23 +0800</pubDate>
-    </item>
-    <item>
-      <title>行业轮动与防御策略深度思考：如何在震荡市中实现策略互补与优化</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;amp;talker=57784510736@chatroom"&gt;2026-06-17_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h4&gt;📉 市场行情回顾：小市值与科技板块的背离&lt;/h4&gt;
-&lt;p&gt;近期微盘股和小市值策略整体表现不佳，自5月11日以来，市场呈现“龙头行业上涨、小市值下跌”的行情。部分配合小市值使用的防御性策略（如诺亚、现金流等）未能体现出应有的防御性，而追逐热点行业的策略（如24三星、25中等生等）表现较好。针对小市值策略的困境，邢不行建议投资者保持定力，无需过度惊慌，并将在直播中详细回顾类似行情。&lt;/p&gt;
-&lt;h4&gt;💡 行业分类与轮动的方法论优化&lt;/h4&gt;
-&lt;p&gt;关于行业分类和轮动，邢不行指出，单一的申万一级或二级行业分类存在股票数量分布不均的问题。他给出的简单粗暴的解决方案是：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;综合轮动备选&lt;/strong&gt;：将一级、二级、三级行业全部纳入备选库，进行行业轮动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态调整&lt;/strong&gt;：行业的划分应是动态的，且需注意行业更新频率（通常半年更新一次）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;🤝 策略互补与资金曲线优化&lt;/h4&gt;
-&lt;p&gt;针对如何提升策略稳定性，多位投资者探讨了策略组合的艺术：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略互补关键&lt;/strong&gt;：邢不行强调，组合策略时，&lt;strong&gt;资金曲线&lt;/strong&gt;的互补比单纯的选股重复度更重要，此外还需考虑对轮动指标的适应性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作建议&lt;/strong&gt;：不建议裸跑单一策略，应通过叠加不同风格策略（如结合定风波、中等生、三星等）来平滑回撤。针对回撤较大的情况，投资者需要保持耐心，避免在下跌中盲目换仓，而是通过叠加信号和平均权重来优化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;🛠️ AI辅助与量化工具的进阶&lt;/h4&gt;
-&lt;p&gt;木木十三等投资者分享了利用AI（如DM框架）优化策略的经验：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI辅助&lt;/strong&gt;：可以通过DM框架对风火轮等策略进行参数寻优或改进分析，AI能提供有价值的分析视角。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;工具应用&lt;/strong&gt;：投资者们利用IDE、CLI等工具进行代码编写与策略研究。针对Token消耗问题，通过合理选择国内大模型接口或使用反重力（Antigravity）等工具，能有效降低成本并提升效率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🎯 社区金句&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;quot;轮动不是随便可以加的呀，你要策略互补才能加。&amp;quot; —— 邢不行&lt;/li&gt;
-&lt;li&gt;&amp;quot;犹豫就会败北。&amp;quot; —— 站岗资本&lt;/li&gt;
-&lt;li&gt;&amp;quot;涨多了就跌，跌多了就涨。&amp;quot; —— Cocj&lt;/li&gt;
-&lt;li&gt;&amp;quot;扛过这个周期也算修炼过了。&amp;quot; —— Cyan.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关资源链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86660"&gt;定风波多时点择时在不同策略的效果统计与分析 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/86798"&gt;DM框架中等生发布&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86691"&gt;A股票牛熊进度条 Pro Max 之我要抄底和逃顶 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从量化交易策略到AI工具应用：量化实战者的进阶思考与避坑指南</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;amp;talker=58453205219@chatroom"&gt;2026-06-17_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;📉 强因果策略与择时的重要性&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心理念&lt;/strong&gt;：在策略制定中，应优先寻找具有强因果关系的因子，并通过控制随机性来优化交易表现。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;择时策略&lt;/strong&gt;：纯择时策略在量化领域长期有效，即便在简单的框架下，通过数学逻辑（如自适应布林带）的调整，也能实现超额收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;行动建议&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;对于小资金账户（如2000U），应保持真心实感的实盘操作，通过实战磨练提升进步速度。&lt;/li&gt;
-&lt;li&gt;关注动量策略的后置过滤方案，通过布林Z-score因子衡量价格位置，实现提前离场以防走弱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI工具的高阶玩法与风险防控&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;提问与审美&lt;/strong&gt;：AI时代的盈利路径多种多样，人不再是单纯的操作者，而是“提问者”。脑子交给AI，人需要具备求知欲和审美能力。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;避坑指南&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;避免在大平台（如Claude）高频触碰加密货币（Crypto）相关敏感内容，易被触发安全限制导致封号。&lt;/li&gt;
-&lt;li&gt;尽量使用原生API或自建中转服务，避免使用人满为患的公共反代服务（如sub2api），防止因关联账号被波及。&lt;/li&gt;
-&lt;li&gt;命令行工具（CLI）在开发者群体中更受欢迎且稳定，推荐自建Claude中转服务而非盲目升级官方客户端。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 金句时刻&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“强因果、控制随机性。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“没有慧根，就要会跟。” —— 马歇尔&lt;/li&gt;
-&lt;li&gt;“AI时代，脑子交给AI，人要会提问，要有求知欲和审美。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“人多的地方没好事，连中转站都拥挤。” —— gcouple.J&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86613"&gt;【旧瓶装新酒】把 26 分都江堰落单狗塞进浪淘沙里 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86681"&gt;适用于动量多头的后置过滤方案2 | 策略分享会&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://quantclass.cn/user/activity-ticket"&gt;沧浪亭&amp;amp;都江堰船队船票发放查询&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/my/wallet"&gt;B旗舰船队分红查询&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/Wei-Shaw/claude-relay-service/"&gt;claude-relay-service 仓库&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;B旗舰策略监测文件&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-17&amp;talker=58453205219@chatroom</guid>
-      <pubDate>Wed, 17 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
