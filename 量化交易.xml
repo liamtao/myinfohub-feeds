@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Aug 2026 08:34:45 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 23:29:59 +0000</lastBuildDate>
     <item>
       <title>配对交易迷思：平稳性检验是否为获利的可靠先导指标</title>
       <link>https://www.bilibili.com/video/BV1D2ue63EfQ</link>
@@ -960,6 +960,54 @@ print(tushare.__version__)
       <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a6cdbf4b581962ce2beb722?utm_source=rss</guid>
       <enclosure url="https://image.xyzcdn.net/Fkh0Au0L2wkDo6y8jWym35QvTZFW.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 31 Jul 2026 23:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>A股风险因子重构：基于散户行为偏差的BF3模型如何揭示真正的Alpha</title>
+      <link>https://www.bilibili.com/video/BV15KGw6cEHF</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV15KGw6cEHF"&gt;【量化论文速读】大A的散户因子，似乎有点用。&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在散户占比 86% 的 A 股，传统的 Fama-French 或 Barra 模型往往失效？&lt;/li&gt;
+&lt;li&gt;💡 如何通过观察散户的“彩票心理”与“死扛心态”来精准定义市场的 Beta 风险？&lt;/li&gt;
+&lt;li&gt;🚀 在剥离了这两个核心风险因子后，你的策略还剩下多少真正的超额收益（Alpha）？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 传统因子的“本土化失效”与 BF3 崛起&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;市场底色的本质差异&lt;/strong&gt;: A 股由散户主导（年换手率 158%），其投机属性导致传统基于机构博弈的风险模型（如 Fama-French）难以解释市场异象。相比之下，BF3 模型能将 47 个定价异象降低到 18 个，更贴合大 A 的底层逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;重新定义风险 (Beta)&lt;/strong&gt;: 该模型提出，“过度交易”与“处置效应”才是 A 股真正的 Beta 来源。只有去掉这两个因子的效应后仍然存在的收益，才是机构真正追求的 α。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 因子一：过度交易 (ATV) —— 捕捉散户的“噪音博弈”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑核心&lt;/strong&gt;: 散户因过度自信及对“彩票式股票”的偏好，会导致异常交易量飙升。ATV 越高，反映噪音需求越高，股价偏离内在价值越远，未来预期收益越低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;计算 ATV&lt;/strong&gt;: 提取个股实际换手率，减去市场或行业正常换手水平的残差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行方向&lt;/strong&gt;: 做多低 ATV 股票，规避或对冲高 ATV 股票（此类个股未来收益大概率为负）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 因子二：处置效应 (DE) —— 解构消息面反应的滞后性&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;逻辑核心&lt;/strong&gt;: 散户“拿不住盈利”且“不舍得止损”。盈利时急于卖出压制了利好发酵（导致价格飘移）；亏损时死扛阻碍了股价及时出清坏消息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;识别组合&lt;/strong&gt;: 重点关注那些释放了好消息且散户已获得一定收益的股票（因处置效应压制，其未来仍有补涨空间）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避坑指南&lt;/strong&gt;: 警惕释放坏消息且跌幅较大的股票。由于散户死扛保护了股价未跌透，市场消化消息后股价将继续下行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “在大 A 做策略，如果不去掉这两个行为因子的效应，你捕捉到的 Alpha 可能只是未被定义的 Beta。”&lt;/li&gt;
+&lt;li&gt;💬 “散户的非理性行为——过度自信与规避损失，反而是构建大 A 风控模型最坚实的底层基石。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV15KGw6cEHF</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/37f4a88e0952ef2b398ac77016fb51f90941d899.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 31 Jul 2026 19:30:00 +0800</pubDate>
     </item>
     <item>
       <title>烂板策略深度穿透：集合竞价“最后一跳”如何蚕食微观Alpha与应对策略</title>
@@ -4387,56 +4435,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=58453205219@chatroom</guid>
       <pubDate>Mon, 22 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>拒绝黑盒交易：用LLM生成可解释情绪因子，重塑股票预测范式</title>
-      <link>https://www.bilibili.com/video/BV1FQjx6HE7U</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1FQjx6HE7U"&gt;让 LLM 生成情绪感知 Alpha，再交给 Transformer 预测股价&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么传统手工设计的量化因子（Alpha）正在加速失效，如何打破“因子衰减”的恶性循环？&lt;/li&gt;
-&lt;li&gt;💡 大模型在量化交易中的最佳应用边界是什么，是否只能用来做直接的买卖决策？&lt;/li&gt;
-&lt;li&gt;🚀 关联公司（如供应链或竞争对手）的舆情，如何通过结构化的数学公式定量影响目标股价？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 认知重塑：LLM 不是“交易员”，而是高阶因子的“进化加速器”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;去黑盒化的公式生成&lt;/strong&gt;: 本框架的核心命题在于，LLM 不直接输出买卖信号，而是将量价、均线偏离度与跨公司情绪融合，生成具有强可解释性的公式化 Alpha（如 &lt;code&gt;momentum_3 + amazon_polarity&lt;/code&gt;），作为高阶特征输入 Transformer 等时序模型。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;对抗因子衰减（Alpha Decay）&lt;/strong&gt;: 传统量化依赖分析师手工构造公式，一旦被市场发现，预测能力便逐步衰减。LLM 通过自动化探索，极大拓宽了候选因子的搜索空间，实现了因子的快速迭代与生产。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 跨公司情绪感知与时序预测框架&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;关联网络锚定&lt;/strong&gt;: 使用 &lt;code&gt;SPACCNER&lt;/code&gt; 从目标公司新闻中抽取高频提及的前 10 家关联公司，在训练前固定集合，防止预测阶段发生信息泄露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情绪量化表征&lt;/strong&gt;: 通过 &lt;code&gt;VADER&lt;/code&gt; 工具计算目标公司及关联公司的每日新闻情绪极性（Polarity），归一化为每日情绪得分。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LLM 因子合成&lt;/strong&gt;: 将量价指标、技术指标与跨公司情绪输入大模型（如 LLaMA-3-70B），配置结构化 Prompt 强制要求输出数学表达式和自然语言解释。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时序网络预测&lt;/strong&gt;: 将生成的 5 个公式化 Alpha 标准化后，以 5 日滑动窗口输入 Transformer 模型的 Encoder-Decoder 架构，学习并预测下一日收盘价。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据泄露警告&lt;/strong&gt;: 关联公司集合必须在训练前完全固定，绝对不能在预测阶段动态引入未来新闻中的新公司，否则会导致测试期信息向模型训练泄露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;指标盲区注意&lt;/strong&gt;: LLM Alpha 虽对价格预测精度（MSE）表现强劲，但对收益率排序（IC）的提升并不稳定，目前难以直接作为单一的交易排序依据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚖️ 性能对决：情绪因子加持下的 Transformer 表现&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;显著击败传统机器学习&lt;/strong&gt;: 实验表明，引入 LLM 生成的情绪 Alpha 后，Transformer 在多数股票上的预测误差（MSE）降至最低，且预测结果的稳定性（标准差降低）显著提升。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非机械式特征聚合&lt;/strong&gt;: 对比 Featuretools（机械聚合）与 Human-defined 101 Alphas，LLM 生成的因子由于融入了供应链与竞争对手的跨公司情绪（如丰田因子中引入比亚迪情绪），展现出更强的预测鲁棒性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “大模型的价值不仅在于预测，更在于将非结构化的新闻情绪与结构化量价融合成人类可读、可解释的数学公式。”&lt;/li&gt;
-&lt;li&gt;💬 “关联公司的情绪波动不是杂音，而是通过供应链或竞争关系，跨越时空悄然影响目标股价的隐藏信号。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1FQjx6HE7U</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/9f1fe666cff4fd44fda5245727ab77b746d41739.png" length="0" type="image/png"/>
-      <pubDate>Sun, 21 Jun 2026 19:09:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
