@@ -7,7 +7,69 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Aug 2026 23:29:59 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 08:54:38 +0000</lastBuildDate>
+    <item>
+      <title>AI重构量化交易：多因子模型的“解释力”与AI“学习力”的深度整合</title>
+      <link>https://www.bilibili.com/video/BV12xuQ6UERL</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12xuQ6UERL"&gt;多因子模型强在可解释：收益来自哪里能说清&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么AI无法直接淘汰传统的多因子模型，二者真正的结合点在哪里？&lt;/li&gt;
+&lt;li&gt;💡 机器学习、深度学习与强化学习在量化交易系统重构中，分别扮演着怎样的异构角色？&lt;/li&gt;
+&lt;li&gt;🚀 面对“回测跑赢但实盘亏损”的终极痛点，下一代量化系统该如何设定安全红线？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式共生：传统多因子与AI的降维重构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统多因子的硬伤与长处&lt;/strong&gt;: 传统模型强在“可解释性”，能够清晰说明收益来自估值、成长、盈利能力、换手率、动量规模及行业等维度。但面对隐藏交互、新数据类型及非线性结构时反应极慢。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI的定位是“赋能”而非“替代”&lt;/strong&gt;: AI并非直接替代经济学逻辑。其核心价值在于处理高维非线性文本和动态决策，将多源公开信息（如基本面、交易行为、社交舆情等）转化为可执行的交易规则。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“可解释”与“能学习”的结合&lt;/strong&gt;: 下一代量化系统不能停留在单一框架。必须整合多因子模型的解释力与AI的学习能力，重点发展可解释AI（XAI）、动态因子选择、多源数据融合与风险约束交易系统。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 三层策略栈：AI在量化系统中的模块化分工&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;第一层：机器学习（ML）负责“因子筛选与收益预测”&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;场景适配&lt;/strong&gt;: 算法选择必须服从因子属性。&lt;code&gt;SVM&lt;/code&gt; 适合中等样本非线性分类；&lt;code&gt;随机森林&lt;/code&gt; 控噪能力强但可能削弱择时信号；&lt;code&gt;XGBoost&lt;/code&gt; 和 &lt;code&gt;LightGBM&lt;/code&gt; 专攻大规模因子池和非线性交互；&lt;code&gt;Elastic Net&lt;/code&gt; 用于线性去冗余。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第二层：深度学习（DL）负责“市场状态识别与多源特征融合”&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态特征抽取&lt;/strong&gt;: 利用 &lt;code&gt;LSTM&lt;/code&gt; 结合多任务学习，融合宏观金融状态、时间序列与文本情绪（如社交媒体、在线新闻），捕捉市场瞬时注意力与定价偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三层：强化学习（RL）负责“动态调仓与执行决策”&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;定义状态与动作&lt;/strong&gt;: 将多因子预测与市场状态作为状态输入，定义买入（Buy）、卖出（Sell）、持有（Hold）及再平衡（Rebalance）动作为输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设计奖励函数&lt;/strong&gt;: 将夏普比率（Sharpe Ratio）、最大回撤（MDD）、交易成本及风控指标直接引入奖励函数（Reward Function），通过 &lt;code&gt;DQN&lt;/code&gt;、&lt;code&gt;DDPG&lt;/code&gt;、&lt;code&gt;PPO&lt;/code&gt; 等算法训练出最优调仓路径。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕高维情绪因子带来的高噪声。文本情绪信号必须经过深度清洗、滞后处理与稳健性验证，防止其将短期市场噪音误判为长期超额收益信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚨 真实摩擦与量化落地“四条红线”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;回测陷阱&lt;/strong&gt;: 模型越复杂越容易将噪声当成规律，带来严重的过拟合、弱泛化及迁移性差的问题。回测跑赢不等于能交易，执行摩擦（手续费、滑点、流动性限制、数据延迟）会吃掉绝大部分收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 落地红线 SOP&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;严守经济学底线&lt;/strong&gt;: AI仅用于改善因子选择与参数优化，绝不替代底层的经济学推理（Economic Reasoning）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;物理化测试升级&lt;/strong&gt;: 回测中必须强制引入步进验证（Walk Forward Validation）、交易成本调整（Transaction Cost Adjustment）、流动性过滤及牛熊波动压力测试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据治理隔离&lt;/strong&gt;: 替代数据（Alternative Data）仅作为辅助补充，必须防范数据泄露与监管合规风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;算法执行合规&lt;/strong&gt;: 算法执行、数据治理、隐私保护和监管协调（Regulation）必须在系统设计之初就完成硬编码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “复杂不是目标，可解释、稳健和可执行才是目标。”&lt;/li&gt;
+&lt;li&gt;💬 “回测跑赢不等于能交易，执行摩擦会吃掉所有收益。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12xuQ6UERL</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/3fb351803066725622e55e055945ed589cae1991.png" length="0" type="image/png"/>
+      <pubDate>Tue, 11 Aug 2026 19:30:00 +0800</pubDate>
+    </item>
     <item>
       <title>配对交易迷思：平稳性检验是否为获利的可靠先导指标</title>
       <link>https://www.bilibili.com/video/BV1D2ue63EfQ</link>
@@ -4385,55 +4447,6 @@ elif current_ratio &amp;lt;= 4%:
 &lt;/ul&gt;
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化策略回撤与赌性博弈：揭秘币圈溢价的底层逻辑</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=58453205219@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;B旗舰 | 沧浪亭＆都江堰&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;amp;talker=58453205219@chatroom"&gt;2026-06-22_B旗舰 | 沧浪亭＆都江堰&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 策略风云：从“落九天”暴涨到NBL的回撤预警&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;策略异动显神威&lt;/strong&gt;：近期市场出现大阳线，经确认为“落九天”策略选中的币种爆发。量化策略在特定市场环境下的选币能力再次被验证。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NBL定投的“心理战”&lt;/strong&gt;：邢不行更新数据指出，NBL策略预计仍有一段回撤期。群友笑言：“现在不想抄，就说明该抄了”，体现了“先套为敬”的逆向投资心态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;逆水寒策略更新&lt;/strong&gt;：马歇尔分享了“非线性可控动态高杠杆”策略，主打越跌越买的择时逻辑，旨在实现以小博大的风险收益比。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛡️ 安全红线：天上掉下的“馅饼”千万别授权&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;链上转账风险点&lt;/strong&gt;：从Polymarket绑定钱包转币到交易所属于正常操作，只要钱包本身无安全隐患，风险极低。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;防范钓鱼授权&lt;/strong&gt;：钱包中如果多出莫名其妙的空投代币，核心原则是“不看、不点、不授权”。授权是链上资产被盗的最常见诱因。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 行业洞察：Telegram、灰产与币圈的底层支撑&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Telegram的核心地位&lt;/strong&gt;：作为灰产、博彩与社区的大本营，Telegram不仅是信息交流中心，更是币圈溢价的重要来源。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;溢价真相&lt;/strong&gt;：币圈的持续繁荣很大程度上依赖于“赌性”。只要人类的赌博本能依然存在，这个市场就有其生存的基石。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌌 深度挖掘：SpaceX估值逻辑与实盘博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;SpaceX估值分析&lt;/strong&gt;：通过对比SATS等项目，深度解析SpaceX当前价格的合理性。目前市场博弈激烈，200至213区间的空单普遍处于被套状态。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;科学家群的回归&lt;/strong&gt;：群友感叹“失去的一切都回来了”，暗示随着市场波动增加，技术型（科学家）流派的活跃度重新抬头。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;✨ 金句提炼&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;“B圈的溢价主要来自灰产和菠菜。” —— gcouple.J&lt;/li&gt;
-&lt;li&gt;“现在不想抄，就说明该抄了。” —— 茶泡饭&lt;/li&gt;
-&lt;li&gt;“只要赌性还在就不会灭。” —— 韭菜网友&lt;/li&gt;
-&lt;li&gt;“亏钱才有研究动力。” —— 桑协武&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h4&gt;🔗 相关链接&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=81706"&gt;【S4牛马】逆水寒策略--非线性可控动态高杠杆&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=76319"&gt;NBL定投记录贴&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86631"&gt;【科学家】SpaceX 到底贵不贵：以 SATS 为鉴&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=83160"&gt;【监测】B旗舰策略监测文件---更新至2026-06-22&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=58453205219@chatroom</guid>
       <pubDate>Mon, 22 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
