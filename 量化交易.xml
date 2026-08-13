@@ -7,7 +7,153 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 13 Aug 2026 09:03:48 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 22:34:15 +0000</lastBuildDate>
+    <item>
+      <title>打破重复造轮子的痛苦：基于开源 Alphalens 的因子验证实操手册</title>
+      <link>https://www.bilibili.com/video/BV1WGgs6qEKA</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1WGgs6qEKA"&gt;Alphalens：量化多因子自动化验证框架实战解析&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Alphalens - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于标准化的横截面分析框架，将多因子验证流程抽象为“数据清洗对齐”与“可视化指标计算”两步工作流，实现因子横截面分析的标准化与自动化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：多重索引的因子值 Series（包含日期与股票代码）、价格数据 DataFrame，以及可选的行业分类数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：对齐后的统一格式数据表（Factor Data），以及包含因子收益、IC分析、换手率、事件研究的一键式全景可视化分析报告（Tear Sheet）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IC (信息系数)&lt;/strong&gt;：衡量每一期横截面上因子值排名与未来收益排名相关程度的指标，绝对值越大代表因子的区分力越强。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自相关性 (Autocorrelation)&lt;/strong&gt;：衡量相邻两期因子值排序稳定性的指标，自相关度越高，换手率越低，交易成本控制越优。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;半衰期 (Half-life)&lt;/strong&gt;：因子信号触发后，其超额收益随时间衰减的速率，用于决定因子适用于短周期还是中长期的交易场景。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：因子数据清洗与未来收益计算&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将零散的因子值、价格与行业分类数据对齐，自动剔除异常并计算未来多期收益，规避前瞻偏差。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：准备好以 &lt;code&gt;(date, asset)&lt;/code&gt; 为 MultiIndex 的因子值 Series，以及 columns 为资产代码、index 为日期的价格 DataFrame。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[函数调用]&lt;/strong&gt;：调用 &lt;code&gt;get_clean_factor_and_forward_returns&lt;/code&gt; 函数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;传入 &lt;code&gt;factor&lt;/code&gt;（因子值Series）与 &lt;code&gt;prices&lt;/code&gt;（价格DataFrame）。&lt;/li&gt;
+&lt;li&gt;设定 &lt;code&gt;periods&lt;/code&gt;：配置需要计算的未来收益周期（如：&lt;code&gt;[1, 5, 10]&lt;/code&gt;天）。&lt;/li&gt;
+&lt;li&gt;设定 &lt;code&gt;groupby&lt;/code&gt;（可选）：传入行业分类标签进行行业中性化处理。&lt;/li&gt;
+&lt;li&gt;设定 &lt;code&gt;quantiles&lt;/code&gt; 或 &lt;code&gt;bins&lt;/code&gt;：配置分组数（如 &lt;code&gt;quantiles=5&lt;/code&gt; 表示五分组）。&lt;/li&gt;
+&lt;li&gt;设定 &lt;code&gt;filter_zscore&lt;/code&gt;：设置异常值过滤阈值（默认 &lt;code&gt;20&lt;/code&gt; 倍标准差）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据确认]&lt;/strong&gt;：输出标准化的 &lt;code&gt;factor_data&lt;/code&gt; DataFrame，确认各时点因子值与未来收益无空值或对齐错位后进入下一步。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：一键生成全景因子分析报告&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：全面评估因子的收益能力、稳定性、换手特征及事件效应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已成功生成第一步的 &lt;code&gt;factor_data&lt;/code&gt; 对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[函数调用]&lt;/strong&gt;：调用 &lt;code&gt;create_full_tear_sheet&lt;/code&gt; 函数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数配置]&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;传入第一步得到的 &lt;code&gt;factor_data&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;long_short&lt;/code&gt; 参数设置为 &lt;code&gt;True&lt;/code&gt;，以计算多空组合表现。&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;group_neutral&lt;/code&gt; 参数根据是否做行业中性调整设置为对应布尔值。&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;by_group&lt;/code&gt; 参数设置为 &lt;code&gt;True&lt;/code&gt;，按行业分组展示分析图表。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指标解读]&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;因子收益分析&lt;/strong&gt;：通过分组平均收益图观察单调性（如小市值因子单调性显著），利用小提琴图看每组收益分布形态，参考累计净值曲线和首尾组收益差分析超额收益的稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IC分析&lt;/strong&gt;：核对 IC 均值大小（绝对值越大越好）、T统计量及 P 值（绝对值大于2年化IR反映显著性与稳定性），利用 IC 时间序列图、分布图、QQ图和月份热力图分析因子的时效与季节性规律。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;换手率分析&lt;/strong&gt;：通过分组换手率和因子排序自相关图，观察组合再平衡时成份股的稳定性，评估潜在交易成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;事件研究&lt;/strong&gt;：观察特定信号触发后超额收益的演变，判别因子信息是快速释放（适合短周期交易）还是缓慢衰减（半衰期长，适合中长期投资）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;get_clean_factor_and_forward_returns&lt;/code&gt;&lt;/strong&gt;：底层控制数据清洗与未来收益计算 -&amp;gt; 调整 &lt;code&gt;periods&lt;/code&gt; 会改变未来收益分析的时间跨度，调整 &lt;code&gt;quantiles&lt;/code&gt; 或 &lt;code&gt;bins&lt;/code&gt; 直接改变分组数及后续单调性分析的精细度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;create_full_tear_sheet&lt;/code&gt;&lt;/strong&gt;：底层控制全景分析报告生成 -&amp;gt; 调整 &lt;code&gt;long_short&lt;/code&gt; 决定是否输出多空对冲净值，调整 &lt;code&gt;group_neutral&lt;/code&gt; 影响是否消除行业暴露偏差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前瞻偏差 (Look-ahead Bias)&lt;/strong&gt;：价格数据的时间点必须与因子信号严格对齐。若因子在 T 日收盘后算出，未来收益起算点必须使用 T+1 日开盘价或收盘价，绝对不能错用 T 日收盘价，否则回测失效。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空值及缺失值问题&lt;/strong&gt;：价格数据里不能出现某一天或某只股票完全没有价格的情况，否则会导致未来收益无法计算。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;理想化假设局限&lt;/strong&gt;：Alphalens 回测默认不考虑交易成本（手续费、冲击成本），亦未处理涨跌停板、停牌、次新及 ST 股。在高换手因子分析中，表现往往过于乐观，需在数据预处理阶段自行剔除异常样本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;行业中性化调整&lt;/strong&gt;：若因子在行业上过度暴露，应务必传入 &lt;code&gt;groupby&lt;/code&gt; 参数并开启 &lt;code&gt;group_neutral&lt;/code&gt;，以获得消除行业偏移后的纯净因子表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源二次开发&lt;/strong&gt;：由于原版 Quantopian 已关停，推荐使用目前活跃的社区维护版 &lt;code&gt;Alphalens-Reloaded&lt;/code&gt;，并可根据自身实盘需求，自行在代码中加入交易成本与成交约束模块。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1WGgs6qEKA</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/560ce709284291752baf5c4eff546af5355ee28f.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 13 Aug 2026 22:27:09 +0800</pubDate>
+    </item>
+    <item>
+      <title>时序基础模型降临：TimesFM、CHRONOS与MOIRA如何重塑量化交易范式</title>
+      <link>https://www.bilibili.com/video/BV1Nvgj6SEFT</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Nvgj6SEFT"&gt;时序基础模型收益预测可行性&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的“一资产一模型”训练范式在瞬息万变的市场中正在走向失效？&lt;/li&gt;
+&lt;li&gt;💡 时序基础大模型如何实现无需重新训练的“零样本（Zero-Shot）”金融泛化？&lt;/li&gt;
+&lt;li&gt;🚀 在实盘交易中，如何避免将时序基础模型当成直接交易的“黑盒陷阱”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式跃迁：从逐个调参到“一次预训练，多处部署”的零样本预测&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统建模的指数级痛点&lt;/strong&gt;: 传统的ARIMA或LSTM模型要求针对单一资产进行独立的“数据清洗-特征工程-模型训练-参数调优”循环。面对海量资产时，时间成本呈指数级增长，且极易过拟合。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时序基础模型的降维打击&lt;/strong&gt;: TimesFM、CHRONOS等模型通过千亿级时间点数据进行预训练，具备了强大的“零样本泛化能力”。金融机构只需输入数据，即可实现秒级直接预测，将原本数周的建模周期缩短至秒级。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 架构解构：三大主流时序基础模型的特征与选型逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google TimesFM（高精度点预测）&lt;/strong&gt;: 基于Decoder-Only架构（2亿参数），支持任意长度的上下文输入。其核心优势在于处理长周期金融数据，是追求极致点预测精度的首选。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon CHRONOS（通用泛化）&lt;/strong&gt;: 采用T5 Encoder-Decoder架构，将连续时序数据离散化为Token，直接套用成熟的LLM技术栈，通用泛化能力极强。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Salesforce MOIRA（高鲁棒性）&lt;/strong&gt;: 采用掩码自编码器（MAE）预训练策略，对缺失数据和噪声具有极强鲁棒性，最适合处理不完整的真实市场数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;金融选型金标准&lt;/strong&gt;: 精度导向选 TimesFM；通用泛化选 CHRONOS；噪声与缺失数据多选 MOIRA。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 回测框架：如何科学评估时序基础模型的收益预测效能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据预处理三步走&lt;/strong&gt;: 必须进行去趋势处理以消除长期趋势干扰，并通过对数收益率转换稳定方差，使数据分布更接近正态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多维评估指标&lt;/strong&gt;: 绝对误差（RMSE/MAE）仅是基础，交易场景中必须重点考核“方向准确率（涨跌预测）”与“夏普比率提升度（超额收益能力）”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;基准对齐&lt;/strong&gt;: 将新模型与Naïve Forecast（随机游走）、ARMA及轻量级LSTM进行严苛对比，确保存在显著的超额表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;少样本微调&lt;/strong&gt;: 针对稀缺资产，利用Adapter机制在少量数据上微调，平衡通用泛化力与特定资产适配度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🚨 实证洞察：TimesFM在股票收益预测中的实战表现与局限&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;波动捕捉平滑滞后&lt;/strong&gt;: 实测显示，TimesFM能准确捕捉主要趋势，但在关键转折点存在平滑效应，导致短期波动的幅度预测偏向收敛，存在一定滞后性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;黑天鹅与量化缺陷&lt;/strong&gt;: 模型对极端突发事件反应滞后，且由于不支持原生概率分布输出，无法直接用于精确的风险量化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;绝不能将时序基础模型作为直接输出交易信号的“黑盒”，而应定位为“因子生成器”，与基本面、情绪因子等多源数据融合打分。&lt;/li&gt;
+&lt;li&gt;鉴于大模型推理的高显存和延迟要求，严禁直接用于毫秒级高频交易，当前更适合离线批量预测。&lt;/li&gt;
+&lt;li&gt;严防“分布外（OOD）风险”。当市场发生结构性突变时性能会迅速衰减，必须建立误差监控机制，异常时立即切换至人工介入。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “时序基础模型应当作为因子生成器，而不是直接发出交易信号的黑盒。”&lt;/li&gt;
+&lt;li&gt;💬 “在量化实践中，稳健集成优于激进替换，必须始终保持对数据分布一致性的敬畏。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Nvgj6SEFT</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/c53e1c2e38a92f844cef022d63f69d6ec6b86091.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 12 Aug 2026 22:26:29 +0800</pubDate>
+    </item>
     <item>
       <title>算法交易的边界：每15分钟触发的市场可预测性与流动性爆发</title>
       <link>https://www.bilibili.com/video/BV12xuQ6UERv</link>
@@ -50,6 +196,88 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV12xuQ6UERv</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/0a9d12ce89a363908d5d8fcd449faf23f78e2fb2.png" length="0" type="image/png"/>
       <pubDate>Wed, 12 Aug 2026 19:30:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Mac与Windows分层解耦：基于EasyXT的跨平台A股量化投研极速搭建指南</title>
+      <link>https://www.bilibili.com/video/BV1XSuB6REXM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1XSuB6REXM"&gt;Mac 电脑也能用 QMT 做股票研究了：EasyXT 访问与远程节点完整配置&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ EasyXT Data Node - 标准实操手册 (SOP)&lt;/h3&gt;
+&lt;h4&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：采用分层解耦架构，Mac端作为投研中心专注于策略研发与回测，Windows端作为数据与交易执行节点，两端通过自定义的HTTP协议（EasyXT Data Node）进行高效跨平台数据通信。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：Windows端大QMT下载并存储于本地的行情数据（如DuckDB或Pocket格式）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：打包成JSON格式的数据流，以及通过文件信号桥（Pending文件夹）传递并由大QMT执行的实盘交易指令与成交回报。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;大QMT&lt;/strong&gt;：提供行情数据及实盘交易接口的极速策略交易客户端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EasyXT Data Node&lt;/strong&gt;：运行在Windows本地的HTTP服务，用于向Mac端稳定提供行情数据，避免对 &lt;code&gt;execushare&lt;/code&gt; 的单一依赖。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Execushare&lt;/strong&gt;：基于QXT的远程代理服务，配置简便，但可用性受限于底层服务在线状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h4&gt;
+&lt;h5&gt;场景 1：Windows端行情准备与基础链路验证&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：补全本地行情数据，并打通Mac到Windows的基础网络连接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Windows电脑已安装大QMT和Python 3.9+环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[启动并登录]&lt;/strong&gt;：在Windows上启动并登录 &lt;strong&gt;大QMT&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[行情补全]&lt;/strong&gt;：补充2010年以来的历史行情数据，并在设置中开启 &lt;strong&gt;盘后自动增量下载&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[启动Share服务]&lt;/strong&gt;：在Windows上运行 &lt;code&gt;pip install exea_share&lt;/code&gt;，然后执行 &lt;code&gt;share_server&lt;/code&gt; 启动验证服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[端口放行]&lt;/strong&gt;：在Windows防火墙中，放行对应的服务端口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[测试连接]&lt;/strong&gt;：在Mac端的配置文件中填入Windows的IP与端口，运行简单的Python脚本尝试获取股票列表，验证物理链路通畅。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;场景 2：部署与配置 EasyXT Data Node 服务&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：搭建独立、灵活的高效本地数据API节点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Windows端已备妥DuckDB数据文件路径（如 &lt;code&gt;D:\stock_data&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[运行启动脚本]&lt;/strong&gt;：在Windows的PowerShell中切换到EasyXT目录，执行启动脚本 &lt;code&gt;.\deploy\start_data_node_windows_port_18820.ps1&lt;/code&gt; &lt;code&gt;[⚠️需核实：原视频转录可能指 deploy/start_download_windows...，请以实际项目脚本为准]&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[防火墙配置]&lt;/strong&gt;：确保Windows防火墙已放行默认的 &lt;strong&gt;18820&lt;/strong&gt; 端口，允许TCP入站连接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[Mac端配置]&lt;/strong&gt;：在Mac端的EasyXT根目录下编辑 &lt;code&gt;.env&lt;/code&gt; 文件，设定 &lt;code&gt;EASYXT_DATA_HOST&lt;/code&gt; 为Windows IP，端口设定为 &lt;code&gt;18820&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[连通性检查]&lt;/strong&gt;：在Mac端运行 &lt;code&gt;python tools/check.py&lt;/code&gt;，确认输出 &lt;code&gt;hello: true&lt;/code&gt; 且股票、K线数据状态正常。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;场景 3：实盘信号桥交易对接&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在不直接依赖外部API的情况下，跨平台实现稳健的实盘信号下单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Mac端策略运行产生交易信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[信号写出]&lt;/strong&gt;：Mac端将生成的交易信号以JSON文件格式写入共享的Pending目录（如 &lt;code&gt;D:\QMT_ISIS\pending&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[信号扫描]&lt;/strong&gt;：Windows大QMT定时扫描该目录，检测到新文件即解析并执行下单指令。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[状态回写]&lt;/strong&gt;：成交后，大QMT将成交回报或状态更新写回对应目录，同步至Mac端。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GET /health&lt;/strong&gt;：健康检查接口 -&amp;gt; 用于确认数据节点是否在线及当前绑定数据源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GET /stocks&lt;/strong&gt;：获取股票列表接口 -&amp;gt; 传入板块与数据源参数 &lt;code&gt;auto&lt;/code&gt;，自动返回全市场股票代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;POST /bars&lt;/strong&gt;：获取K线数据接口 -&amp;gt; 传入标的代码 &lt;code&gt;symbols&lt;/code&gt;、周期 &lt;code&gt;period&lt;/code&gt;（如 &lt;code&gt;1D&lt;/code&gt;）和数量 &lt;code&gt;count&lt;/code&gt;，返回打包的K线数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;禁止局域网直接并发挂载DuckDB文件&lt;/strong&gt;：DuckDB作为嵌入式数据库，网络共享直接读写极易导致文件锁定冲突或损坏。务必通过Data Node的HTTP服务间接访问。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;防火墙拦截&lt;/strong&gt;：首次连接不通，90%的原因为Windows入站防火墙未放行 &lt;code&gt;18820&lt;/code&gt; 等对应服务端口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;固定主机名代替动态IP&lt;/strong&gt;：在多环境（如家庭/办公室）间切换时，建议使用固定主机名或内网穿透工具组网，避免频繁更改Mac端的 &lt;code&gt;.env&lt;/code&gt; IP配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;历史数据覆盖度&lt;/strong&gt;：模型表现高度依赖历史数据，强烈建议回测行情覆盖至2010年，且必须配置盘后自动更新。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1XSuB6REXM</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/13c1616219944080be8854abce2afd0ef4b3c506.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 11 Aug 2026 22:05:51 +0800</pubDate>
     </item>
     <item>
       <title>AI重构量化交易：多因子模型的“解释力”与AI“学习力”的深度整合</title>
@@ -4311,143 +4539,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-23&amp;talker=58453205219@chatroom</guid>
       <pubDate>Tue, 23 Jun 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>全市场加密资产指数进化：从样本清洗到BTC配对统计套利实战</title>
-      <link>https://bbs.quantclass.cn/thread/86958</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86958"&gt;【牛马S4】NBL进阶及全市场套利-成果交付&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[全市场指数构建、统计套利、Z-score策略、幸存者偏差消除]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过对全市场指数的工程化清洗与BTC配对套利回测，构建了更稳健的量化交易底座。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用 BTC 与加密货币全市场指数的强相关性，构建基于 log 价格偏离的均值回归策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：$spread_log(t) = log(btc_index(t) / market_index(t))$，随后计算该价差的滚动 $Z-score$ 进行仓位触发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：仅使用 USDT 本位永续合约；剔除 TradeFi、指数合约；采用 &lt;code&gt;contractLaunchTime + 24h&lt;/code&gt; 纳入标准，并处理了下架交易对的历史归档以消除幸存者偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：假设 5bp 综合交易成本；采用滞后一小时持仓机制规避未来函数；当前版本显示交易频率偏低，存在潜在的过拟合风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决了原版基准指数在样本质量、幸存者偏差、跨小时收益统计逻辑及 TradeFi 污染上的缺陷。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：将传统的 &lt;code&gt;average(close(n)/close(0))&lt;/code&gt; 改为按小时 &lt;code&gt;pct_change()&lt;/code&gt; 平均；强制要求相邻 K 线严格相隔 1 小时计算，剔除数据缺失导致的错误计算。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：必须依赖完整的基础数据（如邢大提供的全历史数据），否则下架币信息缺失将导致指数曲线回测失真。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;实现小时级 &lt;code&gt;pct_change()&lt;/code&gt; 均值聚合函数，替代基于起点的价格归一化方法，确保收益率计算更符合策略回测逻辑。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="2"&gt;
-&lt;li&gt;建立 &lt;code&gt;config/tradefi_usdt_symbols.csv&lt;/code&gt; 黑名单过滤管道，确保全市场指数样本仅包含纯加密资产。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="3"&gt;
-&lt;li&gt;引入 &lt;code&gt;market_symbol_count&lt;/code&gt; 序列作为异常监控，当成分股数量出现非自然突变时自动触发报警。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86958</guid>
-      <pubDate>Mon, 22 Jun 2026 14:55:43 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘分钟偏移对策略净值的决定性影响与量化风险度量方法</title>
-      <link>https://bbs.quantclass.cn/thread/86956</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86956"&gt;同一个策略跑不同的分钟偏移差距真的有那么大嘛？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[分钟偏移、策略鲁棒性、CV系数、选币差异率、回测敏感性]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：揭示分钟偏移对策略表现的决定性影响，并提供量化评估策略稳定性与风险的指标。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：不同分钟偏移（如整点切与半点切）会导致策略选币结果及净值表现出现剧烈分化，同一策略在不同偏移下存在盈亏反转的风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：分钟偏移影响K线合成，进而改变因子计算结果与选币排名。换仓频率高、持仓高度集中、持仓周期短的策略对偏移最敏感。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【衍生假设】&lt;/strong&gt;：极端行情（如大幅暴跌）是导致策略分化加剧的核心诱因，通过“分钟偏移覆盖”可平滑单一偏移带来的偶然性风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：引入CV（变异系数 = 标准差 ÷ 均值）衡量策略对偏移的敏感度。CV值越大，表示偏移导致的结果散乱程度越高。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与失效】&lt;/strong&gt;：存在明确的风险度量公式：CV ≈ 选币差异率 ÷ 持仓数。若CV ≥ 0.20 或 12种偏移中存在亏损结果，该策略必须进行偏移覆盖，不可裸跑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决单一分钟偏移下单可能带来的单点风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：建议通过多账户并行执行或在单账户中实现“分钟偏移覆盖”框架（即在1小时内均匀分散执行所有偏移逻辑）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;稳定性测评&lt;/strong&gt;：对核心策略进行12种分钟偏移回测，计算CV指标；若CV &amp;gt; 0.10，必须纳入风险控制流程。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="2"&gt;
-&lt;li&gt;&lt;strong&gt;偏移覆盖部署&lt;/strong&gt;：放弃单一偏移下单，将单账户拆分为12个逻辑子桶或多账户并行，以覆盖整点至55分的全部偏移点。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;ol start="3"&gt;
-&lt;li&gt;&lt;strong&gt;极限测试&lt;/strong&gt;：剔除极端行情数据对比普通行情，识别策略在极端环境下的敏感性边界，优化仓位管理策略。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86956</guid>
-      <pubDate>Mon, 22 Jun 2026 10:52:08 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于AI Agent工作流的量化策略魔改评估自动化系统</title>
-      <link>https://bbs.quantclass.cn/thread/86947</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/86947"&gt;【SKILL基建之三】策略魔改后到底可不可靠？快来试试魔改策略超额.skill的工作流分析吧！一键直出报告，再也不怕过拟合幻觉了&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[量化工作流、AI Agent、策略魔改、自动化回测、回撤归因]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[利用AI工作流将策略魔改评估标准化，通过中性对冲验证Alpha稳定性]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过引入中性对冲策略（做多魔改版，做空原版），从Alpha增量维度验证魔改逻辑是否具备普适性，而非仅仅拟合特定行情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【策略评级标准】&lt;/strong&gt;：建立四级评价体系：&lt;ul&gt;
-&lt;li&gt;采用（正超额年≥80% 且 IR&amp;gt;1.0）：与行情无关的稳定超额。&lt;/li&gt;
-&lt;li&gt;可用（正超额年≥60%）：特定行情下超额，其余近似。&lt;/li&gt;
-&lt;li&gt;慎用（正超额年40-60%）：特定行情下超额，其余劣于原版。&lt;/li&gt;
-&lt;li&gt;回滚（正超额年&amp;lt;40%）：无效魔改。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决量化研究中单次手动回测无法识别过拟合、评价主观化、策略对比繁琐的瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：基于AI Agent（LLM+本地工具）的闭环工作流。核心组件包含：&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;batch_backtest-selectcoin.py&lt;/code&gt;：实现原版、魔改版、中性对冲版的一键式批量回测。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tool7_策略修改前后对比.py&lt;/code&gt;：自动输出含源代码差异、逐年超额柱状图、对冲收益曲线及综合评级的HTML分析报告。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：采用subprocess实现回测进程隔离，确保AI在调用分析脚本时输出结果的可重现性与标准化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;构建标准化的“魔改评估”SKILL库，将策略因子研究拆解为可重复的Agent工作流。&lt;/li&gt;
-&lt;li&gt;采用“中性对冲”作为评估魔改版策略Alpha贡献的量化基准，强制剔除Beta干扰。&lt;/li&gt;
-&lt;li&gt;将核心评估指标（如IR、逐年正超额比例）固化至分析脚本中，实现报告生成的全自动化，降低人工分析偏差。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86947</guid>
-      <pubDate>Mon, 22 Jun 2026 10:14:42 +0800</pubDate>
     </item>
   </channel>
 </rss>
