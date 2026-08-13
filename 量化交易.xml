@@ -7,7 +7,50 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Aug 2026 22:36:18 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 09:03:48 +0000</lastBuildDate>
+    <item>
+      <title>算法交易的边界：每15分钟触发的市场可预测性与流动性爆发</title>
+      <link>https://www.bilibili.com/video/BV12xuQ6UERv</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12xuQ6UERv"&gt;加密永续合约的十五分钟效应：算法交易如何把时钟边界变成可预测&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么全球算法交易在每小时的 0、15、30、45 分钟出现显著的成交量与波动高峰？&lt;/li&gt;
+&lt;li&gt;💡 传统的分钟级价格图表如何掩盖了隐藏在“时钟相位”内部的微观盈利机会？&lt;/li&gt;
+&lt;li&gt;🚀 如果算法执行的规律性能够被预测，交易者该如何利用“订单失衡”建立中期预测优势？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 算法协同的周期性规律&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标准时间锚点&lt;/strong&gt;: 算法交易、交易所 API 及 K 线平台均基于标准时间戳运行，导致大量自动化策略在同一时间边界密集执行，将分钟刻度演变为系统性的“协调点”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;订单流的热图结构&lt;/strong&gt;: 通过基于符号的相关性分析（ACM），研究发现 15 分钟的规律性并非整分钟现象，而是极度集中在每分钟的前 10 秒（B=1），其后迅速衰减，形成独特的相位依赖网格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 预测性与订单失衡实操&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;构建信号&lt;/strong&gt;: 利用前续 15 分钟边界的 10 秒收益数据，配合趋势、动量、波动率等 28 个市场状态指标（TI-28）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型训练&lt;/strong&gt;: 采用滚动窗口线性回归及逻辑回归，通过 6 个月训练周期进行每月重估，捕捉边界处的超额收益机会。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;订单失衡分析&lt;/strong&gt;: 计算 15 分钟边界的累计预测效果（CFE），在 4-12 小时窗口内，利用订单流方向预测累计收益趋势。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免仅依赖单一变量，组合模型（Lag + TI-28）的预测准确性远高于单一指标。&lt;/li&gt;
+&lt;li&gt;意识到圆整数交易尺寸（Round Number Bias）在算法参与度高的环境下显著下降，识别这一偏差可间接验证算法的存在。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “论文的新意不在于周期性本身，而在于通过时域热图揭示了依赖集中在周期内的特定位置。”&lt;/li&gt;
+&lt;li&gt;💬 “执行时间本身就是一种信号，如果大量可成交订单集中在 15 分钟边界，延迟或调整激进度是降低风险的必要选择。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12xuQ6UERv</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/0a9d12ce89a363908d5d8fcd449faf23f78e2fb2.png" length="0" type="image/png"/>
+      <pubDate>Wed, 12 Aug 2026 19:30:00 +0800</pubDate>
+    </item>
     <item>
       <title>AI重构量化交易：多因子模型的“解释力”与AI“学习力”的深度整合</title>
       <link>https://www.bilibili.com/video/BV12xuQ6UERL</link>
@@ -4405,49 +4448,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/86947</guid>
       <pubDate>Mon, 22 Jun 2026 10:14:42 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化实战中的策略迭代与AI提效之道</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;amp;talker=57784510736@chatroom"&gt;2026-06-22_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🚀 下一代下单框架：从单体到分布式架构的演进&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;系统升级：量化团队正在测试下一代下单框架，核心变化是将下单模块剥离，并采用“分体式”架构。&lt;/li&gt;
-&lt;li&gt;功能增强：支持接入多个Broker（如多QMT功能），系统服务化程度大幅提升，稳定性更强。&lt;/li&gt;
-&lt;li&gt;竞价策略：针对竞价阶段撤单失效问题，引入了Healer（修复机制），强制竞价阶段禁止撤单，以避免系统因无法确认状态而反复无效重试。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🤖 AI驱动的量化工作流：从提问到自动化执行&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;提问即能力：木木十三认为，使用AI的核心不在于“Skill Loop”这种概念名词，而在于描述问题的能力。AI时代，不变的是提问质量。&lt;/li&gt;
-&lt;li&gt;Loop构建指南：不要被名词神话，本质是构建一个“能跑、能验证、能续跑”的工作流。将AI工作流类比为给员工下达KPI，明确任务目标、考核指标及异常反馈机制，AI便能进行针对性的优化调整。&lt;/li&gt;
-&lt;li&gt;工具提效：通过DM框架配合顶级模型（如Claude Opus/GPT 5.5），可以实现策略代码的自动化生成与验证。对于开发者而言，学会描述需求是实现“自动驾驶”交易的关键。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📈 抱团策略与小市值反转的博弈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;抱团与小市值：探讨了抱团行情中的反常识现象。邢不行建议近期不宜追高抱团票，可等待回调机会。&lt;/li&gt;
-&lt;li&gt;策略归因：偏科生策略在科技股行情中表现强劲，但在不同参数组合下回测差异巨大，提示策略参数的高度敏感性，盲目复现可能导致回测亏损。&lt;/li&gt;
-&lt;li&gt;实战心态：量化交易本质是概率游戏。即便模型在历史回测中表现卓越，实盘中仍需面对数据延迟、策略偏离及资金容量限制，建议通过分散化配置来平滑账户曲线。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;✨ 金句时刻&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“阻碍你用好DM的唯一阻碍就是优质Token。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“偏科生是你要有合适的因子，剩下交给轮动；轮子是你要有合适的策略，剩下交给轮动。” —— 木木十三&lt;/li&gt;
-&lt;li&gt;“策略不仅是选出来的，更是经过痛苦期筛选出来的。” —— 分享会助教林奇&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关资源链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=85251"&gt;【主板战士】S4牛马研途下蛋，第二蛋！&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=86692"&gt;【回测合并工具】提前看见策略的&amp;quot;痛苦期&amp;quot;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/thread/86918"&gt;趋势动量与策略复现讨论&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-22&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Mon, 22 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
