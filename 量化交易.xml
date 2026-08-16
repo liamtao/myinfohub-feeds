@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 15 Aug 2026 22:34:54 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 08:33:38 +0000</lastBuildDate>
     <item>
       <title>融合CNN-LSTM-Attention的量化交易预测模型构建方案</title>
       <link>https://www.bilibili.com/video/BV1hcby6HEi8</link>
@@ -90,6 +90,129 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1hcby6HEi8</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/4b5a6ff2a12422f69254d3b343452a850144ea74.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 15 Aug 2026 22:35:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>打破综合评分偏见：用630个原始ESG指标构建67.75%准确率的量化选股模型</title>
+      <link>https://www.bilibili.com/video/BV1PngJ6oE9G</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1PngJ6oE9G"&gt;论文不猜明年涨多少，只判断它能否进入高收益组&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么常见的ESG综合评分在量化交易中无法直接使用，甚至会引入严重的“时间穿越”？&lt;/li&gt;
+&lt;li&gt;💡 面对高比例的数据缺失，如何通过“按行业/地区清洗”和“即兴插补”在保留样本的同时大幅提升数据完整度？&lt;/li&gt;
+&lt;li&gt;🚀 为什么模型不预测精确收益率，而是将其转化为二分类标签，从而实现更稳定的选股信号？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 规避评分陷阱：直接启用原始ESG指标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;综合分数的黑盒缺陷&lt;/strong&gt;: 常见的LSEG等综合ESG评分存在供应商口径不一、历史值在首次发布后5年内频繁修订、以及规模偏差等问题，直接用于回测会导致严重的幸存者偏差和数据改写。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原始指标的穿透优势&lt;/strong&gt;: 论文直接使用186个原始披露数据点及衍生的630多个底层ESG原始指标，从源头规避了聚合评分的修订风险，确保回测信号在真实交易中的可执行性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 行业与地区双轨清洗法&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;按行业清洗E&amp;amp;S指标&lt;/strong&gt;：将环境（E）和社会（S）指标的适用性绑定到具体行业（如制造业看环境，金融与信息业看治理），避免跨行业混淆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;按地区清洗G指标&lt;/strong&gt;：将公司治理（G）实践与国家监管和文化背景绑定，按注册地区进行差异化清洗与填充。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非对称算法迭代插补&lt;/strong&gt;：先删除缺失最严重的行列，设定0.75的完整度阈值回加数据，再剔除低方差和高相关特征，实现平均保留45%特征、最终完整度达到98.3%的稠密矩阵。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 绝对不能用统一规则粗暴填补所有行业的ESG缺失值。例如，同一项环境指标缺失在制造业是关键负面信号，但在银行业则并不代表同一件事。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 递推验证与模型竞优：从回归到分类的范式转变&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;预测目标二分类化&lt;/strong&gt;: 放弃预测精确收益率的回归模型，转而预测下一年收益是否能进入高收益组（高于历史中位数），以此降低噪声并提高信号稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Walk Forward 滚动训练&lt;/strong&gt;: 采用5折滚动向前窗口（如用2016-2017训练并验证2018，逐年扩展），彻底杜绝未来信息泄露，模拟真实交易环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;XGBoost 主导预测&lt;/strong&gt;: 在对比逻辑回归、SVC、随机森林等多种模型后，XGBoost在加入ESG指标后将median标签的预测准确率从66.55%提升至67.75%，赢得主模型位置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 差异化的信号特征释放&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;制造业部署&lt;/strong&gt;：重点筛选环境（E）指标，在累计前50%重要性特征中，制造业欧美样本普遍包含更多环境指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;金融与信息业部署&lt;/strong&gt;：重点筛选治理（G）指标，尤其是在欧洲样本中，治理信号的超额收益预测能力更为突出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;慢频排序增强部署&lt;/strong&gt;：将ESG模型作为慢频的权重调整或排序增强工具，与财务、收益变量合并模型使用（三类信息合并准确率最高），而不适合脱离财务数据单独下注。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “同一项ESG缺失在制造业和银行业，并不代表同一件事。”&lt;/li&gt;
+&lt;li&gt;💬 “ESG适合做慢频排序增强，不适合脱离收益与财务数据单独下注。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1PngJ6oE9G</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/e48d903babeb08a1c2a67c00af9f20b7844ae94a.png" length="0" type="image/png"/>
+      <pubDate>Sat, 15 Aug 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从数据到信号：基于Open Cloud的实盘AI量化智能体系统设计</title>
+      <link>https://www.bilibili.com/video/BV19bg36EEN8</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/5397629"&gt;交易回战&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV19bg36EEN8"&gt;0帧起手学量化【3】——  OpenClaw+量化工厂 | 流程编排与调度中枢 | 数据采集调度员 | 指标计算协调员 | 信号生成调度员 | 风控与监控执行员&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Open Cloud 实盘量化智能体交易系统 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 Open Cloud 调度中枢控制整体业务流，利用确定性的本地脚本高频扫描并执行由不确定性大模型推理生成的标准化 JSON 信号文件，从而在兼顾智能决策的同时保证实盘交易的极致稳定性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：5分钟/15分钟级实盘行情数据、加工因子指标、以及非结构化的舆情搜索数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：标准格式的 JSON 下单信号文件、可用于监管审计的全流程语义化执行日志。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Open Cloud&lt;/strong&gt;：系统的流程编排与调度中枢，负责循环（Loop）调用子任务，而不直接承载高不确定性的交易执行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QMT/Mini QMT&lt;/strong&gt;：实盘交易客户端，负责对接券商柜台，执行最终的交易下单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Harness&lt;/strong&gt;：数据预处理模块，负责非结构化多元数据的清洗与规范化输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;经验库 (Memory System)&lt;/strong&gt;：用于存储AI历史决策及市场应对策略的知识库，支持每日动态循环更新，实现自适应演进。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：标准化数据采集与投喂&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：对抗信息熵增，避免因数据缺失导致 AI 决策出现幻觉或同质化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：实盘行情 API 权限、舆情搜索工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[非结构化抽取]&lt;/strong&gt;：通过 ASR 或舆情源获取多元原始数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[格式约束]&lt;/strong&gt;：使用 &lt;code&gt;Pydantic&lt;/code&gt; 或 &lt;code&gt;Instructor&lt;/code&gt; 库，强制将非结构化数据清洗、转化为标准 &lt;code&gt;JSON&lt;/code&gt; 格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[信息增强]&lt;/strong&gt;：在提供纯数字指标时，必须采用“数字 + 指标含义中文解释”的长文本格式打包投喂给大模型。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：基于本地文件扫描的稳健交易下单&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：隔离大模型生成不稳定性，避免交易接口直调失败。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：本地已部署 QMT 客户端，并具备脚本读写权限。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[文件输出]&lt;/strong&gt;：AI 智能体基于预设目标处理数据后，在指定本地路径生成标准化 &lt;code&gt;JSON&lt;/code&gt; 信号文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[高频扫描]&lt;/strong&gt;：配置本地监控脚本，以 1秒/5秒/10秒 为周期高频扫描该 &lt;code&gt;JSON&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[风控与下单]&lt;/strong&gt;：脚本解析出信号后，先进行本地仓位风控验证，再向 &lt;code&gt;QMT&lt;/code&gt; 或 &lt;code&gt;Mini QMT&lt;/code&gt; 发送下单指令。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Open Cloud 循环调用模块&lt;/strong&gt;：底层负责子任务顺序调度，直接控制交易流程的时间推进与步骤分支。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地监控脚本扫描周期&lt;/strong&gt;：调节本地 JSON 文件的检测频次，控制高频与延迟的平衡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;贝叶斯经验库权重&lt;/strong&gt;：控制历史经验对当前策略判断的参考比例。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;严禁让大模型或 Open Cloud 通过网络 API 直接调用下单接口。这种设计极易受网络波动、大模型幻觉及接口不稳定性影响，导致实盘资产失控。必须使用本地脚本作为物理隔离媒介。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;贝叶斯先验迭代&lt;/strong&gt;：利用“今日经验对昨日经验进行更新”的机制，自动滚动维护一个可净化的知识库，能极大增强系统在极端行情下抗风险与自适应的能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV19bg36EEN8</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/5cf245d947f019c1636dbdd1c4c572fbea408706.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 15 Aug 2026 11:17:31 +0800</pubDate>
     </item>
     <item>
       <title>突破实盘幻觉：量化交易三大致命陷阱与稳健回测框架构建</title>
@@ -4516,82 +4639,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87039</guid>
       <pubDate>Fri, 26 Jun 2026 12:03:38 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于资金费率右尾偏离度的空头策略后置过滤因子研究</title>
-      <link>https://bbs.quantclass.cn/thread/87027</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87027"&gt;资金费Spread后置过滤：一个空头策略另类后置过滤方式&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[资金费率、右尾偏离、空头策略、状态过滤、市场拥挤度]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过计算资金费率右尾厚度（RTE）作为后置过滤器，优化空头策略的时机选择。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：反直觉发现：当“高资金费率币种”相对市场整体的偏离度（Spread）过高时，往往代表市场极度偏向多头或右尾过热，反而不利于空头策略。通过判断右尾冷却状态作为过滤信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：定义“右尾超额（Right Tail Excess, RTE）”：将各币种资金费累计值与全市场中位数作差，取正偏离部分并求均值，最后进行滚动分位（Rank）处理，输出0-1的状态值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于小时级资金费率累计（Lag1，避免未来函数），使用双窗口（短窗口N小时计算右尾厚度，长窗口W小时判断历史分位）进行状态刻画。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：在0.5倍全市场空头策略及多种主流空头宿主上验证，RTE &amp;lt;= 0.5 的Active状态与Inactive状态表现差异显著，有效降低回撤。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略属于状态过滤器，不保证单次胜率，且在独立行情主导的空头策略（如落单狗）中效果弱于常规空头策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;使用 Pandas 的 &lt;code&gt;groupby&lt;/code&gt; 和 &lt;code&gt;transform&lt;/code&gt; 对海量合约数据进行分钟/小时级截面中位数计算。&lt;/li&gt;
-&lt;li&gt;引入 &lt;code&gt;.clip(lower=0)&lt;/code&gt; 实现右尾截断逻辑。&lt;/li&gt;
-&lt;li&gt;使用 &lt;code&gt;.rolling(w).rank(pct=True)&lt;/code&gt; 实现参数化的历史分位归一化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[因子实现]：可参考文中提供的 &lt;code&gt;FundingFeeRightTailExcessDualWindow&lt;/code&gt; 逻辑，在生产环境的回测框架中增加一道基于市场状态的 &lt;code&gt;post_filter&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;[策略优化]：对于所有基于资金费率的空头策略，测试将该RTE因子作为动态仓位管理的输入，而非仅作为硬开关，以平滑资金曲线。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87027</guid>
-      <pubDate>Thu, 25 Jun 2026 17:46:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>微盘股惨遭“闷杀”，量化交易者如何优雅应对极端抱团行情</title>
-      <link>http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-24&amp;talker=57784510736@chatroom</link>
-      <description>&lt;p&gt;&lt;a href=""&gt;A旗舰船队丨凌烟阁&lt;/a&gt; | &lt;a href="http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-24&amp;amp;talker=57784510736@chatroom"&gt;2026-06-24_A旗舰船队丨凌烟阁&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;💻 Rocket 下单与策略代码上线预告&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;自定义策略逻辑支持&lt;/strong&gt;：群友探讨了“符合条件买入、不持有 T 日”的特定交易逻辑。彩虹研究员 1 号指出，此功能无法通过单纯修改配置实现，需在策略文件中编写逻辑代码。只要不改动 core 文件夹中的脚本，客户端即可支持。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Rocket 示例代码发布&lt;/strong&gt;：针对上述需要用到 Rocket 下单的逻辑，官方表示将在今晚夏普直播后正式发布并上线相关示例代码。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;📉 微盘股“大失血”，择时策略面临极端考验&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;微盘股剧烈回撤&lt;/strong&gt;：微盘股再次遭遇单边大跌，部分群友全仓小市值导致单日回撤严重。市场呈现“阴跌后突然暴涨一天，次日再次闷杀”的无规律高波动走势。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;择时策略被动挨打&lt;/strong&gt;：群友反馈由于行情切换过快，择时策略经常反应不及，导致“割肉在最低点”或“高位接盘”。有群友反映本月策略最大回撤已达 10% 至 20%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略优化思路&lt;/strong&gt;：木木十三等群友提出“风火轮”策略需引入“快慢刀”（大市值快切，小市值慢切）进行延迟切换，以应对当前极致的市场轮动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💡 战术突围：如何优雅参与行业抱团？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ETF 长动量因子应用&lt;/strong&gt;：在“不抱团不赚钱”的行情下，小市值策略承压。助教林奇分享了社区精华帖，指引群友如何利用 ETF 轮动策略，通过长动量因子优雅地参与行业抱团行情。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;💬 社群金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;“择时经常买在高点，卖在低点。” —— 辉&lt;/li&gt;
-&lt;li&gt;“上涨趋势，只会套一次；下跌趋势，每次都套。” —— ShawnSu&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🔗 相关链接&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://bbs.quantclass.cn/topic/index?id=85545"&gt;如何使用ETF应对行业抱团行情_【ETF轮动策略_投研版】&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">http://192.168.5.28:5030/api/v1/chatlog?time=2026-06-24&amp;talker=57784510736@chatroom</guid>
-      <pubDate>Wed, 24 Jun 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
