@@ -7,7 +7,178 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 17 Aug 2026 08:49:17 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 22:41:03 +0000</lastBuildDate>
+    <item>
+      <title>别再用错了Claude Code！手把手带你打造24小时不落幕的AI原生员工团队</title>
+      <link>https://www.youtube.com/watch?v=SkY-tR9kf-k</link>
+      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=SkY-tR9kf-k"&gt;Claude Code New Features, Explained&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Claude Code - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：通过在本地代码库建立自描述的 Markdown 配置矩阵，赋予 Claude 明确的工作流规范、上下文记忆和自动化日常规程，从而将其从单一的聊天对话工具重构为全天候自主运转的“AI员工”系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：项目源代码、业务背景文档、客户反馈记录（&lt;code&gt;/customers&lt;/code&gt;）及全局约束文件（&lt;code&gt;claude.md&lt;/code&gt;、&lt;code&gt;roadmap.md&lt;/code&gt;、&lt;code&gt;review.md&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：精准的代码变更、自动化测试与审查报告、定期业务简报（&lt;code&gt;/context&lt;/code&gt;）以及质量自检反馈。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Plan Mode (计划模式)&lt;/strong&gt;：在修改代码前，强制 AI 评估上下文并输出完整技术方案供人类审核的工作机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Routines (日常规程)&lt;/strong&gt;：基于时间或事件触发的自动化运行脚本，让 AI 能够自主执行重复性任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Diff (差异视图)&lt;/strong&gt;：展示代码修改前后的直观对比，作为人类审查的核心界面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：初始化 AI 员工工作区&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：构建标准化项目目录结构，为 AI 提供完整记忆和运行边界。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 Claude 桌面端并关联项目本地文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[交互节点]&lt;/strong&gt;：打开 &lt;strong&gt;Claude Desktop&lt;/strong&gt; -&amp;gt; 点击 &lt;strong&gt;Claude Code&lt;/strong&gt; 模块 -&amp;gt; 选择对应的项目主文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：在根目录下创建三个核心文档：&lt;code&gt;claude.md&lt;/code&gt;（定义工作风格）、&lt;code&gt;roadmap.md&lt;/code&gt;（明确本周目标）和 &lt;code&gt;review.md&lt;/code&gt;（定义验收标准）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[初始化命令]&lt;/strong&gt;：向 Claude 发送初始化提示词：&lt;code&gt;Help me set up this repo as an AI employee workspace. Create or update claude.md, roadmap.md, review.md and folders: /context, /customers, /spec, /demo, /routines. Use this business context: [输入你的业务细节]...&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：基于“计划模式”执行特定功能开发&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：以极小的代码变动和高确定性实现具体功能，避免 AI 盲目修改代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：场景 1 的工作区初始化已完成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[启用计划]&lt;/strong&gt;：发送提示词：&lt;code&gt;Use plan mode. I want to add [具体功能需求] to the [页面/组件]. First inspect the current app, claude.md, roadmap.md, and review.md. Give me the files to change, the smallest clean implementation, and risks. Wait for my approval before editing.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[方案评审]&lt;/strong&gt;：阅读 Claude 返回的实施计划。如无问题输入 &lt;code&gt;accept&lt;/code&gt; 授权执行，或提出修改意见（如：“不要修改数据库，仅实现前端模拟”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行与自检]&lt;/strong&gt;：Claude 执行完毕后，要求其使用“视觉眼睛”打开 &lt;strong&gt;Desktop Preview&lt;/strong&gt; 模拟真实用户流程并检查控制台错误。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;claude.md (运行规范)&lt;/strong&gt;：控制 AI 的底层交互行为 -&amp;gt; 明确设定工作风格（如：小步提交、修改前解释计划、运行相关测试）和业务核心痛点承诺。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;roadmap.md (路线图控制)&lt;/strong&gt;：管理项目优先级 -&amp;gt; 明确列出“本周聚焦任务”与“排除在外的非核心功能 (Out of Scope)”，防止 AI 超纲开发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;review.md (质量控制台)&lt;/strong&gt;：设定代码合并的绝对阈值 -&amp;gt; 包含诸如“5秒内新用户是否能看懂页面”、“移动端适配是否存在问题”等具体检测指标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;严禁提供“让应用变得更好”等模糊的提问 (Vague Prompts)，每次必须指派单一、具有明确终点线的高内聚 Ticket。&lt;/li&gt;
+&lt;li&gt;涉及数据库迁移、支付接口对接以及第三方包更新等高风险决策，必须在 &lt;code&gt;claude.md&lt;/code&gt; 中强制设定为“人类所有 (Human-owned)”，严禁 AI 在无显式授权下自行修改。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定时晨报 (Morning Brief Routine)&lt;/strong&gt;：配置 Routines 在每个工作日早 7 点读取 &lt;code&gt;/customers&lt;/code&gt;，自动更新项目晨报，生成当日最高杠杆的开发任务推荐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行多任务会话 (Parallel Sessions)&lt;/strong&gt;：利用 Claude 的并行会话与 Work Tree 隔离机制，同时开启三个会话：会话 A 修复 Bug，会话 B 优化 Landing Page，会话 C 生成销售 Demo 脚本，实现生产力指数级倍增。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=SkY-tR9kf-k</guid>
+      <enclosure url="https://i.ytimg.com/vi/SkY-tR9kf-k/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 17 Aug 2026 18:00:14 +0800</pubDate>
+    </item>
+    <item>
+      <title>Grockbot深度实操：如何用云端AI代理构建你的个人数字化助理群？</title>
+      <link>https://www.youtube.com/watch?v=MkVcHbviYOw</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=MkVcHbviYOw"&gt;Grok Bot: 5 Must-Try Use Cases for Work and Life (Full Tutorial)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Grockbot - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于 SpaceX AI 云端虚拟专用电脑（Hosted Cloud PC）的持久化 AI Agent 系统，拥有独立的浏览器与操作系统环境，支持 24/7 在线运行并可长效保持第三方应用免密登录状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令/语音控制、结构化关联文档（如旅行日程 Docs）、第三方插件接口（Gmail, Google Drive, Mercury MCP 等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：自动化推送报告（应用内展示/定时发送至个人邮箱）、自动化云端及系统级操作结果（自动退订邮件、删除云文件、取消订阅）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Cloud PC&lt;/code&gt;：部署在 SpaceX AI 云端服务器上的虚拟电脑，不消耗本地硬件资源，可保持 Agent 持续后台运转。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Advisor Bot&lt;/code&gt;：全局顾问机器人，负责基于用户背景进行全局规划，并辅助派生、初始化其他垂直场景的子 Agent。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Mercury MCP&lt;/code&gt;：一种模型上下文协议接口，允许 AI 代理安全调取商业银行账户底层流水与交易收据数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：构建核心「顾问机器人（Advisor）」并派生子 Agent&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：初始化个人/业务背景，生成并指导构建后续其他专属定制 Bot。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装并启动 Grockbot。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[初始化 Bot]&lt;/strong&gt;：在 Grockbot 中新建 Bot 并命名为 &lt;code&gt;Advisor&lt;/code&gt;，将其固定在列表顶部。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[背景注入]&lt;/strong&gt;：向其输入关于你个人、家庭、地理位置及核心工作业务的结构化信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[生成创意]&lt;/strong&gt;：输入提示词：&lt;code&gt;Based on all this, suggest five bots that can help me save me time or money. And for each explain what it would do in a few sentences.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[下发指令]&lt;/strong&gt;：选择满意的创意，命令 Advisor 直接输出创建其他子 Bot 的初始化核心指令。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：构建「YouTube 深度调研员（YouTube Researcher）」&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：每日晨间自动聚合竞争对手热门内容，并深度挖掘用户评论价值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：无（接入云端浏览器公开数据）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[监测配置]&lt;/strong&gt;：向 Agent 导入指令，要求其监测行业内特定的几个垂直频道（如 &lt;code&gt;Monitor [特定渠道名称]&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[格式格式化]&lt;/strong&gt;：针对冗长粗糙的初始输出，输入微调提示词：&lt;code&gt;Give me a report in this format: 1. Top 3 content ideas; 2. Top 5 outliers for other channels; 3. Top performing overall. Limit research to the last 14 days and add top comment themes back to the report.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[自动化运行]&lt;/strong&gt;：配置 Grockbot 日常任务（Daily Job），实现每日清晨自动输出精炼简报。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：构建「X 社交雷达（X Scout）」&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：自动化筛选社交媒体高价值行业动态、搞笑内容，并启发推文灵感。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：绑定 X (Twitter) 账户信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[抓取指令]&lt;/strong&gt;：注入提示词：&lt;code&gt;Find the most viral X posts from the last 7 days in my niche and create a weekly report with the top 10 tweets from people I follow, engaged with, or bookmarked grouped into a few categories. Include a full tweet copy link and your analysis and end with three content ideas for me to tweet about.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[邮箱桥接]&lt;/strong&gt;：绑定 Gmail 插件后，使用语音或文本下发即时发送指令：&lt;code&gt;Can you send this report to [个人邮箱] and also make sure you include a full tweet copy in your report. Send to my email right now.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[周期调度]&lt;/strong&gt;：在应用内将其设置为自动运行的 Routine，每日定时推送至邮箱。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：构建数字化「近藤麻理惠」清理大师（Marie Condo）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：批量退订无用邮件、删除 Google Drive 冗余大文件、识别并取消不必要的付费订阅服务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：授权接入 Gmail、Google Drive 插件以及 Mercury 银行 MCP 接口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[安全审计]&lt;/strong&gt;：发送提示词：&lt;code&gt;Audit my Gmail, Google Drive, and recurring email receipts and create a cleanup plan. Find newsletters I already open. Find large or abandoned drive files. Try to identify paid subscriptions. Do NOT move, delete, or unsubscribe or cancel anything without my approval.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[列表瘦身]&lt;/strong&gt;：针对冗长审计结果，下发精简指令：&lt;code&gt;Only show me max 10 items in each list and get rid of random labels. Format into a numbered list: 1. Emails to unsubscribe; 2. Google Drive files to delete; 3. Paid subscriptions to cancel.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数字键授权]&lt;/strong&gt;：浏览列表后，输入具体编号授权执行操作（例如：&lt;code&gt;Email unsubscribe to 3 and 4, Google Drive delete 6, Paid subscriptions cancel 11&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[人机协同登录]&lt;/strong&gt;：对于涉及第三方平台（如 Lovable、Equip Foods）的退订，在弹出的 Cloud PC 浏览器中手动输入账号密码，随后 Agent 将全自动进入后台取消订阅。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 5：构建「智能旅行管家（Personal Concierge）」&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：基于旅行策划案监测航班价格，提供突破常规的更优差旅决策。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：连接包含个人详细出游路线规划的 Google Docs 文档。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[关联文档]&lt;/strong&gt;：授权 Agent 读取特定云端差旅策划案。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[多路价格监控]&lt;/strong&gt;：输入提示词：&lt;code&gt;Read my vacation document and monitor the exact flight legs for my family trip. Get the dates, the best options for each flight leg. Check regularly and let me know when the price improves.&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[智能决策介入]&lt;/strong&gt;：Agent 会自动对比直飞与多段开口机票的价格并进行逻辑判断（如智能计算发现往返东京机票比原计划的开口机票方案便宜 2700 美元），自动在每日上午 9:00 推送调优后的价格监控简报。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Numbered List Pattern (数字列表模式)&lt;/strong&gt;：在命令 Agent 生成需要执行具体操作（删除、退订、购买）的报告时，必须要求其使用数字编号。在二次确认时，用户通过数字回复即可极大缩减手动打字和确认的交互时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Routine Scheduler (定时任务管理器)&lt;/strong&gt;：通过此模块可一键配置 Agent 的日常（Daily Job）、周常或月常自动调度计划，实现后台静默运转，彻底解放本地电脑硬件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;绝对安全防线&lt;/strong&gt;：在配置涉及文件删除、邮件退订、扣费订阅取消的 Agent 时，&lt;strong&gt;必须&lt;/strong&gt;在提示词末尾加入强制约束：&lt;code&gt;Do NOT move, delete, or unsubscribe or cancel anything without my approval&lt;/code&gt;。防止 Agent 在未确认的情况下发生大面积资产损失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;云端登录隐私屏障&lt;/strong&gt;：由于 Cloud PC 属于托管的云端虚拟环境，在上面登录个人账号（Google, 银行等）时，务必注意防范数据泄露。虽然系统底层使用了 Cursor SSO 加密，但在输入极度敏感的资产密码时仍需审慎评估。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;高阶游戏流畅度局限&lt;/strong&gt;：测试在 Cloud PC 内安装并运行 Doom、红警（Red Alert）、Commander Keen 等复古游戏时发现，受限于云端虚拟化和串流延迟，键盘和鼠标操作存在明显卡顿，目前尚不适合作为重度游戏串流设备使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;趣味人设注入&lt;/strong&gt;：在 Bot 搭建完毕后，可发出指令要求其更改人设（例如：&lt;code&gt;Can you talk like Marie Condo from now on?&lt;/code&gt;）。使原本枯燥的清理反馈信息转为极其生动、符合特定 IP 调性的对话输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;渐进式迭代优化&lt;/strong&gt;：不要尝试通过一次性提示词（One-shot Prompt）达成完美结果。先让 Agent 抽取基础框架，再通过「增加限制条件」、「缩减数量」、「调整输出格式」的多轮互动，逐步压榨出符合预期的精简结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=MkVcHbviYOw</guid>
+      <enclosure url="https://i.ytimg.com/vi/MkVcHbviYOw/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 17 Aug 2026 17:09:39 +0800</pubDate>
+    </item>
     <item>
       <title>撕开金融巨头AI狂热：真金白银的军备竞赛与骨感的底层现实</title>
       <link>https://www.bilibili.com/video/BV1DAbY6nEtz</link>
@@ -4966,108 +5137,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=RlCAucFCwoo</guid>
       <enclosure url="https://i.ytimg.com/vi/RlCAucFCwoo/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 29 Jul 2026 17:37:01 +0800</pubDate>
-    </item>
-    <item>
-      <title>凯文·凯利：AI是50年的“一夜成名”，人类正步入“一个人的观众”时代</title>
-      <link>https://www.youtube.com/watch?v=s4Ld3ZkM0Do</link>
-      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=s4Ld3ZkM0Do"&gt;Wired's Kevin Kelly on Why AI Is a 50-year Overnight Success (Best of the Pod)&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 智能真的是一种原子化的基础元素，还是由无数微小逻辑构成的复杂“化合物”？&lt;/li&gt;
-&lt;li&gt;💡 为什么像VR这样降价百万倍的技术，却依然在等待它的“大语言模型时刻”？&lt;/li&gt;
-&lt;li&gt;🚀 面对生成式AI爆发，我们该追求成为竞争中的“第一”，还是追求不可替代的“唯一”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 智能的“化合物”假说：我们正处于认知电学的蒙昧期&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;智能非元素论&lt;/strong&gt;: 凯文·凯利类比牛顿对电学的早期误解，指出我们目前能识别智能却无法定义它。智能并非单一属性，而是由多种认知单元合成的“化合物”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;认知的透明度屏障&lt;/strong&gt;: 脑科学的黑盒属性是演化设计的逻辑——生物体无需访问“源代码”即可生存，这种不可知性同样延续到了现代AI的神经网络中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 技术演化论：从荒野先锋到规则之城的必然跨越&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;荒野秩序演进&lt;/strong&gt;: 无论是互联网还是火人节，技术总是从“无法律、无监管”的先锋时期向“有治理、有结构”的建设者时期过渡。这种秩序的建立虽然牺牲了部分自由，却换取了系统的规模化和普惠性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;移动的边界&lt;/strong&gt;: 保持“游牧精神”，在不断产生的技术新边疆探索，同时在成熟的“建设者之城”中利用规律创造价值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 “一个人的观众”：生成式AI重塑的个人创作时代&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;创作价值转移&lt;/strong&gt;: 凯文预测未来99%的AI生成内容（包括电影）将只有“一个人的观众”。创作的意义正从“向外展示”转向“对内探索”，创作的过程本身即是奖励。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;情感纽带的建立&lt;/strong&gt;: 随着AI记忆功能的完善，人类将不可避免地与AI建立深厚的情感联结。这种“被理解”的错觉将成为AI作为伴侣或疗愈者的底层动力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 应对未来的个人认知策略&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;建立历史坐标系&lt;/strong&gt;：在钻研AI的同时，强制同步阅读科学史（如电力发明史），在“变”中寻找“不变”的演化逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;从“最好”转向“唯一”&lt;/strong&gt;：不要在存量赛道卷排名，要通过AI加速迭代，找到只有你才能做、且具有“个人诚实度”的事情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;利用AI跨越冷启动&lt;/strong&gt;：将AI视为“园丁”式的组织工具，利用其在研究和组织上的优势，补齐个人在架构化思维上的短板。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “AI是长达50年的‘一夜成名’。”&lt;/li&gt;
-&lt;li&gt;💬 “不要追求成为最好的，要追求成为唯一的（Be the only, not the best）。”&lt;/li&gt;
-&lt;li&gt;💬 “智能就像盐，它是几种我们尚未完全识别的元素的化合物。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=s4Ld3ZkM0Do</guid>
-      <enclosure url="https://i.ytimg.com/vi/s4Ld3ZkM0Do/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 29 Jul 2026 15:07:36 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI原生设计六步法：从需求洞察到代码落地的全流程实操指南</title>
-      <link>https://www.youtube.com/watch?v=G9o8eoHzpxc</link>
-      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=G9o8eoHzpxc"&gt;Full Tutorial: From Idea to App with Claude Design and Claude Code in 25 Minutes&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ AI-Native App Design - 标准实操手册 (SOP)&lt;/h1&gt;
-&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：利用AI作为核心生产力，通过“文档驱动设计”与“原子化规格定义”实现从模糊概念到可运行代码的确定性转化，强调前期规划与代码构建的50/50时间分配。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：用户痛点描述、参考产品截图、设计风格偏好。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：可交互HTML原型、全量技术规格书(Spec.html)、可运行的代码仓库。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Design.md&lt;/strong&gt;：轻量级Markdown规范，定义颜色、字体、间距及设计原则。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Spec Skill&lt;/strong&gt;：一种结构化提示词能力，用于生成集PRD、组件库与技术架构于一体的HTML文档。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Claude Design&lt;/strong&gt;：AI原生的UI设计与原型预览环境。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
-&lt;h3&gt;场景：从零构建AI驱动的垂直类App&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在无需Figma专业技能的情况下，实现高审美、高工程还原度的产品交付。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：明确的产品核心问题定义、视觉灵感参考源（如Mobbin/Dribbble）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;[问题建模]&lt;/strong&gt;：输入痛点 -&amp;gt; 调用AI研究竞品与证据 -&amp;gt; 锁定用户价值主张。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[视觉定向]&lt;/strong&gt;：上传灵感截图 -&amp;gt; 指令：&lt;code&gt;Create a design.md for [ProjectName] based on this visual direction&lt;/code&gt; -&amp;gt; 建立样式基准。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[原型探索]&lt;/strong&gt;：在Claude Design中结合 &lt;code&gt;design.md&lt;/code&gt; 生成主页面变体 -&amp;gt; 通过“直接编辑”与“对话反馈”调整布局细节。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[规格封装]&lt;/strong&gt;：整合原型与技术栈要求 -&amp;gt; 指令：&lt;code&gt;Turn requirements into a concise spec with product, design, and tech tabs&lt;/code&gt; -&amp;gt; 生成Spec.html。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[全量资产设计]&lt;/strong&gt;：基于Spec设计所有核心页面、空状态及引导流 -&amp;gt; 导出为HTML/Zip资源包。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[迭代构建]&lt;/strong&gt;：将Spec与设计稿导入代码工具 -&amp;gt; 通过反馈循环（Feedback Loop）完成数据库连接与业务逻辑编写。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;[Component Library]&lt;/strong&gt;：必须在Spec中强制生成统一组件库，防止AI在代码阶段自行捏造UI元素导致视觉混乱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;[Data Schema]&lt;/strong&gt;：在技术Tab中预定义数据库结构，利用AI评估扩展性，避免上线后因底层变更产生的高额成本。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：严禁直接进入代码阶段，跳过设计规划会导致“紫色垃圾（Generic Purple Slop）”的生成或难以维护的代码屎山。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：[⚠️需核实：原文未详述Superbase具体配置步骤]；利用 &lt;code&gt;z.sh&lt;/code&gt; 等资源库获取成熟品牌的设计规范作为AI输入的底层基准。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=G9o8eoHzpxc</guid>
-      <enclosure url="https://i.ytimg.com/vi/G9o8eoHzpxc/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 29 Jul 2026 13:00:25 +0800</pubDate>
     </item>
   </channel>
 </rss>

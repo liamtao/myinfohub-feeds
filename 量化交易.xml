@@ -7,7 +7,76 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 17 Aug 2026 08:49:17 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 22:41:03 +0000</lastBuildDate>
+    <item>
+      <title>打破平台壁垒：聚宽策略向QMT本地实盘转化的智能迁移指南</title>
+      <link>https://www.bilibili.com/video/BV1Rwbq6qEGd</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Rwbq6qEGd"&gt;聚宽策略一键转QMT：代码迁移神器，3分钟完成平台切换&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🛠️ 聚宽-QMT 策略转换器 - 标准实操手册 (SOP)&lt;/h3&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：采用多层解析策略，结合抽象语法树（AST）与上下文感知技术，实现从云端 API 到本地引擎的智能语义映射与逻辑修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：聚宽（JoinQuant）平台原生 Python 策略代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：兼容大 QMT（官方引擎）或 Mini QMT（轻量化）的本地化策略文件及详细转换报告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API 智能映射&lt;/strong&gt;：自动识别功能对等但语法不同的接口（如 &lt;code&gt;get_price&lt;/code&gt; 的参数化适配）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能修复引擎&lt;/strong&gt;：自动修正轮动策略中常见的持仓残留、状态未重置等逻辑缺陷。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双数据源降级&lt;/strong&gt;：本地 DuckDB 缺失时自动切换至 QMT 本地或 Tushare 等在线源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：个人用户快速在线迁移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：零门槛实现单个策略的快速转化与即时验证。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已编写完成的聚宽策略源代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[代码录入]&lt;/strong&gt;：访问转换工具网页 -&amp;gt; 将聚宽源代码粘贴至输入框。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[目标选择]&lt;/strong&gt;：根据运行环境勾选 &lt;code&gt;大QMT&lt;/code&gt; 或 &lt;code&gt;Mini QMT&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行转换]&lt;/strong&gt;：点击 &lt;code&gt;开始转换&lt;/code&gt; -&amp;gt; 实时获取代码并查阅“策略体检报告”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：专业团队批量自动化迁移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将转换逻辑集成至本地工作流，批量处理海量策略文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：本地 Python 环境及转换器仓库克隆。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[环境准备]&lt;/strong&gt;：克隆仓库并安装依赖 -&amp;gt; 准备待转换的文件目录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[批量触发]&lt;/strong&gt;：通过命令行（CLI）执行批量转换脚本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[系统核验]&lt;/strong&gt;：通过生成的 JSON/Markdown 报告核对 API 映射成功率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API 映射规则库&lt;/strong&gt;：自动将 &lt;code&gt;initialize&lt;/code&gt;/&lt;code&gt;handle_data&lt;/code&gt; 结构转化为 QMT 的 &lt;code&gt;init&lt;/code&gt;/&lt;code&gt;handle_bar&lt;/code&gt; 框架，并处理 &lt;code&gt;context&lt;/code&gt; 对象转换。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;下单逻辑重组&lt;/strong&gt;：将 &lt;code&gt;order_target&lt;/code&gt; 等目标持仓指令自动解构为“仓位查询 + 数量计算 + PassOrder”的复合逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态管理优化&lt;/strong&gt;：自动检测日内状态标志位，并在交易日切换时强制补充重置逻辑，防止策略永久失效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时间精度&lt;/strong&gt;：转换后需重点核查定时任务的时间触发点是否在 QMT 环境下精确对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基本面数据&lt;/strong&gt;：&lt;code&gt;get_fundamentals&lt;/code&gt; 转换后若使用在线源，需确保 Token 配置正确且字段名对齐。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;风险防控&lt;/strong&gt;：实盘前必须在模拟盘对比转换前后的回测信号点，确认逻辑一致性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;利用报告优化&lt;/strong&gt;：根据转换报告中的“自动修复”建议，反向修正原策略中的潜在轮动逻辑 Bug。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;性能优化&lt;/strong&gt;：在本地环境配置 DuckDB 以获得最高的数据检索效率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Rwbq6qEGd</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/0e3dc9ba78e796173816c0a9ac15de16e4e2839e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 17 Aug 2026 21:39:19 +0800</pubDate>
+    </item>
     <item>
       <title>突破投资的人性瓶颈：AI量化交易的自适应进化与获利逻辑</title>
       <link>https://www.bilibili.com/video/BV1RMbX6UE6X</link>
@@ -4610,62 +4679,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87058</guid>
       <pubDate>Sat, 27 Jun 2026 00:53:10 +0800</pubDate>
-    </item>
-    <item>
-      <title>自适应市值排名截面因子：如何通过分箱过滤破解小市值普跌与轮动难题</title>
-      <link>https://bbs.quantclass.cn/thread/87051</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87051"&gt;【分箱类截面因子研究01】如何避开小市值暴跌？用截面因子实现小市值分箱轮动&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[自适应市值、截面因子、小市值轮动、分箱过滤、占比排除法]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过日频市值分箱并动态剔除表现最差区间，实现小市值策略的自适应轮动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：规避小市值系统性普跌。每日在全市场按市值等分分箱，动态评估并后置（变相剔除）表现最差的 K 个市值分箱，保留并优先交易剩余分箱中市值最小的标的，从而在微盘股内部实现自适应的市值带轮动。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;特征计算&lt;/strong&gt;：计算 N 日累计收益率 Ret_n。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;等分分箱&lt;/strong&gt;：每日对全市场股票按市值 qcut 等分为 M 个箱体（若市值分布极度不均则退化为 cut）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;特征统计与排序&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;&lt;code&gt;mean&lt;/code&gt; 模式&lt;/em&gt;：计算每箱 Ret_n 的均值，将均值最低的 K 箱后置。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;code&gt;ratio&lt;/code&gt; 模式&lt;/em&gt;：计算每箱 Ret_n &amp;gt;= 0 的股票占比，将占比最低的 K 箱后置。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;排名输出&lt;/strong&gt;：保留箱内按市值升序排列，被排除箱的股票排名强制排在所有保留箱股票之后。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;策略基准&lt;/em&gt;：小市值_基本面优化（持股5只，周频调仓，等权，剔除科创/北交，上市 &amp;gt; 30天），回测区间为 2014-01-01 至 2026-06-18。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;原始策略&lt;/em&gt;：累计收益 +5232.54%，年化 39.26%，最大回撤 -53.16%，Sharpe 1.09。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;code&gt;mean&lt;/code&gt; 模式&lt;/em&gt;：累计收益 +6202.59%，年化 41.21%，最大回撤 -54.27%，Sharpe 1.18。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&lt;code&gt;ratio&lt;/code&gt; 模式&lt;/em&gt;：累计收益 +9862.85%，年化 46.70%，最大回撤 -55.55%，Sharpe 1.26。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【超额来源归因】&lt;/strong&gt;：超额并非简单来源于“在弱势期避开微盘股走向大市值”，而是通过动态排除，在微盘内部实现分箱轮动（例如排除第 2 或第 3 小市值的弱势分箱，从而让资金保留在表现更好的极小市值或稍大市值分箱中）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与副作用】&lt;/strong&gt;：由于市值带切换频繁，年化换手率显著上升（由原始策略的 18.3 倍升至 ratio 模式的 37.6 倍）。此外，该因子无法降低最大回撤，在中小盘弱势年份（如 2017、2018、2021 年）会产生负超额并放大回撤。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程设计与健壮性】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;退化处理&lt;/strong&gt;：由于 qcut 遇到大量重复市值值时会报错，代码中使用了 &lt;code&gt;try-except&lt;/code&gt; 结构捕获 ValueError 并优雅退化为 &lt;code&gt;pd.cut&lt;/code&gt;，确保每日计算不中断。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分箱重映射&lt;/strong&gt;：对分箱的 median 市值排序后进行 &lt;code&gt;enumerate&lt;/code&gt; 映射，确保无论底层如何分箱，物理意义上“0”箱始终代表最小市值箱体。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;可观测性设计&lt;/strong&gt;：通过 &lt;code&gt;_save_bin_log&lt;/code&gt; 机制，在因子的 get_factor 周期中实时输出每日分箱的胜率、均值、排除标记等统计数据到 CSV，便于离线归因分析与可视化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;分箱特征多维化拓展&lt;/strong&gt;：此框架具有普适性。除市值外，可尝试使用“换手率”、“Bias（乖离率）”或“财务基本面得分”作为分箱基准，利用同样的 &lt;code&gt;ratio&lt;/code&gt; 排除机制，动态过滤掉最弱的拥挤交易或高风险区间。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数寻优与敏感性测试&lt;/strong&gt;：代码中回溯期 5 天、分箱数 10、排除 3 箱属于经验参数。可使用网格搜索（Grid Search）测试不同参数组合对换手率与超额收益的敏感度，建议配合调仓周期（如周频对应 N=5，双周频对应 N=10）同步调整。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;落地 Binrank 模式测试&lt;/strong&gt;：在抱团行情中，硬排除法可能错失极端抱团板块。可尝试实现因子的第三种模式 &lt;code&gt;binrank&lt;/code&gt;，其不排除任何分箱，仅按 Ret_n 均值对箱体进行大排序，箱体内保持市值升序，实现全市场的两级动态动量排序。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87051</guid>
-      <pubDate>Fri, 26 Jun 2026 21:38:09 +0800</pubDate>
     </item>
   </channel>
 </rss>
