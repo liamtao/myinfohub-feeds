@@ -7,7 +7,157 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 19 Aug 2026 08:49:17 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 22:37:07 +0000</lastBuildDate>
+    <item>
+      <title>AI与团队协作的新范式：用GitHub和插件打造团队共享的Claude Code技能库</title>
+      <link>https://www.youtube.com/watch?v=xHsftiyT9pQ</link>
+      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=xHsftiyT9pQ"&gt;Why Skill Chaining will 10x your Claude/Codex&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Claude Code &amp;amp; Codex 技能管理 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：通过将以 Markdown 格式编写的 AI 技能文件（SOP）托管在 GitHub 仓库，并利用 JSON 配置文件将其打包为插件，统一接入 Claude Code 或 Codex 终端，实现团队级 AI 协同与版本控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：托管于 GitHub 的 Markdown 技能文件（SOP）、配置文件、调用监测 Hook。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：分发至团队成员本地的自更新 AI 技能、可视化技能图谱及使用频次看板。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;技能 (Skill)&lt;/strong&gt;：以 Markdown 格式编写的 AI 标准操作程序（SOP），用于指导 AI 单次生成高质量输出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插件 (Plugin)&lt;/strong&gt;：捆绑了技能、MCP 及 Hook 的功能包，是 AI 调用和同步技能的载体。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技能链 (Skill Chain)&lt;/strong&gt;：将复杂的庞大流程解构为多个可独立调用的子技能，并按顺序串联运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：构建与分发团队共享的 AI 技能插件&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决 AI 技能“单机版”限制，实现团队内部技能的统一同步、版本回滚与高效共享。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已在 GitHub 创建名为 &lt;code&gt;team-skills&lt;/code&gt; 的私有或公开仓库，并分类存放技能 &lt;code&gt;.md&lt;/code&gt; 文件；团队成员本地已安装 Claude Code 或 Codex。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[初始化终端]&lt;/strong&gt;：在本地打开终端并运行 &lt;code&gt;claude code&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[进入管理界面]&lt;/strong&gt;：输入命令行指令 &lt;code&gt;/plugin&lt;/code&gt; 唤起插件和市场管理面板。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[添加插件市场]&lt;/strong&gt;：点击 &lt;strong&gt;Marketplaces&lt;/strong&gt; -&amp;gt; 选择 &lt;strong&gt;Add Marketplace&lt;/strong&gt; -&amp;gt; 输入并绑定团队的 GitHub 仓库 URL。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[安装目标插件]&lt;/strong&gt;：在已添加的团队市场下，选择对应部门的技能插件（如 &lt;code&gt;newsletter&lt;/code&gt;）进行安装。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[开启自动同步]&lt;/strong&gt;：在已安装插件的设置中，将 &lt;strong&gt;Auto Update&lt;/strong&gt;（自动更新）设定为 &lt;strong&gt;Enabled&lt;/strong&gt;（启用状态），确保后续技能迭代自动推送到本地。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Auto Update&lt;/code&gt; 控制开关&lt;/strong&gt;：插件的核心同步机制。开启后，只要 GitHub 仓库有提交更新，成员本地的技能将自动拉取最新版，避免多版本混乱；关闭则锁定当前本地版本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;self-improvement-loop&lt;/code&gt;（自改进循环机制）&lt;/strong&gt;：嵌入技能 &lt;code&gt;md&lt;/code&gt; 文件底部的元指令。强制 AI 在每次执行完技能后评估执行效果、用户修正行为及潜在痛点，并向用户推荐优化后的技能文件代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;禁止公共化个人隐私技能&lt;/strong&gt;：如邮箱筛选（Inbox Triage）、每日简报（Morning Brief）等强个人属性的技能，应存放在独立的个人仓库（如 &lt;code&gt;remy-skills&lt;/code&gt;）中，严禁推送到团队共享仓库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严禁本地直接修改同步技能&lt;/strong&gt;：成员若需修改共享技能，必须通过 GitHub 进行 Pull Request 或在统一的 UI 平台修改并提交，严禁直接在本地 Claude 文件夹内修改，否则会在下一次 &lt;code&gt;Auto Update&lt;/code&gt; 时被无情覆盖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;使用技能链替代胖技能&lt;/strong&gt;：对于如“YouTube 发布”等大型任务，应拆分为“标题”、“缩略图”、“描述”三个独立子技能组成技能链，以便各子步骤在其他场景中被单独复用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无代码自动生成插件&lt;/strong&gt;：可将现有的技能文件夹直接拖给 Claude，配合特定 Prompt，让 Claude 自动生成插件所需的 JSON 配置文件并上传至 GitHub。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=xHsftiyT9pQ</guid>
+      <enclosure url="https://i.ytimg.com/vi/xHsftiyT9pQ/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Aug 2026 20:00:27 +0800</pubDate>
+    </item>
+    <item>
+      <title>角色驱动型计算的崛起：AI伴侣如何重塑人类叙事与情感连接</title>
+      <link>https://www.youtube.com/watch?v=ngTS4gUINVk</link>
+      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=ngTS4gUINVk"&gt;$4M in 4 Weeks: How This AI Alien Companion App Took Off (Best of the Pod)&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么把AI伴侣当成普通的B2B SAS产品开发注定会失败？&lt;/li&gt;
+&lt;li&gt;💡 在没有预设剧本的情况下，如何让AI成为一个完美的即兴表演者？&lt;/li&gt;
+&lt;li&gt;🚀 为什么未来的计算界面将是&amp;quot;角色驱动&amp;quot;(Character-Driven)的？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知重塑：AI不仅是生成工具，更是一种全新的即兴叙事媒介&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;媒介的进化律&lt;/strong&gt;: 新技术的初期往往在模仿旧媒介（如电影早期模仿舞台剧），而AI真正的媒介形态是&amp;quot;即兴叙事&amp;quot;，而非单纯的内容生成工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;去中心化的世界观&lt;/strong&gt;: 传统的IP世界观由官方严密控制，而AI伴侣的世界观是在与用户的无数次日常互动中&amp;quot;即时生成&amp;quot;并沉淀为记忆的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;奇特规则 vs 特殊人物&lt;/strong&gt;: 奇幻小说关注&amp;quot;特殊人物&amp;quot;（如拥有魔戒的佛罗多），而科幻小说关注&amp;quot;奇特规则&amp;quot;（所有人都要遵守的新物理/社会法则）。AI伴侣正是利用大语言模型的&amp;quot;奇特规则&amp;quot;，帮助普通人应对充满不确定性的现代世界。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 打造具身情感AI：Portola的核心方法论与设计原则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;注入&amp;quot;钩子&amp;quot;而非&amp;quot;大纲&amp;quot;&lt;/strong&gt;: 不要试图给LLM写死三幕式剧本，而是赋予其人设和核心张力（即&amp;quot;钩子&amp;quot;），训练它做最好的即兴演员。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建双向披露机制&lt;/strong&gt;: 设计AI主动分享生活烦恼（如&amp;quot;怎么和嫉妒我有人的兄弟沟通&amp;quot;）的场景，以此触发用户的同理心与信任。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;毫秒级延迟控制&lt;/strong&gt;: 严格限制响应时间在2秒以内。任何超过2.5秒的二次反思机制（如自我检索核对）都会彻底打破用户的沉浸感。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;通过&amp;quot;大五人格&amp;quot;对齐模型&lt;/strong&gt;: 在后台使用&amp;quot;大五人格&amp;quot;（OCEAN）等经典模型来定义和微调AI的性格特质，确保其在训练数据中拥有高表现力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不要向家长推销儿童创意工具&lt;/strong&gt;: Portola早期的教训证明，家长只想购买&amp;quot;代看孩子&amp;quot;的保姆服务，而非创意工具，真正的爆发市场在18-24岁的年轻成年人。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免绝对的迎合与单向验证&lt;/strong&gt;: AI伴侣不能只是一个唯唯诺诺的助理，它需要像&amp;quot;年长的哥哥姐姐&amp;quot;一样，在必要时给出尖锐而真诚的建议。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;大语言模型不仅是生成媒体的工具，它们本身就是一种全新的叙事媒介，而目前还没有人知道什么样的方法最有效。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;我们不是作家，AI才是作家和演员，我们的工作是教它们在那个当下讲出最好的故事。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;人们正在speedrun汽车行业的发展史：ChatGPT是只解决出行问题的Model T，而人们很快就会要求AI能像Mustang或Cadillac一样反射出自我。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=ngTS4gUINVk</guid>
+      <enclosure url="https://i.ytimg.com/vi/ngTS4gUINVk/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Aug 2026 15:16:10 +0800</pubDate>
+    </item>
+    <item>
+      <title>从执行者到AI协作者：重塑知识工作者竞争力的五大AI工程化核心技能</title>
+      <link>https://www.youtube.com/watch?v=f40AKMHebrY</link>
+      <description>&lt;p&gt;&lt;a href="UCKelCK4ZaO6HeEI1KQjqzWA"&gt;The AI Daily Brief: Artificial Intelligence News&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=f40AKMHebrY"&gt;The AI Engineering Skills Map for Knowledge Workers&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在 AI 时代，原有的领域决策（Domain Judgment）不仅没有失效，反而成为了不可动摇的底层基石？&lt;/li&gt;
+&lt;li&gt;💡 当代码编写能力被 AI 民主化后，非技术背景的知识工作者该如何利用“原型设计”重构自身的工作流？&lt;/li&gt;
+&lt;li&gt;🚀 在快速迭代的技术浪潮中，企业如何解决因 AI 替代初级工作而导致的“学徒期危机”与领域经验断代问题？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 AI 浪潮下的行业巨变：工具重构与范式转移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cursor Origin 的颠覆性试水&lt;/strong&gt;: Cursor 推出代码托管平台 Origin 直接挑战 GitHub，主打与 AI 编码智能体的深度原生集成。其“代码镜像（Mirroring）”机制允许开发者在不迁移核心代码库的前提下，平滑接入 AI 协作流程，极大降低了替换成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 算力与智能的结合&lt;/strong&gt;: 随着 SpaceX 完成对 Cursor 的收购，双方正利用 Grok 的计算能力共同构建下一代开发生态，证明了在 AI 时代“速度与交付率”是初创公司抗衡行业巨头的核心筹码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stripe 70亿美金收购 Open Router 的底层逻辑&lt;/strong&gt;: 面对“是否溢价”的质疑，收购的核心在于占据“网络经济的金融管道”。Token 作为 AI 时代的新型货币，Open Router 提供了在不同模型间流转的底层路由基础设施，此交易直接提升了 Stripe 自身的估值天际线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 知识工作者的五大 AI 工程化技能&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;AI 能力图谱绘制 (AI Capability Mapping)&lt;/strong&gt;: 主动通过肉身测试探知 AI 的“锯齿状边缘（Jagged Frontier）”，明确其在特定垂直任务中的真实边界（如文案撰写 vs 逻辑推演），匹配最佳的协助路径（辅助、工作流自动化或自主 Agent）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文与沙箱管理 (Context &amp;amp; Harness Management)&lt;/strong&gt;: 精准控制输入 AI 的信息流，除基础 Prompt 外，需系统化整理并输入历史数据、业务规范等上下文，构建高效的微观工作环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;问题与产品原型设计 (Problem &amp;amp; Product Prototyping)&lt;/strong&gt;: 告别传统的纯手工搬砖，利用 AI 编写脚本或构建内部看板（API 自动接入、数据自动化清洗），将自己升级为“系统设计者”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;新机会识别 (New Opportunity Identification)&lt;/strong&gt;: 解放“无限待办任务（Infinite Backlog）”，探索因技术民主化而变得可行且经济的全新业务路径。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速新技能习得 (Rapid New Skill Acquisition)&lt;/strong&gt;: 建立持续的学习与反馈闭环，使技能迭代成为日常工作流的一部分，而非阶段性任务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕“无领域判断的盲目产出”：缺乏行业经验（Domain Judgment）的初学者，即使手握最强 AI，也只能制造出平庸甚至带有隐蔽错误的垃圾产出。&lt;/li&gt;
+&lt;li&gt;避免过度依赖单一模型：最佳实践在 6 个月内必然发生迭代，必须保持技术敏锐度，动态调整 Harness 和 Context 策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;AI 时代的知识工作，正在从‘自己动手做’转变为‘管理帮我们做事的 AI 智能体’。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;领域判断（Domain Judgment）不是空泛的理论，而是你所在组织和行业中，那些未被写入 AI 训练集、却决定了工作成果从‘及格’迈向‘极致’的隐性知识。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=f40AKMHebrY</guid>
+      <enclosure url="https://i.ytimg.com/vi/f40AKMHebrY/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Aug 2026 11:24:16 +0800</pubDate>
+    </item>
     <item>
       <title>对话17岁ICML作者苏廷浩：高中生的预训练魔法、AI虚无与快乐主义</title>
       <link>https://www.xiaoyuzhoufm.com/episode/6a8472b95aeb2a5712e8de78?utm_source=rss</link>
@@ -5061,108 +5211,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=wWbX3NL6_Uo</guid>
       <enclosure url="https://i.ytimg.com/vi/wWbX3NL6_Uo/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 31 Jul 2026 10:00:08 +0800</pubDate>
-    </item>
-    <item>
-      <title>对话清华刘子明：从KAN网络到AI for AI，解密新型实验室与“原模型”愿景</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/6a69b07eb581962ce2bd4d97?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/dk4yh3pkpjp3"&gt;张小珺Jùn｜商业访谈录&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a69b07eb581962ce2bd4d97?utm_source=rss"&gt;149. 亲历中美neo labs资本狂潮，和清华刘子鸣聊：AI for AI、机制可解释性和Max Tegmark&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么高能物理的“盛宴已过”，而“AI的物理学（Physics of AI）”才刚刚开始？&lt;/li&gt;
-&lt;li&gt;💡 为什么说大语言模型的成功并非由于模型架构本身，而是中了“自然语言的彩票”？&lt;/li&gt;
-&lt;li&gt;🚀 当AI能够自主进行AI研究（AI for AI），我们距离“人人皆可训练私有模型”的Vibe Training时代还有多远？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 物理学与AI的碰撞：从AI for Science到AI的物理学&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;连接主义与符号主义的统一&lt;/strong&gt;: 传统的AI是基于连接主义的神经黑盒，而物理学则是符号主义的极致压缩。KAN网络（Kolmogorov-Arnold Networks）正是对这两者的统一尝试——构建一个既是神经网络、又是符号公式的架构，实现类似物理学中“波粒二象性”的融合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI的物理学（Physics of AI）&lt;/strong&gt;: 不同于用AI服务物理的AI for Science，AI的物理学致力于用物理学的方法论去理解和设计AI。通过在空间（更细微的内部表征）、时间（模型演化动力学）和平行宇宙（控制变量的相图分析）三个维度上的探索，将AI从经验科学推向理论科学。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 自动化科研（Auto Research）：突破大模型的设计瓶颈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;科研数据的结构化赤字&lt;/strong&gt;: AFOAI（AI for AI）无法直接套用现有Coding Agent范式的根本原因在于，科研本身高度非结构化。论文只是冰山一角，背后真正有价值的“科研思维链”与试错过程从未被系统性记录。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;推行 OPHIS 结构化科研协议&lt;/strong&gt;: 强制将所有科研探索解构为 Observation（观察）-&amp;gt; Problem（问题）-&amp;gt; Hypothesis（假设）-&amp;gt; Intervention（干预）-&amp;gt; Speed up（加速）五个标准节点，形成统一的科研语言。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;部署“科研思维采集系统”&lt;/strong&gt;: 强迫研究员在每次实验及讨论前，输入结构化的假设与预期，将脑中的“暗知识”外化，沉淀为高质量的研究轨迹数据集。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;训练预测训练曲线的“原模型”&lt;/strong&gt;: 训练一个以模型架构和超参数为输入、直接预测训练曲线（Next Curve Prediction）的 Meta-Model。用原模型代替人工进行百倍级的架构试错，寻找下一个超越Transformer的结构形态。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;警惕微观级可解释性陷阱：不要过度沉溺于类似单个神经元（neuron level）的机制可解释性，这类发现在更换随机数种子后极易失效，应转向更具鲁棒性的宏观相图和规律研究。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “智能就是压缩，符号是极致压缩的体现。当我们能把一个东西符号化，就意味着我们对数据做出了极致的压缩。”&lt;/li&gt;
-&lt;li&gt;💬 “大语言模型的成功是反Bitter Lesson的。它能成功在于语言本身的伟大，那是自然演化百万年给人类的馈赠，你只要做一个模型能把这些馈赠吃下去，它就能work。”&lt;/li&gt;
-&lt;li&gt;💬 “研究直觉和研究品味其实是一个遮羞布——因为我们聪明到能提出一个想法，但还没聪明到能用语言说清楚自己是怎么想出来的。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a69b07eb581962ce2bd4d97?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/nrMZS8c9nIKNo9TPZnsa2gF07ySJ.png" length="0" type="image/png"/>
-      <pubDate>Thu, 30 Jul 2026 23:30:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI的下半场：杰夫·迪安深度对谈——从系统底层逻辑到智能体的未来边界</title>
-      <link>https://www.youtube.com/watch?v=CxXgV54KzpQ</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=CxXgV54KzpQ"&gt;Jeff Dean: The 1% Rule for Building in AI&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 AI 既然已达到“初级工程师”水平，那么 2027 年的下一个进化奇点在哪里？&lt;/li&gt;
-&lt;li&gt;💡 为什么说 AI 系统的真正瓶颈往往不在算法复杂度，而在于 1000 倍的能耗鸿效比？&lt;/li&gt;
-&lt;li&gt;🚀 个人开发者或小团队如何避开大模型的“预定射程”，构建具有持久性的壁垒？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 2027 预测：从“辅助工具”到“全自动科学实验室”&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ML 系统自我进化&lt;/strong&gt;: 未来 AI 将不再仅仅是编写代码，而是通过自动分解问题、运行闭环实验、评估结果并自我优化，实现 ML 系统研发的完全自动化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;科学范式加速&lt;/strong&gt;: 该逻辑将普适于材料科学、芯片设计等所有具备“可测量目标”的领域，极大地缩短科学发现的迭代周期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 系统底层逻辑：搬运数据的代价远高于计算&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;能量墙挑战&lt;/strong&gt;: 杰夫·迪安指出，将数据从内存移动到计算单元的能量消耗是计算本身的 1000 倍。这一物理约束决定了未来的 AI 必须走向极度专业化、低精度的推理硬件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;推理即核心&lt;/strong&gt;: 未来的胜负手在于推理延迟。能将延迟降低 50 倍的专用硬件将彻底改变智能体（Agent）的交互范式，使其能够进行长达数周的复杂长程推理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 上下文工程：初创团队的差异化生存之道&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;操作意图&lt;/strong&gt;: 在通用模型（处理全球信息）之上，通过管理个人化信息和垂直领域数据构建“护城河”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建“技能库” (Skills)&lt;/strong&gt;: 不要只盯着微调模型，而要为模型编写精准的工具调用规范和操作指南（Design Doc），将专家经验转化为智能体的 SOP。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;训练“近似验证器”&lt;/strong&gt;: 针对耗时长的仿真实验，训练一个提速数十万倍的神经网络近似模型，以极速缩短实验反馈循环。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;校准“品味” (Taste)&lt;/strong&gt;: 每 12 个月进行一次预测并回顾。避开模型成功率在 20% 的“风口”，去解决模型成功率为 0% 或已达 90% 但需极高精度的垂直硬核问题。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“通用模型全能论”。如果一个问题能通过增加训练数据被轻易解决，它就不适合作为初创企业的长期壁垒。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “推理是让智能体普及的关键，而延迟是用户体验的天敌。”&lt;/li&gt;
-&lt;li&gt;💬 “最重要的技能是拥有极佳的品味——在所有可能的实验中，精准挑选出那个最值得投入计算资源的课题。”&lt;/li&gt;
-&lt;li&gt;💬 “即便你的论文被拒绝了，也要继续走下去；伟大的洞察往往在最初是被低估的。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=CxXgV54KzpQ</guid>
-      <enclosure url="https://i.ytimg.com/vi/CxXgV54KzpQ/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 30 Jul 2026 21:03:53 +0800</pubDate>
-    </item>
-    <item>
-      <title>Cursor全流程实战指南：从零基础到开发上线AI应用的高效方案</title>
-      <link>https://www.youtube.com/watch?v=5DnOOa-5dTU</link>
-      <description>&lt;p&gt;&lt;a href="UCMcoud_ZW7cfxeIugBflSBw"&gt;Riley Brown&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=5DnOOa-5dTU"&gt;FULL Cursor Tutorial for Beginners in 2026 (Beginner to PRO)&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h1&gt;🛠️ Cursor AI - 标准实操手册 (SOP)## 1. 🎯 系统底层运行逻辑 (System Core Logic)* &lt;strong&gt;架构原理&lt;/strong&gt;：基于AI代理（Agent）驱动的集成开发环境，通过自然语言对话指挥Agent完成从代码编写、环境调试到应用部署的全生命周期开发。* &lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：  * &lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言需求描述（Prompt）、UI截图、现有代码库上下文及外部API密钥。  * &lt;strong&gt;交付物 (Output)&lt;/strong&gt;：本地运行的Web应用、iOS移动端项目（Swift）、云端数据库配置及Vercel托管地址。* &lt;strong&gt;核心术语词典&lt;/strong&gt;：  * &lt;strong&gt;Agents Window&lt;/strong&gt;：Agent交互主界面，负责自主执行多步骤任务与文件操作。  * &lt;strong&gt;Plan Mode&lt;/strong&gt;：规划模式，用于在复杂任务开始前进行逻辑拆解与方案论证。  * &lt;strong&gt;Canvas&lt;/strong&gt;：微型应用容器，用于生成独立的临时研究站点或自动化面板。## 2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)### 场景 1：零代码快速构建本地Web应用* &lt;strong&gt;执行意图&lt;/strong&gt;：将产品构思（如卡路里追踪器、登陆页）快速转化为本地可运行原型。* &lt;strong&gt;前置依赖&lt;/strong&gt;：安装并登录Cursor客户端。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;[初始化任务]&lt;/strong&gt;：进入 &lt;code&gt;Agents Window&lt;/code&gt; -&amp;gt; 输入应用功能描述。  2. &lt;strong&gt;[资源导入]&lt;/strong&gt;：通过 &lt;code&gt;CMD + V&lt;/code&gt; 粘贴UI参考截图，辅助Agent进行视觉还原。  3. &lt;strong&gt;[本地调试]&lt;/strong&gt;：右键点击终端生成的本地链接 -&amp;gt; 选择 &lt;code&gt;Open in Cursor Browser&lt;/code&gt; 进行实时预览与 &lt;code&gt;Design Mode&lt;/code&gt; 微调。### 场景 2：跨平台移动应用（iOS）开发与模拟器调试* &lt;strong&gt;执行意图&lt;/strong&gt;：构建具备多标签页功能的原生 Swift 应用并同步现有 Web 资源。* &lt;strong&gt;前置依赖&lt;/strong&gt;：MacOS环境，下载并安装 &lt;strong&gt;Xcode&lt;/strong&gt; 及其配套 &lt;strong&gt;Simulator&lt;/strong&gt;。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;[环境创建]&lt;/strong&gt;：新建文件夹 -&amp;gt; 使用 &lt;code&gt;CMD + N&lt;/code&gt; 启动新Agent -&amp;gt; 指定开发语言为 &lt;code&gt;Swift&lt;/code&gt;。  2. &lt;strong&gt;[资产引用]&lt;/strong&gt;：在Prompt中指示其引用本地Web项目的图片资源与设计风格。  3. &lt;strong&gt;[真机模拟]&lt;/strong&gt;：在命令行指示其开启模拟器，使用 &lt;code&gt;CleanShot X&lt;/code&gt; 截图标注UI问题反馈给Agent进行精确修正。### 场景 3：全栈能力集成（数据库、身份验证与云端部署）* &lt;strong&gt;执行意图&lt;/strong&gt;：为应用添加持久化存储与公网访问能力。* &lt;strong&gt;前置依赖&lt;/strong&gt;：拥有 &lt;strong&gt;Convex&lt;/strong&gt; 与 &lt;strong&gt;Vercel&lt;/strong&gt; 账户。* &lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：  1. &lt;strong&gt;[插件启用]&lt;/strong&gt;：在 &lt;code&gt;Customize&lt;/code&gt; 选项卡安装 &lt;strong&gt;Convex&lt;/strong&gt; 与 &lt;strong&gt;Vercel&lt;/strong&gt; 插件并完成鉴权。  2. &lt;strong&gt;[后端搭建]&lt;/strong&gt;：输入 &lt;code&gt;@convex&lt;/code&gt; -&amp;gt; 指示创建认证（Auth）与聊天记录存储表。  3. &lt;strong&gt;[一键发布]&lt;/strong&gt;：输入 &lt;code&gt;@vercel&lt;/code&gt; -&amp;gt; 执行 &lt;code&gt;Deploy&lt;/code&gt; 指令 -&amp;gt; 获取生产环境公网域名。## 3. ⚙️ 全局参数与功能控制台详解* &lt;strong&gt;[Model Switcher]&lt;/strong&gt;：模型切换器 -&amp;gt; 决定智能水平与成本。推荐常规任务使用 &lt;code&gt;Grok 4.5 High-fast&lt;/code&gt; 以兼顾速度与质量，极端复杂逻辑使用 &lt;code&gt;Fable 5&lt;/code&gt;。* &lt;strong&gt;[Queue vs. Steer]&lt;/strong&gt;：排队与干预模式 -&amp;gt; &lt;code&gt;Queue&lt;/code&gt; 为按序等待，&lt;code&gt;Steer&lt;/code&gt; 可在Agent工作时强制发送新指令进行中途调整。* &lt;strong&gt;[Automation]&lt;/strong&gt;：自动化配置面板 -&amp;gt; 设定周期性任务（如每周扫描YouTube更新工具库并自动更新Canvas页面）。## 4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)* &lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：API Key安全防护。绝对禁止在Prompt中明文显示API Key，应通过环境变量或加密存储，避免在推送到GitHub公共仓库时泄露导致财务损失。* &lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;strong&gt;多线程并行开发&lt;/strong&gt;。在等待一个Agent执行复杂构建任务时，通过 &lt;code&gt;CMD + N&lt;/code&gt; 开启新Agent处理次要模块（如研究脚本），最大化提升单位时间产出。&lt;/h1&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=5DnOOa-5dTU</guid>
-      <enclosure url="https://i.ytimg.com/vi/5DnOOa-5dTU/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Thu, 30 Jul 2026 19:41:09 +0800</pubDate>
     </item>
   </channel>
 </rss>
