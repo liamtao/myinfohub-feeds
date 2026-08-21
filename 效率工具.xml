@@ -7,7 +7,81 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 20 Aug 2026 08:39:18 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 08:55:12 +0000</lastBuildDate>
+    <item>
+      <title>用Hudder优雅管理命令行：告别繁琐配置的极简AI编程工作流</title>
+      <link>https://www.bilibili.com/video/BV1m5uV6kEyJ</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/16433002"&gt;隔壁的程序员老王&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1m5uV6kEyJ"&gt;Herdr VibeCoding最好的伴侣&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Hudder - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于命令行界面的免配置、全鼠标交互式终端窗口与多 AI Agent 协同管理系统。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：终端指令、鼠标拖拽/右键交互、AI Agent (如 Cloud Code) 的状态与控制 API。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：多工作区 (Space)、多分屏 (Tab/Split) 的终端视图，以及 AI Agent 自动操纵的动态终端界面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tab/分屏&lt;/strong&gt;：窗口内的基础视图分割单元，支持通过鼠标右键上下/左右切分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Space (工作区)&lt;/strong&gt;：高于 Tab 的隔离工作环境，用于划分互不干扰的独立任务集群。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent 监控&lt;/strong&gt;：实时捕捉并以颜色（绿-空闲、红-等待/交互中）可视化呈现后台 AI 代理状态的机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Skill&lt;/strong&gt;：功能扩展包，用于赋予 AI Agent 操纵 Hudder 界面（如分屏、运行程序）的拓展指令集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：基础安装与初始化启动&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：快速部署并进入 Hudder 交互界面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：MacOS 系统需预装 Homebrew 环境（其他系统参考官方文档安装）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[启动终端]&lt;/strong&gt;：打开系统命令行终端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[系统安装]&lt;/strong&gt;：执行安装命令 &lt;code&gt;brew install hudder&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[初始化启动]&lt;/strong&gt;：安装完成后，在命令行输入 &lt;code&gt;hudder&lt;/code&gt; 即可进入工作界面。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：多空间 (Space) 与分屏 (Tab) 窗口管理&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在不增加界面复杂度的前提下，隔离并并行处理多个不同的开发任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已成功启动 Hudder 运行环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[创建 Tab]&lt;/strong&gt;：点击 Tab 栏旁边的 &lt;code&gt;+&lt;/code&gt; 按钮，输入自定义名称完成创建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[分屏操作]&lt;/strong&gt;：在目标 Tab 区域内点击鼠标右键，选择 &lt;code&gt;左右分&lt;/code&gt; 或 &lt;code&gt;上下分&lt;/code&gt;；通过鼠标直接拖拽分屏边界可自由调整窗口大小。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[创建/管理 Space]&lt;/strong&gt;：在 Space 区域点击 &lt;code&gt;New&lt;/code&gt; 按钮新建独立工作区。在工作区标签上点击右键可进行重命名或删除。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[工作区切换]&lt;/strong&gt;：直接用鼠标点击不同的 Space 标签，即可瞬间还原该工作区下的所有分屏及任务视图。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：AI Agent 状态监控与自动化控制 (Skill)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：多 Agent 协同开发时，实现状态的可视化监控，并通过 AI 自动分屏执行测试。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：后台正在运行 Cloud Code 或 Python 等 Agent 程序，且已配置好 Hudder 运行环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[激活状态监控]&lt;/strong&gt;：在不同分屏中运行 Cloud Code 与 Python 程序。Hudder 右下角的 &lt;code&gt;Agent 列表&lt;/code&gt; 会自动抓取并监控其状态（绿色圆圈代表空闲）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[响应 Agent 请求]&lt;/strong&gt;：当给 Agent 发送编写任务时，列表中的状态图标会变为红色（代表正在运行或需要交互）。点击列表项可快速跳转至对应窗口处理 Agent 请求（如“写文件权限”）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[安装 Skill 控制器]&lt;/strong&gt;：[⚠️需核实：原文未提及具体 npm 包名，仅说明复制文档安装命令并运行] 复制官方命令并在终端执行以安装 Skill。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[AI 自动化界面操控]&lt;/strong&gt;：给 Cloud Code 发送控制指令（例如：“使用 Hudder 左右分割画面并运行刚刚写好的游戏”），Agent 将自动控制分屏运行并获取终端测试反馈。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hudder 快捷键模式&lt;/strong&gt;：使用 &lt;code&gt;Ctrl + B&lt;/code&gt; 组合键激活 prefix 状态，随后按 &lt;code&gt;?&lt;/code&gt; 即可在当前界面调出全局快捷键帮助列表。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快捷键分屏&lt;/strong&gt;：按下 &lt;code&gt;Ctrl + B&lt;/code&gt; 激活 prefix 后，再按 &lt;code&gt;V&lt;/code&gt; 键即可直接实现左右分屏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插件系统&lt;/strong&gt;：支持一键集成。Hudder 提供 500 多个社区插件，如“文件树预览插件”等，可以直接在分屏中渲染并交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：在多 Agent 协作时，注意监控右下角红色的 Agent 状态提醒。如果 Agent 请求“写文件权限”而用户长时间未跳转处理，会导致 AI 任务卡死挂起。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：工作结束需要休息时，无需手动逐个关闭窗口，在菜单中选择 &lt;code&gt;Detach&lt;/code&gt;（或直接强关终端窗口）。下次新建命令行并输入 &lt;code&gt;hudder&lt;/code&gt;，所有工作区、分屏及之前的会话状态均可完美复原。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1m5uV6kEyJ</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/ae9b426a9472c3b7ffd57b313abb385b87e88fd9.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 20 Aug 2026 17:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>Bolt：AI驱动的云端自动化办公领航员实操手册</title>
       <link>https://www.bilibili.com/video/BV1Aeg56kEtM</link>
@@ -8281,116 +8355,6 @@ Cursor，这款被誉为“AI编程界Photoshop”的IDE，究竟有何魔力让
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1X98mz2EMz</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/1eaf4064c94d92f5d13dc1fe76dcc78a18943a7f.jpg" length="0" type="image/jpeg"/>
       <pubDate>Fri, 01 Aug 2025 00:56:50 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘数十亿播放量的视频钩子：六种格式与心理学原理</title>
-      <link>https://www.bilibili.com/video/BV1u68qz1EbH</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546910979787265"&gt;思维燃料库&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1u68qz1EbH"&gt;油管大佬教你：如何用6种钩子把用户钓成翘嘴 |&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;p&gt;文章详细阐述了视频内容的六大核心钩子格式，深入分析了它们背后的心理学原理，并强调了视觉、口语、文字和音频四要素协同的重要性。它提供了一套完整的操作指南，帮助创作者制作高转化率的视频钩子，并简要提及了利用AI工具自动化钩子生成。&lt;/p&gt;
-&lt;h3&gt;重要概念&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;钩子（Hook）&lt;/strong&gt;
-视频成败的关键，被称为“视频的80/20法则”。其核心目标是创造“好奇循环”，通过对比来抓住观众注意力，对比越强烈，好奇感越深，钩子效果越好。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;好奇循环（Curiosity Loop）&lt;/strong&gt;
-钩子的设计目的，旨在观众大脑中“挖一个兔子洞”，使其对视频内容产生强烈好奇，无法停止观看。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;六种钩子格式&lt;/strong&gt;
-经研究数千个表现最佳的视频后发现，所有顶级创作者只使用这六种钩子，掌握它们即可万事俱备。&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;预言者钩子（Prophet Hook）&lt;/strong&gt;：定位当下与未来，通过场景或问题引发观众对未来可能变化的 Curiosity。&lt;ul&gt;
-&lt;li&gt;案例：预言“新微波炉将彻底改变烹饪”或“这台小蓝灯将影响未来的交通”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实验者钩子（Experimenter Hook）&lt;/strong&gt;：创作者通过演示或实验，以“同伴对同伴”的视角展示某事物的工作原理或发现。&lt;ul&gt;
-&lt;li&gt;案例：演示雷朋Meta智能眼镜录制视频、全新GPT代理控制浏览器执行任务、MrBeast视频中的真人实验。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;导师模式钩子（Mentor Mode Hook）&lt;/strong&gt;：以“导师对学生”的模式，通过框架课程讲解，传授经验和方法。&lt;ul&gt;
-&lt;li&gt;案例：分享“从Aritzia学到的三点”、“如何拍到某张照片”、“让电商品牌12小时内赚一百万的产品投放法”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;魔术师钩子（Magician Hook）&lt;/strong&gt;：战略性地运用视觉或语言“电击”观众，强制其注意力，通常是夸张、节奏感强或视觉突出的元素。可作为铺垫或与其他钩子结合使用。&lt;ul&gt;
-&lt;li&gt;案例：卡尔·夏库尔的“咔嗒声”视觉电击、中国MTV团队的视觉冲击、霓虹灯招牌男的表演、艾丽尔化妆、摞杯子、GTA游戏分屏画面等通过视觉或动作吸引潜意识注意力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;调查者钩子（Investigator Hook）&lt;/strong&gt;：通过揭示未知秘密或鲜为人知的研究发现来制造对比，如同发掘新知。&lt;ul&gt;
-&lt;li&gt;案例：展示“精妙的营销策略”或“富士山脚下的秘密日本城市”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;反潮流钩子（Contrarian Hook）&lt;/strong&gt;：创作者明确表达与主流观点不同的看法，直接制造对比点。&lt;ul&gt;
-&lt;li&gt;案例：指出“你经营品牌的方式可能根本没做对”、“你没有创意想法因为你的空间住得很糟糕”或“某服装品牌爆款总是缺货”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;潜意识热力图（Subconscious Heatmap）&lt;/strong&gt;
-指观众观看视频时注意力在屏幕上的焦点分布。观众首先接收视觉与文字钩子，随后耳朵捕捉口语钩子，最后回看视觉画面寻求印证，形成“视觉-音频-视觉”的三明治接收结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;关键视觉（Key Visual）&lt;/strong&gt;
-钩子能否发挥作用最关键的部分，指前3-5秒能插入的视觉画面。好的关键视觉能让钩子更容易构建和理解。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;主要观点&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;钩子的核心在于创造好奇循环，其关键是利用对比。观众先相信A，你再展示B，A和B之间的差距越大，好奇感越强，钩子就越深。&lt;ul&gt;
-&lt;li&gt;支撑：这是基于人类心理学原理，利用对比来激发好奇心。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;钩子发挥作用最关键的部分是视觉画面，而不是你说的内容。&lt;ul&gt;
-&lt;li&gt;支撑：眼睛每秒处理的信息量是耳朵的10到100倍，观众首先通过视觉接收信息，然后才结合听觉。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;五百万与五百万次播放量的差距在于钩子的四个要素（口语、视觉、文字、音频）是否完美协同。如果四个要素不完全对齐，会产生不一致，导致理解力下降，从而削弱钩子效果。&lt;ul&gt;
-&lt;li&gt;支撑：通过对比一个获得1500万播放量的“全尺寸地板计划”视频（四要素完美对齐）和一个仅获得10万播放量的“生成式世界观”视频（存在对齐偏差）来论证。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;每一个视频创意都可以被调整以使用六种钩子格式中的任意一种。&lt;ul&gt;
-&lt;li&gt;支撑：以“背包评测视频”为例，演示如何将同一主题调整为预言者、实验者、导师、魔术师、调查者和反潮流六种不同钩子。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;行动建议或操作指南&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;如何写出每次都能引爆的钩子（五步战术流程）：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;分析可用视觉画面：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;首先确定视频中可用的关键视觉，即前3-5秒的画面。视觉效果越好，在后续对比回归视觉时就越轻松。&lt;/li&gt;
-&lt;li&gt;如果缺乏好的视觉，需要思考是否应制作该视频，或者如何通过动态图形或素材来制作一个有趣的视觉焦点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;确定最强对比与钩子原型：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;当你有了视觉后，思考哪些是最有趣的构图或角度，以及故事中必须处理的内容。&lt;/li&gt;
-&lt;li&gt;基于这些，选择对比最强烈的一个，这将决定使用哪一种六大钩子原型。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;撰写口语钩子：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;撰写2到4行的口语钩子，需符合上下文，并采用对比、反差、快切等手法。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;添加文字钩子：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;在屏幕上叠加文字说明，以支持初始视觉和视觉确认（观众听完口语内容后，会回看视觉画面寻求印证）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自我检查与调整：&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;回看并删减，自我检查钩子是否达到了最大理解度。&lt;/li&gt;
-&lt;li&gt;确保观众在经历“视觉-语音-视觉”循环后，能清楚理解视频内容，并且钩子与后续内容的方向一致。如果不一致，立即停止并重新调整。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;利用AI工具简化流程：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用“沙堡”软件（Sandcastle）：上传视频后，软件会自动进行完整诊断，确定最合适的钩子公式、最佳呈现方式和最佳对比点，实现全程自动化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;金句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;社交媒体上胜负最大的区别在于钩子。这是视频的80/20法则。&lt;/li&gt;
-&lt;li&gt;钩子的设计目的是创造好奇循环，就像在观众大脑中挖出一个兔子洞。&lt;/li&gt;
-&lt;li&gt;对比越大，好奇感越强，钩子越深。&lt;/li&gt;
-&lt;li&gt;五百万与五百万次播放的差距在于四个要素（口语、视觉、文字、音频）的完美协同。&lt;/li&gt;
-&lt;li&gt;钩子发挥作用最关键的部分是视觉画面，不是你说的内容。&lt;/li&gt;
-&lt;li&gt;眼睛每秒处理的信息量是耳朵的10到100倍。&lt;/li&gt;
-&lt;li&gt;如果没有清晰统一的视觉呈现和钩子形式，可能应该废弃视频，因为总会有更好的创意。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1u68qz1EbH</guid>
-      <enclosure url="http://i1.hdslb.com/bfs/archive/c621b752723eef7bac835a5f08c1e6081981073c.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 30 Jul 2025 22:39:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
