@@ -7,7 +7,191 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Aug 2026 08:55:12 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 22:43:25 +0000</lastBuildDate>
+    <item>
+      <title>低延迟、轻量化：基于UDP与WebSocket的大QMT实时行情中继方案</title>
+      <link>https://www.bilibili.com/video/BV1K88B6wErb</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1K88B6wErb"&gt;QMT跨进程行情桥：UDP转WebSocket实战&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ 大QMT 行情中继系统 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：本方案利用大QMT内部Python引擎通过UDP广播行情，由中继进程监听、解析并维护内存快照，最终通过WebSocket低延迟双向推送至外部策略客户端。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：大QMT Python数据采集脚本打包的JSON格式行情数据（含五档Tick、K线及心跳包，通过UDP端口 &lt;code&gt;18765&lt;/code&gt; 发送）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：通过WebSocket（端口 &lt;code&gt;18766&lt;/code&gt;）向连接的外部策略程序推送的实时增量行情及内存快照数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Quote Store&lt;/strong&gt;：中继进程中的内存字典缓存，用于存储及快速查询每只股票的最新行情快照。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;序列号去重 (Sequence Deduplication)&lt;/strong&gt;：基于行情递增序列号的过滤机制，仅在收到更大序列号数据时更新缓存，防范网络乱序与重传。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;心跳监控 (Heartbeat)&lt;/strong&gt;：采集进程定期向中继发送的控制包，若超时（如10秒）未收到，则判定采集端离线。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：中继进程部署与初始化&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：启动核心中继服务，建立UDP接收端与WebSocket服务器。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装Python及所需异步网络依赖库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[命令行启动]&lt;/strong&gt;：在终端执行启动命令，默认监听 UDP &lt;code&gt;18765&lt;/code&gt; 和 WebSocket &lt;code&gt;18766&lt;/code&gt; 端口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[定制参数]&lt;/strong&gt;：若需修改端口或启用安全认证，可附加命令行参数，例如：&lt;code&gt;-u [UDP端口]&lt;/code&gt;、&lt;code&gt;-w [WS端口]&lt;/code&gt;、&lt;code&gt;-t [Token值]&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[调整日志]&lt;/strong&gt;：通过 &lt;code&gt;--log-level&lt;/code&gt; 参数指定日志级别（默认 &lt;code&gt;info&lt;/code&gt;，调试问题时可设为 &lt;code&gt;debug&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：大QMT 采集端配置与发送&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在QMT内部订阅行情，并将其高效打包发送至中继进程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：大QMT客户端内置Python环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[行情订阅]&lt;/strong&gt;：在大QMT中编写Python脚本，订阅所需的Tick或K线数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[数据打包]&lt;/strong&gt;：在行情回调函数中，将行情字段（&lt;code&gt;last_price&lt;/code&gt;、&lt;code&gt;ask_price&lt;/code&gt;、&lt;code&gt;bid_price&lt;/code&gt;、&lt;code&gt;volume&lt;/code&gt;等）封装成JSON格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[UDP传输]&lt;/strong&gt;：创建UDP Socket，调用 &lt;code&gt;send_quotes&lt;/code&gt; 将数据包发送至本地 &lt;code&gt;18765&lt;/code&gt; 端口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[心跳维持]&lt;/strong&gt;：设置定时器，定期调用 &lt;code&gt;send_op_time&lt;/code&gt; 发送类型为 &lt;code&gt;OP time&lt;/code&gt; 的心跳包。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：外部客户端订阅与实时接收&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：策略程序连接中继获取实时行情并消费。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装 &lt;code&gt;asyncio&lt;/code&gt; 和 &lt;code&gt;websockets&lt;/code&gt; 第三方库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[建立连接]&lt;/strong&gt;：客户端通过 &lt;code&gt;websockets.connect&lt;/code&gt; 连接至 &lt;code&gt;ws://localhost:18766&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取快照]&lt;/strong&gt;：连接成功后接收欢迎消息，可选发送 &lt;code&gt;type: &amp;quot;snapshot&amp;quot;&lt;/code&gt; 报文（附带股票列表代码）主动查询最新内存快照。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[增量消费]&lt;/strong&gt;：进入 &lt;code&gt;async for&lt;/code&gt; 异步接收循环，过滤解析 &lt;code&gt;type: &amp;quot;quote&amp;quot;&lt;/code&gt; 的实时推送数据进行策略计算。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;UDP 监听端口 (&lt;code&gt;-u&lt;/code&gt; / &lt;code&gt;18765&lt;/code&gt;)&lt;/strong&gt;：中继进程接收原始行情输入流的安全通道 -&amp;gt; 调整此参数需同步修改QMT发送端的宿主端口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WebSocket 监听端口 (&lt;code&gt;-w&lt;/code&gt; / &lt;code&gt;18766&lt;/code&gt;)&lt;/strong&gt;：面向策略客户端的多连接推送服务端口 -&amp;gt; 调整此参数会直接影响客户端的连接URI。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全令牌 (&lt;code&gt;-t&lt;/code&gt; / &lt;code&gt;Token&lt;/code&gt;)&lt;/strong&gt;：控制客户端访问权限的安全机制 -&amp;gt; 启用后客户端连接时需携带匹配的Token，否则拒绝握手。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;健康检测接口 (&lt;code&gt;health&lt;/code&gt; 协议)&lt;/strong&gt;：客户端发送 &lt;code&gt;type: &amp;quot;health&amp;quot;&lt;/code&gt; 请求 -&amp;gt; 实时返回采集器在线状态、历史处理量、无效包统计及序列号断层次数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;本方案不适用于微秒级超高频交易。如需极致低延迟，请考虑共享内存（Shared Memory）或基于硬件（FPGA）的底座方案。&lt;/li&gt;
+&lt;li&gt;UDP存在无连接、不可靠传输特性，在极高负载或跨广域网环境下可能发生丢包。本方案推荐部署在本地或高可靠的局域网环境内。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;充分利用系统提供的 &lt;code&gt;sequence_gaps&lt;/code&gt; 监控指标。若数值频繁递增，说明本地UDP接收缓冲区溢出，需优化接收端性能或增加缓冲区大小。&lt;/li&gt;
+&lt;li&gt;利用中继进程各连接之间的错误隔离特性，当某一消费客户端发生异常崩溃时，中继无需重启，其他客户端链路亦不受干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1K88B6wErb</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/1f21414cc8f995d66d71145e79add37f4de8dab8.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 21 Aug 2026 22:47:19 +0800</pubDate>
+    </item>
+    <item>
+      <title>拒绝多模态对立：COLAS如何利用非相消共振提取超额收益信号</title>
+      <link>https://www.bilibili.com/video/BV1eubD6gEyK</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1eubD6gEyK"&gt;四路市场证据，如何形成一条可靠交易信号&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么输入的多模态数据越多，交易信号反而越不稳定甚至相互抵消？&lt;/li&gt;
+&lt;li&gt;💡 如何在不引入未来信息的前提下，从高度噪声的跨模态市场数据中提取最强共识？&lt;/li&gt;
+&lt;li&gt;🚀 为什么绝不能让所有交易样本在特征空间压缩至同一全局方向？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 多模态融合的致命误区：互补不等于共识，对立导致信号消亡&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;信息量陷阱&lt;/strong&gt;: 传统多模态融合默认每路模态（技术指标、舆情、新闻等）同等有用，实则引入大量噪声，各模态方向冲突时会导致信号自我消溶。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;COLAS的解决之道&lt;/strong&gt;: 放弃简单拼接，聚焦于“Corroboration”（协同共证），即寻找四种模态共同支持且不相互抵消的主导方向。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 两步法提取最强非相消信号：SVD投影与带符号共线检查&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;主成分提取&lt;/strong&gt;: 将四个归一化的模态向量组成矩阵，通过奇异值分解（SVD）获取最大奇异值对应的左奇异向量，作为四路表示最集中的主导方向。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;共线与消相干校验&lt;/strong&gt;: 计算每个模态在主导方向上的投影（带符号共线检查），若正负抵消则剔除，确保所有模态同向发力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跨样本去塌缩&lt;/strong&gt;: 引入实例级正则约束（Instance-wise Regularization），防止不同交易日样本全部坍缩至同一全局方向，保留市场状态的特异性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;掩码鲁棒训练&lt;/strong&gt;: 在每个训练批次中随机对某一路模态进行掩码（Masking）或加噪，逼迫网络在单模态退化时仍能稳定输出。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;避免在无未来信息约束之外暴露数据，仅在交易日前历史窗口（如Yahoo Finance数据、RSI波动等）内滑动。&lt;/li&gt;
+&lt;li&gt;防止过度依赖特定窗口长度，COLAS在窗口大小14-20天内表现均较稳健。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📈 顶尖实证回测：击穿传统基线的超额收益&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;美股主导优势&lt;/strong&gt;: 在AAPL、AMZN、GOOG、MSFT、TSLA等标的上，COLAS的收益率与夏普比率全面领先16个主流基线模型。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加密资产奇迹&lt;/strong&gt;: 在高波动资产CAST上，COLAS斩获 84.64% 的年化收益率与 2.65 的高夏普比率，显著超越第二名。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消融实验验证&lt;/strong&gt;: 移除SVD主方向或共线检查等组件，模型表现将大幅下滑，证明“抗消干”机制是超额收益的真正来源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;信息越多不等于证据越一致，真正可靠的多模态信号，必须做到共同、同向且抗缺失。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;COLAS的贡献不是再造一个更大的LLM，而是把混沌的多模态交易信号，拆解成可训练、可计算的‘共证’物理约束。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1eubD6gEyK</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/7564947d8bf9c81a81899918eba6a5e5be43de69.png" length="0" type="image/png"/>
+      <pubDate>Fri, 21 Aug 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量化投资新范式：如何降维驯服 AI 助手，拒绝“躺赢”陷阱</title>
+      <link>https://www.bilibili.com/video/BV1QL8P6CE9H</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1QL8P6CE9H"&gt;机器学习选股到底靠不靠谱&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么AI是投资的“超级助手”而非“预言家”？它的能力边界究竟在哪里？&lt;/li&gt;
+&lt;li&gt;💡 传统的选股逻辑是如何在海量高维数据中被“降维打击”的？&lt;/li&gt;
+&lt;li&gt;🚀 面对黑天鹅与过拟合陷阱，投资者如何握紧方向盘、理性驾驭AI？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式转移：从人工筛选到AI海选的升维之战&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;处理非结构化数据&lt;/strong&gt;: 机器学习能够读取并量化新闻情绪、社交媒体舆情、财报文本等传统难以量化的“软信息”，将其转化为可计算的市场信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;发现非线性关系&lt;/strong&gt;: 市场规律并非简单的线性关系，AI擅长捕捉高维数据中错综复杂的交互影响模式，识别肉眼难及的特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;降维打击传统模型&lt;/strong&gt;: 数据维度极高时，机器学习在发现潜在规律的概率上，显著优于传统的多因子打分模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 动态博弈：直面AI在投资中的失效边界&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;黑天鹅事件的预测盲区&lt;/strong&gt;: AI基于历史数据训练，面对战争、突发政策等从未在历史中出现过的真空事件，模型预测会彻底失真。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略拥挤与踩踏效应&lt;/strong&gt;: 当市场参与者使用同质化的AI模型时，超额收益会被迅速摊薄，相似指令的大规模共振极易引发市场踩踏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;过拟合的“高分低能”&lt;/strong&gt;: 许多模型在历史回测中表现完美，实盘却惨遭折戟。这源于模型“死记硬背”了历史噪音，而非掌握了真正的规律。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 理性驾驭：从盲目依赖到人机协同&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;定位明确需求&lt;/strong&gt;：长线投资者侧重基本面财报分析模型，短线交易者专注技术面波动模型，杜绝工具错配。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;坚持模拟盘测试&lt;/strong&gt;：投入真金白银前，必须在真实市场环境中运行模拟盘，严格检验策略的稳定性与适应度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;锁定正规官方渠道&lt;/strong&gt;：仅使用合规券商或知名量化平台的官方工具，切勿轻信承诺高收益的非官方黑产。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;避开预测幻觉&lt;/strong&gt;：AI不是“水晶球”，它只能基于历史概率提供决策辅助，无法预知未来绝对走向。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;识破躺赢骗局&lt;/strong&gt;：警惕所谓的“躺赢软件”。如果软件本身能稳赚不赔，开发者就没有必要将其出售获利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;拒绝放弃主动思考&lt;/strong&gt;：机器没有主观能动性。最终的风险控制、买卖决策及资金期限匹配必须由人类亲自掌控。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “机器学习是助手，而非预言家。没有任何算法拥有水晶球般的能力。”&lt;/li&gt;
+&lt;li&gt;💬 “AI是副驾驶，你才是驾驶员。方向盘必须始终握在你自己手里。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1QL8P6CE9H</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/ff6dd1a9dc39de6e1c22319b22a99f55b6d38d38.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 20 Aug 2026 22:00:57 +0800</pubDate>
+    </item>
     <item>
       <title>EvoQuant：从“猜测策略”到“证据进化”的量化交易策略演进范式</title>
       <link>https://www.bilibili.com/video/BV1vubD6gEGn</link>
@@ -55,6 +239,57 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1vubD6gEGn</guid>
       <enclosure url="http://i2.hdslb.com/bfs/archive/70aa247d643f3efff44cff9ae43a1cc9674a4d77.png" length="0" type="image/png"/>
       <pubDate>Thu, 20 Aug 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从直觉到AI智能体：量化交易的范式跃迁与演进全景</title>
+      <link>https://www.bilibili.com/video/BV1P68J6kEC5</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1P68J6kEC5"&gt;从直觉到算法：量化交易演进史&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 从依赖直觉的“手工作坊”到数据驱动的“自动驾驶”，量化交易是如何重塑投资逻辑的？&lt;/li&gt;
+&lt;li&gt;💡 为什么说爱德华·索普和詹姆斯·西蒙斯能够颠覆华尔街传统，他们的底层数学逻辑是什么？&lt;/li&gt;
+&lt;li&gt;🚀 在AI Agent爆发的5.0时代，普通投资者如何借助“一人对冲基金”实现机构级的降维打击？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 交易范式的底层跃迁：用算法纪律终结人性贪婪&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;机器自动驾驶 vs 凭感觉开车&lt;/strong&gt;: 传统交易极易受恐惧与贪婪等非理性情绪干扰；量化交易通过严格的算法模型与传感器数据实时感知市场，旨在消除情绪干扰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心宣言&lt;/strong&gt;: 用纪律克服人性，用数据替代猜测。量化交易本质上是利用数学模型和计算机程序，将投资理念转化为自动执行的交易策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 从1.0到4.0：量化交易的技术演进史&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;1.0时代（技术指标与经验主义）&lt;/strong&gt;: 20世纪60-70年代，以爱德华·索普将概率论引入股市、1973年布莱克-舒尔斯期权定价模型为标志。策略基于历史价格与均线等技术指标，虽有数据化分析，但仍具主观色彩。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2.0时代（程序化交易与统计套利）&lt;/strong&gt;: 以詹姆斯·西蒙斯创立文艺复兴科技为代表。告别单一指标，转向复杂的多因子统计模型与概率分布预测，在市场微小非有效性中进行套利。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;3.0时代（电子化普及与高频交易）&lt;/strong&gt;: 2000年后电子交易所取代场内喊价，比拼毫秒级速度。硬件加速（FPGA）和托管服务（Collocation）成为标配，但也带来了2010年闪崩事件等系统性风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;4.0时代（人工智能与大数据选股）&lt;/strong&gt;: 机器学习与深度学习重塑策略。数据源从价格/成交量等结构化数据，扩展到卫星图像、社交媒体、信用卡消费等另类非结构化数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 5.0智能体时代：人人皆可运行的“一人对冲基金”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;范式转变&lt;/strong&gt;: 从“手动编写Python代码”转向“AI代理（AI Agent）自主挖掘策略”，利用AI自动在海量数据中寻找交易信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自然语言交互&lt;/strong&gt;: 结合多模态大模型与金融知识库，直接使用自然语言描述交易策略逻辑，让AI Agent自动转化为可执行代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平民化部署&lt;/strong&gt;: 个人投资者无需具备全栈工程能力，直接调用AI助手获取大型对冲基金级的数据分析与策略执行能力。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕算法共振与闪崩风险&lt;/strong&gt;: 高度自动化的算法和智能体可能在极端市场行情下产生共振，需设定严格的风险熔断阀门与资金管理规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “量化交易的核心宣言：用纪律克服人性，用数据替代猜测。”&lt;/li&gt;
+&lt;li&gt;💬 “2.0时代的量化团队则像气象学家一样，他们不预测单一股票的方向，而是预测概率分布。”&lt;/li&gt;
+&lt;li&gt;💬 “量化交易的历史，本质上就是一部不断用技术剥离人性弱点、提升决策效率的进化史。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1P68J6kEC5</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/5967bced96f526efb3ee5c04919d0a6456d3072a.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Aug 2026 21:19:12 +0800</pubDate>
     </item>
     <item>
       <title>Alpha Zero Beta：用深度强化学习打破传统市场中性的β漂移困境</title>
@@ -105,6 +340,103 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1egbD6zEru</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/a15c26a3fcda2fd6fb2373a7b32cee6aca2b7817.png" length="0" type="image/png"/>
       <pubDate>Wed, 19 Aug 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>看清A股“抱团”真相：用量化指标洞察市场拥挤度与资金风向</title>
+      <link>https://www.bilibili.com/video/BV1dd876XEoc</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1dd876XEoc"&gt;机构为何当众搂搂抱抱?这次抱团会不一样吗?都在抱团赚钱,谁在亏钱?牛来还是熊出没?python量化抱团指标,如何判断抱团行情? | 量化投资邢不行啊&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 A股市场所谓的“抱团”本质是什么？它又是如何一步步形成无法自拔的正反馈怪圈的？&lt;/li&gt;
+&lt;li&gt;💡 面对市场风向的剧烈转变，我们该如何用量化指标高频、精准地识别“抱团”的启动、延续与瓦解？&lt;/li&gt;
+&lt;li&gt;🚀 抱团行情一定意味着上涨吗？普通投资者如何在狂热的“抱团”中找到自己的真实生态定位？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 A股抱团的底层逻辑：正反馈循环与定价模式切换&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;抱团的本质是“主线定价”&lt;/strong&gt;: 当资金（尤其是机构资金）由于共识持续流向少数核心资产或特定板块时，股票上涨带动基金净值提升，进而吸引更多申购资金，资金再次买入主线，从而形成正反馈自我强化机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定价模式的周期交替&lt;/strong&gt;: 市场在“主线定价”（机构抱团期）与“分散定价”（非抱团期，行业轮动快，小盘股活跃）之间呈现明显的周期性交替。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化度量抱团的两大硬核指标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;监测市场拥挤度（中长线）&lt;/strong&gt;: 月底计算“前5%个股成交额占比”（前5%个股成交额之和 / 全市场总成交额）。若该指标突破45%临界点（如6月末达49%），需高度警惕大方向变盘或风格轮动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;识别高频抱团状态（日线级）&lt;/strong&gt;: 运用“主线定价指标”进行每日研判。条件一：最近半年（120交易日）中证偏股型基金指数相对于国证A指的超额收益 &amp;gt; 1.5%；条件二：基金指数与A指比值的60日均线高于250日均线。当两条件同时满足，即确认为主线定价（抱团）阶段。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;警惕“防御性抱团”&lt;/strong&gt;: 抱团并不一定意味着暴涨。在弱势行情中，资金常会抱团红利或特定避险资产取暖，此时抱团是为了“防守”而非“进攻”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免盲目坚信“这次不一样”&lt;/strong&gt;: 每一轮抱团（从金融地产到核心资产再到AI算力）讲的故事都不同，但底层资金涌向高确定性资产的接力逻辑完全一致。切忌在指标高度拥挤时盲目追高，避免成为山顶的最后一棒。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “上一秒大家还在互相把对方当韭菜，下一秒就有可能因为买了同一批股票，为了赚钱，通力合作，成为亲密战友。”&lt;/li&gt;
+&lt;li&gt;💬 “我们研究指标不是为了赚得更多，而是希望在大家都沉浸在抱团行情时，至少知道自己到底站在什么位置，这才是量化的意义。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1dd876XEoc</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/685e9478f9e1a627ae0a6c8b60762bce4b9e3cdf.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 19 Aug 2026 17:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>回测折戟背后的量化美学：七星ETF轮动策略自适应架构与风控硬核拆解</title>
+      <link>https://www.bilibili.com/video/BV1Ct836mEKx</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Ct836mEKx"&gt;七星ETF轮动：三层池 + 双滤波器 + 龙头家族监测，全天候ETF轮动框架完整拆解&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 回测大败（总收益-1.09%、最大回撤近20%）的策略，为什么仍具极高的架构借鉴价值？&lt;/li&gt;
+&lt;li&gt;💡 面对市场震荡的“绞肉机”，量化策略如何通过双滤波器和自适应参数进行物理防御？&lt;/li&gt;
+&lt;li&gt;🚀 怎样通过“龙头家族预警”与“五道风控防线”在板块轮动前夜实现精准避险？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 多维自适应：从拉普拉斯到高斯滤波器的算法切换&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态决定算法&lt;/strong&gt;: 策略并非一套参数打天下，而是基于RSI超买、乖离率和盈利保护触发，动态将市场划分为“正常期”与“震荡期”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;双滤波器机制&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;正常期（拉普拉斯滤波器）&lt;/strong&gt;：高灵敏度，快速响应，紧跟趋势，确保不踏空。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;震荡期（高斯滤波器）&lt;/strong&gt;：平滑抗干扰，相当于给交易“踩刹车”；同时将斜率阈值提升两倍，要求必须出现极强趋势信号才入场，用算法参数的自我收紧对抗震荡噪声。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动量评分公平化&lt;/strong&gt;: 采用加权对数线性回归。对数变换消除价格区间差异（如黄金与创业板的不可比性），时间加权让近几日数据权重更大，配合R平方（必须&amp;gt;0.4）过滤，确保趋势的“强度”与“稳定性”双达标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 五道防御工事：构建系统化的风控闭环&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;触发盈利保护&lt;/strong&gt;：每日上午11:00独立检查持仓，若某ETF从最高点回撤超5%，无条件执行清仓，保住既得利润。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;激活震荡期联动&lt;/strong&gt;：盈利保护触发后，于当日下午13:05联动震荡期检查，强制将策略切换至谨慎的震荡模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;执行七层严苛过滤&lt;/strong&gt;：对候选标的施加动量得分、R平方、成交量、短期动量等七道硬性关卡，宁缺毋滥，最终筛选通常仅留5~10只。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态池新陈代谢&lt;/strong&gt;：设立“动态扩容池”，每日筛选表现突出的新秀，设定10天有效期，达标留存，不达标无情淘汰。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;频繁切换陷阱&lt;/strong&gt;：避免策略在震荡边缘反复横跳。必须设定“冷却期”与“强制退出机制”（如震荡期超15天强行退出），防止过度交易造成手续费磨损。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;单一指标迷信&lt;/strong&gt;：严禁依靠单一动量指标做决策，须结合R平方和成交量等多维度指标进行交叉验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧱 龙头家族预警：洞察板块轮动的底层风向标&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;家族抱团识别&lt;/strong&gt;: 开盘前分析前10天涨幅前20的ETF。若Top 10中超半数与Top 5的同步度超70%，或Top 5中有3个以上高度同步，即判定形成“龙头家族”，代表资金高度抱团。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;见顶与轮动监测&lt;/strong&gt;: 盘后监测家族成员是否集体发出放量滞涨（成交量放大但价格滞涨）或慢性滞涨信号。一旦超半数成员见顶，且跷跷板池（防御性ETF如银行、公用事业）开始企稳，立即发出预警，暗示资金正撤离高位抱团板块，板块轮动拐点将至。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “量化策略的精髓，在于通过改变核心算法参数去自适应市场环境，而不是预设今天应该用什么打法。”&lt;/li&gt;
+&lt;li&gt;💬 “宁愿错过一些机会，也不愿意仓促入场，极致的保守往往是极端行情中唯一的求生通道。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Ct836mEKx</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/7356689a83d97655d772177220545d9f42cd69e9.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 18 Aug 2026 21:45:55 +0800</pubDate>
     </item>
     <item>
       <title>量子采样赋能统计套利：基于GBS的股票残差聚类与均值回归策略深度解析</title>
@@ -4434,245 +4766,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87217</guid>
       <pubDate>Fri, 03 Jul 2026 12:38:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于公告文本事件的A股股价效应统计与量化回测工具</title>
-      <link>https://bbs.quantclass.cn/thread/87165</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87165"&gt;【一级风险标签】辅助工具——公告字段统计工具&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子] 与 [技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[事件驱动、公告文本分析、市场中性化、HTML回测报告、开盘价买入]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[一键式统计公告文本字段在次日开盘买入后的超额收益表现]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：基于公告文本中的一级风险标签/特定关键字进行事件驱动回测。通过设定持有期（T+0至T+N），评估特定文本公告发布后对股价的统计学溢出效应。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;交易执行基准&lt;/strong&gt;：公告后第二个交易日&lt;strong&gt;开盘价（Open）&lt;/strong&gt;买入（避免T+0收盘买入的“看得到吃不到”偏差）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;基准对齐与相对收益&lt;/strong&gt;：个股涨跌幅减去同日&lt;strong&gt;全市场等权涨跌幅&lt;/strong&gt;，实现简单的市场 Beta 中性化，剔除大盘系统性风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多维度统计指标&lt;/strong&gt;：输出包含事件数、平均收益、中位数、胜率以及分年表现的综合统计。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：回测公告事件时，通常面临多字段配置繁琐、可视化不直观、多空收益未去中性化等问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;采用 &lt;strong&gt;Main-Core&lt;/strong&gt; 双文件架构：&lt;code&gt;main.py&lt;/code&gt; 负责用户端参数配置（字段、时间、数据库路径）；&lt;code&gt;notice_analysis_core.py&lt;/code&gt; 封装底层的计算与统计逻辑。&lt;/li&gt;
-&lt;li&gt;最终输出为自包含的 &lt;strong&gt;HTML 交互式报告&lt;/strong&gt;，便于快速分享与决策。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;数据准备与清洗&lt;/strong&gt;：构建结构化的公告文本数据库，将公告正文或摘要解析为可供检索的结构化标签。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;代码落地&lt;/strong&gt;：在回测模型中引入 &lt;code&gt;T+1开盘买入&lt;/code&gt; 逻辑，杜绝超前看数据（Look-ahead bias）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI辅助筛选&lt;/strong&gt;：结合大语言模型（LLM），将一级风险标签字段喂给 AI，辅助自动筛选哪些字段应作为过滤条件或多头因子。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87165</guid>
-      <pubDate>Wed, 01 Jul 2026 22:47:41 +0800</pubDate>
-    </item>
-    <item>
-      <title>突破MiniQMT限流瓶颈：基于大QMT与WebSocket的高频量化交易系统实盘改造方案</title>
-      <link>https://bbs.quantclass.cn/thread/83981</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/83981"&gt;开袋即食！使用大qmt进行交易&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[大QMT, WebSocket通信, 实盘框架重构, 高频交易]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过大QMT搭建WebSocket服务，突破MiniQMT限流瓶颈，实现极速高频下单与数据推送。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：MiniQMT存在券商强制限流（通常5-10笔/秒），且在原生多账户支持、行情推送延迟等方面无法满足高频、批量下单及极速捕捉盘口的需求。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：利用大QMT原生支持多账户与内置高速行情，在QMT内置Python环境中运行'qmt_ws_server.py'建立WebSocket服务器，本地实盘框架（基于Rocket和stock-position-mgmt-fusion）通过WS协议与大QMT交互，实现早盘择时、模糊数据下载及交易指令秒级分发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;修改Rocket框架中的交易核心方法（'buy_method.py'、'sell_method.py'、'exchange_api.py'），封装WS通信协议替代原MiniQMT接口。&lt;/li&gt;
-&lt;li&gt;调整持仓管理与选股模块（'real_trading.py'、'select_stock.py'），适配大QMT的数据返回格式。&lt;/li&gt;
-&lt;li&gt;启动本地WS监听，实现跨进程高速数据交互。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【性能对比/收益】&lt;/strong&gt;：无严格限流限制，支持高频与批量下单，提供多账户极速通道，盘口逐笔与K线实时秒级推送，降低下单延迟。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：不支持独立交易登录模式；当前凌烟阁Rocket版本未出，暂不适配；模拟实盘由于没有实际撮合反馈，可能存在重复下单的现象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【架构迁移】&lt;/strong&gt;：将本地策略与QMT的交互方式由本地文件或旧接口迁移为'QMT内置WebSocket Server + 本地Client'模式，彻底解决高频指令吞吐瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【状态锁优化】&lt;/strong&gt;：针对模拟或实盘中由于未及时撮合导致的重复下单问题，建议在'real_trading.py'中引入订单状态幂等性校验与挂单锁机制。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/83981</guid>
-      <pubDate>Wed, 01 Jul 2026 14:13:57 +0800</pubDate>
-    </item>
-    <item>
-      <title>自适应市值排名v1：用截面分箱动量破解大小市值轮动与白马策略优化</title>
-      <link>https://bbs.quantclass.cn/thread/87145</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87145"&gt;【分箱类截面因子研究02】用截面因子带飞白马抱团策略？重新寻找抱团市值区间&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[分箱截面因子, 市值轮动, 动量效应, 策略融合]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用截面分箱动量重新排序市值，捕获大小市值带轮动并优化白马策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：市值分箱存在显著的动量效应，极小与极大市值带在不同市场阶段呈现出交替轮动的特征。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：传统白马抱团策略容易锁死在超大市值，而引入截面分箱动量后，策略可在大市值区间内捕捉相对“小市值”的中/大盘趋势票，获取市值带轮动的超额收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：将单维度市值排序升级为“市值 + 动量”的双维度截面排序。寻找过去 N 天赚钱效应最强/涨幅最大的分箱中，市值最小的股票。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;binrankMean 模式&lt;/strong&gt;：1. 计算 Ret_n 并在截面上进行市值分箱；2. 统计每箱的 Ret_n 均值并降序排列；3. 箱间降序排列，箱内按市值升序拼接排名。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;binrankRatio 模式&lt;/strong&gt;：1. 统计每箱 Ret_n &amp;gt;= 0 的股票占比并降序排列；2. 箱间降序排列，箱内按市值升序拼接排名。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测表现】&lt;/strong&gt;：在“白马抱团策略”中，将时序市值过滤替换为自适应市值排名过滤（method: pct &amp;lt;= 0.3，保留高动量的前 30% 分箱），2014-2026回测显示，在近三年大盘股占优的行情中超额收益显著，抗回撤能力提升。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;代码改造&lt;/strong&gt;：在现有小市值或白马选股框架中，将一维市值 rank 替换为基于 &lt;code&gt;pd.qcut&lt;/code&gt; 分箱后再按箱体均值/正收益比例排序的二维 &lt;code&gt;binrank&lt;/code&gt; 逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略结合&lt;/strong&gt;：将该截面因子作为过滤器引入多因子策略，动态筛除处于弱势动量分箱的市值区间，降低风格漂移带来的回撤。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87145</guid>
-      <pubDate>Wed, 01 Jul 2026 00:52:33 +0800</pubDate>
-    </item>
-    <item>
-      <title>时间维度下的比特币阿尔法：基于“隔夜效应”过滤的突破交易策略</title>
-      <link>https://bbs.quantclass.cn/thread/87129</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87129"&gt;BTC隔夜突破策略：从时间维度切割收益的复现与深度分析&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[隔夜效应, 时间维度切割, 突破策略, 交易日过滤, 市场微观结构变迁]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过过滤特定交易日与突破信号，将弱化的隔夜效应转化为正期望的条件突破策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：比特币在2021年ETF上市前存在极强的“隔夜效应”（16:00-次日10:00累计收益达+944.92%，而日间仅-42.35%）。ETF上市后该规律反转，日间收益转正（+30.00%），无条件隔夜收益转负（-17.20%）。此外，不同星期的隔夜收益差异巨大，周五→周一、周一→周二、周三→周四表现最佳。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：ETF上市前流动性和波动率集中在美股夜间时段；上市后，合规资金常态化交易提升了美股日间时段（对应亚太夜间）的定价效率，导致无条件隔夜红利衰减。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“无脑买入并持有隔夜”的长期可行性，强调了必须将“无条件时间套利”升级为“有条件（信号触发+星期过滤）时间套利”。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：结合10日价格通道突破与特定高胜率星期进行双重过滤，在16:00买入，次日10:00卖出，从而在弱化的隔夜市场中精准捕获正期望的时间溢价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：当今天收盘价突破过去10天最高价，且当天属于特定交易日（周五、周一、周三）时触发买入信号，次日开盘卖出。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：基于Binance BTC-USDT永续合约1小时K线（2019-2026），单边手续费0.06%，1x杠杆。全时段累计净值2.40，年化13.84%，最大回撤-14.48%，Sharpe 1.03。在ETF上市后依然保持13.72%年化，表现稳健。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：绝对收益跑输BTC买入持有基准（全时段6.48倍）；双重过滤导致信号极稀疏（7年仅131笔交易），存在过拟合风险和统计显著性不足问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：使用Pandas进行高效的向量化计算，通过 &lt;code&gt;rolling(n).max().shift(1)&lt;/code&gt; 提取通道上轨，避免显式For循环。交易模拟部分通过索引偏移 &lt;code&gt;idx + 1&lt;/code&gt; 匹配次日开盘价计算收益率。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多品种隔夜效应普适性测试&lt;/strong&gt;：将此回测框架复用到ETH、SOL等主流山寨币，寻找更具统计显著性的跨市场隔夜规律。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态星期选择器构建&lt;/strong&gt;：开发自适应星期过滤器，采用滚动窗口（如近120天）动态统计各星期隔夜Sharpe，替换硬编码的持仓规则。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;时间窗口精细化切片&lt;/strong&gt;：尝试缩短突破周期（如N=5）或引入成交量/波动率因子进行假突破过滤，以缓解因信号稀疏导致的资金利用率瓶颈。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87129</guid>
-      <pubDate>Tue, 30 Jun 2026 20:19:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>白马抱团策略的小资金轻量化改造：价格、数量、Offset与板块的实战优化</title>
-      <link>https://bbs.quantclass.cn/thread/87111</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87111"&gt;白马抱团策略适度理解——小资金可以上吗&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[白马抱团、参数剪裁、Offset敏感度、科创板剔除、回测时间对齐]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过限制持仓数、精简Offset和剔除科创板，实现白马抱团策略的资金轻量化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：捕获市场阶段性白马股“抱团”行情中的动量效应。由于白马股通常市值大、流动性强，利用特定因子排序挑选最强势标的，并实施固定周期（5日）滚动持有。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：选股日为T，交易执行严格定位在T+1开盘买入，T+6开盘（买入日+5个交易日）卖出，有效杜绝收盘价无法成交或引入未来函数的问题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于特定“白马选股因子”对全市场白马股进行综合排序，取前N名构建持仓组合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;股价分箱分析&lt;/strong&gt;：高价股（100-200元）胜率最高（平均收益1.33%），10-50元区间收益贡献度最大（52%）。高价股在回撤期是重灾区，整体不建议通过限制股价来降低资金门槛。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;标的数量优化&lt;/strong&gt;：对比发现，仅选择因子排名前3的标的，其历史资金曲线表现显著优于默认选5只，且契合主要抱团年份（如17、20、25年）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Offset敏感度测试&lt;/strong&gt;：测试Offset=0至4的独立资金曲线，发现Offset=1表现较差可舍弃；Offset=2在抱团年收益突出，Offset=4在2026年表现最强。建议有限资金下至少保留&lt;code&gt;[0, 2, 3]&lt;/code&gt;的组合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;板块过滤&lt;/strong&gt;：剔除科创板不仅解决了小资金单笔最低买入200股的流动性痛点，且回测数据显示剔除后整体策略回撤更小、收益更高。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：默认5D持仓周期与5个Offset导致完整周期需买入25次。假设单笔1万元，则需25万元沉淀资金，不适合小资金实盘。需在代码逻辑与回测引擎中加入对多维度参数的测试以精简结构。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;对齐买卖点&lt;/strong&gt;：通过 &lt;code&gt;trade_dates[trade_dates &amp;gt; buy_signal_date]&lt;/code&gt; 动态定位T+1日开盘价(&lt;code&gt;OPEN_COL&lt;/code&gt;)作为买入点，以 &lt;code&gt;buy_idx + 5&lt;/code&gt; 定位T+6日开盘价作为卖出点，利用 DataFrame 索引检索，保证了回测的时效性与准确性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多维分组聚合&lt;/strong&gt;：利用 &lt;code&gt;pd.cut&lt;/code&gt; 进行价格区间离散化分箱，结合 &lt;code&gt;groupby().agg(['count', 'mean', 'sum'])&lt;/code&gt; 实现对不同价格区间样本贡献度与平均收益的矩阵化评估。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;精简持仓标的至 Top 3&lt;/strong&gt;：修改选股逻辑，仅保留因子排名前3的股票，在提升资金利用效率的同时，获取更高、更集中的超额收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;非均匀 Offset 资金分配&lt;/strong&gt;：若无法铺满5个Offset，建议舍弃表现较弱的 Offset=1，优先配置 &lt;code&gt;[0, 2, 3]&lt;/code&gt; 组合，用3/5的资金占用换取近乎同等的平滑效果。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;硬性剔除科创板股票&lt;/strong&gt;：在数据预处理阶段，使用 &lt;code&gt;df = df[~df['code'].str.startswith('688')]&lt;/code&gt; 剔除科创板。这既避开了100股起购、科创200股起购的资金门槛，也能优化历史回撤。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87111</guid>
-      <pubDate>Tue, 30 Jun 2026 10:57:52 +0800</pubDate>
-    </item>
-    <item>
-      <title>多维刻画极端抱团行情：基于Jaccard相似度与市值比例的量化观测指标体系</title>
-      <link>https://bbs.quantclass.cn/thread/87084</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87084"&gt;【大熊先生】抱团行情的更多侧写&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[Jaccard相似系数, 抱团行情量化, 市值分布分化, 极端行情监测]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用涨幅重合度与高低价股市值比多维量化刻画抱团拥挤度与转折点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：抱团行情本质是强势股集合的高度延续性。文章提出当市场处于主线明确阶段时，每日涨幅/上涨天数前5%的股票集合具有极高的Jaccard相似系数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：上涨天数（频率）反映了资金的持续接力意愿与筹码锁定程度；高价股市值的极致扩张反映了存量博弈下的虹吸效应。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：揭示了指数在风格极端分化时的失真逻辑，证实了“抱团”不仅是涨幅集中，更是“成员稳定性”的极致化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过追踪“谁在涨”的集合重合度识别市场主线，利用市值分布极值捕捉风格反转。Alpha来源于对市场定价扭曲程度的量化捕捉。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;涨幅/天数重合度&lt;/strong&gt;：$Jaccard = |Set_{t} \cap Set_{t-1}| / |Set_{t} \cup Set_{t-1}|$，其中Set为60日窗口内涨幅或上涨天数前5%的集合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市值占比因子&lt;/strong&gt;：Top 5%高价股市值 / 全市场总市值。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;市值极值因子&lt;/strong&gt;：Top 5%高价股市值 / Bottom 5%低价股市值。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用WINDOW=60进行区间计算，并使用MA60对原始序列进行平滑处理以过滤噪声。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;行情性质判别&lt;/strong&gt;：通过Jaccard系数（MA60）识别市场状态。高重合度对应“主线抱团”，低重合度对应“快速轮动”或“无主线混沌期”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;极端风险预警&lt;/strong&gt;：监控“高低价股市值比”，当该比值达到历史极值时，预示高价股估值溢价透支，可作为风格反转（均值回归）策略的左侧预警信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略池优化&lt;/strong&gt;：在抱团重合度最高的5%候选域中进行选股，结合择时指标（如百分比分位点）捕捉强势个股的起涨点。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87084</guid>
-      <pubDate>Sun, 28 Jun 2026 14:15:01 +0800</pubDate>
     </item>
   </channel>
 </rss>
