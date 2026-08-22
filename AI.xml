@@ -7,7 +7,52 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 21 Aug 2026 22:43:25 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 08:43:09 +0000</lastBuildDate>
+    <item>
+      <title>DeepSeek Harness 深度解析：构建自进化且永不崩溃的 AI 智能体操作系统</title>
+      <link>https://www.bilibili.com/video/BV1a28C6REb2</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/259378032"&gt;峨眉峰还独照&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1a28C6REb2"&gt;【AI论文速读】DeepSeek Harness：民主集中制的操作系统&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么现有 Agent 插件在卸载或出错时常导致整个系统崩溃，必须“重启”解决？&lt;/li&gt;
+&lt;li&gt;💡 DeepSeek 提出的 Cordis 框架，如何利用“时光钥匙”实现 Agent 执行过程中的无损回滚？&lt;/li&gt;
+&lt;li&gt;🚀 丢掉硬编码依赖：Agent 自动感应并动态配置插件，这种“去中心化操作系统”的野心有多大？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 解构“软件原罪”：时间维度的生命周期与空间维度的强耦合&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;独立生命周期的缺失&lt;/strong&gt;: 传统组件离开宿主时常连累系统。Cordis 核心在于给每个动作赋予“时光钥匙”（Timeline），将 Agent 的行为数据化。这一机制类似于数据库事务回滚，确保了系统的时间一致性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;空间依赖的死结&lt;/strong&gt;: 插件间的调用不应是“写死”的连接。通过自动激活/休眠机制，系统在需要时自动寻找并配置插件，解决了传统 Agent 配置繁琐、容易产生空指针或逻辑死锁的痛点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 核心机制：可逆效应 (Effect) 与快照机制 (Fiber)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可逆效应 (Effect)&lt;/strong&gt;: 既然 Agent 的每一步都被记录，当任务失败或需卸载组件时，系统可按记录反向操作，确保环境瞬间回到“从未发生”过的纯净状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fiber 快照机制&lt;/strong&gt;: 系统执行操作前先进行“依赖守卫”，在确认没有其他组件依赖即将卸载的工具后才执行动作，配合缓存机制确保高风险操作的安全性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 构建“永不崩溃”的自进化 Agent 系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;模块沙盒化&lt;/strong&gt;: 利用沙盒机制隔离多 Agent 环境，确保单一组件崩溃不会导致整个系统宕机。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;接口抽象化&lt;/strong&gt;: 杜绝对具体工具（如特定地图服务）的强引用，改用抽象接口定义，以便实现工具的实时替换而无需修改代码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文持久化&lt;/strong&gt;: 深度集成 KV Cache 缓存逻辑，利用插件随用随插的特性，提高大模型在复杂任务流中的推理命中率。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕逻辑“死锁”，当 Agent 在循环报错时，系统应能够根据预定义工作流自动寻找备选插件并重置配置，而非盲目尝试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “DeepSeek 要做的不只是编程助手，它要做的是一个走‘群众路线’、去中心化的 Agent 操作系统。”&lt;/li&gt;
+&lt;li&gt;💬 “在计算机系统类论文中，逻辑推导的优雅与数学上的一致性，其说服力远胜于单纯的数据集跑分。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1a28C6REb2</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/dc8fdc01faa2eb78322ae99bac64bbbb80795265.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 22 Aug 2026 11:22:05 +0800</pubDate>
+    </item>
     <item>
       <title>AI Agent爆发前夜：超级应用大比拼与多玩家协同新时代</title>
       <link>https://www.youtube.com/watch?v=ETa6ZYqoIXo</link>
@@ -5189,59 +5234,6 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1MwMd6ZENN</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/6a2b285adb283834b121a2c7a1c378725c330c99.jpg" length="0" type="image/jpeg"/>
       <pubDate>Mon, 03 Aug 2026 20:04:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>别再死磕提示词：用图工程（Graph Engineering）重构你的AI工作流</title>
-      <link>https://www.youtube.com/watch?v=JWhICz1QR8M</link>
-      <description>&lt;p&gt;&lt;a href="UCPjNBjflYl0-HQtUvOx0Ibw"&gt;Greg Isenberg&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=JWhICz1QR8M"&gt;Why Graph Engineering will 10x your Claude/Codex&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么单次AI对话给出的答案看起来很聪明，却往往无法直接用于高价值商业决策？&lt;/li&gt;
-&lt;li&gt;💡 “图工程（Graph Engineering）”究竟是行业造词运动的又一个泡沫，还是大模型落地应用的底层范式？&lt;/li&gt;
-&lt;li&gt;🚀 如何在不编写任何代码的前提下，把一个混乱的AI对话流手动升级为高价值的“多Agent协同网络”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 认知降维：单线聊天 VS 图式协同&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;单线对话的本质缺陷&lt;/strong&gt;: 传统Chat模式下，一个大模型在单次推理中同时扮演规划者、调研者、论证者与裁判。这种自我审查闭环导致AI极易盲目自信、输出幻觉。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;图工程（Agent Graph）的破局之道&lt;/strong&gt;: 将复杂的AI任务拆解为由“节点（任务）”和“箭头（流转逻辑）”组成的协作网络。让不同的AI角色分工协作，相互校验，从而在机制上保障输出质量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;知识图谱与智能体图的区别&lt;/strong&gt;: 知识图谱（Knowledge Graph）解决的是“信息如何关联”，多用于RAG检索；而智能体图（Agent Graph）解决的是“工作如何流转”，是组织和管理AI协作的核心。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 场景落地：从创意验证到AI工作流的SOP构建&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;规划分流（Planner）&lt;/strong&gt;：将核心议题拆解为相互独立的子维度（如客户痛点、竞争格局、分销渠道等）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;并行调研（Parallel Researchers）&lt;/strong&gt;：分配多个独立Agent并行开展各个维度的深度研究，互不干扰。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入对抗检测（Skeptic）&lt;/strong&gt;：设立专门的“杠精Agent”质疑调研结论，找出证据链漏洞，剥离缺乏支撑的AI自信结论。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;合并提炼（Merger）&lt;/strong&gt;：聚合通过审查的有效证据，生成最终的核心决策建议，并交付人工审批。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;盲目追求图的规模&lt;/em&gt;：Agent并非越多越好，过多会导致协同噪声。应致力于构建能解决问题的“最小可行图”。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;过早使用复杂工具&lt;/em&gt;：不要一上来就用LangGraph等开发框架。先用画图工具手动模拟流转3次，工作流跑通后再行自动化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;⚙️ 工具与落地路径的阶梯演进&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;初阶版（Level 1：手动分流）&lt;/strong&gt;：在白板上画出工作流，在多个Chat窗口中手动切换角色，手动扮演“Planner”、“Researcher”和“Skeptic”并传递上下文。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;中阶版（Level 2：文件留痕）&lt;/strong&gt;：利用Claude Code或轻量脚本，让每一步输出为Markdown文件（如&lt;code&gt;plan.md&lt;/code&gt;, &lt;code&gt;review.md&lt;/code&gt;），保留清晰的执行路径和状态（State）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;高阶版（Level 3：代码编排）&lt;/strong&gt;：使用LangGraph实现状态恢复与人工确认，或使用n8n/make.com将图连接到Slack、邮件或CRM系统。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “让写报告的模型同时给自己打分，就像让员工自己写绩效自评并期望它客观一样荒谬。在优秀的图工程中，审查是一项独立的工作。”&lt;/li&gt;
-&lt;li&gt;💬 “图工程真正的复利价值在于，它不仅让单次任务变得更好，还源源不断地产生‘组织记忆’（State）——这才是你真正的壁垒。”&lt;/li&gt;
-&lt;li&gt;💬 “如果你去自动化一个你完全不理解的工作流，你只会以极快的速度得到一堆垃圾。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=JWhICz1QR8M</guid>
-      <enclosure url="https://i.ytimg.com/vi/JWhICz1QR8M/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Mon, 03 Aug 2026 18:30:26 +0800</pubDate>
     </item>
   </channel>
 </rss>
