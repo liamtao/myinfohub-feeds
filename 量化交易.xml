@@ -7,7 +7,147 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 22 Aug 2026 08:43:09 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 08:37:53 +0000</lastBuildDate>
+    <item>
+      <title>EASXT集成BaoStock：打造四维数据矩阵，解决量化回测的“历史数据之痛”</title>
+      <link>https://www.bilibili.com/video/BV1cd826jEWX</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1cd826jEWX"&gt;EasyXT 重磅更新：BaoStock 免费数据源集成，历史数据不再是门槛！&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ EASXT 量化交易数据系统 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于混合动态数据管理器（Hybrid Manager）的四维多源调度架构，实现本地缓存、实时前线与历史归档的智能路由与协同作战。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：QMT（提供实时Tick及盘口数据）、TuShare（提供高质量市值及财务等基本面数据）、BaoStock（提供海量免费完整的历史行情数据）、DuckDB（作为本地高速缓存和计算中心）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：统一格式的行情、估值与交易日历数据，支持多维度历史高效率回测与实时交易订阅。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;BaoStock&lt;/strong&gt;：完全免费、开源的证券数据平台，提供从90年代至今的完整A股历史行情数据，无需注册或Token。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hybrid Manager (混合管理器)&lt;/strong&gt;：EASXT中用于自动路由与调度不同数据源的底层核心模块，实现最佳数据源的自动选择。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DuckDB&lt;/strong&gt;：高性能本地列式数据库，在系统中充当数据高速缓存，本地回测速度可提升100倍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：多源混合环境初始化与历史日线/分钟线获取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：初始化混合数据管理器并获取特定股票的历史K线数据，自动优化选择最佳数据源。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已正确安装 &lt;code&gt;EASXT&lt;/code&gt; 框架，并配置好底层的 &lt;code&gt;BaoStock&lt;/code&gt; 与 &lt;code&gt;DuckDB&lt;/code&gt; 环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[初始化管理器]&lt;/strong&gt;：实例化 &lt;code&gt;hybrid&lt;/code&gt; 相关的管理器对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[调用日线接口]&lt;/strong&gt;：调用 &lt;code&gt;get_price&lt;/code&gt; 方法，指定股票代码、起止日期，并将 &lt;code&gt;period&lt;/code&gt; 参数设定为 &lt;code&gt;'one day'&lt;/code&gt;（日线）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[指定复权与优先源]&lt;/strong&gt;：在 &lt;code&gt;get_price&lt;/code&gt; 中，将 &lt;code&gt;adjust&lt;/code&gt; 参数设置为 &lt;code&gt;'QF'&lt;/code&gt;（前复权），将 &lt;code&gt;preferred_source&lt;/code&gt;（或 &lt;code&gt;preferred_mode&lt;/code&gt;）设定为 &lt;code&gt;'BOLSTOCK'&lt;/code&gt;，强制指定优先从BaoStock获取数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[获取5分钟线]&lt;/strong&gt;：将 &lt;code&gt;period&lt;/code&gt; 参数调整为 &lt;code&gt;'5M'&lt;/code&gt;，提取历史5分钟K线数据。&lt;code&gt;[⚠️需核实：原文提示此步仅适用于历史回测与研究分析，不可用于盘中实时监控]&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：基本面估值数据与交易日历批量提取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：批量获取多只股票在指定日期的估值指标（如 PE、PB、PS 等）及特定时间段内的A股交易日列表。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：BaoStock客户端连接处于可用状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[估值提取]&lt;/strong&gt;：调用 &lt;code&gt;get_fundamentals&lt;/code&gt; 方法。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[参数赋值]&lt;/strong&gt;：在 &lt;code&gt;symbols&lt;/code&gt; 参数中传入多个股票代码，指定 &lt;code&gt;date&lt;/code&gt; 目标日期，在 &lt;code&gt;fields&lt;/code&gt; 中指定想要的字段（如 PE、PB、PS、PCF 等）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[交易日历获取]&lt;/strong&gt;：调用 &lt;code&gt;get_trading_dates&lt;/code&gt; 方法，指定起止日期，并设定 &lt;code&gt;preferred_source&lt;/code&gt; 为 &lt;code&gt;'BOLSTOCK'&lt;/code&gt;，获取该区间内的完整交易日列表。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：BaoStock 本地化缓存加速回测&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将BaoStock历史数据持久化至本地 DuckDB，提升大规模策略回测速度达100倍。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：DuckDB 数据库初始化完毕。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[数据下载]&lt;/strong&gt;：使用BaoStock下载指定的历史行情数据（如2020年开始的5分钟线数据）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[导入缓存]&lt;/strong&gt;：将下载的历史数据保存/导入本地 &lt;code&gt;DuckDB&lt;/code&gt; 中（此步骤仅需执行一次）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[触发本地回测]&lt;/strong&gt;：在回测时告诉系统 &lt;code&gt;preferred&lt;/code&gt; 优先使用 &lt;code&gt;'DUCKDB'&lt;/code&gt;，直接从本地高速缓存中读取数据进行回测。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 4：基于 QMT 的实时交易订阅&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：订阅实时 Tick 级别数据并触发盘中实时交易逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：QMT 客户端处于登录并开启状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[获取实例]&lt;/strong&gt;：使用 &lt;code&gt;EASXT&lt;/code&gt; 库通过 &lt;code&gt;easy_h&lt;/code&gt; 获取 API 对象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[订阅代码]&lt;/strong&gt;：调用 &lt;code&gt;subscribe&lt;/code&gt; 方法，传入订阅的股票代码与周期。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[注册回调]&lt;/strong&gt;：提供一个回调函数 &lt;code&gt;callback&lt;/code&gt;。当有新数据到达时，触发该函数并执行内置的实时交易逻辑。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;preferred_source / preferred_mode&lt;/strong&gt;：数据源路由控制阀 -&amp;gt; 调整此参数（可选值包括 &lt;code&gt;DUCKDB&lt;/code&gt;、&lt;code&gt;QMT&lt;/code&gt;、&lt;code&gt;TUSHARE&lt;/code&gt;、&lt;code&gt;BOLSTOCK&lt;/code&gt;）可强制改变系统的数据获取通路，跳过默认的智能优先级策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;period&lt;/strong&gt;：时间周期控制 -&amp;gt; 支持 &lt;code&gt;'one day'&lt;/code&gt;（日线）、周线、月线以及 &lt;code&gt;'5M'&lt;/code&gt;（5分钟线）等。控制返回行情的聚合粒度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;周期局限性&lt;/strong&gt;：BaoStock 不支持 Tick 级别逐笔数据，且不支持 1分钟、15分钟、30分钟 等除5分钟以外的分钟线。别指望用它来做超短线或高频策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位局限性&lt;/strong&gt;：BaoStock 是纯历史数据源，不提供实时数据流。绝对不能用于盘中监控、实时交易触发或盘中条件单订阅。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;原生客户端并发缺陷&lt;/strong&gt;：BaoStock 原生客户端使用全局 socket，在多线程环境下并发查询会导致冲突。EASXT 通过引入可重入锁（Lock）、响应校验逻辑（校验证券代码是否一致）以及连接自动恢复机制解决了该线程安全问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;智能路由优先级&lt;/strong&gt;：在默认缺省情况下，系统的自动路由优先级为：&lt;code&gt;DuckDB本地缓存 -&amp;gt; QMT最新/实时数据 -&amp;gt; TuShare高级基本面 -&amp;gt; BaoStock免费历史数据&lt;/code&gt;。日常开发中建议省略 &lt;code&gt;preferred_source&lt;/code&gt; 参数以启用最优自动路由。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1cd826jEWX</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/81808ddd145f97c2838149fb12ff9c78a75235a9.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 22 Aug 2026 22:13:59 +0800</pubDate>
+    </item>
+    <item>
+      <title>67.3%方向准确率的背后：技术指标、双源情绪与TPE优化的量化预测新范式</title>
+      <link>https://www.bilibili.com/video/BV19y8F6TEZw</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV19y8F6TEZw"&gt;十类技术信号不是堆指标，而是给市场状态分工&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 单纯依赖价格与成交量的技术指标，为什么在剧烈波动的股市中难以实现稳定收益预测？&lt;/li&gt;
+&lt;li&gt;💡 媒体的客观新闻与散户的非理性情绪如何科学融合？贝叶斯更新如何解决情绪的滞后性与噪声？&lt;/li&gt;
+&lt;li&gt;🚀 预测准确率不等于可执行的交易信号，如何通过多重防线彻底杜绝“未来信息泄露”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 双源情绪的贝叶斯递推：让喧嚣的舆情成为高确定性的“先验证据”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;情绪非简单拼接&lt;/strong&gt;: 论文拒绝将新闻与社交媒体数据进行线性相加，而是将“昨日情绪”作为先验概率，将“今日新观测”作为新证据，通过贝叶斯公式进行递推更新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;黄金权重配比&lt;/strong&gt;: 在验证集上，研究确定了新闻权重为 0.6，社交媒体（股吧）权重为 0.4。这种配比既保留了主流媒体的宏观准确性，又吸收了散户论坛对短期高频波动的敏感度。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;情绪的抢跑效应&lt;/strong&gt;: 中国股市零售投资者占比极高，股吧与财经新闻中的情绪变化往往在短期内领先价格技术指标。通过 FinBERT 提炼的情绪信号，补齐了技术信号在市场拐点处反应滞后的缺陷。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 16维特征堆叠LSTM与100轮TPE自适应寻优&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多维特征对齐&lt;/strong&gt;: 整合 10 类技术信号（MACD、RSI、布林带、ATR、OBV 等描述趋势与动量）与双源情绪分数，构建 16 维特征向量，作为 LSTM 的输入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;严格的时间序列切分&lt;/strong&gt;: 使用 2015 年 1 月至 2022 年 12 月沪深 300 日频数据（约 1952 个交易日），严格按时间轴划分为训练、验证和测试集，杜绝随机交叉验证导致的信息泄露。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TPE 超参数搜索&lt;/strong&gt;: 运行 100 轮 TPE（Tree-structured Parzen Estimator）寻优，动态筛查回看窗口、LSTM 层数、隐藏单元、Dropout 比例、学习率及 L2 正则强度，压制过拟合风险。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;滚动标准化防泄漏&lt;/strong&gt;: 技术指标的标准化必须仅使用历史 252 日（1 年）的统计量，严禁使用全局数据进行标准化，否则将引入“未来函数”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📊 极端噪声抗性与多维消融验证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;核心表现&lt;/strong&gt;: 在干净测试集上，BOSTONSOPHY 模型实现了 MAE 0.0082、方向准确率 67.3%、回测夏普比率（Sharpe）达 2.41 的优异表现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;噪声注入测试&lt;/strong&gt;: 当特征中被动注入高斯噪声，且噪声标准差升至 0.20 时，模型方向预测准确率仍能维持在 59.7%，展现出极强的抗干扰与泛化能力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消融分析边界&lt;/strong&gt;: 论文通过“移除情绪特征”及“用简单平均替代贝叶斯融合”进行消融测试，隔离出情绪信息与贝叶斯更新机制带来的确定性增量。但需注意，当前研究未覆盖完整的交易成本扣除，跨市场、跨周期的泛化能力仍待验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;BOSTONSOPHY 的贡献不是更深的网络，而是把价格技术指标、双源情绪和自动调参连成了一套高鲁棒性的交易系统。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;情绪信号最有价值的时刻，可能正是技术指标反应不够快、市场正在发生非理性逆转的瞬间。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV19y8F6TEZw</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/2efa102fef1bfb6932c13a4aebd06ba648485e4d.png" length="0" type="image/png"/>
+      <pubDate>Sat, 22 Aug 2026 19:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>从策略到工作流：用AI工程思维攻克量化交易实盘落地痛点</title>
       <link>https://www.bilibili.com/video/BV18Q8C6HExF</link>
@@ -4701,79 +4841,6 @@ elif current_ratio &amp;lt;= 4%:
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1HHMA6NEKm</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/32743d7fdd5537dfc238c6457bae00d567389ef4.jpg" length="0" type="image/jpeg"/>
       <pubDate>Sat, 04 Jul 2026 16:23:09 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于大模型解析政策的行业分域量化：从文本解读到策略落地的完整闭环</title>
-      <link>https://bbs.quantclass.cn/thread/87245</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87245"&gt;练手45  策略外的一点遐想&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[LLM政策评分、行业分域、Alpha因子化、DeepSeek集成]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用大模型对政策原文进行多维结构化评分，动态构建行业分域以增强策略环境适应性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：将非结构化经济会议政策转化为结构化行业评分，利用政策顺位和扶持维度（资金、人才、政策倾向）筛选高景气度行业，构建超额收益域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：设计精细化Prompt，对申万三级行业进行1-5分量化打分，取模型评分≥4的股票构成二元哑变量因子，作为策略选股的过滤域。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测表现】&lt;/strong&gt;：在负贝塔市场环境下，通过行业分域优化后的策略（如周黎明+定风波组合）展现出较强的防御性与样本外稳定性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决政策解读的主观性与低效性，实现从非结构化公文到量化因子的自动化转化。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈】&lt;/strong&gt;：DeepSeek/OpenAI兼容API + Python Pandas + LRU Cache缓存机制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码实现】&lt;/strong&gt;：采用向量化 &lt;code&gt;isin&lt;/code&gt; 操作提升行业匹配效率，通过 &lt;code&gt;.env&lt;/code&gt; 文件实现 API 密钥的安全解耦，使用 &lt;code&gt;lru_cache&lt;/code&gt; 优化评分数据的重复加载逻辑。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Prompt 复用&lt;/strong&gt;：直接采用文中针对 A 股政策设计的评分 Prompt，可用于快速解析即将到来的重要会议文件。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;流程集成&lt;/strong&gt;：建议建立自动化 Pipeline，将最新政策评分 CSV 动态接入回测框架，作为行业分域（Domain）动态更新。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;因子调优&lt;/strong&gt;：可针对不同层级的申万行业（一/二/三级）进行打分敏感度测试，寻找最佳评分阈值切分点。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87245</guid>
-      <pubDate>Sat, 04 Jul 2026 00:17:33 +0800</pubDate>
-    </item>
-    <item>
-      <title>从稳健防御到质量突围：红利低波增强策略构建与因子复现指南</title>
-      <link>https://bbs.quantclass.cn/thread/87219</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87219"&gt;【研报复现】国泰海通证券-红利低波质量策略&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[红利低波, 质量因子增强, 因子合成, 选股框架]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过结合红利低波与基本面质量因子，构建具备高容错率且防御性极强的增强型量化策略。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：低波策略通过高股息与低波动性特征提供防御力，降低对择时能力的依赖。通过引入ROE、SUE等基本面质量因子，解决低波策略在牛市弹性不足的问题，实现从“稳健防御”到“质量突围”的演进。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：组合得分 = (低波得分 + 质量得分) / 2。其中低波得分涵盖波动率、换手率与尾盘成交占比；质量得分涵盖ROE、SUE、利润增速及现金流占比。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：1. 流动性过滤：剔除市值/成交额最小的20%；2. 红利约束：红利支付率0-1之间且股息率前300；3. 波动剔除：剔除波动率最高20%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：研报策略年化收益20.6%，信息比1.13，回撤34%；复现策略年化15.74%，回撤27.99%，表现出较好的收益回撤比。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：低波策略在极端牛市或高情绪市场中可能存在收益弹性受限的风险，且对高频数据的依赖（如尾盘成交）会影响因子构建完整性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决量化策略在调整过滤因子和排序逻辑时频繁改动代码的冗余，提升策略迭代效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：构建基于Python的通用选股框架，通过&lt;code&gt;strategy_list&lt;/code&gt;中的&lt;code&gt;config&lt;/code&gt;文件（包含&lt;code&gt;factor_list&lt;/code&gt;与&lt;code&gt;filter_list&lt;/code&gt;）实现因子逻辑与执行逻辑的解耦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：通过分域筛选（&lt;code&gt;rank:&amp;lt;=300&lt;/code&gt;）与多层级过滤（&lt;code&gt;pct:&amp;gt;=0.20&lt;/code&gt;）相结合，提升选股效率与可扩展性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：由于缺少5分钟线成交数据，导致“低尾盘成交占比”因子无法复现，该因子在研报中对区分个股波动率有显著效果。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;[逻辑优化] 在红利低波框架中必须加入SUE（盈利意外）和加速增长等动态质量因子，以优化策略在不同市场周期下的收益分布。&lt;/li&gt;
-&lt;li&gt;[工程落地] 建议复用文中“通用选股框架”思路，将因子计算、市值/流动性过滤、复合打分完全配置化，便于快速测试新研报因子。&lt;/li&gt;
-&lt;li&gt;[深度研究] 补全5分钟线高频数据，验证“低尾盘成交占比”因子对低波策略收益的具体增量贡献。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87219</guid>
-      <pubDate>Fri, 03 Jul 2026 15:12:05 +0800</pubDate>
     </item>
   </channel>
 </rss>
