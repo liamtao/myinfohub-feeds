@@ -7,7 +7,120 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Aug 2026 22:43:58 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 08:28:55 +0000</lastBuildDate>
+    <item>
+      <title>千问3.5 27B本地部署实测：Mac端高效运行指南与性能洞察</title>
+      <link>https://www.bilibili.com/video/BV179h56HEku</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/346575605"&gt;kate人不错&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV179h56HEku"&gt;Qwen3.8-27B 本地部署与实测｜Mac、MTPLX、oMLX、Pi Agent&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Qwen 3.5 27B - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于量化技术的混合精度大模型推理，支持本地化部署与多模态任务处理（编码、推理、视觉识别）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：自然语言指令、特定上下文数据、图像素材。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：结构化代码生成、逻辑推理文本、视觉内容分析结论。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GGUF&lt;/strong&gt;：一种量化模型格式，适配本地推理及跨硬件平台运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prefill (预填充)&lt;/strong&gt;：大模型处理上下文数据的初始阶段，速度受限于内存带宽。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;量化精度 (Quantization)&lt;/strong&gt;：通过降低权重精度（如4-bit/8-bit）减少模型体积与计算资源占用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：本地环境搭建与适配&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：在Mac（尤其是Apple Silicon芯片）上实现Qwen 27B的高效推理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：Mac M4 Max等高带宽内存环境，MTP-LX 或 Ollama 环境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;环境测试&lt;/strong&gt;：安装MTP-LX客户端，启动后针对设备执行基准性能测试（Benchmarking）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型选择&lt;/strong&gt;：依据内存（RAM）总量配置模型：16GB选2-bit，32-36GB选8-bit优化版，48GB以上选6-bit或8-bit版本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型适配&lt;/strong&gt;：在OMLX或MTP-LX设置中，运行“Term for this Mac”自适应适配脚本，自动优化参数配置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：复杂代码生成与任务调度&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：通过Agent模式实现长逻辑代码构建。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：配置Claude或其他Agent工具联动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;提示词策略&lt;/strong&gt;：输入详细指令（建议5000字以上详细上下文），通过Medium/High推理程度调用。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;任务监控&lt;/strong&gt;：关注模型工具调用频率与上下文窗口状态（防止多次压缩导致逻辑断裂）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;纠错校准&lt;/strong&gt;：对于生成中的错误（如重复、穿模），需通过补充提示词进行强制修正。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;推理程度 (Thinking Degree)&lt;/strong&gt;：支持Medium到X-High可选，推理程度越高，任务理解与结果生成质量越优，但解码速度会显著降低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上下文管理&lt;/strong&gt;：模型支持262K原生上下文，但在高内存占用（128K+）时需警惕预填充速度衰减及内存缓存压力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;避免在内存有限的情况下（&amp;lt;32GB）同时开启视觉Agent与高精度推理。&lt;/li&gt;
+&lt;li&gt;小语种（如斯瓦西里语）翻译效果欠佳，建议避免用于翻译生产环境。&lt;/li&gt;
+&lt;li&gt;Mac设备在处理超大规模代码生成时，需考虑电风扇散热限制，建议设为默认运行模式以平衡性能与噪音。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;优先选择MTP-LX量化版本，在编码任务中性能优于部分通用量化版本。&lt;/li&gt;
+&lt;li&gt;使用D-Flash/MX-Faster工具可提升解码速度，但需监控内存占用峰值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV179h56HEku</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b89c7c1ebf1ef2adeb6f8c2e849ec2b4e34ea523.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 25 Aug 2026 20:48:55 +0800</pubDate>
+    </item>
+    <item>
+      <title>从央视纪录片导演到AI内容先锋：如何用技术解构互联网流量密码</title>
+      <link>https://www.ximalaya.com/sound/1008606849</link>
+      <description>&lt;p&gt;&lt;a href="http://www.ximalaya.com/album/25534957.xml"&gt;三五环&lt;/a&gt; | &lt;a href="https://www.ximalaya.com/sound/1008606849"&gt;No.231 抽象仔：从《航拍中国》到《新鸳鸯蝴蝶梦》，重新用 AI 学习互联网表达&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当创作不再依赖昂贵的拍摄硬件，AI 时代的竞争边界从“执行力”转向了什么？&lt;/li&gt;
+&lt;li&gt;💡 为什么在“完美”审美氾滥的今天，故意制作“不美”的、具有破坏性的内容反而能获得更高的流量？&lt;/li&gt;
+&lt;li&gt;🚀 如何在商业服务的“甲方标准”与个人表达的“艺术追求”之间，构建可持续的组织生态？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 流量解构与文化对抗&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;反差即逻辑&lt;/strong&gt;: 流量的核心在于打破认知预期。将东西方文化符号（如 Kanye West 与《新鸳鸯蝴蝶梦》、三国题材）强制嫁接，产生文化错位感，是实现低成本裂变的有效手段。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;东方视角的“降维”&lt;/strong&gt;: 利用 AI 将西方流行文化符号纳入东方语境进行解构，实则是对西方文化长期占据叙事高地的一种心理对冲与反向调侃。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解构主义创作&lt;/strong&gt;: 创作本质是结构与破坏。通过对既有偶像、影视 IP 的“戏仿”与重组，赋予其新的社会属性，使作品在具备迷因（Meme）传播属性的同时，产生深刻的共情。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 商业化与组织演进&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;资产前置化&lt;/strong&gt;: 在制作初期，先建立统一的人物、场景、风格资产库，通过工业化流程提升生成效率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;混合制运营&lt;/strong&gt;: 采取“个人IP引流 + 团队承接B端业务”的双线并行模式，规避单一创作瓶颈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分权协作&lt;/strong&gt;: 对于复杂项目，将任务拆解为艺术设计、场景建模、角色造型等模块，由专人负责，避免个体创作者的创意枯竭。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;警惕“工具崇拜”：掌握再高阶的 Skill 插件也不等同于获得爆款。报款不可复制，核心在于对用户心理与社会议题的敏锐洞察。&lt;/li&gt;
+&lt;li&gt;防范“甲方偏见”：商业定制需求常带有错误洞察，需在“服务甲方”与“维持审美输出”之间设立防火墙，防止被纯粹的商业流水线磨灭创作灵性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “如果一个创作者每天都在表达善，有可能恶的那个部分就存在自己身体里。”&lt;/li&gt;
+&lt;li&gt;💬 “AI 本质上是一个放大器，你没有马良的灵魂，神笔也画不出神作。”&lt;/li&gt;
+&lt;li&gt;💬 “如果你不能忍受在互联网上做一个‘不美’的人，你就永远无法理解流量的逻辑。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.ximalaya.com/sound/1008606849</guid>
+      <enclosure url="https://fdfs.xmcdn.com/storages/bbc3-audiofreehighqps/BA/F2/GAqhT9EOY3ZaAAODXwTMgVmk.jpeg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 25 Aug 2026 15:23:18 +0800</pubDate>
+    </item>
     <item>
       <title>DeepSeek V4 Flash Vision实测：多模态Agent自主迭代的极限与边界</title>
       <link>https://www.bilibili.com/video/BV1e48v6iE9m</link>
@@ -5142,97 +5255,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=yg_ZF8pPvIE</guid>
       <enclosure url="https://i.ytimg.com/vi/yg_ZF8pPvIE/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 05 Aug 2026 18:28:46 +0800</pubDate>
-    </item>
-    <item>
-      <title>从技术底座到产品天才：Benchmark合伙人解析AI消费级浪潮与社交网络效应</title>
-      <link>https://www.youtube.com/watch?v=dlI-5W7d7uU</link>
-      <description>&lt;p&gt;&lt;a href="UCjIMtrzxYc0lblGhmOgC_CA"&gt;Every&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=dlI-5W7d7uU"&gt;Why the Next Hit AI Product Will Be Social  (Best of the Pod)&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么AI早期的赢家都是深度技术型团队，而未来的爆发可能属于“产品天才”？&lt;/li&gt;
-&lt;li&gt;💡 ChatGPT和Character.ai为什么缺乏社交基因？真正的AI多人网络效应产品会是什么样？&lt;/li&gt;
-&lt;li&gt;🚀 在AI的高估值泡沫中，顶级风投如何辨别真正的网络效应，并防范决策中的认知偏差？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 技术红利退潮与产品天才的崛起&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;技术成熟度决定创始人范式转移&lt;/strong&gt;: 在技术初期（如早期的Google和如今的OpenAI），极高的技术壁垒使得深度技术型团队成为绝对主力。随着底层基础设施、工具链的稳定与开发成本的下降，产品的核心竞争力会向交互体验与用户洞察倾斜，未来的赢家将是懂用户体验的“产品天才”。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ChatGPT是单人模式的“半成品”&lt;/strong&gt;: 现有的AI工具（如Custom GPTs）因缺乏透明度、无法建立信任，本质上依然是单人效率工具。真正的下一代消费级AI需要走向多人社交与网络效应模式，利用“状态寻求”（Status-seeking）和UGC社区来民主化AI的使用门槛。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 投资视角的战略升维与认知纠偏&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建决策复盘沙盒（Pre-mortem）&lt;/strong&gt;: 在每次投资决策前，详细记录看好与不看好的原因、估值逻辑及最终投资决策，日后通过LLM对自身思维进行交叉质询，避免认知偏差。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;验证真实的飞轮效应（Flywheel Verification）&lt;/strong&gt;: 严格过滤PPT中流于形式的虚假飞轮，验证用户或数据的增加是否切实带来了网络价值的指数级提升。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;避免因高估值错失核心潜力股&lt;/strong&gt;: 遇到真正具备无限潜力和顶尖团队的项目，估值不应成为唯一的否定性因素。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;警惕缺乏社交DNA的单点技术工具&lt;/strong&gt;: 避免将资金过度投入到功能单一、无法形成用户粘性与网络壁垒的单人产品中。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “创始人对创业不应该只把它当成一份酷炫的新工作，而应该是一种折磨、一种必须去抓挠的奇痒，这才能支撑他们撞穿所有的墙。”&lt;/li&gt;
-&lt;li&gt;💬 “最好的公司应该是‘甜甜圈公司’——你去参加董事会，吃个甜甜圈然后直接离开，因为他们根本不需要你。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=dlI-5W7d7uU</guid>
-      <enclosure url="https://i.ytimg.com/vi/dlI-5W7d7uU/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 05 Aug 2026 17:03:30 +0800</pubDate>
-    </item>
-    <item>
-      <title>太空数据中心：打破地球能源与监管限制的 AI 算力终极解法</title>
-      <link>https://www.youtube.com/watch?v=A9JDkiYEhfY</link>
-      <description>&lt;p&gt;&lt;a href="UCcefcZRL2oaA_uBNeo5UOWg"&gt;Y Combinator&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=A9JDkiYEhfY"&gt;The Case For Data Centers In Space&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么在地球上建数据中心越来越难，而将算力送上太空反而是最符合第一性原理的解法？&lt;/li&gt;
-&lt;li&gt;💡 面对零重力与高辐射，如何让一颗“娇贵”的 Nvidia H100 显卡在太空中稳定运行？&lt;/li&gt;
-&lt;li&gt;🚀 为什么硬科技创业的第一条铁律不是研发产品，而是“先订一张 SpaceX 的火箭船票”？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌌 能源与监管的双重挤压：为什么 AI 的终点在太空？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;地球物理与政治瓶颈&lt;/strong&gt;: 随着 AI 爆发，地球上的电力与能源项目建设速度已无法跟上算力需求，且面临极大的环保、水资源争议和监管红线（如纽约等地已开始限制新建数据中心）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;太空的无限能源&lt;/strong&gt;: 太空拥有近乎无限、廉价且不间断的太阳能。随着以 Starship 为代表的可重复使用火箭普及，发射成本正以 10 倍速下降，将太空数据中心的盈亏平衡点推向了现实的 $500/kg。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;规避无线输电损耗&lt;/strong&gt;: 传统的“空间太阳能发电并传输回地球”方案会在微波传输中损耗 95% 的能量。若直接在太空进行计算，仅将高价值的计算结果（数据）通过激光网络传回地球，效率将提升 20 倍。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 极限环境下的极客路线：让 H100 显卡在太空存活&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;液冷与相变材料消热&lt;/strong&gt;: 针对真空无空气对流的散热难题，StarCloud 1 采用创新的“整体浸没式相变材料”方案。在发射前夕，团队甚至使用冰水和电吹风进行手工温控循环测试，最终成功验证其可行性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;消费级芯片抗辐射&lt;/strong&gt;: 放弃动辄上千万美元的航天级定制芯片，直接使用 Brook Haven 粒子加速器对 Nvidia H100 等车规/消费级芯片进行高能质子轰击，找出位翻转（Bit Flip）的规律，通过软件算法和轻量屏蔽解决辐射问题。这使整个项目的研发成本从传统航天巨头的 1 亿美元降至 200 万美元。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)——硬科技创业倒逼法&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;锁定硬性时间节点&lt;/strong&gt;：在产品和方案还没定型、甚至不知道具体要发射什么之前，第一天就先预订最快可用的 SpaceX 共乘发射工位，用不可延期的发射时间倒逼研发效率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;梯级验证与产品化&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;第一阶段（StarCloud 1）&lt;/em&gt;：发射最简可行产品（MVP），验证消费级 GPU 在轨运行的可能性。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;第二阶段（StarCloud 2）&lt;/em&gt;：建造 10kW 级航天器，向军工和政府客户售卖低延迟、高带宽的在轨边缘计算服务。&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;第三阶段（StarCloud 3）&lt;/em&gt;：建造 200kW 级大型算力节点，通过 SpaceX 激光星链组网，向超大规模云服务商售卖商用算力。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;不要迷信早期风投反馈&lt;/strong&gt;：StarCloud 早期曾被拒绝超 100 次，因为大部分传统投资人缺乏对低成本发射时代来临的物理直觉。必须寻找有跨学科视野并看重硬核技术团队的投资人。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “任何太空公司应该做的第一件事，就是在还没想清楚要发射什么、甚至还没开始制造之前，先订下第一张能买到的火箭船票。这是一个极好的强制约束机制。”&lt;/li&gt;
-&lt;li&gt;💬 “我们可能是世界上唯一知道如果用高能质子轰击 H100、B200 芯片，它们具体会在哪里以及如何崩溃的人。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=A9JDkiYEhfY</guid>
-      <enclosure url="https://i.ytimg.com/vi/A9JDkiYEhfY/hqdefault.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 05 Aug 2026 14:00:08 +0800</pubDate>
     </item>
   </channel>
 </rss>
