@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 26 Aug 2026 22:57:39 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 08:47:42 +0000</lastBuildDate>
     <item>
       <title>从回测到实盘：量化交易中RL算法的陷阱与认知重构</title>
       <link>https://www.bilibili.com/video/BV17i8R6wEqD</link>
@@ -57,6 +57,52 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV17i8R6wEqD</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/c955dac2a875c95cf4d29b53508221a266963add.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 26 Aug 2026 23:40:31 +0800</pubDate>
+    </item>
+    <item>
+      <title>从协方差求逆到几何测地距离：OMD组合优化如何重塑量化交易的稳定性</title>
+      <link>https://www.bilibili.com/video/BV1SZ8F6tEBM</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1SZ8F6tEBM"&gt;三张矩阵能否跑赢市场&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的马科维茨均值-方差模型在处理大股票池时往往会失效？&lt;/li&gt;
+&lt;li&gt;💡 如何通过“测地距离”将拥挤交易转化为可度量的几何空间？&lt;/li&gt;
+&lt;li&gt;🚀 为什么预测“波动率排名”的可靠性远高于预测“收益率排名”？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 摒弃求逆：从预测“收益”转向预测“次序”&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;经典优化的死穴&lt;/strong&gt;: 均值方差方法（MVO）极度依赖预期收益向量和协方差矩阵。在大股票池中，协方差矩阵的估计噪声极高，且“矩阵求逆”这一数学动作会剧烈放大误差，导致信号极度不稳定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OMD的范式转移&lt;/strong&gt;: OMD Portfolio不再试图预测绝对收益，而是将市场压缩为三张固定尺寸矩阵（价格、成交量、市值），转而预测资产在横截面上的“次序（Rank）”。这种做法将连续变量的预测简化为离散状态的转移，极大地提升了信号的鲁棒性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;📐 市场几何化：将相关性转译为测地距离&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;拥挤度度量&lt;/strong&gt;: 通过对相关系数矩阵 C 逐元素计算 M = arccos(C)，将抽象的相关性映射为几何空间中的距离。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼类比&lt;/strong&gt;: 想象市场是一个球体，两只股票的相关性就像经纬度差异。完全正相关对应距离 0（重合），完全负相关对应距离 π（对跖点）。这种变换让“拥挤交易”变成了可直观比较的物理距离，有助于实现更真实的分散化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 稳健的排名转移模型与风险控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;状态定义&lt;/strong&gt;: 将 500 只股票按收益和波动率分别划分成 10 个等量档位（Deciles），以消除异常值对状态转移的干扰。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;条件转移&lt;/strong&gt;: 引入规模、Beta、流动性、动量等协变量，利用 Conditional Logit 修正下一期的排名转移概率，而非停留在无条件马尔可夫链。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;熵诊断&lt;/strong&gt;: 使用 Transfer Entropy 识别“信息领先者”，筛选出真正具有预测效力的特征（如 63 日波动率），剔除虚假的跟随特征。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交易规则&lt;/strong&gt;: 设置 &amp;quot;No-trade band&amp;quot;（不交易带），仅在预测概率发生显著偏移时调仓，将月换手率从 2.4 强行降至 0.9 以对抗交易摩擦。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 即使波动率排名可预测，也不要迷信收益率排名的直接预测。收益排名往往接近随机，需配合“市场中性袖口”和“信息领先者覆盖”来构建凸性收益。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “矩阵求逆是量化投资中最大的噪声放大器，而次序预测是对抗不确定性的利器。”&lt;/li&gt;
+&lt;li&gt;💬 “适度远离拥挤能将夏普比率推向新高，但过度追逐边缘股票反而会损失稳定性。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1SZ8F6tEBM</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/d16caf44c5d9cebf3fbdef1ca0cdd162214bcb3f.png" length="0" type="image/png"/>
+      <pubDate>Wed, 26 Aug 2026 19:00:00 +0800</pubDate>
     </item>
     <item>
       <title>国证2000小盘股动态质量轮动策略：多因子选股与风控架构全解析</title>
@@ -125,6 +171,48 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV11ohV68EJW</guid>
       <enclosure url="http://i1.hdslb.com/bfs/archive/d23ce43a731d34d2e5ba9d86a5838fce7a3f739b.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 25 Aug 2026 22:02:46 +0800</pubDate>
+    </item>
+    <item>
+      <title>基于订单流失衡的中观执行模型：从被动限价单到最优执行策略</title>
+      <link>https://www.bilibili.com/video/BV12f8F6oEf1</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV12f8F6oEf1"&gt;一次被动成交背后不是一张挂单，而是一串撤单与重挂&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统执行模型对被动限价单存在误解，将其简化为单纯的点差收益而忽略了其价格推力？&lt;/li&gt;
+&lt;li&gt;💡 在清算大额库存时，如何通过量化模型实现从“被动成交”到“最优执行路径”的精准切换？&lt;/li&gt;
+&lt;li&gt;🚀 当瞬态冲击成为常态，交易者如何通过调整报价距离（Delta）实现对成交概率与风险的最佳平衡？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 核心认知闭环&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;被动限价单的冲击属性&lt;/strong&gt;: 被动单并非仅仅赚取点差，它们通过撤单、重挂等行为直接影响市场状态，是驱动价格移动的核心动因。模型需将订单流失衡（OFI）与指数成交强度相结合，量化其被动影响。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;中观战术执行架构&lt;/strong&gt;: 论文放弃主笔队列模型，采用中观战术层视角，将执行建模为一串撤单与重挂的决策序列，通过几何分布模型计算成交概率，解决真实场景下的执行缺口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ SOP 行动指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 执行策略配置&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;测算库存压力与中间价位偏离度，定义交易目标函数。&lt;/li&gt;
+&lt;li&gt;建立瞬态冲击响应机制，引入恢复率参数，在冲击恢复时执行“暂停成交”指令以优化价格。&lt;/li&gt;
+&lt;li&gt;根据当前库存与时间余量，动态调整报价距离，库存越大越贴近中间价，临近终点通过反转策略收尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;若标的资产成交衰减率（K值）与冲击恢复率（M值）不匹配，即M≠K时，严禁直接套用简化的双对角矩阵解，否则将导致最优报价偏离目标，必须使用非线性求解工具获取报价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “被动成交的背后不是一张挂单，而是一场关于撤单、重挂与距离调整的战术博弈。”&lt;/li&gt;
+&lt;li&gt;💬 “当冲击能够恢复时，最优的动作往往是按兵不动，让价格在波动中自行回归。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV12f8F6oEf1</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/04b4379e2e5418688f32a776a5ac42ab059638d7.png" length="0" type="image/png"/>
+      <pubDate>Tue, 25 Aug 2026 19:00:00 +0800</pubDate>
     </item>
     <item>
       <title>跨平台数据获取方案：UU远程映射与Websocket中继实现</title>
@@ -4800,100 +4888,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87386</guid>
       <pubDate>Mon, 06 Jul 2026 22:04:48 +0800</pubDate>
-    </item>
-    <item>
-      <title>揭秘高频中性策略归零真相：强均值回归信号与交易成本的生死博弈</title>
-      <link>https://bbs.quantclass.cn/thread/87362</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87362"&gt;一个逻辑简单的中性策略：50%做多50%做空，亏光的真相是什么？&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[均值回归, 交易摩擦, 横截面中性, 换手率衰减]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：证明加密短周期存在强均值回归，但高摩擦吞噬夏普9.11的Alpha。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：加密市场短周期（1H）呈现极其显著的系统性均值回归效应，1H多空利差t值达-21.76，反转胜率天然偏高；而动量效应在1H至24H级别完全失效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：短周期价格受高频散户情绪与限价单薄弱流动性影响，极易产生局部超买超卖，随后迅速触发均值修复。时间周期拉长至24H后，这种微观结构噪音被消化，市场逼近随机游走。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：直接证伪了“加密货币短周期存在动量效应”的传统认知。同时证明，对于追求高频调仓的截面策略，交易成本（而非因子选币能力）才是决定生死的一等公民。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用1H级别强均值回归。买入过去1H表现最差的后50%标的，卖空表现最好的前50%标的，多空资金1:1对等。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：基于相对收益排序。数学证明：减去等权/中位数/市值加权均值等“中性化”操作不改变任何截面排名，Rank(R_i - R_mean) 等价于 Rank(R_i)。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：币安合约 1H K线，2021-01至2026-07，共5.5年，覆盖730个代币标的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：单边手续费 0.06%，1倍杠杆。1H反转策略在“零手续费”下表现极佳（年化+188.08%，夏普9.11，最大回撤-23.73%），但在“有手续费”时完全归零（年化-98.80%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：高频调仓换手率极高。1H反转策略的年化手续费摩擦拖累高达287%，彻底覆盖并击穿了188%的因子信号收益，导致策略从天堂坠入地狱。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;截面排序代码重构优化&lt;/strong&gt;：在Python实现横截面多空时，无需进行多余的减均值运算，直接使用 &lt;code&gt;df.rank(axis=1)&lt;/code&gt; 即可，以此减少非必要的向量化算力开销并简化代码。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;建立“摩擦吞噬极限”前置硬约束&lt;/strong&gt;：开发1H至4H等短周期调仓策略前，必须测算无手续费表现与手续费拖累率（换手率 * 单边费率 * 2）。若信号超额收益无法覆盖此摩擦门槛，因子应直接舍弃或进行大幅度降频。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;引入换手限制过滤器（Turnover Constraint）&lt;/strong&gt;：为保留1H均值回归的强大Alpha，不能无条件执行50/50全截面换手。需设计非对称调仓机制（例如只有当排名发生显著跨越时才触发交易），通过牺牲部分信号精度换取换手率的断崖式下跌。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87362</guid>
-      <pubDate>Mon, 06 Jul 2026 12:15:08 +0800</pubDate>
-    </item>
-    <item>
-      <title>见微知著：基于本福特定律与微观价格对子的A股逃顶指标</title>
-      <link>https://bbs.quantclass.cn/thread/87204</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87204"&gt;见微知著，A股逃顶的“密码”&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[对子顶因子、本福特定律、订单簿微观结构、情绪拥挤度]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用微观价格尾数对子分布（DTP）测度全市场高位情绪拥挤度与逃顶风险&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：A股股价在高位盘中触及特定尾数价格（如aa.bb, ab.ab等）后，频繁出现冲高回落的“对子顶”现象。全市场等权DTP指标的历史中枢（11.22%）显著高于经本福特定律修正后的自然发生概率（3.09%），表明该现象是长效且稳定的微观市场特征，而非随机噪音。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：① &lt;strong&gt;行为金融锚定&lt;/strong&gt;：投资者对整齐吉利数字有天然心理锚定与落袋偏好，引发羊群效应；② &lt;strong&gt;微观结构失衡&lt;/strong&gt;：大量网格、移动止盈条件单在漂亮价格堆积。当价格穿透密集挂单区时，上方卖盘耗竭，而下方因恐高出现流动性空洞，触发高频系统止损风控，导致自证预言式的价格局部坍缩。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：相比两融、新开户数等从“资金流入量”维度反映情绪的传统指标，DTP从投资者交易决策“行为同质化”（即在同等价位集体下车）的微观维度，更灵敏地捕捉了市场局部的极度拥挤与脆弱性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：统计全市场在特定交易日内，有多少比例的股票在盘中触及对子价格形态后出现冲高回落，以此作为市场过热与见顶的中期（1-2周）脆弱性探测指标。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;定义价格拆解：$p(i,t) = \text{round}(100 \times P(i,t))$。整数尾 $u = \lfloor p/100 \rfloor \pmod{100}$，小数尾 $d = p \pmod{100}$。&lt;/li&gt;
-&lt;li&gt;模式判定：$I_{\text{high}}(i,t) = 1$ 若 $f(High(i,t)) \in {aa.bb, ab.ab, ab.ba, aa.aa, *.bb}$。&lt;/li&gt;
-&lt;li&gt;回落确认：$I_{\text{top}}(i,t) = 1$ 若 $I_{\text{high}}(i,t) = 1$ 且 $Close(i,t) &amp;lt; High(i,t)$。&lt;/li&gt;
-&lt;li&gt;等权DTP计算：$DTP_t = \frac{1}{N_t} \sum I_{\text{top}}(i,t)$，并计算5日均值 $MA5(DTP)_t$。&lt;/li&gt;
-&lt;li&gt;标准化SDTP：按价格档位分箱计算，消除低价股自然偏向。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：采用日线OHLC复权价格，剔除停牌、ST、上市未满60日新股。实盘中形态识别建议采用不复权价格（对应盘口真实展现价格），收益计算使用复权价。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;样本区间2007-2026年（4737个交易日）。&lt;/li&gt;
-&lt;li&gt;按DTP五分组，低DTP组（Q1）后续10日平均收益（+1.47%）显著优于高DTP组（Q5，-1.85%），多空收益差 $\Delta_{10} = 3.32%$。&lt;/li&gt;
-&lt;li&gt;当 $DTP \ge 15%$ 时，未来10日平均收益 -4.06%，胜率仅35.14%，具有高度显著的中期下行预测能力（回归斜率 $\beta = -0.497$, t-stat = -5.00）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：该因子在1日维度不显著（t-stat -0.41），表明其非即时隔夜择时信号，而是一至两周的中期风险警示器。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点与优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;背离量化与风格判定&lt;/strong&gt;：引入市值/成交额加权DTP（$VW-DTP$）。当等权DTP高而VW-DTP低时，代表游资小票高位作妖；当等权DTP低而VW-DTP高时，代表机构核心抱团股筹码松动，杀伤力更强。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【系统设计】&lt;/strong&gt;：构建基于Python脚本的高频因子计算后台 + 基于HTML的前端可视化热力图，实现多维度穿透（由日期穿透至个股明细、由行业标签穿透至行业DTP历史曲线）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建风险熔断器&lt;/strong&gt;：将DTP及行业SDTP接入量化风控模块。全市场 $DTP \ge 15%$ 或核心赛道行业（如电子、通信）$DTP \ge$ 历史95%分位数时，强制下调投资组合整体仓位Beta暴露。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多空配对呼吸模型&lt;/strong&gt;：引入“对子底（DTB）”因子。高DTP+低DTB组合时维持谨慎做多强势股；DTP回落且DTB抬升时，确认为高位资金向低位恐慌盘转移，此时应彻底切换为防御或套利模式。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;风格切换因子&lt;/strong&gt;：计算 $Spread = DTP - VW_DTP$，作为大小盘风格切换的领先指标，用于动态调整多因子组合中的市值暴露。&lt;/li&gt;
-&lt;/ol&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87204</guid>
-      <pubDate>Sun, 05 Jul 2026 21:56:44 +0800</pubDate>
     </item>
   </channel>
 </rss>
