@@ -7,7 +7,52 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 27 Aug 2026 22:50:53 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 08:51:07 +0000</lastBuildDate>
+    <item>
+      <title>机器学习赋能：利用残差回归破译基本面选股的估值陷阱</title>
+      <link>https://www.bilibili.com/video/BV1Nn4o6gE8B</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Nn4o6gE8B"&gt;用机器学习做QMT量化选股：让AI从4500只股票里帮你找便宜货&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的“低PE选股”在复杂市场中往往失效，甚至会让我们陷入价值陷阱？&lt;/li&gt;
+&lt;li&gt;💡 如果让机器不再学习“买什么”，而是学习“该值多少钱”，投资逻辑会发生怎样的降维打击？&lt;/li&gt;
+&lt;li&gt;🚀 如何通过数学上的“残差”捕捉市场定价错误，并建立一套零人为干预的自动化选股流程？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 破局核心：从人工规则进化到机器学习回归&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;人工选股的死穴&lt;/strong&gt;: 人脑处理因子维度有限（通常仅2-3个），且规则一旦固定极易在市场风格轮动中失效。手动调权主观性太强，效率极低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器学习的逻辑重构&lt;/strong&gt;: 核心思路不再是寻找“好股票”，而是寻找“被错估的股票”。利用模型学习几千家公司历史财务特征（盈利、估值、杠杆、成长）与市值之间的复杂非线性关系。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;残差选股法 (Residual Alpha)&lt;/strong&gt;: 模型预测一个基于基本面该有的“合理市值”，如果实际市值远低于预测市值（残差为负且极小），则该标的极具低估修复潜力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化实操手册 (SOP)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数据预处理&lt;/strong&gt;: 必须执行 MAD 去极值（中位数绝对离差）与 Z-score 标准化，消除不同财务量纲之间的干扰并剔除财报噪音。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建训练截面&lt;/strong&gt;: 采用“滚动训练”模式（如取过去 4 个季度截面），严防未来函数，确保回测与实盘逻辑一致。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型训练与预测&lt;/strong&gt;: 调用 SVR（支持向量回归）或线性回归拟合对数市值，计算全市场股票的残差值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定期滚动调仓&lt;/strong&gt;: 设置 refresh_rate（如 30 交易日），强制模型每隔一段时间重学市场规律并更新持仓名单。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;残差不收敛风险&lt;/strong&gt;: 被低估的股票可能因为商业模式被淘汰或财务造假而“长期低估”，模型无法识别基本面之外的硬伤。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;财报滞后性&lt;/strong&gt;: 模型使用的财报数据天然存在 4-5 个月的信息延迟，市场价格可能已先行消化预期。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “机器学习并不等同于深度学习。在金融量化领域，简单稳健的模型往往更能经受住市场信噪比低的考验。”&lt;/li&gt;
+&lt;li&gt;💬 “残差选股法的本质，是利用机器的计算力去大规模扫描那些被市场暂时遗忘、且财务逻辑支撑不了其极低价格的标的。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Nn4o6gE8B</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/dabb8d4485e466e566f667dae33cb5f5f07a550e.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 27 Aug 2026 21:53:27 +0800</pubDate>
+    </item>
     <item>
       <title>从回测到实盘：量化交易中RL算法的陷阱与认知重构</title>
       <link>https://www.bilibili.com/video/BV17i8R6wEqD</link>
@@ -4848,46 +4893,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87446</guid>
       <pubDate>Tue, 07 Jul 2026 20:16:56 +0800</pubDate>
-    </item>
-    <item>
-      <title>量化初学者的策略复现与实战：深度拆解孙悟空做空因子与广度闸门控制</title>
-      <link>https://bbs.quantclass.cn/thread/87386</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87386"&gt;新人第一帖: 复现和初步理解B圈新讲的一个空头策略&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[做空策略、破位广度因子、回测细节对齐、实战复盘]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过复现做空因子，验证广度闸门对控制极端行情下爆仓风险的关键作用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：利用币价相对于近期最高成交均价的回落幅度（&amp;gt;$20$%）作为入场信号，并引入“破位广度”闸门，仅在市场整体处于低波动回落阶段（&amp;lt;3%币种触发条件）时入场，以规避情绪化暴涨引发的强制平仓。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：$Factor = \frac{AvgPrice}{Peak} - 1.0$。通过破位广度（$Breadth &amp;lt; 0.03$）进行门控（Gate），当广度超过阈值时强制屏蔽入场信号。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：持仓周期对结果影响显著，24H持仓优于48H，延长持仓虽可能捕捉跌势，但在极端单边反转行情（如LUNA）中会导致回撤急剧扩大。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略依赖于小样本市场行情。随资金量增加，可能引发做多反向力量触发爆仓；不同时间偏移（Offset）下的表现分化暗示策略稳健性存在改进空间。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 ：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：复现过程中的收益对齐问题，核心在于回测逻辑与数据清洗细节的微小差异。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;利用&lt;code&gt;pandas.rolling&lt;/code&gt;计算周期最高价，通过&lt;code&gt;groupby('candle_begin_time')&lt;/code&gt;结合&lt;code&gt;transform('mean')&lt;/code&gt;向量化计算市场整体破位广度，替代低效的循环计算。&lt;/li&gt;
-&lt;li&gt;严格区分入场离场逻辑：使用特定的持仓时间上限（24H）与特定条件触发（反转20%）的结合来处理离场信号，修复了因逻辑对齐不准确导致的性能偏差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：在处理回测时，&lt;code&gt;min_periods=1&lt;/code&gt;的窗口处理与实际行情卖出条件（如下降20%）的匹配直接决定了最终累计收益的量级（70倍 vs 120倍）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;优化因子监控：构建实时的破位广度监控指标，作为所有反转类策略的入场阈值控制（Gate）。&lt;/li&gt;
-&lt;li&gt;细化离场机制：研究持仓时间与反转幅度阈值的动态平衡，特别是在极端反弹行情下的止损响应逻辑。&lt;/li&gt;
-&lt;li&gt;复现一致性验证：针对不同Offset进行敏感性测试，分析回测对齐度低的原因是否由特定币种的极端波动（Black Swan）导致，评估策略在非典型行情下的鲁棒性。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87386</guid>
-      <pubDate>Mon, 06 Jul 2026 22:04:48 +0800</pubDate>
     </item>
   </channel>
 </rss>
