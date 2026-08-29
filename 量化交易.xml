@@ -7,7 +7,115 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 28 Aug 2026 08:51:07 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 08:54:26 +0000</lastBuildDate>
+    <item>
+      <title>AI能自主做交易了吗？拆解金融智能体的底层架构、回测幻觉与真实应用</title>
+      <link>https://www.bilibili.com/video/BV1xG4r68EPi</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/503415601"&gt;独角量化妹&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1xG4r68EPi"&gt;【研究】AI Agent真的能做交易吗？从BloombergGPT到交易智能体&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么通用大模型在金融专业任务上的表现，往往能击败专门微调的金融大模型？&lt;/li&gt;
+&lt;li&gt;💡 在设计一个交易智能体（Trading Agent）时，决定其表现的是底层模型的先进度，还是智能体的架构设计？&lt;/li&gt;
+&lt;li&gt;🚀 为什么目前宣称“高收益、零回撤”的AI交易智能体回测结果，绝大多数都存在欺骗性？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知解构：金融AI的底层逻辑与架构之争&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;通用推理能力决定金融AI的上限&lt;/strong&gt;: 金融任务的本质不仅是记忆专业知识，更需要强大的推理、检索和跨文本分析能力。这解释了为何GPT-4在多项专业金融评测中超越了百亿参数的BloombergGPT。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;架构重于模型&lt;/strong&gt;: 实验表明，在架构不变的情况下更换不同的模型，交易结果的偏差非常小；而一旦改变架构，即使使用相同模型，表现也会产生剧烈波动。优秀的架构（如多角色辩论、记忆过滤器）是保障交易智能体稳定性的根基。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;主动探索优于被动堆砌&lt;/strong&gt;: 优秀的分析智能体（如Claude）懂得根据搜索工具反馈的结果不断调整后续探索方向，形成行动闭环；而低效的智能体只会盲目调用工具，导致冗余信息污染决策。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 交易智能体设计的架构范式与实操边界&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP) —— 交易智能体架构设计四步法&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;明确组织模式&lt;/strong&gt;：选择层级汇报、线性流水线，或多智能体辩论模式（如看多与看空研究员互相辩论）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;设计协同决策&lt;/strong&gt;：引入“投票”或“辩论”机制。需注意，在金融市场中，非共识（特立独行）的观点往往比一致性同意更有价值。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建分级记忆系统&lt;/strong&gt;：设置短、中、长期记忆，依据新近度、相关度和重要性进行过滤和更新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;平衡工具权限&lt;/strong&gt;：严控API调用频率，避免无序搜索引入噪声，增加延迟与Token成本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南 —— 警惕回测中的“未来函数”与虚假繁荣&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;前瞻偏差（Look-ahead Bias）&lt;/strong&gt;：大模型已被动学习了历史数据，极易在回测中引入“未来函数”（如提前得知尚未公布的Q4财报）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测区间过短&lt;/strong&gt;：当前多数学术回测周期极短，无法经历牛熊转换或制度变迁（Regime Shift），具有极高过拟合风险。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;忽略摩擦成本&lt;/strong&gt;：未计算手续费、滑点及市场冲击成本的回测曲线毫无实盘参考价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 现实映射：顶级资管机构如何使用AI&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;人脑输出Alpha，AI负责工程实现&lt;/strong&gt;: 以Man AHL（英仕曼集团）为例，研究员并不依靠AI提供自主决策，而是将AI嵌入工作流（如自动化报告生成、数据接口调用和策略回测框架的搭建）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;谨防注意力稀释&lt;/strong&gt;: 给AI的数据和文档并非越多越好。冗余的数据会导致AI“抓不住重点”，造成严重的算力与效果双重流失。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “金融知识更加专业，并不代表金融专用的模型就一定更强。真正限制表现的，是模型的通用推理能力。”&lt;/li&gt;
+&lt;li&gt;💬 “一旦架构确认，选择不一样的模型不会让结果相差非常多。架构才是确保交易智能体稳定性的核心。”&lt;/li&gt;
+&lt;li&gt;💬 “当前这种直接把市场数据丢给大模型、人完全不贡献Alpha的‘不动脑子’交易智能体，离实盘依然非常遥远。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1xG4r68EPi</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/d21cece14fed4e2163d01db91995cc7e43787b3c.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sat, 29 Aug 2026 06:52:22 +0800</pubDate>
+    </item>
+    <item>
+      <title>Alpha Gen：基于强化学习与序列生成逻辑的自动化因子挖掘范式</title>
+      <link>https://www.bilibili.com/video/BV1XEtN6kEaq</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1XEtN6kEaq"&gt;AlphaGen：RL生成Alpha表达式&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Alpha Gen - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：将金融因子挖掘重新定义为类似于大语言模型的序列生成任务，利用强化学习(RL)实现端到端的因子自动化构建与性能评估。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：历史市场行情数据、变量操作数、算子库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：结构化、逻辑清晰、可解释的Alpha表达式（逆波兰表示法）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;RPN (逆波兰表示法)&lt;/strong&gt;：一种无需括号的表达式表示方式，通过后缀形式简化机器生成逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PPO (近端策略优化)&lt;/strong&gt;：用于在因子挖掘中实现稳定训练的算法，防止策略模型在优化过程中崩溃。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mask机制&lt;/strong&gt;：通过在生成步骤中屏蔽非法算子，确保输出因子符合语法规则。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景：Alpha因子自动化挖掘流程&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：摆脱人工经验依赖，实现因子空间的高效自动搜索与高质量表达式生成。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：配置好的Python开发环境、高质量历史行情数据库、回测引擎。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;环境封装&lt;/strong&gt;：创建统一RL环境，集成生成器(Generator)、回测引擎(Evaluator)及奖励反馈机制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动作空间定义&lt;/strong&gt;：确定离散动作集合（算子+操作数），利用Mask机制过滤语法非法操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态空间输入&lt;/strong&gt;：构建状态向量，融合历史已生成token轨迹(HT)与实时市场上下文(CT)。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;生成与评估&lt;/strong&gt;：调用策略网络生成token序列，在回测引擎执行并获取奖励信号（基于IC、ICIR、多空收益、换手率的加权组合）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型优化&lt;/strong&gt;：应用PPO算法，利用GAE(广义优势估计)计算优势函数，更新策略网络参数。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Reward Function&lt;/strong&gt;：综合考量收益（performance）与因子多样性（diversity），通过权重系数alpha平衡各指标。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decoding Strategy&lt;/strong&gt;：参考大模型解码策略，通过控制Temperature、top-k、top-p参数调节因子探索的随机性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;警惕回测过拟合：仅使用历史表现好的因子易导致实盘失效。&lt;/li&gt;
+&lt;li&gt;严防未来函数：确保训练数据与回测逻辑的纯净性。&lt;/li&gt;
+&lt;li&gt;关注因子拥挤度：实时监控相似因子的使用率，预防超额收益被迅速套利。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：务必进行严格的样本外数据验证，这是确保挖掘出的Alpha表达式具备实战价值的唯一基准。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1XEtN6kEaq</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/724cfd68d8edf075a906601b8b0170f5d538ad34.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Fri, 28 Aug 2026 22:24:41 +0800</pubDate>
+    </item>
     <item>
       <title>机器学习赋能：利用残差回归破译基本面选股的估值陷阱</title>
       <link>https://www.bilibili.com/video/BV1Nn4o6gE8B</link>
@@ -4814,85 +4922,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87484</guid>
       <pubDate>Wed, 08 Jul 2026 09:40:04 +0800</pubDate>
-    </item>
-    <item>
-      <title>穿越25%回撤的量化生存：从路径可控性到九宫格市场的逻辑重构</title>
-      <link>https://www.xiaoyuzhoufm.com/episode/6a4d0a763fb7233cbf454bfc?utm_source=rss</link>
-      <description>&lt;p&gt;&lt;a href="https://feed.xyzfm.space/jgqnv6dwllut"&gt;满仓以后&lt;/a&gt; | &lt;a href="https://www.xiaoyuzhoufm.com/episode/6a4d0a763fb7233cbf454bfc?utm_source=rss"&gt;Vol.104 坏消息，回撤了25%；好消息，赚钱了！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 面对高达25%的极限回撤，为何敢于重仓加码而非“割肉”离场？&lt;/li&gt;
-&lt;li&gt;💡 价值投资博弈“终局”，量化投资博弈“路径”，两者在确定性上有何本质边界？&lt;/li&gt;
-&lt;li&gt;🚀 如何通过将市场模型从“四象限”升级为“九宫格”，精准剥离策略中的过拟合噪音？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 投资哲学的底层差异：终局思维 vs. 路径预测&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;路径的可预见性&lt;/strong&gt;: 价值投资侧重于对公司未来终局的确定性信心，往往无法预判中途的波折路径。而量化投资的核心在于利用统计学大数定律，将时间维度转化为可预期的“形状分布”（如胜率、盈亏比和波动范围），从而实现投资路径的可控性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;证伪的明确性&lt;/strong&gt;: 相比于价值投资难以界定“价值洼地”还是“价值陷阱”，量化策略具备更清晰的防御边界。一旦回撤幅度远远超出历史统计边界，即可通过结果正面质疑策略的系统性Edge是否失效，具备更强的“名牌”属性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 策略优化的去伪存真：从过度拟合到逻辑稳健&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;降低系统自由度&lt;/strong&gt;: 减少策略参数数量（如从5个减至3个），增加不同市值池（300/500/1000）的共用参数，防止策略通过“背诵”历史标准答案来过拟合。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态再平衡 (Rebalance)&lt;/strong&gt;: 基于对路径形状的预判，在盈利达到阈值时抽离利润，并在净值回撤至历史极值区间（如20%-25%）时进行加仓，以稀释成本并提升绝对收益。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;九宫格过滤机制&lt;/strong&gt;: 将市场划分为“九宫格”（牛/熊/震荡 × 高/低/常规波动），重点屏蔽“牛市长波”等噪音极高、信号区分度极低的低期望象限。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 警惕“史上雕花”式的优化。过度追求回测年化收益率往往会导致交易比数锐减，丧失统计学上的鲁棒性，最终在实盘中付出真金白银的代价。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “量化的优势之一就在于他把无法预测的一个时间变为了一个有形状的分布。”&lt;/li&gt;
-&lt;li&gt;💬 “真正最诛心的那一段下跌，是专挑你认为你要回本的时候来的，这才是最折磨人的。”&lt;/li&gt;
-&lt;li&gt;💬 “我信的从来就不是表面的那一根净值曲线的波折，我信的是这个策略的基本面。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.xiaoyuzhoufm.com/episode/6a4d0a763fb7233cbf454bfc?utm_source=rss</guid>
-      <enclosure url="https://image.xyzcdn.net/Fkh0Au0L2wkDo6y8jWym35QvTZFW.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 07 Jul 2026 23:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从一刀切拉黑到做空分流：币安下架币事件驱动策略与实盘落地指南</title>
-      <link>https://bbs.quantclass.cn/thread/87446</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87446"&gt;【S4牛马交付汇总贴】币安下架币做空策略：从研究到实盘的全链路&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[下架事件做空, 实盘框架魔改, 分流机制, 事件驱动Alpha]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：通过魔改实盘框架将下架币拉黑机制转化为做空事件分流，捕获高确定性负超额Alpha。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：全历史285个有效下架事件中，78%录得负收益，均值达-19.58%（现货达-26.27%），中位成交量放大12倍。此外，市值越低、公告前跌幅越大的币种，公告后跌幅更深。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：下架公告作为极其确定性的负面基本面信号，引发持仓资金强平与散户恐慌性踩踏，在流动性骤减下产生单边暴跌。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：捕获交易所下架公告发布后的确定性大跌窗口（负超额Alpha），搭配EventSignal因子与风控过滤构建「悟空」策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：需针对分钟偏移进行测试，以评估公告发布后不同延迟时间下单的收益衰减与滑点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：策略不宜单独裸跑，建议在整体投资组合中分配~5%的低权重，并与其他空头策略组合以平滑波动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：标准仓管框架为规避风险，通常会将即将下架的币种一刀切拉黑，导致白白流失做空Alpha。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：魔改实盘框架（如 &lt;code&gt;delist2.py&lt;/code&gt;），设计「分流机制」与Delist开关。现货下架币维持原有拉黑逻辑，而合约下架币则被分流送入做空事件池进行交易。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实盘框架重构&lt;/strong&gt;：修改现有风控或仓管模块，将硬编码的“下架拉黑”机制重构为“分流路由器”，允许合约币在下架公示期内进入空头交易候选池。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;分钟偏移测试&lt;/strong&gt;：回测不同延迟（如1分钟、5分钟、15分钟）下的执行效果，确定最优的信号响应窗口。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;组合权重集成&lt;/strong&gt;：将此事件驱动策略作为子策略接入，限制分配权重在5%以内，防范黑天鹅事件带来的极端反抽风险。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87446</guid>
-      <pubDate>Tue, 07 Jul 2026 20:16:56 +0800</pubDate>
     </item>
   </channel>
 </rss>
