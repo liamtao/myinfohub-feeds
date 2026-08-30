@@ -7,7 +7,99 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 30 Aug 2026 08:41:24 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2026 22:52:12 +0000</lastBuildDate>
+    <item>
+      <title>在线学习的理论巅峰：FTRL算法从数学推导到工程部署的全维解构</title>
+      <link>https://www.bilibili.com/video/BV1PhtW67Eoi</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1PhtW67Eoi"&gt;在线组合选择FTRL算法，不依赖未来分布假设的在线学习组合&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 在完全未知的未来分布中，算法如何实现“事后聪明”的累计遗憾最小化？&lt;/li&gt;
+&lt;li&gt;💡 为什么简单的“跟随领导者”策略会失效，而引入“正则画像”能达成理论最优？&lt;/li&gt;
+&lt;li&gt;🚀 FTRL 如何在毫秒级响应的工业场景中，兼顾数学严谨性与超大规模系统的稳定性？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 核心逻辑：打破未来不可知论的“遗憾最小化”框架&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;累积遗憾 (Regret) 的本质&lt;/strong&gt;: 在线学习不追求单次的绝对正确，其核心目标是最小化“算法实际总损失”与“事后最佳单一专家总损失”之差。FTRL 证明了即便没有任何先验知识，遗憾界仍能达到理论极限的 O(sqrt(T))。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;正则化的稳定性锚点&lt;/strong&gt;: 不同于梯度下降仅依赖当前步，FTRL 最小化“历史总损失 + 强凸正则项”。正则项（如 L2 范数或负熵）充当了决策的“稳定器”，防止模型因单次异常数据产生剧烈震荡。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对抗环境下的鲁棒性&lt;/strong&gt;: FTRL 展现出远超传统贝叶斯或 ERM 方法的优势，它不对数据分布做独立同分布 (IID) 假设，能从容应对极其复杂的“适应性对手”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 工业级落地范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;算法选型&lt;/strong&gt;: 针对高维稀疏特征（如广告点击率预测），优先采用 FTRL-Proximal 变体，通过引入 L1 范数实现模型的结构化稀疏解。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;参数动态对齐&lt;/strong&gt;: 必须将正则化强度 lambda 与时间步 T 的平方根挂钩，以确保遗憾界收敛至最优速率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;实时部署监控&lt;/strong&gt;: 建立流式更新机制，实时追踪累计遗憾的增长率，并配套分布偏移（Distribution Shift）的预警系统。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 严禁在非平稳环境中使用固定步长的在线更新；避免在未处理特征稀疏性时使用标准 OGD 算法，以免造成内存与计算冗余。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “FTRL 的强大之处在于：它对任意适应性对手保持一致的理论保障，无论数据生成过程多么具有对抗性。”&lt;/li&gt;
+&lt;li&gt;💬 “正则画像不仅是防止过拟合的工具，它是连接算法稳定性与 O(sqrt(T)) 理论极限的数学桥梁。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1PhtW67Eoi</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/33e397ea79b3f3f2c9d2169b904c02b71a08a6ea.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 30 Aug 2026 22:43:37 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代个体创业新范式：从代码工程向独特判断力与分发优势的跃迁</title>
+      <link>https://www.youtube.com/watch?v=JAh8Wv1lQrw</link>
+      <description>&lt;p&gt;&lt;a href="UCnpBg7yqNauHtlNSpOl5-cg"&gt;Peter Yang&lt;/a&gt; | &lt;a href="https://www.youtube.com/watch?v=JAh8Wv1lQrw"&gt;How Non-Coders Are Vibe Coding $100K+ Businesses with AI | Amol Jain&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 当编写代码的成本趋于零时，用户支付溢价的底层逻辑到底发生了怎样的位移？&lt;/li&gt;
+&lt;li&gt;💡 为什么非技术背景的领域专家（如护士、珠宝商）在AI时代比纯程序员更具商业爆发力？&lt;/li&gt;
+&lt;li&gt;🚀 面对昂贵的标准化 SaaS，企业为何开始转向“自建定制化工具”的内卷式降本？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 商业价值重构：代码廉价化后的护城河转移&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;技术平民化带来的“直觉红利”&lt;/strong&gt;: 软件正在从一种“稀缺资源”转变为一种“表达媒介”。当代码获取成本极低时，商业成功的核心变量从“如何构建”转向了“构建什么”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;价值锚点位移&lt;/strong&gt;: 现代应用的竞争力不再取决于功能堆砌，而取决于&lt;strong&gt;独特专业知识（Expertise）&lt;/strong&gt;、&lt;strong&gt;独特的判断力或品味（Judgment/Taste）&lt;/strong&gt;、&lt;strong&gt;信任与安全保障（Security）&lt;/strong&gt;以及&lt;strong&gt;分发渠道（Distribution）&lt;/strong&gt;。这构成了产品与用户连接的“最后十里”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 SaaS 的“去中心化”：企业内部工具的革命&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;从“订阅制买办”到“原生化构建”&lt;/strong&gt;: 企业正在通过 AI 批量替换昂贵的 SaaS 服务（如 Demo 展示工具、数据分析平台）。这种趋势不仅是为了节省数十万美金的订阅费，更是为了追求&lt;strong&gt;极致的业务适配性&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;10x 组织的定义重构&lt;/strong&gt;: 未来的 10x 人才不再是单纯的高产代码机器，而是能够通过构建工具为整个团队创造“杠杆”的业务专家。他们不依赖第三方路线图，而是根据内部痛点实时迭代软件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 盈利性 AI 应用的开发范式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;锚定独特优势&lt;/strong&gt;: 识别你手中不可被模型轻易替代的资产，如特定的行业社区、独特的专业判断流程或私域分发网络。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;快速“体感编码” (Vibe Coding)&lt;/strong&gt;: 利用 Replit 等工具在 3 天内完成从构思到端到端产品的交付，而非陷入长周期的外包或架构开发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;强制安全与增长注入&lt;/strong&gt;: 运行安全扫描代理以防御非确定性风险，同时利用 SEO 代理优化答案引擎（如 ChatGPT/Perplexity）的可搜索性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;极简货币化&lt;/strong&gt;: 放弃复杂的支付架构，直接接入自动化支付网关，从第一天开始验证用户的付费意愿。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 模型无关性：应用层的战略自主权&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;模型即商品 (Commodity)&lt;/strong&gt;: 随着模型能力的拉平，将业务绑定在单一模型（如 OpenAI 或 Anthropic）上是高风险行为。应用层公司的核心资产是其&lt;strong&gt;封装能力&lt;/strong&gt;和&lt;strong&gt;用户上下文&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态路由与成本优化&lt;/strong&gt;: 针对不同任务调用不同模型（如复杂规划用顶尖闭源模型，特征实现用廉价开源模型），这种“模型无关”的编排能力将成为未来应用的标准配置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “如果代码的成本归零，你付的是什么费？是他们拥有的独特专业知识，是独特的判断力或品味，是安全感，是分发。”&lt;/li&gt;
+&lt;li&gt;💬 “1x 的人只是在做核心工作，2x 的人通过工具提升个人效率，而 10x 的人是构建一个能让整个团队或公司使用的工具。”&lt;/li&gt;
+&lt;li&gt;💬 “用户本质上是懒惰的，并非所有人都有创业精神去亲手构建一切，只要你提供价值，他们就愿意付费。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.youtube.com/watch?v=JAh8Wv1lQrw</guid>
+      <enclosure url="https://i.ytimg.com/vi/JAh8Wv1lQrw/hqdefault.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Sun, 30 Aug 2026 13:00:17 +0800</pubDate>
+    </item>
     <item>
       <title>700%暴增背后的亏损黑洞：拆解AI独角兽MiniMax的冷酷商业算账逻辑</title>
       <link>https://www.bilibili.com/video/BV1TQtP6wESc</link>
@@ -5074,106 +5166,6 @@
       <guid isPermaLink="true">https://www.youtube.com/watch?v=-RXD4bTuFTo</guid>
       <enclosure url="https://i.ytimg.com/vi/-RXD4bTuFTo/hqdefault.jpg" length="0" type="image/jpeg"/>
       <pubDate>Tue, 11 Aug 2026 16:45:37 +0800</pubDate>
-    </item>
-    <item>
-      <title>穿透算法幻觉：AI军备竞赛已步入残酷的物理重工业战争时代</title>
-      <link>https://www.bilibili.com/video/BV18Qu16qE7K</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/1646212867"&gt;研报平权&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18Qu16qE7K"&gt;SpaceX与AMD大举推进算力部署，亚太供应链迎来重估&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 为什么一家要把人类送上火星的火箭公司，现在最赚钱的业务变成了向科技巨头出租AI超级电脑？&lt;/li&gt;
-&lt;li&gt;💡 在动辄数百亿美元的AI基建狂热中，为什么高达300亿的自由现金流赤字却被视为理性的商业豪赌？&lt;/li&gt;
-&lt;li&gt;🚀 当算力壁垒从“算法模型”降维到“电力、液冷与先进封装”时，真正的技术主权究竟掌握在谁手里？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 算力印钞机：SpaceX从太空霸主到“超级计算地主”的跃迁&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;商业模式的实用主义颠覆&lt;/strong&gt;: SpaceX第二季度营收环比大增42%至78亿美元，最具爆发力的引擎非火箭发射，而是向Google和Anthropic出租AI超级电脑，AI板块销售额飙升至25.6亿美元（环比暴增213%）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;算力密度极限&lt;/strong&gt;: 计划将算力容量从2025Q2的400兆瓦（MW）狂飙至2027年底的十吉瓦（GW）级别（相当于数个核电站满负荷功率）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;极致的ROI投资逻辑&lt;/strong&gt;: 每一吉瓦算力预计产生300亿至500亿美元商业收益，回本周期被压缩至惊人的1年。极高周转率支撑了物理极限的无上限扩张。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 资本与现金流的血腥剪刀差：用今天的“失血”换取明天的绝对垄断&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;失血式扩张的本质&lt;/strong&gt;: 2026Q2 SpaceX资本支出高达184亿美元，导致自由现金流（FCF）为负300亿美元。尽管账面拥有千亿现金，但业务赚取的所有流体资金已全数砸入基建。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;产能的排他性掠夺&lt;/strong&gt;: 独家采用英伟达定制版RUBIN ENVIL72机架，明年计划采购3万个，直接吃掉全球顶级算力产能的1/3。这非单纯的采购，而是通过资金壁垒锁死对手的硬件供应渠道，形成物理时间差。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 优等生的生存悖论：AMD为何面临“AI暴涨、股价暴跌”的戴维斯双杀？&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;结构性分化的硬伤&lt;/strong&gt;: AMD第二季度营收和数据中心业务（暴增107%）均超预期，但由于PC与游戏主机业务（暴跌31%）的逆风，利润空间被高企的内存成本与旧周期业务巨额亏损吞噬。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;转折点的观测指标&lt;/strong&gt;: 2026年第三季度末MI450 Helios系统的出货是决定其能否打破英伟达垄断、重塑AI纯粹估值的最核心物理观测节点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 亚洲“卖水人”的黄金时代：物理制造才是AI算力落地的铁幕&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;系统级集成的极高壁垒&lt;/strong&gt;: 伟创等代工厂提供的L10级机架组装不再是组装螺丝，而是涉及极端发热下的复杂液冷管道系统、大电流配电网络、高速盲插对接等高技术门槛。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;3D堆叠与先进封装的物理极限&lt;/strong&gt;: 摩尔定律逼近极限，芯片制造从“平房”向“高楼”（台积电CoWoS等3D封装）演进，日月光等封测巨头高端封装业务营收预计翻倍；而动辄数万美元的模块报废风险，让智茂电子等系统级测试（SLT）供应商成为产能变现的关键守门人。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “AI领域的战争，早就不是软件代码的较量了，它现在是一场极其残酷的对电力和刚需物理资源的圈地运动。”&lt;/li&gt;
-&lt;li&gt;💬 “这好比一家航空公司突然宣布不卖机票了，而是去开租超级电脑的巨型网吧。只要回本够快，只要电力跟得上，这种扩张在商业逻辑上就没有上限。”&lt;/li&gt;
-&lt;li&gt;💬 “科技行业的创造版图可能被彻底改写：未来AI壁垒不再由写出精妙算法的天才决定，而是变成纯粹的垄断游戏——看谁能垄断最多的电力和物理机架。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV18Qu16qE7K</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/b1f089c5deb928e0924975d502f5679db245f87e.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 11 Aug 2026 07:11:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI时代的B端落地账本：如何让Agent真正交付业务结果</title>
-      <link>https://www.sv101.net/261</link>
-      <description>&lt;p&gt;&lt;a href="https://feeds.fireside.fm/sv101/rss"&gt;硅谷101&lt;/a&gt; | &lt;a href="https://www.sv101.net/261"&gt;E248｜一个“催发货”AI要跑通260步，和阿里瓴羊朋新宇聊聊中国式FDE&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 同样是派人驻场，为什么AI时代的FDE（前沿部署工程师）溢价远超传统IT运维？&lt;/li&gt;
-&lt;li&gt;💡 在企业服务的账本里，AI Agent的落地为什么必须从“交付功能”转向“交付业务效果”？&lt;/li&gt;
-&lt;li&gt;🚀 面对B端市场地基不稳的现状，企业如何通过“标准化Agent + 个性化数据”重塑竞争力？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 FDE的溢价本质：从“系统维稳”到“业务干预”的范式跃迁&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;运维与FDE的底层逻辑差异&lt;/strong&gt;: 传统运维的本质是守护存量，保证系统运行健康但不直接创造增量；而FDE则是通过AI、行业与数据能力的交织，主动调整策略、进行业务干预以直接交付业务增量。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稀缺性的三维模型&lt;/strong&gt;: 一个合格的FDE必须具备 &lt;strong&gt;AI的锐度&lt;/strong&gt;（理解最新模型边界）、&lt;strong&gt;行业的深度&lt;/strong&gt;（深谙行业痛点）与 &lt;strong&gt;数据的宽度&lt;/strong&gt;（整理企业数据资产），其本质是用高溢价换取企业转型的时间窗口。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;费曼类比&lt;/strong&gt;: 传统运维如同“大楼保安”，职责是维持秩序、排除隐患；而FDE则是“商业顾问兼特种护卫”，不仅防范风险，更要帮雇主看清路线、达成商利，直接对业务结果好坏负责。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ 企业Agent落地的“多快好省”变革&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;核心痛点与场景选择&lt;/strong&gt;: 相比于C端追求新奇特，B端应用的核心逻辑是“多快好省”。企业必须聚焦于最耗人、最耗钱、最耗时的具体场景（如催发货、广告投流、高频客服），将其抽象为可度量的指标体系。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;构建企业数据基座&lt;/strong&gt;: 清洗、治理分散的多平台数据，让Agent在安全合规的前提下高效调用（Data for Agent）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;设定岗位标杆预设&lt;/strong&gt;: 提取企业内最顶尖员工的知识和行为轨迹（如90天调整上万次价格的投手），将其固化为Agent的初始技能包（5-10年经验水平）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;灰度压力测试&lt;/strong&gt;: 第一天接入低谷期（如凌晨0点-2点）流量进行安全测试；第二天接入高峰期全量流量，测试极端异常与逻辑边界；随后通过复盘消除毛刺，逐步扩大覆盖时长。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;转型教练型管理&lt;/strong&gt;: 引导原有执行层员工转型为“AI教练”，负责异常干预和Agent技能调教，实现数据到进化的闭环。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;避免陷入“无脑采购最强基座模型”的误区。B端落地拼的是性价比，适中模型结合规范的私有上下文，比盲目烧高昂的顶尖模型更具正向经济效应。&lt;/li&gt;
-&lt;li&gt;拒绝陷入“无限定制化人天开发”的死循环。应采用“标准化Agent（4大预设） + 专属数据资产（X）”的模式解决个性化需求。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 生产关系的重塑：自上而下的思维转型&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;一号位决定的总账逻辑&lt;/strong&gt;: Agent的落地是组织生产关系的重构，必须自上而下推动。只有一号位决策者理顺财务、IT与业务的协同总账，才能打通部门壁垒，实现区域试点到全国的快速复制。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;员工价值的K线分化&lt;/strong&gt;: AI时代，仅做工具集成或“接单干活”的纯IT人员将面临贬值；而往业务多走一步、学会“给AI提问题、定目标、调参数”的技术与业务人员，将站上价值曲线的顶端。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 “在企业侧，用AI是希望找到重复的工作，用最高性价比和最高效率去解决它，划定约束边界；而个人用AI，则是为了找到上限，突破个人边界。”&lt;/li&gt;
-&lt;li&gt;💬 “未来的SOP是：用标准化的方式去解决个性化的问题。数据就是拐手杖，它给出了一个靶子，设定了目标，让AI不断超越它。”&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.sv101.net/261</guid>
-      <enclosure url="https://media24.fireside.fm/file/fireside-images-2024/podcasts/images/f/f0f20376-8faf-4940-b920-84af6c734e2d/cover.jpg?v=6" length="0" type="image/jpeg"/>
-      <pubDate>Tue, 11 Aug 2026 01:45:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
