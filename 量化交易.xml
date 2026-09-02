@@ -7,7 +7,120 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 31 Aug 2026 08:47:22 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 08:49:14 +0000</lastBuildDate>
+    <item>
+      <title>GNN赋能股票关联建模：从线性局限到多维关联的范式跃迁</title>
+      <link>https://www.bilibili.com/video/BV1fWtV63Ees</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1fWtV63Ees"&gt;GNN股票关联建模&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么传统的线性金融模型在面对系统性金融风险传导时往往形同虚设？&lt;/li&gt;
+&lt;li&gt;💡 图神经网络（GNN）如何将抽象的“产业链”与“资金流”转化为机器可计算的拓扑结构？&lt;/li&gt;
+&lt;li&gt;🚀 如何利用注意力机制（GAT）动态捕捉瞬息万变的市场情绪与实变关联强度？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 范式跃迁：从单一线性投影到多维图拓扑的股票关联&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;传统痛点&lt;/strong&gt;: 传统线性模型无法捕捉股票间复杂的非线性关联，更无法显式建模风险在资本市场中的传染路径，导致高维特征丢失。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;图解构逻辑&lt;/strong&gt;: 将每只个股定义为&lt;strong&gt;节点 (Nodes)&lt;/strong&gt;，并注入收益率、波动率及 PE/PB 等估值指标作为节点多维特征；将产业链、同业关系、资金流向定义为&lt;strong&gt;边 (Edges)&lt;/strong&gt;，并显式定义权重与方向，将非结构化的市场信息无损转化为可计算的图结构。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 自适应学习：GAT 机制下的“市场注意力”聚焦&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;动态关联学习&lt;/strong&gt;: 传统静态图模型的连接权重往往是固定的，而&lt;strong&gt;图注意力网络 (GAT)&lt;/strong&gt; 能够动态捕捉股票间关联强度的实变性，根据当前的行情实时调整不同股票之间的影响力权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;费曼转译 (听觉聚焦机制)&lt;/strong&gt;: 就像在嘈杂的宴会房间里，我们能自适应地过滤背景噪音，专门倾听信息量最大的发言者。GAT 通过 Softmax 函数计算注意力系数 $\alpha_{ij}$，直观量化个股间在当前市场语境下的关联紧密程度，赋予模型极佳的可解释性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化风控：基于 GNN 的风险传染与收益传导建模&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;特征与结构封装&lt;/strong&gt;: 收集个股的历史收益率、波动率和基本面指标作为节点特征 $X_i$，以股票相关性矩阵作为图结构基础。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多层迭代消息传递&lt;/strong&gt;: 部署 GNN 消息传递范式，结合自身状态与邻居节点特征进行 Aggregate (聚合) 与 Update (更新)，模拟风险在网络中的渗透与放大。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出与回溯控制&lt;/strong&gt;: 预测个股未来 $T$ 期预期收益率，并输出风险传染强度、具体传导路径及系统重要节点，绘制风险传染热力图进行风控干预。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 避免在市场剧烈波动期使用静态图模型，否则无法敏锐捕捉关联结构的快速退化或转移；须特别引入尾部风险 (Tail Risk) 指标作为核心特征输入，以防极端行情下预测失真。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 &amp;quot;GNN的核心价值在于实现产业链、同业、资金流的三维关联洞察，带来从线性局限到多维关联的范式跃迁。&amp;quot;&lt;/li&gt;
+&lt;li&gt;💬 &amp;quot;我们正处在从静态关联分析迈向动态智能决策的转折期，这将开启量化投资的新范式。&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1fWtV63Ees</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/8771babab3eafc9259378be9959a8cc1128e88f7.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Tue, 01 Sep 2026 22:14:46 +0800</pubDate>
+    </item>
+    <item>
+      <title>告别繁琐改写：ECXT转换器如何实现EasyXT代码一键迁移大QMT</title>
+      <link>https://www.bilibili.com/video/BV1wDta6iEUe</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3546954682337740"&gt;我是王者quant&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1wDta6iEUe"&gt;EasyXT 重磅更新：一条命令，把 miniQMT 研究代码搬进大 QMT&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ ECXT 转换器 - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：基于智能适配器模式，在生成代码中构建中间件兼容层，在保留原API调用结构的同时实现与大QMT底层接口的完美对接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：独立进程中运行的 EasyXT 或 mini QMT 策略源码（&lt;code&gt;.py&lt;/code&gt; 文件）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：包含智能兼容适配层、符合大QMT内置环境规范的 &lt;code&gt;.txt&lt;/code&gt; 格式策略代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;智能兼容适配器&lt;/strong&gt;：插入在生成代码中的中间件，负责接收旧 API 请求（如 &lt;code&gt;get_price&lt;/code&gt;）并将其完美映射至大QMT底层对应接口，保持原数据结构返回。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;骨架自动重构&lt;/strong&gt;：自动识别原代码骨架（事件驱动/函数式/类形态），拆除原 &lt;code&gt;main&lt;/code&gt; 循环，重构成大QMT所需的 &lt;code&gt;init&lt;/code&gt; 和 &lt;code&gt;handlebar&lt;/code&gt; 双标准入口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未来数据防屏蔽网关&lt;/strong&gt;：强制将当前时间和实时价格绑定至当前处理的 K 线上，在回测请求历史行情时自动锁定结束时间，杜绝未来数据引入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：策略代码自动化重构与部署&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：将原本独立运行的 EasyXT/mini QMT 脚本自动转换为大QMT内置Python直接可运行的代码，免除手动改写的繁琐过程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：安装好 Python 的本地系统环境，准备转换的策略源码文件（如 &lt;code&gt;master_trader.py&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[打开终端]&lt;/strong&gt;：在系统命令行中定位到转换器脚本目录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[执行转换指令]&lt;/strong&gt;：在命令行输入 &lt;code&gt;python easyxt_to_daqmt.py master_trader.py&lt;/code&gt; 并回车。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[复制生成文件]&lt;/strong&gt;：等待转换完成后，打开新生成的 &lt;code&gt;master_trader_daqmt.txt&lt;/code&gt;（或相应命名的文本文件），复制其全部内容。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[部署代码]&lt;/strong&gt;：打开大QMT客户端内置的 Python 策略编辑器，将复制的内容直接粘贴进去即可直接运行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：解决旧版大QMT中文乱码适配&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决生成的策略代码导入旧版大QMT编辑器时出现的中文乱码问题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;前置依赖&lt;/strong&gt;：已生成策略文件，但在大QMT编辑器中显示异常。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[追加编码参数]&lt;/strong&gt;：在原有转换指令后，追加 GB18030 编码参数。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[重新执行转换]&lt;/strong&gt;：运行带有编码参数的转换指令重新生成策略文本，重新拷贝至大QMT编辑器中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解 (Global Parameters &amp;amp; Controls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;encoding&lt;/code&gt; 声明机制&lt;/strong&gt;：默认在生成的文件头部带 &lt;code&gt;encoding gbk&lt;/code&gt; 声明以适配大QMT编辑器习惯，实际内容为 UTF-8。通过参数可切换为 &lt;code&gt;GB18030&lt;/code&gt; 解决特定版本乱码。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;subscribe&lt;/code&gt; 订阅分发控制&lt;/strong&gt;：转换器将所有通过旧接口注册的行情订阅回调，统一桥接至大QMT的 &lt;code&gt;handlebar&lt;/code&gt; 事件分发中心，确保在每根 K 线到来时正确触发。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回测时间锁定机制&lt;/strong&gt;：在回测模式下，将系统的真实时间流截断，使 &lt;code&gt;current_time&lt;/code&gt; 与 K 线时间戳强行同步，自动阻断超出当前 K 线时间的数据获取。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;内置环境下载限制&lt;/strong&gt;：大QMT内置策略不支持代码内直接调用历史数据下载接口（该操作会被转为空操作）。在启动回测前，&lt;strong&gt;必须&lt;/strong&gt;手动登录大QMT客户端，通过“数据管理”提前下载好所需行情和财务数据。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并发与外部依赖断层&lt;/strong&gt;：转换器无法自动迁移复杂的“多线程异步任务”和“永久死循环（如自定义主循环并发）”代码；同时，代码若连接了第三方数据源或导入了本地自定义 Python 模块，需要手动确认大QMT环境的可达性。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非标准命名识别失败&lt;/strong&gt;：若写法过于小众导致转换报告提示“未识别到可自动调度的顶层函数”，建议先将原代码初始化或主循环函数重命名为 &lt;code&gt;run_strategy&lt;/code&gt; 等常见命名后，再行转换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;利用三重保险验证代码&lt;/strong&gt;：在部署至大QMT前，转换器会启动三重校验：①语法编译检查；②在虚拟QMT环境（模拟 &lt;code&gt;context_info&lt;/code&gt;、下单、推送接口等）进行端到端跑通测试；③离线静态体检（检查参数对错、是否存在零股委托、&lt;code&gt;handlebar&lt;/code&gt; 重复调用等），可优先通过转换报告排除隐患。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1wDta6iEUe</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/b04a4b705afa9b5b238c21c06cb37d55ef0540c5.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Mon, 31 Aug 2026 22:30:17 +0800</pubDate>
+    </item>
     <item>
       <title>AI量化实盘：从数据流到工作流的自动化工程落地指南</title>
       <link>https://www.bilibili.com/video/BV1xT4D6REYf</link>
@@ -4862,96 +4975,6 @@ elif current_ratio &amp;lt;= 4%:
       <guid isPermaLink="true">https://www.bilibili.com/video/BV1G6Mv6GERx</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/6e6ea876c9f2da9155cb6241db39cbee72ae65ce.jpg" length="0" type="image/jpeg"/>
       <pubDate>Wed, 08 Jul 2026 17:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于自建Elo评分系统与预测市场的正EV套利实战指南</title>
-      <link>https://bbs.quantclass.cn/thread/87503</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87503"&gt;使用Elo评分 在polymarket市场做价值下注&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 市场规律与洞察]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[预测市场套利, Elo评分, 极大似然估计, 正期望值]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：利用自建MLE-Elo评分定位预测市场定价偏差并基于凯利公式套利。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：大众预测市场（如Polymarket）对高关注度、热门事件存在群体性偏见，常高估热门标的（如阿根廷夺冠），低估次热门标的，导致显著的错误定价（Mispricing）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：群众盲目下注与娱乐性倾向推高了热门选项的资金量与价格，使赔率背离理性概率，为量化套利者提供了高EV（期望值）的交易机会。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：纯模型预测准确率高并不等同于盈利。在杯赛等小样本场景中，若不加入期望收益下限（如≥25%）和价格下限（如≥0.25）筛选，单纯押注正EV的低概率选项会因样本不足而承受巨大波动。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：通过对比模型计算的期望胜率 $P_{model}$ 与预测市场隐含的概率 $P_{market}$，寻找差值大于5个百分点的标的进行+EV下注。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;双边期望胜率：$E_A = 1 / (1 + 10^{(R_B - R_A)/400})$&lt;/li&gt;
-&lt;li&gt;差值因子：$\Delta P = P_{model} - P_{market}$&lt;/li&gt;
-&lt;li&gt;策略信号：$\Delta P &amp;gt; 5%$ 买入YES，$\Delta P &amp;lt; -5%$ 买入NO。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;初始值注入：使用球队整体身价及板凳深度身价作为先验初值，预测能力显著优于球星单点身价。&lt;/li&gt;
-&lt;li&gt;小组赛降权：针对提前出线的队伍，其小组赛最后一场比赛的参考权重降至50%，以消除放水换替补的噪声影响。&lt;/li&gt;
-&lt;li&gt;信息增量：在32强阶段信息严重缺失，需依赖身价先验；淘汰赛阶段随着数据增加，模型预测能力显著提升。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;112次历史回测中，78次获利。&lt;/li&gt;
-&lt;li&gt;引入期望收益下限 $\ge 25%$ 与价格下限 $\ge 0.25$ 进行过滤后，回测收益率由 +11% 提升至 +47%。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【特征工程优化】&lt;/strong&gt;：在构建赛事Elo模型时，应采用球队整体身价与板凳深度作为初始权重，并在数据清洗阶段对“已提前晋级的末轮小组赛”战绩进行50%降权处理。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【硬性风控过滤】&lt;/strong&gt;：在下注执行系统内硬编码加入双重阈值过滤（期望收益下限 $\ge 25%$ 且标的价格 $\ge 0.25$），以剔除难以在有限场次中变现的低概率高EV陷阱。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【仓位控制系统】&lt;/strong&gt;：引入半仓凯利公式（1/2 Kelly Criterion）作为下注尺度控制逻辑，坚决规避固定比例下注，在捕获正EV溢价的同时防范极值破产风险。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87503</guid>
-      <pubDate>Wed, 08 Jul 2026 14:41:17 +0800</pubDate>
-    </item>
-    <item>
-      <title>黄果树策略告急？深度剖析2026年CCI因子前所未有的长周期反转</title>
-      <link>https://bbs.quantclass.cn/thread/87499</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87499"&gt;【LeoTsai】黄果树浅度理解（警告: 内含大量拥挤失效过拟合）&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[黄果树策略, CCI因子失效, 因子反转效应, 选币范围拥挤度, 滚动Spearman相关系数]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：剖析2026年黄果树策略中CCI因子发生历史罕见的持续反转与失效现象。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：2026年至今，CCI因子的单调性发生严重反转——选币范围越小，收益反而越低。Spearman \u03c1 滚动时序显示，该反转效应（失效）自1月份开始已持续超过5个月，无论是持续时长还是参数覆盖广度均远超历史任何一次失效。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：1. &lt;strong&gt;参数交互变异&lt;/strong&gt;：QVM（QuoteVolumeMean）在 [481, 610] 档位之间策略集体哑火。2. &lt;strong&gt;市场微观结构变化&lt;/strong&gt;：CCI作为空间因子，旨在通过超跌博取动量延续。但在22年与26年等绝对低位市场中，超跌代币极易触发“超跌反弹”而非阴跌，导致原有空头逻辑失效。3. &lt;strong&gt;拥挤度疑云&lt;/strong&gt;：虽然空头主动卖出成交量占比显示参数500与72存在微弱差异，但尚难判定完全由资金拥挤导致。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：打破了“CCI因子随选币范围缩小收益单调递增”的既有共识，策略的最大失效周期已被历史性突破。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：黄果树策略基于CCI空间因子筛选超跌代币，通过QVM过滤成交量，在24H持仓周期下捕捉空头超额。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;空头目标：&lt;code&gt;S_CCI&lt;/code&gt;，持仓 &lt;code&gt;24H&lt;/code&gt;，选币比例 &lt;code&gt;0.2&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;因子与过滤：&lt;code&gt;Cci&lt;/code&gt; (参数 $p$), 过滤 &lt;code&gt;HoursSinceSpotAndSwap &amp;gt; 0&lt;/code&gt; 且 &lt;code&gt;QuoteVolumeMean&lt;/code&gt; (参数 $p$, &lt;code&gt;pct:&amp;lt;0.2&lt;/code&gt; 取交易量倒数后20%)。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：基于 2022-01-01 至 2026-06-21 历史数据，利用 15\u00d715 共225组 Cci\u00d7QVM 参数进行全量回测。引入方差分解（取过去6个月收益率）测算不同周期下CCI与QVM对策略收益的主效应占比。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：2026年全周期最优参数平原（原300+）消失，CCI与QVM的主效应占比呈现交替轮回特征，当前正处于QVM主导且CCI极度衰减的反转周期。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;引入因子失效熔断机制&lt;/strong&gt;：在实盘或回测系统中部署滚动 Spearman \u03c1 监控。一旦CCI因子在 short_select_coin_num 维度的滚动相关系数持续为正（即发生反转）超过3个月，应立即触发策略降仓或暂停。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;重构空间因子的行情适配器&lt;/strong&gt;：针对CCI易在低位遭遇“超跌反弹”的痛点，应引入市场波动率（VIX）或趋势指标。在市场Beta筑底阶段，自动收紧空头过滤门槛，或转向捕捉VC代币等具有持续阴跌属性的特定资产。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态多参数平原融合&lt;/strong&gt;：摒弃单一固定参数（如双500），根据方差分解（Variance Decomposition）的动态主效应占比，在CCI与QVM影响力交替时，动态调整选币权重，规避共轭失效区间。`&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87499</guid>
-      <pubDate>Wed, 08 Jul 2026 13:10:41 +0800</pubDate>
     </item>
   </channel>
 </rss>
