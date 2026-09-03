@@ -7,7 +7,125 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 02 Sep 2026 22:32:37 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 09:01:48 +0000</lastBuildDate>
+    <item>
+      <title>实盘与回测脱节：量化交易的“偏差诊断”与风险穿透</title>
+      <link>https://www.bilibili.com/video/BV1GAtQ6gE69</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/342287046"&gt;请不要叫我梁同学&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1GAtQ6gE69"&gt;消失的利润，明明有统计优势，为什么交易后还是赚不到钱？&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么回测曲线近乎完美，实盘收益却大幅缩水？&lt;/li&gt;
+&lt;li&gt;💡 你的策略是真的拥有“预测能力”，还是仅仅在利用一个不存在的“虚假边缘（Fake Edge）”？&lt;/li&gt;
+&lt;li&gt;🚀 如何像经营一家餐厅一样，通过财务层级的拆解定位交易亏损的根源？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知解构：实盘偏差的本质&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;交易即经营&lt;/strong&gt;: 交易不应被视为简单的买卖，而应视作经营一家餐厅。当业绩下滑时，不能盲目追求收入提高，而必须像进行商业分析一样，固定变量，锁定导致亏损的具体环节。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;策略的“脆性” (Fragility)&lt;/strong&gt;: 并非所有盈利策略都同样稳健。一个“脆”的策略意味着其收益高度依赖于极少数的交易（高集中度）或特定个股（如仅靠AAPL获利），这类策略在环境波动时极易崩溃。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 诊断路径：从回测到实盘的三层递进分析&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;第一步：核实执行一致性&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;检查是否在实盘中产生了“主观偏移”：如提前入场、根据情绪放大/缩小头寸、或因外部消息忽略信号。&lt;/li&gt;
+&lt;li&gt;判定：若执行动作与回测逻辑不符，则偏差源于“人”而非“策略”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第二步：评估策略鲁棒性&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;分析收益分布：计算总收益中前几笔交易的贡献占比。&lt;/li&gt;
+&lt;li&gt;检查标的集中度：确认收益是否由单一标的支撑。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;第三步：穿透收益链条 (Paper $\rightarrow$ Real $\rightarrow$ Net)&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;纸面毛利 $\rightarrow$ 真实毛利&lt;/strong&gt;: 检查成交环节。重点分析流动性、资金容量及成交假设是否合理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;真实毛利 $\rightarrow$ 净利润&lt;/strong&gt;: 检查费用环节。计算手续费（Commission）对高频交易的放大效应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;严禁使用最低价入场 (Low Price Entry)&lt;/strong&gt;: 这在回测中会制造极美的曲线，但在实盘中由于时间逻辑错误（无法在收线前预知最低点）而完全无法实现，是典型的“虚假 Edge”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;警惕中间价 (Mid Price) 陷阱&lt;/strong&gt;: 在低流动性市场（如期权）中使用中间价回测，会严重低估实盘中的点差成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时间戳 (Time Stamp) 错位&lt;/strong&gt;: 确保信号触发的时间戳绝对早于执行时间戳，避免出现“预知未来”的逻辑错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “只要你用 low price 入场，这就是一个极大的虚假 edge，你的曲线会非常好看，但你活在梦里。”&lt;/li&gt;
+&lt;li&gt;💬 “交易研究在很大程度上，跟你去经营一个餐馆、经营一个小买卖是完全一回事。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1GAtQ6gE69</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/c03cd21ce5edecdba407ab602c88f7d0058d4206.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Thu, 03 Sep 2026 07:55:35 +0800</pubDate>
+    </item>
+    <item>
+      <title>突破K支股票持仓限制：带约束大规模组合优化的算法进化与实操指南</title>
+      <link>https://www.bilibili.com/video/BV18gtM61E9N</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18gtM61E9N"&gt;大规模组合优化：少选股票反而更难&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h1&gt;🛠️ Cardinality-Constrained Portfolio Optimization (CCPO) - 标准实操手册 (SOP)&lt;/h1&gt;
+&lt;h2&gt;1. 🎯 系统底层运行逻辑 (System Core Logic)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;架构原理&lt;/strong&gt;：将带持仓数量约束的组合优化拆解为“资产选择”与“权重配比”双层架构，利用改进型 NSGA-II 算法搜索非连续、碎片化的有效前沿。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据流转 (I/O Model)&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;输入源 (Input)&lt;/strong&gt;：资产池收益率与协方差矩阵、持仓数量约束 $K_{min}/K_{max}$、权重边界边界 $\delta$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交付物 (Output)&lt;/strong&gt;：满足 $K$ 约束的 Pareto 最优组合（最小化方差与最大化期望收益）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;核心术语词典&lt;/strong&gt;：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cardinality Constraint&lt;/strong&gt;：持仓数量约束，旨在降低交易与监控成本，但会让有效前沿断裂。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Dual-line Encoding&lt;/strong&gt;：双行编码，将染色体长度锁死为 $K_{max}$，大幅提升大规模市场的收敛速度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 🗺️ 场景化标准工作流 (Scenario-based SOPs)&lt;/h2&gt;
+&lt;h3&gt;场景 1：高效解空间构建与双行编码&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：解决传统实数编码在稀疏持仓下处理 $N$ 维数据（资产总数）的计算冗余。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[长度锁定]&lt;/strong&gt;：将编码长度设为 $K_{max}$ 而非 $N$。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[结构化定义]&lt;/strong&gt;：第一行定义资产编号（Index），第二行定义实数权重（Weight）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 2：分阶段进化与交叉变异 (Phase 1 &amp;amp; 2)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：前期找高质量资产组合，后期微调资本分配权重。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[配对策略]&lt;/strong&gt;：早期使用 NI-base Tournament 偏向乌托邦点；后期匹配相似组合以细化搜索。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[三尺度变异]&lt;/strong&gt;：执行全局跳跃搜索、基于收益风险比的定向替换、以及局部权重的微调扰动。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[探索操作]&lt;/strong&gt;：应用 Explorer 操作符，在修复新资产后重新进行等权或随机低波动偏好分配。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;场景 3：约束修复与边界对齐&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;执行意图&lt;/strong&gt;：修正变异后的数量缺口及重复资产导致的权重越界。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;操作链路 (Step-by-Step)&lt;/strong&gt;：&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;[数量修复]&lt;/strong&gt;：当资产数低于 $K_{min}$ 时，通过 Score-based 等 13 种方法补位资产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;[权重合并]&lt;/strong&gt;：识别双行编码中的重复资产，强制合并权重以满足边界约束 $\delta$。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. ⚙️ 全局参数与功能控制台详解&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Phase One/Two 切换&lt;/strong&gt;：控制算法从“全局探索”向“局部利用”的重心偏移。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cardinality Repair&lt;/strong&gt;：决定了补足资产时是基于优秀组合经验还是资产池统计特征。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. 💡 专家级最佳实践 (Best Practices &amp;amp; Pitfalls)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🚨 致命避坑指南 (Warnings)&lt;/strong&gt;：警惕“隐性超配”——同一资产在双行编码中重复出现会导致实际持仓权重突破限制，必须执行合并修复。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔥 极客效率技巧 (Pro Tips)&lt;/strong&gt;：实证显示持仓超过 10 只后分散化收益边际递减，建议将 $K$ 设为 3-5 只以在降低成本的同时保留核心收益。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV18gtM61E9N</guid>
+      <enclosure url="http://i0.hdslb.com/bfs/archive/9266bea77fc9949b49d1bd18b285943805d99a3f.png" length="0" type="image/png"/>
+      <pubDate>Wed, 02 Sep 2026 19:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>GNN赋能股票关联建模：从线性局限到多维关联的范式跃迁</title>
       <link>https://www.bilibili.com/video/BV1fWtV63Ees</link>
@@ -4883,98 +5001,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87556</guid>
       <pubDate>Thu, 09 Jul 2026 21:25:35 +0800</pubDate>
-    </item>
-    <item>
-      <title>Polymarket多策略量化交易机器人：融合K线指标过滤与机器学习预测的架构实战</title>
-      <link>https://bbs.quantclass.cn/thread/87553</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87553"&gt;告别真金白银的焦虑！Polymarket BTC5m 可视化策略工坊——既是你的交易模拟器，也是你的操盘解压游乐场&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子 / 技术与工程]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[预测市场套利, 随机森林分类器, 双通道行情获取, 盘口吃单模拟, 自动重训练]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：基于Polymarket二元期权的微观结构进行多策略模拟与AI预测的闭合系统。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：针对Polymarket每5分钟结算的二元期权市场，通过差价与时间窗口条件追买YES/NO代币。引入RSI与EMA作为方向确认因子，并结合随机森林分类器预测涨跌。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建与过滤】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;RSI 过滤：买入YES须RSI &amp;lt; 30或50；买入NO须RSI &amp;gt; 70或50，防止高位接盘或低位逆势。&lt;/li&gt;
-&lt;li&gt;EMA 过滤：快线(9) &amp;gt;= 慢线(21)确认YES，快线 &amp;lt;= 慢线确认NO。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【机器学习特征工程】&lt;/strong&gt;：使用RandomForestClassifier，包含13个高维特征（RSI双周期、EMA差值、布林带位置、多期K线动量、量比、波动率、实体/影线占比、中阳线占比），预测下一周期涨跌。模型采用时序分割（80/20）进行训练与验证。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：ML预测验证胜率在45%-60%间波动，需配合严格的止盈止损及预测胜率阈值限制（如低于55%熔断策略）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决Polymarket盘口数据延迟和BTC价格不一致。当盘口数据超5秒未更新时暂停交易，并利用Binance WebSocket + REST 200ms双路保障价格源。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：后端Python 0.2秒循环调度，各机器人采用独立账户与参数隔离，利用SSE协议将低延迟数据推送至前端（单页Canvas 60fps）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;吃单深度逐档撮合：精确模拟真实盘口的滑点。&lt;/li&gt;
-&lt;li&gt;自动增量式重训练：每累积50个新K线样本，后台自动触发重训练，实现策略在线更新。&lt;/li&gt;
-&lt;li&gt;真实延迟模拟：手动交易、追买及止损分别配置1秒到1.5秒延迟，真实复现链上滑点风险。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【容灾与心跳设计】&lt;/strong&gt;：高频量化架构中必须实现多路行情源（WS主路 + REST备路），并引入数据心跳检测，超时即熔断，避免过期脏数据误触发交易。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测滑点精准建模】&lt;/strong&gt;：模拟交易不能仅以最新价格成交，应建立深度盘口逐档吃单逻辑（Liquidity-taking matching）并加入特定延时（1-1.5s），才能使策略回测结果具备实盘指导意义。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【在线学习与胜率熔断】&lt;/strong&gt;：设计动态滑动窗口以更新模型，同时实现&amp;quot;近期胜率（Recent Accuracy）&amp;quot;自适应过滤器，对高噪声时段的模型决策进行硬性拦截。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87553</guid>
-      <pubDate>Thu, 09 Jul 2026 19:56:29 +0800</pubDate>
-    </item>
-    <item>
-      <title>量比指标神话破灭：量化回测揭秘股市“财富密码”的真相</title>
-      <link>https://www.bilibili.com/video/BV1G6Mv6GERx</link>
-      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1G6Mv6GERx"&gt;A股唯一不骗人的技术指标?收割量化资金的终极战法?量比指标真有这么神奇吗?Python量化热门大师指标,1000万条数据揭秘网红战法真相 | 量化投资邢不行啊&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;🤔 所谓的“庄家最怕散户学会”的指标，在海量历史数据面前是否真的具有预测能力？&lt;/li&gt;
-&lt;li&gt;💡 为什么统计学上的“正收益”在实际构建交易策略后会演变成巨大的亏损？&lt;/li&gt;
-&lt;li&gt;🚀 面对网络上层出不穷的“大师战法”，投资者应如何建立科学的验证体系以避免被收割？&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 量比指标的本质与伪装&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;指标定义&lt;/strong&gt;: 量比是衡量即时成交量活跃度的指标，计算方式为：&lt;code&gt;当前每分钟平均成交量 / 过去5个交易日每分钟平均成交量&lt;/code&gt;。其本质仅是对成交量变化的量化描述，而非方向性预测工具。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;神话包装&lt;/strong&gt;: 大师们通过将简单的量价指标赋予“主力动向”、“割量化韭菜”等玄学色彩，将其包装成能够预判涨跌的“交易圣杯”，利用散户对快速获利的渴望进行心理操纵。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🛠️ “大师战法”的量化拷打&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;👉 验证逻辑 (SOP)&lt;/strong&gt;:&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;定义买入/卖出阈值&lt;/strong&gt;: 提取大师定义的量比区间（如 2.5-5 为买入，&amp;gt;5 为卖出）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;全量数据回测&lt;/strong&gt;: 调用 A 股历史交易数据，统计信号出现后的上涨概率及平均收益率。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;策略实盘模拟&lt;/strong&gt;: 将统计结果转化为具体的交易策略（如：买入后持有一天），计算年化收益率与最大回撤。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;幸存者偏差&lt;/strong&gt;: 单看个别成功案例或短期统计的正收益，不代表策略在时间维度上具有稳健性。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;统计陷阱&lt;/strong&gt;: 即使平均收益率为正，但如果胜率不足 50% 且回撤巨大，该策略在实际操作中仍会导致本金快速归零。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🧩 复合指标的失效验证&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;多维度陷阱&lt;/strong&gt;: 即使引入“换手率”等辅助指标（如：换手率 &amp;gt; 5% 且量比在 2-3 之间），在经过 2007 年至今的 A 股历史数据回测后，年化收益率依然为负（约 -26%），最大回撤接近 100%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;结论&lt;/strong&gt;: 指标的叠加并不等同于逻辑的增强。缺乏底层逻辑支撑的参数组合，只是在对历史数据进行过度拟合，而非捕捉到了市场的本质规律。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;💬 ‘网上大佬千千万，大数据一拷打，底裤都快扒没了。’&lt;/li&gt;
-&lt;li&gt;💬 ‘很多东西说的人多了，就好像直接成了金龟玉叶，但真正用历史数据验证过的人少之又少。’&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://www.bilibili.com/video/BV1G6Mv6GERx</guid>
-      <enclosure url="http://i0.hdslb.com/bfs/archive/6e6ea876c9f2da9155cb6241db39cbee72ae65ce.jpg" length="0" type="image/jpeg"/>
-      <pubDate>Wed, 08 Jul 2026 17:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
