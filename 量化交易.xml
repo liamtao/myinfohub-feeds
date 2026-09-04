@@ -7,7 +7,7 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 03 Sep 2026 09:01:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 08:43:24 +0000</lastBuildDate>
     <item>
       <title>实盘与回测脱节：量化交易的“偏差诊断”与风险穿透</title>
       <link>https://www.bilibili.com/video/BV1GAtQ6gE69</link>
@@ -125,6 +125,49 @@
       <guid isPermaLink="true">https://www.bilibili.com/video/BV18gtM61E9N</guid>
       <enclosure url="http://i0.hdslb.com/bfs/archive/9266bea77fc9949b49d1bd18b285943805d99a3f.png" length="0" type="image/png"/>
       <pubDate>Wed, 02 Sep 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>巴菲特“好公司+好价格”的量化映射：市赚率指标深度评测与实战逻辑</title>
+      <link>https://www.bilibili.com/video/BV1Twtn66EbX</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/133578883"&gt;量化投资邢不行啊&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1Twtn66EbX"&gt;大A专治股神,巴菲特来了也亏钱?挑战用一个指标,模仿巴菲特炒A股,能赚钱吗?Python量化财务指标,用市赚率买低估值高盈利公司,可行吗? | 量化投资邢不行啊&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 如何用核心指标量化巴菲特“好价格买好公司”的投资直觉？&lt;/li&gt;
+&lt;li&gt;💡 为什么追求市赚率极低值的策略在量化回测中反而表现平庸？&lt;/li&gt;
+&lt;li&gt;🚀 如何通过引入分红修正与ROE稳定性，将估值工具升级为风险控制利器？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 认知脱水：市赚率（PE/ROE）的底层逻辑&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定价本质&lt;/strong&gt;: 市赚率 = PE / ROE / 100。它衡量了投资者为获取1%的净资产收益率所支付的溢价。数值等于1为合理，小于1则具备低估吸引力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数学穿透&lt;/strong&gt;: 在数学推导上，市赚率等同于 PB / (ROE^2)。这意味着该指标对盈利能力（ROE）极其敏感，ROE的任何虚高或波动都会由于平方效应被显著放大，导致估值失真。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 量化实战与风险控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;数据清洗&lt;/strong&gt;: 强制剔除所有亏损公司（PE或ROE为负）及次新股，确保估值逻辑在正向盈利框架内运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分红修正&lt;/strong&gt;: 引入“股利支付率”调整系数。对长期不分红的公司进行估值惩罚（提高其市赚率数值），以此筛选出具备真实现金流能力的优质资产。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全边际强化&lt;/strong&gt;: 采用“过去5年最低ROE”替代当前值进行计算。这一举措旨在通过极端压力测试，识别出在经济低迷期仍具抗风险能力的防御性标的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多因子组合&lt;/strong&gt;: 建议将市赚率 &amp;lt; 1 与 PB &amp;lt; 1、ROE &amp;gt; 10% 结合使用，构建兼顾低估值与强盈利的稳健投资组合。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;极值反噬&lt;/strong&gt;: 统计发现，指标数值最小的10%组合往往包含基本面恶化的“价值陷阱”，风险控制需警惕盲目追求账面最低估值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “市赚率用来获取更多利润或许不太行，但用来降低风险是一个不错的选择。”&lt;/li&gt;
+&lt;li&gt;💬 “一个好的投资思路要经过不断修正、验证和组合，才能真正变成长期稳定赚钱的策略。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1Twtn66EbX</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/caecbac8106786bf93d146c548af79e8f5ab3edb.jpg" length="0" type="image/jpeg"/>
+      <pubDate>Wed, 02 Sep 2026 17:00:00 +0800</pubDate>
     </item>
     <item>
       <title>GNN赋能股票关联建模：从线性局限到多维关联的范式跃迁</title>
@@ -4961,46 +5004,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87561</guid>
       <pubDate>Fri, 10 Jul 2026 09:19:12 +0800</pubDate>
-    </item>
-    <item>
-      <title>开源二元期权多因子回测框架：适配LLM的高效加密事件合约引擎</title>
-      <link>https://bbs.quantclass.cn/thread/87556</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87556"&gt;【二元期权（事件合约）框架】框架开源正式版&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[技术与工程 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[二元期权回测, 因子缓存机制, LLM因子适配, 事件合约, 多周期并行]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：开源针对加密二元期权/事件合约的多因子、多周期并行回测框架。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：针对二元期权（事件合约）的固定赔率交易规则。信号由 $K_i$ 收盘后生成，在 $K_{i+1}$ 开盘价入场，并在 $K_{i+hold_period+1}$ 开盘价强制结算。每笔交易固定投入本金，方向正确按固定赔率（payout_rate）获利，错误或平价则亏损全部本金。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：采用“因子对 (pair)”设计，包含过滤因子（A_前缀，输出 0/1 决策是否开仓）与择时因子（B_前缀，输出 -1/0/1 决策方向）。所有 pair 的信号在同一 K 线处求和，信号绝对值大小直接映射为仓位资金倍数。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【数据与处理】&lt;/strong&gt;：内置币安 BTC、ETH 的 5 分钟 OHLC K线及成交量、成交额数据，支持用户在 &lt;code&gt;PData/&lt;/code&gt; 目录上传自定义 5min 周期的 CSV 数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【工程痛点】&lt;/strong&gt;：解决高频多因子回测中重复计算因子耗时过长、多周期/多品种回测难以并行管理，以及大语言模型（LLM）难以标准化生成因子的痛点。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【技术栈与架构】&lt;/strong&gt;：解耦的模块化设计。包含 &lt;code&gt;backtest_engine&lt;/code&gt;（主流程）、&lt;code&gt;factor_cache&lt;/code&gt;（缓存管理）、&lt;code&gt;param_traverse&lt;/code&gt;（网格搜索）。特别适配了 LLM Agent 规范，通过统一的前缀命名规则（A_ 过滤，B_ 择时）和标准接口，允许 AI 自动编写和审查因子。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【代码与算法优化】&lt;/strong&gt;：&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;智能因子缓存&lt;/strong&gt;：因子结果以 Parquet 格式存盘，由注册表管理。自动比对“因子参数 + 数据源文件指纹 + 数据增量”状态。未变动则直接载入，有新数据则增量计算，大幅缩减重复回测耗时。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;多进程并行化&lt;/strong&gt;：因子计算与多品种/多周期回测支持多进程调度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动化网格搜索&lt;/strong&gt;：通过 &lt;code&gt;param_search.py&lt;/code&gt; 遍历参数空间，自动寻找稳定参数平原。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;解耦设计落地&lt;/strong&gt;：借鉴“过滤因子 (0/1) + 择时因子 (-1/0/1)”的解耦框架设计，可直接应用于现有的中高频多因子策略研发，简化复杂逻辑复合信号的编写难度。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;增量缓存机制&lt;/strong&gt;：引入基于 Parquet 存储与文件指纹比对的因子“增量/缓存”技术，优化团队内部回测系统，减少不必要的重复计算摩擦。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI 辅助因子生成&lt;/strong&gt;：利用框架提供的规范，在 Prompt 中加入约束：“根据 A_（过滤）、B_（择时）规范编写因子，严格审查未来函数”，以实现使用 LLM Agent 批量产生因子候选代码。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87556</guid>
-      <pubDate>Thu, 09 Jul 2026 21:25:35 +0800</pubDate>
     </item>
   </channel>
 </rss>
