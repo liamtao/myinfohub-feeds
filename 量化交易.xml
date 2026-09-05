@@ -7,7 +7,101 @@
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 04 Sep 2026 22:49:17 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 08:40:48 +0000</lastBuildDate>
+    <item>
+      <title>订单流并非万能：基于L2流动性状态的宏观事件预测新范式</title>
+      <link>https://www.bilibili.com/video/BV1hgtM61E7o</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV1hgtM61E7o"&gt;预测只看事件前五分钟，答案来自事件后一到五分钟&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么在宏观事件窗口，预测“流动性制度转换”比直接预测“价格涨跌”更具交易价值？&lt;/li&gt;
+&lt;li&gt;💡 为什么简单的L2“粗状态”标签，在预测稳定性上反而优于复杂的连续量化指标？&lt;/li&gt;
+&lt;li&gt;🚀 订单流（Order Flow）究竟是在什么特定的市场条件下，才能产生超越账本数据的增量贡献？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 目标置换：从价格博弈转向流动性制度预测&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;预测目标的降维打击&lt;/strong&gt;: 放弃预测 Mid-price 或 Return 的传统范式，转向预测 Post-event Liquidity Regime（Balanced, Common, Stressed）。这种分类更直接地反映了极端事件后的市场承载力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;宏观事件的定位器功能&lt;/strong&gt;: 宏观事件（Scheduled Micro Announcements）不直接参与解释，而是作为结构化采样窗口。它负责定位高波动区间，让研究聚焦于微观结构的剧变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🏗️ 信息层级：五层递进式的“信用审计”模型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“State First”建模原则&lt;/strong&gt;: 仅靠事件前的离散状态（Pre-event State）就能提升0.034的预测力。在量化建模中，必须先跑赢这个“粗状态”基准，后续的复杂指标才有意义。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非线性信号的边际价值&lt;/strong&gt;: 连续L2指标在逻辑回归下往往表现平平，只有通过浅层非线性模型（如GBC）处理 Top 20 深度形状时，才能提取出有效的剩余信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 交易实操与风险控制&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;状态构造&lt;/strong&gt;: 利用 Relative Spread 与 Top 20 Imbalance，将每分钟市场划分为三类流动性风险状态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时序隔离&lt;/strong&gt;: 严格锚定事件前 5 分钟为特征输入，事件后 1-5 分钟为预测目标，设计严密的防泄漏测试窗口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;条件触发&lt;/strong&gt;: 仅在市场进入 Stressed 状态时（尤其是 ETH），才将订单流信号叠加至执行策略中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;: 必须通过 Flow Shuffle 置换检验。若订单流无法在统计上打赢随机化处理后的序列，则该增益属于过拟合噪音而非真实信号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “State First 是设计原则而非交易收益：在离散的流动性状态面前，盲目追求高精度的连续指标往往是负优化。”&lt;/li&gt;
+&lt;li&gt;💬 “订单流的增益并非普适的，它呈现单调的‘状态相关性’——市场越是压力大（Stressed），订单流的预测价值才越显著。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV1hgtM61E7o</guid>
+      <enclosure url="http://i1.hdslb.com/bfs/archive/3c47329ad77ceaca63d3fafc151d44402638e1bc.png" length="0" type="image/png"/>
+      <pubDate>Fri, 04 Sep 2026 19:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>15分钟魔咒：加密期货市场中可预测的算法交易痕迹与套利逻辑</title>
+      <link>https://www.bilibili.com/video/BV18gtM61Ekm</link>
+      <description>&lt;p&gt;&lt;a href="https://space.bilibili.com/3494379350133362"&gt;AI量化邹老师&lt;/a&gt; | &lt;a href="https://www.bilibili.com/video/BV18gtM61Ekm"&gt;加密永续合约的十五分钟效应&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;AI摘要&lt;/h2&gt;
+&lt;h3&gt;🎣 核心思考 (Key Questions)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🤔 为什么加密货币市场的交易量和波动率会在每隔15分钟的整点及刻度处出现规律性暴增？&lt;/li&gt;
+&lt;li&gt;💡 如何利用算法交易者对“标准时间刻度”的路径依赖，诊断出市场中隐匿的非人力高频交易信号？&lt;/li&gt;
+&lt;li&gt;🚀 怎样将15分钟边界的订单流失衡转化为具备正期望值的量化交易规则？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 时间边界的“算法共振”：为什么15分钟是市场的隐形节拍器？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;标准时间条的共生陷阱&lt;/strong&gt;: 交易所API、技术指标和学术研究均默认采用5/15/30/45分钟等标准时间窗口。当海量量化策略在完全相同的时钟边界触发执行时，就会在特定时间点形成极其显著的交易量与波动率尖峰，且这种爆发几乎完全集中在边界后的前10秒。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人类偏好与算法痕迹的剪刀差&lt;/strong&gt;: 人类交易员天然具有“整数组偏好”（Round Number Bias），倾向于提交整数级订单；而算法则不受此限。研究表明，在15分钟时间边界，整数交易尺寸的占比呈阶梯式骤降，这直接确证了该时段的暴增量能主要是由非人力的算法交易所驱动。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🧩 传统统计的“平均化抹平”与自相关图（ACM）的破局&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;相位依赖的隐蔽性&lt;/strong&gt;: 传统的自相关函数（ACF）在计算时会平均掉所有分钟，导致15分钟的微观结构被完全抹平，呈现出近乎平缓无关联的假象。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;时钟相位地图的精确解构&lt;/strong&gt;: 通过引入自相关关系图（ACM/AACM），将相关性从单一时间线展开为“滞后-时钟相位”的双维矩阵。结果显示，在特定分钟的秒级刻度上，订单流呈现出高度规律的格子状相关结构，这为预测提供了强有力的微观证据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🛠️ 15分钟边界可预测性变现指南&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;👉 行动指南 (SOP)&lt;/strong&gt;:&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;锁定核心预测窗口&lt;/strong&gt;：聚焦于每小时15分钟边界（00/15/30/45分）到来后的前10秒，将其作为核心交易信号捕获和策略执行区间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;构建复合预测因子&lt;/strong&gt;：整合滞后收益率（Lag）与技术指标（TI28），通过统计模型计算下一阶段10秒的成交量加权平均价（VWAP）远期收益。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;捕捉中期订单失衡&lt;/strong&gt;：跟踪15分钟边界的订单流失衡（Order Imbalance），利用其在中期（4小时内同相位订单流驱动，12小时内向公共市场信号转向）的信息含量指导头寸构建。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;⚠️ 避坑指南&lt;/strong&gt;:&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;避免使用传统全样本ACF进行策略检验&lt;/strong&gt;：全样本平均会完全稀释掉微观的边界相位特征，必须采用基于时钟相位的条件自相关分析。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;警惕非边界时段的虚假信号&lt;/strong&gt;：该算法交易痕迹极度依赖15分钟及整点时间窗口，其余普通分钟开头的溢出效应极弱，强行套用会导致高昂的摩擦成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h3&gt;🌟 金句萃取&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;💬 “人类喜欢整齐的时间，却给出散乱的单子；算法不在乎整齐的单子，却必须卡死在整齐的时间。”&lt;/li&gt;
+&lt;li&gt;💬 “平均掉所有分钟后，真正的相位依赖就会被抹平。在量化市场中，盲目的‘均值’往往是寻找超额收益的最大敌人。”&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <guid isPermaLink="true">https://www.bilibili.com/video/BV18gtM61Ekm</guid>
+      <enclosure url="http://i2.hdslb.com/bfs/archive/d1f6fc2f98bdf3ea573c331d7181e42159693d89.png" length="0" type="image/png"/>
+      <pubDate>Thu, 03 Sep 2026 19:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>实盘与回测脱节：量化交易的“偏差诊断”与风险穿透</title>
       <link>https://www.bilibili.com/video/BV1GAtQ6gE69</link>
@@ -4895,115 +4989,6 @@ elif current_ratio &amp;lt;= 4%:
 </description>
       <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87578</guid>
       <pubDate>Fri, 10 Jul 2026 18:13:05 +0800</pubDate>
-    </item>
-    <item>
-      <title>为什么量化策略搬到OKX就失效？剖析三大底层市场差异与换手毒点</title>
-      <link>https://bbs.quantclass.cn/thread/87574</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87574"&gt;为啥策略去OKX就凉了？OKX市场土壤分析&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[市场规律与洞察 / 策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[交易所流动性差异, 选币池微观结构, 成交量因子失效, 换手摩擦成本]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：OKX因流动性薄弱、可空币种窄及成交量信号不稳定，导致策略换手激增、摩擦吞噬收益。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🔭 模块 A：市场规律与深度思考 (Market Insights)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【现象与统计发现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;多/空策略同参数迁移至OKX全面失效，并非单向做空能解决。&lt;/li&gt;
-&lt;li&gt;两所共同币（343个）中，OKX成交额中位数仅为Binance的约30%。&lt;/li&gt;
-&lt;li&gt;跌幅前30%的弱势币中，Binance有72%可开空，而OKX仅56%可开空，导致&amp;quot;做多差&amp;quot;无法等量转化为&amp;quot;做空强&amp;quot;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【归因分析】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;上币生态差异&lt;/strong&gt;：Binance独有币多为现货+合约并存，而OKX独有币超一半仅有现货且流动性极差（中位数成交额不到Binance独有币的1/20）。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;量价信息失真&lt;/strong&gt;：由于成交量基数低，OKX的成交额与量比因子极易受造市、大单及交易断续干扰。价格因子的横截面排序相关性高达0.988，但成交额和量比排序相关性降至0.81-0.83。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【对现有体系的冲击】&lt;/strong&gt;：证伪了“同一量化策略可在全网交易所直接通用”的假设。成交量因子在低流动性交易所会发生严重的信号退化。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;以「大学生」策略为例，其超额收益高度依赖Binance的上币质量与独特的币种选择（Alpha来源）。一旦受限于两所共同可交易币种，其Binance与OKX的收益差直接反转（从+1.07降至-0.29）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;回测周期：2022年至2026年5月。&lt;/li&gt;
-&lt;li&gt;对照组：全市场等权做多/有合约币等权做空。两所粗做空基数复利后均亏损（Binance月复利-2.51%，OKX -3.03%），表明空头常受异常反弹拉爆，不具备稳定复利性。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;信号变短导致高换手&lt;/strong&gt;：以「都江堰」状态策略为例，由于OKX成交量信号不稳定，持仓时长中位数从Binance的78小时骤降至6小时，换手率飙升4.93倍，手续费拖累暴增5.44倍。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【因子的交易所隔离测试】&lt;/strong&gt;：在OKX上部署策略时，必须剔除对成交额、量比等绝对成交量指标的依赖，或者引入极高阈值的流动性过滤器。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【换手惩罚项机制】&lt;/strong&gt;：对OKX的策略执行逻辑引入“最小持仓时间”限制或惩罚项，对抗由于信号微幅波动导致的频繁换手。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【共同币种池套利/回测过滤】&lt;/strong&gt;：在开发跨平台策略时，应动态过滤出各小时“双边共同可交易”的资产子集进行对齐回测，排除交易所上币红利带来的Alpha幻觉。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87574</guid>
-      <pubDate>Fri, 10 Jul 2026 13:52:50 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于市场平均回撤历史分位过滤的空头策略魔改：规避普跌风险与降低尾部杠杆</title>
-      <link>https://bbs.quantclass.cn/thread/87561</link>
-      <description>&lt;p&gt;&lt;a href="https://bbs.quantclass.cn/"&gt;QuantClass论坛&lt;/a&gt; | &lt;a href="https://bbs.quantclass.cn/thread/87561"&gt;浅度魔改新空头，加一个参数收益翻3倍！&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;AI摘要&lt;/h2&gt;
-&lt;h2&gt;📝 元信息 (Meta Info)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;文章定性&lt;/strong&gt;：[策略与因子]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;核心标签&lt;/strong&gt;：[空头策略优化, 历史分位数过滤, 普跌风险规避, 尾部杠杆控制]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：[引入全市场平均回撤历史分位数过滤，动态规避普跌并显著降低尾部风险。]&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;🧠 模块 B：策略与因子逻辑 (Strategy &amp;amp; Alpha)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【核心逻辑】&lt;/strong&gt;：针对传统空头策略在市场普跌环境下表现极差的痛点，引入动态阈值思想。通过监控全市场平均回撤所处的历史分位数，当全市场处于极端大回撤环境（即当前平均回撤超过历史90%分位）时，主动放弃做空，从而有效规避普跌及极端插针行情的尾部风险。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【因子构建】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;因子名称&lt;/strong&gt;：&lt;code&gt;市场平均回撤历史分位过滤&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数配置&lt;/strong&gt;：&lt;code&gt;(Window, Percentile)&lt;/code&gt;，例如 &lt;code&gt;(60, 0.9)&lt;/code&gt;，代表回撤窗口60周期，历史分位数90%。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;判定逻辑&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;若 &lt;code&gt;当前全市场平均回撤_60 &amp;lt; 历史90%分位数&lt;/code&gt;，则因子值 = 1（允许选币做空）。&lt;/li&gt;
-&lt;li&gt;若 &lt;code&gt;当前全市场平均回撤_60 &amp;gt;= 历史90%分位数&lt;/code&gt;，则因子值 = 0（过滤不选币）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;后置过滤配置&lt;/strong&gt;：&lt;code&gt;'filter_list_post': [('市场平均回撤历史分位过滤', (60, 0.9), 'val:==1')]&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【回测参数与表现】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;参数组A (60, -4.5, 0.90)&lt;/strong&gt;：回撤不增加的情况下，收益相比原版提升近三倍，成功躲过2022年极端插针行情。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;参数组B (80, -3.5, 0.90)&lt;/strong&gt;：收益相比原版提升近20倍。持仓小时占比从91.53%微降至89.23%；单币最大持仓占比均值从44.29%降至41.33%（降低集中度）；&lt;strong&gt;实际最大杠杆从7.793x骤降至1.707x&lt;/strong&gt;，彻底解决了原版在极端行情下异常高杠杆和单币满仓的问题。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;【风险与衰减】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;超额稳定性问题&lt;/strong&gt;：长期来看有稳定超额，但在特定年份（如2024年）会出现负超额（-4.24%），并非在所有市场阶段都绝对优于原版。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;组合失效风险&lt;/strong&gt;：评论区反馈，该单空头策略加入过滤后单体表现变好，但与“都江堰”多空策略进行组合时，整体效果反而不如原版，可能存在投资组合层面的对冲匹配度漂移。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;🛠️ 模块 C：技术与工程实现 (Tech &amp;amp; Engineering)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;【踩坑与边界条件】&lt;/strong&gt;：&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实盘局限性&lt;/strong&gt;：该因子在回测时依赖全历史的K线数据以计算精确的90%分位数。在实盘环境中，由于API获取历史长周期K线的限制，可能无法直接套用回测的全局历史分位数计算逻辑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;极端事件污染&lt;/strong&gt;：原版策略的极值最大杠杆（7.79x）可能由特定极端事件（如LUNA归零事件）引起，魔改版的优化幅度和表现需注意剔除单一极端事件的影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2&gt;💡 落地与行动指南 (Actionable Takeaways)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;实盘分位数近似方案&lt;/strong&gt;：在实盘部署时，将全局历史分位数计算修改为“滚动滑动窗口历史分位数”（例如：利用过去365天或固定的10000个周期的滚动历史数据计算90%分位），以解决实盘无法加载全历史数据的工程瓶颈。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;组合暴露对齐测试&lt;/strong&gt;：在将该魔改空头策略接入多空组合（如都江堰）时，必须重新测试组合多头与空头在时间维度上的资金占用和头寸对冲是否匹配，避免因空头策略频繁“空仓/过滤”导致整体暴露转为净多头，从而产生计划外的Beta风险。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <guid isPermaLink="true">https://bbs.quantclass.cn/thread/87561</guid>
-      <pubDate>Fri, 10 Jul 2026 09:19:12 +0800</pubDate>
     </item>
   </channel>
 </rss>
